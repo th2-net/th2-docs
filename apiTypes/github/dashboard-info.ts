@@ -1,4 +1,21 @@
 import {Repositories, Owner, Repository} from "@saber2pr/types-github-api";
+export type ContentRepo = {
+  Name: string,
+  Type: string,
+  Family: string,
+  Language: string
+}
+export type CustomRepoInfo = {
+  info_topics: string[]
+}
+export type DashboardResponse = {
+  families: RepoGroupByFamily[],
+  releasesFeed: RepoResponse[]
+}
+export type RepoGroupByFamily = {
+  family: string,
+  repos: RepoResponse[]
+}
 export type Release = {
   id: number,
   name: string,
@@ -22,6 +39,7 @@ export type UserResponse = {
 
 export type RepoResponse = {
   id: number,
+  custom_info?: CustomRepoInfo,
   name: string,
   full_name: string,
   owner: UserResponse,
@@ -63,15 +81,18 @@ export const repositoryToRepoResponse = (repo: Repository): RepoResponse => {
   }
 }
 
-export const dashboardInfoFromJSON = (repos: RepoResponse[]): RepoResponse[] => {
-  return repos.map((repo: RepoResponse): RepoResponse => ({
-    ...repo,
-    releases: repo.releases.map((release: Release): Release => ({
-      ...release,
-      created_at: new Date(release.created_at),
-      published_at: new Date(release.published_at)
-    })),
-    updated_at: new Date(repo.updated_at),
-    created_at: new Date(repo.created_at)
-  }))
+export const dashboardInfoFromJSON = (db: DashboardResponse): DashboardResponse => {
+  return {
+    ...db,
+    releasesFeed: db.releasesFeed.map((repo: RepoResponse): RepoResponse => ({
+      ...repo,
+      releases: repo.releases.map((release: Release): Release => ({
+        ...release,
+        created_at: new Date(release.created_at),
+        published_at: new Date(release.published_at)
+      })),
+      updated_at: new Date(repo.updated_at),
+      created_at: new Date(repo.created_at)
+    }))
+  }
 }

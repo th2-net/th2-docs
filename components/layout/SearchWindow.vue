@@ -17,7 +17,7 @@
             v-model="searchValue"
             :loading="searchProgress"
             clearable
-            @click:clear="searchResults=[]"
+            @click:clear="clearResults"
             @input="search"
             outlined prepend-inner-icon="mdi-magnify" />
 
@@ -86,17 +86,17 @@ export default {
   },
   methods: {
     async search(){
-      if (this.searchValue.length > 2){
+      if (this.searchValue?.length > 2){
         this.searchProgress = true
-        const result = await this.$content('/', {deep:true})
-          .only(['title', 'description', 'path', 'dir'])
-          .limit(10)
-          .search(this.searchValue)
-          .fetch()
-        this.searchResults = this.processPagesPaths(result)
+        this.searchResults = await this.$axios
+          .$get(`content/search?q=${this.searchValue}&v=${this.$store.state.version.content_dir.replace('/versions/', '')}`)
         this.searchProgress = false
       }
       else this.searchResults = []
+    },
+    clearResults(){
+      this.searchValue = ''
+      this.searchResults = []
     }
   }
 }

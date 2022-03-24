@@ -4,20 +4,12 @@ import CopyCodeBtn from "~/components/content/CopyCodeBtn.vue";
 import {repoInfoFromJSON} from "~/apiTypes/github/repo-info";
 import {Context} from "@nuxt/types";
 
-export const getPageInfo = async ({ $content, error, route }: Context) => {
+export const getPageInfo = async ({ $content, $axios, error, route }: Context) => {
   let pageInfo: any
   try {
-    pageInfo = await $content(route.path).fetch()
-
-    if (Array.isArray(pageInfo)){
-      pageInfo = await $content(route.path + '/_index').fetch()
-    }
-
-    if (!pageInfo) {
-      return error({ statusCode: 404, message: 'Page not found' })
-    }
+    pageInfo = await $axios.$get(`content/page?path=${route.path}`)
   } catch (e) {
-    return error({ statusCode: 404 })
+    return error({ statusCode: 404, message: 'Page not found'  })
   }
 
   return pageInfo

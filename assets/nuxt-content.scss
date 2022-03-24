@@ -15,13 +15,11 @@
   }
 
   table{
-    margin: 2rem auto;
+    margin: 2rem 0;
     border-collapse: collapse;
-    display: block;
-    max-width: fit-content;
+    max-width: 100vw;
     padding: 0 1px;
     overflow-x: auto;
-    white-space: nowrap;
 
     th, td{
       padding: .5em 1em;
@@ -42,6 +40,16 @@
     }
   }
 
+  & h3{
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  & h4, h5, h6{
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
   & h2, & h3 {
 
     /* Fix anchor scrollTo */
@@ -60,12 +68,12 @@
       text-decoration: none;
 
       &::before {
-        content: "🔗";
+        content: "#";
         font-size: 1rem;
         color: var(--link-color);
         opacity: 100%;
-        margin-left: -1.5rem;
-        padding-right: .5rem;
+        margin-left: -1.5em;
+        padding-right: .75em;
         transition: opacity .1s ease-in-out;
       }
 
@@ -165,7 +173,7 @@
   }
 
   input{
-    color: white;
+    color: inherit;
   }
 }
 

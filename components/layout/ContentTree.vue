@@ -2,6 +2,21 @@
   <aside class="pt-5 content-tree-panel">
     <div class="sticky-tree pr-3">
       <h3 class="mb-3">Content</h3>
+      <v-select class="my-3" outlined dense
+                  v-model="version" :value="$store.state.version"
+                  @change="onVersionChange"
+                  return-object
+                  :items="versions" item-text="number">
+
+      </v-select>
+      <div class="py-2">
+        <nuxt-link exact to="/" class="main-section"
+                   :class="{'nuxt-link-exact-active': '/' === $route.path}">
+          <div class="tree__path-name">
+            <span> Home </span>
+          </div>
+        </nuxt-link>
+      </div>
       <div v-for="link in pagesTree" :key="link.path"
            class="py-2">
         <nuxt-link exact :to="link.path" class="main-section"
@@ -20,12 +35,6 @@
                     :open="activeRoute"
                     dense>
           <template v-slot:label="{ item }">
-            <!--        <v-btn nuxt :to="item.path" exact text color="primary" >-->
-            <!--          {{item.title}}-->
-            <!--        </v-btn>-->
-            <!--        <v-list-item nuxt :to="item.path" exact>-->
-            <!--            <v-list-item-title>{{item.title}}</v-list-item-title>-->
-            <!--        </v-list-item>-->
             <nuxt-link exact :to="item.path"
                        :class="{'nuxt-link-exact-active': item.path === $route.path}">
               <div class="tree__path-name">
@@ -42,32 +51,44 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import {processSearchMixin} from "../../mixins/processSearch";
+import Vue from "vue";
+import {Th2Version} from "~/apiTypes/content/versions";
 
-export default {
+export default Vue.extend({
   name: "ContentTree",
   mixins: [processSearchMixin],
-  data(){
-    return {
-
-    }
-  },
+  data: () => ({
+    version: undefined as Th2Version | undefined
+  }),
   computed: {
     pagesTree(){
       return this.$store.state.pagesTree
     },
-    // Все пункты дерева, которые надо развернуть
+    versions(){
+      return this.$store.state.versions
+    },
+    // All tree nodes to expand
     activeRoute(){
       const path = this.$route.path
       return this.$store.state.pagesRoutes
-        .map(page => page.path)
-        .filter(page => path.indexOf(page) !== -1)
+        .filter((page: string) => path.startsWith(page))
     }
   },
+  methods: {
+    onVersionChange(v: Th2Version){
+      console.log(v)
+      this.$store.commit('setVersion', v)
+      this.$store.dispatch('getPagesTree', v)
+    }
+  },
+  created() {
+    this.version = this.$store.state.version
+  }
 
 
-}
+})
 </script>
 
 <style>

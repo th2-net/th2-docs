@@ -88,4 +88,4 @@ sw.*
 
 # Vim swap files
 *.swp
-/content/test.md
+/content/common/test.md

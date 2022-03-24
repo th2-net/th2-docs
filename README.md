@@ -2,7 +2,10 @@
 
 ## Requirements
 
-[Node.js 16.13.2 LTS](https://nodejs.org/en/)
+You will need to install [Node.js 16.13.2 LTS](https://nodejs.org/en/)
+
+Installation can take an hour, because it downloads [VS build tools](https://visualstudio.microsoft.com/downloads/?q=build+tools).
+You can install it beforehand.
 
 ## Install Dependencies
 

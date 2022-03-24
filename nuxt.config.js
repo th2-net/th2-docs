@@ -87,7 +87,7 @@ export default {
   },
 
   sitemap: {
-    hostname: process.env.BASE_URL,
+    hostname: process.env.BASE_URL.replace('/api', '/'),
     routes() {
       return getRoutes();
     }

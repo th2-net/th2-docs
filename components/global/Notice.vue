@@ -1,16 +1,21 @@
 <template>
-  <v-card class="my-3"
-    :class="note ? 'notice--note': info ? 'notice--info': warning ? 'notice--warning' : ''">
-    <v-card-title  class="notice__title mb-3">
-      <v-icon dark class="mr-3">
-        {{note ? 'mdi-alert-circle': info ? 'mdi-information-outline': warning ? 'mdi-alert' : 'mdi-information'}}
-      </v-icon>
-      {{note ? 'Note': info ? 'Info': warning ? 'Warning' : 'Notice'}}
-    </v-card-title>
-    <v-card-text class="notice__text">
-      <slot />
-    </v-card-text>
-  </v-card>
+<!--  <v-card class="my-3"-->
+<!--    :class="note ? 'notice&#45;&#45;note': info ? 'notice&#45;&#45;info': warning ? 'notice&#45;&#45;warning' : ''">-->
+<!--    <v-card-title  class="notice__title mb-3">-->
+<!--      <v-icon dark class="mr-3">-->
+<!--        {{note ? 'mdi-alert-circle': info ? 'mdi-information-outline': warning ? 'mdi-alert' : 'mdi-information'}}-->
+<!--      </v-icon>-->
+<!--      {{note ? 'Note': info ? 'Info': warning ? 'Warning' : 'Notice'}}-->
+<!--    </v-card-title>-->
+<!--    <v-card-text class="notice__text">-->
+<!--      <slot />-->
+<!--    </v-card-text>-->
+<!--  </v-card>-->
+  <v-alert class="my-3" border="left" text
+           :color="note ? 'orange': info ? 'blue': warning ? 'red' : 'green'"
+           :icon="note ? 'mdi-alert-circle': info ? 'mdi-information-outline': warning ? 'mdi-alert' : 'mdi-information'">
+    <slot />
+  </v-alert>
 </template>
 
 <script>

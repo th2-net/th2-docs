@@ -1,77 +1,97 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
+  <div class="mx-3">
+    <h2>th2: Next-generation test automation framework</h2>
+    <div style="max-width: 700px" class="mx-auto">
+      <youtube id="1W2IJBNa9WU" autoplay loop></youtube>
+    </div>
+    <h2>What is th2?</h2>
+    <p>
+      <a href="https://github.com/th2-net" target="_blank">th2</a> is an open-source toolkit providing end-to-end
+      functional and non-functional test automation for complex distributed transaction processing systems such
+      as securities trading systems and exchanges, banking, brokerage, post-trade (e.g. clearing, settlement, custody),
+      and payments platforms. Built as a cloud native Kubernetes-driven microservices solution, it aims to help regulated
+      entities stay compliant and resilient to disruption,
+      while focusing on innovation and having the freedom to embrace emerging technologies.
+    </p>
+    <v-divider />
+    <v-row no-gutters>
+      <v-card
+        class="mx-auto my-2"
+        max-width="344"
+        v-for="link in links" :key="link.href"
+      >
         <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
+          <p class="text-h4 text--primary">
+            <v-icon>{{link.icon}}</v-icon> {{link.title}}
           </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+          <div class="text--primary">
+            {{link.text}}
           </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
         </v-card-text>
         <v-card-actions>
-          <v-spacer />
           <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
+            text
+            :to="link.href"
           >
-            Continue
+            Learn More
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-col>
-  </v-row>
+    </v-row>
+    <v-divider />
+    <h2>th2 benefits</h2>
+    <ul>
+      <li><strong>Open interface</strong>: a multi-platform framework with a powerful API, enabling intelligent interaction with many widely adopted network protocols as well as API, UI, DLT and cloud endpoints.</li>
+      <li><strong>Technology stack diversity</strong>: th2 can perform tests written in different programming languages (Python, Java, C++, Kotlin, etc.).</li>
+      <li><strong>Microservices architecture</strong>: provides configuration agility for building complex test instruments and executing sophisticated test algorithms, including model-based testing approaches.</li>
+      <li><strong>DevOps/GitOps paradigm</strong>: enables CI/CD pipeline integration.</li>
+      <li><strong>High-volume automated testing</strong>: designed to perform autonomous test execution of more functional tests under load to improve test coverage, system quality and resilience.</li>
+      <li><strong>Data-driven approach</strong>: ready for implementation of AI-driven test libraries for machine learning and advanced data analytics, enhanced data capabilities including faster data processing and unified storage of test results.</li>
+      <li><strong>Data governance</strong>: unified storage of distributed test data and results in the Cassandra database to enable better access to test evidence and smart analytics for governance and regulatory compliance.</li>
+      <li><strong>Performance</strong>: processes multiple data streams in parallel.</li>
+      <li><strong>Scalability</strong>: can be distributed between several hardware, additional computing power can be quickly involved in testing process allowing testing close to thresholds and exceeding them.</li>
+    </ul>
+
+  </div>
 </template>
+<script>
+import Recommendations from "../components/global/Recommendations";
+export default {
+  head(){
+    let meta = []
+    meta.push({ hid: 'og:title', name: 'og:title', content: 'th2 docs home' })
+    meta.push(
+      { hid: 'description', name: 'description',
+        content: 'th2 is an open-source toolkit providing end-to-end functional and non-functional test automation for complex distributed transaction processing systems such as securities trading systems and exchanges, banking, brokerage, post-trade (e.g. clearing, settlement, custody), and payments platforms. Built as a cloud native Kubernetes-driven microservices solution, it aims to help regulated entities stay compliant and resilient to disruption, while focusing on innovation and having the freedom to embrace emerging technologies.'
+      },
+      { hid: 'og:description', name: 'og:description',
+        content: 'th2 is an open-source toolkit providing end-to-end functional and non-functional test automation for complex distributed transaction processing systems such as securities trading systems and exchanges, banking, brokerage, post-trade (e.g. clearing, settlement, custody), and payments platforms. Built as a cloud native Kubernetes-driven microservices solution, it aims to help regulated entities stay compliant and resilient to disruption, while focusing on innovation and having the freedom to embrace emerging technologies.'
+      }
+    )
+    meta.push({ hid: 'keywords', name: 'keywords',
+      content: 'Exactpro, th2, test automation'
+    })
+    return{
+      title: 'Home',
+      meta,
+    }
+  },
+  name: "Home",
+  components: {Recommendations},
+  data: () => ({
+    links: [
+      { title: 'Getting started', href: './getting-started', icon: 'mdi-school-outline',
+        text: 'Learn about th2, Exactpro\'s next-generation test automation toolkit,\n' +
+          'see how th2 can be used to test complex distributed systems, prepare a\n' +
+          'basic configuration and run a demo script.' },
+      { title: 'Fundamentals', href: './fundamentals', icon: 'mdi-atom',
+        text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
+      { title: 'Boxes', href: './boxes', icon: 'mdi-package-variant-closed',
+        text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
+      { title: 'Cookbook', href: './cookbook', icon: 'mdi-book-open-blank-variant',
+        text: 'Try out the prepared th2 configurations or components combinations,\n' +
+          'create your own, and share your experience with the community.' },
+    ]
+    })
+}
+</script>
