@@ -78,6 +78,56 @@ kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_N
 kubectl apply -fhttps://th2-docs.herokuapp.com/api/config/pvcs
 ```
 
+## Access to the th2-infra-schema Git repository for th2
+
+The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
+according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
+it is required that the `th2-infra-mgr` component is granted SSH access with write permissions.
+
+Different Git systems have different mechanisms for accessing to repository. So your next actions depend on the system where your th2-infra-schema is published.
+
+### GitHub
+
+Previosly th2 used SSH keys for accessing to GitHub repositories, but now this system is deprecated.
+
+Relevant way to provide access is using personal access tokens.
+
+<recommendations :items="tokens_link" ></recommendations>
+
+It is required to grant permissions from `repo` scope. Other permissions are not needed.
+
+![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
+
+During the next step you will need to configure SSH link to your repository. 
+
+Your link to access GitHub repository will be constructed the next pattern:
+
+`https://<your_github_login>:<access_token>@github.com/<repository_owner>/<repository_name>.git`
+
+For example:
+
+`https://bestDeveloper:xxx@github.com/th2-net/th2-infra-schema-demo.git`
+
+### GitLab
+
+GitLab uses SSH keys to authorize all requests to read and change repository.
+
+Generate SSH keys without a passphrase:
+
+```shell
+ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
+```
+
+[Add an SSH key to your GitLab account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account)
+
+Create a Kubernetes Secret `infra-mgr` from the private SSH key:
+
+```shell
+kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra-mgr-rsa.key
+```
+
+In this case your link for configuration will be the default link to clone repository with SSH.
+
 ## Deploy th2
 
 ### Components of th2
