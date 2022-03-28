@@ -2,6 +2,10 @@
 title: Download configs
 weight: 0
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
+tokens_link:
+  - title: Creating a personal access token
+    icon: mdi-github
+    href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
 On this page you will find instructions about th2 installation. All configs will be changed manually.
@@ -115,6 +119,55 @@ kubectl apply -f ./pvs.yaml
 kubectl apply -f ./pvcs.yaml
 ```
 
+Once all the required software is installed on your test box and operator box and
+th2-infra repositories are ready, you can start configuring the cluster.
+
+## Configure dashboard.values.yaml
+
+
+
+### Define Dashboard hostname
+
+<notice note >
+
+Hostname must be resolved from test boxes.
+
+</notice >
+
+Define Dashboard hostname in the `dashboard.values.yaml`
+([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/dashboard.values.yaml)):
+
+```yaml[dashboard.values.yaml]
+...
+ingress:
+  ...
+  hosts:
+    - <th2_host_name>
+...
+```
+
+## prometheus-operator.values.yaml
+
+### Define Grafana hostname
+
+Define Grafana hostnames in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
+
+<notice info >
+
+To get <th2_host_name>, execute the `kubectl cluster-info` command.
+
+</notice >
+
+```yaml[prometheus-operator.values.yaml]
+...
+grafana:
+  ...
+  ingress:
+    hosts:
+      - <th2_host_name>
+...
+```
+
 ## Access to the th2-infra-schema Git repository for th2
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
@@ -135,15 +188,13 @@ It is required to grant permissions from `repo` scope. Other permissions are not
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-During the next step you will need to configure SSH link to your repository. 
+You will need generated token once in the next step.
 
-Your link to access GitHub repository will be constructed the next pattern:
+Create `infra-mgr` secret required by `th2-infra-mgr`.
 
-`https://<your_github_login>:<access_token>@github.com/<repository_owner>/<repository_name>.git`
-
-For example:
-
-`https://bestDeveloper:xxx@github.com/th2-net/th2-infra-schema-demo.git`
+```shell
+kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
+```
 
 ### GitLab
 
@@ -165,61 +216,37 @@ kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra
 
 In this case your link for configuration will be the default link to clone repository with SSH.
 
-## Configure th2 infra values
 
-Once all the required software is installed on your test box and operator box and
-th2-infra repositories are ready, you can start configuring the cluster.
+## Configure service.values.yaml
 
-### dashboard.values.yaml
+### Link `th2-infra-mgr` to the `th2-infra-schema` repository
 
-#### Define Dashboard hostname
-
-<notice note >
-
-Hostname must be resolved from test boxes.
-
-</notice >
-
-Define Dashboard hostname in the `dashboard.values.yaml`
-([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/dashboard.values.yaml)):
-
-```yaml[dashboard.values.yaml]
-...
-ingress:
-  ...
-  hosts:
-    - <th2_host_name>
-...
-```
-
-### prometheus-operator.values.yaml
-
-#### Define Grafana hostname
-
-Define Grafana hostnames in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
-
-<notice info >
-
-To get <th2_host_name>, execute the `kubectl cluster-info` command.
-
-</notice >
-
-```yaml[prometheus-operator.values.yaml]
-...
-grafana:
-  ...
-  ingress:
-    hosts:
-      - <th2_host_name>
-...
-```
-
-### service.values.yaml
-
-#### Link `th2-infra-mgr` to the `th2-infra-schema` repository
+#### Link for infra-schema in GitHub
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
-set the `infraMgr.git.repository` value to the SSH link of your `th2-infra-schema` repository, e.g:
+set next values:
+- `infraMgr.git.repository` - value to the HTTPS link of your `th2-infra-schema` repository
+- `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository
+- `infraMgr.git.httpAuthPassword` - empty string
+
+```yaml[service.values.yaml]
+infraMgr:
+  git:
+    repository: https://github.com/th2-net/th2-infra-schema-demo.git
+    httpAuthUsername: xxx_xxxxxxxxxx11xxxx1xxx1xxxxxxxxx1xx1xx
+    httpAuthPassword: ''
+...
+```
+#### Link for infra-schema in GitLab
+
+In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
+set next values `infraMgr.git.repository` value to the SSH link of your `th2-infra-schema` repository.
+
+<notice note>
+
+Configured SSH key required for providing access to infra schema in GitLab.
+
+</notice>
 
 ```yaml[service.values.yaml]
 infraMgr:
@@ -228,7 +255,7 @@ infraMgr:
 ...
 ```
 
-#### Define RabbitMQ hostname
+### Define RabbitMQ hostname
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the `externalRabbitMQHost.host` value to the hostname of your cluster.
@@ -239,7 +266,7 @@ externalRabbitMQHost:
   host: <th2_host_name>
 ```
 
-#### Define Cassandra hostname and datacenter
+### Define Cassandra hostname and datacenter
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the `cassandra.host` value to the hostname of the Cassandra cluster. 
@@ -262,7 +289,7 @@ cassandra:
     datacenter: <datacenter>
 ```
 
-#### Define th2 Ingress hostname
+### Define th2 Ingress hostname
 
 If required, add the `ingress.hostname` value into the
 `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml).
@@ -275,9 +302,9 @@ If you don't have the DNS configured for your th2 cluster, we recommend leaving 
 
 </notice >
 
-### secrets.yaml
+## Configure secrets.yaml
 
-#### Create a Kubernetes Secret with th2 credentials
+### Create a Kubernetes Secret with th2 credentials
 
 Create the `secrets.yaml` file.
 

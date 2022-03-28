@@ -1,10 +1,6 @@
 ---
 title: 2. Publish infra schema
 weight: 1
-tokens_link:
-  - title: Creating a personal access token
-    icon: mdi-github
-    href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
 ## th2-infra-schema
