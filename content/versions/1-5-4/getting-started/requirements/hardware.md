@@ -11,11 +11,13 @@ chapter: true
 This section provides requirements for some of the th2 use cases.
 
 <notice note >
+
 When creating a node, you may want to mount the `/var` filesystem to a
 disk partition (or LVM) of required size.
 This approach is convenient because a considerable
 amount of disk space required for Cassandra, Docker or
 other container runtime is allocated inside `/var` filesystem by default.
+
 </notice >
 
 ### Use case #1. Single machine cluster for PoC or development
