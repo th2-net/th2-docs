@@ -61,7 +61,7 @@ export const getReposFamiliesByTopics = async (githubAuth: any): Promise<RepoGro
     // @ts-ignore
     reposWithTopics.reduce((accumulator: string[], current) => [...accumulator, ...current.topics], [])
   )]
-  const GROUPS: string[] = ['th2-grpc-library', 'th2-box', 'th2-library']
+  const GROUPS: string[] = ['th2-infra', 'th2-core', 'th2-check1', 'th2-library', 'th2-act', 'th2-conn', 'th2-check2', 'th2-act-ui']
   const infoTopics: string[] = allTopics.filter(t => !GROUPS.includes(t))
   return await Promise.all(GROUPS.map(async (group): Promise<RepoGroupByFamily> => {
     return {
