@@ -4,14 +4,15 @@ import axios from "axios";
 
 const router: Router = Router()
 
+const getYamlConfig = async (filename: string, version: string = 'v1-5-x'): Promise<string> => {
+  const response = await axios.get(`${process.env.BASE_URL?.replace('/api', '')}/config-templates/th2-infra/${version}/${filename}.yaml`, { responseType: 'text' })
+  return response.data
+}
+
 router.get('/dashboard.values', async (req: Request, res: Response) => {
   try {
-    const response = await axios({
-      method: "get",
-      url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/dashboard.values.yaml'
-  })
-    const config = response.data
-      .replace(/<hosts>/g, req.query['hosts'] || '');
+    let config = await getYamlConfig('dashboard.values')
+    config = config.replaceAll('<hosts>', req.query['hosts']?.toString() || '');
     res.type('text/yaml')
     res.send(config)
   }
@@ -23,11 +24,7 @@ router.get('/dashboard.values', async (req: Request, res: Response) => {
 
 router.get('/helm-operator.values', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/helm-operator.values.yaml'
-    })
-      const config = response.data
+      const config = await getYamlConfig('helm-operator.values')
       res.type('text/yaml')
       res.send(config)
     }
@@ -39,11 +36,7 @@ router.get('/helm-operator.values', async (req: Request, res: Response) => {
 
 router.get('/ingress.values', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/ingress.values.yaml'
-    })
-      const config = response.data
+      const config = await getYamlConfig('ingress.values')
       res.type('text/yaml')
       res.send(config)
     }
@@ -55,11 +48,7 @@ router.get('/ingress.values', async (req: Request, res: Response) => {
 
 router.get('/loki.values', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/loki.values.yaml'
-    })
-      const config = response.data
+      const config = await getYamlConfig('loki.values')
       res.type('text/yaml')
       res.send(config)
     }
@@ -71,12 +60,8 @@ router.get('/loki.values', async (req: Request, res: Response) => {
 
 router.get('/prometheus-operator.values', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/prometheus-operator.values.yaml'
-    })
-      const config = response.data
-        .replace(/<hosts>/g, req.query['hosts'] || '');
+      let config = await getYamlConfig('prometheus-operator.values')
+      config = config.replace(/<hosts>/g, req.query['hosts']?.toString() || '');
       res.type('text/yaml')
       res.send(config)
     }
@@ -88,11 +73,7 @@ router.get('/prometheus-operator.values', async (req: Request, res: Response) =>
 
 router.get('/pvcs', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/pvcs.yaml'
-    })
-      const config = response.data
+      let config = await getYamlConfig('pvcs')
       res.type('text/yaml')
       res.send(config)
     }
@@ -104,12 +85,8 @@ router.get('/pvcs', async (req: Request, res: Response) => {
 
 router.get('/pvs', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/pvs.yaml'
-    })
-      const config = response.data
-        .replace(/<node-name>/g, req.query['node-name'] || 'minikube');
+      let config = await getYamlConfig('pvs')
+      config = config.replace(/<node-name>/g, req.query['node-name']?.toString() || 'minikube');
       res.type('text/yaml')
       res.send(config)
     }
@@ -121,11 +98,7 @@ router.get('/pvs', async (req: Request, res: Response) => {
 
 router.get('/secrets', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/secrets.yaml'
-    })
-      const config = response.data
+      let config = await getYamlConfig('secrets')
       res.type('text/yaml')
       res.send(config)
     }
@@ -137,15 +110,11 @@ router.get('/secrets', async (req: Request, res: Response) => {
 
 router.get('/service.values', async (req: Request, res: Response) => {
     try {
-      const response = await axios({
-        method: "get",
-        url: 'https://raw.githubusercontent.com/ComButterbrot/th2-infra/master/example-values/service.values.yaml'
-    })
-      const config = response.data
-        .replace(/<repository>/g, req.query['repository'])
-        .replace(/<host>/g, req.query['host'] || '127.0.0.1')
-        .replace(/<cassandra-host>/g, req.query['c-host'] || '127.0.0.1')
-        .replace(/<datacenter>/g, req.query['dc'] || 'datacenter1')
+      let config = await getYamlConfig('pvs')
+      config = config.replace(/<repository>/g, String(req.query['repository']))
+        .replace(/<host>/g, req.query['host']?.toString() || '127.0.0.1')
+        .replace(/<cassandra-host>/g, req.query['c-host']?.toString() || '127.0.0.1')
+        .replace(/<datacenter>/g, req.query['dc']?.toString() || 'datacenter1')
       res.type('text/yaml')
       res.send(config)
     }
