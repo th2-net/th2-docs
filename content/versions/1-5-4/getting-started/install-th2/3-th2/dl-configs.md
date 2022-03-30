@@ -180,7 +180,7 @@ Different Git systems have different mechanisms for accessing repository. So you
 
 Previosly th2 used SSH keys for accessing to GitHub repositories, but now this system is deprecated.
 
-GitHub repositories can be accessed via personal access tokens.
+GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
 
 <recommendations :items="tokens_link" ></recommendations>
 
