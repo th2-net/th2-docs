@@ -1,12 +1,11 @@
 import { Router, Request, Response} from "express";
 
-import axios from "axios";
+import fs from 'fs'
 
 const router: Router = Router()
 
 const getYamlConfig = async (filename: string, version: string = 'v1-5-x'): Promise<string> => {
-  const response = await axios.get(`${process.env.BASE_URL?.replace('/api', '')}/config-templates/th2-infra/${version}/${filename}.yaml`, { responseType: 'text' })
-  return response.data
+  return fs.readFileSync(`api/resources/config-templates/th2-infra/${version}/${filename}.yaml`).toString()
 }
 
 router.get('/dashboard.values', async (req: Request, res: Response) => {
