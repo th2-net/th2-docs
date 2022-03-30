@@ -2,15 +2,38 @@ import { Router, Request, Response} from "express";
 
 import fs from 'fs'
 
-const router: Router = Router()
+const DEFAULT_VERSION = 'v1-5-x'
 
-const getYamlConfig = async (filename: string, version: string = 'v1-5-x'): Promise<string> => {
+
+
+const getYamlConfig = async (filename: string, version: string = DEFAULT_VERSION): Promise<string> => {
   return fs.readFileSync(`api/resources/config-templates/th2-infra/${version}/${filename}.yaml`).toString()
 }
+
+const getTh2InfraConfigsVersions = (): string[] => {
+  return fs.readdirSync('api/resources/config-templates/th2-infra')
+}
+
+const checkTh2InfraVersion = (req: Request, res: Response): boolean => {
+  const versions = getTh2InfraConfigsVersions()
+  const version: string = req.query['v']?.toString() || DEFAULT_VERSION
+  if (!versions.includes(version)){
+    res.status(404).send(`Wrong th2-infra version: ${version}.\n Supported versions: ${versions.join(', ')}`)
+    return false
+  }
+  return true
+}
+
+const router: Router = Router()
+router.use((req: Request, res: Response, next) => {
+  if (!checkTh2InfraVersion(req, res)) return
+  next()
+})
 
 router.get('/dashboard.values', async (req: Request, res: Response) => {
   try {
     let config = await getYamlConfig('dashboard.values')
+    getTh2InfraConfigsVersions()
     config = config.replaceAll('<hosts>', req.query['hosts']?.toString() || '');
     res.type('text/yaml')
     res.send(config)
