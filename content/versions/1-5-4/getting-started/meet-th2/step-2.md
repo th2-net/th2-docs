@@ -58,7 +58,7 @@ In the future, you will provide the link to this repository in a separate th2 co
 
 </notice >
 
-If you have completed this step, you can go to the [next step](../set-up-cluster).
+If you have completed this step, you can go to the [next step](step-3).
 
 ## Provide access to the _th2-infra-schema_ Git repository for _th2-infra-mgr_
 

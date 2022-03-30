@@ -80,15 +80,15 @@ export default {
   components: {Recommendations},
   data: () => ({
     links: [
-      { title: 'Getting started', href: './getting-started', icon: 'mdi-school-outline',
+      { title: 'Getting started', href: './1-5-4/getting-started', icon: 'mdi-school-outline',
         text: 'Learn about th2, Exactpro\'s next-generation test automation toolkit,\n' +
           'see how th2 can be used to test complex distributed systems, prepare a\n' +
           'basic configuration and run a demo script.' },
-      { title: 'Fundamentals', href: './fundamentals', icon: 'mdi-atom',
+      { title: 'Fundamentals', href: './1-5-4/fundamentals', icon: 'mdi-atom',
         text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
-      { title: 'Boxes', href: './boxes', icon: 'mdi-package-variant-closed',
+      { title: 'Boxes', href: './1-5-4/boxes', icon: 'mdi-package-variant-closed',
         text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
-      { title: 'Cookbook', href: './cookbook', icon: 'mdi-book-open-blank-variant',
+      { title: 'Cookbook', href: './1-5-4/cookbook', icon: 'mdi-book-open-blank-variant',
         text: 'Try out the prepared th2 configurations or components combinations,\n' +
           'create your own, and share your experience with the community.' },
     ]
