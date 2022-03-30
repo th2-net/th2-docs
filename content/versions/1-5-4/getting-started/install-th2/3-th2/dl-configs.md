@@ -119,8 +119,8 @@ kubectl apply -f ./pvs.yaml
 kubectl apply -f ./pvcs.yaml
 ```
 
-Once all the required software is installed on your test box and operator box and
-th2-infra repositories are ready, you can start configuring the cluster.
+You can start configuring the cluster once all the required software is installed on your test box and operator box 
+and th2-infra repositories are ready.
 
 ## Configure dashboard.values.yaml
 
@@ -150,7 +150,7 @@ ingress:
 
 ### Define Grafana hostname
 
-Define Grafana hostnames in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
+Define Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
 
 <notice info >
 
@@ -174,13 +174,13 @@ The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and upd
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
 it is required that the `th2-infra-mgr` component is granted SSH access with write permissions.
 
-Different Git systems have different mechanisms for accessing to repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing repository. So your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
 Previosly th2 used SSH keys for accessing to GitHub repositories, but now this system is deprecated.
 
-Relevant way to provide access is using personal access tokens.
+GitHub repositories can be accessed via personal access tokens.
 
 <recommendations :items="tokens_link" ></recommendations>
 
@@ -214,7 +214,7 @@ Create a Kubernetes Secret `infra-mgr` from the private SSH key:
 kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra-mgr-rsa.key
 ```
 
-In this case your link for configuration will be the default link to clone repository with SSH.
+In this case your link to configuration will be the default link to clone repository with SSH.
 
 
 ## Configure service.values.yaml
@@ -224,8 +224,8 @@ In this case your link for configuration will be the default link to clone repos
 #### Link for infra-schema in GitHub
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
-set next values:
-- `infraMgr.git.repository` - value to the HTTPS link of your `th2-infra-schema` repository
+set the next values:
+- `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository
 - `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository
 - `infraMgr.git.httpAuthPassword` - empty string
 
@@ -240,7 +240,7 @@ infraMgr:
 #### Link for infra-schema in GitLab
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
-set next values `infraMgr.git.repository` value to the SSH link of your `th2-infra-schema` repository.
+set the `infraMgr.git.repository` value to the SSH link of your `th2-infra-schema` repository.
 
 <notice note>
 
