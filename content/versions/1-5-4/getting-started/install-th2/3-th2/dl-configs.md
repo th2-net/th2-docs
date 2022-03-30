@@ -8,7 +8,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-On this page you will find instructions about th2 installation. All configs will be changed manually.
+This page contains instructions about th2 installation. All configs will be changed manually.
 
 <!--more-->
 
