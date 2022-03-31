@@ -2,8 +2,7 @@ import { Router, Request, Response} from "express";
 
 import fs from 'fs'
 
-const DEFAULT_VERSION = 'v1-5-x'
-
+const DEFAULT_VERSION = '1-5-x'
 
 
 const getYamlConfig = async (filename: string, version: string = DEFAULT_VERSION): Promise<string> => {
@@ -14,25 +13,23 @@ const getTh2InfraConfigsVersions = (): string[] => {
   return fs.readdirSync('api/resources/config-templates/th2-infra')
 }
 
-const checkTh2InfraVersion = (req: Request, res: Response): boolean => {
+const checkTh2InfraVersion = (req: Request, res: Response, next: any) => {
+  console.log(`version ${req.params.version}`)
   const versions = getTh2InfraConfigsVersions()
-  const version: string = req.query['v']?.toString() || DEFAULT_VERSION
+  const version: string = req.params.version?.toString() || DEFAULT_VERSION
   if (!versions.includes(version)){
     res.status(404).send(`Wrong th2-infra version: ${version}.\n Supported versions: ${versions.join(', ')}`)
-    return false
+    return 
   }
-  return true
+  next()
 }
 
 const router: Router = Router()
-router.use((req: Request, res: Response, next) => {
-  if (!checkTh2InfraVersion(req, res)) return
-  next()
-})
 
-router.get('/dashboard.values', async (req: Request, res: Response) => {
+router.get('/:version/dashboard.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
   try {
-    let config = await getYamlConfig('dashboard.values')
+    let specifiedVersion = req.params.version
+    let config = await getYamlConfig('dashboard.values', specifiedVersion)
     getTh2InfraConfigsVersions()
     config = config.replaceAll('<hosts>', req.query['hosts']?.toString() || '');
     res.type('text/yaml')
@@ -44,9 +41,10 @@ router.get('/dashboard.values', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/helm-operator.values', async (req: Request, res: Response) => {
+router.get('/:version/helm-operator.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      const config = await getYamlConfig('helm-operator.values')
+      let specifiedVersion = req.params.version
+      const config = await getYamlConfig('helm-operator.values', specifiedVersion)
       res.type('text/yaml')
       res.send(config)
     }
@@ -56,9 +54,10 @@ router.get('/helm-operator.values', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/ingress.values', async (req: Request, res: Response) => {
+router.get('/:version/ingress.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      const config = await getYamlConfig('ingress.values')
+      let specifiedVersion = req.params.version
+      const config = await getYamlConfig('ingress.values', specifiedVersion)
       res.type('text/yaml')
       res.send(config)
     }
@@ -68,9 +67,10 @@ router.get('/ingress.values', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/loki.values', async (req: Request, res: Response) => {
+router.get('/:version/loki.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      const config = await getYamlConfig('loki.values')
+      let specifiedVersion = req.params.version
+      const config = await getYamlConfig('loki.values', specifiedVersion)
       res.type('text/yaml')
       res.send(config)
     }
@@ -80,9 +80,10 @@ router.get('/loki.values', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/prometheus-operator.values', async (req: Request, res: Response) => {
+router.get('/:version/prometheus-operator.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      let config = await getYamlConfig('prometheus-operator.values')
+      let specifiedVersion = req.params.version
+      let config = await getYamlConfig('prometheus-operator.values', specifiedVersion)
       config = config.replace(/<hosts>/g, req.query['hosts']?.toString() || '');
       res.type('text/yaml')
       res.send(config)
@@ -93,9 +94,10 @@ router.get('/prometheus-operator.values', async (req: Request, res: Response) =>
     }
   })
 
-router.get('/pvcs', async (req: Request, res: Response) => {
+router.get('/:version/pvcs', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      let config = await getYamlConfig('pvcs')
+      let specifiedVersion = req.params.version
+      let config = await getYamlConfig('pvcs', specifiedVersion)
       res.type('text/yaml')
       res.send(config)
     }
@@ -105,9 +107,10 @@ router.get('/pvcs', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/pvs', async (req: Request, res: Response) => {
+router.get('/:version/pvs', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      let config = await getYamlConfig('pvs')
+      let specifiedVersion = req.params.version
+      let config = await getYamlConfig('pvs', specifiedVersion)
       config = config.replace(/<node-name>/g, req.query['node-name']?.toString() || 'minikube');
       res.type('text/yaml')
       res.send(config)
@@ -118,9 +121,10 @@ router.get('/pvs', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/secrets', async (req: Request, res: Response) => {
+router.get('/:version/secrets', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      let config = await getYamlConfig('secrets')
+      let specifiedVersion = req.params.version
+      let config = await getYamlConfig('secrets', specifiedVersion)
       res.type('text/yaml')
       res.send(config)
     }
@@ -130,9 +134,10 @@ router.get('/secrets', async (req: Request, res: Response) => {
     }
   })
 
-router.get('/service.values', async (req: Request, res: Response) => {
+router.get('/:version/service.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
-      let config = await getYamlConfig('pvs')
+      let specifiedVersion = req.params.version
+      let config = await getYamlConfig('pvs', specifiedVersion)
       config = config.replace(/<repository>/g, String(req.query['repository']))
         .replace(/<host>/g, req.query['host']?.toString() || '127.0.0.1')
         .replace(/<cassandra-host>/g, req.query['c-host']?.toString() || '127.0.0.1')
@@ -145,5 +150,6 @@ router.get('/service.values', async (req: Request, res: Response) => {
       res.send(e)
     }
   })
+
 
   export const configRouter = router
