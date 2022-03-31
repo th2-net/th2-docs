@@ -1,6 +1,6 @@
 <template>
   <aside class="pt-5 content-tree-panel">
-    <div class="sticky-tree pr-3">
+    <div class="sticky-tree px-3 ml-n3">
       <h3 class="mb-3">Content</h3>
       <v-select class="my-3" outlined dense
                   v-model="version" :value="$store.state.version"
