@@ -137,11 +137,29 @@ router.get('/:version/secrets', checkTh2InfraVersion, async (req: Request, res: 
 router.get('/:version/service.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
     try {
       let specifiedVersion = req.params.version
-      let config = await getYamlConfig('pvs', specifiedVersion)
+      let config = await getYamlConfig('service.values', specifiedVersion)
+      // Available platforms: github, gitlab
+      let platform = req.query['platform']?.toString() || 'github'
+      let token = req.query['token']?.toString()
+      console.log(token)
       config = config.replace(/<repository>/g, String(req.query['repository']))
         .replace(/<host>/g, req.query['host']?.toString() || '127.0.0.1')
         .replace(/<cassandra-host>/g, req.query['c-host']?.toString() || '127.0.0.1')
         .replace(/<datacenter>/g, req.query['dc']?.toString() || 'datacenter1')
+      if (!!token){
+        switch (platform) {
+          case 'github':
+            config = config.replace(/<username>/g, token)
+              .replace(/<password>/g, "''")
+            break;
+          case 'gitlab':
+            config = config.replace(/<username>/g, "''")
+              .replace(/<password>/g, token)
+            break;
+          default:
+            break;
+        }
+      }
       res.type('text/yaml')
       res.send(config)
     }
