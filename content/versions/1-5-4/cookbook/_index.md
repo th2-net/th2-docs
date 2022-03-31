@@ -3,5 +3,4 @@ title: Cookbook
 weight: 10
 ---
 
-## Contents
-1. [Place for recipe 1](.recipe-1)
+# This section contains more detailed instructions for several frequent use cases to make your experience better

@@ -3,6 +3,8 @@ title: Fundamentals
 weight: 10
 ---
 
+# This section contains theoretical basics of th2 and how it works
+
 ## Contents
 1. [Architecture](fundamentals/architecture)
 2. [Infra components](fundamentals/infra-components)
