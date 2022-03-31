@@ -200,7 +200,7 @@ kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infr
 
 GitLab uses SSH keys to authorize all requests to read and change repository.
 
-Generate SSH keys without a passphrase:
+Generate SSH keys pair without a passphrase:
 
 ```shell
 ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key

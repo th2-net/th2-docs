@@ -84,13 +84,17 @@ The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and upd
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
 it is required that the `th2-infra-mgr` component is granted SSH access with write permissions.
 
-Different Git systems have different mechanisms for accessing to repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing repository. So your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
-Previosly th2 used SSH keys for accessing to GitHub repositories, but now this system is deprecated.
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
+SSH keys generated with command
+```shell
+ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
+``` are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
 
-Relevant way to provide access is using personal access tokens.
+GitHub repositories can be accessed via personal access tokens.
 
 <recommendations :items="tokens_link" ></recommendations>
 
@@ -112,7 +116,7 @@ For example:
 
 GitLab uses SSH keys to authorize all requests to read and change repository.
 
-Generate SSH keys without a passphrase:
+Generate SSH keys pair without a passphrase:
 
 ```shell
 ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
@@ -126,7 +130,7 @@ Create a Kubernetes Secret `infra-mgr` from the private SSH key:
 kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra-mgr-rsa.key
 ```
 
-In this case your link for configuration will be the default link to clone repository with SSH.
+In this case your link to configuration will be the default link to clone repository with SSH.
 
 ## Deploy th2
 
