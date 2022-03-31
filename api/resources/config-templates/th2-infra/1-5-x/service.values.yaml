@@ -1,6 +1,8 @@
 infraMgr:
   git:
     repository: <repository>
+    httpAuthUsername: <username>
+    httpAuthPassword: <password>
 
 rabbitmq:
   prometheus:
