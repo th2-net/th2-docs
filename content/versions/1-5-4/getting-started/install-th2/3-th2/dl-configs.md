@@ -178,7 +178,8 @@ Different Git systems have different mechanisms for accessing repository. So you
 
 ### GitHub
 
-Previosly th2 used SSH keys for accessing to GitHub repositories, but now this system is deprecated.
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
+SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
 
 GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
 
