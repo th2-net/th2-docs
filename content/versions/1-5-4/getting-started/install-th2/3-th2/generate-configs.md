@@ -103,7 +103,11 @@ It is required to grant permissions from `repo` scope. Other permissions are not
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-You will need generated token once in the next step.
+You will need generated token once in the next step. Save token to the environment variable:
+
+```shell
+TOKEN=<token>
+```
 
 Create `infra-mgr` secret required by `th2-infra-mgr`.
 
@@ -134,44 +138,6 @@ In this case your link to configuration will be the default link to clone reposi
 
 ## Deploy th2
 
-### Components of th2
-
-#### Helm Operator
-
-The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
-Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
-**Secrets**, **Custom Resources**).
-
-#### NGINX Ingress Controller
-
-th2 uses its own implementation of the NGINX Ingress Controller.
-It provides access to the th2 web services through HTTP.
-
-#### Prometheus
-
-Prometheus is an open-source systems monitoring and alerting toolkit.
-It will be used by Grafana as data source.
-And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
-
-#### th2 infra components
-
-`th2-infra` helm chart contains description for 4 th2 components:
-1. [_`th2-infra-editor`_](https://github.com/th2-net/th2-infra-editor)
-2. [_`th2-infra-mgr`_](https://github.com/th2-net/th2-infra-mgr)
-3. [_`th2-infra-operator`_](https://github.com/th2-net/th2-infra-operator)
-4. [_`th2-infra-repo`_](https://github.com/th2-net/th2-infra-repo)
-
-
-#### Kubernetes Dashboard
-
-[Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
-is a web-based Kubernetes user interface.
-With this tool you can monitor existing Kubernetes Objects and its details.
-
-#### Grafana
-
-Grafana provides dashboard for the CPU, memory, and network usage of th2.
-
 ### Download Helm charts
 
 ```shell
@@ -183,23 +149,113 @@ helm repo add kubernetes-dashboard "https://kubernetes.github.io/dashboard/"
 helm repo add grafana "https://grafana.github.io/helm-charts"
 ```
 
-### Install Helm charts
+### Install components of th2
 
-Create environment variables for your configs
+Set Kubernetes cluster hostname in environment variable (leave empty if you have no configured DNS name):
 
 ```shell
 K8S_HOSTNAME=<cluster-hostname>
+```
+
+#### Helm Operator
+
+The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
+Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
+**Secrets**, **Custom Resources**).
+
+Install Helm Operator.
+
+```shell
+helm install helm-operator -n "service" \
+  --version=1.2.0 fluxcd/helm-operator \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
+```
+
+#### NGINX Ingress Controller
+
+th2 uses its own implementation of the NGINX Ingress Controller.
+It provides access to the th2 web services through HTTP.
+
+Install NGINX Ingress Controller:
+
+```shell
+helm install ingress -n "service" \
+  --version=3.31.0 ingress-nginx/ingress-nginx \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
+```
+
+#### Prometheus
+
+Prometheus is an open-source systems monitoring and alerting toolkit.
+It will be used by Grafana as data source.
+And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
+
+Install Prometheus:
+
+```shell
+helm install prometheus -n "monitoring" \
+  --version=15.0.0 prometheus-community/kube-prometheus-stack \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+```
+
+#### th2 infra components
+
+`th2-infra` helm chart contains description for 4 th2 components:
+1. [_`th2-infra-editor`_](https://github.com/th2-net/th2-infra-editor)
+2. [_`th2-infra-mgr`_](https://github.com/th2-net/th2-infra-mgr)
+3. [_`th2-infra-operator`_](https://github.com/th2-net/th2-infra-operator)
+4. [_`th2-infra-repo`_](https://github.com/th2-net/th2-infra-repo)
+
+
+Set environment variables for generating config:
+
+- `MQ_HOSTNAME` - identical to [`K8S_HOSTNAME`](#install-components-of-th2). But if do not have configured DNS, fill with IP address of Kubernetes cluster
+- `CASSANDRA_HOST` - hostname or IP address of Cassandra cluster
+- `CASSANDRA_DC` - datacenter in Cassandra cluster to work with
+- `SCHEMA_LINK` - SSH link to th2-infra-schema if you use SSH keys for authorization or HTTPS link if you use tokens
+- `PLATFORM` - Git platform, where th2-infra-schema is published (required only if you use tokens). Possible values: `github`, `gitlab`
+- `TOKEN` - token for authorization on Git platform (required only if you use tokens). You might have token in environment variable from the [previous step](#github).
+
+```shell
 MQ_HOSTNAME=<rabbit-mq-hostname>
 CASSANDRA_HOST=<cassandra-cluster-hostname>
 CASSANDRA_DC=<cassandra-datacenter-name>
-SCHEMA_LINK=<ssh-link-to-th2-infra-schema-git-repository>
+SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
+PLATFORM=<platform-where-th2-infra-schema-published>
+TOKEN=<token-for-authorization-on-platform>
 ```
 
+Install th2-infra components:
+
 ```shell
-helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
-helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
-helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
-helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
-helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
-helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/1-5-x/loki.values"
+helm install th2-infra -n "service" \
+  --version=1.5.4 th2/th2 \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
+```
+
+#### Kubernetes Dashboard
+
+[Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+is a web-based Kubernetes user interface.
+With this tool you can monitor existing Kubernetes Objects and its details.
+
+Install Kubernetes Dashboard:
+
+```shell
+helm install dashboard -n "monitoring" \
+  kubernetes-dashboard/kubernetes-dashboard \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
+```
+
+#### Grafana
+
+Grafana provides dashboard for the CPU, memory, and network usage of th2.
+
+Install Grafana:
+
+```shell
+helm install loki -n "monitoring" \
+  --version=0.40.1 grafana/loki-stack \
+  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/loki.values"
 ```
