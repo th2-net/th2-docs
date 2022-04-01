@@ -15,22 +15,29 @@ Here are provided configuration files that you can retrieve with config API. Som
 
 ## How to use it
 
-Path to the your configuration will be as following: `https://th2.dev/api/config/<filename>`
+Path to the your configuration will be as following: `https://th2.dev/api/config/<version>/<filename>`
+
+- `version` - version of th2-infra you want to get configurations for
+- `filename` - name of the configuration file you want to get
+
+You can get list of supported versions of th2-infra in <a href="/api/config/versions" target="_blank">`https://th2.dev/api/config/versions`</a>.
 
 If you need to customize final configuration, you can provide parameters by adding `?<parameters>` after the path. Possible parameters are listed for each configuration file.
 
 - `pvs` - configuration for Kubernetes persistent volumes;
-  - `node-name` defines the node name of your node running in Kubernetes cluster. This value can be retrieved with kubectl cluster-info command. The default value is minikube.
+  - `node-name` defines the node name of your node running in Kubernetes cluster. This value can be retrieved with kubectl cluster-info command. The default value is `minikube`.
 - `pvcs` - configuration for Kubernetes persistent volume claims;
 - `helm-operator.values` - configuration for helm operator;
 - `ingress.values` - configuration for Nginx ingress controller;
 - `prometheus-operator.values` - Prometheus configuration;
   - `hosts` defines Grafana hostnames.
 - `service.values` - main configuration for th2 infra components;
-- `repository` - defines the SSH link of your th2-infra-schema repository.
-  - `host` - defines the hostname of your Kubernetes cluster. The default value is 127.0.0.1.
-  - `c-host` - defines the hostname of the Cassandra cluster. The default value is 127.0.0.1.
-  - `dc` - defines the datacenter of the Cassandra cluster. The default value is datacenter1. 
+  - `repository` - defines the link to your th2-infra-schema repository. If you use SSH key for authentification, this link should be SSH link. In you want to use tokens, place HTTPS link there.
+  - `token` - token, used for authentification on Git platform.
+  - `platform` - platform, where you published your th2-infra-schema. Possible values: `github` (default), `gitlab`.
+  - `host` - defines the hostname of your Kubernetes cluster. The default value is `127.0.0.1`.
+  - `c-host` - defines the hostname of the Cassandra cluster. The default value is `127.0.0.1`.
+  - `dc` - defines the datacenter of the Cassandra cluster. The default value is `datacenter1`. 
 - `secrets` - basic credentials for services in your th2 cluster. We recommend to create this file on your machine and use your own version;
 - `dashboard.values` - Kubernetes dashboard configuration;
   - `hosts` defines the Dashboard hostnames.
@@ -40,11 +47,17 @@ If you need to customize final configuration, you can provide parameters by addi
 
 In order to make it more clear, here are examples of config with and without parameters.
 
+<notice warning>
+
+Files links need to be changed, when docs site will be published on `th2.dev`.
+
+</notice>
+
 Path to `ingress.values` with no parameters (doesn’t require parameters):
 
 
 ```
-https://th2-docs.herokuapp.com/api/config/ingress.values 
+https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values 
 ```
 
 ```yaml[Output]
@@ -68,7 +81,7 @@ controller:
 Path to `service.values` with no parameters (requires parameters):
 
 ```
-https://th2-docs.herokuapp.com/api/config/service.values 
+https://th2-docs.herokuapp.com/api/config/1-5-x/service.values 
 ```
 
 ```yaml[Output]
@@ -98,7 +111,7 @@ cassandra:
 Path to `service.values` file with specified parameters:
 
 ```
-https://th2-docs.herokuapp.com/api/config/service.values?repository=git@github.com:ExampleUser/th2-infra-schema.git&host=111.111.1.1&c-host=222.222.2.2&dc=my_dc
+https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=git@github.com:ExampleUser/th2-infra-schema.git&host=111.111.1.1&c-host=222.222.2.2&dc=my_dc
 ```
 
 ```yaml[Output]
