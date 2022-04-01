@@ -2,6 +2,10 @@
 title: Generate configs
 weight: 5
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
+tokens_link:
+  - title: Creating a personal access token
+    icon: mdi-github
+    href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
 On this page you will find instructions about th2 installation. All configs will be automatically generated with special API.
@@ -89,12 +93,9 @@ Different Git systems have different mechanisms for accessing repository. So you
 ### GitHub
 
 Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
-SSH keys generated with command
-```shell
-ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
-``` are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
+SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
 
-GitHub repositories can be accessed via personal access tokens.
+GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
 
 <recommendations :items="tokens_link" ></recommendations>
 
@@ -102,15 +103,13 @@ It is required to grant permissions from `repo` scope. Other permissions are not
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-During the next step you will need to configure SSH link to your repository. 
+You will need generated token once in the next step.
 
-Your link to access GitHub repository will be constructed the next pattern:
+Create `infra-mgr` secret required by `th2-infra-mgr`.
 
-`https://<your_github_login>:<access_token>@github.com/<repository_owner>/<repository_name>.git`
-
-For example:
-
-`https://bestDeveloper:xxx@github.com/th2-net/th2-infra-schema-demo.git`
+```shell
+kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
+```
 
 ### GitLab
 
@@ -131,6 +130,7 @@ kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra
 ```
 
 In this case your link to configuration will be the default link to clone repository with SSH.
+
 
 ## Deploy th2
 
@@ -192,14 +192,14 @@ K8S_HOSTNAME=<cluster-hostname>
 MQ_HOSTNAME=<rabbit-mq-hostname>
 CASSANDRA_HOST=<cassandra-cluster-hostname>
 CASSANDRA_DC=<cassandra-datacenter-name>
-SCHEMA_SSH=<ssh-link-to-th2-infra-schema-git-repository>
+SCHEMA_LINK=<ssh-link-to-th2-infra-schema-git-repository>
 ```
 
 ```shell
-helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/helm-operator.values"
-helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/ingress.values"
-helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/prometheus-operator.values?hosts=$K8S_HOSTNAME"
-helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/service.values?repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/secrets"
-helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/dashboard.values?hosts=$K8S_HOSTNAME"
-helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/loki.values"
+helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
+helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
+helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
+helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
+helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/1-5-x/loki.values"
 ```
