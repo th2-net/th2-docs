@@ -102,7 +102,7 @@
       width="90vw"
       style="min-width: 300px"
       class="layout__aside--left--sm pt-16 px-5">
-      <ContentTree />
+        <ContentTree class="pl-3"/>
     </v-navigation-drawer>
     <v-main>
       <div class="layout--full">

@@ -26,6 +26,9 @@ $window-width-sm: 1024px;
     .sticky-tree{
       position: sticky;
       top: 80px;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      padding-bottom: 5rem;
     }
   }
 
@@ -46,6 +49,10 @@ $window-width-sm: 1024px;
     .sticky-page-content{
       position: sticky;
       top: 80px;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 5rem;
     }
   }
 }
