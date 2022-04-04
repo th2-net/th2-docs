@@ -78,7 +78,7 @@ sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 
 ### Specify the version of th2-infra repository
 
-Create variable with repository version:
+Create a variable with repository version:
 
 ```shell
 VERSION=1-5-x
@@ -204,10 +204,10 @@ Set up variables for Cassandra database. As it is running on the same machine ho
 CASSANDRA_HOST=host.minikube.internal
 CASSANDRA_DC=datacenter1
 ```
-Set SSH link to repository with your th2-infra-schema.
+Set link to repository with your th2-infra-schema.
 
 ```shell
-SCHEMA_SSH=<ssh-link-to-th2-infra-schema-git-repository>
+SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 ```
 
 ### Install Helm charts
@@ -216,7 +216,7 @@ SCHEMA_SSH=<ssh-link-to-th2-infra-schema-git-repository>
 helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/$VERSION/helm-operator.values"
 helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
 helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
-helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?platform=$PLATFORM&token=$USER_TOKEN&repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
+helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?platform=$PLATFORM&token=$USER_TOKEN&repository=$SCHEMA_LINK&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
 helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
 helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/$VERSION/loki.values"
 ```
