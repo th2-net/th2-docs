@@ -76,6 +76,14 @@ minikube ssh
 sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 ```
 
+### Specify the version of th2-infra repository
+
+Create variable with repository version:
+
+```shell
+VERSION=1-5-x
+```
+
 ### Create Kubernetes entities for data persistence
 
 Create the persistent volumes (PVs) and persistent volume claims (PVCs):
@@ -87,8 +95,8 @@ NODE_NAME=minikube
 ```
 
 ```shell
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_NAME"
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvcs"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvs?node-name=$NODE_NAME"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvcs"
 ```
 
 ## Deploy th2
@@ -142,6 +150,28 @@ helm repo add kubernetes-dashboard "https://kubernetes.github.io/dashboard/"
 helm repo add grafana "https://grafana.github.io/helm-charts"
 ```
 
+### Specify the platform
+
+Set the name of the platform, which you use
+
+<notice note >
+
+If you use GitHub, then set the `PLATFORM` variable value as 'github'. If you use GitLab, then set it as 'gitlab'.
+
+</notice>
+
+```shell
+PLATFORM=github
+```
+
+Create a personal access token by following this instruction: [_`Creating a personal access token`_](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+Create variable with your token
+
+```shell
+USER_TOKEN=<your_personal_access_token>
+```
+
 ### Create environment variables
 
 Set cluster hostname.
@@ -183,10 +213,10 @@ SCHEMA_SSH=<ssh-link-to-th2-infra-schema-git-repository>
 ### Install Helm charts
 
 ```shell
-helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/helm-operator.values"
-helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/ingress.values"
-helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/prometheus-operator.values?hosts=$K8S_HOSTNAME"
-helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/service.values?repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/secrets"
-helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/dashboard.values?hosts=$K8S_HOSTNAME"
-helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/loki.values"
+helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/$VERSION/helm-operator.values"
+helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
+helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?platform=$PLATFORM&token=$USER_TOKEN&repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
+helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
+helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/$VERSION/loki.values"
 ```
