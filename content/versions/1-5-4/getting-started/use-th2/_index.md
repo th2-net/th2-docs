@@ -21,7 +21,7 @@ In this guide, you will learn how to use th2 in testing.
 
 <!--more-->
 
-As you already have Kubernetes cluster with th2, we can try it testing.
+As you already have Kubernetes cluster along with the th2, we can try testing it.
 
 Next actions will be needed:
 
