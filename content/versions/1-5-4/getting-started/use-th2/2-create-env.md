@@ -9,7 +9,7 @@ test_config:
 
 ## Create testing environment
 
-You can create any modules for test logic that you want. You can architect any system of these modules, that you want. 
+You can create modules for your custom test logic and architect any system from them. 
 
 All you need is create Docker images of your module and describe it in `th2-infra-schema` repository. Every branch in this repository is the custom configuration for the th2 environment. 
 
@@ -24,7 +24,7 @@ the base configuration.
 
 ![](/img/getting-started/th2-infra-schema/git-based/create-branch.png)
 
-In the new branch it is needed to edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as rule
+In the new branch you need to edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as `rule`
 instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Lets commit changes.
 
 ```yml[infra-mgr-config.yml]
@@ -44,7 +44,7 @@ In the infra editor new schema is available.
 ![Infra Schema](/img/getting-started/th2-infra-schema/git-based/infra-schema.png)
 
 Infra Editor will create new namespace `th2-<new_schema_name>` in Kubernetes cluster for new schema.
-It can require some time, there will be pods for this environment in Kubernetes cluster. You can go the Kubernetes dashboard and see it.
+It can require some time, there will be pods for this environment in Kubernetes cluster. You can go to the Kubernetes dashboard and see it.
 
 ![New namespace](/img/getting-started/th2-infra-schema/git-based/new-namespace.png)
 

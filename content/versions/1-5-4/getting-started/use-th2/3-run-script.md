@@ -23,7 +23,7 @@ git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/
 
 `requirements.txt` contains standart packages to work with gRPC (e.g. google-api-core) and custom packages to work
 with th2 boxes. Please note that gRPC client (script) and gRPC server (th2 box) should use the same package.
-You can find more information about requirements.txt and package installation
+You can find more information about `requirements.txt` and package installation
 here: https://pip.pypa.io/en/stable/user_guide/#requirements-files
 
 Locate to the script root folder:
@@ -34,7 +34,7 @@ python -m pip install -r requirements.txt
 
 ## Set up configs
 
-Set up configs from directory configs (mq.json, rabbit.json, grpc.json) according to your components.
+Set up configs from directory configs (`mq.json`, `rabbit.json`, `grpc.json`) according to your components.
 
 You can copy configurations for `mq.json` and `grpc.json` from `script-entry-point-app-config` config map in environment namespace. 
 

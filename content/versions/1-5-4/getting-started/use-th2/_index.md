@@ -27,6 +27,6 @@ Next actions will be needed:
 
 1. Install Software for interaction with th2 components
 2. Create environment to run tests inside it
-3. Run script to test your system for volnerables
+3. Run script to test your system for vulnerables
 
 <recommendations :items="children"></recommendations>
