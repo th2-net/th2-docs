@@ -8,7 +8,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-On this page you will find instructions about th2 installation. All configs will be automatically generated with special API.
+This page contains instructions about th2 installation. All configs will be automatically generated with special API.
 
 <!--more-->
 
@@ -79,7 +79,7 @@ NODE_NAME=<node-name>
 
 ```shell
 kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_NAME
-kubectl apply -fhttps://th2-docs.herokuapp.com/api/config/pvcs
+kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvcs
 ```
 
 ## Access to the th2-infra-schema Git repository for th2
@@ -151,7 +151,7 @@ helm repo add grafana "https://grafana.github.io/helm-charts"
 
 ### Install components of th2
 
-Set Kubernetes cluster hostname in environment variable (leave empty if you have no configured DNS name):
+Set Kubernetes cluster hostname via environment variable (leave it empty if you have no configured DNS name):
 
 ```shell
 K8S_HOSTNAME=<cluster-hostname>
@@ -187,7 +187,7 @@ helm install ingress -n "service" \
 #### Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit.
-It will be used by Grafana as data source.
+It will be used by Grafana as a data source.
 And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
 
 Install Prometheus:
@@ -207,14 +207,14 @@ helm install prometheus -n "monitoring" \
 4. [_`th2-infra-repo`_](https://github.com/th2-net/th2-infra-repo)
 
 
-Set environment variables for generating config:
+Set environment variables for further config generation:
 
-- `MQ_HOSTNAME` - identical to [`K8S_HOSTNAME`](#install-components-of-th2). But if do not have configured DNS, fill with IP address of Kubernetes cluster
+- `MQ_HOSTNAME` - identical to [`K8S_HOSTNAME`](#install-components-of-th2). Should be filled with IP address of Kubernetes cluster if DNS is not configured. 
 - `CASSANDRA_HOST` - hostname or IP address of Cassandra cluster
 - `CASSANDRA_DC` - datacenter in Cassandra cluster to work with
 - `SCHEMA_LINK` - SSH link to th2-infra-schema if you use SSH keys for authorization or HTTPS link if you use tokens
 - `PLATFORM` - Git platform, where th2-infra-schema is published (required only if you use tokens). Possible values: `github`, `gitlab`
-- `TOKEN` - token for authorization on Git platform (required only if you use tokens). You might have token in environment variable from the [previous step](#github).
+- `TOKEN` - token for authorization on Git platform (required only if you use tokens). You might have token set in environment variable as done in the [previous step](#github).
 
 ```shell
 MQ_HOSTNAME=<rabbit-mq-hostname>
@@ -250,7 +250,7 @@ helm install dashboard -n "monitoring" \
 
 #### Grafana
 
-Grafana provides dashboard for the CPU, memory, and network usage of th2.
+Grafana provides dashboards for the CPU, memory, and network usage of th2.
 
 Install Grafana:
 
