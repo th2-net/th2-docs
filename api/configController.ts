@@ -26,6 +26,21 @@ const checkTh2InfraVersion = (req: Request, res: Response, next: any) => {
 
 const router: Router = Router()
 
+router.get('/versions', async (req: Request, res: Response) => {
+  try {
+    const versions = getTh2InfraConfigsVersions()
+    res.send({ 
+      _description: 'Supported configurations for versions of th2-infra', 
+      _count: versions.length, 
+      items: versions 
+    })
+  }
+  catch (e) {
+    res.status(500)
+    res.send(e)
+  }
+})
+
 router.get('/:version/dashboard.values', checkTh2InfraVersion, async (req: Request, res: Response) => {
   try {
     let specifiedVersion = req.params.version
