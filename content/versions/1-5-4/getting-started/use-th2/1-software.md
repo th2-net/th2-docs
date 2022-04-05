@@ -23,7 +23,7 @@ Java programming language is required for running special modules for the demo s
 
 ## Git
 
-Git is the most popular project version control system. Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in git repositories with the state of the testing system and updates corresponding components.
+Git is the most popular project version control system. Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in the git repositories with the state of the testing system and updates corresponding components.
 
 Follow [these instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git.
 

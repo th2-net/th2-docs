@@ -23,7 +23,7 @@ In this guide, you will learn how to use th2 in testing.
 
 As you already have Kubernetes cluster along with the th2, we can try testing it.
 
-Next actions will be needed:
+The following actions will be needed:
 
 1. Install Software for interaction with th2 components
 2. Create environment to run tests inside it

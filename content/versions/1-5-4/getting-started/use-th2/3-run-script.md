@@ -7,13 +7,13 @@ continue_learning:
     icon: mdi-magnify
 ---
 
-As we prepared environment for tests, we can run special script for check our system for vulnerables.
+As we have already prepared environment for the tests, we can run special script to check our system for vulnerabilities.
 
 <!--more-->
 
 ## Clone the script
 
-Clone needed branch from the [demo script repository](https://github.com/th2-net/th2-demo-script).  
+Clone corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script).  
 
 ```shell
 git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/th2-demo-script.git
@@ -21,9 +21,9 @@ git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/
 
 ## Import the libraries described in requirements.txt
 
-`requirements.txt` contains standart packages to work with gRPC (e.g. google-api-core) and custom packages to work
-with th2 boxes. Please note that gRPC client (script) and gRPC server (th2 box) should use the same package.
-You can find more information about `requirements.txt` and package installation
+`requirements.txt` contains standard packages to work with gRPC (e.g. google-api-core) and custom packages to work
+with the th2 boxes. Please note that gRPC client (script) and gRPC server (th2 box) should use the same package.
+You can find more information about the `requirements.txt` and package installation
 here: https://pip.pypa.io/en/stable/user_guide/#requirements-files
 
 Locate to the script root folder:
@@ -34,7 +34,7 @@ python -m pip install -r requirements.txt
 
 ## Set up configs
 
-Set up configs from directory configs (`mq.json`, `rabbit.json`, `grpc.json`) according to your components.
+Set up configurations from the directory configurations (`mq.json`, `rabbit.json`, `grpc.json`) in accordance with your components.
 
 You can copy configurations for `mq.json` and `grpc.json` from `script-entry-point-app-config` config map in environment namespace. 
 
@@ -55,7 +55,7 @@ and `password` values like in `secrets.yaml`.
 
 ## Run demo script
 
-Finally run demo script.
+Finally, run demo script.
 
 ```shell
 python run.py
@@ -74,4 +74,4 @@ description: "STEP1: Trader \"DEMO-CONN1\" sends request to create passive Order
 .....
 ```
 
-You can read analysis in special page in the meet th2 section. 
+You can read analysis on special page in the meet th2 section. 
