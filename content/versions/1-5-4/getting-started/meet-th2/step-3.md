@@ -148,7 +148,7 @@ Set cluster hostname.
 
 <notice note >
 
-If DNS for you cluster have not been configured, leave `K8S_HOSTNAME` empty. In this case it will be available on its IP address. 
+Leave `K8S_HOSTNAME` empty if you have not configured DNS for your cluster. In this case it will be available by IP address. 
 
 </notice>
 
