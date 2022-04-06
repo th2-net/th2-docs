@@ -25,8 +25,8 @@ As you already have Kubernetes cluster along with the th2, we can try testing it
 
 The following actions will be needed:
 
-1. Install Software for interaction with th2 components
-2. Create environment to run tests inside it
-3. Run script to test your system for vulnerables
+1. Install Software for interaction with the th2 components;
+2. Create environment to run tests inside it;
+3. Run script to test your system for vulnerabilities.
 
 <recommendations :items="children"></recommendations>
