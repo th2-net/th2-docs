@@ -33,7 +33,7 @@ The actual schemas in form of repositories are created in line with the purpose 
 Some configuration examples of the **th2-infra-schema** repository are available in different branches of the
 [`th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/master) repository.
 
-See the [Theory of pins and links](https://th2-docs.herokuapp.com/1-5-4/fundamentals/pins-and-links) section for more information.
+See the [Theory of pins and links](../../fundamentals/pins-and-links) section for more information.
 
 You can publish the th2-infra-schema in two possible ways:
 1. [Default](#default-publish-th2-infra-schema-to-create-a-th2-environment-by-editing-repository) - GitHub-based. You will edit schemas by editing repository.
@@ -57,7 +57,7 @@ In the future, you will provide the link to this repository in a separate th2 co
 
 </notice >
 
-If you have completed this step, you can go to the [next step](../set-up-cluster).
+If you have completed this step, you can go to the [next step](../meet-th2/step-3).
 
 ## Provide access to the _th2-infra-schema_ Git repository for _th2-infra-mgr_
 
