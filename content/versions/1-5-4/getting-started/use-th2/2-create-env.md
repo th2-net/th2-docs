@@ -25,7 +25,7 @@ the base configuration.
 ![](/img/getting-started/th2-infra-schema/git-based/create-branch.png)
 
 In the new branch you need to edit `infra-mgr-config.yml`: in order to automatically apply all dependencies from the _ `th2-infra-schema`_ 
-variable `spec.k8s-propagation` should be configured as `rule` instead of `off`. Lets commit changes.
+variable `spec.k8s-propagation` should be configured as `rule` instead of `off`. Let's commit changes.
 
 ```yml[infra-mgr-config.yml]
 kind: SettingsFile
