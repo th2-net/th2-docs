@@ -60,5 +60,6 @@ export const actions = {
 }
 
 export const getters = {
-
+  // Get sign of th2 version for url creation
+  versionDirName: (state: any) => state.version?.content_dir.replace('/versions/', '')
 }

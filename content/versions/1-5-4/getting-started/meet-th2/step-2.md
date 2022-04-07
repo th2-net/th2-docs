@@ -58,8 +58,6 @@ In the future, you will provide the link to this repository in a separate th2 co
 
 </notice >
 
-If you have completed this step, you can go to the [next step](../set-up-cluster).
-
 ## Provide access to the _th2-infra-schema_ Git repository for _th2-infra-mgr_
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
