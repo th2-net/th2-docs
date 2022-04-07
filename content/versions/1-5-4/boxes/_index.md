@@ -6,7 +6,7 @@ pre: "<b>2. </b>"
 
 
 
-This section contains boxes made to empower th2.
+This section contains Exactpro and Community boxes which are a part of th2 microservice architecture.
 
 <!--more-->
 
