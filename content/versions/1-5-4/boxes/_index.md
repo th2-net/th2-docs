@@ -4,7 +4,12 @@ weight: 15
 pre: "<b>2. </b>"
 ---
 
+
+
+This section contains Exactpro and Community boxes which are a part of th2 microservice architecture.
+
+<!--more-->
+
 ## Contents
-1. [About th2](about)
-2. [Technical requirements](requirements)
-3. [Install demo example](install-demo)
+1. [Exactpro](boxes/exactpro)
+2. [Community](boxes/community)
