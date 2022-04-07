@@ -29,7 +29,7 @@ Clone the [`th2-infra`](https://github.com/th2-net/th2-infra) repository.
 This repository contains configuration files for starting th2 inside Kubernetes.
 
 ```shell
-git clone https://github.com/th2-net/th2-infra.git
+git clone -b release-v1.5.x https://github.com/th2-net/th2-infra.git
 ```
 
 Go to the `th2-infra/example-values` directory.
@@ -151,12 +151,6 @@ ingress:
 ### Define Grafana hostname
 
 Define Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
-
-<notice info >
-
-To get <th2_host_name>, execute the `kubectl cluster-info` command.
-
-</notice >
 
 ```yaml[prometheus-operator.values.yaml]
 ...

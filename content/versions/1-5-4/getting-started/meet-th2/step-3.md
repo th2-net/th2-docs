@@ -148,7 +148,7 @@ Set cluster hostname.
 
 <notice note >
 
-If you do not have configured DNS for your cluster, leave `K8S_HOSTNAME` empty. In this case it will be available on its IP address. 
+Leave `K8S_HOSTNAME` empty if you have not configured DNS for your cluster. In this case it will be available by IP address. 
 
 </notice>
 
@@ -168,7 +168,7 @@ You can get address with `kubectl cluster-info`.
 MQ_HOSTNAME=192.168.49.2
 ```
 
-Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal` ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). Name of datacaenter is `datacenter1` by default.
+Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal` ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). The default name of Cassandra datacenter is `datacenter1`.
 
 ```shell
 CASSANDRA_HOST=host.minikube.internal
