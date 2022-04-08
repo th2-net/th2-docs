@@ -59,7 +59,6 @@ import Recommendations from "../components/global/Recommendations";
 export default {
   head(){
     let meta = []
-    console.log(this.$store)
     meta.push({ hid: 'og:title', name: 'og:title', content: 'th2 docs home' })
     meta.push(
       { hid: 'description', name: 'description',
