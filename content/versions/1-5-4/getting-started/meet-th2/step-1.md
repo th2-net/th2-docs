@@ -9,13 +9,12 @@ next:
 
 <custom-stepper :steps="6" :step="1" > </custom-stepper>
 
-th2 is a tool, that uses working Kubernetes and Cassandra clusters as its fundament. 
-With the instructions below you will be able to install basic system for the th2 and some useful tools to try demo script.
+th2 is a tool, that uses working Kubernetes and Cassandra clusters. 
+With the instructions below you will be able to install basic components for the th2, and some useful tools to try out demo script.
 
 <!--more-->
 
-As a result of this step, you will prepare your machine and get the following
-th2 components as part of the final th2 schema:
+As a result of this step, you will get your machine set up and also install the th2 components. They are on the schema below:
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-1-install-software.drawio.png)
 
@@ -29,7 +28,7 @@ Python programming language is required for CQLSH and for running the demo scrip
 
 <spoiler title="Verify Python is installed" >
 
-Check the Helm version:
+Check Python version:
 
 ```shell
 python --version
@@ -51,7 +50,7 @@ Java programming language is required for running special modules for the demo s
 
 <spoiler title="Verify Java is installed" >
 
-Check the Helm version:
+Check Java version:
 
 ```shell
 java --version
@@ -95,11 +94,11 @@ git version 2.33.0
 
 Kubectl is a command line interface for interacting with the Kubernetes cluster.
 
-Installation instructions are given on the [Kubernetes website](https://kubernetes.io/docs/tasks/tools/#kubectl).
+You can see installation instructions on the [Kubernetes website](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
-<spoiler title="Verify that kubectl is installed" >
+<spoiler title="Verify that Kubectl is installed" >
 
-Check kubectl version:
+Check Kubectl version:
 
 ```shell
 kubectl version
@@ -122,7 +121,7 @@ Helm is a package manager for Kubernetes used to deploy required modules to a Ku
 
 <spoiler title="Verify Helm is installed" >
 
-Check the Helm version:
+Check Helm version:
 
 ```bash
 helm version
@@ -138,7 +137,7 @@ version.BuildInfo{Version:"v3.6.0", GitCommit:"7f2df6467771a75f5646b7f12afb40859
 
 ### Cassandra Query Language Shell (CQLSH)
 
-`cqlsh` is the command line interface, that provides you with an access to the Cassandra database.
+`cqlsh` is the command line interface, that provides you with access to the Cassandra database.
 
 ```shell
 pip install cqlsh
@@ -163,11 +162,11 @@ cassandra@cqlsh>
 
 </spoiler >
 
-## Containerisation
+## Containerization
 
 ### Docker CE v19+
 
-Docker is the most popular open-source application containerization technology.
+Docker is the most popular open source application containerization technology.
 The th2 services will run inside separate Docker containers.
 
 To install the Docker, follow the [official guide](https://docs.docker.com/engine/install/). Upon installation, you will need to [configure Docker](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker) for Kubernetes.
@@ -210,22 +209,19 @@ For more examples and ideas, visit:
 ### Minikube
 
 Minikube runs the Kubernetes cluster inside the container.
-It is easier to configure than common Kubernetes cluster,
-but it cannot be expanded to several nodes.
-See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/)
-in the official minikube documentation.
+It is easier to configure than a common Kubernetes cluster, but it cannot be expanded to several nodes.
+See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/) in the official minikube documentation.
 
 ## Visualisation
 
 ### Chrome 75 or newer
 
-A browser is required to access the th2 web interface, Kubernetes dashboard, Grafana, etc. For the th2, we use Chrome. To install it, use [this link](https://www.google.com/chrome).
+To access the th2 web interface, Kubernetes dashboard, Grafana and other components, you will need a browser. For th2 we use Chrome. To install it, use [this link](https://www.google.com/chrome).
 
 ### Portainer (Optional)
 
 Portainer is the web UI for the docker.
-It can help to manage `minikube` container with the Kubernetes cluster
-and `th2-storage` container with the Cassandra database.
+It can help to manage `minikube` container with the Kubernetes cluster and `th2-storage` container with the Cassandra database.
 
 Run Portainer docker container:
 
@@ -268,7 +264,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ### Cassandra
 
-The Cassandra database is used in the th2 setup to store all the data generated or processed by the th2.
+The Cassandra database is used in the th2 setup to store all the data generated or processed by th2.
 
 For the demo purposes we will run Cassandra inside docker.
 
