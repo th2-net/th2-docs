@@ -78,7 +78,6 @@ export default Vue.extend({
   },
   methods: {
     onVersionChange(v: Th2Version){
-      console.log(v)
       this.$store.commit('setVersion', v)
       this.$store.dispatch('getPagesTree', v)
     }
