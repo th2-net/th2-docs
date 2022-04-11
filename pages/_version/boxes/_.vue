@@ -45,7 +45,7 @@
           </v-card>
         </section>
         <nuxt-content :document="page" />
-
+        <page-git-hub-issue :pageInfo="page" />
       </article>
       <article v-else>
         <h1>Page not found</h1>
@@ -62,6 +62,7 @@ import '~/assets/nuxt-content.scss'
 // @ts-ignore
 import PageContent from "~/components/layout/PageContent.vue";
 import PageGitHubInfo from "~/components/content/PageGitHubInfo.vue"
+import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue';
 import { RepoResponse, repoInfoFromJSON } from '~/apiTypes/github/repo-info';
 import {timeFormatterMixin} from "~/mixins/timeFormatter";
 import { Context } from '@nuxt/types';
@@ -70,7 +71,7 @@ import { contentPageMixin, getPageInfo, getRepoInfo} from "~/mixins/contentPage"
 export default Vue.extend({
   name: "th2BoxPage",
   components: {
-    PageContent, PageGitHubInfo
+    PageContent, PageGitHubInfo, PageGitHubIssue
   },
   mixins: [timeFormatterMixin, contentPageMixin],
   data: () => ({

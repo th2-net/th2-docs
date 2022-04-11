@@ -19,6 +19,7 @@
         <recommendations class="my-4" v-if="page.continue_learning" :items="page.continue_learning" >
           <div>Continue learning:</div>
         </recommendations>
+        <page-git-hub-issue :pageInfo="page" />
       </article>
       <article v-else>
         <h1>Page not found</h1>
@@ -39,12 +40,14 @@ import { contentPageMixin, getPageInfo } from "../mixins/contentPage";
 import { Context } from "@nuxt/types";
 import Recommendations from "~/components/global/Recommendations.vue";
 import PageGitHubInfo from '~/components/content/PageGitHubInfo.vue';
+import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue';
 
 export default Vue.extend({
   name: "MarkdownContent",
   components: {
     Recommendations,
-    PageContent, PageGitHubInfo
+    PageContent, 
+    PageGitHubInfo, PageGitHubIssue
   },
   data: () => ({
     error: false
