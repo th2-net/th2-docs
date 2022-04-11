@@ -26,7 +26,7 @@ with the th2 boxes. Please note that gRPC client (script) and gRPC server (th2 b
 You can find more information about the `requirements.txt` and package installation
 here: https://pip.pypa.io/en/stable/user_guide/#requirements-files
 
-Locate to the script root folder:
+Move to the script root folder and execute the following command:
 
 ```shell
 python -m pip install -r requirements.txt
@@ -36,7 +36,7 @@ python -m pip install -r requirements.txt
 
 Set up configurations from the directory configurations (`mq.json`, `rabbit.json`, `grpc.json`) in accordance with your components.
 
-You can copy configurations for `mq.json` and `grpc.json` from `script-entry-point-app-config` config map in environment namespace. 
+You can copy configurations for `mq.json` and `grpc.json` from `script-entry-point-app-config` config map in the environment namespace. 
 
 ![mq config](/img/getting-started/demo-script/db-mq.png)
 
