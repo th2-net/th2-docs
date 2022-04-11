@@ -86,7 +86,7 @@
         <site-logo />
         <search-window :window-size="windowSize" />
         <div class="header-btns">
-          <v-btn :href="$store.state.githubRepoLink" target="_blank" icon>
+          <v-btn dark :href="$store.state.githubRepoLink" target="_blank" icon>
             <v-icon>mdi-github</v-icon>
           </v-btn>
           <theme-switcher />
