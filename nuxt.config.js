@@ -66,7 +66,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.BASE_URL ? process.env.BASE_URL : process.env.HEROKU_APP_NAME ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com/api/` : 'http://localhost:3000/api'
+    baseURL: !!process.env.BASE_URL ? process.env.BASE_URL : !!process.env.HEROKU_APP_NAME ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com/api/` : 'http://localhost:3000/api'
   },
 
 
