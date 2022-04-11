@@ -1,6 +1,8 @@
 import vuetifyConfig from './plugins/vuetify'
 import {getRoutes} from "./plugins/sitemap";
 
+let axiosBaseUrl = !!process.env.BASE_URL ? process.env.BASE_URL : !!process.env.HEROKU_APP_NAME ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com/api/` : 'http://localhost:3000/api'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -66,7 +68,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: !!process.env.BASE_URL ? process.env.BASE_URL : !!process.env.HEROKU_APP_NAME ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com/api/` : 'http://localhost:3000/api'
+    baseURL: axiosBaseUrl
   },
 
 
@@ -87,7 +89,7 @@ export default {
   },
 
   sitemap: {
-    hostname: process.env.BASE_URL.replace('/api', '/'),
+    hostname: axiosBaseUrl.replace('/api', '/'),
     routes() {
       return getRoutes();
     }
