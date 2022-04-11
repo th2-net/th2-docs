@@ -6,7 +6,8 @@ export const state = () => ({
   pagesTree: [] as ContentTree,
   pagesRoutes: [] as string[],
   versions: [] as Th2Version[],
-  version: undefined as Th2Version | undefined
+  version: undefined as Th2Version | undefined,
+  githubRepoLink: 'https://github.com/th2-net/th2-docs'
 })
 
 export const mutations = {
