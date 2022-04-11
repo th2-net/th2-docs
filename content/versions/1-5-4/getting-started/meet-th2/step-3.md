@@ -61,11 +61,12 @@ Create directories for data persistence with the next command.
 
 If you are using minikube, directories must be created inside the container with Kubernetes cluster.
 
-Use this command to get inside the minikube container:
+Use this command to create directories inside the minikube container:
 
 ```shell
 minikube ssh
 sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
+exit
 ```
 </notice >
 
@@ -190,32 +191,38 @@ SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 
 ### Install Helm charts
 
+Install Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
 ```
+Install NGINX Ingress Controller:
 ```shell
 helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
 ```
+Install Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
+Install th2-infra components:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
 ```
+Install Kubernetes Dashboard:
 ```shell
 helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
   -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
+Install Grafana:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \

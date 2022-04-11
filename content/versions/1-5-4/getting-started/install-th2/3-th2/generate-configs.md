@@ -163,7 +163,7 @@ The Helm Operator is a Kubernetes operator, allowing one to declaratively manage
 Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
 **Secrets**, **Custom Resources**).
 
-Install Helm Operator.
+Install Helm Operator:
 
 ```shell
 helm install helm-operator -n "service" \
