@@ -3,6 +3,7 @@
     <v-container class="layout__main">
       <article v-if="!error">
         <h1 v-if="!page.chapter">{{ page.title }}</h1>
+        <page-git-hub-info :pageInfo="page" />
         <recommendations class="my-4" v-if="page.read_before" :items="page.read_before" >
           <div>Read before this article:</div>
         </recommendations>
@@ -37,12 +38,13 @@ import PageContent from "~/components/layout/PageContent";
 import { contentPageMixin, getPageInfo } from "../mixins/contentPage";
 import { Context } from "@nuxt/types";
 import Recommendations from "~/components/global/Recommendations.vue";
+import PageGitHubInfo from '~/components/content/PageGitHubInfo.vue';
 
 export default Vue.extend({
   name: "MarkdownContent",
   components: {
     Recommendations,
-    PageContent
+    PageContent, PageGitHubInfo
   },
   data: () => ({
     error: false

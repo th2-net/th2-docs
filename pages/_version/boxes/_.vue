@@ -3,6 +3,7 @@
     <v-container class="layout__main">
       <article v-if="!error">
         <h1 v-if="!page.chapter">{{ page.title }}</h1>
+        <page-git-hub-info :page-info="page" />
         <section v-if="repoInfo" class="my-4">
           <v-list-item :href="repoInfo.owner.html_url" target="_blank">
             <v-list-item-avatar>
@@ -60,6 +61,7 @@ import '~/assets/layout.scss'
 import '~/assets/nuxt-content.scss'
 // @ts-ignore
 import PageContent from "~/components/layout/PageContent.vue";
+import PageGitHubInfo from "~/components/content/PageGitHubInfo.vue"
 import { RepoResponse, repoInfoFromJSON } from '~/apiTypes/github/repo-info';
 import {timeFormatterMixin} from "~/mixins/timeFormatter";
 import { Context } from '@nuxt/types';
@@ -68,7 +70,7 @@ import { contentPageMixin, getPageInfo, getRepoInfo} from "~/mixins/contentPage"
 export default Vue.extend({
   name: "th2BoxPage",
   components: {
-    PageContent
+    PageContent, PageGitHubInfo
   },
   mixins: [timeFormatterMixin, contentPageMixin],
   data: () => ({
