@@ -29,7 +29,7 @@ export default Vue.extend({
   mixins: [timeFormatterMixin],
   computed: {
     editPageLink(){
-      return `${this.$store.state.githubRepoLink}/edit/master/content${this.pageInfo.path}${this.pageInfo.extension}`
+      return `${this.$store.state.githubRepoLink}/blob/master/content${this.pageInfo.path}${this.pageInfo.extension}`
     }
   }
 })
