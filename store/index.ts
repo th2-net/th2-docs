@@ -45,8 +45,6 @@ export const actions = {
   },
   async getVersions({ commit }: any){
     // @ts-ignore
-    console.log(this.$axios)
-    // @ts-ignore
     const versions: Th2Version = await this.$axios.$get('content/versions')
     commit('setVersions', versions)
   },
