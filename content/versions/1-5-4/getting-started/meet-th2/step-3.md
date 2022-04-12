@@ -12,12 +12,12 @@ next:
 
 <custom-stepper :steps="6" :step="3" > </custom-stepper>
 
-With this instruction you will install required Kubernetes components into the cluster. The th2 infrastructure components will be among them.
+Follow this instruction to install required Kubernetes components into the cluster. The th2 infrastructure components will be among them.
 
 <!--more-->
 
 As a result of this step, you will deploy th2 into your Kubernetes cluster.
-Upon its completion, you are expected to have the environment setup as in the picture below.
+Upon its completion, you should have the environment setup as in the picture below.
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-4-install-th2.drawio.png)
 
@@ -55,7 +55,7 @@ Please read the documentation to choose an appropriate PV type for your environm
 
 </notice >
 
-Create directories for data persistence with the next command.
+Create directories for data persistence with the following command.
 
 <notice info >
 
@@ -70,7 +70,7 @@ exit
 ```
 </notice >
 
-### Specify the version of the th2-infra repository
+### Specify the version of th2-infra repository
 
 Create a variable with repository version:
 
@@ -80,14 +80,12 @@ VERSION=1-5-x
 
 ### Create Kubernetes entities for data persistence
 
-Create the persistent volumes (PVs) and persistent volume claims (PVCs):
-
 Create environment variable with the node name:
 
 ```shell
 NODE_NAME=minikube
 ```
-
+Create persistent volumes (PVs) and persistent volume claims (PVCs):
 ```shell
 kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvs?node-name=$NODE_NAME"
 kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvcs"
@@ -109,7 +107,7 @@ It provides access to the th2 web services through HTTP.
 
 #### Prometheus
 
-Prometheus is an open source systems monitoring and alerting toolkit.
+Prometheus is an open-source system monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
 It also contains **Custom Resource Definitions** (CRD) required by the th2 infra.
 
@@ -124,7 +122,8 @@ It also contains **Custom Resource Definitions** (CRD) required by the th2 infra
 
 #### Kubernetes Dashboard
 
-[Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) is a web-based Kubernetes user interface.
+[Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+is a web-based Kubernetes user interface.
 With this tool you can monitor existing Kubernetes objects and its details.
 
 #### Grafana
@@ -168,22 +167,31 @@ You can get address with `kubectl cluster-info`.
 MQ_HOSTNAME=192.168.49.2
 ```
 
-Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal` ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). The default name of Cassandra datacenter is `datacenter1`.
+Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal`
+ ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). The default name of Cassandra datacenter is `datacenter1`.
 
 ```shell
 CASSANDRA_HOST=host.minikube.internal
 CASSANDRA_DC=datacenter1
 ```
 Set Git platform, where th2-infra-schema is published. Possible values: `github`, `gitlab`. 
-We need to set `PLATFORM` to point to GitHub. 
+We need to set `github` to point to GitHub.
+ 
 ```shell
 PLATFORM=github
 ```
 
-Store your GitHub token created earlier or create a new personal access token by following this instruction: [_`Creating a personal access token`_](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in environment variable:
+Store your GitHub token created earlier or create a new personal access token by following 
+this instruction: [_`Creating a personal access token`_](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in environment variable:
 
 ```shell
 TOKEN=<your_personal_access_token>
+```
+
+Set HTTPS link to th2-infra-schema in GitHub:
+
+```shell
+SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 ```
 
 Create `infra-mgr` secret required by `th2-infra-mgr`.
@@ -191,10 +199,7 @@ Create `infra-mgr` secret required by `th2-infra-mgr`.
 ```shell
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
 ```
-Set HTTPS link to th2-infra-schema in GitHub:
-```shell
-SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
-```
+
 
 ### Install Helm charts
 
