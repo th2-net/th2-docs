@@ -203,7 +203,7 @@ kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infr
 
 ### Install Helm charts
 
-Install Helm Operator:
+Install the Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
