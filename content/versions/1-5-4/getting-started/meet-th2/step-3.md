@@ -70,6 +70,13 @@ exit
 ```
 </notice >
 
+### Specify the version of the th2-infra repository
+
+Create a variable with repository version:
+
+```shell
+VERSION=1-5-x
+```
 
 ### Create Kubernetes entities for data persistence
 
@@ -82,8 +89,8 @@ NODE_NAME=minikube
 ```
 
 ```shell
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_NAME"
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvcs"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvs?node-name=$NODE_NAME"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvcs"
 ```
 
 ## Deploy th2
@@ -173,10 +180,10 @@ We need to set `PLATFORM` to point to GitHub.
 PLATFORM=github
 ```
 
-Store your GitHub token created earlier in environment variable:
+Store your GitHub token created earlier or create a new personal access token by following this instruction: [_`Creating a personal access token`_](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in environment variable:
 
 ```shell
-TOKEN=<token>
+TOKEN=<your_personal_access_token>
 ```
 
 Create `infra-mgr` secret required by `th2-infra-mgr`.
@@ -195,36 +202,36 @@ Install Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/helm-operator.values"
 ```
 Install NGINX Ingress Controller:
 ```shell
 helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
 ```
 Install Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
 Install th2-infra components:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
 ```
 Install Kubernetes Dashboard:
 ```shell
 helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
 Install Grafana:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/loki.values"
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/loki.values"
 ```
