@@ -215,13 +215,13 @@ helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
   -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
 ```
-Install Prometheus:
+Install Grafana and Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
   -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
-Install th2-infra components:
+Install th2-infra components and RabbitMQ:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
@@ -234,7 +234,7 @@ helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
   -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
-Install Grafana:
+Install Grafana Loki:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
