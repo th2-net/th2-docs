@@ -1,7 +1,6 @@
 ---
 title: OS and network
 weight: 5
-chapter: true
 ---
 
 # Operational system and network requirements

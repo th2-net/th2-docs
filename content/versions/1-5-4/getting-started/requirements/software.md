@@ -1,7 +1,6 @@
 ---
 title: Software
 weight: 10
-chapter: true
 ---
 
 # Software requirements

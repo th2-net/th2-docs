@@ -24,11 +24,9 @@ your own testing system. We call these components **boxes**.
 
 There are 2 types of __boxes__:
 
-1. **Core** - stores main configuration for schema environments. 
-Core components create and control these environments. 
-Core connects to the data store from inside schema environments.
-2. **Modules** - contain custom logic (e.g. connection between 
-client and system, analyzers, client and exchange simulators).
+1. **Core** - stores main configuration for schema environments. Core components create and control these environments. Core connects to the data store from inside schema environments.
+
+2. **Modules** - contain custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 ## Infrastructure
 
