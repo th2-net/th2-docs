@@ -119,6 +119,7 @@
 <script>
 import '~/assets/layout.scss'
 import '~/assets/scrollbar.scss'
+import '@mdi/font/css/materialdesignicons.min.css'
 import ContentTree from "../components/layout/ContentTree";
 import ThemeSwitcher from "../components/layout/ThemeSwitcher";
 import SiteLogo from "../components/layout/SiteLogo";
