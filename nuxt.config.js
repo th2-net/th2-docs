@@ -13,6 +13,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=no' },
+      { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; connect-src 'self' ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' *.githubusercontent.com *.github.com github.com www.youtube.com; font-src 'self' data: https://fonts.gstatic.com; media-src 'self' www.youtube.com; frame-src 'self' www.youtube.com" },
       { hid: 'description', name: 'description',
         content: 'Documentation for th2 - the next-generation test automation framework for financial markets'
       },
