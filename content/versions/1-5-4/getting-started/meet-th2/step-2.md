@@ -8,6 +8,10 @@ prev:
 next:
   title: Install th2
   link: ./step-3
+tokens_link:
+  - title: Creating a personal access token
+    icon: mdi-github
+    href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
 <custom-stepper :steps="6" :step="2" > </custom-stepper>
