@@ -1,16 +1,17 @@
 <template>
   <div class="my-16">
-    Found something strange?
-
     <v-card :href="createIssueLink" target="_blank" 
-      class="pa-4 my-4 mx-auto"
+      class="pa-4 px-4 my-4 mx-auto"
       style="width: fit-content"
       outlined>
-      <div class="d-flex flex-column justify-center">
-        <div class="red--text font-weight-black">
+      <div class="d-flex flex-column align-center">
+        <span class="red--text">
+          Found something strange?
+        </span>
+        <v-icon class="my-5" color="red" style="font-size: 5rem">mdi-alert-circle-outline</v-icon>
+        <span class="red--text font-weight-black" style="font-size: 1.2rem">
          Create an Issue
-        </div> 
-        <v-icon color="red" style="font-size: 5rem">mdi-alert-circle</v-icon>
+        </span> 
       </div>
     </v-card>
 
