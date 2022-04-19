@@ -16,14 +16,14 @@ export const cachePagesPaths = async (): Promise<Map<string, string>> => {
   const versionedPagesPaths: string[] = (
     await $content('/versions', {deep: true})
     .only(['path'])
-    .where({ extension: '.md' })
+    .where({ extension: '.md', hide: { $ne: true } })
     .fetch()
   ).map((page: any) => page.path)
   // Get all paths from common folder
   const commonPagesPaths: string[] = (
     await $content('/common', {deep: true})
       .only(['path'])
-      .where({ extension: '.md' })
+      .where({ extension: '.md', hide: { $ne: true } })
       .fetch()
   ).map((page: any) => page.path)
 
