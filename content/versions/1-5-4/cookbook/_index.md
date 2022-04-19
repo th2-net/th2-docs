@@ -1,5 +1,5 @@
 ---
-title: Cookbook
+title: 📖 Cookbook
 weight: 10
 ---
 
