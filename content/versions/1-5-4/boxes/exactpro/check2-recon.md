@@ -13,35 +13,47 @@ related:
 
 ## Basics
 
-Check2 (ak recon from “reconciliation”) is one of the components of th2. 
-Purpose of check2 is to compare several event streams. The original 
-idea was in actual messages and expected messages comparing to detect 
-errors and discover its reasons. Besides direct comparison check2 can 
-create notes inside messages about potential problems.
+Check2-recon is one of the th2 modules. 
+The purpose of check2-recon is to compare several event streams. The module matches related messages and detects discrepancies between actual and expected messages. 
+Besides direct comparison, check2-recon can create notes about potential inconsistencies inside the messages.
+
+<notice info>
+In the name of this module, "recon" stands for "reconciliation" rather than "reconnaissance". In th2, we use "recon" as a shortened term instead of "reconciliation". 
+</notice>
+
+## Structure 
+
+On GitHub, the check2-recon module is represented by three repositories: 
+
+- [`th2-check2-recon`](https://github.com/th2-net/th2-check2-recon) is a library that describes the main logic of the functionality as well as classes and methods behind the comparison rules.
+- [`th2-check2-recon-template`](https://github.com/th2-net/th2-check2-recon-template) is a template providing sample config files with implementation of the rules and the parameters of an entry point. 
+- [`th2-grpc-check2-recon`](https://github.com/th2-net/th2-grpc-check2-recon) is a repository enhancing the module with gRPC methods. 
 
 ## Configuration
 
-Before using check2 we should configure it for our purposes. 
-This box is configured as a Kubernetes pod and as a set of comparison rules.
+To use check2-recon, you need to configure it for your purposes. 
+To do that, edit the `check2-recon.yaml` configuration file.
+In particular, the adjustment is needed for the parameters for a Kubernetes Pod (the `spec/custom-config` section) and parameters describing comparison rules (the `spec/custom-config/rules` section of the config file). 
 
 ### CR configuration
 
-Some custom-configs was defined for the kubernetes pod configuration:
-- `recon_name` - name report in GUI.
-- `cache_size` - maximum message group size. When the message group is full, the new message replaces the oldest one. An appropriate event is sent about this.
-- `rules_package_path` - directory where rules are located.
+Some `custom-config` parameters were defined for the Kubernetes Pod configuration:
+- `recon_name` - report name in GUI.
+- `cache_size` - maximum message group size. When the message group is full, a new message replaces the oldest one. 
+An appropriate event is sent about this.
+- `rules_package_path` - directory where the rules are.
 - `event_batch_max_size` - maximum number of events in one EventBatch.
 - `event_batch_send_interval` - how often to send EventBatch with events.
-- `rules` - list of rule configurations
+- `rules` - list of *rule* configurations.
 
 And configuration for each rule in rules list:
 
 - `name` - name of the file containing the rule.
-- `enabled` - should rule be used or not.
+- `enabled` - should *rule* be used or not.
 - `match_timeout` - time interval between compared messages in seconds. The current time is taken from the new message. For all messages that arrived earlier than (actual_time - match_timeout) and did not participate in the checks, the corresponding events will be created.
 - `match_timeout_offset_ns` - the addend for match_timeout * 1_000_000_000, if precision to nanoseconds is needed.
 
-Example of the pod configuration:
+Example of the Pod configuration:
 
 ```yaml[check2-recon.yaml]
 apiVersion: th2.exactpro.com/v1
@@ -94,12 +106,12 @@ In files containing the rule class Rule should be defined. Structure of class Ru
 
 Getters:
 
-- `get_name()` - name of the rule
-- `get_description()` - description of the rule
+- `get_name()` - name of the rule.
+- `get_description()` - description of the rule.
 - `get_attributes()` - required message stream attributes.
 - `desciption_of_groups()` - dictionary containing names of the groups and its type. 
 
-Group types are available in a check2 package. At the moment there are 2 group types:
+Group types are available in a check2-recon package. At the moment there are 2 group types:
 
 - Type `single` means that all messages in the group have unique hashes 
 (key of the message) - new message replaces old.
