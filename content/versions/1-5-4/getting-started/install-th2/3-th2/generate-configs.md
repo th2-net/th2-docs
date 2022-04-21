@@ -18,7 +18,7 @@ This page contains instructions about th2 installation. All the configs will be 
 
 Flannel is a Kubernetes add-on that addresses networking [issues](https://kubernetes.io/docs/concepts/cluster-administration/networking/).
 
-In order to install it, you need to run the following command:
+To install it, you need to run the following command:
 
 ```shell
 kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml"
@@ -43,7 +43,7 @@ Loki, RabbitMQ - and should be set up at this point.
 
 Examples below use HostPath type of a
 [Persistent Volume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
-Please read the documentation to choose an appropriate PV type for your environment.
+Read the documentation to choose an appropriate PV type for your environment.
 
 </notice >
 
@@ -86,24 +86,24 @@ kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvcs
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted SSH access with the written permissions.
+it is required that the `th2-infra-mgr` component is granted SSH access with the write permissions.
 
-Different Git systems have different mechanisms for accessing the repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing the repository. So, your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent the changes. These changes affected th2 SSH connections to the GitHub repositories. 
-SSH keys generated with the RSA algorithm are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent some changes. These changes affected th2 SSH connections with the GitHub repositories. 
+SSH keys generated with the RSA algorithm are no longer accepted when uploaded to GitHub starting from March 16, 2022. Keys uploaded before this date will continue to work.
 
-The GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use the ssh connection. 
+The GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use the SSH connection. 
 
 <recommendations :items="tokens_link" ></recommendations>
 
-It is required to grant permissions from `repo` scope. Other permissions are not needed.
+You need to grant permissions from `repo` scope. Other permissions are not needed.
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-You will need generated token once in the next step. Save the token as the environment variable:
+You will need a generated token once in the next step. Save the token as the environment variable:
 
 ```shell
 TOKEN=<token>
@@ -160,7 +160,7 @@ K8S_HOSTNAME=<cluster-hostname>
 #### Helm Operator
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
-Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
+By using it you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
 **Secrets**, **Custom Resources**).
 
 Install Helm Operator:
@@ -200,7 +200,7 @@ helm install prometheus -n "monitoring" \
 
 #### th2 infra components
 
-`th2-infra` helm chart contains description for 4 th2 components:
+`th2-infra` helm chart contains description of 4 th2 components:
 1. [_`th2-infra-editor`_](https://github.com/th2-net/th2-infra-editor)
 2. [_`th2-infra-mgr`_](https://github.com/th2-net/th2-infra-mgr)
 3. [_`th2-infra-operator`_](https://github.com/th2-net/th2-infra-operator)
