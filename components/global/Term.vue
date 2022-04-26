@@ -1,5 +1,5 @@
 <template>
-  <v-menu @input="getTermOnce">
+  <v-menu offset-y @input="getTermOnce">
     <template v-slot:activator="{ on, attrs }">
       <span class="term" v-bind="attrs" v-on="on">
         <slot>{{term}}</slot>
