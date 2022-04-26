@@ -2,16 +2,15 @@
 title: Meet th2
 weight: 20
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
+hide: true
 ---
 
-# Install demo example
+# Install demo example and try out th2 
 
-In this guide, you will learn how to run th2 and test a system as part of our demo example.
+In this section use our demo example to learn how to install th2 and then test a system.
 
-The resulting environment setup is shown on the diagram below.
+Please refer to the following lightweight step-by-step [instructions](./meet-th2/step-1) to install and run th2.
+
+The resulting environment setup is on the diagram below.
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png)
-
-## To try th2
-Please refer to the following  light-weight [instructions](./meet-th2/step-1) step by step
-

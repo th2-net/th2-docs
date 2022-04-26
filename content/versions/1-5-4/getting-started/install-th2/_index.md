@@ -6,7 +6,7 @@ continue_learning:
     href: ./meet-th2
     icon: mdi-book-open-page-variant-outline
   - title: Interact with th2
-    href: ./
+    href: ./use-th2
     icon: mdi-account
 ---
 

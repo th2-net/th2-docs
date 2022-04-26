@@ -12,12 +12,12 @@ next:
 
 <custom-stepper :steps="6" :step="3" > </custom-stepper>
 
-With this instruction you will install required Kubernetes components to the cluster. And the th2 infrastructure components will be among them.
+Follow this instruction to install required Kubernetes components into the cluster. The th2 infrastructure components will be among them.
 
 <!--more-->
 
 As a result of this step, you will deploy th2 into your Kubernetes cluster.
-Upon its completion, you are expected to have the environment setup as shown on the picture below.
+Upon its completion, you should have the environment setup as in the picture below.
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-4-install-th2.drawio.png)
 
@@ -27,7 +27,7 @@ Upon its completion, you are expected to have the environment setup as shown on 
 
 Flannel is a Kubernetes add-on that addresses networking [issues](https://kubernetes.io/docs/concepts/cluster-administration/networking/).
 
-To install it, you need to run the following command:
+To install it, run the following command:
 
 ```shell
 kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml"
@@ -45,8 +45,7 @@ kubectl create namespace service
 
 ### Create directories for data persistence
 
-Data persistence is required for the following components: Grafana, Prometheus,
-Loki, RabbitMQ - and should be set up at this point.
+The following components require data persistence: Grafana, Prometheus, Loki, RabbitMQ - and should be set up at this point.
 
 <notice note >
 
@@ -56,39 +55,40 @@ Please read the documentation to choose an appropriate PV type for your environm
 
 </notice >
 
-Create directories for data persistence with the next command.
+Create directories for data persistence with the following command.
 
 <notice info >
 
-If you are using minikube, directories must be created in the container with
-Kubernetes cluster.
+If you are using minikube, directories must be created inside the container with Kubernetes cluster.
 
-Use this command to get to minikube container:
+Use this command to create directories inside the minikube container:
 
 ```shell
 minikube ssh
+sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
+exit
 ```
-
 </notice >
 
+### Specify the version of th2-infra repository
+
+Create a variable with repository version:
 
 ```shell
-sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
+VERSION=1-5-x
 ```
 
 ### Create Kubernetes entities for data persistence
 
-Create the persistent volumes (PVs) and persistent volume claims (PVCs):
-
-Create environment variable with node name:
+Create environment variable with the node name:
 
 ```shell
 NODE_NAME=minikube
 ```
-
+Create persistent volumes (PVs) and persistent volume claims (PVCs):
 ```shell
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_NAME"
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvcs"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvs?node-name=$NODE_NAME"
+kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvcs"
 ```
 
 ## Deploy th2
@@ -98,8 +98,7 @@ kubectl apply -f "https://th2-docs.herokuapp.com/api/config/pvcs"
 #### Helm Operator
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
-Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
-**Secrets**, **Custom Resources**).
+Using it you can automatically create Kubernetes objects (**Pods**, **Namespaces**, **Deployments**, **Configmaps**, **Secrets**, **Custom Resources**).
 
 #### NGINX Ingress Controller
 
@@ -108,7 +107,7 @@ It provides access to the th2 web services through HTTP.
 
 #### Prometheus
 
-Prometheus is an open-source systems monitoring and alerting toolkit.
+Prometheus is an open-source system monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
 It also contains **Custom Resource Definitions** (CRD) required by the th2 infra.
 
@@ -129,7 +128,7 @@ With this tool you can monitor existing Kubernetes objects and its details.
 
 #### Grafana
 
-Grafana provides dashboard for the CPU, memory, and network usage of the th2.
+Grafana provides dashboard for the CPU, memory, and network usage of th2.
 
 ### Download Helm charts
 
@@ -168,25 +167,76 @@ You can get address with `kubectl cluster-info`.
 MQ_HOSTNAME=192.168.49.2
 ```
 
-Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal` ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). The default name of Cassandra datacenter is `datacenter1`.
+Set up variables for Cassandra database. As it is running on the same machine hostname will be `host.minikube.internal`
+ ([more info](https://minikube.sigs.k8s.io/docs/handbook/host-access/)). The default name of Cassandra datacenter is `datacenter1`.
 
 ```shell
 CASSANDRA_HOST=host.minikube.internal
 CASSANDRA_DC=datacenter1
 ```
-Set SSH link to repository with your th2-infra-schema.
+Set Git platform, where th2-infra-schema is published. Possible values: `github`, `gitlab`. 
+We need to set `github` to point to GitHub.
+ 
+```shell
+PLATFORM=github
+```
+
+Store your GitHub token created earlier or create a new personal access token by following 
+this instruction: [_`Creating a personal access token`_](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in environment variable:
 
 ```shell
-SCHEMA_SSH=<ssh-link-to-th2-infra-schema-git-repository>
+TOKEN=<your_personal_access_token>
 ```
+
+Set HTTPS link to th2-infra-schema in GitHub:
+
+```shell
+SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
+```
+
+Create `infra-mgr` secret required by `th2-infra-mgr`.
+
+```shell
+kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
+```
+
 
 ### Install Helm charts
 
+Install the Helm Operator:
 ```shell
-helm install helm-operator -n "service" --version=1.2.0 fluxcd/helm-operator -f "https://th2-docs.herokuapp.com/api/config/helm-operator.values"
-helm install ingress -n "service" --version=3.31.0 ingress-nginx/ingress-nginx -f "https://th2-docs.herokuapp.com/api/config/ingress.values"
-helm install prometheus -n "monitoring" --version=15.0.0 prometheus-community/kube-prometheus-stack -f "https://th2-docs.herokuapp.com/api/config/prometheus-operator.values?hosts=$K8S_HOSTNAME"
-helm install th2-infra -n "service" --version=1.5.4 th2/th2 -f "https://th2-docs.herokuapp.com/api/config/service.values?repository=$SCHEMA_SSH&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" -f "https://th2-docs.herokuapp.com/api/config/secrets"
-helm install dashboard -n "monitoring" kubernetes-dashboard/kubernetes-dashboard -f "https://th2-docs.herokuapp.com/api/config/dashboard.values?hosts=$K8S_HOSTNAME"
-helm install loki -n "monitoring" --version=0.40.1 grafana/loki-stack -f "https://th2-docs.herokuapp.com/api/config/loki.values"
+helm install helm-operator -n "service" \
+  --version=1.2.0 fluxcd/helm-operator \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/helm-operator.values"
+```
+Install NGINX Ingress Controller:
+```shell
+helm install ingress -n "service" \
+  --version=3.31.0 ingress-nginx/ingress-nginx \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
+```
+Install Grafana and Prometheus:
+```shell
+helm install prometheus -n "monitoring" \
+  --version=15.0.0 prometheus-community/kube-prometheus-stack \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+```
+Install th2-infra components and RabbitMQ:
+```shell
+helm install th2-infra -n "service" \
+  --version=1.5.4 th2/th2 \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
+```
+Install Kubernetes Dashboard:
+```shell
+helm install dashboard -n "monitoring" \
+  kubernetes-dashboard/kubernetes-dashboard \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
+```
+Install Grafana Loki:
+```shell
+helm install loki -n "monitoring" \
+  --version=0.40.1 grafana/loki-stack \
+  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/loki.values"
 ```

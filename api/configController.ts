@@ -14,7 +14,6 @@ const getTh2InfraConfigsVersions = (): string[] => {
 }
 
 const checkTh2InfraVersion = (req: Request, res: Response, next: any) => {
-  console.log(`version ${req.params.version}`)
   const versions = getTh2InfraConfigsVersions()
   const version: string = req.params.version?.toString() || DEFAULT_VERSION
   if (!versions.includes(version)){
@@ -156,7 +155,6 @@ router.get('/:version/service.values', checkTh2InfraVersion, async (req: Request
       // Available platforms: github, gitlab
       let platform = req.query['platform']?.toString() || 'github'
       let token = req.query['token']?.toString()
-      console.log(token)
       config = config.replace(/<repository>/g, String(req.query['repository']))
         .replace(/<host>/g, req.query['host']?.toString() || '127.0.0.1')
         .replace(/<cassandra-host>/g, req.query['c-host']?.toString() || '127.0.0.1')

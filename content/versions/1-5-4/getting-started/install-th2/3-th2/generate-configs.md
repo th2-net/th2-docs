@@ -8,7 +8,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-This page contains instructions about th2 installation. All configs will be automatically generated with special API.
+This page contains instructions about th2 installation. All the configs will be automatically generated with a special API.
 
 <!--more-->
 
@@ -27,7 +27,7 @@ kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Do
 
 ### Create namespaces
 
-Create namespaces for _`monitoring`_ and _`th2 service`_ tools.
+Create a namespaces for the _`monitoring`_ and _`th2 service`_ tools.
 
 ```shell
 kubectl create namespace monitoring
@@ -41,20 +41,20 @@ Loki, RabbitMQ - and should be set up at this point.
 
 <notice note >
 
-Examples below use HostPath type of
+Examples below use HostPath type of a
 [Persistent Volume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
-Please read the documentation to choose an appropriate PV type for your environment.
+Read the documentation to choose an appropriate PV type for your environment.
 
 </notice >
 
-Create directories for data persistence with the next command.
+Create directories for the data persistence with the following command.
 
 <notice info >
 
-If you are using minikube, directories must be created in the container with
-Kubernetes cluster.
+If you are using a minikube, the directories must be created in the container with
+the Kubernetes cluster.
 
-Use this command to get to minikube container:
+To get to the minikube container, use the following command:
 
 ```shell
 minikube ssh
@@ -69,9 +69,9 @@ sudo mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 
 ### Create Kubernetes entities for data persistence
 
-Create the persistent volumes (PVs) and persistent volume claims (PVCs):
+Create the persistent volumes (PVs) and the persistent volume claims (PVCs):
 
-Create environment variable with node name:
+Create an environment variable with a node name:
 
 ```shell
 NODE_NAME=<node-name>
@@ -86,24 +86,24 @@ kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvcs
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted SSH access with write permissions.
+it is required that the `th2-infra-mgr` component is granted SSH access with the write permissions.
 
-Different Git systems have different mechanisms for accessing repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing the repository. So, your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
-SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent some changes. These changes affected th2 SSH connections with the GitHub repositories. 
+SSH keys generated with the RSA algorithm are no longer accepted when uploaded to GitHub starting from March 16, 2022. Keys uploaded before this date will continue to work.
 
-GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
+The GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use the SSH connection. 
 
 <recommendations :items="tokens_link" ></recommendations>
 
-It is required to grant permissions from `repo` scope. Other permissions are not needed.
+You need to grant permissions from `repo` scope. Other permissions are not needed.
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-You will need generated token once in the next step. Save token to the environment variable:
+You will need a generated token once in the next step. Save the token as the environment variable:
 
 ```shell
 TOKEN=<token>
@@ -160,10 +160,10 @@ K8S_HOSTNAME=<cluster-hostname>
 #### Helm Operator
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
-Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
+By using it you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
 **Secrets**, **Custom Resources**).
 
-Install Helm Operator.
+Install Helm Operator:
 
 ```shell
 helm install helm-operator -n "service" \
@@ -186,9 +186,9 @@ helm install ingress -n "service" \
 
 #### Prometheus
 
-Prometheus is an open-source systems monitoring and alerting toolkit.
+Prometheus is an open-source systems' monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
-And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
+It also contains **Custom Resource Definitions** (CRD) required by the th2 infra.
 
 Install Prometheus:
 
@@ -200,21 +200,21 @@ helm install prometheus -n "monitoring" \
 
 #### th2 infra components
 
-`th2-infra` helm chart contains description for 4 th2 components:
+`th2-infra` helm chart contains description of 4 th2 components:
 1. [_`th2-infra-editor`_](https://github.com/th2-net/th2-infra-editor)
 2. [_`th2-infra-mgr`_](https://github.com/th2-net/th2-infra-mgr)
 3. [_`th2-infra-operator`_](https://github.com/th2-net/th2-infra-operator)
 4. [_`th2-infra-repo`_](https://github.com/th2-net/th2-infra-repo)
 
 
-Set environment variables for further config generation:
+Set the environment variables for further config generation:
 
 - `MQ_HOSTNAME` - identical to [`K8S_HOSTNAME`](#install-components-of-th2). Should be filled with IP address of Kubernetes cluster if DNS is not configured. 
-- `CASSANDRA_HOST` - hostname or IP address of Cassandra cluster
-- `CASSANDRA_DC` - datacenter in Cassandra cluster to work with
-- `SCHEMA_LINK` - SSH link to th2-infra-schema if you use SSH keys for authorization or HTTPS link if you use tokens
-- `PLATFORM` - Git platform, where th2-infra-schema is published (required only if you use tokens). Possible values: `github`, `gitlab`
-- `TOKEN` - token for authorization on Git platform (required only if you use tokens). You might have token set in environment variable as done in the [previous step](#github).
+- `CASSANDRA_HOST` - hostname or IP address of Cassandra cluster.
+- `CASSANDRA_DC` - datacenter in Cassandra cluster to work with.
+- `SCHEMA_LINK` - SSH link to th2-infra-schema if you use SSH keys for authorization, or HTTPS link if you use tokens.
+- `PLATFORM` - Git platform, where th2-infra-schema is published (required only if you use tokens). Possible values: `github`, `gitlab`.
+- `TOKEN` - token for authorization on Git platform (required only if you use tokens). You might have token set in an environment variable as done in the [previous step](#github).
 
 ```shell
 MQ_HOSTNAME=<rabbit-mq-hostname>
@@ -238,7 +238,7 @@ helm install th2-infra -n "service" \
 
 [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 is a web-based Kubernetes user interface.
-With this tool you can monitor existing Kubernetes Objects and its details.
+With this tool you can monitor existing Kubernetes Objects and their details.
 
 Install Kubernetes Dashboard:
 

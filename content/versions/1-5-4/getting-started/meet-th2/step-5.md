@@ -206,7 +206,7 @@ check1                      NodePort    10.111.68.46     <none>        8080:3117
       "service-class": "ActService",
       "endpoints": {
         "act": {
-          "host": "10.44.16.110",
+          "host": "10.11.22.33",
           "port": 31178
         }
       },
@@ -219,7 +219,7 @@ check1                      NodePort    10.111.68.46     <none>        8080:3117
       "service-class": "Check1Service",
       "endpoints": {
         "check1": {
-          "host": "10.44.16.110",
+          "host": "10.11.22.33",
           "port": 31179
         }
       },
@@ -243,7 +243,7 @@ Kubernetes Dashboard / Config Maps / rabbit-mq-external-app-config
 
 ```json[rabbit.json]
 {
-  "host": "10.44.16.110",
+  "host": "10.11.22.33",
   "vHost": "th2-1-5-4",
   "port": "32000",
   "username": "th2-1-5-4",

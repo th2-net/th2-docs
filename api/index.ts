@@ -2,6 +2,8 @@ import { Request, Response } from 'express'
 import express from 'express'
 const app = express()
 
+app.disable('x-powered-by')
+
 app.get('/echo/:what', (req: Request, res: Response) => {
   res.json(req.params)
 })

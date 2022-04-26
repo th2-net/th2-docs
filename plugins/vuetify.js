@@ -33,6 +33,12 @@ const exactproColors = {
 
 export default {
   customVariables: ['~/assets/variables.scss'],
+  defaultAssets: {
+    font: {
+      family: "Open Sans"
+    },
+    icons: false,
+  },
   theme: {
     dark: false,
     //options: { customProperties: true },

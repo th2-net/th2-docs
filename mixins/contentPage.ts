@@ -45,7 +45,7 @@ export const contentPageMixin = Vue.extend({
       })
     }
     if (this.page.image){
-      meta.push({ hid: 'og:image', name: 'og:image', content: 'https://th2-docs.herokuapp.com' + this.page.image })
+      meta.push({ hid: 'og:image', name: 'og:image', content: 'https://th2.dev' + this.page.image })
     }
     return{
       title: this.page.title,

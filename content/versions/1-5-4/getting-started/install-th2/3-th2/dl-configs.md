@@ -166,14 +166,14 @@ grafana:
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted SSH access with write permissions.
+it is required that the `th2-infra-mgr` component is granted access with write permissions.
 
 Different Git systems have different mechanisms for accessing repository. So your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
 Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
-SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 16, 2022. Keys uploaded before this date will continue to work.
+SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 15, 2022. Keys uploaded before this date will continue to work.
 
 GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
 
@@ -220,9 +220,9 @@ In this case your link to configuration will be the default link to clone reposi
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the next values:
-- `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository
-- `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository
-- `infraMgr.git.httpAuthPassword` - empty string
+- `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository;
+- `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository;
+- `infraMgr.git.httpAuthPassword` - empty string.
 
 ```yaml[service.values.yaml]
 infraMgr:
