@@ -1,7 +1,7 @@
 ---
 title: Pins
 weight: 5
-chapter: true
+chapter: false
 ---
 
 ## Pins

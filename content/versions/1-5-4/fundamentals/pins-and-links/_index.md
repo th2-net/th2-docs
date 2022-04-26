@@ -1,7 +1,7 @@
 ---
 title: Theory of pins and links
 weight: 4
-chapter: true
+chapter: false
 ---
 
 ## th2-infra-schema: Theory of **pins** and **links**

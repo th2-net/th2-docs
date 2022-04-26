@@ -1,7 +1,7 @@
 ---
 title: Links
 weight: 30
-chapter: true
+chapter: false
 ---
 ## Links
 

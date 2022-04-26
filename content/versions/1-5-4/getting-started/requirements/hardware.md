@@ -1,7 +1,6 @@
 ---
 title: Hardware
 weight: 4
-chapter: true
 ---
 
 # Recommended hardware
