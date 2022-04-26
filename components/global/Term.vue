@@ -8,9 +8,10 @@
     <v-card min-width="200" max-width="400">
       <v-card-title>{{term}}</v-card-title>
       <v-card-text>
-        <v-progress-circular v-if="loading" color="primary" indeterminate />
+        <div v-if="!term" class="red--text">Term was not provided.</div>
+        <v-progress-circular v-else-if="loading" color="primary" indeterminate />
         <nuxt-content v-else-if="!error" :document="definition" />
-        <div v-else class="text--red">Term "{{term}}" was not found in the dictionary</div>
+        <div v-else class="red--text">Term "{{term}}" was not found in the dictionary.</div>
       </v-card-text>
     </v-card>
   </v-menu>
@@ -23,8 +24,7 @@ export default Vue.extend({
   name: 'Term',
   props: {
     term: {
-      type: String,
-      required: true
+      type: String
     }
   },
   data(){
@@ -37,8 +37,10 @@ export default Vue.extend({
   },
   methods:{
     getTermOnce(){
-      if (!this.loaded) this.getTerm()
-      this.loaded = true
+      if (this.term){
+        if (!this.loaded) this.getTerm()
+        this.loaded = true
+      }
     },
     async getTerm(){
       this.loading = true
