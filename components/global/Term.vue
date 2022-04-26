@@ -57,7 +57,6 @@ export default Vue.extend({
 
 <style>
 .term {
-  text-decoration: underline;
   color: var(--link-color) !important;
   cursor: pointer;
 }
