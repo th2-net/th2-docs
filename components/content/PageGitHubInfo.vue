@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       Edited: {{timeSince(new Date(pageInfo.updatedAt))}}
-    </div>
+    </div> -->
 
     <div>
       <v-btn icon :href="editPageLink" target="_blank">

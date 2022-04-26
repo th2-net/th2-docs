@@ -1,7 +1,7 @@
 <template>
   <aside class="pl-5 pt-5 page-content-panel">
     <nav class="sticky-page-content">
-      <h3 class="mb-3">Community <v-icon>mdi-github</v-icon></h3>
+      <!-- <h3 class="mb-3">Community <v-icon>mdi-github</v-icon></h3> -->
       <page-git-hub-info :pageInfo="pageInfo" />
       <page-git-hub-issue :pageInfo="pageInfo" />
 
