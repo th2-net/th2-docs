@@ -78,8 +78,8 @@ NODE_NAME=<node-name>
 ```
 
 ```shell
-kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvs?node-name=$NODE_NAME
-kubectl apply -f https://th2-docs.herokuapp.com/api/config/pvcs
+kubectl apply -f https://th2.dev/api/config/pvs?node-name=$NODE_NAME
+kubectl apply -f https://th2.dev/api/config/pvcs
 ```
 
 ## Access to the th2-infra-schema Git repository for th2
@@ -168,7 +168,7 @@ Install Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/helm-operator.values"
+  -f "https://th2.dev/api/config/1-5-x/helm-operator.values"
 ```
 
 #### NGINX Ingress Controller
@@ -181,7 +181,7 @@ Install NGINX Ingress Controller:
 ```shell
 helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values"
+  -f "https://th2.dev/api/config/1-5-x/ingress.values"
 ```
 
 #### Prometheus
@@ -195,7 +195,7 @@ Install Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2.dev/api/config/1-5-x/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
 
 #### th2 infra components
@@ -230,8 +230,8 @@ Install th2-infra components:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/secrets"
+  -f "https://th2.dev/api/config/1-5-x/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2.dev/api/config/1-5-x/secrets"
 ```
 
 #### Kubernetes Dashboard
@@ -245,7 +245,7 @@ Install Kubernetes Dashboard:
 ```shell
 helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2.dev/api/config/1-5-x/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
 
 #### Grafana
@@ -257,5 +257,5 @@ Install Grafana:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/1-5-x/loki.values"
+  -f "https://th2.dev/api/config/1-5-x/loki.values"
 ```
