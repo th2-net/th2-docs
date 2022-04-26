@@ -1,6 +1,14 @@
 <template>
-  <div class="my-16">
-    <v-card :href="createIssueLink" target="_blank" 
+  <div>
+    <div>
+      <v-btn icon :href="createIssueLink" target="_blank">
+        <v-icon>mdi-alert-circle-outline</v-icon>
+      </v-btn>
+      <a :href="createIssueLink" target="_blank">
+         Create an issue
+      </a>
+    </div>
+    <!-- <v-card :href="createIssueLink" target="_blank"
       class="pa-4 px-4 my-4 mx-auto"
       style="width: fit-content"
       outlined>
@@ -11,9 +19,9 @@
         <v-icon class="my-5" color="red" style="font-size: 5rem">mdi-alert-circle-outline</v-icon>
         <span class="red--text font-weight-black" style="font-size: 1.2rem">
          Create an Issue
-        </span> 
+        </span>
       </div>
-    </v-card>
+    </v-card> -->
 
   </div>
 </template>

@@ -1,17 +1,17 @@
 <template>
-  <div class="mb-5 d-flex justify-space-between">
-    <span class="mr-3">
+  <div>
+    <div>
       Edited: {{timeSince(new Date(pageInfo.updatedAt))}}
-    </span>
+    </div>
 
-    <span>
+    <div>
       <v-btn icon :href="editPageLink" target="_blank">
         <v-icon>mdi-pencil-outline</v-icon>
       </v-btn>
       <a :href="editPageLink" target="_blank">
          Edit this page
       </a>
-    </span>
+    </div>
   </div>
 </template>
 
