@@ -1,5 +1,6 @@
 ---
 title: OS and network
+chapter: true
 weight: 5
 ---
 

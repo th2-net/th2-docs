@@ -1,5 +1,6 @@
 ---
 title: Software
+chapter: true
 weight: 10
 ---
 

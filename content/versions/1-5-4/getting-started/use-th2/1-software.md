@@ -1,8 +1,9 @@
 ---
 title: Required software
+chapter: true
 weight: 5
 ---
-
+# Required software
 ## Python 3.7+
 
 Python programming language is required for CQLSH and for running the demo script.

@@ -1,9 +1,10 @@
 ---
-title: "Infra components"
+title: Infra components
+chapter: true
 weight: 0
-chapter: false
 ---
 
+# Infra components
 ## Basics
 
 Infra components are the main part of the `th2-core`, one of the components of the

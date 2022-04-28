@@ -1,10 +1,11 @@
 ---
 title: Fundamentals
+chapter: true
 weight: 10
 ---
 
 
-
+# Fundamentals
 
 This section contains theoretical basics of th2, explanation of its architecture and components.
 

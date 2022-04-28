@@ -1,10 +1,11 @@
 ---
 title: Getting started
+chapter: true
 weight: 5
 pre: "<b>1. </b>"
 ---
 
-
+# Getting started
 
 This section contains instructions on how to get started using th2.
 

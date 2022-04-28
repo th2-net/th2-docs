@@ -1,8 +1,9 @@
 ---
 title: Installation via Docker
+chapter: true
 weight: 3
 ---
-
+# Installation via Docker
 Fundamental system for th2 can be runned in Docker containers. It is easer to configure and control. 
 
 <!--more-->

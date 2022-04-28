@@ -1,8 +1,10 @@
 ---
 title: Architecture
+chapter: true
 weight: 0
 ---
 
+# Architecture
 This page provides an overview of the th2 architecture 
 along with a high-level summary of its main components.
 

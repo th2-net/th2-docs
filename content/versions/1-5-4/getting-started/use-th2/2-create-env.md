@@ -1,5 +1,6 @@
 ---
 title: Create testing environment
+chapter: true
 weight: 10
 test_config:
   - title: Test configuration
@@ -7,7 +8,7 @@ test_config:
     icon: mdi-github
 ---
 
-## Create testing environment
+# Create testing environment
 
 You can create modules for your custom test logic and architect any system from them. 
 

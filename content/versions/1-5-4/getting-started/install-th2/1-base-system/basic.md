@@ -1,9 +1,10 @@
 ---
 title: Basic installation
+chapter: true
 weight: 2
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
 ---
-
+# Basic installation
 There you can find links and recommendations for installation of Kubernetes and Cassandra clusters without unnessesery abstractions. We recommend this option for production system.
 
 <!--more-->

@@ -1,5 +1,6 @@
 ---
 title: Hardware
+chapter: true
 weight: 4
 ---
 
