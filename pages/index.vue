@@ -1,9 +1,6 @@
 <template>
   <div class="mx-3">
-    <h2>th2: Next-generation test automation framework</h2>
-    <div style="max-width: 700px" class="mx-auto">
-      <youtube id="1W2IJBNa9WU" autoplay loop></youtube>
-    </div>
+    <h1>th2: Next-generation test automation framework</h1>
     <h2>What is th2?</h2>
     <p>
       <a href="https://github.com/th2-net" target="_blank">th2</a> is an open-source toolkit providing end-to-end
@@ -51,7 +48,9 @@
       <li><strong>Performance</strong>: processes multiple data streams in parallel.</li>
       <li><strong>Scalability</strong>: can be distributed between several hardware, additional computing power can be quickly involved in testing process allowing testing close to thresholds and exceeding them.</li>
     </ul>
-
+    <div style="max-width: 700px" class="mx-auto">
+      <youtube id="1W2IJBNa9WU"></youtube>
+    </div>
   </div>
 </template>
 <script>
