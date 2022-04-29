@@ -107,8 +107,8 @@ export const generateTree = async (version: string, pathsCache: Map<string, stri
     }))
   const nodesPlain: ContentNode[] = nodesRaw
     .sort((a, b) => {
-      if (a.weight < b.weight) return -1
-      if (a.weight > b.weight) return 1
+      if ((a?.weight || -100) < (b?.weight || -100)) return -1
+      if ((a?.weight || -100) > (b?.weight || -100)) return 1
       return 0
     })
     .map(n => n.node)
