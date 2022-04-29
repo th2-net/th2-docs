@@ -1,7 +1,7 @@
 <template>
-  <div class="mx-3">
+  <div class="mx-3 pb-16">
     <h1>th2: Next-generation test automation framework</h1>
-    <h2>What is th2?</h2>
+    <h2 class="mt-16">What is th2?</h2>
     <p>
       <a href="https://github.com/th2-net" target="_blank">th2</a> is an open-source toolkit providing end-to-end
       functional and non-functional test automation for complex distributed transaction processing systems such
@@ -10,7 +10,7 @@
       entities stay compliant and resilient to disruption,
       while focusing on innovation and having the freedom to embrace emerging technologies.
     </p>
-    <v-divider />
+    <v-divider class="my-16" />
     <v-row no-gutters>
       <v-card
         class="mx-auto my-2"
@@ -35,7 +35,7 @@
         </v-card-actions>
       </v-card>
     </v-row>
-    <v-divider />
+    <v-divider class="my-16" />
     <h2>th2 benefits</h2>
     <ul>
       <li><strong>Open interface</strong>: a multi-platform framework with a powerful API, enabling intelligent interaction with many widely adopted network protocols as well as API, UI, DLT and cloud endpoints.</li>
@@ -48,8 +48,9 @@
       <li><strong>Performance</strong>: processes multiple data streams in parallel.</li>
       <li><strong>Scalability</strong>: can be distributed between several hardware, additional computing power can be quickly involved in testing process allowing testing close to thresholds and exceeding them.</li>
     </ul>
+    <v-divider class="my-16" />
     <div style="max-width: 700px" class="mx-auto">
-      <youtube id="1W2IJBNa9WU"></youtube>
+      <youtube id="1W2IJBNa9WU" />
     </div>
   </div>
 </template>
