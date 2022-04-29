@@ -1,6 +1,5 @@
 ---
 title: Download configs
-chapter: true
 weight: 0
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
 tokens_link:
@@ -8,7 +7,7 @@ tokens_link:
     icon: mdi-github
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
-# Download configs
+
 This page contains instructions about th2 installation. All configs will be changed manually.
 
 <!--more-->

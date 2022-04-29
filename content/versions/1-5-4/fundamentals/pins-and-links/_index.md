@@ -1,9 +1,8 @@
 ---
 title: Theory of pins and links
-chapter: true
 weight: 4
 ---
-# Theory of pins and links
+
 ## th2-infra-schema: Theory of **pins** and **links**
 
 **Pins** and **links** provide connections between th2 boxes. th2 boxes use **pins** to direct streams of information in and out. **Links** direct information between the **pins** of different th2 boxes. These two components ensure communication between the parts of the th2 microservice architecture.

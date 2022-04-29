@@ -1,9 +1,8 @@
 ---
 title: 2. Publish infra schema
-chapter: true
 weight: 1
 ---
-# 2. Publish infra schema
+
 ## th2-infra-schema
 
 **th2-infra-schema** is an abstract representation of interdependencies between the th2 components.

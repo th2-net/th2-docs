@@ -1,14 +1,11 @@
 ---
 title: Create testing environment
-chapter: true
 weight: 10
 test_config:
   - title: Test configuration
     href: https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario
     icon: mdi-github
 ---
-
-# Create testing environment
 
 You can create modules for your custom test logic and architect any system from them. 
 

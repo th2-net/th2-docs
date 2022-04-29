@@ -1,6 +1,5 @@
 ---
 title: 1. Set up the environment
-chapter: true
 weight: 0
 install_variants:
   - title: Basic installation
@@ -10,7 +9,7 @@ install_variants:
     href: ./1-base-system/in-docker
     icon: mdi-docker
 ---
-# 1. Set up the environment
+
 Install Kubernetes and Cassandra clusters to use it as fundamental system for th2.
 
 

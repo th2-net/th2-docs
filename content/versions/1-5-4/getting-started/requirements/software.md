@@ -1,10 +1,8 @@
 ---
 title: Software
-chapter: true
+inner-title: Software requirements
 weight: 10
 ---
-
-# Software requirements
 
 One machine can combine several types listed here.
 

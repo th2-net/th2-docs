@@ -1,13 +1,12 @@
 ---
 title: Run demo script
-chapter: true
 weight: 15
 continue_learning:
   - title:  Demo Script Analysis
     href: ../meet-th2/step-6
     icon: mdi-magnify
 ---
-# Run demo script
+
 As we have already prepared environment for the tests, we can run special script to check our system for vulnerabilities.
 
 <!--more-->

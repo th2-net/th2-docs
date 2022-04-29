@@ -1,6 +1,5 @@
 ---
 title: Generate configs
-chapter: true
 weight: 5
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
 tokens_link:
@@ -8,7 +7,7 @@ tokens_link:
     icon: mdi-github
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
-# Generate configs
+
 This page contains instructions about th2 installation. All the configs will be automatically generated with a special API.
 
 <!--more-->

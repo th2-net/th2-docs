@@ -1,6 +1,6 @@
 ---
 title: Install th2
-chapter: true
+
 weight: 5
 continue_learning:
   - title:  Meet th2
@@ -10,7 +10,7 @@ continue_learning:
     href: ./use-th2
     icon: mdi-account
 ---
-# Install th2
+
 In this guide, you will learn how to run th2 in a Kubernetes cluster.
 
 <!--more-->
