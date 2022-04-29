@@ -25,12 +25,9 @@ your own testing system. These components are called **boxes**.
 
 There are two types of th2 boxes:
 
-**core** - stores main configuration for schema environments. 
-Core components create and control these environments. 
-Core connects to the data store from inside schema environments.
+1. **Core** - stores main configuration for schema environments. Core components create and control these environments. Core connects to the data store from inside schema environments.  
+2. **Modules** - contain custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
-**modules** - contain custom logic (e.g. connection between 
-client and system, analyzers, client and exchange simulators).
 
 ## Infrastructure
 

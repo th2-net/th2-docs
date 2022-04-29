@@ -16,25 +16,17 @@ export const cachePagesPaths = async (): Promise<Map<string, string>> => {
   const versionedPagesPaths: string[] = (
     await $content('/versions', {deep: true})
     .only(['path'])
-    .where({ extension: '.md' })
+    .where({ extension: '.md', hide: { $ne: true } })
     .fetch()
   ).map((page: any) => page.path)
   // Get all paths from common folder
   const commonPagesPaths: string[] = (
     await $content('/common', {deep: true})
       .only(['path'])
-      .where({ extension: '.md' })
+      .where({ extension: '.md', hide: { $ne: true } })
       .fetch()
   ).map((page: any) => page.path)
 
-  // Process and add paths from versions folder to cache
-  for (const path of versionedPagesPaths){
-    let virtualPath = path
-      .replace('/versions', '')
-      .replace('/_index', '')
-    if (virtualPath)
-      pathsCache.set(virtualPath, path)
-  }
   // Process and add paths from common folder to cache
   for (const path of commonPagesPaths){
     let virtualPath = path
@@ -43,6 +35,14 @@ export const cachePagesPaths = async (): Promise<Map<string, string>> => {
     if (virtualPath)
       for (const v of th2Versions)
         pathsCache.set(v.content_dir.replace('/versions', '') + virtualPath, path)
+  }
+  // Process and add paths from versions folder to cache
+  for (const path of versionedPagesPaths){
+    let virtualPath = path
+      .replace('/versions', '')
+      .replace('/_index', '')
+    if (virtualPath)
+      pathsCache.set(virtualPath, path)
   }
   return pathsCache
 }

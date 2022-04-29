@@ -84,9 +84,11 @@
     >
       <div class="header-container">
         <site-logo />
-        <!--      <img src="/th2-logo.svg" height="100%"  alt="th2 logo"/>-->
         <search-window :window-size="windowSize" />
         <div class="header-btns">
+          <v-btn dark :href="$store.state.githubRepoLink" target="_blank" icon>
+            <v-icon>mdi-github</v-icon>
+          </v-btn>
           <theme-switcher />
           <v-btn dark icon v-if="windowSize.x < 1024" @click="navPanel = !navPanel">
             <v-icon v-if="!navPanel">mdi-menu</v-icon>

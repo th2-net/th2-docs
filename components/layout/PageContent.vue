@@ -1,7 +1,11 @@
 <template>
-  <aside class="pl-5 pt-5 page-content-panel" v-if="toc.length">
+  <aside class="pl-5 pt-5 page-content-panel">
     <nav class="sticky-page-content">
-      <h3 class="mb-3">On this page</h3>
+      <!-- <h3 class="mb-3">Community <v-icon>mdi-github</v-icon></h3> -->
+      <page-git-hub-info :pageInfo="pageInfo" />
+      <page-git-hub-issue :pageInfo="pageInfo" />
+
+      <h3 class="mb-3 mt-7">On this page</h3>
       <ul v-scroll="onScroll">
         <li v-for="(header, index) in toc" :key="header.id"
             :class="{
@@ -23,18 +27,29 @@
 </template>
 
 <script>
+import PageGitHubInfo from "~/components/content/PageGitHubInfo.vue"
+import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue'
+
 export default {
   name: "PageContent",
   props: {
-    toc: {
-      type: Array,
-      default: () => []
+    pageInfo: {
+      type: Object,
+      required: true
     }
+  },
+  components: {
+    PageGitHubInfo, PageGitHubIssue
   },
   data(){
     return{
       headersToCheck: [],
       headersToHighlight: []
+    }
+  },
+  computed: {
+    toc(){
+      return this.pageInfo.toc
     }
   },
   methods:{

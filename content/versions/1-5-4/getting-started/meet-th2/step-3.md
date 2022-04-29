@@ -87,8 +87,8 @@ NODE_NAME=minikube
 ```
 Create persistent volumes (PVs) and persistent volume claims (PVCs):
 ```shell
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvs?node-name=$NODE_NAME"
-kubectl apply -f "https://th2-docs.herokuapp.com/api/config/$VERSION/pvcs"
+kubectl apply -f "https://th2.dev/api/config/$VERSION/pvs?node-name=$NODE_NAME"
+kubectl apply -f "https://th2.dev/api/config/$VERSION/pvcs"
 ```
 
 ## Deploy th2
@@ -207,36 +207,36 @@ Install the Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/helm-operator.values"
+  -f "https://th2.dev/api/config/$VERSION/helm-operator.values"
 ```
 Install NGINX Ingress Controller:
 ```shell
 helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/ingress.values"
+  -f "https://th2.dev/api/config/$VERSION/ingress.values"
 ```
 Install Grafana and Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2.dev/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
 Install th2-infra components and RabbitMQ:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/secrets"
+  -f "https://th2.dev/api/config/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2.dev/api/config/$VERSION/secrets"
 ```
 Install Kubernetes Dashboard:
 ```shell
 helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2.dev/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
 Install Grafana Loki:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
-  -f "https://th2-docs.herokuapp.com/api/config/$VERSION/loki.values"
+  -f "https://th2.dev/api/config/$VERSION/loki.values"
 ```

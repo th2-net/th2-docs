@@ -5,6 +5,7 @@ read_before:
   - title:  Query String
     href: https://en.wikipedia.org/wiki/Query_string
     icon: mdi-wikipedia
+hide: true
 ---
 
 The following page contains information about working with API routes in order to get templates for th2 configuration files. In order to better understand basic principles with working with API routes, we recommend reading about [query strings](https://en.wikipedia.org/wiki/Query_string).
@@ -57,7 +58,7 @@ Path to `ingress.values` with no parameters (doesn’t require parameters):
 
 
 ```
-https://th2-docs.herokuapp.com/api/config/1-5-x/ingress.values 
+https://th2.dev/api/config/1-5-x/ingress.values 
 ```
 
 ```yaml[Output]
@@ -81,7 +82,7 @@ controller:
 Path to `service.values` with no parameters (requires parameters):
 
 ```
-https://th2-docs.herokuapp.com/api/config/1-5-x/service.values 
+https://th2.dev/api/config/1-5-x/service.values 
 ```
 
 ```yaml[Output]
@@ -111,7 +112,7 @@ cassandra:
 Path to `service.values` file with specified parameters:
 
 ```
-https://th2-docs.herokuapp.com/api/config/1-5-x/service.values?repository=git@github.com:ExampleUser/th2-infra-schema.git&host=111.111.1.1&c-host=222.222.2.2&dc=my_dc
+https://th2.dev/api/config/1-5-x/service.values?repository=git@github.com:ExampleUser/th2-infra-schema.git&host=111.111.1.1&c-host=222.222.2.2&dc=my_dc
 ```
 
 ```yaml[Output]

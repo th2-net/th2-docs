@@ -44,13 +44,12 @@
           </v-card>
         </section>
         <nuxt-content :document="page" />
-
       </article>
       <article v-else>
         <h1>Page not found</h1>
       </article>
     </v-container>
-    <page-content :toc="page.toc" class="layout__aside--right" />
+    <page-content :pageInfo="page" class="layout__aside--right" />
   </div>
 </template>
 
