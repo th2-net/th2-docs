@@ -2,7 +2,8 @@
   <div class="layout__doc-page">
     <v-container class="layout__main">
       <article v-if="!error">
-        <h1 v-if="!page.chapter">{{ page.title }}</h1>
+        <h1 v-if="!page['inner-title']">{{ page.title }}</h1>
+        <h1 v-else>{{ page['inner-title'] }}</h1>
         <recommendations class="my-4" v-if="page.read_before" :items="page.read_before" >
           <div>Read before this article:</div>
         </recommendations>
