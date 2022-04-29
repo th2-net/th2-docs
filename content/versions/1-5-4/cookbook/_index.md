@@ -1,6 +1,6 @@
 ---
-title: Cookbook
-weight: 10
+title: 📖 Cookbook
+weight: 100
 ---
 
 
