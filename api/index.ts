@@ -12,11 +12,13 @@ import {githubRouter} from "./githubController";
 import {testRouter} from "./test";
 import {configRouter} from "./configController";
 import {contentRouter} from "./contentController";
+import {termsRouter}from './termsController'
 
 app.use('/github', githubRouter)
 app.use('/test', testRouter)
 app.use('/config', configRouter)
 app.use('/content', contentRouter)
+app.use('/terms', termsRouter)
 
 module.exports = {
   path: '/api',
