@@ -311,7 +311,7 @@ Depending on the types of *message groups* and their number,
 it will be determined which messages to delete and which to keep.
 6. If no similar messages are found, then just add the message to the group.
 
-# Recon configuration
+## Recon configuration
 
 * **recon_name** - name report in GUI.
 * **cache_size** - maximum *message group* size. When the *message group* is full, the new message replaces the oldest one. An appropriate event is sent about this.
@@ -320,18 +320,18 @@ it will be determined which messages to delete and which to keep.
 * **event_batch_send_interval** - how often to send *EventBatch* with events.
 * **rules** - list of *rule* configurations
 
-# Rule configuration
+## Rule configuration
 
 + **name** - name of the file containing the rule.
 + **enabled** - should *rule* be used or not.
 + **match_timeout** - time interval between compared messages in seconds. The current time is taken from the new message. For all messages that arrived earlier than (*actual_time* - *match_timeout*) and did not participate in the checks, the corresponding events will be created.
 + **match_timeout_offset_ns** - the addend for *match_timeout* * 1_000_000_000, if precision to nanoseconds is needed.
 
-# Installing
+## Installing
 To install all the necessary dependencies, you need to install all the packages from **requirements.txt**.
  This can be done with **pip install -r requirements.txt**.
  
-# Quick start
+## Quick start
 
 The config for a *Recon* with two *rules* will look like this:
 ```buildoutcfg
