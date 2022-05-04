@@ -15,6 +15,7 @@ const getMarkdownHeaders = (md: string): any => {
 }
 
 const addReadmeToDoc = async (path: string) => {
+  console.log(`Adding README to ${path}`)
   const autoReadmeRegExp = new RegExp(/<!--auto-readme-start-->[\w\W]*<!--auto-readme-end-->/)
   let mdDoc = fs.readFileSync(path, 'utf-8')
   const isReadmeExist: boolean = !!(mdDoc.match(autoReadmeRegExp))
@@ -53,9 +54,34 @@ const processParsedReadme = (md: string): string => {
     .replaceAll('\n# ', '\n## ')
 }
 
+const getBoxesPaths = ():string[] => {
+  const paths: string[] = []
+  function addAllMdFilesFromFolder(folder: string){
+    try{
+      paths.push(...fs.readdirSync(folder)
+        .filter(f => !f.startsWith('_index'))
+        .filter(f => f.endsWith('.md'))
+        .map(f => `${folder}/${f}`))
+    } catch(e){}
+  }
+  // Add common boxes pages
+  addAllMdFilesFromFolder('./content/common/boxes/exactpro')
+  addAllMdFilesFromFolder('./content/common/boxes/community')
+  // Add boxes pages from each version
+  fs.readdirSync('./content/versions')
+    .filter(f => !f.endsWith('.md'))
+    .forEach(versionFolder => {
+      addAllMdFilesFromFolder(`./content/versions/${versionFolder}/boxes/exactpro`)
+      addAllMdFilesFromFolder(`./content/versions/${versionFolder}/boxes/community`)
+    })
+  return paths
+}
+
 async function main(){
   console.log('Starting updating READMEs...')
-  await addReadmeToDoc('./content/versions/1-5-4/boxes/exactpro/check2-recon.md')
+  const boxesPaths: string[] = getBoxesPaths()
+  console.log('Boxes pages found: ', boxesPaths)
+  await Promise.all(boxesPaths.map(async (path) => await addReadmeToDoc(path)))
 }
 
 main()
