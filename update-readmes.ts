@@ -1,21 +1,28 @@
 import axios from 'axios'
 import fs from 'fs'
-import yaml from 'js-yaml'
+const {parseMarkdownHeaders} = require('markdown-headers')
 
-const getReadme = async (repo: string, user: string = 'th2-net'): Promise<string> => {
-  const { data: readme } = await axios.get(`https://raw.githubusercontent.com/${user}/${repo}/master/README.md`)
+const getReadme = async (path: string): Promise<string> => {
+  if (!path.startsWith('https://raw.githubusercontent.com')) Error('Unreliable path to GitHub markdown file')
+  //const { data: readme } = await axios.get(`https://raw.githubusercontent.com/${user}/${repo}/master/README.md`)
+  const { data: readme } = await axios.get(path)
   return readme
 }
 
 const getMarkdownHeaders = (md: string): any => {
-  const headersRaw = md.match(/(---)[\w\W]*(---)/)
-  if (!headersRaw) return
-  const headers = yaml.loadAll(headersRaw[0])[0]
+  const headers = parseMarkdownHeaders(md).headers
   return headers
 }
 
-const addReadmeToDoc = async (path: string) => {
-  console.log(`Adding README to ${path}`)
+function getReadmePathFromHeaders(headers: any): string | undefined{
+  if (!!headers.repo && !!headers.repo_owner)
+    return `https://raw.githubusercontent.com/${headers.repo_owner}/${headers.repo}/master/README.md`
+  if (!!headers.readme_path)
+    return headers.readme_path
+  return
+}
+
+async function addReadmeToDoc(path: string){
   const autoReadmeRegExp = new RegExp(/<!--auto-readme-start-->[\w\W]*<!--auto-readme-end-->/)
   let mdDoc = fs.readFileSync(path, 'utf-8')
   const isReadmeExist: boolean = !!(mdDoc.match(autoReadmeRegExp))
@@ -25,7 +32,10 @@ const addReadmeToDoc = async (path: string) => {
     mdDoc = mdDoc.replace(autoReadmeRegExp, '<!--auto-readme-start-->\n<!--auto-readme-end-->')
   }
   try {
-    const readme  = await getReadme(headers.repo, headers.repo_owner)
+    const readmePath = getReadmePathFromHeaders(headers)
+    if (!readmePath) return
+    console.log(`Adding README to ${path}`)
+    const readme  = await getReadme(readmePath)
     if (!isReadmeExist){
       fs.writeFileSync(path,
 `${mdDoc}
@@ -54,7 +64,7 @@ const processParsedReadme = (md: string): string => {
     .replaceAll('\n# ', '\n## ')
 }
 
-const getBoxesPaths = ():string[] => {
+const getPagesPaths = ():string[] => {
   const paths: string[] = []
   function addAllMdFilesFromFolder(folder: string){
     try{
@@ -62,24 +72,29 @@ const getBoxesPaths = ():string[] => {
         .filter(f => !f.startsWith('_index'))
         .filter(f => f.endsWith('.md'))
         .map(f => `${folder}/${f}`))
-    } catch(e){}
+    } catch(e){ console.error(`Error during adding files: `, e, 'continuing...') }
   }
-  // Add common boxes pages
-  addAllMdFilesFromFolder('./content/common/boxes/exactpro')
-  addAllMdFilesFromFolder('./content/common/boxes/community')
-  // Add boxes pages from each version
-  fs.readdirSync('./content/versions')
-    .filter(f => !f.endsWith('.md'))
-    .forEach(versionFolder => {
-      addAllMdFilesFromFolder(`./content/versions/${versionFolder}/boxes/exactpro`)
-      addAllMdFilesFromFolder(`./content/versions/${versionFolder}/boxes/community`)
-    })
+  function addAllMdFilesFromSubfolders(folder: string){
+    try {
+      fs.readdirSync(folder)
+      .filter(f => !(f.endsWith('.md') || f.endsWith('.yaml') || f.endsWith('.json')))
+      .forEach(subfolder => {
+        addAllMdFilesFromFolder(`${folder}/${subfolder}`)
+        addAllMdFilesFromSubfolders(`${folder}/${subfolder}`)
+      })
+    } catch (e) { console.error(`Error during reading subfolders: `, e, 'continuing...') }
+
+  }
+  addAllMdFilesFromFolder('./content/common')
+  addAllMdFilesFromSubfolders('./content/common')
+  addAllMdFilesFromFolder('./content/versions')
+  addAllMdFilesFromSubfolders('./content/versions')
   return paths
 }
 
 async function main(){
   console.log('Starting updating READMEs...')
-  const boxesPaths: string[] = getBoxesPaths()
+  const boxesPaths: string[] = getPagesPaths()
   console.log('Boxes pages found: ', boxesPaths)
   await Promise.all(boxesPaths.map(async (path) => await addReadmeToDoc(path)))
 }
