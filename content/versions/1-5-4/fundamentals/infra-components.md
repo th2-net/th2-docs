@@ -1,6 +1,6 @@
 ---
 title: "Infra components"
-weight: 0
+weight: 5
 chapter: false
 ---
 
