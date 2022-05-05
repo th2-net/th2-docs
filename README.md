@@ -46,7 +46,7 @@ npm run dev
 You can run this repository within docker container. But hot reload for writing and development is unavailable. So you should restart container to see changes.
 
 ```
-docker-compose up --file docker-compose.writer.yaml --build
+docker-compose --file docker-compose.writer.yaml up --build
 ```
 
 Site will available on http://localhost:3000
