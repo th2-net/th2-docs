@@ -2,13 +2,13 @@ import axios from 'axios'
 import fs from 'fs'
 const {parseMarkdownHeaders} = require('markdown-headers')
 
-const getReadme = async (path: string): Promise<string> => {
+async function getReadme(path: string): Promise<string>{
   if (!path.startsWith('https://raw.githubusercontent.com')) Error('Unreliable path to GitHub markdown file')
   const { data: readme } = await axios.get(path)
   return readme
 }
 
-const getMarkdownHeaders = (md: string): any => {
+function getMarkdownHeaders(md: string): any {
   const headers = parseMarkdownHeaders(md).headers
   return headers
 }
@@ -56,14 +56,14 @@ ${processParsedReadme(readme)}
   }
 }
 
-const processParsedReadme = (md: string): string => {
+function processParsedReadme(md: string): string {
   return md
     .replaceAll('\n### ', '\n#### ')
     .replaceAll('\n## ', '\n### ')
     .replaceAll('\n# ', '\n## ')
 }
 
-const getPagesPaths = ():string[] => {
+function getPagesPaths():string[] {
   const paths: string[] = []
   function addAllMdFilesFromFolder(folder: string){
     try{
