@@ -1,0 +1,12 @@
+FROM node:16.15.0-slim
+
+# create destination directory
+RUN mkdir -p /th2-docs
+WORKDIR /th2-docs
+
+# copy the app, note .dockerignore
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+CMD [ "npm", "run", "dev" ]
