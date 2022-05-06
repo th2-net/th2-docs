@@ -230,12 +230,10 @@ helm install loki -n "monitoring" \
 It can take up to 5 minutes to run all components.
 </notice>
 
-## th2 web services
+## Check up installed services
 
-As all components are deployed, number of web services for your th2 cluster will be available.
-
-- Kubernetes dashboard http://your-host:30000/dashboard/
-- Grafana http://your-host:30000/grafana/
-- th2-infra-editor http://your-host:30000/editor/
-- RabbitMQ http://your-host:30000/rabbitmq/
-- th2-reports http://your-host:30000/your-namespace/
+- Kubernetes dashboard `http://your-host:30000/dashboard/`
+- Grafana `http://your-host:30000/grafana/`
+- th2-infra-editor `http://your-host:30000/editor/`
+- RabbitMQ `http://your-host:30000/rabbitmq/`
+- th2-reports `http://your-host:30000/your-namespace/`

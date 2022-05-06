@@ -1,6 +1,9 @@
 ---
 title: Installation via Docker
 weight: 3
+continue_learning:
+  - title: Publish infra schema
+    href: ../2-infra-schema
 ---
 
 Fundamental system for th2 can be runned in Docker containers. It is easer to configure and control. 
@@ -19,10 +22,7 @@ We would not recommend this approach for production systems. But you still can u
 
 ### Install minikube
 
-Minikube runs a Kubernetes cluster inside a container.
-It is easier to configure than common Kubernetes cluster,
-but it cannot be expanded to several nodes.
-See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/) in the official minikube documentation.
+Minikube runs a Kubernetes cluster inside a container. It is easier to configure than common Kubernetes cluster, but it cannot be expanded to several nodes. See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/) in the official minikube documentation.
 
 ### Run cluster
 

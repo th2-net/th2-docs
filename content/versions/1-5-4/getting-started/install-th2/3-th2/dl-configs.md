@@ -2,6 +2,9 @@
 title: Download configs
 weight: 0
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
+continue_learning:
+  - title: Use th2
+    href: ../../use-th2
 tokens_link:
   - title: Creating a personal access token
     icon: mdi-github

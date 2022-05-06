@@ -72,6 +72,10 @@ The Apache Cassandra node is a machine where the Cassandra database for your th2
     pip install cqlsh
     ```
 
+Also it is needed to:
+- Create user with admin rights for th2
+- Provide access to Cassandra database over network
+
 ## Tester box
 
 Tester boxes are the machines used for executing special scripts in the th2 and then acquiring results.
