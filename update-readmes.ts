@@ -34,8 +34,10 @@ async function addReadmeToDoc(path: string){
     const readmePath = getReadmePathFromHeaders(headers)
     if (!readmePath) return
     console.log(`Adding README to ${path}`)
+    console.log(isReadmeExist)
     const readme  = await getReadme(readmePath)
     if (!isReadmeExist){
+      console.log(processParsedReadme(readme))
       fs.writeFileSync(path,
 `${mdDoc}
 <!--auto-readme-start-->
@@ -58,9 +60,11 @@ ${processParsedReadme(readme)}
 
 function processParsedReadme(md: string): string {
   return md
+    .replaceAll('\n#### ', '\n##### ')
     .replaceAll('\n### ', '\n#### ')
     .replaceAll('\n## ', '\n### ')
     .replaceAll('\n# ', '\n## ')
+    .replace(/^# /, '## ')
 }
 
 function getPagesPaths():string[] {
@@ -94,7 +98,7 @@ function getPagesPaths():string[] {
 async function main(){
   console.log('Starting updating READMEs...')
   const boxesPaths: string[] = getPagesPaths()
-  console.log('Boxes pages found: ', boxesPaths)
+  console.log('Pages found: ', boxesPaths)
   await Promise.all(boxesPaths.map(async (path) => await addReadmeToDoc(path)))
 }
 
