@@ -42,7 +42,7 @@ The th2 node is a machine where your th2 system will run fully or partially.
 
 The operator box is a machine used to monitor and control the th2 cluster.
 
-1. Git
+1. Git  
    Git is the most popular project version control system. Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in the git repositories with the state of the testing system and updates corresponding components.
    - [Installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 2. Kubectl  

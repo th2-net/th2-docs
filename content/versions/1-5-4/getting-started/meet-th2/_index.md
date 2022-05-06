@@ -2,7 +2,7 @@
 title: Meet th2
 weight: 20
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
-hide: true
+hide: false
 ---
 
 # Install demo example and try out th2 
