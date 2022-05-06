@@ -1,5 +1,6 @@
 ---
 title: Demo main scenario
+weight: 10
 ---
 
 With this guide you will: 

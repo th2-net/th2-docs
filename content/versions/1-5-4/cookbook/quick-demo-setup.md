@@ -1,9 +1,25 @@
 ---
 title: Quick demo setup
+weight: 0
+read_before:
+  - title: Install th2
+    icon: mdi-tune-vertical
+    href: ../getting-started/install-th2
+  - title: Generate th2 configs with REST API
+    icon: mdi-api
+    href: ./config-api
 tokens_link:
   - title: Creating a personal access token
     icon: mdi-github
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+requirements_link:
+  - title: th2 software requirements
+    icon: mdi-alert-circle-outline
+    href: ../getting-started/requirements/software
+continue_learning:
+  - title: Demo main scenario
+    icon: mdi-script-text-play-outline
+    href: ./demo-main-scenario
 ---
 
 In this recipe use our demo example to learn how to quick deploy infrastructure for th2 install it.
@@ -14,7 +30,9 @@ The resulting environment setup is on the diagram below.
 
 ## Requirements
 
-Install next [requirements for th2](../getting-started/requirements/software) on the single node:
+<recommendations :items="requirements_link"></recommendations>
+
+Install next requirements for th2 on the single node:
 - th2 node:
   - Docker CE v19+
   - Minikube (instead of Kubeadm, Kubelet)

@@ -5,16 +5,10 @@ read_before:
   - title:  Install th2
     href: ./install-th2
     icon: mdi-tune-vertical
-children:
-  - title:  Install Software
-    href: ./use-th2/1-software
+demo_link:
+  - title:  Demo main scenario
+    href: ../cookbook/demo-main-scenario
     icon: mdi-language-python
-  - title:  Create Environment
-    href: ./use-th2/2-create-env
-    icon: mdi-sync
-  - title:  Run Script
-    href: ./use-th2/3-run-script
-    icon: mdi-script-text-play-outline
 ---
 
 In this guide, you will learn how to use th2 in testing.
@@ -29,4 +23,4 @@ The following actions will be needed:
 2. Create environment to run tests inside it;
 3. Run script to test your system for vulnerabilities.
 
-<recommendations :items="children"></recommendations>
+<recommendations :items="demo_link"></recommendations>
