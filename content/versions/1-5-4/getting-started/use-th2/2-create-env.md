@@ -7,8 +7,6 @@ test_config:
     icon: mdi-github
 ---
 
-## Create testing environment
-
 You can create modules for your custom test logic and architect any system from them. 
 
 All you need is to create Docker images of your module and describe it in the `th2-infra-schema` repository. Every branch in this repository is a custom configuration for the th2 environment. 
