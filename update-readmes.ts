@@ -37,17 +37,17 @@ async function addReadmeToDoc(path: string){
     console.log(isReadmeExist)
     const readme  = await getReadme(readmePath)
     if (!isReadmeExist){
-      console.log(processParsedReadme(readme))
+      console.log(processParsedReadme(readme, readmePath))
       fs.writeFileSync(path,
 `${mdDoc}
 <!--auto-readme-start-->
-${processParsedReadme(readme)}
+${processParsedReadme(readme, readmePath)}
 <!--auto-readme-end-->`
       )
     } else {
       fs.writeFileSync(path, mdDoc.replace(autoReadmeRegExp,
 `<!--auto-readme-start-->
-${processParsedReadme(readme)}
+${processParsedReadme(readme, readmePath)}
 <!--auto-readme-end-->`
         )
       )
@@ -58,13 +58,23 @@ ${processParsedReadme(readme)}
   }
 }
 
-function processParsedReadme(md: string): string {
-  return md
+function processParsedReadme(md: string, readmePath: string): string {
+  const githubNameRegex: RegExp = /[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?/
+  const globalRepositoryLink: string = readmePath.replace('README.md', '')
+  const allImageLinks = [...md.matchAll(/\!\[[^\[\]]*\]\([^\(\)]*\)/g)].map(match => match[0])
+  console.log(allImageLinks)
+  let newMD = md
     .replaceAll('\n#### ', '\n##### ')
     .replaceAll('\n### ', '\n#### ')
     .replaceAll('\n## ', '\n### ')
     .replaceAll('\n# ', '\n## ')
     .replace(/^# /, '## ')
+  allImageLinks
+    .filter(link => !link.includes('http://') && !link.includes('https://'))
+    .forEach(link => {
+      newMD = newMD.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
+    })
+  return newMD
 }
 
 function getPagesPaths():string[] {
