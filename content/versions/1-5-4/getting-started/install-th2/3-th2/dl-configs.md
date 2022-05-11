@@ -301,7 +301,7 @@ If you don't have the DNS configured for your th2 cluster, we recommend leaving 
 
 ### Create a Kubernetes Secret with th2 credentials
 
-Create the `secrets.yaml` file.
+Create the `secrets.yaml` file in `th2-infra/example-values` directory.
 
 <notice warning >
 

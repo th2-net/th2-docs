@@ -7,7 +7,7 @@ continue_learning:
     icon: mdi-magnify
 ---
 
-As we have already prepared environment for the tests, we can run special script to check our system for vulnerabilities.
+As we have already prepared the environment for the tests, we can run special script to check our system for vulnerabilities.
 
 <!--more-->
 

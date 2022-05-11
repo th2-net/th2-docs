@@ -11,7 +11,7 @@ You can create modules for your custom test logic and architect any system from 
 
 All you need is to create Docker images of your module and describe it in the `th2-infra-schema` repository. Every branch in this repository is a custom configuration for the th2 environment. 
 
-We have prepared demonstration environment for you. All the modules are already in the container registry. To try it, you just need to create a branch in the `th2-infra-schema` with the content from our branch for th2 1.5.4 test configuration.
+We have prepared a demonstration environment for you. All the modules are already in the container registry. To try it, you just need to create a branch in the `th2-infra-schema` with the content from our branch for th2 1.5.4 test configuration.
 
 <recommendations :items="test_config"></recommendations>
 

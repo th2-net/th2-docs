@@ -127,7 +127,7 @@ ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
 
 [Add an SSH key to your GitLab account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account)
 
-Create a Kubernetes Secret `infra-mgr` from the private SSH key:
+Create a Kubernetes secret `infra-mgr` from the private SSH key:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra-mgr-rsa.key
