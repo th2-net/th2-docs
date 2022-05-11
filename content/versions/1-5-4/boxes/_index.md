@@ -1,5 +1,5 @@
 ---
-title: Boxes
+title: Modules
 weight: 15
 pre: "<b>2. </b>"
 ---

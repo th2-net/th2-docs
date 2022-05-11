@@ -46,9 +46,7 @@ There are two types of schema environment components:
    - Events and messages store (events and messages that are produced by the whole environment);
    - Components for accessing data;
    - GUI to display events and messages.
-2. **Modules** - components of this type are responsible for any custom 
-logic (e.g. connection between client and system, analyzers, client 
-and exchange simulators).
+2. **Modules** - components of this type are responsible for any custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 ![](/img/fundamentals/th2-infra-2.png)
 
