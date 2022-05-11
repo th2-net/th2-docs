@@ -48,12 +48,6 @@ If you need to customize final configuration, you can provide parameters by addi
 
 In order to make it more clear, here are examples of config with and without parameters.
 
-<notice warning>
-
-Files links need to be changed, when docs site will be published on `th2.dev`.
-
-</notice>
-
 Path to `ingress.values` with no parameters (doesn’t require parameters):
 
 

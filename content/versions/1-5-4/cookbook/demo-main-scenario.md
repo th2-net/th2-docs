@@ -1,16 +1,23 @@
 ---
 title: Demo main scenario
 weight: 10
+read_before:
+  - title: Install th2
+    href: ../getting-started/install-th2
+    icon: mdi-tune-vertical
+  - title: Quick cluster setup
+    href: ./quick-demo-setup
+    icon: mdi-fast-forward-outline
 ---
 
 With this guide you will: 
-1. deploy th2 environment with exchange simulator to your th2 cluster,
-2. run special script to check exchange and client requsts.
+1. Deploy th2 environment with exchange simulator to your th2 cluster,
+2. Run special script to check exchange and client requsts.
 
 ## Requirements
 
 1. Th2 cluster
-2. [Tester box](../getting-started/requirements/software) with installed software:
+2. [Tester box](../getting-started/requirements/software#tester-box) with installed software:
    - Git
    - Kubectl
    - Chrome 75+
