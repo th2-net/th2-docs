@@ -32,6 +32,10 @@ async function addReadmeToDoc(path: string){
   if (isReadmeExist){
     mdDoc = mdDoc.replace(autoReadmeRegExp, '<!--auto-readme-start-->\n<!--auto-readme-end-->')
   }
+  if (headers.skip_readme) {
+    fs.writeFileSync(path, mdDoc)
+    return
+  }
   try {
     const readmePath = getReadmePathFromHeaders(headers)
     if (!readmePath) return
