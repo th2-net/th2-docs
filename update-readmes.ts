@@ -2,8 +2,10 @@ import axios from 'axios'
 import fs from 'fs'
 const {parseMarkdownHeaders} = require('markdown-headers')
 
+const GITHUB_USER_CONTENT_LINK = 'https://raw.githubusercontent.com'
+
 async function getReadme(path: string): Promise<string>{
-  if (!path.startsWith('https://raw.githubusercontent.com')) Error('Unreliable path to GitHub markdown file')
+  if (!path.startsWith(GITHUB_USER_CONTENT_LINK)) Error('Unreliable path to GitHub markdown file')
   const { data: readme } = await axios.get(path)
   return readme
 }
@@ -13,18 +15,18 @@ function getMarkdownHeaders(md: string): any {
   return headers
 }
 
-function getReadmePathFromHeaders(headers: any): string | undefined{
+function getReadmePathFromHeaders(headers: any): string | undefined {
   if (!!headers.readme_path)
     return headers.readme_path
   if (!!headers.repo && !!headers.repo_owner)
-    return `https://raw.githubusercontent.com/${headers.repo_owner}/${headers.repo}/master/README.md`
+    return `${GITHUB_USER_CONTENT_LINK}/${headers.repo_owner}/${headers.repo}/master/README.md`
   return
 }
 
 async function addReadmeToDoc(path: string){
   const autoReadmeRegExp = new RegExp(/<!--auto-readme-start-->[\w\W]*<!--auto-readme-end-->/)
   let mdDoc = fs.readFileSync(path, 'utf-8')
-  const isReadmeExist: boolean = !!(mdDoc.match(autoReadmeRegExp))
+  const isReadmeExist: boolean = !!mdDoc.match(autoReadmeRegExp)
   const headers = getMarkdownHeaders(mdDoc)
   if (!headers) return
   if (isReadmeExist){
@@ -34,10 +36,8 @@ async function addReadmeToDoc(path: string){
     const readmePath = getReadmePathFromHeaders(headers)
     if (!readmePath) return
     console.log(`Adding README to ${path}`)
-    console.log(isReadmeExist)
     const readme  = await getReadme(readmePath)
     if (!isReadmeExist){
-      console.log(processParsedReadme(readme, readmePath))
       fs.writeFileSync(path,
 `${mdDoc}
 <!--auto-readme-start-->
@@ -52,18 +52,15 @@ ${processParsedReadme(readme, readmePath)}
         )
       )
     }
-
   } catch(e){
     return
   }
 }
 
 function processParsedReadme(md: string, readmePath: string): string {
-  const githubNameRegex: RegExp = /[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?/
   const globalRepositoryLink: string = readmePath.replace('README.md', '')
   const allImageLinks = [...md.matchAll(/\!\[[^\[\]]*\]\([^\(\)]*\)/g)].map(match => match[0])
-  console.log(allImageLinks)
-  let newMD = md
+  let newMd = md
     .replaceAll('\n#### ', '\n##### ')
     .replaceAll('\n### ', '\n#### ')
     .replaceAll('\n## ', '\n### ')
@@ -72,9 +69,9 @@ function processParsedReadme(md: string, readmePath: string): string {
   allImageLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
-      newMD = newMD.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
+      newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
     })
-  return newMD
+  return newMd
 }
 
 function getPagesPaths():string[] {
@@ -96,7 +93,6 @@ function getPagesPaths():string[] {
         addAllMdFilesFromSubfolders(`${folder}/${subfolder}`)
       })
     } catch (e) { console.error(`Error during reading subfolders: `, e, 'continuing...') }
-
   }
   addAllMdFilesFromFolder('./content/common')
   addAllMdFilesFromSubfolders('./content/common')
@@ -107,9 +103,9 @@ function getPagesPaths():string[] {
 
 async function main(){
   console.log('Starting updating READMEs...')
-  const boxesPaths: string[] = getPagesPaths()
-  console.log('Pages found: ', boxesPaths)
-  await Promise.all(boxesPaths.map(async (path) => await addReadmeToDoc(path)))
+  const pagesPaths: string[] = getPagesPaths()
+  console.log('Pages found: ', pagesPaths)
+  await Promise.all(pagesPaths.map(async (path) => await addReadmeToDoc(path)))
 }
 
 main()
