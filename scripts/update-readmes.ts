@@ -5,7 +5,7 @@ const {parseMarkdownHeaders} = require('markdown-headers')
 const GITHUB_USER_CONTENT_LINK = 'https://raw.githubusercontent.com'
 
 async function getReadme(path: string): Promise<string>{
-  if (!path.startsWith(GITHUB_USER_CONTENT_LINK)) Error('Unreliable path to GitHub markdown file')
+  if (!path.startsWith(GITHUB_USER_CONTENT_LINK)) throw new Error('Unreliable path to GitHub markdown file: ' + path)
   const { data: readme } = await axios.get(path)
   return readme
 }
@@ -57,6 +57,7 @@ ${processParsedReadme(readme, readmePath)}
       )
     }
   } catch(e){
+    console.error(e)
     return
   }
 }
