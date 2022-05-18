@@ -2,6 +2,7 @@
 title: check2-recon
 repo_owner: th2-net
 repo: th2-check2-recon-template
+skip_readme: true
 related:
   - name: "th2-net/th2-check2-recon"
     icon: "mdi-github"
@@ -222,3 +223,6 @@ def check(self, messages: [ReconMessage]) -> Event:
                                       attached_message_ids=attach_ids,
                                       body=body)
 ```
+
+<!--auto-readme-start-->
+<!--auto-readme-end-->
