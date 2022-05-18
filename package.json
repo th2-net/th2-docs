@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "update-readmes": "ts-node update-readmes.ts",
+    "update-readmes": "ts-node scripts/update-readmes.ts",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
