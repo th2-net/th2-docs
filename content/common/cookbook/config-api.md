@@ -1,14 +1,14 @@
 ---
 title: Generate configs for th2-infra
-weight: 0
+weight: 20
 read_before:
   - title:  Query String
     href: https://en.wikipedia.org/wiki/Query_string
     icon: mdi-wikipedia
-hide: true
+hide: false
 ---
 
-The following page contains information about working with API routes in order to get templates for th2 configuration files. In order to better understand basic principles with working with API routes, we recommend reading about [query strings](https://en.wikipedia.org/wiki/Query_string).
+The following page contains information about working with API routes in order to get templates for th2 configuration files. In order to better understand basic principles of working with API routes, we recommend to read about [query strings](https://en.wikipedia.org/wiki/Query_string).
 
 <!--more-->
 
@@ -47,12 +47,6 @@ If you need to customize final configuration, you can provide parameters by addi
 ## Examples
 
 In order to make it more clear, here are examples of config with and without parameters.
-
-<notice warning>
-
-Files links need to be changed, when docs site will be published on `th2.dev`.
-
-</notice>
 
 Path to `ingress.values` with no parameters (doesn’t require parameters):
 

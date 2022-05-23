@@ -1,35 +1,33 @@
 ---
-title: "Demo script analysis"
-weight: 20
-chapter: false
-prev:
-  title: "Get and run demo script"
-  link: ./step-5
-  icon: ""
+title: Demo main scenario
+weight: 10
+read_before:
+  - title: Install th2
+    href: ../getting-started/install-th2
+    icon: mdi-tune-vertical
+  - title: Quick cluster setup
+    href: ./quick-demo-setup
+    icon: mdi-fast-forward-outline
 ---
 
-<custom-stepper :steps="6" :step="6" > </custom-stepper>
+This guide contains instructions to: 
+1. deploy th2 environment with exchange simulator to your th2 cluster;
+2. run special script to check exchange and client requests.
 
-After client activity was simulated we can analyze it. The th2 components save information about requests and visualize them in special dashboards. So we have all tools to see what was wrong and where. 
+## Requirements
 
-<!--more-->
+1. Th2 cluster
+2. [Tester box](../getting-started/requirements/software#tester-box) with installed software:
+   - Git
+   - Kubectl
+   - Chrome 75+
+   - Python and `pip`
+   - Java 8+ and Gradle
 
-## Demo script scenario
-1. User1 submit passive buy order with **Price=x** and **Size=30** - **Order1**
-2. User1 receives an Execution Report with **ExecType=0**
-3. User1 submit passive buy order with **Price=x+1** and **Size=10** - **Order2**
-4. User1 receives an Execution Report with **ExecType=0**
-5. User2 submit an aggressive sell IOC (Immediate Or Cancel) order with **price=x-1** and **Size=100** - **Order3**
-  1. User1 receives an Execution Report with **ExecType=F** on trade between **Order2** and **Order3**
-  2. User2 receives an Execution Report with **ExecType=F** on trade between **Order3** and **Order2**
-  3. User1 receives an Execution Report with **ExecType=F** on trade between **Order1** and **Order3**
-  4. User2 receives an Execution Report with **ExecType=F** on trade between **Order3** and **Order1**
-  5. User2 receives an Execution Report with **ExecType=C** on expired **Order3**
+## Set up th2 environment
 
-## Boxes in schema
+You will deploy th2 environment, configured for this demo script. Boxes are described below.
 
-You have installed th2-infra-schema at the step 3. 
-Boxes created by the th2-infra-schema for demo version are described below. 
 ![Environment schema](https://github.com/th2-net/th2-infra-schema-demo/blob/master/schema-ver-154.png?raw=true "Environment schema")
 
 The demo script uses the following boxes:
@@ -42,9 +40,172 @@ The demo script uses the following boxes:
 7. `conn-server-dc` (connectivity server Drop Copy) replicates FIX messages for one or more participants;
 8. `conn-dc-fix` (connectivity Drop Copy FIX) needed for receiving replicated FIX messages;
 9. `codec-sim-fix` encrypts and decrypts messages on the server side;
-10. `sim` (simulation) simulate server activity;
+10. `sim` (simulator) simulate server (exchange) activity;
 11. `estore` - store for events;
 12. `mstore` - store for messages.
+
+### Create th2 environment
+
+There is a prepared configuration for th2 environment for this scenario in [appropriate branch of `th2-net/th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario). Copy this branch to the new branch of your `th2-infra-schema`.
+
+In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a `rule`
+instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit changes.
+
+```yml[infra-mgr-config.yml]
+kind: SettingsFile
+metadata:
+  name: infra-mgr-config
+spec:
+  k8s-propagation: rule
+```
+
+The `th2-infra-mgr` is monitoring your infra schema repository.
+After described actions are complete, it will create `th2-<new_branch_name>` namespace and deploy all the needed components.
+
+<notice info>
+
+It will take 10-15 minutes to deploy and run all the components.
+
+</notice>
+
+A new schema is available in the `th2-infra-editor`. 
+
+<spoiler title="Infra schema in Infra Editor">
+
+![Infra Schema](/img/getting-started/th2-infra-schema/git-based/infra-schema.png)
+
+</spoiler>
+
+`th2-infra-operator` will create a new namespace `th2-<new_schema_name>` in Kubernetes cluster for the new schema.
+It can require some time. There will be pods for this environment in Kubernetes cluster. You can go to the Kubernetes dashboard and see it.
+
+<spoiler title="New Kubernetes namespace in Dashboard">
+
+![New namespace](/img/getting-started/th2-infra-schema/git-based/new-namespace.png)
+
+</spoiler>
+
+### Prepare environment
+
+In this environment there are several Java *External boxes*. Boxes of this type should be run on your machine from outside the cluster. 
+
+<notice note>
+
+You will need configured  `kubectl` to work with your cluster.
+
+</notice>
+
+#### Clone simulator boxes
+
+Clone [Simulator](https://github.com/th2-net/th2-sim-template) branch for the demo script:
+
+```shell
+git clone -b demo-ver-1.5.4-local --single-branch https://github.com/th2-net/th2-sim-template.git
+```
+
+Clone [Log reader](https://github.com/th2-net/th2-read-log) branch for the demo script:
+
+```shell
+git clone -b demo-ver-1.5.4-local --single-branch https://github.com/th2-net/th2-read-log.git
+```
+
+Clone [CSV reader](https://github.com/th2-net/th2-read-log) branch for the demo script:
+
+```shell
+git clone -b demo-ver-1.5.4-local --single-branch https://github.com/th2-net/th2-read-csv.git
+```
+
+#### Run simulator boxes
+
+Run CSV reader:
+
+```shell
+gradle run --args='--namespace <schema-namespace> --boxName read-csv --contextName $(kubectl config current-context)'
+```
+
+Run Log reader:
+
+```shell
+gradle run --args='--namespace <schema-namespace> --boxName read-log --contextName $(kubectl config current-context)'
+```
+
+Run simulator:
+
+```shell
+gradle run --args='--namespace <schema-namespace> --boxName sim-demo --contextName $(kubectl config current-context)'
+```
+
+## Run 1.5.4 demo main scenario
+
+### Clone the script
+
+Clone corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script).  
+
+```shell
+git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/th2-demo-script.git
+```
+
+### Import dependencies
+
+<notice note>
+
+`requirements.txt` contains standard packages to work with gRPC (e.g. google-api-core) and custom packages to work with the th2 boxes. Please note that gRPC client (script) and gRPC server (th2 box) should use the same package. You can find more information about the `requirements.txt` and package installation here: https://pip.pypa.io/en/stable/user_guide/#requirements-files
+
+</notice>
+
+Move to the script root folder and execute the following command:
+
+```shell
+python -m pip install -r requirements.txt
+```
+
+### Set up configs
+
+Set up configurations from the directory configurations (`mq.json`, `rabbit.json`, `grpc.json`) in accordance with your components.
+
+You can copy configurations for `mq.json` and `grpc.json` from `script-entry-point-app-config` config map in the environment namespace. 
+
+<spoiler title="Script configuration in Kubernetes Dashboard">
+
+![mq config](/img/getting-started/demo-script/db-mq.png)
+
+</spoiler>
+
+You can find values for `rabbit.json` in `rabbit-mq-external-app-config` config map.
+
+<spoiler title="RabbitMQ client configuration in Kubernetes Dashboard">
+
+![rabbit config](/img/getting-started/demo-script/db-rabbitmq.png)
+
+</spoiler>
+
+<notice note >
+
+If this `rabbit.json` configuration doesn't work, try to change `username`
+and `password` values like in `secrets.yaml`.
+
+</notice >
+
+### Run demo script
+
+Finally, run demo script.
+
+```shell
+python run.py
+```
+
+```shell[Output]
+Using th2-common==3.3.6
+2021-09-22 16:03:58,632 - asyncio - DEBUG - Using selector: SelectSelector
+2021-09-22 16:04:03,336 - root - INFO - Connection established.
+2021-09-22 16:04:03,343 - root - INFO - Storing event [TS_1]Aggressive IOC vs two orders: second order's price is lower than first...
+.....
+2021-09-22 16:04:03,346 - root - INFO - Storing event Case[TC_1.1]: Trader DEMO-CONN1 vs trader DEMO-CONN2 for instrument INSTR1...
+.....
+2021-09-22 16:04:03,348 - root - INFO - Sending request to act...
+description: "STEP1: Trader \"DEMO-CONN1\" sends request to create passive Order."
+.....
+```
 
 ## Demo script flow
 
@@ -52,35 +213,26 @@ The script represents the set of messages sent to the system and the responses r
 
 In this example, **flow** is the path of the one message sent by the _script_.
 
-When sending the message, script sends a gRPC request to the `act` component with
-the instructions of which message should go to which connector. Act
-transfers the message to the `conn` client component. Then, based on
-the used gRPC call, it starts to find the message which will be the response
-from the system on the message we’ve sent.
+When sending the message, script sends a gRPC request to the `act` component with the instructions of which message should go to which connector. Act transfers the message to the `conn` client component. Then, based on the used gRPC call, it starts to find the message which will be the response from the system on the message we’ve sent.
 
-The `conn` client component gets the th2 message from the `act`, forms the FIX message
-based on a dictionary and then sends it to the `conn` server on FIX protocol.
+The `conn` client component gets the th2 message from the `act`, forms the FIX message based on a dictionary and then sends it to the `conn` server on FIX protocol.
 
 The `sim` gets this message from the `conn` server and creates a response on it, simulating remote system behavior.
 
-The response returns on the `conn` server and then transfers to the `conn` client
-on FIX protocol. Then response goes to the `codec`, where it is decoded into human-readable
-th2 format which is also clear for the other components. From the codec all
-the messages come to the `act`, to the `check1` for verifying on
-requests from script and to the `recon` for passive verification.
+The response returns on the `conn` server and then transfers to the `conn` client on FIX protocol. Then response goes to the `codec`, where it is decoded into human-readable th2 format which is also clear for the other components. From the codec all the messages come to the `act`, to the `check1` for verifying on requests from script and to the `recon` for passive verification.
 
-When checking, the script sends a gRPC request to
-`check1` with instructions on messages verification. These instructions
-contain expected result on each message we want to verify.
+When checking, the script sends a gRPC request to `check1` with instructions on messages verification. These instructions contain expected result on each message we want to verify.
 
 Also, component `recon` performs the passive verification during all the env work.
 
 
 ![Demo script flow animation](https://github.com/th2-net/th2-documentation/raw/master/images/demo-ver154-main/script_flow.gif)
 
-In the diagram below flow is described in static way.
+<spoiler title="Demo script flow UML sequence diagram">
 
 ![Demo script flow](/img/getting-started/analyze/Demo_script_flow-separated_conns.drawio.png)
+
+</spoiler>
 
 ## th2 reports
 
@@ -318,3 +470,5 @@ Exception details:
 ## Compare results
 
 <youtube id="mQa8c-OZZhU" ></youtube> 
+
+
