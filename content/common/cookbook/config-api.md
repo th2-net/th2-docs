@@ -8,7 +8,7 @@ read_before:
 hide: false
 ---
 
-The following page contains information about working with API routes in order to get templates for th2 configuration files. In order to better understand basic principles with working with API routes, we recommend reading about [query strings](https://en.wikipedia.org/wiki/Query_string).
+The following page contains information about working with API routes in order to get templates for th2 configuration files. In order to better understand basic principles of working with API routes, we recommend to read about [query strings](https://en.wikipedia.org/wiki/Query_string).
 
 <!--more-->
 

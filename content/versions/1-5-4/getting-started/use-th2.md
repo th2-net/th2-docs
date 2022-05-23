@@ -19,9 +19,9 @@ Understand how testing is going with th2.
 
 <!--more-->
 
-As you already have Kubernetes cluster along with the th2, we can try testing it.
+As you already have Kubernetes cluster along with th2, we can try testing it.
 
-## Lets start
+## Let's start
 
 First of all, you need a special th2 schema environment for testing. This environment includes modules your tests will interact with and a bunch of components for historical data storage and displaying status and actions of the environment. During installation you have binded `th2-infra-schema` repository to th2 cluster. For creating new schema environment just create a new branch with `yaml` files describing it.
 

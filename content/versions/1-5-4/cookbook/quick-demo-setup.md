@@ -22,7 +22,7 @@ continue_learning:
     href: ./demo-main-scenario
 ---
 
-In this recipe use our demo example to learn how to quick deploy infrastructure for th2 install it.
+This instruction will explain how to quickly deploy infrastructure for th2 using our demo example.
 
 The resulting environment setup is on the diagram below.
 
@@ -32,7 +32,7 @@ The resulting environment setup is on the diagram below.
 
 <recommendations :items="requirements_link"></recommendations>
 
-Install next requirements for th2 on the single node:
+Install the required software for th2 on the single node:
 - th2 node:
   - Docker CE v19+
   - Minikube (instead of Kubeadm, Kubelet)

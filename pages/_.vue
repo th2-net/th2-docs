@@ -4,7 +4,7 @@
       <article v-if="!error">
         <h1 v-if="!page.chapter">{{ page.title }}</h1>
         <recommendations class="my-4" v-if="page.read_before" :items="page.read_before" >
-          <div>Read before this article:</div>
+          <div>Before you start take a look at:</div>
         </recommendations>
         <nuxt-content :document="page" />
         <prev-next class="my-4" v-if="page.prev || page.next"

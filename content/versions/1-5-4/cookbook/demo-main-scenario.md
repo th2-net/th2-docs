@@ -10,9 +10,9 @@ read_before:
     icon: mdi-fast-forward-outline
 ---
 
-With this guide you will: 
-1. Deploy th2 environment with exchange simulator to your th2 cluster,
-2. Run special script to check exchange and client requsts.
+This guide contains instructions to: 
+1. deploy th2 environment with exchange simulator to your th2 cluster;
+2. run special script to check exchange and client requests.
 
 ## Requirements
 
@@ -24,9 +24,9 @@ With this guide you will:
    - Python and `pip`
    - Java 8+ and Gradle
 
-## Setup th2 environment
+## Set up th2 environment
 
-You will deploy th2 environment, configured fot this demo script. Boxes are described below.
+You will deploy th2 environment, configured for this demo script. Boxes are described below.
 
 ![Environment schema](https://github.com/th2-net/th2-infra-schema-demo/blob/master/schema-ver-154.png?raw=true "Environment schema")
 
@@ -46,9 +46,9 @@ The demo script uses the following boxes:
 
 ### Create th2 environment
 
-There is prepared configuration for th2 environment for this scenario in [appropriate branch of `th2-net/th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario). Copy this branch to the new branch of your `th2-infra-schema`.
+There is a prepared configuration for th2 environment for this scenario in [appropriate branch of `th2-net/th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario). Copy this branch to the new branch of your `th2-infra-schema`.
 
-In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a rule
+In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a `rule`
 instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit changes.
 
 ```yml[infra-mgr-config.yml]
@@ -60,11 +60,11 @@ spec:
 ```
 
 The `th2-infra-mgr` is monitoring your infra schema repository.
-After described actions are complete, it will create `th2-<new_branch_name>` namespace and deploy all needed components.
+After described actions are complete, it will create `th2-<new_branch_name>` namespace and deploy all the needed components.
 
 <notice info>
 
-Time is needed to deploy and run all components. 10-15 minutes period is normal.
+It will take 10-15 minutes to deploy and run all the components.
 
 </notice>
 
