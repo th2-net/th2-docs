@@ -1,10 +1,10 @@
 <template>
   <div class="layout__doc-page">
     <v-container class="layout__main">
-      <h1>th2 Boxes Dashboard</h1>
+      <h1>th2 Modules dashboard</h1>
       <!-- Families Section -->
       <section>
-        <h2>Boxes Groups</h2>
+        <h2>Boxes groups</h2>
         <v-tabs v-model="familyTab" :show-arrows="false">
           <v-tab v-for="groupTab in families" :key="groupTab.family" > {{groupTab.family}} </v-tab>
         </v-tabs>
@@ -25,7 +25,7 @@
         </v-tabs-items>
       </section>
       <!-- Releases Section -->
-      <h2>Last Releases</h2>
+      <h2>Last releases</h2>
       <v-list>
         <v-list-item v-for="repo in lastReleases" :key="repo.id" :href="repo.html_url" target="_blank">
           <v-list-item-avatar>
@@ -37,7 +37,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <h2>All Releases</h2>
+      <h2>All releases</h2>
       <v-sheet color="cyan" rounded elevation="12" class="mb-12 pa-2" v-if="showChart">
         <v-sparkline :labels="releaseChartLabels"
                      :value="releaseChartValues"

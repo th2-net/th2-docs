@@ -1,5 +1,6 @@
 ---
 title: Install th2
+
 weight: 5
 continue_learning:
   - title: Interact with th2

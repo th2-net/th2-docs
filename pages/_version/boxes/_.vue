@@ -2,7 +2,8 @@
   <div class="layout__doc-page">
     <v-container class="layout__main">
       <article v-if="!error">
-        <h1 v-if="!page.chapter">{{ page.title }}</h1>
+        <h1 v-if="!page['inner-title']">{{ page.title }}</h1>
+        <h1 v-else>{{ page['inner-title'] }}</h1>
         <section v-if="repoInfo" class="my-4">
           <v-list-item :href="repoInfo.owner.html_url" target="_blank">
             <v-list-item-avatar>

@@ -1,7 +1,6 @@
 ---
-title: "Infra components"
+title: Infra components
 weight: 5
-chapter: false
 ---
 
 ## Basics

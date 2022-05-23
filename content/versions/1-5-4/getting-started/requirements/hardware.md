@@ -1,9 +1,8 @@
 ---
 title: Hardware
+inner-title: Recommended hardware
 weight: 4
 ---
-
-# Recommended hardware
 
 ## Sample hardware configurations
 

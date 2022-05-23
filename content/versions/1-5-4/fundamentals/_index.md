@@ -3,9 +3,6 @@ title: Fundamentals
 weight: 10
 ---
 
-
-
-
 This section contains theoretical basics of th2, explanation of its architecture and components.
 
 <!--more-->
