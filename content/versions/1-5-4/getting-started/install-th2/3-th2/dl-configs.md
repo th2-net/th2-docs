@@ -11,7 +11,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-This page contains instructions about th2 installation. All configs will be changed manually.
+This page contains instructions about th2 installation. All the configs will be changed manually.
 
 <!--more-->
 
@@ -43,7 +43,7 @@ cd th2-infra/example-values
 
 ## Create namespaces
 
-Create namespaces for _`monitoring`_ and _`service`_.
+Create the namespaces for _`monitoring`_ and _`service`_.
 
 ```shell
 kubectl create namespace monitoring
@@ -73,7 +73,7 @@ mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 
 <notice info >
 
-If you are using minikube, create directories inside it. To do this,
+If you are using minikube, create the directories inside it. To do it,
 connect to the minikube filesystem with `minikube SSH` first, then execute the `mkdir` command provided above.
 
 ```shell
@@ -85,7 +85,7 @@ exit
 
 ### Edit persistence volume configuration
 
-Configurations of persistent volumes are specified in the `pvs.yaml` config file
+The configurations for the persistent volumes are specified in the `pvs.yaml` config file,
 located in the `th2-infra/example-values` directory.
 
 To set the node name in `pvs.yaml`, replace the `<node-name>` value
@@ -115,15 +115,15 @@ spec:
 
 ### Create Kubernetes entities for data persistence
 
-Create the persistent volumes (PVs) and persistent volume claims (PVCs):
+Create the persistent volumes (PVs) and the persistent volume claims (PVCs):
 
 ```shell
 kubectl apply -f ./pvs.yaml
 kubectl apply -f ./pvcs.yaml
 ```
 
-You can start configuring the cluster once all the required software is installed on your test box and operator box 
-and th2-infra repositories are ready.
+You can start configuring the cluster once all the required software is installed on your test and operator boxes 
+and the th2-infra repositories are ready.
 
 ## Configure dashboard.values.yaml
 
@@ -133,7 +133,7 @@ and th2-infra repositories are ready.
 
 <notice note >
 
-Hostname must be resolved from test boxes.
+Hostname must be resolved from the test boxes.
 
 </notice >
 
@@ -175,10 +175,10 @@ Different Git systems have different mechanisms for accessing repository. So you
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected th2 SSH connections to GitHub repositories. 
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected the th2 SSH connections to the GitHub repositories. 
 SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 15, 2022. Keys uploaded before this date will continue to work.
 
-GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection. 
+GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection.
 
 <recommendations :items="tokens_link" ></recommendations>
 
