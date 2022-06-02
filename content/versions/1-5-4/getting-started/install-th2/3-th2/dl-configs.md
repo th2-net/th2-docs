@@ -11,7 +11,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-This page contains instructions about th2 installation. All the configs will be changed manually.
+This page contains instructions about installation of th2. All the configs will be changed manually.
 
 <!--more-->
 
@@ -29,7 +29,7 @@ kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Do
 
 Clone the [`th2-infra`](https://github.com/th2-net/th2-infra) repository.
 
-This repository contains configuration files for starting th2 inside Kubernetes.
+This repository contains configuration files for starting th2 inside the Kubernetes.
 
 ```shell
 git clone -b release-v1.5.x https://github.com/th2-net/th2-infra.git
@@ -57,9 +57,9 @@ Loki, RabbitMQ - and should be set up at this point.
 
 <notice note >
 
-Examples below use HostPath type of
+The examples below use HostPath type of
 [Persistent Volume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
-Please read the documentation to choose an appropriate PV type for your environment.
+Read the documentation to choose an appropriate PV type for your environment.
 
 </notice >
 
@@ -73,8 +73,8 @@ mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 
 <notice info >
 
-If you are using minikube, create the directories inside it. To do it,
-connect to the minikube filesystem with `minikube SSH` first, then execute the `mkdir` command provided above.
+If you are using minikube, create the directories inside it. To do so,
+first connect to the minikube filesystem with `minikube SSH`, then execute the `mkdir` command provided above.
 
 ```shell
 minikube ssh
@@ -88,7 +88,7 @@ exit
 The configurations for the persistent volumes are specified in the `pvs.yaml` config file,
 located in the `th2-infra/example-values` directory.
 
-To set the node name in `pvs.yaml`, replace the `<node-name>` value
+To set up the node name in `pvs.yaml`, replace the `<node-name>` value
 with the name of your node (can be retrieved with the `kubectl get nodes` command).
 
 A `pvs.yaml` example:
@@ -133,11 +133,11 @@ and the th2-infra repositories are ready.
 
 <notice note >
 
-Hostname must be resolved from the test boxes.
+The hostname must be resolved from the test boxes.
 
 </notice >
 
-Define Dashboard hostname in the `dashboard.values.yaml`
+Define the dashboard hostname in the `dashboard.values.yaml`
 ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/dashboard.values.yaml)):
 
 ```yaml[dashboard.values.yaml]
@@ -153,7 +153,7 @@ ingress:
 
 ### Define Grafana hostname
 
-Define Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
+Define the Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
 
 ```yaml[prometheus-operator.values.yaml]
 ...
@@ -169,13 +169,13 @@ grafana:
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted access with write permissions.
+it is required that the `th2-infra-mgr` component is granted an access with write permissions.
 
-Different Git systems have different mechanisms for accessing repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing a repository. So your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent changes. These changes affected the th2 SSH connections to the GitHub repositories. 
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH have underwent changes. These changes affected the th2 SSH connections to the GitHub repositories. 
 SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 15, 2022. Keys uploaded before this date will continue to work.
 
 GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection.
@@ -186,7 +186,7 @@ It is required to grant permissions from `repo` scope. Other permissions are not
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-You will need generated token once in the next step.
+You will need generated token for the next step.
 
 Create `infra-mgr` secret required by `th2-infra-mgr`.
 
@@ -222,7 +222,7 @@ In this case your link to configuration will be the default link to clone reposi
 #### Link for infra-schema in GitHub
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
-set the next values:
+set the following values:
 - `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository;
 - `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository;
 - `infraMgr.git.httpAuthPassword` - empty string.
@@ -370,7 +370,7 @@ helm install --version=1.2.0 helm-operator -n service fluxcd/helm-operator -f ./
 
 ### Install the NGINX Ingress Controller
 
-th2 uses its own implementation of the NGINX Ingress Controller.
+Th2 uses its own implementation of the NGINX Ingress Controller.
 It provides access to the th2 web services through HTTP.
 
 Download and install the NGINX Ingress Controller:
@@ -384,7 +384,7 @@ helm install -n service --version=3.31.0 ingress ingress-nginx/ingress-nginx -f 
 ### Install Prometheus
 
 Prometheus is an open-source systems monitoring and alerting toolkit.
-It will be used by Grafana as data source.
+It will be used by Grafana as a data source.
 And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
 
 Download and install Prometheus:
@@ -443,7 +443,7 @@ helm install --version=0.40.1 loki -n monitoring grafana/loki-stack -f ./loki.va
 
 #### Pods
 
-Check if service pods are running:
+Check if the service pods are running:
 
 ```shell
 kubectl get pods -n service
@@ -460,7 +460,7 @@ ingress-ingress-nginx-controller-b556b7cb5-gfrhl   1/1     Running   0          
 rabbitmq-0                                         1/1     Running   0          21d
 ```
 
-Check if monitoring pods are running:
+Check if the monitoring pods are running:
 
 ```shell
 
@@ -483,10 +483,10 @@ prometheus-prometheus-prometheus-oper-prometheus-0       3/3     Running   1    
 ```
 #### Access from browser
 
-Check access to `Grafana` (the default `user/password: admin/prom-operator` must be changed for information security purposes):  
+Check the access to `Grafana` (the default `user/password: admin/prom-operator` must be changed for information security purposes):  
 `http://your-host:30000/grafana/login`.
 
-## Check up installed services
+## Check out installed services
 
 - Kubernetes dashboard `http://your-host:30000/dashboard/`
 - Grafana `http://your-host:30000/grafana/`

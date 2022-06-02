@@ -14,7 +14,7 @@ install_variants:
     icon: mdi-docker
 ---
 
-Install Kubernetes and Cassandra clusters to use it as fundamental system for th2.
+Install Kubernetes and Cassandra clusters to use them as a fundamental system for th2.
 
 
 <!--more-->
@@ -23,13 +23,13 @@ Install Kubernetes and Cassandra clusters to use it as fundamental system for th
 
 Th2 is running over Kubernetes and Cassandra clusters.
 
-Kubernetes is needed as environment for th2 components. Th2 is microservices framework, so any component of th2 is some piece of logic, no more. With Kubernetes all pieces of th2 logic can be freely created, destroyed, and updated.
+Kubernetes is needed as an environment for th2 components. Th2 is microservices framework, so any component of th2 is a piece of logic, no more. With Kubernetes all the pieces of the th2 logic can be freely created, destroyed, and updated.
 
-Cassandra plays role of data storage for th2. It is NoSQL distributed database with high performance. So the storage is quite flexible for your needs.
+Cassandra plays role of data storage for th2. It is a NoSQL distributed database with high performance. So the storage is quite flexible for your needs.
 
 ## Common tools
 
-Independetntly of how you are going to run fundamental system, you will need some tools to interact with it. Interaction with Cassandra and Kubernetes is really needed for the process of th2 configuration. And in future it can be useful for possible debug.
+Independetntly of how you are going to run the fundamental system, you will need some tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of th2 configuration. It can also be useful for possible debugging.
 
 | Tool    | Version         |
 | ------- | --------------- |
@@ -41,8 +41,8 @@ Independetntly of how you are going to run fundamental system, you will need som
 
 ## Running fundamental system
 
-You have several variants how to run Kubernetes and Cassandra clusters:
-- Run it as it supposed to be
-- Run it within Docker container
+You have two options on how to run Kubernetes and Cassandra clusters:
+- Run it as it supposed to;
+- Run it within the Docker container.
 
 <recommendations :items="install_variants" ></recommendations>

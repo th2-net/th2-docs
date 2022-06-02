@@ -10,14 +10,14 @@ install_variants:
     icon: mdi-api
 ---
 
-As all environment is prepared we can install th2.
+As all the environments are prepared, we can install th2.
 
 <!--more-->
 
-Basically, th2 installation process depends on level of security for your system:
+The process of th2 installation depends on the level of security for your system:
 
 
-1. As basic variant, you can download templates with configurations and change it manually. And then apply it to th2 components.
-2. You can use our Configs API to get configurations for your system. But in this case all configurations will sended in http GET request. We tried to not to require some confident information, but still there can be reasons for not to use it.
+1. You can download the templates with the configurations and change them manually. Then apply them to the th2 components, or
+2. you can use our Configs API to get configurations for your system. 
 
 <recommendations :items="install_variants" ></recommendations>
