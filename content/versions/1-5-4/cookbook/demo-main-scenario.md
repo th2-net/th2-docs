@@ -223,7 +223,7 @@ The response returns on the `conn` server and then transfers to the `conn` clien
 
 When checking, the script sends a gRPC request to `check1` with the instructions on message verification. These instructions contain expected result on each message we want to verify.
 
-Also, component `recon` performs the passive verification during all the env work.
+Also, the `recon` component performs passive verification while other environment components continue working.
 
 
 ![Demo script flow animation](https://github.com/th2-net/th2-documentation/raw/master/images/demo-ver154-main/script_flow.gif)
