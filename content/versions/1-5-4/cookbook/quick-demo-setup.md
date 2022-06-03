@@ -35,7 +35,7 @@ The diagram below shows the setup of the environment.
 Install the required software for th2 on the single node:
 - th2 node:
   - Docker CE v19+
-  - Minikube (instead of Kubeadm, Kubelet)
+  - Minikube (instead of full-capability Kubernetes along with kubeadm and kubelet)
     With minikube you can easily run Kubernetes within docker container.  
     See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
 - Operator box:
