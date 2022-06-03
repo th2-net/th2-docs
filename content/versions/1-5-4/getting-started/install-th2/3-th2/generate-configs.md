@@ -176,7 +176,7 @@ helm install helm-operator -n "service" \
 
 #### NGINX Ingress Controller
 
-Th2 uses its own implementation of the NGINX Ingress Controller.
+th2 uses its own implementation of the NGINX Ingress Controller.
 It provides access to the th2 web services through HTTP.
 
 Install NGINX Ingress Controller:
