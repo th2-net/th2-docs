@@ -23,7 +23,7 @@ Install Kubernetes and Cassandra clusters to use them as a fundamental system fo
 
 Th2 is running over Kubernetes and Cassandra clusters.
 
-Kubernetes is needed as an environment for th2 components. Th2 is microservices framework, so any component of th2 is a piece of logic, no more. With Kubernetes all the pieces of the th2 logic can be freely created, destroyed, and updated.
+Kubernetes is needed as an environment for th2 components. th2 is a microservices framework, so any component of th2 is a piece of logic, no more. With Kubernetes all the pieces of the th2 logic can be freely created, destroyed, and updated.
 
 Cassandra plays role of data storage for th2. It is a NoSQL distributed database with high performance. So the storage is quite flexible for your needs.
 
