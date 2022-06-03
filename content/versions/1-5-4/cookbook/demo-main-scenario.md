@@ -26,7 +26,7 @@ This guide contains instructions on how to:
 
 ## Set up th2 environment
 
-You will deploy th2 environment, configured for this demo script. The boxes are described below.
+You will deploy a th2 environment, configured for this demo script. The boxes are described below.
 
 ![Environment schema](https://github.com/th2-net/th2-infra-schema-demo/blob/master/schema-ver-154.png?raw=true "Environment schema")
 
