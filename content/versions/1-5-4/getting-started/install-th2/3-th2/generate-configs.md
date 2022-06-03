@@ -89,7 +89,7 @@ kubectl apply -f https://th2.dev/api/config/pvcs
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted a SSH access with write permissions.
+it is required that the `th2-infra-mgr` component is granted an SSH access with write permissions.
 
 Different Git systems have different mechanisms for accessing the repository. So, your next actions depend on the system where your th2-infra-schema is published.
 
