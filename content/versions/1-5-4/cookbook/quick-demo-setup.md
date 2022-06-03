@@ -174,7 +174,7 @@ Set up Git platform, where `th2-infra-schema` is published.
 PLATFORM=github
 ```
 
-Set up HTTPS link to th2-infra-schema in GitHub:
+Set up an HTTPS link to th2-infra-schema in GitHub:
 
 ```shell
 SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
