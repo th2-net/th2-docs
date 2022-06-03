@@ -168,7 +168,7 @@ CASSANDRA_HOST=host.minikube.internal
 CASSANDRA_DC=datacenter1
 ```
 
-Set up Git platform, where `th2-infra-schema` is published.
+Set up a Git platform, where th2-infra-schema is published.
  
 ```shell
 PLATFORM=github
