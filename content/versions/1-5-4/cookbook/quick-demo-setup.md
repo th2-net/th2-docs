@@ -43,7 +43,7 @@ Install the required software for th2 on the single node:
   - Kubectl
   - Helm 3+
   - Chrome 75 or newer
-  - Portainer (Optional)  
+  - Portainer (optional)  
     Portainer is the web UI for the docker.
     It can help manage the `minikube` container with the Kubernetes cluster, and `th2-storage` container with the Cassandra database.  
     Run Portainer docker container:  
