@@ -40,7 +40,7 @@ Install the required software for th2 on the single node:
     See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
 - Operator box:
   - Git
-  - Kubectl
+  - kubectl
   - Helm 3+
   - Chrome 75 or newer
   - Portainer (optional)  
