@@ -219,7 +219,7 @@ The `conn` client component gets the th2 message from the `act`, forms the FIX m
 
 The `sim` gets this message from the `conn` server and creates a response on it, simulating remote system behavior.
 
-The response returns on the `conn` server and then transfers to the `conn` client on FIX protocol. Then response goes to the `codec`, where it is decoded into human-readable th2 format, which is also clear for the other components. From the codec all the messages come to the `act`, to the `check1` (for verifying on requests from script), and to the `recon` (for the passive verification).
+The response returns on the `conn` server and then transfers to the `conn` client on FIX protocol. Then response goes to `codec`, where it is decoded into human-readable th2 format, which is also clear for the other components. From `codec` all the messages come to `act`, to `check1` (for verifying on requests from script), and to `recon` (for passive verification).
 
 When checking, the script sends a gRPC request to `check1` with the instructions on messages' verification. These instructions contain expected result on each message we want to verify.
 
