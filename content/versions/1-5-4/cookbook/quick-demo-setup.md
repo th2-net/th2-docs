@@ -114,7 +114,7 @@ kubectl create namespace monitoring
 kubectl create namespace service
 ```
 
-Create the directories for the data persistence:
+Create directories for data persistence:
 
 ```shell
 minikube ssh
