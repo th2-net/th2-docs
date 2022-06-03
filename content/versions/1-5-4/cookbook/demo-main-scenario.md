@@ -49,7 +49,7 @@ The demo script uses the following boxes:
 [`Here`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario) is the configuration for the th2 environment for this scenario. Copy the branch to the new branch of your `th2-infra-schema`.
 
 In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a `rule`
-instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit changes.
+instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit the changes.
 
 ```yml[infra-mgr-config.yml]
 kind: SettingsFile
