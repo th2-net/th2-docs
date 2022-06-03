@@ -213,7 +213,7 @@ The script represents the set of messages sent to the system and the responses r
 
 In this example, **flow** is the path of one message sent by the _script_.
 
-When sending the message, the script sends a gRPC request to the `act` component with the instructions on which message should go to which connector. Act transfers the message to the `conn` client component. Then, based on the used gRPC call, it starts finging the message which will be the response from the system on the message we’ve sent.
+When sending the message, the script sends a gRPC request to the `act` component with the instructions on which message should go to which connector. `Act` transfers the message to the `conn` client component. Then, based on the used gRPC call, it starts looking for the message which will be the response from the system on the message we’ve sent.
 
 The `conn` client component gets the th2 message from the `act`, forms the FIX message based on a dictionary, and then, sends it to the `conn` server on FIX protocol.
 
