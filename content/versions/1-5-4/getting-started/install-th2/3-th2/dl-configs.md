@@ -370,7 +370,7 @@ helm install --version=1.2.0 helm-operator -n service fluxcd/helm-operator -f ./
 
 ### Install the NGINX Ingress Controller
 
-Th2 uses its own implementation of the NGINX Ingress Controller.
+th2 uses its own implementation of the NGINX Ingress Controller.
 It provides access to the th2 web services through HTTP.
 
 Download and install the NGINX Ingress Controller:
