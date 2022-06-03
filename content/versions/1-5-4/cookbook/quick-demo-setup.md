@@ -149,7 +149,7 @@ Leave cluster hostname empty:
 K8S_HOSTNAME=
 ```
 
-Set up an address for the RabbitMQ automatically generated configurations. It must be Kubernetes cluster hostname or its IP.
+Set up an address for RabbitMQ automatically generated configurations. It must be a Kubernetes cluster's hostname or IP address.
 
 <notice note >
 
