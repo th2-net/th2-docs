@@ -22,7 +22,7 @@ continue_learning:
     href: ./demo-main-scenario
 ---
 
-The following section contains instructions on how to quickly deploy infrastructure for th2, using our demo example.
+This section contains instructions on how to quickly deploy a th2 environment, using the [demo example](./demo-main-scenario).
 
 The diagram below shows the setup of the environment. 
 
