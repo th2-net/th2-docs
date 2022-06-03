@@ -329,7 +329,7 @@ The following image contains events within the steps 3 and 4 from the th2 report
 
 #### Actual work in **Step 3**
 
-1. Trader "DEMO-CONN1" sends request to create passive Order with price lower than first order.
+1. Trader "DEMO-CONN1" sends request to create a passive Order with price lower than the first order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
 _"Received 'ExecutionReport' response message"_ is an expected output in the **step 3**.
