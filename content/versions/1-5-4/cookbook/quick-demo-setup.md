@@ -180,7 +180,7 @@ Set up HTTPS link to th2-infra-schema in GitHub:
 SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 ```
 
-Create a `infra-mgr` secret required by `th2-infra-mgr`.
+Create an `infra-mgr` secret required by the th2-infra-mgr component:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
