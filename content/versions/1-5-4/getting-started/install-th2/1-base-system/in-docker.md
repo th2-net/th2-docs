@@ -6,7 +6,7 @@ continue_learning:
     href: ../2-infra-schema
 ---
 
-The fundamental system for th2 can be run in the Docker containers, so it is easer to configure and control. 
+The fundamental system for th2 can be run in Docker containers, so it is easer to configure and control. 
 
 <!--more-->
 
