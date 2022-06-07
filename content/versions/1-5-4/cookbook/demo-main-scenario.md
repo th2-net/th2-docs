@@ -16,10 +16,10 @@ This guide contains instructions on how to:
 
 ## Requirements
 
-1. Th2 cluster
+1. th2 cluster
 2. [Tester box](../getting-started/requirements/software#tester-box) with installed software:
    - Git
-   - Kubectl
+   - kubectl
    - Chrome 75+
    - Python and `pip`
    - Java 8+ and Gradle
@@ -59,7 +59,7 @@ spec:
   k8s-propagation: rule
 ```
 
-`th2-infra-mgr` is monitoring your infra schema repository.
+`th2-infra-mgr` is monitoring your `th2-infra-schema` repository.
 After creating the environment, `th2-infra-mgr` will create a `th2-<new_branch_name>` namespace and deploy all the needed components.
 
 <notice info>
@@ -258,14 +258,14 @@ The first run for INSTR1 will be explained here in details.
 
 #### Scenario
 
-In the **step 1** the _script_ sends request to create passive buy order by user _DEMO-CONN1_.
+In **step 1** the _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
 The order has the following parameters:
 - Size (_OrderQty_) = 30
-- Price = 55 (_x_ | _x_ depends on instrument)
+- Price = 55 (_x_ | _x_ depends on the instrument)
 
 At the end of **step 1** message "the order stands on book in status NEW" is expected.
 
-In the **step 2** _script_ sends instructions for checking response to the _check1_.
+In **step 2** the _script_ sends instructions for checking a response to the _check1_.
 
 At the end of **step 2** message "the order stands on book in status NEW" is expected.
 
@@ -290,7 +290,7 @@ _Text_ contains information that this report is about placing order.
 1. Trader "DEMO-CONN1" sends request to create a passive order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in the **step 1**.
+_"Received 'ExecutionReport' response message"_ is an expected output in **step 1**.
 
 
 | Step 1.1 | Step 1.2 | 
@@ -302,7 +302,7 @@ _"Received 'ExecutionReport' response message"_ is an expected output in the **s
 1. _Script_ sends instructions for response check to _check1_.
 2. _Check1_ analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in the **step 2**.
+Green _"Check messages"_ is an expected output in **step 2**.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
@@ -317,7 +317,7 @@ The order has the following parameters:
 
 At the end of **step 3** message "the order stands on book in status NEW" is expected.
 
-In the **step 4** _script_ sends instructions for checking response to the _check1_.
+In **step 4** _script_ sends instructions for checking response to the _check1_.
 
 At the end of **step 4** message "the order stands on book in status NEW" is expected.
 
@@ -365,21 +365,21 @@ There are **2 buy orders** with overall size (30 + 10) not bigger
 than size of the **sell order** (100). Prices of these **buy orders** (55 and 56) are bigger
 than price of the **sell order** (54). So the trades are happening.
 
-In the **step 6** the _script_ sends instructions for checking
+In **step 6** the _script_ sends instructions for checking
 response messages for user _DEMO-CONN1_ to the _check1_.
 _DEMO-CONN1_ awaits messages about buying by 2 orders, so there should only be 2 messages.
 
-At the end of the **step 6** message of successfully checked
+At the end of **step 6** message of successfully checked
 **2** messages by sent instructions is expected.
 
-In the **step 7** the _script_ sends instructions for checking
+In **step 7** the _script_ sends instructions for checking
 response messages for user _DEMO-CONN2_ to the _check1_.
 _DEMO-CONN2_ should receive 3 messages:
 1. Trade with _DEMO-CONN1_ for Order with Size=30;
 2. Trade with _DEMO-CONN1_ for Order with Size=10;
 3. Cancelling not traded Size (100 - 30 - 10 = 60).
 
-At the end of the **step 7** message of successfully checked
+At the end of **step 7** message of successfully checked
 **3** messages by sent instructions is expected.
 
 #### Generated events
@@ -405,7 +405,7 @@ _"Received 'ExecutionReport' response message"_ is an expected output in **step 
 1. _Script_ sends instructions for response for trader "DEMO-CONN1" check to _check1_.
 2. _Check1_ analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in the **step 6**.
+Green _"Check messages"_ is an expected output in **step 6**.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
@@ -414,7 +414,7 @@ Green _"Check messages"_ is an expected output in the **step 6**.
 1. _Script_ sends instructions for response for trader "DEMO-CONN2" check to _check1_.
 2. _Check1_ analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in the **step 7**.
+Green _"Check messages"_ is an expected output in **step 7**.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step7.drawio.png)
 
@@ -430,7 +430,7 @@ instruments will be described below.
 ### Instr4
 
 As described in the _Demo script steps_ section,
-there should be 3 messages for the seller _DEMO-CONN2_ in the **step 7** of the demo script.
+there should be 3 messages for the seller _DEMO-CONN2_ in **step 7** of the demo script.
 
 ![](/img/getting-started/analyze/instr4-step7-report.png)
 
@@ -447,7 +447,7 @@ You may find comment about exception in the details of one of the filtered messa
 
 ### Instr5
 
-The simulator box sends one message with incorrect values at the **step 7** within this run.
+The simulator box sends one message with incorrect values at **step 7** within this run.
 
 ![img.png](/img/getting-started/analyze/instr5-verification-events.png)
 
@@ -456,7 +456,7 @@ which prompts the exception message in the th2 report.
 
 ### Instr6
 
-In the **step 1** within this run, the script sends the message with an unknown _security ID_, which leads to the
+In **step 1** within this run, the script sends the message with an unknown _security ID_, which leads to the
 message being rejected.
 
 Message structure:
