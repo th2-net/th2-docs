@@ -139,7 +139,7 @@ gradle run --args='--namespace <schema-namespace> --boxName sim-demo --contextNa
 
 ### Clone the script
 
-Clone the corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script).  
+Clone the corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script): 
 
 ```shell
 git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/th2-demo-script.git
