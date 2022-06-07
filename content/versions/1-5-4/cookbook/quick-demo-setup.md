@@ -93,7 +93,7 @@ Create GitHub personal access token. It is required to grant permissions from `r
 
 <recommendations :items="tokens_link" ></recommendations>
 
-Create an environment variable for your token.
+Create an environment variable for your token:
 
 ```shell
 TOKEN=<your_personal_access_token>
