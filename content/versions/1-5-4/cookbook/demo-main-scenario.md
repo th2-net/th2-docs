@@ -252,7 +252,7 @@ Each run, except for the 6th, consists of 7 steps.
 
 ![](/img/getting-started/analyze/7-steps-in-run.png)
 
-The first run will be commented here.
+The first run for INSTR1 will be explained here in details.
 
 ### Steps 1, 2
 
@@ -263,15 +263,15 @@ The order has the following parameters:
 - Size (_OrderQty_) = 30
 - Price = 55 (_x_ | _x_ depends on instrument)
 
-At the end of the **step 1** message "the order stands on book in status NEW" is expected.
+At the end of **step 1** message "the order stands on book in status NEW" is expected.
 
 In the **step 2** _script_ sends instructions for checking response to the _check1_.
 
-At the end of the **step 2** message "the order stands on book in status NEW" is expected.
+At the end of **step 2** message "the order stands on book in status NEW" is expected.
 
 #### Generated events
 
-The following image contains events within the steps 1 and 2 from the th2 reports.
+The following image contains events within steps 1 and 2 from the th2 reports.
 
 Moments of creating those events are demonstrated in the "Actual work" section.
 
@@ -310,20 +310,20 @@ Green _"Check messages"_ is an expected output in the **step 2**.
 
 #### Scenario
 
-In the **step 3** the  _script_ sends request to create passive buy order by user _DEMO-CONN1_.
-Order has the following parameters:
+In **step 3** the  _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+The order has the following parameters:
 - Size (_OrderQty_) = 10
 - Price = 56 (_x+1_ | _x_ depends on the instrument)
 
-At the end of the **step 3** message "the order stands on book in status NEW" is expected.
+At the end of **step 3** message "the order stands on book in status NEW" is expected.
 
 In the **step 4** _script_ sends instructions for checking response to the _check1_.
 
-At the end of the **step 4** message "the order stands on book in status NEW" is expected.
+At the end of **step 4** message "the order stands on book in status NEW" is expected.
 
 #### Generated events
 
-The following image contains events within the steps 3 and 4 from the th2 reports.
+The following image contains events within steps 3 and 4 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-3-4-report.png)
 
@@ -332,7 +332,7 @@ The following image contains events within the steps 3 and 4 from the th2 report
 1. Trader "DEMO-CONN1" sends request to create a passive Order with price lower than the first order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in the **step 3**.
+_"Received 'ExecutionReport' response message"_ is an expected output in **step 3**.
 
 
 | Step 3.1 | Step 3.2 | 
@@ -344,7 +344,7 @@ _"Received 'ExecutionReport' response message"_ is an expected output in the **s
 1. _Script_ sends instructions for response check to _check1_.
 2. _Check1_ analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in the **step 4**.
+Green _"Check messages"_ is an expected output in **step 4**.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
@@ -352,12 +352,12 @@ Green _"Check messages"_ is an expected output in the **step 4**.
 
 #### Scenario
 
-In the **step 5** the  _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
+In **step 5** the  _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
 Order has the following parameters:
 - Size (_OrderQty_) = 100
 - Price = 54 (_x-1_ | _x_ depends on the instrument)
 
-At the end of the **step 5** message about successful trades or
+At the end of **step 5** message about successful trades or
 cancelling the order is expected, as IOC
 cannot just be placed.
 
@@ -384,7 +384,7 @@ At the end of the **step 7** message of successfully checked
 
 #### Generated events
 
-The following image contains events within the steps 5, 6 and 7 from the th2 reports.
+The following image contains events within steps 5, 6 and 7 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-5-6-7-report.png)
 
@@ -394,7 +394,7 @@ The following image contains events within the steps 5, 6 and 7 from the th2 rep
 2. Trader "DEMO-CONN1" receives Execution Reports with ExecType=F: first at Order2 and second on Order1.
 3. Trader "DEMO-CONN2" receives Execution Reports: first trade with Order2, next with Order1 and then cancellation.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in the **step 5**.
+_"Received 'ExecutionReport' response message"_ is an expected output in **step 5**.
 
 | Step 5.1 | Step 5.2/5.3 | 
 |---|---|

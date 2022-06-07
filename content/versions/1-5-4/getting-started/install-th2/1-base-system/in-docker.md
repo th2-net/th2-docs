@@ -12,7 +12,7 @@ The fundamental system for th2 can be run in Docker containers, so it is easer t
 
 <notice note>
 
-We would not recommend this approach for production systems. But you can still use it for the small configurations or demo purposes.
+We would not recommend this approach for production systems. You can use it for demo purposes.
 
 </notice>
 
