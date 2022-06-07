@@ -161,7 +161,7 @@ You can get address with `kubectl cluster-info`.
 MQ_HOSTNAME=192.168.49.2
 ```
 
-Set up the variables for the Cassandra database.
+Set up the variables for the Cassandra database:
 
 ```shell
 CASSANDRA_HOST=host.minikube.internal
