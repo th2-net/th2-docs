@@ -6,13 +6,13 @@ continue_learning:
     href: ../2-infra-schema
 ---
 
-Fundamental system for th2 can be runned in Docker containers. It is easer to configure and control. 
+The fundamental system for th2 can be run in Docker containers, so it is easer to configure and control. 
 
 <!--more-->
 
 <notice note>
 
-We would not recommend this approach for production systems. But you still can use it for small configurations or demo purposes.
+We would not recommend this approach for production systems. You can use it for demo purposes.
 
 </notice>
 
@@ -22,13 +22,13 @@ We would not recommend this approach for production systems. But you still can u
 
 ### Install minikube
 
-Minikube runs a Kubernetes cluster inside a container. It is easier to configure than common Kubernetes cluster, but it cannot be expanded to several nodes. See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/) in the official minikube documentation.
+Minikube runs a Kubernetes cluster inside the container. It is easier to configure than common Kubernetes cluster, but it cannot be expanded to several nodes. See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
 
 ### Run cluster
 
 The th2 modules will run on the Kubernetes [cluster](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-cluster).
 
-With minikube it is possible to specify a version of a Kubernetes cluster before running it.
+With the minikube it is possible to specify a version of a Kubernetes cluster before running it.
 
 ```shell
 minikube start --kubernetes-version v1.19.14

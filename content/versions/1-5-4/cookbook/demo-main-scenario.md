@@ -10,46 +10,46 @@ read_before:
     icon: mdi-fast-forward-outline
 ---
 
-This guide contains instructions to: 
-1. deploy th2 environment with exchange simulator to your th2 cluster;
-2. run special script to check exchange and client requests.
+This guide contains instructions on how to: 
+1. deploy the th2 environment with an exchange simulator to your th2 cluster;
+2. run a special script to check exchange and client requests.
 
 ## Requirements
 
-1. Th2 cluster
+1. th2 cluster
 2. [Tester box](../getting-started/requirements/software#tester-box) with installed software:
    - Git
-   - Kubectl
+   - kubectl
    - Chrome 75+
    - Python and `pip`
    - Java 8+ and Gradle
 
 ## Set up th2 environment
 
-You will deploy th2 environment, configured for this demo script. Boxes are described below.
+You will deploy a th2 environment, configured for this demo script. The boxes are described below.
 
 ![Environment schema](https://github.com/th2-net/th2-infra-schema-demo/blob/master/schema-ver-154.png?raw=true "Environment schema")
 
 The demo script uses the following boxes:
-1. `script` - there demo script is running;
-2. `act-fix` can initiate FIX message sending;
-3. `check1` is needed for data comparison;
+1. `script` - demo script is running;
+2. `act-fix` initiates FIX message sending;
+3. `check1` needed for data comparison;
 4. `codec-fix` encrypts and decrypts messages on the client side;
-5. `conn-client-fix` (connectivity client FIX) sends and receives FIX messages on the client side;
-6. `conn-server-fix` (connectivity server FIX) sends and receives FIX messages on the server side;
-7. `conn-server-dc` (connectivity server Drop Copy) replicates FIX messages for one or more participants;
-8. `conn-dc-fix` (connectivity Drop Copy FIX) needed for receiving replicated FIX messages;
+5. `conn-client-fix` (connectivity client FIX) sends and receives the FIX messages on the client side;
+6. `conn-server-fix` (connectivity server FIX) sends and receives the FIX messages on the server side;
+7. `conn-server-dc` (connectivity server Drop Copy) replicates the FIX messages for one or more participants;
+8. `conn-dc-fix` (connectivity Drop Copy FIX) needed for receiving the replicated FIX messages;
 9. `codec-sim-fix` encrypts and decrypts messages on the server side;
-10. `sim` (simulator) simulate server (exchange) activity;
+10. `sim` (simulator) simulates server (exchange) activity;
 11. `estore` - store for events;
 12. `mstore` - store for messages.
 
 ### Create th2 environment
 
-There is a prepared configuration for th2 environment for this scenario in [appropriate branch of `th2-net/th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario). Copy this branch to the new branch of your `th2-infra-schema`.
+[`Here`](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario) is the configuration for the th2 environment for this scenario. Copy the branch to the new branch of your `th2-infra-schema`.
 
 In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a `rule`
-instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit changes.
+instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit the changes.
 
 ```yml[infra-mgr-config.yml]
 kind: SettingsFile
@@ -59,8 +59,8 @@ spec:
   k8s-propagation: rule
 ```
 
-The `th2-infra-mgr` is monitoring your infra schema repository.
-After described actions are complete, it will create `th2-<new_branch_name>` namespace and deploy all the needed components.
+`th2-infra-mgr` is monitoring your `th2-infra-schema` repository.
+After creating the environment, `th2-infra-mgr` will create a `th2-<new_branch_name>` namespace and deploy all the needed components.
 
 <notice info>
 
@@ -77,7 +77,7 @@ A new schema is available in the `th2-infra-editor`.
 </spoiler>
 
 `th2-infra-operator` will create a new namespace `th2-<new_schema_name>` in Kubernetes cluster for the new schema.
-It can require some time. There will be pods for this environment in Kubernetes cluster. You can go to the Kubernetes dashboard and see it.
+It can require some time. There will be pods for this environment in Kubernetes cluster. You can go to the Kubernetes dashboard and see them.
 
 <spoiler title="New Kubernetes namespace in Dashboard">
 
@@ -87,7 +87,7 @@ It can require some time. There will be pods for this environment in Kubernetes 
 
 ### Prepare environment
 
-In this environment there are several Java *External boxes*. Boxes of this type should be run on your machine from outside the cluster. 
+In this environment there are several Java *External boxes*. The boxes of this type should be run on your machine from outside the cluster. 
 
 <notice note>
 
@@ -139,7 +139,7 @@ gradle run --args='--namespace <schema-namespace> --boxName sim-demo --contextNa
 
 ### Clone the script
 
-Clone corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script).  
+Clone the corresponding branch from the [demo script repository](https://github.com/th2-net/th2-demo-script): 
 
 ```shell
 git clone -b ver-1.5.4-main_scenario --single-branch https://github.com/th2-net/th2-demo-script.git
@@ -182,13 +182,13 @@ You can find values for `rabbit.json` in `rabbit-mq-external-app-config` config 
 <notice note >
 
 If this `rabbit.json` configuration doesn't work, try to change `username`
-and `password` values like in `secrets.yaml`.
+and `password` values as they are in `secrets.yaml`.
 
 </notice >
 
 ### Run demo script
 
-Finally, run demo script.
+Finally, run the demo script.
 
 ```shell
 python run.py
@@ -211,19 +211,19 @@ description: "STEP1: Trader \"DEMO-CONN1\" sends request to create passive Order
 
 The script represents the set of messages sent to the system and the responses recived from the system.
 
-In this example, **flow** is the path of the one message sent by the _script_.
+In this example, **flow** is the path of one message sent by the _script_.
 
-When sending the message, script sends a gRPC request to the `act` component with the instructions of which message should go to which connector. Act transfers the message to the `conn` client component. Then, based on the used gRPC call, it starts to find the message which will be the response from the system on the message we’ve sent.
+When sending the message, the script sends a gRPC request to the `act` component with the instructions on which message should go to which connector. `Act` transfers the message to the `conn` client component. Then, based on the used gRPC call, it starts looking for the message which will be the response from the system on the message we’ve sent.
 
-The `conn` client component gets the th2 message from the `act`, forms the FIX message based on a dictionary and then sends it to the `conn` server on FIX protocol.
+The `conn` client component gets the th2 message from the `act`, forms the FIX message based on a dictionary, and then, sends it to the `conn` server on FIX protocol.
 
 The `sim` gets this message from the `conn` server and creates a response on it, simulating remote system behavior.
 
-The response returns on the `conn` server and then transfers to the `conn` client on FIX protocol. Then response goes to the `codec`, where it is decoded into human-readable th2 format which is also clear for the other components. From the codec all the messages come to the `act`, to the `check1` for verifying on requests from script and to the `recon` for passive verification.
+The response returns on the `conn` server and then transfers to the `conn` client on FIX protocol. Then response goes to `codec`, where it is decoded into human-readable th2 format, which is also clear for the other components. From `codec` all the messages come to `act`, to `check1` (for verifying on requests from script), and to `recon` (for passive verification).
 
-When checking, the script sends a gRPC request to `check1` with instructions on messages verification. These instructions contain expected result on each message we want to verify.
+When checking, the script sends a gRPC request to `check1` with the instructions on message verification. These instructions contain expected result on each message we want to verify.
 
-Also, component `recon` performs the passive verification during all the env work.
+Also, the `recon` component performs passive verification while other environment components continue working.
 
 
 ![Demo script flow animation](https://github.com/th2-net/th2-documentation/raw/master/images/demo-ver154-main/script_flow.gif)
@@ -244,40 +244,40 @@ It can be reached with the URI _http://\<hostname\>:30000/\<schema-namespace\>/_
 
 ## Demo script steps
 
-Demo script runs 6 times - with 6 different instruments.
+The demo script is run 6 times - with 6 different instruments.
 
 ![](/img/getting-started/analyze/6-runs.png)
 
-Each run, except 6th, consists of 7 steps. 
+Each run, except for the 6th, consists of 7 steps. 
 
 ![](/img/getting-started/analyze/7-steps-in-run.png)
 
-First run will be commented there.
+The first run for INSTR1 will be explained here in details.
 
 ### Steps 1, 2
 
 #### Scenario
 
-In the **step 1** _script_ sends request to create passive buy order by user _DEMO-CONN1_.
-Order has next parameters:
+In **step 1** the _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+The order has the following parameters:
 - Size (_OrderQty_) = 30
-- Price = 55 (_x_ | _x_ depends on instrument)
+- Price = 55 (_x_ | _x_ depends on the instrument)
 
-To the end of the **step 1** response message about successfully created order is expected.
+At the end of **step 1** message "the order stands on book in status NEW" is expected.
 
-In the **step 2** _script_ sends instructions for checking response to the _check1_.
+In **step 2** the _script_ sends instructions for checking a response to the _check1_.
 
-To the end of the **step 2** response be successfully checked by sent instructions is expected.
+At the end of **step 2** message "the order stands on book in status NEW" is expected.
 
 #### Generated events
 
-Next image contains events within steps 1 and 2 from the th2 reports.
+The following image contains events within steps 1 and 2 from the th2 reports.
 
-Moments of creating these events are demonstrated in "Actual work" section.
+Moments of creating those events are demonstrated in the "Actual work" section.
 
 ![](/img/getting-started/analyze/steps-1-2-report.png)
 
-There is a possibility to check messages details. It can be very useful.  
+You can check the messages' details. It can be very useful.  
 For example, details of  _ExecutionReport_ from **step 1**.
 Fields _Price_, _OrderQty_ (Size), _Text_ (Comment) can be found here.
 
@@ -287,7 +287,7 @@ _Text_ contains information that this report is about placing order.
 
 #### Actual work in **Step 1**
 
-1. Trader "DEMO-CONN1" sends request to create passive Order.
+1. Trader "DEMO-CONN1" sends request to create a passive order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
 _"Received 'ExecutionReport' response message"_ is an expected output in **step 1**.
@@ -310,26 +310,26 @@ Green _"Check messages"_ is an expected output in **step 2**.
 
 #### Scenario
 
-In the **step 3** _script_ sends request to create passive buy order by user _DEMO-CONN1_.
-Order has the following parameters:
+In **step 3** the  _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+The order has the following parameters:
 - Size (_OrderQty_) = 10
-- Price = 56 (_x+1_ | _x_ depends on instrument)
+- Price = 56 (_x+1_ | _x_ depends on the instrument)
 
-To the end of the **step 3** response message about successfully created order is expected.
+At the end of **step 3** message "the order stands on book in status NEW" is expected.
 
-In the **step 4** _script_ sends instructions for checking response to the _check1_.
+In **step 4** _script_ sends instructions for checking response to the _check1_.
 
-To the end of the **step 4** response be successfully checked by sent instructions is expected.
+At the end of **step 4** message "the order stands on book in status NEW" is expected.
 
 #### Generated events
 
-Next image contains events within steps 3 and 4 from th2 reports.
+The following image contains events within steps 3 and 4 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-3-4-report.png)
 
 #### Actual work in **Step 3**
 
-1. Trader "DEMO-CONN1" sends request to create passive Order with price lower than first order.
+1. Trader "DEMO-CONN1" sends request to create a passive Order with price lower than the first order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
 _"Received 'ExecutionReport' response message"_ is an expected output in **step 3**.
@@ -352,39 +352,39 @@ Green _"Check messages"_ is an expected output in **step 4**.
 
 #### Scenario
 
-In the **step 5** _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
-Order has next parameters:
+In **step 5** the  _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
+Order has the following parameters:
 - Size (_OrderQty_) = 100
-- Price = 54 (_x-1_ | _x_ depends on instrument)
+- Price = 54 (_x-1_ | _x_ depends on the instrument)
 
-To the end of the **step 5** response message about successfully trades or
-cancelling order expected, because IOC
-cannot be just placed.
+At the end of **step 5** message about successful trades or
+cancelling the order is expected, as IOC
+cannot just be placed.
 
 There are **2 buy orders** with overall size (30 + 10) not bigger
 than size of the **sell order** (100). Prices of these **buy orders** (55 and 56) are bigger
-than price of the **sell order** (54). So trades are happening.
+than price of the **sell order** (54). So the trades are happening.
 
-In the **step 6** _script_ sends instructions for checking
+In **step 6** the _script_ sends instructions for checking
 response messages for user _DEMO-CONN1_ to the _check1_.
-_DEMO-CONN1_ awaits messages about buying by 2 orders, so there should be only 2 messages.
+_DEMO-CONN1_ awaits messages about buying by 2 orders, so there should only be 2 messages.
 
-To the end of the **step 6** response be successfully checked
+At the end of **step 6** message of successfully checked
 **2** messages by sent instructions is expected.
 
-In the **step 7** _script_ sends instructions for checking
+In **step 7** the _script_ sends instructions for checking
 response messages for user _DEMO-CONN2_ to the _check1_.
 _DEMO-CONN2_ should receive 3 messages:
-1. Trade with _DEMO-CONN1_ for Order with Size=30
-2. Trade with _DEMO-CONN1_ for Order with Size=10
-3. Cancelling not traded Size (100 - 30 - 10 = 60)
+1. Trade with _DEMO-CONN1_ for Order with Size=30;
+2. Trade with _DEMO-CONN1_ for Order with Size=10;
+3. Cancelling not traded Size (100 - 30 - 10 = 60).
 
-To the end of the **step 7** response be successfully checked
+At the end of **step 7** message of successfully checked
 **3** messages by sent instructions is expected.
 
 #### Generated events
 
-Next image contains events within steps 5, 6 and 7 from th2 reports.
+The following image contains events within steps 5, 6 and 7 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-5-6-7-report.png)
 
@@ -419,9 +419,9 @@ Green _"Check messages"_ is an expected output in **step 7**.
 ![](/img/getting-started/analyze/Demo_script_steps-step7.drawio.png)
 
 ## Searching exceptions
-th2 is the **test** tool. So it should be able to catch exceptions.
+Th2 is a **test** tool. So it should be able to catch exceptions.
 
-To demonstrate this ability _simulator box_ was programmed to create
+To do so, the _simulator box_ was programmed to create
 exceptions with the specific instruments from the _script_.
 
 _INSTR1_, _INSTR2_, _INSTR3_ work normally. Exceptions from other
@@ -430,12 +430,12 @@ instruments will be described below.
 ### Instr4
 
 As described in the _Demo script steps_ section,
-there should be 3 messages for the seller _DEMO-CONN2_ in the **step 7** of the demo script.
+there should be 3 messages for the seller _DEMO-CONN2_ in **step 7** of the demo script.
 
 ![](/img/getting-started/analyze/instr4-step7-report.png)
 
 In fact, there are 4 messages.
-The Simulator box sent a redundant execution report message to call an exception.
+The simulator box has sent a redundant execution report message to call an exception.
 
 This information is displayed in the check sequence event details.
 
@@ -447,7 +447,7 @@ You may find comment about exception in the details of one of the filtered messa
 
 ### Instr5
 
-The Simulator box sends one message with incorrect values at **step 7** within this run.
+The simulator box sends one message with incorrect values at **step 7** within this run.
 
 ![img.png](/img/getting-started/analyze/instr5-verification-events.png)
 

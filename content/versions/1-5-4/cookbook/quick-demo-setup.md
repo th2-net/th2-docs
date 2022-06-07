@@ -22,9 +22,9 @@ continue_learning:
     href: ./demo-main-scenario
 ---
 
-This instruction will explain how to quickly deploy infrastructure for th2 using our demo example.
+This section contains instructions on how to quickly deploy a th2 environment, using the [demo example](./demo-main-scenario).
 
-The resulting environment setup is on the diagram below.
+The diagram below shows the setup of the environment. 
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png)
 
@@ -35,17 +35,17 @@ The resulting environment setup is on the diagram below.
 Install the required software for th2 on the single node:
 - th2 node:
   - Docker CE v19+
-  - Minikube (instead of Kubeadm, Kubelet)
+  - Minikube (instead of full-capability Kubernetes along with kubeadm and kubelet)
     With minikube you can easily run Kubernetes within docker container.  
-    See the [installation instructions](https://minikube.sigs.k8s.io/docs/start/) in the official minikube documentation.
+    See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
 - Operator box:
   - Git
-  - Kubectl
+  - kubectl
   - Helm 3+
   - Chrome 75 or newer
-  - Portainer (Optional)  
-    Portainer is the web UI for the docker.
-    It can help to manage `minikube` container with the Kubernetes cluster and `th2-storage` container with the Cassandra database.  
+  - Portainer (optional)  
+    Portainer is the web UI for Docker.
+    It can help manage the `minikube` container with the Kubernetes cluster, and `th2-storage` container with the Cassandra database.  
     Run Portainer docker container:  
     ```shell
     docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
@@ -74,14 +74,14 @@ docker run --name th2-storage \
 ## Publish the th2-infra-schema
 
 [`th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
-is the template repository with predefined schemas, which you can use.
+is a template repository with predefined schemas.
 
 Fork the [`th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
 repository or use it as a template. It can be either **public** or **private**.
 
 <notice warning>
 
-If you use template functionality, be sure that you copy all branches.
+If you use template functionality, make sure to copy all the branches.
 
 </notice>
 
@@ -93,7 +93,7 @@ Create GitHub personal access token. It is required to grant permissions from `r
 
 <recommendations :items="tokens_link" ></recommendations>
 
-Create environment variable for your token.
+Create an environment variable for your token:
 
 ```shell
 TOKEN=<your_personal_access_token>
@@ -149,7 +149,7 @@ Leave cluster hostname empty:
 K8S_HOSTNAME=
 ```
 
-Set address for RabbitMQ automatically generated configurations. It must be Kubernetes cluster hostname or its IP.
+Set up an address for RabbitMQ automatically generated configurations. It must be a Kubernetes cluster's hostname or IP address.
 
 <notice note >
 
@@ -161,26 +161,26 @@ You can get address with `kubectl cluster-info`.
 MQ_HOSTNAME=192.168.49.2
 ```
 
-Set up variables for Cassandra database.
+Set up the variables for the Cassandra database:
 
 ```shell
 CASSANDRA_HOST=host.minikube.internal
 CASSANDRA_DC=datacenter1
 ```
 
-Set Git platform, where `th2-infra-schema` is published.
+Set up a Git platform, where th2-infra-schema is published:
  
 ```shell
 PLATFORM=github
 ```
 
-Set HTTPS link to th2-infra-schema in GitHub:
+Set up an HTTPS link to th2-infra-schema in GitHub:
 
 ```shell
 SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 ```
 
-Create `infra-mgr` secret required by `th2-infra-mgr`.
+Create an `infra-mgr` secret required by the th2-infra-mgr component:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
@@ -227,10 +227,10 @@ helm install loki -n "monitoring" \
 ```
 
 <notice info>
-It can take up to 5 minutes to run all components.
+It can take up to 5 minutes to run all the components.
 </notice>
 
-## Check up installed services
+## Check out installed services
 
 - Kubernetes dashboard `http://your-host:30000/dashboard/`
 - Grafana `http://your-host:30000/grafana/`

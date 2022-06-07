@@ -18,17 +18,17 @@ clusters_link:
     href: ../../requirements/software#apache-cassandra-node
 ---
 
-There you can find links and recommendations for installation of Kubernetes and Cassandra clusters without unnessesery abstractions. We recommend this option for production system.
+Here you can find links and recommendations to install Kubernetes and Cassandra clusters. We recommend this option for production system.
 
 <!--more-->
 
-You can find some th2 use cases with provided machines listing.
+You can find th2 use cases with the provided machines' listing.
 
 <recommendations :items="use_cases_link"></recommendations>
 
 ## Run Kubernetes and Cassandra clusters
 
-Run Kubernetes and Cassandra clusters with instructions given in th2 software requirements:
+Run Kubernetes and Cassandra clusters with instructions given in the th2 software requirements:
 
 <recommendations :items="clusters_link"></recommendations>
 
