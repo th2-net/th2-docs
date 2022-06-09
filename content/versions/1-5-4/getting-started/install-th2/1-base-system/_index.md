@@ -1,10 +1,10 @@
 ---
-title: 1. Set up the environment
+title: 1. Set up the environment 
 weight: 0
 read_before:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../getting-started/requirements/software
+    href: ../../getting-started/requirements/software
 install_variants:
   - title: Basic installation
     href: ./1-base-system/basic

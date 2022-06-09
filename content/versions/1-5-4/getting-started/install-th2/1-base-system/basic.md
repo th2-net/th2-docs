@@ -37,8 +37,7 @@ You can choose either a full setup, or a [quick setup](#quick-installation) for 
 The th2 node is a machine where your th2 system will run fully or partially.
 
 1. Docker CE v19+  
-   Container runtime Docker CE installed.  
-
+   
    Docker is the most popular open-source application containerization technology.
    The th2 services will run inside separate Docker containers.
 
@@ -48,10 +47,10 @@ The th2 node is a machine where your th2 system will run fully or partially.
 2. Kubernetes v1.19.x or 1.20.x  
    Kubernetes cluster installed (single master node as development mode, master and 2+ workers as production mode) with the [flannel CNI plugin](https://coreos.com/flannel/docs/latest/kubernetes.html#the-flannel-cni-plugin).  
 
-   The [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) is a service that powers the Kubernetes.  
+   The [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) is a service that powers Kubernetes.  
    [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) is a set of tools for creating and managing a Kubernetes cluster.  
 
-   Kubernetes is needed as environment for th2 components. Th2 is microservices framework, so any component of th2 is some piece of logic, no more. With Kubernetes all pieces of th2 logic can be freely created, desctroyed, updated.
+   Kubernetes is needed as environment for th2 components. th2 is a microservices framework, so any component of th2 is some piece of logic, no more. With Kubernetes all pieces of th2 logic can be freely created, destroyed, updated.
    - [Kubernetes tools installation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
    - [Creating a cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
    - Installing Flannel CNI:  
@@ -67,7 +66,7 @@ The operator box is a machine used to monitor and control the th2 cluster.
 1. Git  
    Git is the most popular project version control system. Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in the git repositories with the state of the testing system and updates corresponding components.
    - [Installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-2. Kubectl  
+2. kubectl  
    [Kubectl](https://kubernetes.io/docs/reference/kubectl/) is a command line interface for interacting with the Kubernetes cluster.  
    - [Installation guide](https://kubernetes.io/docs/tasks/tools/#kubectl)
 3. Helm 3+  
@@ -83,8 +82,10 @@ The Apache Cassandra node is a machine where the Cassandra database for your th2
 
 1. Cassandra 3.11.6+  
    Cassandra plays role of data storage for th2. It is NoSQL distributed database with high performance. So the storage is quite flexible for your needs.
-   - [Java 8 installation guide](https://www.java.com/en/download/help/download_options.html). Cassandra requires Java for running
    - [Cassandra installation guide](https://cassandra.apache.org/doc/latest/getting_started/installing.html#installing-cassandra)
+   Cassandra requires Java for running (Java 8+)
+   - [Java installation guide](https://www.java.com/en/download/help/download_options.html)
+   
 
 2. cqlsh
    `cqlsh` is the command line interface, that provides you with an access to the Cassandra database.
@@ -95,8 +96,8 @@ The Apache Cassandra node is a machine where the Cassandra database for your th2
     ```
 
 Also it is needed to:
-- Create user with admin rights for th2
-- Provide access to Cassandra database over network
+- create a user with admin rights for th2
+- provide access to Cassandra database over the network
 
 ## Tester box
 
@@ -105,7 +106,7 @@ Tester boxes are the machines used for executing special scripts in the th2 and 
 1. Git  
    Git is required for fetching scripts from the Git server and changing `th2-infra-schema`.
    - [Installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-2. Kubectl  
+2. kubectl  
    Some th2 modules use configured Kubectl for getting credentials for connecting to Kubernetes cluster with th2.  
    - [Installation guide](https://kubernetes.io/docs/tasks/tools/)
 3. Chrome 75 or newer  
@@ -125,7 +126,7 @@ Fundamental system for th2 can be run in Docker containers. It is easier to conf
 
 <notice note>
 
-We would not recommend this approach for production systems. But you still can use it for small configurations or demo purposes.
+We would not recommend this approach for production systems. But you still can use it for demo purposes.
 
 </notice>
 
