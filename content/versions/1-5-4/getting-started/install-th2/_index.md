@@ -8,7 +8,7 @@ continue_learning:
     icon: mdi-account
 ---
 
-This section provides detailed instructions on how to install and configure th2 as full-capability Kubernetes cluster. 
+This section provides detailed instructions on how to install and configure th2 as a full-capability Kubernetes cluster. 
 
 <!--more-->
 
