@@ -9,9 +9,6 @@ install_variants:
   - title: Basic installation
     href: ./1-base-system/basic
     icon: mdi-hand-back-left-outline
-  - title: Install via Docker
-    href: ./1-base-system/in-docker
-    icon: mdi-docker
 ---
 
 Install Kubernetes and Cassandra clusters to use it as fundamental system for th2.

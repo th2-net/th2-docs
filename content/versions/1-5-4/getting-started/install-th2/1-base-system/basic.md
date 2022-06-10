@@ -30,9 +30,9 @@ One machine can combine several types listed here.
 
 You can choose either a full setup, or a [quick setup](#quick-installation) for demo purposes. 
 
-# Full setup
+## Full setup
 
-## th2 node
+### th2 node
 
 The th2 node is a machine where your th2 system will run fully or partially.
 
@@ -59,7 +59,7 @@ The th2 node is a machine where your th2 system will run fully or partially.
     kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
     ```
 
-## Operator box
+### Operator box
 
 The operator box is a machine used to monitor and control the th2 cluster.
 
@@ -76,7 +76,7 @@ The operator box is a machine used to monitor and control the th2 cluster.
    A browser is required to access the th2 web interface, Kubernetes dashboard, Grafana, etc.  
    - [Download](https://www.google.com/chrome)
 
-## Apache Cassandra node
+### Apache Cassandra node
 
 The Apache Cassandra node is a machine where the Cassandra database for your th2 system will be deployed.
 
@@ -99,7 +99,7 @@ Also it is needed to:
 - create a user with admin rights for th2
 - provide access to Cassandra database over the network
 
-## Tester box
+### Tester box
 
 Tester boxes are the machines used for executing special scripts in the th2 and then acquiring results.
 
@@ -130,7 +130,7 @@ We would not recommend this approach for production systems. But you still can u
 
 </notice>
 
-## Cassandra cluster
+### Cassandra cluster
 
 Download and run Docker container with Cassandra:
 
