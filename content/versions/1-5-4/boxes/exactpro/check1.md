@@ -139,3 +139,6 @@ check1 receives this gRPC request and will search for responses starting from th
 Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions.
 </center>
 
+
+### Storing message queues
+check1 receives decoded system messages from the th2-codec component via RabbitMQ.
