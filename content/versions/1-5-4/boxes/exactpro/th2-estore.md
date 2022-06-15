@@ -12,15 +12,9 @@ related:
     href: "https://github.com/th2-net/th2-grpc-check2-recon"
 ---
 
-`th2-estore` is one of the core components in the th2 environment. It is responsible for storing events into Cradle. Sending events to `th2-estore` from other components is possible via special methods from the `th2-common` library.
+`th2-estore` is one of the core components in the th2 environment. It is responsible for storing events into <term term="Cradle">Cradle</term>. Sending events to `th2-estore` from other components is possible via special methods from the `th2-common` library.
 
 <!--more-->
-
-<notice note >
-
-Cradle is a datalake where the th2 stores messages and events. It is based on Cassandra database and creates th2-specific data processing.
-
-</notice>
 
 ## Events
 
@@ -68,15 +62,15 @@ estore.send(event_batch)
 
 ## Schema config file
 
-`th2-estore` has its own custom resource definition called `Th2Estore`. 
+`th2-estore` has its own <term term="Custom resource">custom resource</term> definition called `Th2Estore`. 
 
 <notice note>
 
-Make sure to indicate `Th2Estore` when specifying `kind` of the custom resource for `th2-estore`.
+Make sure to indicate `Th2Estore` when specifying `kind` of the <term term="Custom resource">custom resource</term> for `th2-estore`.
 
 </notice>
 
-Infra schema can only contain one estore box description. It consists of one required option - docker image. Configuration for pins is specified in `Th2Estore` custom resource definition. More details will be in “Automatic pins configuration“ section.
+Infra schema can only contain one estore box description. It consists of one required option - docker image. Configuration for <term term="Pin">pins</term>  is specified in `Th2Estore` <term term="Custom resource">custom resource</term> definition. More details will be in “Automatic <term term="Pin">pins</term>  configuration“ section.
 
 General view of the component will look like this: 
 
@@ -104,6 +98,6 @@ spec:
 
 ## Automatic pins configuration
 
-`th2-infra-operator` (component responsible for creating boxes) automatically adds special MQ pin for receiving events to `th2-estore` by any other component.
+`th2-infra-operator` (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to `th2-estore` by any other component.
 
-At the same time, any box with CR kind `Th2Box` will get special MQ pin for sending events to `th2-estore`. These pins have attributes `event` and `publish`. 
+At the same time, any box with <term term="Custom resource">CR</term> kind `Th2Box` will get special MQ <term term="Pin">pin</term> for sending events to `th2-estore`. These <term term="Pin">pins</term>  have attributes `event` and `publish`. 

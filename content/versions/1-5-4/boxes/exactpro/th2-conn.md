@@ -49,6 +49,7 @@ Different `th2-conn` repositories in [th2-net](https://github.com/th2-net) use c
 Some of the `th2-conn` repositories implement not only some protocol. They are made for specific platform for processing data.
 
 |Repository|Platform|
+|----------|--------|
 |[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|
 |[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
 
