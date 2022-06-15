@@ -135,7 +135,7 @@ check1 receives this gRPC request and will search for responses starting from th
 ![](/img/boxes/exactpro/check1/fgr3.png "Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions")
 
 <center>
-Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions.
+Figure 3. Definitions for `CheckpointRequest` and `CheckpointResponse` illustrating other connected definitions.
 </center>
 
 A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the check1’s  `message-cache-size`. Users can edit this property in check1’s custom configuration.
