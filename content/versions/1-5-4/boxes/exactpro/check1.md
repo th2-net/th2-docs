@@ -312,8 +312,7 @@ custom config:
 |`message_timeout`|`int64`|common|Defines the allowed timeout for messages matching by the time they were received. Timeout is computed using the message timestamp.|
 |`checkpoint`|`Checkpoint`|common|Must be set if `message_timeout` is used and no valid `chain_id` is provided.|
 |`pre_filter`|`PreFilter`|`CheckSequenceRuleRequest`, `NoMessageCheckRequest`| Pre-filtering for the messages that should not be received. Only messages that match the `pre_filter` parameters will be checked by the main filters.|
-|`check_order`|`bool`|`CheckSequenceRuleRequest`|If `True`, check1 will validate that messages are received in the defined order. 
-(For example, Execution Report with `OrdStatus`:`Pending` and Execution Report with `OrdStatus`: `New` are received in exactly the same order).|
+|`check_order`|`bool`|`CheckSequenceRuleRequest`|If `True`, check1 will validate that messages are received in the defined order.(For example, Execution Report with `OrdStatus`:`Pending` and Execution Report with `OrdStatus`: `New` are received in exactly the same order).|
 |`silence_check`|`google.protobuf.BoolValue`|`CheckSequenceRuleRequest`|If `True`, check1 will verify incoming messages, which match the pre-filter, after a CheckSequenceRuleRequest has found all the expected messages. Default: `False`. This feature helps to not miss the bugs, where unexpected messages will be received.|
 
 ### Required pins and links
