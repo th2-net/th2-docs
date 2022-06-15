@@ -24,11 +24,9 @@ Check1 component (server) interacts with the script (client) through gRPC.
 
 Rules, used for check1 verification, exist only in the th2-check1 component and rule execution happens on the th2-check1 side. The user can perform verification through the following three rule requests.
 
-`CheckRuleRequest` - contains a filter to verify a single message. The rule is unable to identify other unexpected responses from the system. 
-
-`CheckSequenceRuleRequest` (recommended rule) - contains more than one filter and can check several responses.  
-
-`NoMessageCheckRequest` - is used for pre-filtering the messages that should not be received.
+- `CheckRuleRequest` - contains a filter to verify a single message. The rule is unable to identify other unexpected responses from the system. 
+- `CheckSequenceRuleRequest` (recommended rule) - contains more than one filter and can check several responses.  
+- `NoMessageCheckRequest` - is used for pre-filtering the messages that should not be received.
 
 <notice info>
 
@@ -52,7 +50,7 @@ For example, a new trade order sent to an exchange (system) returns an execution
 
 ### Interactions between check1 and other th2 components
 
-![](/img/boxes/exactpro/check1/fgr1_check1_interactions.png "Figure 1. Interactions between check1 and other components") 
+![](/img/boxes/exactpro/check1/check1_interactions.png "Figure 1. Interactions between check1 and other components") 
 
 <center>
 Figure 1. Interactions between check1 and other components.
@@ -68,13 +66,13 @@ Figure 1. Interactions between check1 and other components.
 ## 2. Family of repositories that are required for th2-check1
 The th2-check1 module is represented by the following repositories:
 
-th2-net/th2-check1 - the repository with a source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod. 
+[th2-net/th2-check1](https://github.com/th2-net/th2-check1) - the repository with a source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod. 
 
-th2-net/th2-grpc-check1 - the gRPC check1 library (3.5.1). This library is used to create and publish packages in Python or Java. Includes the check1.proto file described below.
+[th2-net/th2-grpc-check1](https://github.com/th2-net/th2-grpc-check1) - the gRPC check1 library (3.5.1). This library is used to create and publish packages in Python or Java. Includes the check1.proto file described below.
 
-check1.proto - the gRPC check1.proto file contains the definition of check1 service and the data structure of the requests and responses.
+[check1.proto](https://github.com/th2-net/th2-grpc-check1/blob/master/src/main/proto/th2_grpc_check1/check1.proto) - the gRPC check1.proto file contains the definition of check1 service and the data structure of the requests and responses.
 
-common.proto - the gRPC common.proto file contains definitions on common classes required by the check1 service.
+[common.proto](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto) - the gRPC common.proto file contains definitions on common classes required by the check1 service.
 
 <notice info>
 A .proto file is the interface definition written using Interface Definition Language (IDL) from Protocol Buffers and defines the interface between a client and server for gRPC. The Protocol Buffers IDL is a custom, platform-neutral language with an open specification.
@@ -83,7 +81,7 @@ The .proto file is then used to automatically generate language- or platform-spe
 
 The interface allows two components written in two languages to communicate with each other. By sharing .proto files, teams can generate code to use each others' services, without needing to take a code dependency.
 
-More information is available at Overview  |  Protocol Buffers  |  Google Developers 
+More information is available at [Protocol buffers overview](https://developers.google.com/protocol-buffers/docs/overview) 
 
 </notice>
 
@@ -118,7 +116,7 @@ Chain id marks the last verified message in a queue, and is used for linking the
 
 A checkpoint is used as a starting point for verification. Checkpoint data contains the message sequence number in session and the message creation timestamp, returned as a universally unique identifier (UUID) to the act component.
 
-![](/img/boxes/exactpro/check1/fgr2_path_of_chckpnt.png "Figure 2. Path of a checkpoint")
+![](/img/boxes/exactpro/check1/path_of_chckpnt.png "Figure 2. Path of a checkpoint")
 <center>
 Figure 2. Path of a checkpoint
 </center>
@@ -132,10 +130,19 @@ check1 receives this gRPC request and will search for responses starting from th
 
 </notice>
 
-![](/img/boxes/exactpro/check1/fgr3.png "Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions")
+![](/img/boxes/exactpro/check1/definitions_for_CheckPointRequest_and_CheckpointResponse.png "Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions")
 
 <center>
 Figure 3. Definitions for `CheckpointRequest` and `CheckpointResponse` illustrating other connected definitions.
+</center>
+
+### Storing message queues
+check1 receives decoded system messages from the th2-codec component via RabbitMQ.
+
+![](/img/boxes/exactpro/check1/queue_of_messages.png "Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction")
+
+<center>
+Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction
 </center>
 
 A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the check1’s  `message-cache-size`. Users can edit this property in check1’s custom configuration.
@@ -145,6 +152,12 @@ The `direction` of a message can be `FIRST` or `SECOND`. `FIRST` messages are fr
 </notice>
 
 ### Verification by check1 using `CheckSequenceRuleRequest`
+
+![](/img/boxes/exactpro/check1/message_queue_verification.png "Figure 5. Verification of message queue by check1 using CheckSequenceRuleRequest")
+
+<center>
+Figure 5. Verification of message queue by check1 using CheckSequenceRuleRequest
+</center>
 
 ### Pre-filtering 
 CheckSequenceRuleRequest comes with a prefilter. A prefilter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The prefilter allows checking of only those messages that have passed through it. Users must be careful to not accidentally filter out potentially necessary messages.
@@ -159,6 +172,12 @@ The expected responses are identified using **key fields** found in the main fil
 Each filter contains a key field which matches with a single expected message.
 `CLOrdid` (client order id) is used as the key field and check1 matches the filter-message pair according to the value.
 </notice>
+
+![](/img/boxes/exactpro/check1/checksequencerule_searching_for_3_expected_mssgs.png "Figure 6. The three filters matching up with three responses(turquois color), with an unexpected extra message in between (chestnut color). See Figure 4 for reference. chain_id marks the last verified message")
+
+<center>
+Figure 6. The three filters matching up with three responses(turquois color), with an unexpected extra message in between (chestnut color). See Figure 4 for reference. chain_id marks the last verified message
+</center>
 
 <notice info>
 Locating unexpected messages
@@ -179,8 +198,20 @@ Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to f
 chain_id with CheckSequenceRule reduces the chance of missing unexpected extra messages.
 </notice>
 
+![](/img/boxes/exactpro/check1/chain_id.png "Figure 7. Flowchart illustrating chain_id")
+
+<center>
+Figure 7. Flowchart illustrating chain_id
+</center>
+
 ### Verification of message order
 The filters in `CheckSequenceRuleRequest` are an ordered list and the order received should match with the filter order. To check order, the `CheckSequenceRuleRequest` parameter `check_order` is set to `True`.
+
+![](/img/boxes/exactpro/check1/CheckSequenceRule_inaccurate_order.png "Figure 8. Filter order (expected order) does not match the message order received (actual)")
+
+<center>
+Figure 8. Filter order (expected order) does not match the message order received (actual)
+</center>
 
 ### Field validation
 Once the expected messages are located, field validation is conducted by comparing the expected to the actual values. The user is notified of any inaccuracies. 
@@ -366,15 +397,19 @@ Users can make their custom pins and links according to their requirements.
 ## 5. Other useful information
 ### Other repositories
 
-th2-demo-script: ver-1.5.4-main_scenario - the GitHub repository for the demo script. This repository contains
+[th2-demo-script: ver-1.5.4-main_scenario](https://github.com/th2-net/th2-demo-script/tree/ver-1.5.4-main_scenario) - the GitHub repository for the demo script. This repository contains
 - config files: update the Act service and check1 service.yaml config files. These files should be edited, after cloning the required version of the demo script, with hostnames and ports from Kubernetes cluster.
 
 - support functions: contains the check functions
 - required libraries text : import the required version of the th2-grpc-check1 library by editing requirements.txt file.
 
-https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes - Can't find link 
+This is a [link](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes) to the `.yaml` config files of all boxes in the GitHub repository th2-infra-schema-demo. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
 
-This is a link to the `.yaml` config files of all boxes in the GitHub repository th2-infra-schema-demo. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
+### Class diagrams 
+![](/img/boxes/exactpro/check1/message_definitions.png  "Figure 9. Definitions of a message and related definitions")
 
-### Storing message queues
-check1 receives decoded system messages from the th2-codec component via RabbitMQ.
+<center> Figure 9. Definitions of a message and related definitions </center>
+
+![](/img/boxes/exactpro/check1/definitions_for_CheckPointRequest_and_CheckpointResponse.png "Figure 10. Definitions of a CheckSequenceRuleRequest and related class definitions")
+
+<center> Figure 10. Definitions of a CheckSequenceRuleRequest and related class definitions </center>
