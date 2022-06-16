@@ -18,8 +18,10 @@ A rule is a set of logical steps to compare actual results against expected outc
 Rule requests are submitted by the script and verification is done in the background while the script continues to work without waiting for verification to complete. 
 
 <notice info>
+
 The th2-script is code which contains a set of requests to the th2 components.
-Check1 component (server) interacts with the script (client) through gRPC. 
+Check1 component (**server**) interacts with the script (**client**) through **gRPC**. 
+
 </notice>
 
 Rules, used during check1 verification, exist only in the th2-check1 component and rule execution happens on the th2-check1 side. The user can perform verification by submitting the following three rule requests.
@@ -58,10 +60,10 @@ Figure 1. Interactions between check1 and other components.
 
 |Component| Description| Communication
 |---|---|---|
-|th2-script|check1 receives verification requests with expected values, parameters, and a checkpoint (if the message request to th2-act by the script was a success).|grpc|
-|th2-act|check1 receives a checkpoint request, and sends back checkpoints to th2-act (after the th2-act component receives a send message request from the script).|grpc
-|th2-codec|check1 receives decoded system responses.| mq , parsed|
-|th2-estore|check1 sends all events such as checkpoint creation and verified responses to the event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|mq , event|
+|th2-script|check1 receives verification requests with expected values, parameters, and a checkpoint (if the message request to th2-act by the script was a success).|`grpc`|
+|th2-act|check1 receives a checkpoint request, and sends back checkpoints to th2-act (after the th2-act component receives a send message request from the script).|`grpc`|
+|th2-codec|check1 receives decoded system responses.| `mq` , `parsed`|
+|th2-estore|check1 sends all events such as checkpoint creation and verified responses to the event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|`mq` , `event`|
 
 ## 2. Family of repositories that are required by th2-check1
 The th2-check1 module is represented by the following repositories:
@@ -75,11 +77,12 @@ The th2-check1 module is represented by the following repositories:
 [common.proto](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto) - the gRPC common.proto file contains definitions on common classes required by the check1 service.
 
 <notice info>
-A .proto file is the interface definition written using Interface Definition Language (IDL) from Protocol Buffers and defines the interface between a client and server for gRPC. The Protocol Buffers IDL is a custom, platform-neutral language with an open specification.
 
-The .proto file is used to automatically generate language- or platform-specific stubs for clients and servers. Stubs are needed for parameter conversion so that servers can understand the client requests. The client program imports this interface, while the server program exports this interface. 
+A `.proto` file is the interface definition written using Interface Definition Language (IDL) from Protocol Buffers and defines the interface between a client and server for gRPC. The Protocol Buffers IDL is a custom, platform-neutral language with an open specification.
 
-The interface allows two components written in two languages to communicate with each other. By sharing .proto files, teams can generate code to use each others' services, without needing to take a code dependency.
+The `.proto` file is used to automatically generate language- or platform-specific stubs for clients and servers. Stubs are needed for parameter conversion so that servers can understand the client requests. The client program imports this interface, while the server program exports this interface. 
+
+The interface allows two components written in two languages to communicate with each other. By sharing `.proto` files, teams can generate code to use each others' services, without needing to take a code dependency.
 
 More information is available at [Protocol buffers overview](https://developers.google.com/protocol-buffers/docs/overview) 
 
@@ -99,7 +102,9 @@ The definition of the check1 RPC service as defined in the check1.proto file fou
 ```
 
 <notice info>
+
 The  `Check1Service` address (hostname and port) must be updated in config file `grpc.json`
+
 </notice>
 
 th2-check1 returns a response to the requests it receives. 
@@ -107,7 +112,9 @@ th2-check1 returns a response to the requests it receives.
 - All rule responses contain a chain id and the status of the request (`SUCCESS` or `FAIL`).
 
 <notice info>
+
 Chain id marks the last verified message in a queue, and is used for linking the next rule request to the current message queue.
+
 </notice>
 
 ### Creating a checkpoint
@@ -122,16 +129,19 @@ Figure 2. Path of a checkpoint
 After receiving a `CheckpointRequest`  from the th2-act methods or directly from the script, th2-check1 will locate the last message in all queues, note the sequence number and timestamps and send it to the th2-act component via `CheckPointResponse`.
 
 <notice info>
-The script receives the checkpoint from act and sends it to check1 by gRPC request that includes the expected results and parameters for verification.
 
-check1 receives this gRPC request and will search for responses starting from the location and time when the checkpoint was created.
+- The script receives the checkpoint from act and sends it to check1 by gRPC request that includes the expected results and parameters for verification.
+
+- check1 receives this gRPC request and will search for responses starting from the location and time when the checkpoint was created.
 
 </notice>
 
 ![](/img/boxes/exactpro/check1/definitions_for_CheckPointRequest_and_CheckpointResponse.png "Figure 3. Definitions for CheckPointRequest and CheckpointResponse illustrating other connected definitions")
 
 <center>
+
 Figure 3. Definitions for `CheckpointRequest` and `CheckpointResponse` illustrating other connected definitions.
+
 </center>
 
 ### Storing message queues
@@ -140,18 +150,22 @@ check1 receives decoded system messages from the th2-codec component via RabbitM
 ![](/img/boxes/exactpro/check1/queue_of_messages.png "Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction")
 
 <center>
-Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction
+
+Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction.
+
 </center>
 
 A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the check1’s  `message-cache-size`. Users can edit this property in check1’s custom configuration.
 
 <notice info>
+
 The `direction` of a message can be `FIRST` or `SECOND`. `FIRST` messages are from the system under test (default). `SECOND` messages are sent to the the system under test. 
+
 </notice>
 
 ### Verification by check1 using `CheckSequenceRuleRequest`
 
-![](/img/boxes/exactpro/check1/message_queue_verification.png "Figure 5. Verification of message queue by check1 using CheckSequenceRuleRequest")
+![](/img/boxes/exactpro/check1/message_queue_verification.png "Figure 5. Verification of message queue by check1 using `CheckSequenceRuleRequest`")
 
 <center>
 Figure 5. Verification of message queue by check1 using CheckSequenceRuleRequest
@@ -174,12 +188,16 @@ Each filter contains a key field which matches with a single expected message.
 ![](/img/boxes/exactpro/check1/checksequencerule_searching_for_3_expected_mssgs.png "Figure 6. The three filters matching up with three responses(turquois color), with an unexpected extra message in between (chestnut color). See Figure 4 for reference. chain_id marks the last verified message")
 
 <center>
-Figure 6. The three filters matching up with three responses(turquois color), with an unexpected extra message in between (chestnut color). See Figure 4 for reference. chain_id marks the last verified message
+
+Figure 6. The three filters matching up with three responses(turquois color), with an unexpected extra message in between (chestnut color). See Figure 4 for reference. `chain_id` marks the last verified message.
+
 </center>
 
 <notice info>
-Locating unexpected messages:  
-if a message passed prefilter, but is not in the expected, it is considered as an extra message.
+
+Locating unexpected messages: 
+- if a message passed prefilter, but is not in the expected, it is considered as an extra message.
+
 </notice>
 
 The time allocated to check1 to search for a matching message(s) in the queue (rule execution) is defined by the rule parameter `timeout`. Once the allocated time runs out the rule execution stops. This value can be edited in the rule request.
@@ -187,13 +205,17 @@ The time allocated to check1 to search for a matching message(s) in the queue (r
 If `timeout` is not specified in the rule request, the default value is check1’s `rule-execution-timeout` property.
 
 <notice info>
+
 If any or none of the filters match up with a message(s) in the queue the user is notified about the mismatch between the number of received and expected system messages.
+
 </notice>
 
 Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to form one large `CheckSequenceRuleRequest`. `chain_id` is similar to a checkpoint, and locates the last message verified by the previous `CheckSequenceRuleRequest`.
 
 <notice info>
+
 `chain_id` with `CheckSequenceRuleRequest` reduces the chance of missing unexpected extra messages.
+
 </notice>
 
 ![](/img/boxes/exactpro/check1/chain_id.png "Figure 7. Flowchart illustrating chain_id")
@@ -281,12 +303,12 @@ custom config:
 |Property name|Type|Default Value|Property description|
 |---|---|---|---|
 |`message-cache-size`|`int`|`1000`|The number of messages for each stream (alias + direction) that will be buffered.|
-|`cleanup-older-than`|`long`|`60L`|Variable indicates the value of the time interval for the verified message chain to be removed from the queue. The value is given in time unit defined in cleanup-time-unit setting.|
-|`cleanup-time-unit`|`ChronoUnit`|`ChronoUnit.SECONDS`|Defines the unit of measurement for the cleanup-older-than setting. The available values are MILLIS, SECONDS, MINUTES, HOURS. Default: SECONDS.|
+|`cleanup-older-than`|`long`|`60L`|Variable indicates the value of the time interval for the verified message chain to be removed from the queue. The value is given in time unit defined in `cleanup-time-unit` setting.|
+|`cleanup-time-unit`|`ChronoUnit`|`ChronoUnit.SECONDS`|Defines the unit of measurement for the `cleanup-older-than` setting. The available values are `MILLIS`, `SECONDS`, `MINUTES`, `HOURS`. Default: `SECONDS`.|
 |`max-event-batch-content-size`|`int`|`1048576`|Maximum size of summary events content in a batch (in bytes).|  
 |`rule-execution-timeout`|`long`|`5000L`|This is the amount of time allocated for rule execution. The rule execution stops automatically after the allocated time. Unit is milliseconds. `rule-execution-timeout`  is the default value, unless the parameter timeout is set in the rule request.|
-|`auto-silence-check-after-sequence-rule`|`bool`|`false`|Parameter which defines a default behavior of creating CheckSequenceRule, if silence_check parameter in CheckSequenceRule is not specified in the request. Default: `false`.|
-|`time-precision`|`Duration`|`PT0.000000001S`|Parameter used to compare two time values. It is based on the ISO-8601 duration format PnDTnHnMn.nS with days considered to be exactly 24 hours. Additional information can be found [here](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)).|
+|`auto-silence-check-after-sequence-rule`|`bool`|`false`|Parameter which defines a default behavior of creating `CheckSequenceRule`, if `silence_check` parameter in `CheckSequenceRule` is not specified in the request. Default: `false`.|
+|`time-precision`|`Duration`|`PT0.000000001S`|Parameter used to compare two time values. It is based on the ISO-8601 duration format `PnDTnHnMn.nS` with days considered to be exactly 24 hours. Additional information can be found [here](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)).|
 |`decimal-precision`|`double`|`0.00001`|Parameter used to compare the value of two numbers. Can be specified in number or string format. For example, `0.0001`, `0.125`, `125E-3`.|
 |`check-null-value-as-empty`|`boolean`|`false`|Parameter used for `EMPTY` and `NOT_EMPTY` operations to check if `NULL_VALUE` is empty. Default: `false`. For example, if the `checkNullValueAsEmpty` parameter is true, then `NULL_VALUE` is equal to `EMPTY`, otherwise `NULL_VALUE` is equal to `NOT_EMPTY`.|
 
@@ -354,8 +376,8 @@ spec:
         
 Attributes for `connection_type:mq` pins
 
-|Attribute|Name|Description|
-|---|---|---|
+|Attribute name|Description|
+|---|---|
 |`FIRST`|pin will take only messages which have metadata attribute direction = FIRST|
 |`SECOND`|pin will take only messages which have metadata attribute direction = SECOND|
 |`parsed`|message is transferred in th2 internal format (json-like)|
@@ -386,9 +408,11 @@ name: script-to-check1
 ```
 
 
-<notice info>     
-This example is from the th2-infra-schema-demo repository branch ver-1.5.4-main_scenario.
+<notice info>
+     
+This example is from the `th2-infra-schema-demo` repository branch `ver-1.5.4-main_scenario`.
 Users can make their custom pins and links according to their requirements.
+
 </notice>
 
 ## 5. Other useful information
