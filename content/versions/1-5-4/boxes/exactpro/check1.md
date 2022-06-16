@@ -9,7 +9,7 @@ related:
 
 ## 1. Overview
 
-th2-check1 is a component of th2 that performs message stream verification. When users accept response(s) from the system, they can use check1 to execute **rule(s)** to verify these system response(s) by submitting rule requests using **gRPC**.
+th2-check1 is a component of th2 that performs message stream verification. When users accept response(s) from the system, they can use check1 to execute **rule(s)** to verify these system response(s) by submitting **rule requests** using **gRPC**.
  
 <notice info>
 A rule is a set of logical steps to compare actual results against expected outcomes. 
@@ -22,7 +22,7 @@ The th2-script is code which contains a set of requests to the th2 components.
 Check1 component (server) interacts with the script (client) through gRPC. 
 </notice>
 
-Rules, used for check1 verification, exist only in the th2-check1 component and rule execution happens on the th2-check1 side. The user can perform verification through the following three rule requests.
+Rules, used during check1 verification, exist only in the th2-check1 component and rule execution happens on the th2-check1 side. The user can perform verification by submitting the following three rule requests.
 
 - `CheckRuleRequest` - contains a filter to verify a single message. The rule is unable to identify other unexpected responses from the system. 
 - `CheckSequenceRuleRequest` (recommended rule) - contains more than one filter and can check several responses.  
@@ -30,11 +30,11 @@ Rules, used for check1 verification, exist only in the th2-check1 component and 
 
 <notice info>
 
-`CheckSequenceRule` is a rule in check1 that compares a message to expected results;
+`CheckSequenceRule` is a rule in check1 that compares messages to expected results;
 
 `CheckSequenceRuleRequest` is a request created by a user and contains expected results and parameters for verification logic;
 
-`submitCheckSequenceRule()` is a method to submit the `CheckSequenceRuleRequest` in check1 for `CheckSequenceRule` execution.
+`submitCheckSequenceRule()` is a method to submit the `CheckSequenceRuleRequest` to check1 for `CheckSequenceRule` execution.
 
 </notice>
 
@@ -44,7 +44,7 @@ Verification by check1 identifies expected, unexpected (extra), and missing resp
 
 A response is created as a result of a message sent to the system. 
 
-For example, a new trade order sent to an exchange (system) returns an execution report (response) with details about the trade’s execution.
+For example, a new trade order (message) sent to an exchange (system) returns an execution report (response) with details about the trade’s execution.
 
 </notice>
 
@@ -58,12 +58,12 @@ Figure 1. Interactions between check1 and other components.
 
 |Component| Description| Communication
 |---|---|---|
-|th2-script|If the message request to th2-act by the script was a success, check1 receives verification requests with expected values, parameters, and checkpoint.|grpc|
-|th2-act|Once the th2-act component receives a send message request from the script, check1 receives a checkpoint request, and sends back checkpoints to th2-act.|grpc
+|th2-script|check1 receives verification requests with expected values, parameters, and a checkpoint (if the message request to th2-act by the script was a success).|grpc|
+|th2-act|check1 receives a checkpoint request, and sends back checkpoints to th2-act (after the th2-act component receives a send message request from the script).|grpc
 |th2-codec|check1 receives decoded system responses.| mq , parsed|
-|th2-estore|check1 sends all events, such as checkpoint creation and verified responses, to event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|mq , event|
+|th2-estore|check1 sends all events such as checkpoint creation and verified responses to the event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|mq , event|
 
-## 2. Family of repositories that are required for th2-check1
+## 2. Family of repositories that are required by th2-check1
 The th2-check1 module is represented by the following repositories:
 
 [th2-net/th2-check1](https://github.com/th2-net/th2-check1) - the repository with a source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod. 
@@ -77,15 +77,13 @@ The th2-check1 module is represented by the following repositories:
 <notice info>
 A .proto file is the interface definition written using Interface Definition Language (IDL) from Protocol Buffers and defines the interface between a client and server for gRPC. The Protocol Buffers IDL is a custom, platform-neutral language with an open specification.
 
-The .proto file is then used to automatically generate language- or platform-specific stubs for clients and servers. Stubs are needed for parameter conversion so that servers can understand the client requests. The client program imports this interface, while the server program exports this interface. 
+The .proto file is used to automatically generate language- or platform-specific stubs for clients and servers. Stubs are needed for parameter conversion so that servers can understand the client requests. The client program imports this interface, while the server program exports this interface. 
 
 The interface allows two components written in two languages to communicate with each other. By sharing .proto files, teams can generate code to use each others' services, without needing to take a code dependency.
 
 More information is available at [Protocol buffers overview](https://developers.google.com/protocol-buffers/docs/overview) 
 
 </notice>
-
-The Protocol Buffers IDL is a custom, platform-neutral language with an open specification
 
 ## 3. Function of th2-check1
 
@@ -180,22 +178,22 @@ Figure 6. The three filters matching up with three responses(turquois color), wi
 </center>
 
 <notice info>
-Locating unexpected messages
-If a message passed prefilter, but is not in the expected, it is considered as an extra message.
+Locating unexpected messages:  
+if a message passed prefilter, but is not in the expected, it is considered as an extra message.
 </notice>
 
 The time allocated to check1 to search for a matching message(s) in the queue (rule execution) is defined by the rule parameter `timeout`. Once the allocated time runs out the rule execution stops. This value can be edited in the rule request.
 
-If this is not specified, the default time allocated is given in `rule-execution-timeout`  which can be edited in check1’s custom configuration.
+If `timeout` is not specified in the rule request, the default value is check1’s `rule-execution-timeout` property.
 
 <notice info>
-If any or none of the filters match up with a message in the queue, then the user is notified of a missing response.
+If any or none of the filters match up with a message(s) in the queue the user is notified about the mismatch between the number of received and expected system messages.
 </notice>
 
-Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to form one large `CheckSequenceRule`. `chain_id` is similar to a checkpoint, and locates the last message verified by the previous `CheckSequenceRule`.
+Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to form one large `CheckSequenceRuleRequest`. `chain_id` is similar to a checkpoint, and locates the last message verified by the previous `CheckSequenceRuleRequest`.
 
 <notice info>
-chain_id with CheckSequenceRule reduces the chance of missing unexpected extra messages.
+`chain_id` with `CheckSequenceRuleRequest` reduces the chance of missing unexpected extra messages.
 </notice>
 
 ![](/img/boxes/exactpro/check1/chain_id.png "Figure 7. Flowchart illustrating chain_id")
@@ -398,17 +396,19 @@ Users can make their custom pins and links according to their requirements.
 
 [th2-demo-script: ver-1.5.4-main_scenario](https://github.com/th2-net/th2-demo-script/tree/ver-1.5.4-main_scenario) - the GitHub repository for the demo script. This repository contains
 - config files: update the Act service and check1 service.yaml config files. These files should be edited, after cloning the required version of the demo script, with hostnames and ports from Kubernetes cluster.
-
 - support functions: contains the check functions
 - required libraries text : import the required version of the th2-grpc-check1 library by editing requirements.txt file.
 
-This is a [link](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes) to the `.yaml` config files of all boxes in the GitHub repository th2-infra-schema-demo. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
+th2-infra-schema-demo is a schema developed for demonstrating th2.
+The repository contains the schema environments (branches) that are used to create the th2 environment (a th2 cluster in a namespace) in Kubernetes.
+
+This is a [link](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes) to the `.yaml` config files  of all components, including check1, in the branch ver-1.5.4-main_scenario. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
 
 ### Class diagrams 
 ![](/img/boxes/exactpro/check1/message_definitions.png  "Figure 9. Definitions of a message and related definitions")
 
-<center> Figure 9. Definitions of a message and related definitions </center>
+<center> Figure 9. Definitions of a message and related class definitions </center>
 
-![](/img/boxes/exactpro/check1/definitions_for_CheckPointRequest_and_CheckpointResponse.png "Figure 10. Definitions of a CheckSequenceRuleRequest and related class definitions")
+![](/img/boxes/exactpro/check1/definitions_of_a_CheckSequenceRule_request.png "Figure 10. Definitions of a CheckSequenceRuleRequest and related class definitions")
 
 <center> Figure 10. Definitions of a CheckSequenceRuleRequest and related class definitions </center>
