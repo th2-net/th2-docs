@@ -15,7 +15,7 @@ The th2 node is a machine where your th2 system will run fully or partially.
 |Kubernetes|1.19.x or 1.20.x latest patch version|   
 |kubeadm||   
 |kubelet||
-|kubectl|You must use a kubectl version that is within one minor version difference of your cluster.|
+|kubectl|1.18, 1.19, 1.20, 1.21. You must use a kubectl version that is within one minor version difference of your cluster. |
 |flannel CNI||
 
 # Operator box 
