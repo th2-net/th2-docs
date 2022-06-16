@@ -122,7 +122,6 @@ Tester boxes are the machines used for executing special scripts in the th2 and 
 ## Quick installation 
 Fundamental system for th2 can be run in Docker containers. It is easier to configure and control. 
 
-<!--more-->
 
 <notice note>
 
