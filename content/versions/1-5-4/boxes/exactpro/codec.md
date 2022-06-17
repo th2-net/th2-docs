@@ -32,6 +32,7 @@ NOTE: `codec` can replace raw message with a parsed message followed by several 
 
 **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
 
+![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
 Example of raw message (FIX protocol):
 ```fix
@@ -144,8 +145,6 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
 ## Functions:
 The `codec` component handles message flows between components such as conn, act, check1, read and other. On a schemes below you can see example of interaction with other th2 components .
-
-![](/img/boxes/exactpro/check1/codec_interaction_with_other_components.png) 
 
 The `codec` component have 8 pins - 4 stream, and 4 general ones. Functionality of stream and general pins is same, but creating a component with 8 pins instead of two with 4 same pins were selected to decrease amount of configuration in infra-schema and resource requirements of resulting system. Main user of general pins is data-provider component, other components are usually connected to general pins.
 
