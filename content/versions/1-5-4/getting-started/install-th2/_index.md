@@ -8,8 +8,9 @@ continue_learning:
     icon: mdi-account
 ---
 
-In this guide, you will learn how to run th2 in a Kubernetes cluster.
+This section provides detailed instructions on how to install and configure th2 as a full-capability Kubernetes cluster. 
 
 <!--more-->
 
-This section is targeted for DevOps specialist as th2 is a complex framework using high variety of modern technologies. If you lack of DevOps knowledge, but still want to try th2, you can check ["Cookbook"](../cookbook) section. If you already have working th2 cluster, check section for Operators.
+If you just want to get a flavor of how it works, check out our Cookbook
+for a [quick setup](../cookbook/quick-demo-setup) guide followed by a [demo example](../cookbook/demo-main-scenario). 

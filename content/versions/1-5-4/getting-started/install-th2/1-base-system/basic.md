@@ -1,5 +1,5 @@
 ---
-title: Installation
+title: Basic installation
 weight: 2
 image: /img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png
 continue_learning:

@@ -11,7 +11,7 @@ tokens_link:
     href: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 ---
 
-This page contains instructions about th2 installation. All the configs will be automatically generated with a special API.
+This page contains instructions about installation of th2. All the configs will be automatically generated with a special API.
 
 <!--more-->
 
@@ -21,7 +21,7 @@ This page contains instructions about th2 installation. All the configs will be 
 
 Flannel is a Kubernetes add-on that addresses networking [issues](https://kubernetes.io/docs/concepts/cluster-administration/networking/).
 
-To install it, you need to run the following command:
+For installation, run the following command:
 
 ```shell
 kubectl apply -f "https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml"
@@ -44,13 +44,13 @@ Loki, RabbitMQ - and should be set up at this point.
 
 <notice note >
 
-Examples below use HostPath type of a
+Examples below use HostPath type of
 [Persistent Volume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 Read the documentation to choose an appropriate PV type for your environment.
 
 </notice >
 
-Create directories for the data persistence with the following command.
+Create the directories for the data persistence with the following command.
 
 <notice info >
 
@@ -89,13 +89,13 @@ kubectl apply -f https://th2.dev/api/config/pvcs
 
 The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and updates it
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
-it is required that the `th2-infra-mgr` component is granted SSH access with the write permissions.
+it is required that the `th2-infra-mgr` component is granted an SSH access with write permissions.
 
 Different Git systems have different mechanisms for accessing the repository. So, your next actions depend on the system where your th2-infra-schema is published.
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH underwent some changes. These changes affected th2 SSH connections with the GitHub repositories. 
+Due to [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, the policy around SSH keys underwent changes. In th2, these changes affected SSH connections to its GitHub repositories. 
 SSH keys generated with the RSA algorithm are no longer accepted when uploaded to GitHub starting from March 16, 2022. Keys uploaded before this date will continue to work.
 
 The GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use the SSH connection. 
@@ -106,7 +106,7 @@ You need to grant permissions from `repo` scope. Other permissions are not neede
 
 ![Token permissions](/img/getting-started/install-th2/gh-token-permissions.png)
 
-You will need a generated token once in the next step. Save the token as the environment variable:
+You will need a generated token for the next step. Save the token as an environment variable:
 
 ```shell
 TOKEN=<token>
@@ -120,7 +120,7 @@ kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infr
 
 ### GitLab
 
-GitLab uses SSH keys to authorize all requests to read and change repository.
+GitLab uses SSH keys to authorize all the requests to read and change repository.
 
 Generate SSH keys pair without a passphrase:
 
@@ -154,7 +154,7 @@ helm repo add grafana "https://grafana.github.io/helm-charts"
 
 ### Install components of th2
 
-Set Kubernetes cluster hostname via environment variable (leave it empty if you have no configured DNS name):
+Set the Kubernetes cluster hostname via environment variable (leave it empty if you have an unconfigured DNS name):
 
 ```shell
 K8S_HOSTNAME=<cluster-hostname>
@@ -262,7 +262,7 @@ helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
   -f "https://th2.dev/api/config/1-5-x/loki.values"
 ```
-## Check up installed services
+## Check out installed services
 
 - Kubernetes dashboard `http://your-host:30000/dashboard/`
 - Grafana `http://your-host:30000/grafana/`
