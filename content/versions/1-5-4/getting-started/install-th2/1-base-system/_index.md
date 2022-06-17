@@ -26,7 +26,7 @@ Cassandra plays role of data storage for th2. It is a NoSQL distributed database
 
 ## Common tools
 
-Independetntly of how you are going to run the fundamental system, you will need some tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. It can also be useful for possible debugging.
+Independently of how you are going to run the fundamental system, you will need some tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. It can also be useful for possible debugging.
 
 | Tool    | Version         |
 | ------- | --------------- |
