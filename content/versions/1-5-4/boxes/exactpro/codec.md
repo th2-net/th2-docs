@@ -230,25 +230,26 @@ Every `codec` operation is associated with 2 pins - subscribe and publish  The f
 - Pin for the general decoding output: `general_decoder_out` `parsed` `publish`
 
 ## Configuration example
+
 API Kubernetes documentation contains specification format for any Kubernetes in-built object; th2-specific custom resources can be found in Readme file of component repository.
 
-Field name in metadata must be filled in as a box name.
+- Field **name** in metadata must be filled in as a box name.
 
-Field image-name must contain a link to the image of `codec` on your project(preferably last version)(For one project you can have more than one `codec` for same protocol)
+- Field *image-name** must contain a link to the image of `codec` on your project(preferably last version)(For one project you can have more than one `codec` for same protocol)
 
-Image-version field should be filled with image tag(version of image in your project’s `codec`)
+- **Image-version** field should be filled with image tag(version of image in your project’s `codec`)
 
-In the type field you should specify the type of component in th2
+- In the **type** field you should specify the type of component in th2
 
-logFile settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
+- **logFile** settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
 
-Field `codec`ClassName should be described as on the screenshot. It is a link to the factory for the `codec`. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
+- Field **codecClassName** should be described as on the screenshot. It is a link to the factory for the `codec`. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
 
-Setting parseMessageLengthAsSeparateMessage in CodecParameters if set to true then `codec` parses MessageLength as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
+- Setting **parseMessageLengthAsSeparateMessage** in **CodecParameters** if set to true then `codec` parses MessageLength as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
 
-In extended-settings in resources the limits must be greater than requests. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that limits > requests.
+- In extended-settings in resources the **limits** must be greater than **requests**. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that limits > requests.
 
-Service parameter: with the enable flag, we specify whether or not to create a service. If we want this component to be available to other components, we need to set this flag to enable. For the bookchecker it is false.
+- **Service** parameter: with the enable flag, we specify whether or not to create a service. If we want this component to be available to other components, we need to set this flag to enable. For the bookchecker it is false.
 
 Extended example of th2-codec configuration:
 
