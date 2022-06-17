@@ -4,12 +4,9 @@ repo_owner: th2-net
 repo: th2-estore
 skip_readme: true
 related:
-  - name: "th2-net/th2-check2-recon"
+  - name: "th2-net/cradleapi"
     icon: "mdi-github"
-    href: "https://github.com/th2-net/th2-check2-recon"
-  - name: "th2-net/th2-grpc-check2-recon"
-    icon: "mdi-github"
-    href: "https://github.com/th2-net/th2-grpc-check2-recon"
+    href: "https://github.com/th2-net/cradleapi"
 ---
 
 `th2-estore` is one of the core components in the th2 environment. It is responsible for storing events into <term term="Cradle">Cradle</term>. Sending events to `th2-estore` from other components is possible via special methods from the `th2-common` library.

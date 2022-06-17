@@ -4,12 +4,9 @@ repo_owner: th2-net
 repo: th2-conn
 skip_readme: true
 related:
-  - name: "th2-net/th2-check2-recon"
+  - name: "th2-conn repositories in th2-net"
     icon: "mdi-github"
-    href: "https://github.com/th2-net/th2-check2-recon"
-  - name: "th2-net/th2-grpc-check2-recon"
-    icon: "mdi-github"
-    href: "https://github.com/th2-net/th2-grpc-check2-recon"
+    href: "https://github.com/orgs/th2-net/repositories?q=th2-conn&type=all&language=&sort="
 ---
 
 `th2-conn` (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
