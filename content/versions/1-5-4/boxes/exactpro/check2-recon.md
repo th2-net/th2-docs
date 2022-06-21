@@ -14,7 +14,7 @@ related:
 
 ## Basics
 
-Check2-recon is one of the th2 modules. 
+сheck2-recon is one of the th2 modules. 
 The purpose of check2-recon is to compare several event streams. The module matches related messages and detects discrepancies between actual and expected messages. 
 Besides direct comparison, check2-recon can create notes about potential inconsistencies inside the messages.
 
@@ -32,27 +32,25 @@ On GitHub, the check2-recon module is represented by three repositories:
 
 ## Configuration
 
-To use check2-recon, you need to configure it for your purposes. 
-To do that, edit the `check2-recon.yaml` configuration file.
+To use check2-recon, you need to configure it for your purposes by editing the `check2-recon.yaml` configuration file.
 In particular, the adjustment is needed for the parameters for a Kubernetes Pod (the `spec/custom-config` section) and parameters describing comparison rules (the `spec/custom-config/rules` section of the config file). 
 
 ### CR configuration
 
 Some `custom-config` parameters were defined for the Kubernetes Pod configuration:
 - `recon_name` - report name in GUI.
-- `cache_size` - maximum message group size. When the message group is full, a new message replaces the oldest one. 
-An appropriate event is sent about this.
+- `cache_size` - maximum message group size. When the message group is full, a new message replaces the oldest one. An appropriate event is sent about this.
 - `rules_package_path` - directory where the rules are.
 - `event_batch_max_size` - maximum number of events in one EventBatch.
-- `event_batch_send_interval` - how often to send EventBatch with events.
+- `event_batch_send_interval` - the frequency of sending EventBatch with events.
 - `rules` - list of *rule* configurations.
 
-And configuration for each rule in rules list:
+And the configuration for each rule in rules list:
 
-- `name` - name of the file containing the rule.
+- `name` - name of the file with the rule.
 - `enabled` - should *rule* be used or not.
-- `match_timeout` - time interval between compared messages in seconds. The current time is taken from the new message. For all messages that arrived earlier than (actual_time - match_timeout) and did not participate in the checks, the corresponding events will be created.
-- `match_timeout_offset_ns` - the addend for match_timeout * 1_000_000_000, if precision to nanoseconds is needed.
+- `match_timeout` - time interval between compared messages in seconds. The current time is taken from a new message. For all messages, that arrived earlier than `actual_time` - `match_timeout` and did not participate in the checks, the corresponding events will be created.
+- `match_timeout_offset_ns` - the addend for `match_timeout` * 1_000_000_000, if precision to nanoseconds is needed.
 
 Example of the Pod configuration:
 
@@ -107,17 +105,15 @@ In files containing the rule class Rule should be defined. Structure of class Ru
 
 Getters:
 
-- `get_name()` - name of the rule.
-- `get_description()` - description of the rule.
-- `get_attributes()` - required message stream attributes.
+- `get_name()` - name of the rule;
+- `get_description()` - description of the rule;
+- `get_attributes()` - required message stream attributes;
 - `desciption_of_groups()` - dictionary containing names of the groups and its type. 
 
 Group types are available in a check2-recon package. At the moment there are 2 group types:
 
-- Type `single` means that all messages in the group have unique hashes 
-(key of the message) - new message replaces old.
-- Type `multiple` means that several messages with the same hash 
-can be stored in one message group.
+- Type `single` means that all messages in the group have unique hashes (key of the message) - new message replaces old.
+- Type `multiple` means that several messages with the same hash can be stored in one message group.
 
 Examples of getters:
 
@@ -139,29 +135,26 @@ def get_attributes(self) -> [list]:
 ```
 
 Methods `group()`, `hash()`, `check()`  in class Rule are responsible 
-for messages processing. Every incoming single message comes to the group 
-method, then hash method, then check method.
+for messages processing. Every incoming single message comes to the `group` 
+method, then `hash` method, then `check` method.
 
 The lifecycle of an incoming message is:
 
-1. Comes in _rule_ from some kind of _pin_. A record about this is written to _log_.
-2. The `group(message, attributes)` method is called for this message. 
-It is calculated in which _message group_ the message should be placed.
+1. Comes in _rule_ from some kind of _pin_. A record about this is written to log.
+2. The `group(message, attributes)` method is called for this message. It is calculated in which _message group_ the message should be placed.
 3. The hash of the message is calculated using the `hash(message, attributes)`.
 4. Searches for messages with the same hash in other _message groups_.
-5. If a message with the same hash is found in each group, `check(messages)` 
-is called for all these messages. Depending on the types of _message groups_ 
-and their number, it will be determined which messages to delete and which to keep.
+5. If a message with the same hash is found in each group, `check(messages)` is called for all these messages. Depending on the types of _message groups_ and their number, it will be determined which messages to delete and which to keep.
 6. If no similar messages are found, then just add the message to the group.
 
 ![Rule flow](/img/boxes/exactpro/check2-recon/rule-flow-dfd.png)
 
 ### group()
 
-Method `group()` analyses message with an algorithm written by the user and 
-sets the message's group id. Further it will help to reveal the group the 
+Method `group()` analyses message with an algorithm written by a user and 
+sets the message's group id. Further, it will help to reveal the group the 
 message belongs to. Let us say, it means that we put a message to the group 
-with group method.
+with `group` method.
 
 ![Group method](/img/boxes/exactpro/check2-recon/group-method.png)
 
@@ -178,11 +171,7 @@ def group(self, message: ReconMessage, attributes: tuple):
 
 ### hash()
 
-Method `hash()` generates the hash key for the message to join it 
-in the future. Hash key depends on one or several fields of the 
-message. Fields hash key depends on are defined by the user in 
-method implementation. If all these fields are the same in 2 messages, 
-final hash keys also will be equal.
+Method `hash()` generates the hash key for the message to join it in the future. Hash key depends on one or several fields of the message. The fields are defined by a user in `method` implementation. If all these fields are the same in 2 messages, final hash keys also will be equal.
 
 ![Hash method](/img/boxes/exactpro/check2-recon/hash-method.png)
 
@@ -198,9 +187,9 @@ def hash(self, message: ReconMessage, attributes: tuple):
 ### check()
 
 Method `check()` compares the message with all messages from different 
-groups and equal hash key. After the comparison check method generates 
+groups and equal hash key. After the comparison `check` method generates 
 an event with its result. Filling of the final event is defined by the 
-algorithm written by the user. After that original message is available 
+algorithm written by a user. After that original message is available 
 for comparison with future messages until timeout (message's Time To Live).
 
 ![Check method](/img/boxes/exactpro/check2-recon/check-method.png)
