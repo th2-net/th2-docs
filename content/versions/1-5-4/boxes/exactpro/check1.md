@@ -28,7 +28,7 @@ Rules, used during check1 verification, exist only in the th2-check1 component a
 
 - `CheckRuleRequest` - contains a filter to verify a single message. The rule is unable to identify other unexpected responses from the system. 
 - `CheckSequenceRuleRequest` (recommended rule) - contains more than one filter and can check several responses.  
-- `NoMessageCheckRequest` - pre filters messages and verifies that no other messages have been received.
+- `NoMessageCheckRequest` - pre-filters messages and verifies that no other messages have been received.
 <notice info>
 
 `CheckSequenceRule` is a rule in check1 that compares messages to expected results;
