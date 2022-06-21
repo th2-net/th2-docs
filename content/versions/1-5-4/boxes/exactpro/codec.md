@@ -7,16 +7,20 @@ related:
     href: "https://github.com/th2-net/th2-codec"
 --- 
 
-## Overview 
+# Overview 
 The `codec` is a component that is responsible for transforming messages from human-readable format into a format of a corresponding protocol and vice versa. It contains the main logic for encoding and decoding messages. The `codec` usually uses a dictionary to decode and encode messages. Dictionaries contain message structure, fields and values that `codec` can decode. 
 
-### Encoding
+## Encoding
 During encoding `codec` must replace each parsed message of supported protocols in a message group with a raw one by encoding parsed message's content
 
-NOTE: `codec` can merge content of subsequent raw messages into a resulting raw message
+<notice info>
+
+`codec` can merge content of subsequent raw messages into a resulting raw message
 (e.g. when a `codec` encodes only a transport layer and its payload is already encoded).
 
-### Decoding
+</notice>
+
+## Decoding
 During decoding `codec` must replace each raw message in a message group with a parsed one by decoding raw message content.
 If exception was thrown, all raw messages will be replaced with th2-codec-error parsed messages.
 
@@ -32,7 +36,8 @@ NOTE: `codec` can replace raw message with a parsed message followed by several 
 
 **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
 
-![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
+![](/img/boxes/exactpro/codec/codec_inside_processes.png)
+
 
 Example of raw message (FIX protocol):
 ```fix
@@ -99,7 +104,9 @@ Example of parsed message (FIX protocol):
 ```
 
 
-## Family 
+
+
+# Family 
 You can use link to docker image of needed `codec` from it's GitHub repository to deploy it using th2-infra.
 
 There are 3 types of `codec`-related repositories.
@@ -112,7 +119,7 @@ There are 3 types of `codec`-related repositories.
 
 SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
-### Box repositories list:
+## Box repositories list:
 
 |Box repositories|Type|Comments|
 |---|---|---|
@@ -131,7 +138,7 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 |[th2-net/th2-codec-csv](https://github.com/th2-net/th2-codec-csv)|Box|
 |[th2-net/th2-codec-fix-orchestra](https://github.com/th2-net/th2-codec-fix-orchestra)|Box|
 
-### Library repositories:
+## Library repositories:
 
 - [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - all th2 codecs were made based on this library;
 
@@ -139,16 +146,18 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
 - [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all codecs that use Sailfish as a library were made using this library.
  
-### Other type:
+## Other type:
 
 [th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for 4 different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains 4 docker images, each of them is a box.
 
-## Functions:
+# Functions:
 The `codec` component handles message flows between components such as conn, act, check1, read and other. On a schemes below you can see example of interaction with other th2 components .
+
+![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
 The `codec` component have 8 pins - 4 stream, and 4 general ones. Functionality of stream and general pins is same, but creating a component with 8 pins instead of two with 4 same pins were selected to decrease amount of configuration in infra-schema and resource requirements of resulting system. Main user of general pins is data-provider component, other components are usually connected to general pins.
 
-### Why do we need a chain of codecs?
+## Why do we need a chain of codecs?
 
 It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer.
 The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
@@ -159,8 +168,8 @@ If `codec` component gets message that do not match expected format (raw message
 
 Several codecs can be joined into a chain of codecs to reuse already implemented codecs. For example, you have HTTP, JSON and XML `codec`. You can join them together for decoding XML over HTTP or JSON over HTTP.
 
-## Configuration:
-### Configuration parameters
+# Configuration:
+## Configuration parameters
 The `codec` settings can be specified in `codecSettings` field of `custom-config`. 
 
 For example:
@@ -195,7 +204,7 @@ Config file can be divided into several blocks (mandatory sections are in bold):
 
 There can be many such blocks in the configuration file.
 
-### Required pins and links
+## Required pins and links
 The `codec` has four types of pins: stream encode, stream decode, general encode, general decode.
 
 - **stream encode / decode** connections used for all testing activities performed with th2; act, conn, sim, recon, bookchecker microservices connections to `codec` through stream encode / encode connections;
@@ -204,7 +213,11 @@ The `codec` has four types of pins: stream encode, stream decode, general encode
 
 Codec never mixes messages from the stream and the general connections
 
-SEE ALSO: stream and general pins description
+<notice info>
+
+SEE ALSO: [stream and general pins description](../../fundamentals/pins-and-links/pins#stream-and-general-codec-pins) 
+
+</notice>
 
 Pins are a part of the main th2 concept. They describe what are the inputs and outputs of a box. You can read more about them here.
 
@@ -363,8 +376,8 @@ Schema API allows configuring routing streams of messages via links between conn
 
  
 
-## Split on 'publish' pins
-For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes ['decoder_out', 'parsed', 'publish'] and filters instead of common pin or in addition to it. Every decoded messages will be direct to all declared pins and will send to MQ only if it passes the filter.
+### Split on 'publish' pins
+For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of common pin or in addition to it. Every decoded messages will be direct to all declared pins and will send to MQ only if it passes the filter.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -394,8 +407,8 @@ spec:
 
 The filtering can also be applied for pins with subscribe attribute.
 
-### Links config
-The main link that every `codec` instance should have is a dictionary link. The `codec` instance will use a linked dictionary as a reference for validations. If protocol-specific `codec` needs dictionary,  it won't properly function without it.
+## Links config
+The main link that every `codec` instance should have is a dictionary link. The `codec` instance will use a linked dictionary as a reference for validations. **If protocol-specific `codec` needs dictionary,  it won't properly function without it**.
 
 Example:
 
@@ -417,11 +430,11 @@ spec:
 ```
 
 ### Connectivity link(-s)
-In order to connect conn microservice to `codec`, you have to define three links:
+In order to connect `conn` microservice to `codec`, you have to define three links:
 
-- Link `fix_to_send` conn pin with `out_codec_encode` pin so act and sim components can send messages to the system under test ;
+- Link `fix_to_send` `conn` pin with `out_codec_encode` pin so `act` and `sim` components can send messages to the system under test ;
 
-- Link `in_raw` and out_raw conn pins with `in_codec_decode` `codec` pin so all message flow managed by the particular conn gets parsed and stored in mstore.
+- Link `in_raw` and `out_raw` `conn` pins with `in_codec_decode` `codec` pin so all message flow managed by the particular `conn` gets parsed and stored in `mstore`.
 
 **from-codec-links.yml**
 
@@ -470,9 +483,9 @@ spec:
 
  
 ### Check1 link(-s)
-In order to check parsed messages via requests to check1 microservice, `codec` should be linked to check1 in the following way:
+In order to check parsed messages via requests to `check1` microservice, `codec` should be linked to check1 in the following way:
 
-- **out_codec_decode** `codec` pin should be linked to check1's pre-configured dedicated pin for particular `codec`.
+- **out_codec_decode** `codec` pin should be linked to `check1`'s pre-configured dedicated pin for particular `codec`.
 
 **from-codec-links.yml**
 
@@ -494,11 +507,11 @@ spec:
 ```
 
 ### Act link(-s)
-To send messages to system under test  via act microservice (and consequently receive responses for sent messages), the act should be linked with `codec` in the following way:
+To send messages to system under test via `act` microservice (and consequently receive responses for sent messages), the `act` should be linked with `codec` in the following way:
 
-- Dedicated to desired conn, act pin with applied session-alias filter should be linked to **in_codec_encode** `codec` pin for particular `codec`;
+- Dedicated to desired `conn`, `act` pin with applied session-alias filter should be linked to **in_codec_encode** `codec` pin for particular `codec`;
 
-- **out_codec_decode** `codec` pin should be linked to act's pre-configured dedicated pin for particular `codec` in order to receive responses for requests.
+- **out_codec_decode** `codec` pin should be linked to `act`'s pre-configured dedicated pin for particular `codec` in order to receive responses for requests.
 
 **from-codec-links.yml**
 
@@ -539,11 +552,11 @@ spec:
 ```
 
 ### Simulator link(-s)
-The simulator should be linked to the `codec` in order to interact with a system under test  through the desired conn. 
+The `simulator` should be linked to the `codec` in order to interact with a system under test through the desired `conn`. 
 
-- To send messages to the system under test , link dedicated to desired conn sim pin with applied session-alias as attribute should be linked to in_codec_encode `codec` pin;
+- To send messages to the system under test , link dedicated to desired `conn` `sim` pin with applied session-alias as attribute should be linked to `in_codec_encode` `codec` pin;
 
-- To receive messages from the system under test , link out_codec_decode `codec` pin with sim's subscribe pin.
+- To receive messages from the system under test , link `out_codec_decode` `codec` pin with sim's subscribe pin.
 
 **from-codec-links.yml**
 
@@ -584,7 +597,7 @@ spec:
 ```
 
 ### Report Data Provider link(-s)
-In order to show messages that passing through `codec` in Report UI, `codec` should be linked to rpt-data-provider in the following way:
+In order to show messages that passing through `codec` in Report UI, `codec` should be linked to `rpt-data-provider` in the following way:
 
 Dedicated to desired `codec` rpt-data-provider pin should be linked to in_codec_general_decode `codec` pin;
 
@@ -616,8 +629,8 @@ spec:
         pin: from_codec-fix-sell
 ```
 
-### Useful hints 
-How to create your own `codec`?
+# Useful hints 
+## How to create your own `codec`?
 To implement a `codec` using this library you need to:
 
 1. add the following repositories into build.gradle:

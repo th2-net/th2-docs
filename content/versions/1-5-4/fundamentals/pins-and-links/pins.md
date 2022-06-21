@@ -98,11 +98,10 @@ There are two types of th2-codec: _decoder_ and _encoder_. Every type of th2-cod
 |`encoder_in`|Describes input **pin** for encoder codec <br> (transforms human-readable message to protocol message).|th2-codec|
 |`encoder_out`|Describes output **pin** for encoder codec <br> (transforms human-readable message to protocol message).|th2-codec|
 
-<notice note>
+### Stream and general codec pins:
 
 Please note that there are also `general_decoder_in`, `general_decoder_out`, `general_encoder_in`, `general_encoder_out` attributes. They can be used by some of the th2 components and function as the stream attributes (without `general_`) . `general_` means that listening to this connection will be on demand, while stream connection is always active.
 
-</notice>
 
 ### Non-mutually exclusive attributes:
 |Attribute|Description|Usage|
