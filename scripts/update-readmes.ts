@@ -1,5 +1,5 @@
 import axios from 'axios'
-import fs from 'fs'
+const fs = require('fs')
 const {parseMarkdownHeaders} = require('markdown-headers')
 
 const GITHUB_USER_CONTENT_LINK = 'https://raw.githubusercontent.com'
@@ -79,25 +79,23 @@ function getPagesPaths():string[] {
   function addAllMdFilesFromFolder(folder: string){
     try{
       paths.push(...fs.readdirSync(folder)
-        .filter(f => !f.startsWith('_index'))
-        .filter(f => f.endsWith('.md'))
-        .map(f => `${folder}/${f}`))
+        .filter((f: string) => !f.startsWith('_index'))
+        .filter((f: string) => f.endsWith('.md'))
+        .map((f: string) => `${folder}/${f}`))
     } catch(e){ console.error(`Error during adding files: `, e, 'continuing...') }
   }
   function addAllMdFilesFromSubfolders(folder: string){
     try {
       fs.readdirSync(folder)
-      .filter(f => !(f.endsWith('.md') || f.endsWith('.yaml') || f.endsWith('.json')))
-      .forEach(subfolder => {
+      .filter((f: string) => !(f.endsWith('.md') || f.endsWith('.yaml') || f.endsWith('.json')))
+      .forEach((subfolder: string) => {
         addAllMdFilesFromFolder(`${folder}/${subfolder}`)
         addAllMdFilesFromSubfolders(`${folder}/${subfolder}`)
       })
     } catch (e) { console.error(`Error during reading subfolders: `, e, 'continuing...') }
   }
-  addAllMdFilesFromFolder('./content/common')
-  addAllMdFilesFromSubfolders('./content/common')
-  addAllMdFilesFromFolder('./content/versions')
-  addAllMdFilesFromSubfolders('./content/versions')
+  addAllMdFilesFromFolder('./content/docs')
+  addAllMdFilesFromSubfolders('./content/docs')
   return paths
 }
 

@@ -1,6 +1,5 @@
-dist
 node_modules
-.idea
-.nuxt
-.vscode
 .git
+.cache
+.idea
+.vscode
