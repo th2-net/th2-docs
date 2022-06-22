@@ -1,4 +1,6 @@
-export const timeFormatterMixin = {
+import Vue from 'vue'
+
+export const timeFormatterMixin = Vue.extend({
   methods: {
     timeSince(date: Date): string{
       const rtf = new Intl.RelativeTimeFormat('en', { style: "long" });
@@ -11,4 +13,4 @@ export const timeFormatterMixin = {
       return rtf.format(-Math.floor(seconds), "second");
     }
   }
-}
+})
