@@ -15,7 +15,7 @@ related:
 
 ![](/img/boxes/exactpro/th2-conn/th2-conn.png)
 
-## Repositories
+## Family
 
 <notice info>
 
@@ -70,17 +70,7 @@ Some of the public repositories related to `th2-conn` are not for community usag
 |[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)|Contains [GitHub action](https://github.com/features/actions) for publishing packages with gRPC client classes. These clients can send special requests to th2-conn components. <br> Supported th2-conn repositories: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
 |[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)|	Contains [GitHub action](https://github.com/features/actions) for publishing docker images for some of th2-conn boxes.|
 
-## Pins
-
-The th2-conn box has 3 types of pins:
-
-- `out_raw` - raw messages that go from the `th2-conn` to the system;
-- `in_raw` - raw messages that go from the system to `th2-conn`;
-- `to_send` - messages that go from a user to `th2-conn`.
-
-The connect component uses a separate queue to send messages. The component subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. Here you can automatically send heartbeat messages, send a logon/logout, requests to retransmit messages in the event of a gap, etc.
-
-## Schema config file
+## Configuration
 
 Configuration for `th2-conn` is provided below. Please refer to the instructions for the appropriate `th2-conn` component to specify `custom-config` object.
 
@@ -104,3 +94,13 @@ spec:
       connection-type: mq
       attributes: ["send", "parsed", "subscribe"]
 ```
+
+### Required pins
+
+The th2-conn box has 3 types of pins:
+
+- `out_raw` - raw messages that go from the `th2-conn` to the system;
+- `in_raw` - raw messages that go from the system to `th2-conn`;
+- `to_send` - messages that go from a user to `th2-conn`.
+
+The connect component uses a separate queue to send messages. The component subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. Here you can automatically send heartbeat messages, send a logon/logout, requests to retransmit messages in the event of a gap, etc.

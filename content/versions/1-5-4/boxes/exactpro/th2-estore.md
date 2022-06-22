@@ -13,7 +13,9 @@ related:
 
 <!--more-->
 
-## Events
+## Functionality
+
+### Events
 
 Event is a base entity of th2. Information, related to the work of every component, the executed tests, and the problems that happened are presented as an events hierarchy. Every event consists of important parts:
 
@@ -23,7 +25,7 @@ Event is a base entity of th2. Information, related to the work of every compone
 - `body` - useful data in JSON format;
 - `attachedMessageIDs` - the list of message IDs that are linked to the event.
 
-## How to send events to estore
+### How to send events to estore
 
 You can create `Event` object in th2 component with `th2-common-py` library.
 
@@ -57,7 +59,7 @@ event_batch = EventBatch(parent_event_id=None, events=[root_event])
 estore.send(event_batch)
 ```
 
-## Schema config file
+## Configuration
 
 `th2-estore` has its own <term term="Custom resource">custom resource</term> definition called `Th2Estore`. 
 
@@ -93,7 +95,7 @@ spec:
         cpu: 20m
 ```
 
-## Automatic pins configuration
+### Automatic pins configuration
 
 `th2-infra-operator` (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to `th2-estore` by any other component.
 
