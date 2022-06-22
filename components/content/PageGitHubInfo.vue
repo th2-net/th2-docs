@@ -29,6 +29,7 @@ export default Vue.extend({
   mixins: [timeFormatterMixin],
   computed: {
     editPageLink(){
+      // @ts-ignore
       return `${this.$store.state.githubRepoLink}/blob/master/content${this.pageInfo.path}${this.pageInfo.extension}`
     }
   }
