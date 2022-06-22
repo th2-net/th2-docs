@@ -7,10 +7,10 @@ related:
     href: "https://github.com/th2-net/th2-codec"
 --- 
 
-# Overview 
+## Overview 
 The `codec` is a component that is responsible for transforming messages from human-readable format into a format of a corresponding protocol and vice versa. It contains the main logic for encoding and decoding messages. The `codec` usually uses a dictionary to decode and encode messages. Dictionaries contain message structure, fields and values that `codec` can decode. 
 
-## Encoding
+### Encoding
 During encoding `codec` must replace each parsed message of supported protocols in a message group with a raw one by encoding parsed message's content
 
 <notice info>
@@ -20,31 +20,29 @@ During encoding `codec` must replace each parsed message of supported protocols 
 
 </notice>
 
-## Decoding
+### Decoding
 During decoding `codec` must replace each raw message in a message group with a parsed one by decoding raw message content.
 If exception was thrown, all raw messages will be replaced with th2-codec-error parsed messages.
 
 NOTE: `codec` can replace raw message with a parsed message followed by several raw messages (e.g. when a `codec` decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).
 
- 
+- **raw** - pin configuration item, message passing through this pin for processing is in machine-readable format, ready to be sent or received via according protocol or being decoded;
 
-**raw** - pin configuration item, message passing through this pin for processing is in machine-readable format, ready to be sent or received via according protocol or being decoded;
+- **parsed** - pin configuration item, message passing through this pin for processing is in human-readable format, used in th2;
 
-**parsed** - pin configuration item, message passing through this pin for processing is in human-readable format, used in th2;
+- **encode** - pin configuration item, message passing through this pin will be translated from parsed to raw;
 
-**encode** - pin configuration item, message passing through this pin will be translated from parsed to raw;
-
-**decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
+- **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
 
 ![](/img/boxes/exactpro/codec/codec_inside_processes.png)
 
 
-Example of raw message (FIX protocol):
-```fix
+Example of a raw message (FIX protocol):
+```
 8=FIXT.1.19=6835=034=159049=fix-client156=fix-server152=20220608-13:14:37.58110=043
 ```
 
-Example of parsed message (FIX protocol):
+Example of a parsed message (FIX protocol):
 
 ```
 {
@@ -103,11 +101,8 @@ Example of parsed message (FIX protocol):
 }
 ```
 
-
-
-
-# Family 
-You can use link to docker image of needed `codec` from it's GitHub repository to deploy it using th2-infra.
+## Family 
+You can use link to docker image of needed `codec` from its GitHub repository to deploy it using th2-infra.
 
 There are 3 types of `codec`-related repositories.
 
@@ -119,7 +114,7 @@ There are 3 types of `codec`-related repositories.
 
 SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
-## Box repositories list:
+### Box repositories list:
 
 |Box repositories|Type|Comments|
 |---|---|---|
@@ -138,7 +133,7 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 |[th2-net/th2-codec-csv](https://github.com/th2-net/th2-codec-csv)|Box|
 |[th2-net/th2-codec-fix-orchestra](https://github.com/th2-net/th2-codec-fix-orchestra)|Box|
 
-## Library repositories:
+### Library repositories:
 
 - [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - all th2 codecs were made based on this library;
 
@@ -146,30 +141,31 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
 - [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all codecs that use Sailfish as a library were made using this library.
  
-## Other type:
+### Other type:
 
 [th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for 4 different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains 4 docker images, each of them is a box.
 
-# Functions:
-The `codec` component handles message flows between components such as conn, act, check1, read and other. On a schemes below you can see example of interaction with other th2 components .
+## Functions:
+The `codec` component handles message flows between components such as `conn`, `act`, `check1`, `read` and other. On a schemes below you can see the example of interaction with other th2 components .
 
 ![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
-The `codec` component have 8 pins - 4 stream, and 4 general ones. Functionality of stream and general pins is same, but creating a component with 8 pins instead of two with 4 same pins were selected to decrease amount of configuration in infra-schema and resource requirements of resulting system. Main user of general pins is data-provider component, other components are usually connected to general pins.
+The `codec` component have 8 pins - 4 stream, and 4 general ones. Functionality of stream and general pins is the same, but creating a component with 8 pins instead of two with 4 same pins were selected to decrease amount of configuration in infra-schema and resource requirements of resulting system. Main user of general pins is a data-provider component, other components are usually connected to general pins.
 
-## Why do we need a chain of codecs?
+### Why do we need a chain of codecs?
 
 It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer.
 The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
 
 Using chain of `codec` components allows to get rid of codec`s that combines the logic of existing ones and reduce the number of "connect", “read", "hand" boxes that should be developed.
 
-If `codec` component gets message that do not match expected format (raw message of corresponding protocol to in_codec_decode pin and parsed message  to in_codec_encode pin) it will be sent through corresponding out pins without changes.
+If `codec` component gets a message that does not match an expected format (raw message of corresponding protocol to `in_codec_decode` pin and parsed message to `in_codec_encode` pin) it will be sent through the  corresponding out pins without changes.
 
 Several codecs can be joined into a chain of codecs to reuse already implemented codecs. For example, you have HTTP, JSON and XML `codec`. You can join them together for decoding XML over HTTP or JSON over HTTP.
 
-# Configuration:
-## Configuration parameters
+## Configuration:  
+
+### Configuration parameters
 The `codec` settings can be specified in `codecSettings` field of `custom-config`. 
 
 For example:
@@ -188,30 +184,30 @@ spec:
       treatSimpleValuesAsStrings: false
 ```
 
-This configuration is a general way for deploying components in th2. It contains box configuration, pins' descriptions and other common parameters for a box.
+This configuration is a general way for deploying components in th2. It contains box configuration, pins descriptions and other common parameters for a box.
 
 Config file can be divided into several blocks (mandatory sections are in bold):
 
-- **apiVersion**:  API Kubernetes version used to create object, the only available value  - th2.exactpro.com/v1;
+- **apiVersion**:  API Kubernetes version used to create an object, the only available value - `th2.exactpro.com/v1`;
 
-- **kind**: kind of object created, possible values - Th2Box, Th2CoreBox, Th2Estore, Th2Mstore, Th2Dictionary;
+- **kind**: kind of the created object, possible values - `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore`, `Th2Dictionary`;
 
 - **metadata**: (name, UID and optional field namespace). Should be equal to the file name;
 
-- **spec**: required object state; here image-name and image-version specicfied (including versions), type, custom-config (component-specific set of parameters), pins (to communicate with other boxes);
+- **spec**: required object state; here image-name and image-version specified (including versions), type, custom-config (component-specific set of parameters), pins (to communicate with other boxes);
 
-- **extended-settings: service** (here we specify is the object available for other components), envVariables (environment variables of pod deployment),  resources (amount of resources available for pod), etc. 
+- **extended-settings: service**: (here we specify whether the object is available for other components), envVariables (environment variables of pod deployment),  resources (amount of resources available for pod), etc. 
 
 There can be many such blocks in the configuration file.
 
-## Required pins and links
+### Required pins and links
 The `codec` has four types of pins: stream encode, stream decode, general encode, general decode.
 
 - **stream encode / decode** connections used for all testing activities performed with th2; act, conn, sim, recon, bookchecker microservices connections to `codec` through stream encode / encode connections;
 
 - **general encode / decode** connections work on demand; those connections used mainly for th2 report UI; in order to show the end-user messages stored in cassandra report-data-viewer request said messages from rpt-data-provider via `codec`.
 
-Codec never mixes messages from the stream and the general connections
+Codec never mixes messages from the stream and the general connections.
 
 <notice info>
 
@@ -241,17 +237,17 @@ Every `codec` operation is associated with 2 pins - subscribe and publish  The f
 
 - Pin for the general decoding output: `general_decoder_out` `parsed` `publish`
 
-## Configuration example
+### Configuration example
 
-API Kubernetes documentation contains specification format for any Kubernetes in-built object; th2-specific custom resources can be found in Readme file of component repository.
+API Kubernetes documentation contains specification format for any in-built Kubernetes object; th2-specific custom resources can be found in a Readme file of component repository.
 
 - Field **name** in metadata must be filled in as a box name.
 
-- Field *image-name** must contain a link to the image of `codec` on your project(preferably last version)(For one project you can have more than one `codec` for same protocol)
+- Field **image-name** must contain a link to the image of `codec` on your project (preferably last version)(For one project you can have more than one `codec` for the same protocol).
 
-- **Image-version** field should be filled with image tag(version of image in your project’s `codec`)
+- **Image-version** field should be filled with image tag (version of image in your project’s `codec`).
 
-- In the **type** field you should specify the type of component in th2
+- In the **type** field you should specify the type of component in th2.
 
 - **logFile** settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
 
@@ -285,7 +281,7 @@ spec:
     codecClassName: com./exactpro.sf.externalapi.codec.impl.ExternalSoupCodecFactory
     codecParameters:
       parseMessageLengthAsSeparateMessage: true
-  ﻿pins:
+  pins:
     # encoder
     - name: in_codec_encode 
       connection-type: mq
@@ -371,12 +367,12 @@ spec:
         cpu: 150m
 ```
 
-## Codec-related links
+### Codec-related links
 Schema API allows configuring routing streams of messages via links between connections and filters on pins. Let's consider some examples of routing in `codec` box.
 
  
 
-### Split on 'publish' pins
+#### Split on 'publish' pins
 For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of common pin or in addition to it. Every decoded messages will be direct to all declared pins and will send to MQ only if it passes the filter.
 
 ```yaml
@@ -407,7 +403,7 @@ spec:
 
 The filtering can also be applied for pins with subscribe attribute.
 
-## Links config
+### Links config
 The main link that every `codec` instance should have is a dictionary link. The `codec` instance will use a linked dictionary as a reference for validations. **If protocol-specific `codec` needs dictionary,  it won't properly function without it**.
 
 Example:
@@ -429,7 +425,7 @@ spec:
       type: MAIN
 ```
 
-### Connectivity link(-s)
+#### Connectivity link(-s)
 In order to connect `conn` microservice to `codec`, you have to define three links:
 
 - Link `fix_to_send` `conn` pin with `out_codec_encode` pin so `act` and `sim` components can send messages to the system under test ;
@@ -482,7 +478,7 @@ spec:
 ```
 
  
-### Check1 link(-s)
+#### Check1 link(-s)
 In order to check parsed messages via requests to `check1` microservice, `codec` should be linked to check1 in the following way:
 
 - **out_codec_decode** `codec` pin should be linked to `check1`'s pre-configured dedicated pin for particular `codec`.
@@ -506,7 +502,7 @@ spec:
         pin: from_codec_fix_sell
 ```
 
-### Act link(-s)
+#### Act link(-s)
 To send messages to system under test via `act` microservice (and consequently receive responses for sent messages), the `act` should be linked with `codec` in the following way:
 
 - Dedicated to desired `conn`, `act` pin with applied session-alias filter should be linked to **in_codec_encode** `codec` pin for particular `codec`;
@@ -551,7 +547,7 @@ spec:
         pin: in_codec_encode
 ```
 
-### Simulator link(-s)
+#### Simulator link(-s)
 The `simulator` should be linked to the `codec` in order to interact with a system under test through the desired `conn`. 
 
 - To send messages to the system under test , link dedicated to desired `conn` `sim` pin with applied session-alias as attribute should be linked to `in_codec_encode` `codec` pin;
@@ -596,7 +592,7 @@ spec:
         pin: in_codec_encode
 ```
 
-### Report Data Provider link(-s)
+#### Report Data Provider link(-s)
 In order to show messages that passing through `codec` in Report UI, `codec` should be linked to `rpt-data-provider` in the following way:
 
 Dedicated to desired `codec` rpt-data-provider pin should be linked to in_codec_general_decode `codec` pin;
@@ -629,8 +625,8 @@ spec:
         pin: from_codec-fix-sell
 ```
 
-# Useful hints 
-## How to create your own `codec`?
+## Useful hints 
+### How to create your own `codec`?
 To implement a `codec` using this library you need to:
 
 1. add the following repositories into build.gradle:
