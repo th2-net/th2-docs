@@ -15,7 +15,7 @@ related:
 
 ## Events
 
-Event is a base entity of the th2. Information, related to the work of every component, the executed tests, and the problems that happened are presented as an events hierarchy. Every event consists of important parts:
+Event is a base entity of th2. Information, related to the work of every component, the executed tests, and the problems that happened are presented as an events hierarchy. Every event consists of important parts:
 
 - `id` - unique identifier (in UUID format) within the th2;
 - `parentId` - optional link to a parent event;
@@ -27,7 +27,7 @@ Event is a base entity of the th2. Information, related to the work of every com
 
 You can create `Event` object in th2 component with `th2-common-py` library.
 
-Put primary event data to variables. May be you will need it in the future.
+Put primary event data to variables. Maybe you will need it in the future.
 
 ```py
 root_event_id = EventID(id=str(uuid1()))
