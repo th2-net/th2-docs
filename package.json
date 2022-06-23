@@ -24,7 +24,8 @@
     "express": "^4.17.2",
     "js-yaml": "^4.1.0",
     "markdown-headers": "^0.0.1",
-    "nuxt": "^2.15.3",
+    "marked": "^4.0.17",
+    "nuxt": "^2.15.7",
     "prism-themes": "^1.9.0",
     "typescript": "^4.4.4",
     "vuetify": "^2.5.5"
