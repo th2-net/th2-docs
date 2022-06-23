@@ -65,7 +65,7 @@ ${processParsedReadme(readme, readmePath)}
 function processParsedReadme(md: string, readmePath: string): string {
   const globalRepositoryLink: string = readmePath.replace('README.md', '')
   const allImageLinks = [...md.matchAll(/\!\[[^\[\]]*\]\([^\(\)]*\)/g)].map(match => match[0])
-  let newMd = md.replaceAll(/^\#+/gm,'$1#')
+  let newMd = md.replace(/^\#+/gm,'$1#')
   allImageLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
