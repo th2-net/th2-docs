@@ -8,6 +8,32 @@ module.exports = {
   siteName: 'Gridsome',
   plugins: [
     {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        exclude: [],
+        config: {
+          '/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          }
+        }
+      }
+    },
+    {
+      use: 'gridsome-plugin-robots-txt',
+      options: {
+        host: 'https://th2.dev',
+        sitemap: 'https:/th2.dev/sitemap.xml',
+        policy: [
+          {
+            userAgent: "*",
+            allow: null,
+            disallow: "/"
+          }
+        ]
+  }
+    },
+    {
       use: 'gridsome-plugin-typescript',
     },
       // Documentation Nodes

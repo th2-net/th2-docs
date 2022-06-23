@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-export const seoMixin = Vue.mixin({
+export const seoMixin = Vue.extend({
   methods: {
     getMetaInfo({ title = '', description = '', keywords = [], image = '' }){
       const baseKeyWords = ['Exactpro', 'th2', 'test automation']

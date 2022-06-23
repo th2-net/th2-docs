@@ -9,3 +9,4 @@ dist
 .idea
 temp
 content/docs/common/test.md
+.nuxt
