@@ -111,9 +111,11 @@ module.exports = function (api) {
     const releasesCollection = getCollection('Release')
     const topicsCollection = getCollection('Topic')
     const repositories = repositoriesCollection._collection.data.map(repo => {
-      repo.releases = repo.releases.map(r => releasesCollection.getNodeById(r.id))
-      repo.topics = repo.topics.map(t => t.id)
-      return repo
+      return {
+        ...repo,
+        releases: repo.releases.map(r => releasesCollection.getNodeById(r.id)),
+        topics: repo.topics.map(t => t.id)
+      }
     })
     // TODO: optimize data for dashboard
     saveDashboardData({

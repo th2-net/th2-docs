@@ -10,3 +10,5 @@ dist
 temp
 content/docs/common/test.md
 .nuxt
+.graphqlconfig
+schema.graphql
