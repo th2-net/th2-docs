@@ -11,27 +11,27 @@ related:
 The `codec` is a component responsible for transforming messages from human-readable format into a format of a corresponding protocol and vice versa. It contains the main logic for encoding and decoding messages. The `codec` usually uses a dictionary to decode and encode messages. Dictionaries contain message structure, fields and values that `codec` can decode. 
 
 ### Encoding
-During encoding `codec` must replace each parsed message of supported protocols in a message group with a raw one by encoding parsed message content.
+During encoding `codec` replaces each parsed message of supported protocols in a message group with a raw one by encoding parsed message content.
 
-`codec` can merge content of subsequent raw messages into a resulting raw message
-(e.g. when a `codec` encodes only a transport layer and its payload is already encoded).
+NOTE: `codec` can merge content of subsequent raw messages into a resulting raw message (e.g. when a `codec` encodes only a transport layer and its payload is already encoded).
 
 
 ### Decoding
-During decoding `codec` must replace each raw message in a message group with a parsed one by decoding raw message content.
-If exception was thrown, all raw messages will be replaced with th2-codec-error parsed messages.
+During decoding `codec` must replace each raw message in a message group with a parsed one by decoding raw message content. If an exception was thrown, all raw messages will be replaced with th2-codec-error parsed messages.
 
-NOTE: `codec` can replace raw message with a parsed message followed by several raw messages (e.g. when a `codec` decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).
+NOTE: `codec` can replace a raw message with a parsed message followed by several raw messages (e.g. when a `codec` decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).
 
-- **raw** - pin configuration item, message passing through this pin for processing is in machine-readable format, ready to be sent or received via according protocol or being decoded;
+The schema below describes encoding/decoding process. 
 
-- **parsed** - pin configuration item, message passing through this pin for processing is in human-readable format, used in th2;
+![](/img/boxes/exactpro/codec/codec_inside_processes.png)
+
+- **raw** - pin configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded;
+
+- **parsed** - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2;
 
 - **encode** - pin configuration item, message passing through this pin will be translated from parsed to raw;
 
 - **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
-
-![](/img/boxes/exactpro/codec/codec_inside_processes.png)
 
 
 Example of a raw message (FIX protocol):
@@ -41,7 +41,7 @@ Example of a raw message (FIX protocol):
 
 Example of a parsed message (FIX protocol):
 
-```
+```json
 {
   "metadata": {
     "id": {
@@ -99,23 +99,20 @@ Example of a parsed message (FIX protocol):
 ```
 
 ## Family 
-You can use a link to a docker image of needed `codec` from its GitHub repository to deploy it using th2-infra.
 
 There are 3 types of `codec`-related repositories.
 
-- Box - use it to translate messages from raw to parsed and back (protocol is named in repository title and link);
+- Box - use it to translate messages from raw to parsed and back (the name of repository contains the protocol which is used);
 
 - Library - use it to build your own `codec` component;
 
-- Build script collection - use it to translate messages from raw to parsed (and back) with re-using of Sailfish code (see protocols in Readme files of a repository).
-
-SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
+- Build script collection - use it to translate messages from raw to parsed (and back) with re-using of Sailfish code (see protocols in Readme files of a repository). SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
 ### Box repositories list:
 
 |Box repositories|Type|Comments|
 |---|---|---|
-|[th2-net/th2-codec-grpc](https://github.com/th2-net/th2-codec-grpc)|Box (WIP)|`codec` for grpc protocol|
+|[th2-net/th2-codec-grpc](https://github.com/th2-net/th2-codec-grpc)|Box (WIP)|`codec` for gRPC protocol|
 |[th2-net/th2-codec-qfj](https://github.com/th2-net/th2-codec-qfj)|Box (WIP)|
 |[th2-net/th2-codec-open-api](https://github.com/th2-net/th2-codec-open-api)|Box|
 |[th2-net/th2-codec-xml-via-xsd](https://github.com/th2-net/th2-codec-xml-via-xsd)|Box|
@@ -132,15 +129,17 @@ SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish)
 
 ### Library repositories:
 
-- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - all th2 `codecs` were made based on this library;
+- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - a common `codec` library which takes care of some boilerplate stuff like subscribing/publishing to message queues and loading `codec` settings. all th2 `codecs` were made based on this library;
 
-- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - grpc interface for all th2 `codecs` (this library is used by `th2-codec`);
+- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing proto messages and `codec` service with RPC methods that are used in `th2-codec`. 
 
 - [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all codecs that use Sailfish as a library were made using this library.
  
 ### Other type:
 
 [th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for 4 different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains 4 docker images, each of them is a box.
+
+You can use a link to a docker image of needed `codec` from its GitHub repository to deploy it using th2-infra.
 
 ## Functions:
 The `codec` component handles message flows between components such as `conn`, `act`, `check1`, `read` and other. On a scheme below you can see the example of interaction with other th2 components .
@@ -404,9 +403,7 @@ The main link that every `codec` instance should have is a dictionary link. The 
 
 Example:
 
-**dictionary-links.yml**
-
-```yaml
+```yaml[dictionary-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -428,9 +425,7 @@ In order to connect `conn` microservice to `codec`, you have to define three lin
 
 - Link `in_raw` and `out_raw` `conn` pins with `in_codec_decode` `codec` pin so all message flow managed by the particular `conn` gets parsed and stored in `mstore`.
 
-**from-codec-links.yml**
-
-```yaml
+```yaml[from-codec-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -447,9 +442,8 @@ spec:
         pin: fix_to_send
 ```
 
-**from-conn-links.yml**
 
-```yaml
+```yaml[from-conn-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -479,9 +473,8 @@ In order to check parsed messages via requests to `check1` microservice, `codec`
 
 - **out_codec_decode** `codec` pin should be linked to `check1`'s pre-configured dedicated pin for particular `codec`.
 
-**from-codec-links.yml**
 
-```yaml
+```yaml[from-codec-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -505,9 +498,8 @@ To send messages to system under test via `act` microservice (and consequently r
 
 - **out_codec_decode** `codec` pin should be linked to `act`'s pre-configured dedicated pin for particular `codec` in order to receive responses for requests.
 
-**from-codec-links.yml**
 
-```yaml
+```yaml[from-codec-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -524,9 +516,7 @@ spec:
         pin: from_codec_fix_sell
 ```
 
-**from-act-links.yml**
-
-```yaml
+```yaml[from-act-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -550,9 +540,8 @@ The `simulator` should be linked to the `codec` in order to interact with a syst
 
 - To receive messages from the system under test , link `out_codec_decode` `codec` pin with sim's subscribe pin.
 
-**from-codec-links.yml**
 
-```yaml
+```yaml[from-codec-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -569,9 +558,7 @@ spec:
         pin: subscribe
 ```
 
-**from-sim-links.yml**
-
-```yaml
+```yaml[from-sim-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -595,9 +582,8 @@ Dedicated to desired `codec` rpt-data-provider pin should be linked to in_codec_
 
 out_codec_general_decode `codec` pin should be linked to rpt-data-provider pre-configured dedicated pin for particular `codec`.
 
-**from-codec-links.yml**
 
-```yaml
+```yaml[from-codec-links.yml]
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -637,11 +623,11 @@ maven {
    }
 ```
 
-2. add dependency on com.exactpro.th2:codec:4.6.0 into build.gradle
+2. add dependency on `com.exactpro.th2:codec:4.6.0` into `build.gradle`
 
-3. set main class to com.exactpro.th2.codec.MainKt
+3. set main class to `com.exactpro.th2.codec.MainKt`
 
-This is usually done by using Gradle's application plugin where you can set main class like this:
+This is usually done by using Gradle application plugin where you can set main class like this:
 
 ```
 application {
