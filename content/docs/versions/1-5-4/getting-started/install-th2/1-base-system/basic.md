@@ -30,5 +30,5 @@ You can find th2 use cases with the provided machines' listing.
 
 Run Kubernetes and Cassandra clusters with instructions given in the th2 software requirements:
 
-<recommendations :items="clusters_link"></recommendations>
+<recommendations :items="$frontmatter.clusters_link"></recommendations>
 

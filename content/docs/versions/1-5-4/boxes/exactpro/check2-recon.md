@@ -54,7 +54,7 @@ And configuration for each rule in rules list:
 
 Example of the Pod configuration:
 
-```yaml[check2-recon.yaml]
+```yaml
 apiVersion: th2.exactpro.com/v1
 kind: Th2Box
 metadata:
@@ -119,7 +119,7 @@ can be stored in one message group.
 
 Examples of getters:
 
-```python[rule_demo.py]
+```python
 def get_name(self) -> str:
        return "Rule_demo"
        
@@ -165,7 +165,7 @@ with group method.
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
 def group(self, message: ReconMessage, attributes: tuple):
        message_type: str = message.proto_message.metadata.message_type
        if message_type not in ['ExecutionReport', 'NewOrderSingle']:
@@ -186,7 +186,7 @@ final hash keys also will be equal.
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
 def hash(self, message: ReconMessage, attributes: tuple):
        cl_ord_id = message.proto_message.fields['ClOrdID'].simple_value
        message.hash = hash(message.proto_message.fields['ClOrdID'].simple_value)
@@ -205,7 +205,7 @@ for comparison with future messages until timeout (message's Time To Live).
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
 def check(self, messages: [ReconMessage]) -> Event:
        settings = ComparisonSettings()
        compare_result = self.message_comparator.compare(messages[0].proto_message, messages[1].proto_message, settings)

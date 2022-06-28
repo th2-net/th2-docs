@@ -10,21 +10,6 @@
     margin-bottom: 16px;
   }
 
-  table, td {
-    border: 1px solid;
-  }
-
-  table{
-    margin: 2rem 0;
-    border-collapse: collapse;
-    max-width: 100vw;
-    padding: 0 1px;
-    overflow-x: auto;
-
-    th, td{
-      padding: .5em 1em;
-    }
-  }
 
   & h1{
     font-size: 1.8rem;

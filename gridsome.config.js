@@ -51,7 +51,9 @@ module.exports = {
         },
         index: ['_index', 'index'],
         plugins: [
-            '@gridsome/remark-prismjs'
+          require('./src/plugins/remark-buetify-tables'),
+          require('remark-prism'),
+          require('remark-emoji'),
         ],
       }
     },

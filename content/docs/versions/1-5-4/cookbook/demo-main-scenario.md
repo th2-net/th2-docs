@@ -51,7 +51,7 @@ The demo script uses the following boxes:
 In the new branch edit `infra-mgr-config.yml`: variable `spec.k8s-propagation` should be configured as a `rule`
 instead of `off` to automatically apply all dependencies from _`th2-infra-schema`_. Commit the changes.
 
-```yml[infra-mgr-config.yml]
+```yml
 kind: SettingsFile
 metadata:
   name: infra-mgr-config
@@ -194,7 +194,7 @@ Finally, run the demo script.
 python run.py
 ```
 
-```shell[Output]
+```shell
 Using th2-common==3.3.6
 2021-09-22 16:03:58,632 - asyncio - DEBUG - Using selector: SelectSelector
 2021-09-22 16:04:03,336 - root - INFO - Connection established.

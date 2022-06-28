@@ -71,7 +71,7 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 Short configuration:
 
-```yaml[service.values.yaml]
+```yaml
 infraMgr:
   git:
     repository: git@github.com:th2-net/th2-infra-demo-configuration.git
@@ -91,7 +91,7 @@ cassandra:
 ```
 
 Full configuration:
-```yaml[service.values.yaml]
+```yaml
 # Image repositories and credentials to create pull secrets
 productRegistry:
   secret: th2-core
@@ -265,7 +265,7 @@ cassandra:
 
 ### Credentials for service integration
 
-```yaml[secrets.yaml]
+```yaml
 # reguired only for images from a private registry, will be attached as the first PullSecret to deployments
 #productRegistry:
 #  username: user

@@ -86,24 +86,24 @@ module.exports = function (api) {
   })
 
   // Load repos for dashboard
-  api.loadSource(async ({ getCollection, store }) => {
-    const repositoriesCollection = getCollection('Repository')
-    const releasesCollection = getCollection('Release')
-    const topicsCollection = getCollection('Topic')
-    const repos = await getAllTh2NetRepos()
-    for (const repository of repos) {
-      const releases = await getRepoReleases(repository)
-      for (const release of releases){
-        releasesCollection.addNode(release)
-      }
-      repository.releases = releases.map(r => store.createReference('Release', r.id))
-      for (const topic of repository.topics) {
-        topicsCollection.addNode({ id: topic, title: topic })
-      }
-      repository.topics = repository.topics.map(t => store.createReference('Topic', t))
-      repositoriesCollection.addNode(repository)
-    }
-  })
+  // api.loadSource(async ({ getCollection, store }) => {
+  //   const repositoriesCollection = getCollection('Repository')
+  //   const releasesCollection = getCollection('Release')
+  //   const topicsCollection = getCollection('Topic')
+  //   const repos = await getAllTh2NetRepos()
+  //   for (const repository of repos) {
+  //     const releases = await getRepoReleases(repository)
+  //     for (const release of releases){
+  //       releasesCollection.addNode(release)
+  //     }
+  //     repository.releases = releases.map(r => store.createReference('Release', r.id))
+  //     for (const topic of repository.topics) {
+  //       topicsCollection.addNode({ id: topic, title: topic })
+  //     }
+  //     repository.topics = repository.topics.map(t => store.createReference('Topic', t))
+  //     repositoriesCollection.addNode(repository)
+  //   }
+  // })
 
   // Calculate data for dashboard
   api.loadSource(({ getCollection }) => {

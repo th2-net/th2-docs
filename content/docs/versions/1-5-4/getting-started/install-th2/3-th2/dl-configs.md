@@ -93,7 +93,7 @@ with the name of your node (can be retrieved with the `kubectl get nodes` comman
 
 A `pvs.yaml` example:
 
-```yaml[pvs.yaml]
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -140,7 +140,7 @@ The hostname must be resolved from the test boxes.
 Define the dashboard hostname in the `dashboard.values.yaml`
 ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/dashboard.values.yaml)):
 
-```yaml[dashboard.values.yaml]
+```yaml
 ...
 ingress:
   ...
@@ -155,7 +155,7 @@ ingress:
 
 Define the Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
 
-```yaml[prometheus-operator.values.yaml]
+```yaml
 ...
 grafana:
   ...
@@ -227,7 +227,7 @@ set the following values:
 - `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository;
 - `infraMgr.git.httpAuthPassword` - empty string.
 
-```yaml[service.values.yaml]
+```yaml
 infraMgr:
   git:
     repository: https://github.com/th2-net/th2-infra-schema-demo.git
@@ -246,7 +246,7 @@ Configured SSH key required for providing access to infra schema in GitLab.
 
 </notice>
 
-```yaml[service.values.yaml]
+```yaml
 infraMgr:
   git:
     repository: git@github.com:th2-net/th2-infra-demo-configuration.git
@@ -258,7 +258,7 @@ infraMgr:
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the `externalRabbitMQHost.host` value to the hostname of your cluster.
 
-```yaml[service.values.yaml]
+```yaml
 ...
 externalRabbitMQHost:
   host: <th2_host_name>
@@ -278,7 +278,7 @@ You can find more information [here](https://minikube.sigs.k8s.io/docs/handbook/
 
 </notice >
 
-```yaml[service.values.yaml]
+```yaml
 ...
 cassandra:
   internal: false
@@ -313,7 +313,7 @@ Do not commit the `secrets.yaml` file into Git to keep its data confidential.
 </notice >
 
 Example:
-```yaml[secrets.yaml]
+```yaml
 # required only for images from a private registry, will be attached as the first PullSecret to deployments
 #productRegistry:
 #  username: user
@@ -449,7 +449,7 @@ Check if the service pods are running:
 kubectl get pods -n service
 ```
 
-```shell[Output]
+```shell
 NAME                                               READY   STATUS    RESTARTS   AGE
 helm-operator-79fc58f746-q8qwd                     1/1     Running   0          21d
 infra-editor-7cd68c8587-q5tfp                      1/1     Running   0          20d
@@ -467,7 +467,7 @@ Check if the monitoring pods are running:
 kubectl get pods -n monitoring
 ```
 
-```shell[Output]
+```shell
 NAME                                                     READY   STATUS    RESTARTS   AGE
 ........
 pod/dashboard-kubernetes-dashboard-77d85586db-j9v8f      1/1     Running   0          56s
