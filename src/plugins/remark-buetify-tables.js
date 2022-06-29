@@ -14,11 +14,13 @@ module.exports = (options = {}) => tree => {
 }
 
 function wrapTable(tableNode){
-  const wrappedTable =  h('div',{ className: 'v-data-table'},
-    [
-      h('div', { className: 'v-data-table__wrapper' }, [toHast(tableNode)])
-    ]
-  )
+  const wrappedTable = h('div', { className: ['v-sheet', 'v-sheet--outlined', 'elevation-2']}, [
+    h('div',{ className: 'v-data-table'},
+        [
+          h('div', { className: 'v-data-table__wrapper' }, [toHast(tableNode)])
+        ]
+    )
+  ])
   const unistNode = u('html', toHTML(wrappedTable, { allowDangerousHTML: true }) )
   return unistNode
 }
