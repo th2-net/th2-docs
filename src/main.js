@@ -18,6 +18,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 // Global components
 import Term from './components/global/Term'
+import CopyCodeBtn from "./components/content/CopyCodeBtn";
 import CustomStepper from "./components/global/CustomStepper";
 import Notice from "./components/global/Notice";
 import PrevNext from "./components/global/PrevNext";
@@ -53,5 +54,6 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.component('recommendations', Recommendations)
   Vue.component('spoiler', Spoiler)
   Vue.component('youtube', Youtube)
+  Vue.component('copy-code-btn', CopyCodeBtn)
   Vue.component('v-chart', ECharts)
 }

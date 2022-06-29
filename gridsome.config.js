@@ -54,6 +54,8 @@ module.exports = {
           require('./src/plugins/remark-buetify-tables'),
           require('remark-prism'),
           require('remark-emoji'),
+          require('./src/plugins/remark-copy-code-btn'),
+          //(options) => (tree) => {console.log(tree.children.filter(c => c.type === 'html'))}
         ],
       }
     },

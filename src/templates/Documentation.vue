@@ -87,17 +87,6 @@ export default {
     doc() {
       return this.$page.doc
     }
-  },
-  mounted() {
-    // TODO: Make copy button to be displayed correctly
-    setTimeout(() => {
-      const blocks = document.querySelectorAll('.doc-article pre')
-      for (const block of blocks) {
-        const CopyButton = Vue.extend(CopyCodeBtn)
-        const component = new CopyButton().$mount()
-        block.appendChild(component.$el)
-      }
-    }, 100)
   }
 }
 </script>
