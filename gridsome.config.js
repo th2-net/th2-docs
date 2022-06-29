@@ -51,6 +51,7 @@ module.exports = {
         },
         index: ['_index', 'index'],
         plugins: [
+          require("@akebifiky/remark-simple-plantuml"),
           require('./src/plugins/remark-buetify-tables'),
           require('remark-prism'),
           require('remark-emoji'),
