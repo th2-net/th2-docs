@@ -4,7 +4,6 @@ const visit = require('unist-util-visit')
 
 
 module.exports = (options = {}) => tree => {
-    // Format tables
     visit(tree, 'element', (codeNode, index, parent) => {
         if (codeNode?.properties?.className === 'remark-highlight')
             parent.children.splice(index, 1, addCopyCodeBtn(codeNode))
