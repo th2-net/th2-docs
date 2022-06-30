@@ -53,30 +53,26 @@
 
     /* Style anchor links on headings added by @nuxt/content */
     & > a {
-      margin-left: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--link-color);
+      opacity: 1;
+      margin-left: 0;
+      padding-right: .25em;
+      transition: opacity .1s ease-in-out;
       text-decoration: none;
 
-      &::before {
-        content: "#";
-        font-size: 1rem;
-        color: var(--link-color);
-        opacity: 100%;
-        margin-left: -1.5em;
-        padding-right: .75em;
-        transition: opacity .1s ease-in-out;
+      &:hover {
+        text-decoration: underline;
       }
 
       @media screen and (min-width: 1024px){
-        margin-left: 0;
-
-        &::before {
-          opacity: 0;
-        }
+        margin-left: -1.5rem;
+        opacity: 0;
       }
     }
     &:hover {
-      & > a::before {
-        opacity: 100%;
+      & > a {
+        opacity: 1;
       }
     }
   }

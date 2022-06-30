@@ -50,6 +50,14 @@ module.exports = {
           }
         },
         index: ['_index', 'index'],
+        remark: {
+          autolinkHeadings: {
+            content: {
+              type: 'text',
+              value: '#'
+            }
+          }
+        },
         plugins: [
           require("@akebifiky/remark-simple-plantuml"),
           require('./src/plugins/remark-buetify-tables'),
