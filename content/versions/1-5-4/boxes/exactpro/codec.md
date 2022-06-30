@@ -129,15 +129,15 @@ There are 3 types of `codec`-related repositories.
 
 ### Library repositories:
 
-- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - a common `codec` library which takes care of some boilerplate stuff like subscribing/publishing to message queues and loading `codec` settings. all th2 `codecs` were made based on this library;
+- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - a common `codec` library which takes care of some boilerplate stuff like subscribing/publishing to message queues and loading `codec` settings. All th2 `codecs` were made based on this library.
 
-- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing proto messages and `codec` service with RPC methods that are used in `th2-codec`. 
+- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing proto messages and `codec` service with RPC methods that are used in `codec`. 
 
-- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all codecs that use Sailfish as a library were made using this library.
+- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all `codecs` that use Sailfish as a library were made using this library.
  
-### Other type:
+### Build script collection:
 
-[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for 4 different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains 4 docker images, each of them is a box.
+[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for four different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains four docker images, each of them is a box.
 
 You can use a link to a docker image of needed `codec` from its GitHub repository to deploy it using th2-infra.
 
@@ -146,22 +146,33 @@ The `codec` component handles message flows between components such as `conn`, `
 
 ![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
-The `codec` component have 8 pins - 4 stream, and 4 general ones. Functionality of stream and general pins is the same, but creating a component with 8 pins instead of two with 4 same pins were selected to decrease amount of configuration in infra-schema and resource requirements of resulting system. General pins are used by the data-provider component, other components are usually connected to stream pins.
+The `codec` component has eight pins - four stream, and four general ones. Functionality of stream and general pins is the same. Creating one component with eight pins instead of two components with four same pins was selected to decrease the amount of required settings in `infra-schema` and resource utilisation of the resulting system. General pins are used by the data-provider component, other components are usually connected to stream pins.
 
 ### Why do we need a chain of codecs?
 
-It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer.
-The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
+It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
 
-Using a chain of `codec` components allows to get rid of codec`s that combines the logic of existing ones and reduce the number of "connect", “read", "hand" boxes that should be developed.
+In case you need to encode/decode a message but do no have a `codec` implementation for such decoding, you can reuse already implemented `codecs` by joining them into a chain of `codecs`. For example, you have HTTP, JSON and XML `codec`. You can join them together for decoding XML over HTTP or JSON over HTTP.
 
-If the `codec` component gets a message that does not match an expected format (a raw message of corresponding protocol to `in_codec_decode` pin and a parsed message to `in_codec_encode` pin) it will be sent through the  corresponding out pins without changes.
+If the `codec` component gets a message that does not match an expected format (a raw message of corresponding protocol to `in_codec_decode` pin and a parsed message to `in_codec_encode` pin) it will be sent through the corresponding out pins without changes.
 
-Several `codecs` can be joined into a chain of `codecs` to reuse already implemented `codecs`. For example, you have HTTP, JSON and XML `codec`. You can join them together for decoding XML over HTTP or JSON over HTTP.
 
 ## Configuration:  
 
 ### Configuration parameters
+
+Config file includes the following parameters:
+
+- `apiVersion` - API Kubernetes version used to create an object, the only available value - `th2.exactpro.com/v1`;
+
+- `kind`- kind of the created object, possible values - `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore`, `Th2Dictionary`;
+
+- `metadata` (name, UID and optional field namespace) - should be equal to the file name;
+
+- `spec` - required object state; here image-name and image-version specified (including versions), type, custom-config (component-specific set of parameters), pins (to communicate with other boxes);
+
+- `extended-settings: service` - here we specify whether the object is available for other components, envVariables (environment variables of pod deployment),  resources (amount of resources available for a Pod), etc. 
+
 The `codec` settings can be specified in `codecSettings` field of `custom-config`. 
 
 For example:
@@ -179,22 +190,6 @@ spec:
       rejectUnexpectedFields: true
       treatSimpleValuesAsStrings: false
 ```
-
-This configuration is a general way for deploying components in th2. It contains box configuration, pins descriptions and other common parameters for a box.
-
-Config file can be divided into several blocks (mandatory sections are in bold):
-
-- **apiVersion**:  API Kubernetes version used to create an object, the only available value - `th2.exactpro.com/v1`;
-
-- **kind**: kind of the created object, possible values - `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore`, `Th2Dictionary`;
-
-- **metadata**: (name, UID and optional field namespace). Should be equal to the file name;
-
-- **spec**: required object state; here image-name and image-version specified (including versions), type, custom-config (component-specific set of parameters), pins (to communicate with other boxes);
-
-- **extended-settings: service**: (here we specify whether the object is available for other components), envVariables (environment variables of pod deployment),  resources (amount of resources available for a Pod), etc. 
-
-There can be many such blocks in the configuration file.
 
 ### Required pins and links
 The `codec` has four types of pins: stream encode, stream decode, general encode, general decode.
@@ -237,23 +232,25 @@ Every `codec` operation is associated with 2 pins - subscribe and publish  The f
 
 API Kubernetes documentation contains specification format for any in-built Kubernetes object; th2-specific custom resources can be found in a Readme file of component repository.
 
-- Field **name** in metadata must be filled in as a box name.
+- `name` in metadata must be filled in as a box name.
 
-- Field **image-name** must contain a link to the image of `codec` on your project (preferably last version)(For one project you can have more than one `codec` for the same protocol).
+- `image-name` must contain a link to the image of `codec` on your project (preferably the last version). For one project you can have more than one `codec` for the same protocol.
 
-- **Image-version** field should be filled with image tag (version of image in your project’s `codec`).
+- `image-version` should be filled with image tag (version of image in your project’s `codec`).
 
-- In the **type** field you should specify the type of component in th2.
+- `type` specifies the type of component in th2.
 
-- **logFile** settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
+- `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
 
-- Field **codecClassName** is a link to the factory for `codec`. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
+- `codecClassName` is a link to the factory for `codec`. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
 
-- Setting **parseMessageLengthAsSeparateMessage** in **CodecParameters** if set to true then `codec` parses MessageLength as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
+- `CodecParameters.parseMessageLengthAsSeparateMessage` - when set to `true` `codec` parses MessageLength as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
 
-- In extended-settings in resources the **limits** must be greater than **requests**. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that limits > requests.
+- In `extended-settings.resources` the `limits` must be greater than `requests`. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that `limits` > `requests`.
 
-- **Service** parameter: with the enable flag, we specify whether or not to create a service. If we want this component to be available to other components, we need to set this flag to enable. For the bookchecker it is false.
+- `service` parameter: set `service.enabled` `true` if you want this component to be available to other components. For the bookchecker it is false.
+
+This configuration is a general way for deploying components in th2. It contains box configuration, pins descriptions and other common parameters for a box.
 
 Extended example of th2-codec configuration:
 
@@ -368,7 +365,7 @@ Schema API allows configuring routing streams of messages via links between conn
 
  
 #### Split on 'publish' pins
-For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of common pin or in addition to it. Every decoded messages will be direct to all declared pins and will send to MQ only if it passes the filter.
+For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. Every decoded messages will be directed to all declared pins and will send to MQ only if it passes the filter.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -396,7 +393,7 @@ spec:
               operation: EQUAL
 ```
 
-The filtering can also be applied for pins with a subscribe attribute.
+The filtering can also be applied for pins with a `subscribe` attribute.
 
 ### Links config
 The main link that every `codec` instance should have is a dictionary link. The `codec` instance will use a linked dictionary as a reference for validations. **If protocol-specific `codec` needs dictionary,  it won't properly function without it**.
@@ -468,10 +465,10 @@ spec:
 ```
 
  
-#### Check1 link(-s)
-In order to check parsed messages via requests to `check1` microservice, `codec` should be linked to check1 in the following way:
+#### check1 link(-s)
+In order to check parsed messages via requests to `check1` microservice, `codec` should be linked to `check1` in the following way:
 
-- **out_codec_decode** `codec` pin should be linked to `check1`'s pre-configured dedicated pin for particular `codec`.
+- `out_codec_decode` `codec` pin should be linked to `check1`'s pre-configured dedicated pin for particular `codec`.
 
 
 ```yaml[from-codec-links.yml]
@@ -491,12 +488,12 @@ spec:
         pin: from_codec_fix_sell
 ```
 
-#### Act link(-s)
-To send messages to system under test via `act` microservice (and consequently receive responses for sent messages), the `act` should be linked with `codec` in the following way:
+#### act link(-s)
+To send messages to the system under test via `act` microservice (and consequently receive responses for sent messages), the `act` should be linked with `codec` in the following way:
 
-- Dedicated to desired `conn`, `act` pin with applied session-alias filter should be linked to **in_codec_encode** `codec` pin for particular `codec`;
+- Dedicated to desired `conn`, `act` pin with applied session-alias filter should be linked to `in_codec_encode` `codec` pin for particular `codec`;
 
-- **out_codec_decode** `codec` pin should be linked to `act`'s pre-configured dedicated pin for particular `codec` in order to receive responses for requests.
+- `out_codec_decode` `codec` pin should be linked to `act`'s pre-configured dedicated pin for particular `codec` in order to receive responses for requests.
 
 
 ```yaml[from-codec-links.yml]
@@ -538,7 +535,7 @@ The `simulator` should be linked to the `codec` in order to interact with a syst
 
 - To send messages to the system under test , link dedicated to desired `conn` `sim` pin with applied session-alias as attribute should be linked to `in_codec_encode` `codec` pin;
 
-- To receive messages from the system under test , link `out_codec_decode` `codec` pin with sim's subscribe pin.
+- To receive messages from the system under test , link `out_codec_decode` `codec` pin with `sim`'s subscribe pin.
 
 
 ```yaml[from-codec-links.yml]
@@ -578,9 +575,9 @@ spec:
 #### Report Data Provider link(-s)
 In order to show messages that passing through `codec` in Report UI, `codec` should be linked to `rpt-data-provider` in the following way:
 
-Dedicated to desired `codec` rpt-data-provider pin should be linked to in_codec_general_decode `codec` pin;
+Dedicated to desired `codec` rpt-data-provider pin should be linked to `in_codec_general_decode` `codec` pin;
 
-out_codec_general_decode `codec` pin should be linked to rpt-data-provider pre-configured dedicated pin for particular `codec`.
+`out_codec_general_decode` `codec` pin should be linked to rpt-data-provider pre-configured dedicated pin for particular `codec`.
 
 
 ```yaml[from-codec-links.yml]
@@ -608,10 +605,11 @@ spec:
 ```
 
 ## Useful hints 
-### How to create your own `codec`?
+### How to create your own codec?
+
 To implement a `codec` using this library you need to:
 
-1. add the following repositories into build.gradle:
+1. add the following repositories into `build.gradle`:
 
 ```
 maven {
@@ -635,7 +633,7 @@ application {
 }
 ```
 
-4. implement codec itself by implementing IPipelineCodec interface:
+4. implement `codec` itself by implementing IPipelineCodec interface:
 
 ```
 interface IPipelineCodec : AutoCloseable {
@@ -658,8 +656,8 @@ interface IPipelineCodecFactory : AutoCloseable {
     override fun close() {}
 }
 ```
-**NOTE**: both init methods have default implementations. One of them must be overridden in your factory implementation. If your codec needs the MAIN dictionary only you can override the init(dictionary: InputStream) method. Otherwise, you should override init(pipelineCodecContext: IPipelineCodecContext) method.
+**NOTE**: both init methods have default implementations. One of them must be overridden in your factory implementation. If your `codec` needs the MAIN dictionary only you can override the init (dictionary: InputStream) method. Otherwise, you should override init(pipelineCodecContext: IPipelineCodecContext) method.
 
-**IMPORTANT**: implementation should be loadable via Java's built-in service loader
+**IMPORTANT**: implementation should be loadable via Java's built-in service loader.
 
 6. That's it! Your `codec` is now complete.
