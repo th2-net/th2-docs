@@ -244,7 +244,7 @@ It can be reached with the URI _http://\<hostname\>:30000/\<schema-namespace\>/_
 
 ## Demo script steps
 
-The demo script is run 6 times - with 6 different instruments.
+The demo **script** is run 6 times - with 6 different instruments.
 
 ![](/img/getting-started/analyze/6-runs.png)
 
@@ -252,57 +252,59 @@ Each run, except for the 6th, consists of 7 steps.
 
 ![](/img/getting-started/analyze/7-steps-in-run.png)
 
-The first run for INSTR1 will be explained here in details.
+The first run for INSTR1 will be described below.
 
 ### Steps 1, 2
 
 #### Scenario
 
-In **step 1** the _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+In step 1 the **script** sends request to create a passive buy order by user DEMO-CONN1.
 The order has the following parameters:
 - Size (_OrderQty_) = 30
 - Price = 55 (_x_ | _x_ depends on the instrument)
 
-At the end of **step 1** message "the order stands on book in status NEW" is expected.
+At the end of step 1 you should receive "the order stands on book in status NEW" message.
 
-In **step 2** the _script_ sends instructions for checking a response to the _check1_.
+In step 2 the **script** sends instructions for checking a response to the **check1**.
 
-At the end of **step 2** message "the order stands on book in status NEW" is expected.
+At the end of step 2 you should receive "the order stands on book in status NEW" message.
 
 #### Generated events
 
 The following image contains events within steps 1 and 2 from the th2 reports.
 
-Moments of creating those events are demonstrated in the "Actual work" section.
+The moments of creating those events are demonstrated in the "Actual work" section.
 
 ![](/img/getting-started/analyze/steps-1-2-report.png)
 
-You can check the messages' details. It can be very useful.  
-For example, details of  _ExecutionReport_ from **step 1**.
-Fields _Price_, _OrderQty_ (Size), _Text_ (Comment) can be found here.
+You can check the message details.   
+For example, details of  ExecutionReport from step 1.
+Fields like Price, OrderQty (Size), Text (Comment) can be found here.
 
 ![](/img/getting-started/analyze/step1-exec-report-details.png)
 
-_Text_ contains information that this report is about placing order.
+The Text contains information that this report is about placing an order.
 
-#### Actual work in **Step 1**
+#### Actual work in Step 1
 
+Here you can see how events are created. In step 1: 
 1. Trader "DEMO-CONN1" sends request to create a passive order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in **step 1**.
+"Received 'ExecutionReport' response message" is an expected output in the step 1.
 
 
 | Step 1.1 | Step 1.2 | 
 |---|---|
 | ![]( /img/getting-started/analyze/Demo_script_steps-step1-1.drawio.png) | ![]( /img/getting-started/analyze/Demo_script_steps-step1-2.drawio.png) |  
 
-#### Actual work in **Step 2**
+#### Actual work in Step 2
 
-1. _Script_ sends instructions for response check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+In step 2: 
+1. **Script** sends instructions for response check to **check1**.
+2. **Check1** analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in **step 2**.
+Green "Check messages" is an expected output in the step 2.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
@@ -310,41 +312,43 @@ Green _"Check messages"_ is an expected output in **step 2**.
 
 #### Scenario
 
-In **step 3** the  _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+In step 3 the  **script** sends request to create a passive buy order by user DEMO-CONN1.
 The order has the following parameters:
 - Size (_OrderQty_) = 10
 - Price = 56 (_x+1_ | _x_ depends on the instrument)
 
-At the end of **step 3** message "the order stands on book in status NEW" is expected.
+At the end of step 3 you should receive "the order stands on book in status NEW" message.
 
-In **step 4** _script_ sends instructions for checking response to the _check1_.
+In step 4 **script** sends instructions for checking response to the **check1**.
 
-At the end of **step 4** message "the order stands on book in status NEW" is expected.
+At the end of step 4 you should receive "the order stands on book in status NEW" is message.
 
 #### Generated events
 
-The following image contains events within steps 3 and 4 from the th2 reports.
+The following image contains events within the steps 3 and 4 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-3-4-report.png)
 
-#### Actual work in **Step 3**
+#### Actual work in Step 3
 
-1. Trader "DEMO-CONN1" sends request to create a passive Order with price lower than the first order.
+In step 3:
+1. Trader "DEMO-CONN1" sends request to create a passive order with the price lower than the first order.
 2. Trader "DEMO-CONN1" receives Execution Report. The order stands on book in status NEW.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in **step 3**.
+"Received 'ExecutionReport' response message" is an expected output in step 3.
 
 
 | Step 3.1 | Step 3.2 | 
 |---|---|
 | ![]( /img/getting-started/analyze/Demo_script_steps-step1-1.drawio.png) | ![]( /img/getting-started/analyze/Demo_script_steps-step1-2.drawio.png) |  
 
-#### Actual work in **Step 4**
+#### Actual work in Step 4
 
-1. _Script_ sends instructions for response check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+In step 4:
+1. **Script** sends instructions for response check to **check1**.
+2. **Check1** analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in **step 4**.
+Green "Check messages" is an expected output in step 4.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
@@ -352,89 +356,90 @@ Green _"Check messages"_ is an expected output in **step 4**.
 
 #### Scenario
 
-In **step 5** the  _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
+In step 5 the  _script_ sends a request to create aggressive sell IOC order by user DEMO-CONN2.
 Order has the following parameters:
 - Size (_OrderQty_) = 100
 - Price = 54 (_x-1_ | _x_ depends on the instrument)
 
-At the end of **step 5** message about successful trades or
-cancelling the order is expected, as IOC
-cannot just be placed.
+As IOC cannot jus be placed, at the end of step 5 you should receive the message
+about successful trade or cancelling the order.
 
 There are **2 buy orders** with overall size (30 + 10) not bigger
 than size of the **sell order** (100). Prices of these **buy orders** (55 and 56) are bigger
 than price of the **sell order** (54). So the trades are happening.
 
-In **step 6** the _script_ sends instructions for checking
-response messages for user _DEMO-CONN1_ to the _check1_.
-_DEMO-CONN1_ awaits messages about buying by 2 orders, so there should only be 2 messages.
+In step 6 the **script** sends instructions for checking
+response messages for user DEMO-CONN1 to the **check1**.
+DEMO-CONN1 awaits messages about buying by 2 orders, so there should only be 2 messages.
 
-At the end of **step 6** message of successfully checked
-**2** messages by sent instructions is expected.
+At the end of step 6 you should receive the message of successfully checked
+2 messages by the sent instructions.
 
-In **step 7** the _script_ sends instructions for checking
-response messages for user _DEMO-CONN2_ to the _check1_.
-_DEMO-CONN2_ should receive 3 messages:
-1. Trade with _DEMO-CONN1_ for Order with Size=30;
-2. Trade with _DEMO-CONN1_ for Order with Size=10;
-3. Cancelling not traded Size (100 - 30 - 10 = 60).
+In step 7 the **script** sends instructions for checking
+response messages for user DEMO-CONN2 to the **check1**.
+DEMO-CONN2 should receive 3 messages:
+1. Trade with DEMO-CONN1 for order with Size=30;
+2. Trade with DEMO-CONN1 for order with Size=10;
+3. Cancelling not traded size (100 - 30 - 10 = 60).
 
-At the end of **step 7** message of successfully checked
-**3** messages by sent instructions is expected.
+At the end of step 7 you should receive the message of successfully checked
+3 messages by the sent instructions. 
 
 #### Generated events
 
-The following image contains events within steps 5, 6 and 7 from the th2 reports.
+The following image contains events within the steps 5, 6 and 7 from the th2 reports.
 
 ![](/img/getting-started/analyze/steps-5-6-7-report.png)
 
-#### Actual work in **Step 5**
+#### Actual work in Step 5
 
 1. Trader "DEMO-CONN2" sends request to create aggressive IOC Order.
 2. Trader "DEMO-CONN1" receives Execution Reports with ExecType=F: first at Order2 and second on Order1.
 3. Trader "DEMO-CONN2" receives Execution Reports: first trade with Order2, next with Order1 and then cancellation.
 
-_"Received 'ExecutionReport' response message"_ is an expected output in **step 5**.
+"Received 'ExecutionReport' response message" is an expected output in step 5.
 
 | Step 5.1 | Step 5.2/5.3 | 
 |---|---|
 | ![]( /img/getting-started/analyze/Demo_script_steps-step1-1.drawio.png) | ![]( /img/getting-started/analyze/Demo_script_steps-step1-2.drawio.png) |  
 
-#### Actual work in **Step 6**
+#### Actual work in Step 6
 
-1. _Script_ sends instructions for response for trader "DEMO-CONN1" check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+In step 6:
+1. **Script** sends instructions for response for trader "DEMO-CONN1" check to **check1**.
+2. **Check1** analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in **step 6**.
+Green "Check messages" is an expected output in step 6.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step2.drawio.png)
 
-#### Actual work in **Step 7**
+#### Actual work in Step 7
 
-1. _Script_ sends instructions for response for trader "DEMO-CONN2" check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+In step 7:
+1. **Script** sends instructions for response for trader "DEMO-CONN2" check to **check1**.
+2. **Check1** analyses response and generates event as the result.
 
-Green _"Check messages"_ is an expected output in **step 7**.
+Green "Check messages" is an expected output in step 7.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step7.drawio.png)
 
 ## Searching exceptions
-Th2 is a **test** tool. So it should be able to catch exceptions.
+Th2 is a test tool. So it should be able to catch exceptions.
 
-To do so, the _simulator box_ was programmed to create
-exceptions with the specific instruments from the _script_.
+To do so, a simulator box was programmed to create
+exceptions with the specific instruments from the **script**.
 
-_INSTR1_, _INSTR2_, _INSTR3_ work normally. Exceptions from other
+INSTR1, INSTR2, INSTR3 work normally. Exceptions from the other
 instruments will be described below.
 
 ### Instr4
 
-As described in the _Demo script steps_ section,
-there should be 3 messages for the seller _DEMO-CONN2_ in **step 7** of the demo script.
+As described in the demo **script** steps section,
+there should be 3 messages for the seller DEMO-CONN2 in the step 7 of the demo **script**.
 
 ![](/img/getting-started/analyze/instr4-step7-report.png)
 
-In fact, there are 4 messages.
+However, there are 4 messages.
 The simulator box has sent a redundant execution report message to call an exception.
 
 This information is displayed in the check sequence event details.
@@ -447,7 +452,7 @@ You may find comment about exception in the details of one of the filtered messa
 
 ### Instr5
 
-The simulator box sends one message with incorrect values at **step 7** within this run.
+The simulator box sends one message with incorrect values at the step 7 within this run.
 
 ![img.png](/img/getting-started/analyze/instr5-verification-events.png)
 
@@ -456,7 +461,7 @@ which prompts the exception message in the th2 report.
 
 ### Instr6
 
-In **step 1** within this run, the script sends the message with an unknown _security ID_, which leads to the
+In step 1 within this run, the **script** sends the message with an unknown security ID, which leads to the
 message being rejected.
 
 Message structure:
