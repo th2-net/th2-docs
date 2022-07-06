@@ -244,28 +244,28 @@ It can be reached with the URI _http://\<hostname\>:30000/\<schema-namespace\>/_
 
 ## Demo script steps
 
-The demo script is run 6 times - with 6 different instruments.
+The demo script runs case scenarios for 6 instruments.
 
 ![](/img/getting-started/analyze/6-runs.png)
 
-Each run, except for the 6th, consists of 7 steps. 
+Each case, except for the 6th, consists of 7 steps. 
 
 ![](/img/getting-started/analyze/7-steps-in-run.png)
 
-The first run for INSTR1 will be explained here in details.
+The first case for INSTR1 will be explained here in details.
 
 ### Steps 1, 2
 
 #### Scenario
 
-In **step 1** the _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+In **step 1** the script sends request to create a passive buy order by user _DEMO-CONN1_.
 The order has the following parameters:
 - Size (_OrderQty_) = 30
 - Price = 55 (_x_ | _x_ depends on the instrument)
 
 At the end of **step 1** message "the order stands on book in status NEW" is expected.
 
-In **step 2** the _script_ sends instructions for checking a response to the _check1_.
+In **step 2** the script sends instructions for checking a response to **check1**.
 
 At the end of **step 2** message "the order stands on book in status NEW" is expected.
 
@@ -299,8 +299,8 @@ _"Received 'ExecutionReport' response message"_ is an expected output in **step 
 
 #### Actual work in **Step 2**
 
-1. _Script_ sends instructions for response check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+1. The script sends instructions for response check to _check1_.
+2. **check1** analyses response and generates an event as the result.
 
 Green _"Check messages"_ is an expected output in **step 2**.
 
@@ -310,14 +310,14 @@ Green _"Check messages"_ is an expected output in **step 2**.
 
 #### Scenario
 
-In **step 3** the  _script_ sends request to create a passive buy order by user _DEMO-CONN1_.
+In **step 3** the  script sends request to create a passive buy order by user _DEMO-CONN1_.
 The order has the following parameters:
 - Size (_OrderQty_) = 10
 - Price = 56 (_x+1_ | _x_ depends on the instrument)
 
 At the end of **step 3** message "the order stands on book in status NEW" is expected.
 
-In **step 4** _script_ sends instructions for checking response to the _check1_.
+In **step 4** the script sends instructions for checking response to **check1**.
 
 At the end of **step 4** message "the order stands on book in status NEW" is expected.
 
@@ -341,8 +341,8 @@ _"Received 'ExecutionReport' response message"_ is an expected output in **step 
 
 #### Actual work in **Step 4**
 
-1. _Script_ sends instructions for response check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+1. The script sends instructions for response check to **check1**.
+2. **check1** analyses response and generates an event as the result.
 
 Green _"Check messages"_ is an expected output in **step 4**.
 
@@ -352,35 +352,27 @@ Green _"Check messages"_ is an expected output in **step 4**.
 
 #### Scenario
 
-In **step 5** the  _script_ sends a request to create aggressive sell IOC order by user _DEMO-CONN2_.
+In **step 5** the script sends a request to create an aggressive sell IOC order by user _DEMO-CONN2_.
 Order has the following parameters:
 - Size (_OrderQty_) = 100
 - Price = 54 (_x-1_ | _x_ depends on the instrument)
 
-At the end of **step 5** message about successful trades or
-cancelling the order is expected, as IOC
-cannot just be placed.
+At the end of **step 5** message about successful trades or cancelling the order is expected, as IOC cannot just be placed.
 
-There are **2 buy orders** with overall size (30 + 10) not bigger
-than size of the **sell order** (100). Prices of these **buy orders** (55 and 56) are bigger
-than price of the **sell order** (54). So the trades are happening.
+There are **2 buy orders** with overall size (30 + 10) not bigger than size of the **sell order** (100). Prices of these **buy orders** (55 and 56) are bigger than price of the **sell order** (54). So the trades are happening.
 
-In **step 6** the _script_ sends instructions for checking
-response messages for user _DEMO-CONN1_ to the _check1_.
+In **step 6** the script sends instructions for checking response messages for user _DEMO-CONN1_ to **check1**.
 _DEMO-CONN1_ awaits messages about buying by 2 orders, so there should only be 2 messages.
 
-At the end of **step 6** message of successfully checked
-**2** messages by sent instructions is expected.
+At the end of **step 6** message of successfully checked **2** messages by sent instructions is expected.
 
-In **step 7** the _script_ sends instructions for checking
-response messages for user _DEMO-CONN2_ to the _check1_.
+In **step 7** script sends instructions for checking response messages for user _DEMO-CONN2_ to **check1**.
 _DEMO-CONN2_ should receive 3 messages:
 1. Trade with _DEMO-CONN1_ for Order with Size=30;
 2. Trade with _DEMO-CONN1_ for Order with Size=10;
 3. Cancelling not traded Size (100 - 30 - 10 = 60).
 
-At the end of **step 7** message of successfully checked
-**3** messages by sent instructions is expected.
+At the end of **step 7** message of successfully checked **3** messages by sent instructions is expected.
 
 #### Generated events
 
@@ -390,7 +382,7 @@ The following image contains events within steps 5, 6 and 7 from the th2 reports
 
 #### Actual work in **Step 5**
 
-1. Trader "DEMO-CONN2" sends request to create aggressive IOC Order.
+1. Trader "DEMO-CONN2" sends a request to create an aggressive IOC Order.
 2. Trader "DEMO-CONN1" receives Execution Reports with ExecType=F: first at Order2 and second on Order1.
 3. Trader "DEMO-CONN2" receives Execution Reports: first trade with Order2, next with Order1 and then cancellation.
 
@@ -402,8 +394,8 @@ _"Received 'ExecutionReport' response message"_ is an expected output in **step 
 
 #### Actual work in **Step 6**
 
-1. _Script_ sends instructions for response for trader "DEMO-CONN1" check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+1. The script sends instructions for response for trader "DEMO-CONN1" check to **check1**.
+2. **check1** analyses response and generates an event as the result.
 
 Green _"Check messages"_ is an expected output in **step 6**.
 
@@ -411,21 +403,19 @@ Green _"Check messages"_ is an expected output in **step 6**.
 
 #### Actual work in **Step 7**
 
-1. _Script_ sends instructions for response for trader "DEMO-CONN2" check to _check1_.
-2. _Check1_ analyses response and generates event as the result.
+1. The script sends instructions for response for trader "DEMO-CONN2" check to **check1**.
+2. **check1** analyses response and generates an event as the result.
 
 Green _"Check messages"_ is an expected output in **step 7**.
 
 ![](/img/getting-started/analyze/Demo_script_steps-step7.drawio.png)
 
 ## Searching exceptions
-Th2 is a **test** tool. So it should be able to catch exceptions.
+th2 is a test tool. So it should be able to catch exceptions.
 
-To do so, the _simulator box_ was programmed to create
-exceptions with the specific instruments from the _script_.
+To do so, the _simulator box_ was programmed to create exceptions with the specific instruments from the script.
 
-_INSTR1_, _INSTR2_, _INSTR3_ work normally. Exceptions from other
-instruments will be described below.
+_INSTR1_, _INSTR2_, _INSTR3_ work normally. Exceptions from other instruments will be described below.
 
 ### Instr4
 
@@ -441,7 +431,7 @@ This information is displayed in the check sequence event details.
 
 ![img.png](/img/getting-started/analyze/instr4-step7-check-details.png)
 
-You may find comment about exception in the details of one of the filtered messages.
+You may find a comment about exception in the details of one of the filtered messages.
 
 ![img.png](/img/getting-started/analyze/instr4-step7-extra-m-details.png)
 
@@ -451,8 +441,7 @@ The simulator box sends one message with incorrect values at **step 7** within t
 
 ![img.png](/img/getting-started/analyze/instr5-verification-events.png)
 
-Please note that there is a discrepancy between some expected and actual values,
-which prompts the exception message in the th2 report.
+Please note that there is a discrepancy between some expected and actual values, which prompts the exception message in the th2 report.
 
 ### Instr6
 
@@ -470,5 +459,3 @@ Exception details:
 ## Compare results
 
 <youtube id="mQa8c-OZZhU" ></youtube> 
-
-
