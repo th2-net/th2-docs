@@ -1,5 +1,5 @@
 ---
-title: Image
+title: Docker Image
 ---
 
-*Image* is a stored instance of a Container that holds a set of software needed to run an application.
+*Docker Image* is a file, which is used to execute code in a Docker container. *Docker Images* act as a set of instructions to build a Docker container, like a template. They also act as the starting point when using Docker. *Docker Image* is comparable to a snapshot in virtual machine environments.
