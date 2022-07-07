@@ -9,7 +9,7 @@ related:
 
 ## 1. Overview
 
-th2-check1 is a component of th2 that performs message stream verification. When users accept response(s) from the system, they can use check1 to execute **rule(s)** to verify these system response(s) by submitting **rule requests** using **gRPC**.
+**th2-check1** is a component of th2 that performs message stream verification. When users accept response(s) from the system, they can use **check1** to execute rule(s) to verify these system response(s) by submitting rule requests using gRPC.
  
 <notice info>
 A rule is a set of logical steps to compare actual results against expected outcomes. 
@@ -19,27 +19,27 @@ Rule requests are submitted by the script and verification is done in the backgr
 
 <notice info>
 
-The th2-script is code which contains a set of requests to the th2 components.
-Check1 component (**server**) interacts with the script (**client**) through **gRPC**. 
+The **th2-script** is code which contains a set of requests to the th2 components.
+Check1 component (server) interacts with the script (client) through gRPC. 
 
 </notice>
 
-Rules, used during check1 verification, exist only in the th2-check1 component and rule execution happens on the th2-check1 side. The user can perform verification by submitting the following three rule requests.
+Rules, used during check1 verification, exist only in the **th2-check1** component and rule execution happens on the **th2-check1** side. The user can perform verification by submitting the following three rule requests.
 
 - `CheckRuleRequest` - contains a filter to verify a single message. The rule is unable to identify other unexpected responses from the system. 
 - `CheckSequenceRuleRequest` (recommended rule) - contains more than one filter and can check several responses.  
 - `NoMessageCheckRequest` - pre-filters messages and verifies that no other messages have been received.
 <notice info>
 
-`CheckSequenceRule` is a rule in check1 that compares messages to expected results;
+`CheckSequenceRule` is a rule in check1 that compares messages to expected results.
 
-`CheckSequenceRuleRequest` is a request created by a user and contains expected results and parameters for verification logic;
+`CheckSequenceRuleRequest` is a request created by a user and contains expected results and parameters for verification logic.
 
 `submitCheckSequenceRule()` is a method to submit the `CheckSequenceRuleRequest` to check1 for `CheckSequenceRule` execution.
 
 </notice>
 
-Verification by check1 identifies expected, unexpected (extra), and missing responses from the system, checks the order of the responses and verifies the accuracy of the information in the field.
+Verification by **check1** identifies expected, unexpected (extra), and missing responses from the system, checks the order of the responses and verifies the accuracy of the information in the field.
 
 <notice info>
 
@@ -59,21 +59,21 @@ Figure 1. Interactions between check1 and other components.
 
 |Component| Description| Communication
 |---|---|---|
-|th2-script|check1 receives verification requests with expected values, parameters, and a checkpoint (if the message request to th2-act by the script was a success).|`grpc`|
-|th2-act|check1 receives a checkpoint request, and sends back checkpoints to th2-act (after the th2-act component receives a send message request from the script).|`grpc`|
-|th2-codec|check1 receives decoded system responses.| `mq` , `parsed`|
-|th2-estore|check1 sends all events such as checkpoint creation and verified responses to the event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|`mq` , `event`|
+|**th2-script**|**check1** receives verification requests with expected values, parameters, and a checkpoint (if the message request to **th2-act** by the script was a success).|`grpc`|
+|**th2-act**|**check1** receives a checkpoint request, and sends back checkpoints to **th2-act** (after the **th2-act** component receives a send message request from the script).|`grpc`|
+|**th2-codec**|**check1** receives decoded system responses.| `mq` , `parsed`|
+|**th2-estore**|**check1** sends all events such as checkpoint creation and verified responses to the event store and cradle. Each event has a unique string id, and the id of a parent event, and timestamps for start and end of event.|`mq` , `event`|
 
 ## 2. Family of repositories that are required by th2-check1
-The th2-check1 module is represented by the following repositories:
+The **th2-check1** module is represented by the following repositories:
 
-[th2-net/th2-check1](https://github.com/th2-net/th2-check1) - the repository with a source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod. 
+[th2-net/th2-check1](https://github.com/th2-net/th2-check1) - the repository with a source code which can be used to generate the docker image. **check1** image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod. 
 
-[th2-net/th2-grpc-check1](https://github.com/th2-net/th2-grpc-check1) - the gRPC check1 library (3.5.1). This library is used to create and publish packages in Python or Java. Includes the check1.proto file described below.
+[th2-net/th2-grpc-check1](https://github.com/th2-net/th2-grpc-check1) - the gRPC **check1** library (3.5.1). This library is used to create and publish packages in Python or Java. Includes the `check1.proto` file described below.
 
-[check1.proto](https://github.com/th2-net/th2-grpc-check1/blob/master/src/main/proto/th2_grpc_check1/check1.proto) - the gRPC check1.proto file contains the definition of check1 service and the data structure of the requests and responses.
+[check1.proto](https://github.com/th2-net/th2-grpc-check1/blob/master/src/main/proto/th2_grpc_check1/check1.proto) - the gRPC `check1.proto` file contains the definition of check1 service and the data structure of the requests and responses.
 
-[common.proto](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto) - the gRPC common.proto file contains definitions on common classes required by the check1 service.
+[common.proto](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto) - the gRPC `common.proto` file contains definitions on common classes required by the **check1** service.
 
 <notice info>
 
@@ -90,7 +90,7 @@ More information is available at [Protocol buffers overview](https://developers.
 ## 3. Function of th2-check1
 
 ### th2-check1 service
-The definition of the check1 RPC service as defined in the check1.proto file found in the th2-grpc-check1 repository.  
+The definition of the **check1** RPC service as defined in the `check1.proto` file found in the [th2-grpc-check1 repository](https://github.com/th2-net/th2-grpc-check1).  
 ```protobuf
     service Check1 {
     rpc createCheckpoint (CheckpointRequest) returns (CheckpointResponse) {}  
@@ -106,7 +106,7 @@ The  `Check1Service` address (hostname and port) must be updated in config file 
 
 </notice>
 
-th2-check1 returns a response to the requests it receives. 
+**th2-check1** returns a response to the requests it receives. 
 - The `CheckpointResponse` contains a checkpoint and the status of the request (`SUCCESS` or `FAIL`).
 - All rule responses contain a chain id and the status of the request (`SUCCESS` or `FAIL`).
 
@@ -125,13 +125,13 @@ A checkpoint is used as a starting point for verification. Checkpoint data conta
 Figure 2. Path of a checkpoint
 </center>
 
-After receiving a `CheckpointRequest`  from the th2-act methods or directly from the script, th2-check1 will locate the last message in all queues, note the sequence number and timestamps and send it to the th2-act component via `CheckPointResponse`.
+After receiving a `CheckpointRequest`  from the **th2-act** methods or directly from the script, **th2-check1** will locate the last message in all queues, note the sequence number and timestamps and send it to the **th2-act** component via `CheckPointResponse`.
 
 <notice info>
 
-- The script receives the checkpoint from act and sends it to check1 by gRPC request that includes the expected results and parameters for verification.
+- The script receives the checkpoint from act and sends it to **check1** by gRPC request that includes the expected results and parameters for verification.
 
-- check1 receives this gRPC request and will search for responses starting from the location and time when the checkpoint was created.
+- **check1** receives this gRPC request and will search for responses starting from the location and time when the checkpoint was created.
 
 </notice>
 
@@ -144,7 +144,7 @@ Figure 3. Definitions for `CheckpointRequest` and `CheckpointResponse` illustrat
 </center>
 
 ### Storing message queues
-check1 receives decoded system messages from the th2-codec component via RabbitMQ.
+**check1** receives decoded system messages from the **th2-codec** component via RabbitMQ.
 
 ![](/img/boxes/exactpro/check1/queue_of_messages.png "Figure 4. A queue of messages with a checkpoint (representation). Responses arranged according to the time received, and are from the same session alias and direction")
 
@@ -154,7 +154,7 @@ Figure 4. A queue of messages with a checkpoint (representation). Responses arra
 
 </center>
 
-A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the check1’s  `message-cache-size`. Users can edit this property in check1’s custom configuration.
+A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the **check1’s**  `message-cache-size`. Users can edit this property in **check1’s** custom configuration.
 
 <notice info>
 
@@ -171,10 +171,10 @@ Figure 5. Verification of message queue by check1 using CheckSequenceRuleRequest
 </center>
 
 ### Pre-filtering 
-CheckSequenceRuleRequest comes with a prefilter. A prefilter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The prefilter allows checking of only those messages that have passed through it. Users must be careful to not accidentally filter out potentially necessary messages.
+`CheckSequenceRuleRequest` comes with a prefilter. A prefilter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The prefilter allows checking of only those messages that have passed through it. Users must be careful to not accidentally filter out potentially necessary messages.
 
 ### Root message filters
-After pre-filtering, the messages in the queue have to be matched with the main filters (class RootMessageFilters[] ) to identify the expected and extra (unexpected) messages. These filters are also used to verify the accuracy of the information contained in the response, and to verify the order of the messages received
+After pre-filtering, the messages in the queue have to be matched with the main filters (class `RootMessageFilters`[] ) to identify the expected and extra (unexpected) messages. These filters are also used to verify the accuracy of the information contained in the response, and to verify the order of the messages received
 
 ### Identifying system responses
 The expected responses are identified using **key fields** found in the main filter. `key_fields` is a list of fields that will be used as keys when determining whether the expected message has been received or not. 
@@ -199,9 +199,9 @@ Locating unexpected messages:
 
 </notice>
 
-The time allocated to check1 to search for a matching message(s) in the queue (rule execution) is defined by the rule parameter `timeout`. Once the allocated time runs out the rule execution stops. This value can be edited in the rule request.
+The time allocated to **check1** to search for a matching message(s) in the queue (rule execution) is defined by the rule parameter `timeout`. Once the allocated time runs out the rule execution stops. This value can be edited in the rule request.
 
-If `timeout` is not specified in the rule request, the default value is check1’s `rule-execution-timeout` property.
+If `timeout` is not specified in the rule request, the default value is **check1’s** `rule-execution-timeout` property.
 
 <notice info>
 
@@ -209,7 +209,7 @@ If any or none of the filters match up with a message(s) in the queue the user i
 
 </notice>
 
-Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to form one large `CheckSequenceRuleRequest`. `chain_id` is similar to a checkpoint, and locates the last message verified by the previous `CheckSequenceRuleRequest`.
+Users can combine more than one `CheckSequenceRuleRequest` using `chain_id` to form one large `CheckSequenceRuleRequest`. `chain_id` is similar to a `checkpoint`, and locates the last message verified by the previous `CheckSequenceRuleRequest`.
 
 <notice info>
 
@@ -279,7 +279,7 @@ spec:
 ```
         
 ### th2-check1 custom configuration 
-Some of check1 parameters are customizable. Those parameters are in the `custom-config` section of the configuration file. The customizable parameters, along with example values are provided in the following code snippet (a part of the config file):
+Some of the **check1** parameters are customizable. Those parameters are in the `custom-config` section of the configuration file. The customizable parameters, along with example values are provided in the following code snippet (a part of the config file):
 
 custom config:
 ```json
@@ -337,7 +337,7 @@ custom config:
 ### Required pins and links
 #### Pins
 
-th2 uses two methods of communication, RabbitMQ for messages and gRPC to make procedure calls. Therefore check1 needs two types of pins for communication: `grpc` and `mq`. 
+th2 uses two methods of communication, RabbitMQ for messages and gRPC to make procedure calls. Therefore **check1** needs two types of pins for communication: `grpc` and `mq`. 
 
 <notice info>
 A component can have as many pins as required.
@@ -354,7 +354,7 @@ A component can have as many pins as required.
 
 - Requires a name, connection type (`mq`), attributes, and the filters.
 
-In the example below, check1 has two pins named `server` and `in_parsed_message` with connection types grpc and mq respectively. The attributes of the `mq` pin are `subscribe` and `parsed`.
+In the example below, **check1** has two pins named `server` and `in_parsed_message` with connection types grpc and mq respectively. The attributes of the `mq` pin are `subscribe` and `parsed`.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -388,7 +388,7 @@ Attributes for `connection_type:mq` pins
 
 #### Links
 
-Links describe the connection between pins. The link between the script and check1 is given below.
+Links describe the connection between pins. The link between the script and **check1** is given below.
 
 The link describes the connection between the pin to_check1 and server 
 
@@ -419,13 +419,13 @@ Users can make their custom pins and links according to their requirements.
 
 [th2-demo-script: ver-1.5.4-main_scenario](https://github.com/th2-net/th2-demo-script/tree/ver-1.5.4-main_scenario) - the GitHub repository for the demo script. This repository contains
 - config files: update the Act service and check1 service.yaml config files. These files should be edited, after cloning the required version of the demo script, with hostnames and ports from Kubernetes cluster.
-- support functions: contains the check functions
+- support functions: contains the check functions.
 - required libraries text : import the required version of the th2-grpc-check1 library by editing requirements.txt file.
 
 th2-infra-schema-demo is a schema developed for demonstrating th2.
 The repository contains the schema environments (branches) that are used to create the th2 environment (a th2 cluster in a namespace) in Kubernetes.
 
-This is a [link](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes) to the `.yaml` config files  of all components, including check1, in the branch ver-1.5.4-main_scenario. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
+This is a [link](https://github.com/th2-net/th2-infra-schema-demo/tree/ver-1.5.4-main_scenario/boxes) to the `.yaml` config files  of all components, including **check1**, in the branch ver-1.5.4-main_scenario. The th2-infra-schema-demo repository is used to create the th2 environment (a namespace) in the kubernetes cluster.
 
 ### Class diagrams 
 ![](/img/boxes/exactpro/check1/message_definitions.png  "Figure 9. Definitions of a message and related definitions")
