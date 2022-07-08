@@ -20,10 +20,10 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 
 ## Network
 
-1. Unique hostname, MAC address, and product_uuid for every node;
-2. `swap` disabled. You **MUST** disable `swap` in order for the kubelet to work properly;
-3. Full network connectivity between all machines in the cluster (public or private network);
-4. `sudo` privileges on all machines;
+1. Unique hostname, MAC address, and product_uuid for every node.
+2. `swap` disabled. You **MUST** disable `swap` in order for the kubelet to work properly.
+3. Full network connectivity between all machines in the cluster (public or private network).
+4. `sudo` privileges on all machines.
 5. SSH access from one device to all nodes in the system.
 
 ## Kubernetes ports

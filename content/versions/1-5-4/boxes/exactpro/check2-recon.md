@@ -14,9 +14,9 @@ related:
 
 ## Overview 
 
-`сheck2-recon` is one of the th2 modules. 
-The purpose of `check2-recon` is to compare several event streams. The module matches related messages and detects discrepancies between actual and expected messages. 
-Besides direct comparison, `check2-recon` can create notes about potential inconsistencies inside the messages.
+**сheck2-recon** is one of the th2 modules. 
+The purpose of **check2-recon** is to compare several event streams. The module matches related messages and detects discrepancies between actual and expected messages. 
+Besides direct comparison, **check2-recon** can create notes about potential inconsistencies inside the messages.
 
 <notice info>
 
@@ -26,15 +26,15 @@ In the name of this module, "recon" stands for "reconciliation" rather than "rec
 
 ## Family 
 
-On GitHub the `check2-recon` module is represented by three repositories: 
+On GitHub the **check2-recon** module is represented by three repositories: 
 
-- [`th2-check2-recon`](https://github.com/th2-net/th2-check2-recon) is a library that describes the main logic of the functionality as well as classes and methods behind the comparison rules;
-- [`th2-check2-recon-template`](https://github.com/th2-net/th2-check2-recon-template) is a template providing sample config files with implementation of the rules and the parameters of an entry point; 
-- [`th2-grpc-check2-recon`](https://github.com/th2-net/th2-grpc-check2-recon) is a repository enhancing the module with gRPC methods. 
+- [**th2-check2-recon**](https://github.com/th2-net/th2-check2-recon) is a library that describes the main logic of the functionality as well as classes and methods behind the comparison rules.
+- [**th2-check2-recon-template**](https://github.com/th2-net/th2-check2-recon-template) is a template providing sample config files with implementation of the rules and the parameters of an entry point. 
+- [**th2-grpc-check2-recon**](https://github.com/th2-net/th2-grpc-check2-recon) is a repository enhancing the module with gRPC methods. 
 
 ## Configuration
 
-To use `check2-recon`, configure it for your purposes by editing the `check2-recon.yaml` configuration file.
+To use **check2-recon**, configure it for your purposes by editing the `check2-recon.yaml` configuration file.
 In particular, the adjustment is needed for the parameters for a Kubernetes Pod (the `spec/custom-config` section) and parameters describing comparison rules (the `spec/custom-config/rules` section of the config file). 
 
 ### Custom resource configuration
@@ -113,7 +113,7 @@ Getters:
 - `get_attributes()` - required message stream attributes;
 - `desciption_of_groups()` - dictionary containing names of the groups and its type. 
 
-Group types are available in a `check2-recon` package. At the moment there are 2 group types:
+Group types are available in a **check2-recon** package. At the moment there are 2 group types:
 
 - Type `single` means that all messages in the group have unique hashes (key of the message) - a new message replaces old.
 - Type `multiple` means that several messages with the same hash can be stored in one message group.
@@ -141,11 +141,11 @@ Methods `group()`, `hash()`, `check()`  in class Rule are responsible for messag
 
 The lifecycle of an incoming message is:
 
-1. Comes in _rule_ from some kind of _pin_. A record about this is written to log.
-2. The `group(message, attributes)` method is called for this message. It is calculated in which _message group_ the message should be placed.
+1. Comes in rule from some kind of pin. A record about this is written to log.
+2. The `group(message, attributes)` method is called for this message. It is calculated in which message group the message should be placed.
 3. The hash of the message is calculated using the `hash(message, attributes)`.
-4. Searches for messages with the same hash in other _message groups_.
-5. If a message with the same hash is found in each group, `check(messages)` is called for all these messages. Depending on the types of _message groups_ and their number, it will be determined which messages to delete and which to keep.
+4. Searches for messages with the same hash in other message groups.
+5. If a message with the same hash is found in each group, `check(messages)` is called for all these messages. Depending on the types of message groups and their number, it will be determined which messages to delete and which to keep.
 6. If no similar messages are found, then just add the message to the group.
 
 ![Rule flow](/img/boxes/exactpro/check2-recon/rule-flow-dfd.png)

@@ -9,7 +9,7 @@ related:
     href: "https://github.com/orgs/th2-net/repositories?q=th2-conn&type=all&language=&sort="
 ---
 
-`th2-conn` (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
+**th2-conn** (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
 
 <!--more-->
 
@@ -19,11 +19,11 @@ related:
 
 <notice info>
 
-There is no universal template for `th2-conn` component, but you can use one of the already created `th2-conn` repositories in [th2-net](https://github.com/th2-net) or take some custom protocol realisation from there and implement it to your version of `th2-conn`.
+There is no universal template for the **th2-conn** component, but you can use one of the already created **th2-conn** repositories in [th2-net](https://github.com/th2-net) or take some custom protocol realisation from there and implement it to your version of **th2-conn**.
 
 </notice>
 
-Different `th2-conn` repositories in [th2-net](https://github.com/th2-net) use connect component with different types of communication protocols.
+Different **th2-conn** repositories in [th2-net](https://github.com/th2-net) use connect component with different types of communication protocols.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -35,7 +35,7 @@ Different `th2-conn` repositories in [th2-net](https://github.com/th2-net) use c
 
 ### Templates
 
-`th2-conn` repositories with “template“ part in their name allow you to add custom logic into a component. 
+**th2-conn** repositories with the “template“ part in their name allow you to add custom logic into a component. 
 
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
@@ -52,7 +52,7 @@ Some of the `th2-conn` repositories implement not only some protocol. They are m
 
 ### Dirty
 
-Some of the `th2-conn` repositories have “dirty“ in the name. It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
+Some of the **th2-conn** repositories have “dirty“ in the name. It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -63,7 +63,7 @@ Some of the `th2-conn` repositories have “dirty“ in the name. It means that 
 
 ### Other
 
-Some of the public repositories related to `th2-conn` are not for community usage, but they are still usefull for the th2 ecosystem.
+Some of the public repositories related to the **th2-conn** are not for community usage, but they are still usefull for the th2 ecosystem.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -72,7 +72,7 @@ Some of the public repositories related to `th2-conn` are not for community usag
 
 ## Configuration
 
-Configuration for `th2-conn` is provided below. Please refer to the instructions for the appropriate `th2-conn` component to specify `custom-config` object.
+Configuration for the **th2-conn** is provided below. Please refer to the instructions for the appropriate **th2-conn** component to specify `custom-config` object.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -97,10 +97,10 @@ spec:
 
 ### Required pins
 
-The th2-conn box has 3 types of pins:
+The **th2-conn** box has 3 types of pins:
 
-- `out_raw` - raw messages that go from the `th2-conn` to the system;
-- `in_raw` - raw messages that go from the system to `th2-conn`;
-- `to_send` - messages that go from a user to `th2-conn`.
+- `out_raw` - raw messages that go from the **th2-conn** to the system.
+- `in_raw` - raw messages that go from the system to **th2-conn**.
+- `to_send` - messages that go from a user to **th2-conn**.
 
 The connect component uses a separate queue to send messages. The component subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. Here you can automatically send heartbeat messages, send a logon/logout, requests to retransmit messages in the event of a gap, etc.
