@@ -5,7 +5,7 @@ weight: 5
 
 ## Basics
 
-Infra components are the main part of the `th2-core`, one of the components of the
+Infra components are the main part of the **th2-core**, one of the components of the
 th2 itself. While schema environments are responsible for testing your system, 
 infra components provide control over these environments. Also it contains 
 configuration for future environments to interact with other infrastructure 
@@ -19,11 +19,11 @@ components transform branches in Git into namespaces in the Kubernetes cluster.
 
 There are 5 Infra components:
 
-1. `th2-infra-schema` - a special repository that contains schema configurations, acting as a config files storage that works via Git;
-2. `th2-infra-mgr` watches for changes in the repositories and deploys changed components to Kubernetes; 
-3. `th2-infra-operator` - an implementation of Kubernetes custom resource controller;
-4. `th2-infra-editor` - web GUI for schema control;
-5. `th2-infra-repo` - abstract chart used by helm operator (the element is hidden in the diagram below)
+1. **th2-infra-schema** - a special repository that contains schema configurations, acting as a config files storage that works via Git.
+2. **th2-infra-mgr** watches for changes in the repositories and deploys changed components to Kubernetes. 
+3. **th2-infra-operator** - an implementation of Kubernetes custom resource controller.
+4. **th2-infra-editor** - web GUI for schema control.
+5. **th2-infra-repo** - abstract chart used by helm operator (the element is hidden in the diagram below).
 
 ## Components interactions
 
@@ -31,33 +31,33 @@ There are 5 Infra components:
 
 ### Edit infra-schema
 
-You have 2 ways to edit your `th2-infra-schema`:
+You have 2 ways to edit your **th2-infra-schema**:
 
-1. Git-based - by commiting changes directly into your `th2-infra-schema`
-2. GUI-based - by interacting with `th2-infra-editor` (special Graphical User Interface)
+1. Git-based - by commiting changes directly into your **th2-infra-schema**.
+2. GUI-based - by interacting with **th2-infra-edito**` (special Graphical User Interface).
 
 ### infra-editor and infra-mgr interaction
 
-`th2-infra-editor` get information about current state of 
-`th2-infra-schema` from `th2-infra-mgr`, displays it for Operator 
+**th2-infra-editor** get information about current state of 
+**th2-infra-schema** from **th2-infra-mgr**, displays it for Operator 
 using web GUI, and allows Operator configure environment via 
-sending changes to `th2-infra-mgr`.
+sending changes to **th2-infra-mgr**.
 
 ### Reading-editing infra-schema by infra-mgr 
 
-`th2-infra-mgr` can check `th2-infra-schema` repository and store its state in the cache.
+**th2-infra-mgr** can check **th2-infra-schema** repository and store its state in the cache.
 
-Also `th2-infra-mgr` can change `th2-infra-schema` repository.
+Also **th2-infra-mgr** can change **th2-infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
-`th2-infra-mgr` sends Kubernetes cluster changes to `th2-infra-operator` in 
+**th2-infra-mgr** sends Kubernetes cluster changes to **th2-infra-operator** in 
 order to create/change/delete th2 components using `helm-operator`.
 
 ## Installation
 
-You can deploy all `th2-infra` components as one Helm release:
-
+You can deploy all **th2-infra** components as one Helm release:
+ 
 ```shell
 helm repo add th2 https://th2-net.github.io
 helm install -n service --version=<version> th2-infra th2/th2 -f configuration.yaml -f secrets.yaml
@@ -65,7 +65,7 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 ## Configuration
 
-`th2-infra` release can be configured at initialization only with config files.
+**th2-infra** release can be configured at initialization only with config files.
 
 ### th2-infra configuration
 

@@ -4,7 +4,7 @@ weight: 0
 ---
 
 This page provides an overview of the th2 architecture 
-along with a high-level summary of its main components.
+alongside with a high-level summary of its main components.
 
 <!--more-->
 
@@ -25,7 +25,7 @@ your own testing system. These components are called **boxes**.
 
 There are two types of th2 boxes:
 
-1. **Core** - stores main configuration for schema environments. Core components create and control these environments. Core connects to the data store from inside schema environments.  
+1. **Core** - stores main configuration for schema environments. The core components create and control these environments. The core connects to the data store from inside the schema environments.  
 2. **Modules** - contain custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 
@@ -43,16 +43,16 @@ environments. th2 also has an interface to perform these actions manually.
 There are two types of schema environment components:
 
 1. **Core components** contain:
-   - Events and messages store (events and messages that are produced by the whole environment);
-   - Components for accessing data;
-   - GUI to display events and messages.
+   - Events and messages store (events and messages that are produced by the whole environment)
+   - Components for accessing data
+   - GUI to display events and messages
 2. **Modules** - components of this type are responsible for any custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 ![](/img/fundamentals/th2-infra-2.png)
 
 ## More about infrastructure
 
-Along with th2-infra components, th2 infrastructure leverages the following open-source solutions:
+Along with the th2-infra components, th2 infrastructure leverages the following open-source solutions:
 
 1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) - a Kubernetes operator, allowing one to declaratively manage Helm chart releases. th2 uses this component to create/edit/delete schema environments.
 2. [RabbitMQ](https://www.rabbitmq.com/) - one of the most popular open-source message brokers. The th2 components use RabbitMQ to send and receive messages.
@@ -72,11 +72,11 @@ The configuration for this is stored in the `th2-infra` repository.
 
 There are several ways to interact with th2:
 
-1. Kubernetes Dashboard;
-2. Grafana;
-3. th2 Report GUI for each schema environment;
-4. th2 Infra Editor;
-5. RabbitMQ dashboard.
+1. Kubernetes Dashboard
+2. Grafana
+3. th2 Report GUI for each schema environment
+4. th2 Infra Editor
+5. RabbitMQ dashboard
 
 th2 uses [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) to provide an access to these web apps through HTTP.
 

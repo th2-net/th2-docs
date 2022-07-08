@@ -3,9 +3,9 @@ title: Links
 weight: 30
 ---
 
-After all the **pins** are defined and configured, you should also specify the **links** between them. It can be done by uploading a special CR called the th2 **link**. Based on the components that the **links** connect, they can be separated into several files (e.g. _from-codec-links.yaml_, _from-act-links.yaml_, _dictionary-links.yaml_). The most important is the location of the .yaml files in the **links** directory. Also, all **links** can be configured in one file, but **links** for the dictionary should be in the `dictionaries-relation` section, and all other **links** in the `boxes-relation` section.
+After all the pins are defined and configured, you should also specify the links between them. It can be done by uploading a special CR called the th2 link. Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). The most important is the location of the `.yaml` files in the links directory. Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.
 
-**Links** from the `boxes-relation` section connect boxes (Kubernetes pods) using **pins**, whereas, the  `dictionaries-relation` **links** allow boxes to use dictionary files (that are not related to the Kubernetes pods). 
+Links from the `boxes-relation` section connect boxes (Kubernetes pods) using pins, whereas, the  `dictionaries-relation` links allow boxes to use dictionary files (that are not related to the Kubernetes pods). 
 
 ## Dictionary links
 
@@ -26,15 +26,15 @@ spec:
 
 ## Boxes links
 
-Each **link** has the following attributes:
+Each link has the following attributes:
 
-- `name` - the name of the **link**;
+- `name` - the name of the link;
 
-- `from` - the **pin** of the box from which this **link** goes;
+- `from` - the pin of the box from which this link goes;
 
-- `to` - the **pin** of the box to which it leads.
+- `to` - the pin of the box to which it leads.
 
-There are two ways of communication between the components via **links**:
+There are two ways of communication between the components via links:
 
 - RabbitMQ - message broker for asynchronous messaging;
 
@@ -74,7 +74,7 @@ spec:
 ```
 ### MQ Router
 
-MQ **links** are described in the `router-mq` section of the **link** _.yaml_ file. When using MQ **links**, you should keep in mind that the **pins** that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the to section. The message flow between the **pins** should be from `publish` to `subscribe`. 
+MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the to section. The message flow between the pins should be from `publish` to `subscribe`. 
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -95,11 +95,11 @@ spec:
 
 ### gRPC Router
 
-gRPC **links** are described in the section `router-grpc`.
+gRPC links are described in the section `router-grpc`.
 
-`Router-grpc` **links** can additionally have `service-class` and strategy properties.
+`Router-grpc` links can additionally have `service-class` and strategy properties.
 
-Example of gRPC **link**:
+Example of gRPC link:
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -198,5 +198,5 @@ spec:
           box: util
           pin: server
 ```
-Below is the illustration of **links** between boxes given in the configuration file above.
+Below is the illustration of links between boxes given in the configuration file above.
 ![](/img/fundamentals/links_schema.png) 
