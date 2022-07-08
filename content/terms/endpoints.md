@@ -2,4 +2,4 @@
 title: Endpoints
 ---
 
-*Endpoints* track the IP addresses of Pods with matching selectors. 
+*Endpoints* track the IP addresses of Boxes with matching selectors. 
