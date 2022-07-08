@@ -73,10 +73,10 @@ docker run --name th2-storage \
 
 ## Publish the th2-infra-schema
 
-[`th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
+[th2-infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
 is a template repository with predefined schemas.
 
-Fork the [`th2-infra-schema-demo`](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
+Fork the [th2-infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
 repository or use it as a template. It can be either **public** or **private**.
 
 <notice warning>
@@ -87,7 +87,7 @@ If you use template functionality, make sure to copy all the branches.
 
 ![](/img/getting-started/th2-infra-schema/git-based/clone-th2-infra-schema-demo.png)
 
-## Provide access to the _th2-infra-schema_ Git repository for _th2-infra-mgr_
+## Provide access to the th2-infra-schema Git repository for th2-infra-mgr
 
 Create GitHub personal access token. It is required to grant permissions from `repo` scope. Other permissions are not needed.
 
@@ -153,7 +153,7 @@ Set up an address for RabbitMQ automatically generated configurations. It must b
 
 <notice note >
 
-You can get address with `kubectl cluster-info`.
+You can get address with _kubectl cluster-info_.
 
 </notice>
 
@@ -180,7 +180,7 @@ Set up an HTTPS link to th2-infra-schema in GitHub:
 SCHEMA_LINK=<link-to-th2-infra-schema-git-repository>
 ```
 
-Create an `infra-mgr` secret required by the th2-infra-mgr component:
+Create an **infra-mgr** secret required by the **th2-infra-mgr** component:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
