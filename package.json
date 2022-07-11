@@ -15,6 +15,7 @@
     "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.6",
     "@saber2pr/types-github-api": "^0.0.7",
+    "badwords-list": "^1.0.0",
     "clipboard": "^2.0.10",
     "echarts": "^5.3.3",
     "gridsome": "^0.7.0",
@@ -22,6 +23,7 @@
     "hast-util-select": "^5.0.2",
     "hast-util-to-html": "^6.0.2",
     "hastscript": "^3.0.0",
+    "js-levenshtein": "^1.1.6",
     "markdown-headers": "^0.0.1",
     "markdown-to-txt": "^2.0.1",
     "marked": "^4.0.17",
@@ -38,6 +40,7 @@
   },
   "devDependencies": {
     "@vue/composition-api": "^1.6.2",
+    "cli-progress": "^3.11.2",
     "deepmerge": "^4.2.2",
     "fibers": "^5.0.1",
     "gridsome-plugin-typescript": "^0.4.0",

@@ -75,7 +75,12 @@ module.exports = {
         path: './content/terms/**/*.md',
         typeName: 'Term'
       }
-    }
+    },
+      require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
+      require('./src/plugins/gridsome-source-th2-github'),
+      require('./src/plugins/gridsome-plugin-th2-check-content'),
+      require('./src/plugins/gridsome-plugin-th2-dashboard'),
+      require('./src/plugins/gridsome-plugin-content-tree')
   ],
   templates: {
     Th2Version: [
