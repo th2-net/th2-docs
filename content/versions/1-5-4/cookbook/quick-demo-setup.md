@@ -192,7 +192,7 @@ kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infr
 
 ### Download Helm charts
 
-These Helm charts contain deploy manifests for the th2 infrastructure. It includes the open source tools and th2 core components. 
+These Helm charts contain deployment manifests for the th2 infrastructure. It includes the open source tools and th2 core components. 
 
 You need to save the Helm charts locally on the machine, so that you can install them in the Kubernetes cluster. 
 
