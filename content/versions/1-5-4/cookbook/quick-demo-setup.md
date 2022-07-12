@@ -22,9 +22,13 @@ continue_learning:
     href: ./demo-main-scenario
 ---
 
-This section contains instructions on how to quickly deploy a th2 environment, using the [demo example](./demo-main-scenario).
+Before working with th2, it is needed to install it. This section contains instructions on how to quickly setup th2 in your Kubernetes cluster. 
 
-The diagram below shows the setup of the environment. 
+<!--more-->
+
+This guide is targeted on minikube cluster, like in [demo example](./demo-main-scenario). But with some changes it can be used for full-fledged Kubernetes cluster.
+
+The diagram below shows all components of th2 infrastructure and interconnectivities between them. 
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png)
 
@@ -153,7 +157,7 @@ Set up an address for RabbitMQ automatically generated configurations. It must b
 
 <notice note >
 
-You can get address with _kubectl cluster-info_.
+You can get address with `kubectl cluster-info`.
 
 </notice>
 
