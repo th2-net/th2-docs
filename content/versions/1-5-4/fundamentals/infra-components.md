@@ -34,7 +34,7 @@ There are 5 Infra components:
 You have 2 ways to edit your **th2-infra-schema**:
 
 1. Git-based - by commiting changes directly into your **th2-infra-schema**.
-2. GUI-based - by interacting with **th2-infra-edito**` (special Graphical User Interface).
+2. GUI-based - by interacting with **th2-infra-editor**` (special Graphical User Interface).
 
 ### infra-editor and infra-mgr interaction
 
