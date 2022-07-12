@@ -22,9 +22,13 @@ continue_learning:
     href: ./demo-main-scenario
 ---
 
-This section contains instructions on how to quickly deploy a th2 environment, using the [demo example](./demo-main-scenario).
+Before working with th2, it is needed to install it. This section contains instructions on how to quickly setup th2 in your Kubernetes cluster. 
 
-The diagram below shows the setup of the environment. 
+<!--more-->
+
+This guide is targeted on minikube cluster, like in [demo example](./demo-main-scenario). But with some changes it can be used for a full-fledged Kubernetes cluster.
+
+The diagram below shows all components of th2 infrastructure and interconnectivities between them. 
 
 ![](/img/getting-started/th2-env-schema/Demo-cluster-components-full-schema.drawio.png)
 
@@ -153,7 +157,7 @@ Set up an address for RabbitMQ automatically generated configurations. It must b
 
 <notice note >
 
-You can get address with _kubectl cluster-info_.
+You can get address with `kubectl cluster-info`.
 
 </notice>
 
@@ -184,6 +188,21 @@ Create an **infra-mgr** secret required by the **th2-infra-mgr** component:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
+```
+
+### Download Helm charts
+
+These Helm charts contain deployment manifests for the th2 infrastructure. It includes the open source tools and th2 core components. 
+
+You need to save the Helm charts locally on the machine, so that you can install them in the Kubernetes cluster. 
+
+```shell
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add fluxcd https://charts.fluxcd.io
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add th2 https://th2-net.github.io
 ```
 
 ### Install Helm charts
