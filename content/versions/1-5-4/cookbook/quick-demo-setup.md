@@ -186,6 +186,21 @@ Create an **infra-mgr** secret required by the **th2-infra-mgr** component:
 kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infra-mgr
 ```
 
+### Download Helm charts
+
+These Helm charts contain deploy manifests for th2 infrastructure. It includes open source tools and th2 core components. 
+
+It is needed to save Helm charts locally on the machine. So you will be able to install them in the Kubernetes cluster. 
+
+```shell
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add fluxcd https://charts.fluxcd.io
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add th2 https://th2-net.github.io
+```
+
 ### Install Helm charts
 
 Install the Helm Operator:
