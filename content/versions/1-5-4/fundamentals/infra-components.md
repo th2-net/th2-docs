@@ -1,17 +1,13 @@
 ---
-title: Infra components
+title: th2-infra components
 weight: 5
 ---
 
-## Basics
+Infra components are the main part of the **th2-core**, one of the components of the th2 itself. While th2 environments are responsible for testing your system, infra components provide control over these environments. 
 
-Infra components are the main part of the **th2-core**, one of the components of the
-th2 itself. While schema environments are responsible for testing your system, 
-infra components provide control over these environments. Also it contains 
-configuration for future environments to interact with other infrastructure 
-components (Grafana, Cassandra, RabbitMQ). Infra components provide system 
-operation and monitoring and interaction between other parts of th2. Infra 
-components transform branches in Git into namespaces in the Kubernetes cluster.
+<!--more-->
+
+Infra components are the intermediate layer between user and Kubernetes cluster. This layer changes th2 environments due to state of the **th2-infra-schema**.
 
 ![](/img/fundamentals/infra/infra-comp-1.png)
 
@@ -19,10 +15,10 @@ components transform branches in Git into namespaces in the Kubernetes cluster.
 
 There are 5 Infra components:
 
-1. **th2-infra-schema** - a special repository that contains schema configurations, acting as a config files storage that works via Git.
-2. **th2-infra-mgr** watches for changes in the repositories and deploys changed components to Kubernetes. 
-3. **th2-infra-operator** - an implementation of Kubernetes custom resource controller.
-4. **th2-infra-editor** - web GUI for schema control.
+1. **[th2-infra-schema](https://github.com/th2-net/th2-infra-schema-demo)** - a special repository that contains schema configurations, acting as a config files storage that works via Git.
+2. **[th2-infra-mgr](https://github.com/th2-net/th2-infra-mgr)** watches for changes in the repositories and deploys changed components to Kubernetes. 
+3. **[th2-infra-operator](https://github.com/th2-net/th2-infra-operator)** - an implementation of Kubernetes custom resource controller.
+4. **[th2-infra-editor](https://github.com/th2-net/th2-infra-editor)** - web GUI for schema control.
 5. **th2-infra-repo** - abstract chart used by helm operator (the element is hidden in the diagram below).
 
 ## Components interactions
@@ -33,26 +29,34 @@ There are 5 Infra components:
 
 You have 2 ways to edit your **th2-infra-schema**:
 
-1. Git-based - by commiting changes directly into your **th2-infra-schema**.
-2. GUI-based - by interacting with **th2-infra-editor**` (special Graphical User Interface).
+1. Git-based - by committing changes directly into your **th2-infra-schema**.
+2. GUI-based - by interacting with **th2-infra-editor** (special Graphical User Interface).
 
 ### infra-editor and infra-mgr interaction
 
-**th2-infra-editor** get information about current state of 
-**th2-infra-schema** from **th2-infra-mgr**, displays it for Operator 
-using web GUI, and allows Operator configure environment via 
-sending changes to **th2-infra-mgr**.
+
+**th2-infra-editor** get information about current state of **th2-infra-schema** from **th2-infra-mgr**, displays it for user using web GUI, and allows him to configure environment via sending changes to **th2-infra-mgr**.
 
 ### Reading-editing infra-schema by infra-mgr 
 
 **th2-infra-mgr** can check **th2-infra-schema** repository and store its state in the cache.
 
-Also **th2-infra-mgr** can change **th2-infra-schema** repository.
+Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
-**th2-infra-mgr** sends Kubernetes cluster changes to **th2-infra-operator** in 
-order to create/change/delete th2 components using `helm-operator`.
+**th2-infra-mgr** applies <term term="Custom Resource">Custom Resources</term> from **th2-infra-schema** to the Kubernetes cluster. **th2-infra-operator** watches over the new <term term="Custom Resource">CR's</term> and creates/changes/deletes th2 components using `helm-operator`.
+
+## Data transformation
+
+There is dependency between the types of data in **th2-infra-schema** and what will be created in the cluster.
+
+| **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
+|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Git branch                                                                            | th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)   |
+| `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` <term term="Custom Resource"></term> | Kubernetes <term term="ConfigMap"></term>, Kubernetes <term term="Pod"></term> |
+| `Th2Link` <term term="Custom Resource"></term>                                        | Queues in RabbitMQ                                                             |
+| `Th2Dictionary` <term term="Custom Resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
 
 ## Installation
 
@@ -65,13 +69,13 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 ## Configuration
 
-**th2-infra** release can be configured at initialization only with config files.
+All th2-infra components are deployed within `th2-infra` Helm release. So these components can be configured at initialization only with provided config files.
 
 ### th2-infra configuration
 
 Short configuration:
 
-```yaml[service.values.yaml]
+```yaml
 infraMgr:
   git:
     repository: git@github.com:th2-net/th2-infra-demo-configuration.git
@@ -91,7 +95,8 @@ cassandra:
 ```
 
 Full configuration:
-```yaml[service.values.yaml]
+
+```yaml
 # Image repositories and credentials to create pull secrets
 productRegistry:
   secret: th2-core
@@ -265,7 +270,7 @@ cassandra:
 
 ### Credentials for service integration
 
-```yaml[secrets.yaml]
+```yaml
 # reguired only for images from a private registry, will be attached as the first PullSecret to deployments
 #productRegistry:
 #  username: user
