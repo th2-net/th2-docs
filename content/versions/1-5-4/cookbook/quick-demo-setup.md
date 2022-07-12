@@ -26,7 +26,7 @@ Before working with th2, it is needed to install it. This section contains instr
 
 <!--more-->
 
-This guide is targeted on minikube cluster, like in [demo example](./demo-main-scenario). But with some changes it can be used for full-fledged Kubernetes cluster.
+This guide is targeted on minikube cluster, like in [demo example](./demo-main-scenario). But with some changes it can be used for a full-fledged Kubernetes cluster.
 
 The diagram below shows all components of th2 infrastructure and interconnectivities between them. 
 
@@ -192,9 +192,9 @@ kubectl -n service create secret generic infra-mgr --from-literal=infra-mgr=infr
 
 ### Download Helm charts
 
-These Helm charts contain deploy manifests for th2 infrastructure. It includes open source tools and th2 core components. 
+These Helm charts contain deploy manifests for the th2 infrastructure. It includes the open source tools and th2 core components. 
 
-It is needed to save Helm charts locally on the machine. So you will be able to install them in the Kubernetes cluster. 
+You need to save the Helm charts locally on the machine, so that you can install them in the Kubernetes cluster. 
 
 ```shell
 helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
