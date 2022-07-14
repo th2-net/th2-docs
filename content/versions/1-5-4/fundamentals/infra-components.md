@@ -58,6 +58,32 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 | `Th2Link` <term term="Custom Resource"></term>                                        | Queues in RabbitMQ                                                             |
 | `Th2Dictionary` <term term="Custom Resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
 
+## Scenarios 
+
+All infra components are created to work as one system for **th2-infra-schema** `=>` th2 environment interpretation.
+
+There are several scenarios for infra components.
+
+<!-- Plantuml code is ciphered inside link -->
+<!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
+
+1. Create new schema with **th2-infra-editor**  
+  Schema is edited manually by default, but it is possible to change it with **th2-infra-editor** Web GUI.
+
+![Create new schema with th2-infra-editor](//www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
+
+2. Create th2 environment from th2-infra-schema branch
+
+![Create th2 environment from th2-infra-schema branch](//www.plantuml.com/plantuml/png/TP5BZnCn48Jl_XMjFS0f5hky8nIjDa820P5s471079oPdjYI7r6x7H27_UthUSWp4srkIVTNrJNbsyYAE3ahBBOC783CGJCqXh1c4xnWmnPXIwWOWVKDe3yP2jwXPsWfk6wuChubjOgrHgTWJyhNMeZVqyOT23uyEoB5u3T_G4N8apaGyavne7ut_ic0HkkMErsMRR0D4boTtx_giE6dg8Dd2XQ-f3sIHyPOHfNQxmr_knUY2_UG7ZQZ2DRmIt6jeGq4Mwty8Ql6gnbiCZZPPVYhYOn-e2j8nqPrP_IaI0l5A72zu1DQLw555R4enHX3Dd83NROrN4lOuL-uwuk5ZoVqtATUhSwot4Zux0qRPSr_XE-3qKuvZ4TLuzEQbt9uti9lg-THp12PvAQyoHfUoUax0Viiux8tByMkuNLn_gb3l8YzoLZmhJaaGhXFc30kqNbvRoNyw4_FkrkapM7rbFQTVA9aeI_wlo-PPvuxnUQ4K64CYMfSj7DkSFsYEDo5VvczHTyaPny1)
+
+3. Update th2 environment
+
+![Update th2 environment](//www.plantuml.com/plantuml/png/TP7BpjCm58JtVegZBc0LIvHxXAAAWeG4L6eGOe5OkCb9RCcNoZukiEcpuwJ1IQh_toMUcS-JoIwGy1IDPXex0dBWLIy9MkMn8UKi8qKQuVkv5OH0SWjeByexQz0IOp_JIQ5ivqLXUW_ldfpH1sUhNo02f9EbmILDaFEZDhqaWqHjrfhCOkTqYnusCoGq4etO3BRR8skS9UyqV8udz1O9GpwgnUcawEkHiQ7SDLwhAGGb_13KIEYSXxqKja-fVEtDEVDA-A82eHdTdrBT6ZMAW137LGARW-qg25FItkwfSu1DDNZBgs6cP7p6uO2_OU-CKGGVByEyWr8KTyGj__ytlesGn7qQsCB28w_olYKyv_FDW2Dt4aTu7gc45vbyZ1Wnf3AsK_tQlfpbPGuiLbbLIKtaNEKLVs0-9X_blyxy1VCWI5qGQWmk-WPNdtuFUCEJh_6O41EfXVVk3uOyxTBzbiC7r3XuhSM08GZ_T_BlqBRHw7y0)
+
+4. Delete th2 environment
+
+![Delete th2 environment](//www.plantuml.com/plantuml/png/TP9FZzCm4CNl_XIZFS0f5bt-HoXQ5f2GW9Ks23WW3cuogItvJsMF8qxzx3YfwoOLlRKpl_VcvILtWOIdQ3JJE12G0wzsag1N7ZjIpZ9If14-eaP287aBQ4VbdJLeYR7VQL8fEtXHcPs7Tq_sw8EppHyG0T9a2RYq4-JylCj_4Y1Hc_LEbkNWT8yURiucePDenCs47N-opbdoJiENk4LlaJ2KKIksMqNV7XcRmXtYeSaYgE6Ne4x2u3nyaCBkaggSdSc5NmrVLI0qC_qPjMbHemW8ST-BwTvPsA-4a9NsUASj0fPZy9utKqq9tF1JoVTUs1JjqpWrF2shwiBqjh3VPvza_JIm1S8ZRqh5DJpdYJX9SFRDozcyz5J3Y-By635YkCQzBDnFwSBARjtSAmuj6ZVYihXLr9HKdgE-vaimQtDcUVNA6mu_vcgNFJq8KkDa4Lpq7QuAkZHuMvxdlTPmx_vYADKlkSspL6N-kX9r52bd_mzlBj_JWp0Ozg93TeUsZqR_0m00)
+
 ## Installation
 
 You can deploy all **th2-infra** components as one Helm release:
@@ -94,7 +120,9 @@ cassandra:
   host: <cassandra-host>
 ```
 
-Full configuration:
+<spoiler title="Full configuration">
+
+All given values here are the default values.
 
 ```yaml
 # Image repositories and credentials to create pull secrets
@@ -267,6 +295,7 @@ cassandra:
     storageClass: local-storage
     size: 50Gi
 ```
+</spoiler>
 
 ### Credentials for service integration
 
