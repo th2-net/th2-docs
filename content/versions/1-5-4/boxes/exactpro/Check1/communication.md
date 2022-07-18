@@ -126,7 +126,7 @@ mq pin:
 
 In the example below, **check1** has two pins named `server` and `in_parsed_message`
 with connection types `grpc` and `mq` respectively. 
-The attributes of the mq pin are `subscribe` and `parsed`.
+The attributes of the MQ pin are `subscribe` and `parsed`.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
