@@ -1,4 +1,4 @@
-module.exports.NodeToCheck = class NodeToCheck {
+module.exports.ContentToCheck = class ContentToCheck {
     nodeMeta = {
         typeName: '',
         id: ''
