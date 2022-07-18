@@ -14,7 +14,7 @@ By using **check1** you will be able to:
 
 - identify the message(s) from the system related to your order message;
 
-- Identify missing or extra messages by the system.
+- identify the missing or extra messages by the system;
 
 - Check the order of the messages received.
 
