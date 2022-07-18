@@ -41,7 +41,7 @@ Figure 1. Communication with other components
 </center>
 
 ## The check1 service for gRPC
-Check1 receives several requests by gRPC and its responses are defined below
+**check1** receives several requests by gRPC and its responses are defined below.
 
 ```protobuf
     service Check1 {
