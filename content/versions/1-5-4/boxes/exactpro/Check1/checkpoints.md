@@ -29,7 +29,7 @@ Figure 1. Associations with Checkpoint class.
 
 
 After receiving a `CheckpointRequest` from the **th2-act** methods or directly from the script,
-th2-check1 will locate the last message in all queues, note the sequence number and timestamps 
+**th2-check1** will locate the last message in all queues, note the sequence number and timestamps 
 and send it to the th2-act component via `CheckPointResponse` .
 
 ![](/img/boxes/exactpro/check1/checkpoint_path.png "Figure 2.Checkpoint path")
