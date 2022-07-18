@@ -67,7 +67,7 @@ Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating 
 
 ### Rule Requests
 
-Check1 receives verification (rule) requests from the script.
+**check1** receives verification (rule) requests from the script.
 
 All the responses to the rule request contain a chain_id and the status of the request (SUCCESS or ERROR).
 
