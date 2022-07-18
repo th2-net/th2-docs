@@ -124,7 +124,7 @@ mq pin:
 
 - Requires a name, connection type (`mq`), attributes, and the filters.
 
-In the example below, check1 has two pins named `server` and `in_parsed_message`
+In the example below, **check1** has two pins named `server` and `in_parsed_message`
 with connection types `grpc` and `mq` respectively. 
 The attributes of the mq pin are `subscribe` and `parsed`.
 
