@@ -42,7 +42,7 @@ Figure 3. Messages (in black) are not considered for verification due to PreFilt
 ### Identifying system responses
 After pre-filtering, the messages in the queue have to be matched with the main filters (class RootMessageFilters[] ) to identify the expected messages. The expected responses are identified using a key fields found in the main filter. key_fields is a list of fields that will be used as keys when determining whether the expected message has been received or not.
 
-Each filter contains a key field which matches with a single expected message. CLOrdid (client order id) is used as the key field and check1 matches the filter-message pair according to the value.
+Each filter contains a key field which matches with a single expected message. CLOrdid (client order id) is used as the key field and **check1** matches the filter-message pair according to the value.
 
 ![](/img/boxes/exactpro/check1/mainfilter.png "Figure 4. The three filters matching up with three responses(turquois color) ")
 <center> 
