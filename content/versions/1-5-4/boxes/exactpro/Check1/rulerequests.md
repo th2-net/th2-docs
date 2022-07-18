@@ -79,7 +79,7 @@ These are the three rule requests:
 
 `NoMessageCheckRequest`
 
-- can pre-filter messages and used to check for unexpected messages.
+- Can pre-filter the messages and is used to check for the unexpected messages.
 
 ### Structure of the three rule requests
 
