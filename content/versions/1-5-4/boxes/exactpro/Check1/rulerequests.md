@@ -13,7 +13,7 @@ When an order message is placed and sent to the exchange (system), the exchange 
 
 The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is properly functioning is to verify the messages sent by the system for accuracy.
 
-This process of meeting expectations is known as verification and is conducted by the th2 component check1.
+This process of meeting expectations is known as verification and is conducted by the th2 component **check1**.
 
 Once verification is complete you are warned about all identified issues.
 
