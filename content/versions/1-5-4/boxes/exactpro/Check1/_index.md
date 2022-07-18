@@ -16,7 +16,7 @@ By using **check1** you will be able to:
 
 - identify the missing or extra messages by the system;
 
-- Check the order of the messages received.
+- check the order of the messages received;
 
 - Verify that the information in the each system message is accurate.
 
