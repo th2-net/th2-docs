@@ -87,7 +87,7 @@ Figure 6. Filter order (expected order) does not match the message order receive
 Once the expected messages are located, field validation is conducted by comparing the expected values to the actual values of the parameters. The user is notified of any inaccuracies.
 
 ### Returning a Chain ID
-Once verification is complete Check1 returns a chain id value which can be used for chain verification
+Once verification is complete **check1** returns a chain id value which can be used for chain verification
 
 ## Using CheckRuleRequest for  verification
 
