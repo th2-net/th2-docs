@@ -28,7 +28,7 @@ The **check1** can be considered the server side while the **script** is the cli
 
 ### Information that is verified.
 
-Verification is the comparison of expected values to the actual results.
+Verification is the comparison of the expected values to the actual results.
 
 The expected values are the following:
 
