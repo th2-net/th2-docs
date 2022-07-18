@@ -108,7 +108,7 @@ The direction of a message can be `FIRST` or `SECOND`.
 
 ### Pins
 
-Check1 needs two types of pins for communication: grpc and mq.
+**check1** needs two types of pins for communication: gRPC and MQ.
 
 <notice info> A component can have as many pins as required. </notice>
 
