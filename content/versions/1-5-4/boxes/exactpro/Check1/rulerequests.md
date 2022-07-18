@@ -93,7 +93,7 @@ Figure 1. Class structure of each request.
 
 
 
-### Parameters in a rule requests
+### Parameters in the rule requests
 
 The following tables provides a list of parameters found in rule requests.
 
