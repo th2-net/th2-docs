@@ -52,7 +52,7 @@ Figure 4. The three filters matching up with three responses(turquois color)
 </center>
 
 ### Locating unexpected messages
-If a message passed prefilter, but is not in the expected, it is considered as an extra message. The extra messages are located by setting the silence_check parameter to True or by the auto-silence-check-after-sequence-rule in check1 custom configuration.
+If a message passed pre-filter, but is not in the expected, it is considered as an extra message. The extra messages are located by setting the `silence_check` parameter to `True` or by the `auto-silence-check-after-sequence-rule` in the **check1** custom configuration.
 
 ![](/img/boxes/exactpro/check1/silencecheck.png "Figure 5. An extra message is identified by silence check ")
 <center> 
