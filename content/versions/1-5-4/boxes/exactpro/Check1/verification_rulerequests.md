@@ -10,7 +10,7 @@ related:
 
 ##  Verification using `CheckSequenceRuleRequest`
 
-![](/img/boxes/exactpro/check1/verification_flowchart.png "Figure 1. Verification of message queue by check1 using `CheckSequenceRuleRequest` ")
+![](/img/boxes/exactpro/check1/verification_flowchart.png "Figure 1. Verification of message queue by **check1** using `CheckSequenceRuleRequest` ")
 <center> 
 <figcaption class="mb-2">
 Figure1. Verification of message queue by check1 using CheckSequenceRuleRequest.
