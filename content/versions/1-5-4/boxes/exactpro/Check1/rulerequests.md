@@ -1,6 +1,6 @@
 ---
-title: Rule Requests
-inner-title: Check1 - Introduction to Verification by Rule Request
+title: Rule requests
+inner-title: check1 - Introduction to verification by rule request
 weight : 5
 related:
 - name: "th2-net/th2-check1"
@@ -9,26 +9,26 @@ related:
 ---
 
 ## The need for verification
-When an order message is placed and sent to the exchange (system), the exchange responds with messages of its own.  These system messages (execution reports) contain information about the placed order, the current status of the order, the price and quantity of the shares and various other required details about the order’s execution.
+When an order message is placed and sent to the exchange (system), the exchange responds with the messages of its own.  These system messages (execution reports) contain information about the placed order, the current status of the order, the price and quantity of the shares and various other required details about the order’s execution.
 
-The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is functioning as it should is  to verify the messages sent by the system for accuracy.
+The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is properly functioning is to verify the messages sent by the system for accuracy.
 
-This process of meeting expectations is known as verification and is conducted by the th2 component check1.
+This process of meeting expectations is known as verification and is conducted by the th2 component **check1**.
 
 Once verification is complete you are warned about all identified issues.
 
 ## The script
-The th2-script is user made code which contains a set of requests  to be sent to the th2 components and test scenarios. In regards to check1, the script contains the rule requests that you will submit to the check1 component via gRPC to begin verification.
+The th2-script is code written by the user and contains a set of test scenarios and requests to be sent to the th2 components. In regards to **check1**, the **script** contains the rule requests that you will submit to the **check1** component via gRPC to begin the verification process.
 
 <notice info>
-Check1 can be considered the server side while the script is the client side, and communication happens by gRPC technology.
+The **check1** can be considered the server side while the **script** is the client side, and communication happens by gRPC technology.
 </notice>
 
-Check1 requires expected values for verification, and these are provided by the script or model.
+**check1** requires expected values for verification, and these are provided by the **script** or the model.
 
 ### Information that is verified.
 
-Verification is the comparison of expected values to the actual results.
+Verification is the comparison of the expected values to the actual results.
 
 The expected values are the following:
 
@@ -38,14 +38,14 @@ The expected values are the following:
 
 - The parameter values (field values) in each system message (execution report).
 <notice info>
-The expected values are determined by the user
+The expected values are determined by the user.
 </notice>
 
 ## Rules
 
-Check1 contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. These rules are unique to check1 and are found only in check1.
+**check1** contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. These rules are unique to **check1** and are found only in the **check1**.
 
-The rules present in check1 are:
+The rules presented in **check1** are:
 
 - `CheckSequenceRule`
 
@@ -63,23 +63,23 @@ The `CheckSequenceRule` is supplemented by `SilenceCheck`.
 
 ## Rule requests
 
-You are able to initiate the verification process by submitting rule requests to check1. Once these rules requests are received, Check1 begins verification by executing the respective rule. For example, CheckSequenceRuleRequest calls CheckSequenceRule .
+You can initiate the verification process by submitting the rule requests to the **check1**. Once these rules requests are received, **check1** begins verification by executing the respective rule. For example, CheckSequenceRuleRequest calls CheckSequenceRule .
 
 These are the three rule requests:
 
 `CheckSequenceRuleRequest` (recommended)
 
-- To be used in cases where you expect more one message will be sent by the system.
+- To be used in cases where you expect that more than one message will be sent by the system.
 
-- Has added capabilities such as pre-filtering, order checking, and silence check
+- Has added capabilities such as pre-filtering, order checking, and silence check.
 
 `CheckRuleRequest`
 
-- Used to verify a single message, and you are unable to identify additional messages that could be sent by the system
+- Used to verify a single message, and you are unable to identify additional messages that could be sent by the system.
 
 `NoMessageCheckRequest`
 
-- can pre-filter messages and used to check for unexpected messages.
+- Can pre-filter the messages and is used to check for the unexpected messages.
 
 ### Structure of the three rule requests
 
@@ -93,9 +93,9 @@ Figure 1. Class structure of each request.
 
 
 
-### Parameters in a rule requests
+### Parameters in the rule requests
 
-The following tables provides a list of parameters found in rule requests.
+The following tables provide the list of parameters found in the rule requests.
 
 Table 1. The parameters found in all three rule requests
 
@@ -130,7 +130,7 @@ Table 3. The parameters unique to `CheckRuleRequest`
 |`root_filter`|`RootMessageFilter`|Used to verify `metadata.properties` from the message.|
 
 
-Table 4. The parameters unique to NoMessageCheckRequest
+Table 4. The parameters unique to `NoMessageCheckRequest`
 
 |Name|Type/Class| Actions performed / Description                                   |
 |---|---|---|

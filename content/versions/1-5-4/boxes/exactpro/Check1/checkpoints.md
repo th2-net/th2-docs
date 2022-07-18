@@ -1,6 +1,6 @@
 ---
 title: Checkpoints
-inner-title: Check1 - Introduction to Checkpoints and Chain Ids
+inner-title: check1 - introduction to checkpoints and chain IDs
 weight : 10
 related:
 - name: "th2-net/th2-check1"
@@ -10,15 +10,15 @@ related:
 
 ## Overview
 
-You can submit all 3 requests to check1 with a `checkpoint` or `chain_id` and check1 will return a new chain id value with its response.
+You can submit all 3 requests to **check1** with a `checkpoint` or `chain_id` and **check1** will return a new chain id value with its response.
 
 ## What are Checkpoints
 
-In order for check1 to begin verification you must provide a starting point.
+In order for **check1** to begin verification you must provide a starting point.
 This starting point is called a checkpoint.
 
 Checkpoint data contains the message sequence number in session and the message creation timestamp,
-returned as a universally unique identifier (UUID) to the act component.
+returned as a universally unique identifier (UUID) to the **act** component.
 
 ![](/img/boxes/exactpro/check1/checkpoint_class.png "Figure1.Checkpoint Class")
 <center> 
@@ -28,9 +28,9 @@ Figure 1. Associations with Checkpoint class.
 </center>
 
 
-After receiving a `CheckpointRequest` from the th2-act methods or directly from the script,
-th2-check1 will locate the last message in all queues, note the sequence number and timestamps 
-and send it to the th2-act component via `CheckPointResponse` .
+After receiving a `CheckpointRequest` from the **th2-act** methods or directly from the script,
+**th2-check1** will locate the last message in all queues, note the sequence number and timestamps 
+and send it to the **th2-act** component via `CheckPointResponse` .
 
 ![](/img/boxes/exactpro/check1/checkpoint_path.png "Figure 2.Checkpoint path")
 <center> 
@@ -39,8 +39,8 @@ Figure 2. A checkpoint is not stored
 </figcaption>
 </center>
 
-The script receives the checkpoint from act and sends it to check1. 
-check1 starts verification from the location and time when the checkpoint was created.
+The script receives the checkpoint from **act** and sends it to the **check1**. 
+**check1** starts verification from the location and time when the checkpoint was created.
 
 ![](/img/boxes/exactpro/check1/message_queue_checkpoint.png "Figure 3.message_queue_checkpoint")
 <center> 
@@ -51,7 +51,7 @@ Figure 3. A queue of messages from the same session alias arranged according to 
 
 ## Chain ID
 
-A chain id is similar to a checkpoint and is created by check1. A chain id acts as a pointer and marks the last verified message in a message queue.
+A chain id is similar to a checkpoint and is created by the **check1**. A chain id acts as a pointer and marks the last verified message in a message queue.
 
 Chain IDs are usually used to continue verification.
 
@@ -64,7 +64,7 @@ Figure 4. The structure of ChainID class.
 </center>
 
 
-When the `chain_id` parameter in a rule request is Null check1 generates a chain id caret that points to the verified message. After verification is completed, this chain id caret stops at the last verified message of the message queue. Check1 returns the Id (value of chain_id) in the RuleResponse and this value is sent with the next RuleRequest to continue the verification. check1 temporarily stores the chain_id . The storage time allocated is set by the check1 custom configuration cleanup-older-than and cleanup-time-unit.
+When the `chain_id` parameter in a rule request is Null **check1** generates a chain id caret that points to the verified message. After verification is completed, this chain id caret stops at the last verified message of the message queue. **check1** returns the Id (value of chain_id) in the RuleResponse and this value is sent with the next RuleRequest to continue the verification. **check1** temporarily stores the chain_id . The storage time allocated is set by the **check1** custom configuration cleanup-older-than and cleanup-time-unit.
 
 Joining several rule requests to continuously check the whole message queue is known as chain verification.
 

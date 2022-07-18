@@ -1,6 +1,6 @@
 ---
 title: Communication
-inner-title: Check1 - Introduction to Communication
+inner-title: check1 - introduction to communication
 weight : 15
 related:
 - name: "th2-net/th2-check1"
@@ -11,24 +11,24 @@ related:
 ## Learn more:
 Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
-- Read more about gRPC technology **[here](https://grpc.io/)**
+- Read more about **[gRPC technology](https://grpc.io/)**
 
 <!-- Read more about th2 gRPC modules here -->
 
-- Read more about RabbitMQ technology **[here](https://www.rabbitmq.com/documentation.html)**
+- Read more about **[RabbitMQ technology](https://www.rabbitmq.com/documentation.html)**
 
 <!-- Read about th2 pins here and th2 links  -->
 
 <!-- Read about th2 components API here -->
 
-- Th2 uses kubernetes. Learn more about kubernetes config maps **[here](https://kubernetes.io/docs/concepts/configuration/configmap/)**
+- Th2 uses kubernetes. Learn more about kubernetes  **[config maps](https://kubernetes.io/docs/concepts/configuration/configmap/)**
 
 
 ## Overview
-Check1 uses gRPC technology for remote procedure calls. 
-Communication with gRPC uses the th2-grpc-check1 repository which contains the required .proto files for client-server interface and for publishing the required packages.
+**check1** uses gRPC technology for the remote procedure calls. 
+Communication with gRPC uses the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1) which contains the required `.proto` files for client-server interface and for publishing the required packages.
 
-Check1 uses the message broker RabbitMQ for sending and receiving messages.
+**check1** uses the message broker RabbitMQ for sending and receiving messages.
 
 ## Interactions with other components
 
@@ -41,7 +41,7 @@ Figure 1. Communication with other components
 </center>
 
 ## The check1 service for gRPC
-Check1 receives several requests by gRPC and its responses are defined below
+**check1** receives several requests by gRPC and its responses are defined below.
 
 ```protobuf
     service Check1 {
@@ -53,7 +53,7 @@ Check1 receives several requests by gRPC and its responses are defined below
 ```
 
 ### A checkpoint request
-Check1 receives a checkpoint request and sends back checkpoints to th2-act.
+**check1** receives a checkpoint request and sends back checkpoints to **th2-act**.
 
 The `CheckpointResponse` contains a checkpoint and the status of the request (`SUCCESS` or `ERROR`).
 
@@ -67,15 +67,15 @@ Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating 
 
 ### Rule Requests
 
-Check1 receives verification (rule) requests from the script.
+**check1** receives verification (rule) requests from the script.
 
-All responses to a rule request contain a chain_id and the status of the request (SUCCESS or ERROR).
+All the responses to the rule request contain a chain_id and the status of the request (SUCCESS or ERROR).
 
 ![](/img/boxes/exactpro/check1/ruleresponse_class.png "Figure 3. Class diagram of check1 responses ")
 
 <center> 
 <figcaption class="mb-2">
-Figure 3. Class diagram of check1 responses.
+Figure 3. Class diagram of **check1** responses.
 </figcaption>
 </center>
 
@@ -83,7 +83,7 @@ Figure 3. Class diagram of check1 responses.
 
 Storing message queues
 
-check1 receives decoded system messages from the th2-codec component via RabbitMQ.
+**check1** receives decoded system messages from the **th2-codec** component via RabbitMQ.
 
 
 ![](/img/boxes/exactpro/check1/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
@@ -93,7 +93,7 @@ Figure 4. A queue of messages from the same session alias arranged according to 
 </figcaption>
 </center>
 
-Figure 4 shows a message queue. A queue contains messages of the same direction and session alias. The messages in a queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). Size of each cache is determined by the check1’s message-cache-size . Users can edit this property in check1’s custom configuration.
+Figure 4 shows a message queue. The queue contains messages of the same direction and session alias. The messages in the queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). The size of each cache is determined by the **check1**’s message-cache-size . Users can edit this property in **check1**’s custom configuration.
 
 <notice info>
 
@@ -108,7 +108,7 @@ The direction of a message can be `FIRST` or `SECOND`.
 
 ### Pins
 
-Check1 needs two types of pins for communication: grpc and mq.
+**check1** needs two types of pins for communication: gRPC and MQ.
 
 <notice info> A component can have as many pins as required. </notice>
 
@@ -116,7 +116,7 @@ grpc pin:
 
 - connects to the script and allows other components to connect via the `com.exactpro.th2.Check1.grpc.Check1Service class`.
 
-- A grpc pin requires a name and a connection type (`grpc`).
+- A gRPC pin requires a name and a connection type (`grpc`).
 
 mq pin:
 
@@ -124,9 +124,9 @@ mq pin:
 
 - Requires a name, connection type (`mq`), attributes, and the filters.
 
-In the example below, check1 has two pins named `server` and `in_parsed_message`
+In the example below, **check1** has two pins named `server` and `in_parsed_message`
 with connection types `grpc` and `mq` respectively. 
-The attributes of the mq pin are `subscribe` and `parsed`.
+The attributes of the MQ pin are `subscribe` and `parsed`.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -144,7 +144,7 @@ spec:
         - "parsed"
 ```
 
-### Attributes for Pins : connection_type:`mq`
+### Attributes for Pins: connection_type:`mq`
 
 | Attribute Name | Description|
 |---|---|
@@ -154,12 +154,12 @@ spec:
 | `raw`| message is transferred in the initial system format (sent from/to SUT)|
 | `publish`| the box distributes messages|
 | `subscribe`| the box consumes messages|
-| `event`| the pin sends events to estore (note - this pin is created by default for each box, even if it’s missed from CR file);|
+| `event`| the pin sends events to estore (note - this pin is created by default for each box);|
 | `store` | all messages, which are transferred via this pin, will be stored in Cradle|
 
 ### Links
 
-Links describe the connection between pins. The link between the script and check1 is given below.
+Links describe the connection between pins. The link between the script and **check1** is given below.
 
 The link describes the connection between the pin to_check1 and server
 

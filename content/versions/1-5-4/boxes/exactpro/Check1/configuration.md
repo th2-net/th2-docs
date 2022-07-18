@@ -1,6 +1,6 @@
 ---
 title: Configuration
-inner-title: Check1 - Custom Configuration
+inner-title: check1 - custom configuration
 weight: 20
 related:
 - name: "th2-net/th2-check1"
@@ -8,8 +8,8 @@ related:
   href: "https://github.com/th2-net/th2-check1"
 ---
 
-## Configuration of Check1
-The general configuration of the check1 component is given below. To read more about box configurations click here.
+## Configuration of check1
+The general configuration of the **check1** component is given below. 
 
 ```yaml [check1.yml]
 apiVersion: th2.exactpro.com/v1
@@ -51,7 +51,7 @@ spec:
 ```
 
 ### th2-check1 custom configuration
-Some of check1 properties are customizable. The customizable parameters, along with example values are provided in the following code snippet (a part of the config file):
+Some of the **check1** properties are customizable. The customizable parameters, along with their default values are provided in the following code snippet (a part of the config file):
 ```yaml
 {
 custom config:
@@ -67,7 +67,7 @@ custom config:
 }   
 ```
 ### Properties that can be customized
-The following table gives a short description about the customizable properties of check1. You can change these property values to obtain a desired configuration of check1
+The following table gives a short description about the customizable properties of the **check1**. You can change these property values to obtain a desired configuration of the **check1**.
 
 |Property name|Type|Default Value|Property description|
 |---|---|---|---|

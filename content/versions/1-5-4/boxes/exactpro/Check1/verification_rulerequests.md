@@ -10,10 +10,10 @@ related:
 
 ##  Verification using `CheckSequenceRuleRequest`
 
-![](/img/boxes/exactpro/check1/verification_flowchart.png "Figure 1. Verification of message queue by check1 using `CheckSequenceRuleRequest` ")
+![](/img/boxes/exactpro/check1/verification_flowchart.png "Figure 1. Verification of message queue by **check1** using `CheckSequenceRuleRequest` ")
 <center> 
 <figcaption class="mb-2">
-Figure1. Verification of message queue by check1 using CheckSequenceRuleRequest.
+Figure1. Verification of message queue by **check1** using `CheckSequenceRuleRequest`.
 </figcaption>
 </center>
 
@@ -30,7 +30,7 @@ Figure 2. Class Diagram of `CheckSequenceRuleRequest`
 `CheckSequenceRuleRequest` is the recommended rule request since it comes with additional capabilities that overlap the functional capabilities of the other two rule requests.
 
 ### The PreFilter Class
-CheckSequenceRuleRequest comes with a pre_filter. A pre_filter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The prefilter allows checking of only those messages that have passed through it. Therefore, users must be careful to not accidentally filter out potentially necessary messages.
+CheckSequenceRuleRequest comes with a pre-filter. A pre-filter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The pre-filter allows checking of only those messages that have passed through it. Therefore, users must be careful to not accidentally filter out potentially necessary messages.
 
 ![](/img/boxes/exactpro/check1/prefilter.png "Figure 3. Messages (in black) are not considered for verification due to PreFilter ")
 <center> 
@@ -40,9 +40,9 @@ Figure 3. Messages (in black) are not considered for verification due to PreFilt
 </center>
 
 ### Identifying system responses
-After pre-filtering, the messages in the queue have to be matched with the main filters (class RootMessageFilters[] ) to identify the expected messages. The expected responses are identified using a key fields found in the main filter. key_fields is a list of fields that will be used as keys when determining whether the expected message has been received or not.
+After pre-filtering, the messages in the queue have to be matched with the main filters (class RootMessageFilters[] ) to identify the expected messages. The expected responses are identified via the key fields found in the main filter. key_fields is a list of fields that will be used as keys when determining whether the expected message has been received or not.
 
-Each filter contains a key field which matches with a single expected message. CLOrdid (client order id) is used as the key field and check1 matches the filter-message pair according to the value.
+Each filter contains a key field which matches with a single expected message. CLOrdid (client order id) is used as the key field and **check1** matches the filter-message pair according to the value.
 
 ![](/img/boxes/exactpro/check1/mainfilter.png "Figure 4. The three filters matching up with three responses(turquois color) ")
 <center> 
@@ -52,7 +52,7 @@ Figure 4. The three filters matching up with three responses(turquois color)
 </center>
 
 ### Locating unexpected messages
-If a message passed prefilter, but is not in the expected, it is considered as an extra message. The extra messages are located by setting the silence_check parameter to True or by the auto-silence-check-after-sequence-rule in check1 custom configuration.
+If a message passed pre-filter, but is not in the expected, it is considered as an extra message. The extra messages are located by setting the `silence_check` parameter to `True` or by the `auto-silence-check-after-sequence-rule` in the **check1** custom configuration.
 
 ![](/img/boxes/exactpro/check1/silencecheck.png "Figure 5. An extra message is identified by silence check ")
 <center> 
@@ -64,12 +64,12 @@ Figure 5. An extra message is identified by silence check
 ### Completion of Verification
 You can allocate the amount of time for rule execution using the rule parameter timeout .
 
-If timeout is not specified in the rule request, the default value is check1’s rule-execution-timeout property.
+If timeout is not specified in the rule request, the default value is **check1**’s rule-execution-timeout property.
 
 The rule execution stops automatically after the allocated time passes. The time unit is measured milliseconds.
 
 ### Unmatched Filters
-If any or none of the filters match up with a message(s) in the queue  within the allocated time the user is notified about the mismatch between the number of received and expected system messages.
+If any or none of the filters match up with the message(s) in the queue within the allocated time the user is notified about the mismatch between the number of received and expected system messages.
 
 ### Verification of message order
 The filters in CheckSequenceRuleRequest are an ordered list and the order received should match with the filter order.
@@ -87,7 +87,7 @@ Figure 6. Filter order (expected order) does not match the message order receive
 Once the expected messages are located, field validation is conducted by comparing the expected values to the actual values of the parameters. The user is notified of any inaccuracies.
 
 ### Returning a Chain ID
-Once verification is complete Check1 returns a chain id value which can be used for chain verification
+Once verification is complete **check1** returns a chain id value which can be used for chain verification
 
 ## Using CheckRuleRequest for  verification
 
