@@ -8,6 +8,21 @@ module.exports = function (api){
         const releasesCollection = addCollection('Release')
         const topicsCollection = addCollection('Topic')
         const docPagesCollection = getCollection('DocPage')
+
+        function addRepoToDatabase(repository, releases) {
+            for (const release of releases){
+                if (!releasesCollection.getNodeById(release.id))
+                    releasesCollection.addNode(release)
+            }
+            repository.releases = releases.map(r => store.createReference('Release', r.id))
+            for (const topic of repository.topics) {
+                if (topicsCollection.getNodeById(topic))
+                    topicsCollection.addNode({ id: topic, title: topic })
+            }
+            repository.topics = repository.topics.map(t => store.createReference('Topic', t.id))
+            if (!repositoriesCollection.getNodeById(repository.id))
+                repositoriesCollection.addNode(repository)
+        }
         // Load repos for document pages
         console.log('Linking pages to GitHub repos...')
         console.time('load_repos_for_pages')
@@ -16,18 +31,7 @@ module.exports = function (api){
         for (const docPage of docPagesCollection._collection.data) {
             if (docPage.repo && docPage.repo_owner) {
                 const {repository, releases} = await getRepoInfo(docPage.repo_owner, docPage.repo)
-                for (const release of releases){
-                    if (!releasesCollection.getNodeById(release.id))
-                        releasesCollection.addNode(release)
-                }
-                repository.releases = releases.map(r => store.createReference('Release', r.id))
-                for (const topic of repository.topics) {
-                    if (topicsCollection.getNodeById(topic))
-                        topicsCollection.addNode({ id: topic, title: topic })
-                }
-                repository.topics = repository.topics.map(t => store.createReference('Topic', t.id))
-                if (!repositoriesCollection.getNodeById(repository.id))
-                    repositoriesCollection.addNode(repository)
+                addRepoToDatabase(repository, releases)
                 docPage._githubRepository = store.createReference('Repository', repository.id)
                 docPage.internal.mimeType = 'text/markdown'
                 docPage.repo = null
@@ -42,28 +46,21 @@ module.exports = function (api){
         console.timeEnd('load_repos_for_pages')
 
         // Load all th2 repos
-        const repos = await getAllTh2NetRepos()
-        console.log('Loading all th2 repositories...')
-        console.time('load_all_th2_repos')
-        progress.start(repos.length, 0)
-        count = 1
-        for (const repository of repos) {
-            const releases = await getRepoReleases(repository)
-            for (const release of releases){
-                if (!releasesCollection.getNodeById(release.id))
-                    releasesCollection.addNode(release)
+        if (process.env.NODE_ENV === 'production'){
+            const repos = await getAllTh2NetRepos()
+            console.log('Loading all th2 repositories...')
+            console.time('load_all_th2_repos')
+            progress.start(repos.length, 0)
+            count = 1
+            for (const repository of repos) {
+                const releases = await getRepoReleases(repository)
+                addRepoToDatabase(repository,releases)
+                progress.update(count++)
             }
-            repository.releases = releases.map(r => store.createReference('Release', r.id))
-            for (const topic of repository.topics) {
-                if (topicsCollection.getNodeById(topic))
-                    topicsCollection.addNode({ id: topic, title: topic })
-            }
-            repository.topics = repository.topics.map(t => store.createReference('Topic', t))
-            if (!repositoriesCollection.getNodeById(repository.id))
-                repositoriesCollection.addNode(repository)
-            progress.update(count++)
+            progress.stop()
+            console.timeEnd('load_all_th2_repos')
         }
-        progress.stop()
-        console.timeEnd('load_all_th2_repos')
+        else
+            console.log('Skipping all th2 repos')
     })
 }
