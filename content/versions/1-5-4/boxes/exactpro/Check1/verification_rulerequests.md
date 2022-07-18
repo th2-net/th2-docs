@@ -64,7 +64,7 @@ Figure 5. An extra message is identified by silence check
 ### Completion of Verification
 You can allocate the amount of time for rule execution using the rule parameter timeout .
 
-If timeout is not specified in the rule request, the default value is check1’s rule-execution-timeout property.
+If timeout is not specified in the rule request, the default value is **check1**’s rule-execution-timeout property.
 
 The rule execution stops automatically after the allocated time passes. The time unit is measured milliseconds.
 
