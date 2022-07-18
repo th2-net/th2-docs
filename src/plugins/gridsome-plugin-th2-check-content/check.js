@@ -8,6 +8,13 @@ const forbidden = process.env.FORBIDDEN?.split(',').map(f => f.toLowerCase().tri
 const forbiddenSecret = process.env.FORBIDDEN_SECRET?.split(',').map(f => f.toLowerCase().trim()) || []
 const forbiddenDomains = process.env.FORBIDDEN_DOMAINS?.split(',').map(f => f.toLowerCase().trim()) || []
 
+function throwError(message){
+    if (process.env.NODE_ENV === 'production')
+        throw new Error(message)
+    else
+        console.error(message)
+}
+
 function checkNodeForWord({   node = new ContentToCheck({}),
                               forbiddenWord = '',
                               isSecret = false,
@@ -17,9 +24,9 @@ function checkNodeForWord({   node = new ContentToCheck({}),
     }
     catch (e) {
         if (isSecret)
-            throw new Error(`Restricted content in ${node.nodeMeta.typeName} node ${node.nodeMeta.id} in ${node.fieldName}`)
+            throwError(`Restricted content in ${node.nodeMeta.typeName} node ${node.nodeMeta.id} in ${node.fieldName}`)
         else {
-            throw new Error(`Restricted word "${forbiddenWord}" in ${node.nodeMeta.typeName} node ${node.nodeMeta.id} in ${node.fieldName}`)
+            throwError(`Restricted word "${forbiddenWord}" in ${node.nodeMeta.typeName} node ${node.nodeMeta.id} in ${node.fieldName}`)
         }
     }
 }
@@ -56,7 +63,7 @@ function checkStringForUrls(string = '') {
     for (let link of links){
         const domain = extractDomain(link).replace(/[()]/g, '')
         if (forbiddenDomains.includes(domain))
-            throw new Error(`Restricted url: "${link}"`)
+            throwError(`Restricted url: "${link}"`)
     }
 }
 
