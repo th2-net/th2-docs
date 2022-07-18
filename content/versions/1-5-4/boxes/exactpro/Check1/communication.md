@@ -75,7 +75,7 @@ All the responses to the rule request contain a chain_id and the status of the r
 
 <center> 
 <figcaption class="mb-2">
-Figure 3. Class diagram of check1 responses.
+Figure 3. Class diagram of **check1** responses.
 </figcaption>
 </center>
 
