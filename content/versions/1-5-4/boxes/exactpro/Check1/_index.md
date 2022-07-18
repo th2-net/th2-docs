@@ -22,7 +22,7 @@ By using **check1** you will be able to:
 
 
 ## Family
-The following repositories are required by th2-check1 module :
+The following repositories are required by **th2-check1** module:
 
 - [**th2-check1**](https://github.com/th2-net/th2-check1)
   - The check1 repository and contains the source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod.
