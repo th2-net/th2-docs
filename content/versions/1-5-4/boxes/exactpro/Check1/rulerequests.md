@@ -71,7 +71,7 @@ These are the three rule requests:
 
 - To be used in cases where you expect more one message will be sent by the system.
 
-- Has added capabilities such as pre-filtering, order checking, and silence check
+- Has added capabilities such as pre-filtering, order checking, and silence check.
 
 `CheckRuleRequest`
 
