@@ -53,7 +53,7 @@ Figure 1. Communication with other components
 ```
 
 ### A checkpoint request
-Check1 receives a checkpoint request and sends back checkpoints to th2-act.
+**check1** receives a checkpoint request and sends back checkpoints to **th2-act**.
 
 The `CheckpointResponse` contains a checkpoint and the status of the request (`SUCCESS` or `ERROR`).
 
