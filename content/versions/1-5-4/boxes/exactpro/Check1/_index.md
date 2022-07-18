@@ -25,7 +25,7 @@ By using **check1** you will be able to:
 The following repositories are required by **th2-check1** module:
 
 - [**th2-check1**](https://github.com/th2-net/th2-check1)
-  - The check1 repository and contains the source code which can be used to generate the docker image. Check1 image is already in the registry for use. The docker image is pulled to Kubernetes to create the pod.
+  - The check1 repository contains the source code which can be used to generate an image for a docker container. But the **check1** image is already in the registry for use. This image is pulled to Kubernetes to create a pod.
 - [**th2-grpc-check1**](https://github.com/th2-net/th2-grpc-check1)
   - the gRPC check1 library. This library is required for communication by gRPC and includes the `check1.proto` file described below. This library is also used to create and publish the required packages in Python or Java.
   - [**th2-check1.proto**](https://github.com/th2-net/th2-grpc-check1/blob/master/src/main/proto/th2_grpc_check1/check1.proto)
