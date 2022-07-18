@@ -69,7 +69,7 @@ These are the three rule requests:
 
 `CheckSequenceRuleRequest` (recommended)
 
-- To be used in cases where you expect more one message will be sent by the system.
+- To be used in cases where you expect that more than one message will be sent by the system.
 
 - Has added capabilities such as pre-filtering, order checking, and silence check.
 
