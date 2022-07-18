@@ -67,7 +67,7 @@ custom config:
 }   
 ```
 ### Properties that can be customized
-The following table gives a short description about the customizable properties of check1. You can change these property values to obtain a desired configuration of check1
+The following table gives a short description about the customizable properties of the **check1**. You can change these property values to obtain a desired configuration of the **check1**.
 
 |Property name|Type|Default Value|Property description|
 |---|---|---|---|
