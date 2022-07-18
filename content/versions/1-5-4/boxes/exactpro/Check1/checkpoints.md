@@ -40,7 +40,7 @@ Figure 2. A checkpoint is not stored
 </center>
 
 The script receives the checkpoint from **act** and sends it to the **check1**. 
-check1 starts verification from the location and time when the checkpoint was created.
+**check1** starts verification from the location and time when the checkpoint was created.
 
 ![](/img/boxes/exactpro/check1/message_queue_checkpoint.png "Figure 3.message_queue_checkpoint")
 <center> 
