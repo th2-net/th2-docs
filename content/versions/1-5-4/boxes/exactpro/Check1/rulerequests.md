@@ -95,7 +95,7 @@ Figure 1. Class structure of each request.
 
 ### Parameters in the rule requests
 
-The following tables provides a list of parameters found in rule requests.
+The following tables provide the list of parameters found in the rule requests.
 
 Table 1. The parameters found in all three rule requests
 
