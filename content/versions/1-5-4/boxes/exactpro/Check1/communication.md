@@ -1,6 +1,6 @@
 ---
 title: Communication
-inner-title: Check1 - Introduction to Communication
+inner-title: check1 - introduction to communication
 weight : 15
 related:
 - name: "th2-net/th2-check1"
