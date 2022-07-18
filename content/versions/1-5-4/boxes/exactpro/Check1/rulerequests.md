@@ -75,7 +75,7 @@ These are the three rule requests:
 
 `CheckRuleRequest`
 
-- Used to verify a single message, and you are unable to identify additional messages that could be sent by the system
+- Used to verify a single message, and you are unable to identify additional messages that could be sent by the system.
 
 `NoMessageCheckRequest`
 
