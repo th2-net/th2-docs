@@ -10,7 +10,7 @@ related:
 ## Overview
 <b> check1 </b> is a component of the th2 system that checks if the messages sent by the system under test (a real  exchange or simulator) are accurate. This process is called verification. The verification is an essential part of the testing process as it allows you to ensure, that the system is properly functioning. The verification is done by comparing the actual results to the expected results. You can create a script or a model that contains the expected results and send it to the check1.
 
-Using check1 you will be able to achieve the following:
+By using **check1** you will be able to:
 
 - Identify message(s) from the system related to your order message.
 
