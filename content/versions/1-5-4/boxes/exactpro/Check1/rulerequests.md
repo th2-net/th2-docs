@@ -21,7 +21,7 @@ Once verification is complete you are warned about all identified issues.
 The th2-script is code written by the user and contains a set of test scenarios and requests to be sent to the th2 components. In regards to **check1**, the **script** contains the rule requests that you will submit to the **check1** component via gRPC to begin the verification process.
 
 <notice info>
-Check1 can be considered the server side while the script is the client side, and communication happens by gRPC technology.
+The **check1** can be considered the server side while the **script** is the client side, and communication happens by gRPC technology.
 </notice>
 
 Check1 requires expected values for verification, and these are provided by the script or model.
