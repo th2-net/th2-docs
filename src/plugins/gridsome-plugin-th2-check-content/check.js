@@ -1,8 +1,12 @@
 const { ContentToCheck } = require('./models')
+const { get, getStringsFromObjectDeep} = require('./prepare')
 const levenshtein = require('js-levenshtein')
+const extractUrls = require("extract-urls")
+const extractDomain = require("extract-domain")
 
-const forbidden = process.env.FORBIDDEN.split(',').map(f => f.toLowerCase().trim())
-const forbiddenSecret = process.env.FORBIDDEN_SECRET.split(',').map(f => f.toLowerCase().trim())
+const forbidden = process.env.FORBIDDEN?.split(',').map(f => f.toLowerCase().trim()) || []
+const forbiddenSecret = process.env.FORBIDDEN_SECRET?.split(',').map(f => f.toLowerCase().trim()) || []
+const forbiddenDomains = process.env.FORBIDDEN_DOMAINS?.split(',').map(f => f.toLowerCase().trim()) || []
 
 function checkNodeForWord({   node = new ContentToCheck({}),
                               forbiddenWord = '',
@@ -47,4 +51,20 @@ function checkContent(node = new ContentToCheck({})){
     require('badwords-list').array.forEach(word => checkNodeForWord({ node, forbiddenWord: word, exactMatch: true }))
 }
 
-module.exports = {checkNode: checkContent}
+function checkStringForUrls(string = '') {
+    const links = extractUrls(string) || []
+    for (let link of links){
+        const domain = extractDomain(link).replace(/[()]/g, '')
+        if (forbiddenDomains.includes(domain))
+            throw new Error(`Restricted url: "${link}"`)
+    }
+}
+
+function checkObjectForUrls(object) {
+    const strings = getStringsFromObjectDeep(object)
+    for (let string of strings) {
+        checkStringForUrls(string)
+    }
+}
+
+module.exports = {checkContent, checkObjectForUrls}

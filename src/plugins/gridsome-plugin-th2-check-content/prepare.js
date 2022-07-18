@@ -88,7 +88,14 @@ function prepareData({   documentsCollection,
         }))
     })
     return {
-        contentToCheck: nodesToCheck.filter(node => !!node.content)
+        contentToCheck: nodesToCheck.filter(node => !!node.content),
+        unitedCollection: [
+          ...documentsCollection._collection.data,
+          ...termsCollection._collection.data,
+          ...releasesCollection._collection.data,
+          ...repositoriesCollection._collection.data,
+          ...topicsCollection._collection.data
+        ]
     }
 }
 
@@ -106,4 +113,4 @@ function getStringsFromObjectDeep(object, strings = []){
     return strings
 }
 
-module.exports = { prepareData }
+module.exports = { prepareData, getStringsFromObjectDeep }
