@@ -38,7 +38,7 @@ The expected values are the following:
 
 - The parameter values (field values) in each system message (execution report).
 <notice info>
-The expected values are determined by the user
+The expected values are determined by the user.
 </notice>
 
 ## Rules
