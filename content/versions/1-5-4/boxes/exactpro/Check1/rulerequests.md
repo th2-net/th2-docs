@@ -1,6 +1,6 @@
 ---
 title: Rule Requests
-inner-title: Check1 - Introduction to Verification by Rule Request
+inner-title: check1 - Introduction to verification by rule request
 weight : 5
 related:
 - name: "th2-net/th2-check1"
