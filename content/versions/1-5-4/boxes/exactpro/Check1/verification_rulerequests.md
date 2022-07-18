@@ -69,7 +69,7 @@ If timeout is not specified in the rule request, the default value is **check1**
 The rule execution stops automatically after the allocated time passes. The time unit is measured milliseconds.
 
 ### Unmatched Filters
-If any or none of the filters match up with a message(s) in the queue  within the allocated time the user is notified about the mismatch between the number of received and expected system messages.
+If any or none of the filters match up with the message(s) in the queue within the allocated time the user is notified about the mismatch between the number of received and expected system messages.
 
 ### Verification of message order
 The filters in CheckSequenceRuleRequest are an ordered list and the order received should match with the filter order.
