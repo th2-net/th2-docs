@@ -69,7 +69,7 @@ Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating 
 
 Check1 receives verification (rule) requests from the script.
 
-All responses to a rule request contain a chain_id and the status of the request (SUCCESS or ERROR).
+All the responses to the rule request contain a chain_id and the status of the request (SUCCESS or ERROR).
 
 ![](/img/boxes/exactpro/check1/ruleresponse_class.png "Figure 3. Class diagram of check1 responses ")
 
