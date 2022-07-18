@@ -30,7 +30,7 @@ Figure 2. Class Diagram of `CheckSequenceRuleRequest`
 `CheckSequenceRuleRequest` is the recommended rule request since it comes with additional capabilities that overlap the functional capabilities of the other two rule requests.
 
 ### The PreFilter Class
-CheckSequenceRuleRequest comes with a pre_filter. A pre_filter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The prefilter allows checking of only those messages that have passed through it. Therefore, users must be careful to not accidentally filter out potentially necessary messages.
+CheckSequenceRuleRequest comes with a pre-filter. A pre-filter is a mechanism for filtering messages that are not of interest to the user, for example - Heartbeats in FIX. The pre-filter allows checking of only those messages that have passed through it. Therefore, users must be careful to not accidentally filter out potentially necessary messages.
 
 ![](/img/boxes/exactpro/check1/prefilter.png "Figure 3. Messages (in black) are not considered for verification due to PreFilter ")
 <center> 
