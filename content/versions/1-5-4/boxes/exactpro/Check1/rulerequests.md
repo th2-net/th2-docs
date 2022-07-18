@@ -43,7 +43,7 @@ The expected values are determined by the user.
 
 ## Rules
 
-Check1 contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. These rules are unique to check1 and are found only in check1.
+**check1** contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. These rules are unique to **check1** and are found only in the **check1**.
 
 The rules present in check1 are:
 
