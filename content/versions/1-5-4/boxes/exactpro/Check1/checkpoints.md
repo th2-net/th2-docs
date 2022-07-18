@@ -18,7 +18,7 @@ In order for **check1** to begin verification you must provide a starting point.
 This starting point is called a checkpoint.
 
 Checkpoint data contains the message sequence number in session and the message creation timestamp,
-returned as a universally unique identifier (UUID) to the act component.
+returned as a universally unique identifier (UUID) to the **act** component.
 
 ![](/img/boxes/exactpro/check1/checkpoint_class.png "Figure1.Checkpoint Class")
 <center> 
