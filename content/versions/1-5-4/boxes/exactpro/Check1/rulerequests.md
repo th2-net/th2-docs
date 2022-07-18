@@ -24,7 +24,7 @@ The th2-script is code written by the user and contains a set of test scenarios 
 The **check1** can be considered the server side while the **script** is the client side, and communication happens by gRPC technology.
 </notice>
 
-Check1 requires expected values for verification, and these are provided by the script or model.
+**check1** requires expected values for verification, and these are provided by the **script** or the model.
 
 ### Information that is verified.
 
