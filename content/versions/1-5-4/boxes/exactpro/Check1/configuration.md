@@ -1,6 +1,6 @@
 ---
 title: Configuration
-inner-title: Check1 - Custom Configuration
+inner-title: check1 - custom configuration
 weight: 20
 related:
 - name: "th2-net/th2-check1"
