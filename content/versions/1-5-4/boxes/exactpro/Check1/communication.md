@@ -11,7 +11,7 @@ related:
 ## Learn more:
 Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
-- Read more about gRPC technology **[here](https://grpc.io/)**
+- Read more about **[gRPC technology](https://grpc.io/)**
 
 <!-- Read more about th2 gRPC modules here -->
 
