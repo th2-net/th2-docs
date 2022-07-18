@@ -83,7 +83,7 @@ Figure 3. Class diagram of **check1** responses.
 
 Storing message queues
 
-check1 receives decoded system messages from the th2-codec component via RabbitMQ.
+**check1** receives decoded system messages from the **th2-codec** component via RabbitMQ.
 
 
 ![](/img/boxes/exactpro/check1/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
