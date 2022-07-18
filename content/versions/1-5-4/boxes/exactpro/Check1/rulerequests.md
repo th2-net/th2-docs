@@ -1,5 +1,5 @@
 ---
-title: Rule Requests
+title: Rule requests
 inner-title: check1 - Introduction to verification by rule request
 weight : 5
 related:
