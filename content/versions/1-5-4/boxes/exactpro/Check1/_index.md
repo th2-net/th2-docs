@@ -40,7 +40,7 @@ A `.proto` file is the interface definition written using Interface Definition L
 
 The `.proto` file is used to automatically generate language - or platform -specific stubs for clients and servers. Stubs are needed for parameter conversion so that servers can understand the client requests. The client program imports this interface, while the server program exports this interface.
 
-The interface allows two components written in two languages to communicate with each other. By sharing .proto files, teams can generate code to use each others' services, without needing to take a code dependency.
+The interface allows two components written in two languages to communicate with each other. By sharing `.proto` files, teams can generate code to use each others' services, without needing to take a code dependency.
 
 More information is available at [**Protocol Buffers**](https://developers.google.com/protocol-buffers/docs/overview)
 
