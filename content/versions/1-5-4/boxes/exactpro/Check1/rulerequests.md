@@ -11,7 +11,7 @@ related:
 ## The need for verification
 When an order message is placed and sent to the exchange (system), the exchange responds with the messages of its own.  These system messages (execution reports) contain information about the placed order, the current status of the order, the price and quantity of the shares and various other required details about the order’s execution.
 
-The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is functioning as it should is  to verify the messages sent by the system for accuracy.
+The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is properly functioning is to verify the messages sent by the system for accuracy.
 
 This process of meeting expectations is known as verification and is conducted by the th2 component check1.
 
