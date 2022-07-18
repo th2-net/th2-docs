@@ -154,7 +154,7 @@ spec:
 | `raw`| message is transferred in the initial system format (sent from/to SUT)|
 | `publish`| the box distributes messages|
 | `subscribe`| the box consumes messages|
-| `event`| the pin sends events to estore (note - this pin is created by default for each box, even if it is missing from CR file);|
+| `event`| the pin sends events to estore (note - this pin is created by default for each box);|
 | `store` | all messages, which are transferred via this pin, will be stored in Cradle|
 
 ### Links
