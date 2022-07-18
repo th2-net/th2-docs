@@ -63,7 +63,7 @@ The `CheckSequenceRule` is supplemented by `SilenceCheck`.
 
 ## Rule requests
 
-You are able to initiate the verification process by submitting rule requests to check1. Once these rules requests are received, Check1 begins verification by executing the respective rule. For example, CheckSequenceRuleRequest calls CheckSequenceRule .
+You can initiate the verification process by submitting the rule requests to the **check1**. Once these rules requests are received, **check1** begins verification by executing the respective rule. For example, CheckSequenceRuleRequest calls CheckSequenceRule .
 
 These are the three rule requests:
 
