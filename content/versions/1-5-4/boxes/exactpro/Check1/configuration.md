@@ -9,7 +9,7 @@ related:
 ---
 
 ## Configuration of check1
-The general configuration of the check1 component is given below. To read more about box configurations click here.
+The general configuration of the **check1** component is given below. 
 
 ```yaml [check1.yml]
 apiVersion: th2.exactpro.com/v1
