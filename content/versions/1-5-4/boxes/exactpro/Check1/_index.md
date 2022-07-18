@@ -1,6 +1,6 @@
 ---
 title: Check1
-inner-title: Check1 - A Brief Introduction.
+inner-title: check1 - a brief introduction.
 
 related:
 - name: "th2-net/th2-check1"
