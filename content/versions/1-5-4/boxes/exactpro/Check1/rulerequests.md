@@ -130,7 +130,7 @@ Table 3. The parameters unique to `CheckRuleRequest`
 |`root_filter`|`RootMessageFilter`|Used to verify `metadata.properties` from the message.|
 
 
-Table 4. The parameters unique to NoMessageCheckRequest
+Table 4. The parameters unique to `NoMessageCheckRequest`
 
 |Name|Type/Class| Actions performed / Description                                   |
 |---|---|---|
