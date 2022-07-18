@@ -1,5 +1,5 @@
 ---
-title: Check1
+title: check1
 inner-title: check1 - a brief introduction.
 
 related:
