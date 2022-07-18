@@ -12,7 +12,7 @@ related:
 
 By using **check1** you will be able to:
 
-- Identify message(s) from the system related to your order message.
+- identify the message(s) from the system related to your order message;
 
 - Identify missing or extra messages by the system.
 
