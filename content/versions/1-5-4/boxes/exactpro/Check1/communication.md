@@ -144,7 +144,7 @@ spec:
         - "parsed"
 ```
 
-### Attributes for Pins : connection_type:`mq`
+### Attributes for Pins: connection_type:`mq`
 
 | Attribute Name | Description|
 |---|---|
