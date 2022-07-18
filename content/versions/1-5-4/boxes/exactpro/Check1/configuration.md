@@ -8,7 +8,7 @@ related:
   href: "https://github.com/th2-net/th2-check1"
 ---
 
-## Configuration of Check1
+## Configuration of check1
 The general configuration of the check1 component is given below. To read more about box configurations click here.
 
 ```yaml [check1.yml]
