@@ -29,7 +29,7 @@ The following repositories are required by **th2-check1** module:
 - [**th2-grpc-check1**](https://github.com/th2-net/th2-grpc-check1)
   - the gRPC check1 library. This library is required for communication by gRPC and includes the `check1.proto` file described below. This library is also used to create and publish the required packages in Python or Java.
   - [**th2-check1.proto**](https://github.com/th2-net/th2-grpc-check1/blob/master/src/main/proto/th2_grpc_check1/check1.proto)
-    - The gRPC `check1.proto` file contains the definitions of check1 service and the data structure of the requests and responses.
+    - The gRPC `check1.proto` file contains the definitions of **check1** service and the data structure of the requests and responses.
 - [**th2-grpc-common**](https://github.com/th2-net/th2-grpc-common)
   - This library contains common proto messages that are used in all th2 components. Tool generates code from `.proto` files and uploads built packages (`.proto` files and generated code) to specified repositories.
   - [**th2-grpc-common.proto**](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto)
