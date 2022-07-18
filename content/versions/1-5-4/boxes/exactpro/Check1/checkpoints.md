@@ -1,6 +1,6 @@
 ---
 title: Checkpoints
-inner-title: Check1 - Introduction to Checkpoints and Chain Ids
+inner-title: check1 - introduction to checkpoints and chain IDs
 weight : 10
 related:
 - name: "th2-net/th2-check1"
