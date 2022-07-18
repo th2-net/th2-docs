@@ -159,7 +159,7 @@ spec:
 
 ### Links
 
-Links describe the connection between pins. The link between the script and check1 is given below.
+Links describe the connection between pins. The link between the script and **check1** is given below.
 
 The link describes the connection between the pin to_check1 and server
 
