@@ -9,6 +9,6 @@ This section contains Exactpro and Community boxes which are a part of th2 micro
 <!--more-->
 
 ## Contents
-1. [Dashboard](boxes/dashboard)
-2. [Exactpro](boxes/exactpro)
-3. [Community](boxes/community)
+1. [Dashboard](modules/dashboard)
+2. [Exactpro](modules/exactpro)
+3. [Community](modules/community)
