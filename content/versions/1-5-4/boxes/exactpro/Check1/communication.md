@@ -34,6 +34,8 @@ Use the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1)
 
 ## Interactions with other components
 
+<!-- FIXME: Remove focus on estore and mstore -->
+
 ![](/img/boxes/exactpro/check1/communication_othercomponents.png "Figure 1. Communication with other components ")
 
 <center> 
