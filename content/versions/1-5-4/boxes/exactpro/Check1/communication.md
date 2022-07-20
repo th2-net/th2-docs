@@ -127,7 +127,7 @@ mq pin:
 - Used for listening to the parsed messages. You can link several sources with the different directions and session aliases to it.
 
 - Requires a name, connection type (`mq`), attributes, and the filters.
-
+mq pin for receiving messages should have `subscribe` and `parsed` attributes
 In the example below, **check1** has two pins named `server` and `in_parsed_message`
 with connection types `grpc` and `mq` respectively. 
 The attributes of the MQ pin are `subscribe` and `parsed`.
