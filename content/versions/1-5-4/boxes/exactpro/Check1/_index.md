@@ -45,4 +45,3 @@ The interface allows two components written in two languages to communicate with
 
 More information is available at [**Protocol Buffers**](https://developers.google.com/protocol-buffers/docs/overview)
 
-</notice>
