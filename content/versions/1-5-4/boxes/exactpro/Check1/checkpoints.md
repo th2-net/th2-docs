@@ -84,8 +84,8 @@ Figure 5. Flowchart illustrating `chain_id`
 
 - A checkpoint marks the last message of a message queue but chain id marks the last verified message.
 
-- A checkpoint is used to begin verification but chain ids are used to continue verification.
+- A checkpoint is used to begin verification but chain_id's are used to continue verification.
 
-- Checkpoints are not stored in check1 but chain ids are temporarily stored in check1
+- Checkpoints are not stored in check1 but chain_id's are temporarily stored in check1
 
 - If the value of the chain_id is provided in a rule request, the checkpoint is ignored.
