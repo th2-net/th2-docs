@@ -48,12 +48,12 @@ Figure 1. Communication with other components
 **check1** receives several requests by gRPC and its responses are defined below.
 
 ```protobuf
-    service Check1 {
-    rpc createCheckpoint (CheckpointRequest) returns (CheckpointResponse) {}  
-    rpc submitCheckRule (CheckRuleRequest) returns (CheckRuleResponse) {}  
-    rpc submitCheckSequenceRule(CheckSequenceRuleRequest) returns (CheckSequenceRuleResponse) {}  
-    rpc submitNoMessageCheck(NoMessageCheckRequest) returns (NoMessageCheckResponse) {}  
-    }
+service Check1 {
+rpc createCheckpoint (CheckpointRequest) returns (CheckpointResponse) {}  
+rpc submitCheckRule (CheckRuleRequest) returns (CheckRuleResponse) {}  
+rpc submitCheckSequenceRule(CheckSequenceRuleRequest) returns (CheckSequenceRuleResponse) {}  
+rpc submitNoMessageCheck(NoMessageCheckRequest) returns (NoMessageCheckResponse) {}  
+}
 ```
 
 ### A checkpoint request
