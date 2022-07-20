@@ -120,7 +120,6 @@ grpc pin:
 
 - connects to the script and allows other components to connect via the `com.exactpro.th2.Check1.grpc.Check1Service class`.
 
-- A gRPC pin requires a name and a connection type (`grpc`).
 
 mq pin:
 
