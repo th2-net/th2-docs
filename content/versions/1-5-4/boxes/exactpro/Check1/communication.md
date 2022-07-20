@@ -25,7 +25,7 @@ Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
 
 ## Overview
-**check1** uses gRPC technology for the remote procedure calls. 
+**check1** uses gRPC for the remote procedure calls. 
 Communication with gRPC uses the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1) which contains the required `.proto` files for client-server interface and for publishing the required packages.
 
 **check1** uses the message broker RabbitMQ for sending and receiving messages.
