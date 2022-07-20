@@ -81,6 +81,24 @@ The following table gives a short description about the customizable properties 
 |`decimal-precision`|`double`|`0.00001`|Parameter used to compare the value of two numbers. Can be specified in number or string format. For example, `0.0001`, `0.125`, `125E-3`.|
 |`check-null-value-as-empty`|`boolean`|`false`|Parameter used for `EMPTY` and `NOT_EMPTY` operations to check if `NULL_VALUE` is empty. Default: `false`. For example, if the `checkNullValueAsEmpty` parameter is true, then `NULL_VALUE` is equal to `EMPTY`, otherwise `NULL_VALUE` is equal to `NOT_EMPTY`.|
 
+### Pins configuration
+In the example below, **check1** has two pins named `server` and `in_parsed_message`
+with connection types `grpc` and `mq` respectively. 
+The attributes of the MQ pin are `subscribe` and `parsed`.
 
+```yaml
+apiVersion: th2.exactpro.com/v1
+kind: Th2Box
+metadata:
+  name: Check1
+spec:
+  pins:
+    - name: server
+      connection-type: grpc
+    - name: in_parsed_message
+      connection-type: mq
+      attributes:
+        - "subscribe"
+        - "parsed"
 
 
