@@ -18,7 +18,7 @@ By using **check1** you will be able to:
 
 - check the order of the messages received;
 
-- verify that the information in each message system is accurate.
+- verify that the information contained within a system message is correct.
 
 
 ## Family
