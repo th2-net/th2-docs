@@ -14,7 +14,7 @@ You can submit all 3 requests to **check1** with a `checkpoint` or `chain_id` an
 
 ## What are Checkpoints
 
-In order for **check1** to begin verification you must provide a starting point.
+In order for **check1** to begin verification you must provide a checkpoint.
 This starting point is called a checkpoint.
 
 Checkpoint data contains the message sequence number in session and the message creation timestamp,
