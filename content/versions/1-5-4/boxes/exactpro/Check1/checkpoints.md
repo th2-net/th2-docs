@@ -64,7 +64,7 @@ Figure 4. The structure of ChainID class.
 </center>
 
 
-When the `chain_id` parameter in a rule request is `Null` **check1** generates a chain id caret that points to the verified message. After verification is completed, this chain id caret stops at the last verified message of the message queue. **check1** returns the Id (value of chain_id) in the RuleResponse and this value is sent with the next RuleRequest to continue the verification. **check1** temporarily stores the chain_id . The storage time allocated is set by the **check1** custom configuration cleanup-older-than and cleanup-time-unit.
+When the `chain_id` parameter in a rule request is `Null` **check1** generates a `chain_id` caret that points to the verified message. After verification is completed, this `chain_id` caret stops at the last verified message of the message queue. **check1** returns the `chain_id` value in the response and this value is sent back with the next rule request to continue verification. **check1** temporarily stores the `chain_id` value. The storage time allocated is set by the **check1** custom configuration `cleanup-older-than` and `cleanup-time-unit`.
 
 Joining several rule requests to continuously check the whole message queue is known as chain verification.
 
