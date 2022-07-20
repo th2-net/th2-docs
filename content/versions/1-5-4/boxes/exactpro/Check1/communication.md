@@ -19,7 +19,7 @@ Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
 <!-- TODO: Read about th2 pins here and th2 links  -->
 
-<!-- Read about th2 components API here -->
+<!-- TODO: Read about th2 components API here -->
 
 - Th2 uses kubernetes. Learn more about kubernetes  **[config maps](https://kubernetes.io/docs/concepts/configuration/configmap/)**
 
