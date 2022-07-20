@@ -8,7 +8,7 @@ related:
   href: "https://github.com/th2-net/th2-check1"
 ---
 ## Overview
-**check1** is a component of the th2 system that checks if the messages sent by the system under test (a real  exchange or simulator) are accurate. This process is called _verification_. The verification is an essential part of the testing process as it allows you to ensure, that the system is properly functioning. The verification is done by comparing the actual results to the expected results. You can create a script or a model that contains the expected results and send it to the **check1**.
+**check1** is the component of the th2 system that checks if a message(s) sent by the system under test (a real exchange or simulator) is accurate. This process is called **verification**. Verification is an essential part of the testing process because it allows you to ensure that a system is functioning properly. Verification is performed by comparing the actual results produced by a system to your expected results. You can write a script or create a model to send your expected results to **check1**.
 
 By using **check1** you will be able to:
 
