@@ -13,7 +13,7 @@ Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
 - Read more about **[gRPC](https://grpc.io/)**
 
-<!-- Read more about th2 gRPC modules here -->
+<!-- TODO: Read more about th2 gRPC modules here -->
 
 - Read more about **[RabbitMQ technology](https://www.rabbitmq.com/documentation.html)**
 
