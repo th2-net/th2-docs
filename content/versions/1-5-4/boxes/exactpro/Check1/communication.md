@@ -15,7 +15,7 @@ Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
 <!-- TODO: Read more about th2 gRPC modules here -->
 
-- Read more about **[RabbitMQ technology](https://www.rabbitmq.com/documentation.html)**
+- Read more about **[RabbitMQ](https://www.rabbitmq.com/documentation.html)**
 
 <!-- Read about th2 pins here and th2 links  -->
 
