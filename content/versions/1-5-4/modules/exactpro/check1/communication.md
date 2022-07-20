@@ -124,5 +124,38 @@ grpc pin:
 mq pin:
 
 - Used for listening to the parsed messages. You can link several sources with the different directions and session aliases to it.
-- mq pin for receiving messages should have `subscribe` and `parsed` attributes
+
+mq pin for receiving messages should have `subscribe` and `parsed` attributes
+In the example below, **check1** has two pins named `server` and `in_parsed_message`
+with connection types `grpc` and `mq` respectively. 
+The attributes of the MQ pin are `subscribe` and `parsed`.
+
+```yaml
+apiVersion: th2.exactpro.com/v1
+kind: Th2Box
+metadata:
+  name: Check1
+spec:
+  pins:
+    - name: server
+      connection-type: grpc
+    - name: in_parsed_message
+      connection-type: mq
+      attributes:
+        - "subscribe"
+        - "parsed"
+```
+
+### Attributes for Pins: connection_type:`mq`
+
+| Attribute Name | Description|
+|---|---|
+|`FIRST`| pin will take only messages which have metadata attribute direction = FIRST|
+|`SECOND`|pin will take only messages which have metadata attribute direction = SECOND|
+| `parsed`| message is transferred in th2 internal format (json-like)|
+| `raw`| message is transferred in the initial system format (sent from/to SUT)|
+| `publish`| the box distributes messages|
+| `subscribe`| the box consumes messages|
+| `event`| the pin sends events to estore (note - this pin is created by default for each box);|
+| `store` | all messages, which are transferred via this pin, will be stored in Cradle|
 
