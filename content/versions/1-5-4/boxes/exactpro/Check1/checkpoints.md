@@ -51,7 +51,7 @@ Figure 3. A queue of messages from the same session alias arranged according to 
 
 ## Chain ID
 
-A chain id is similar to a checkpoint and is created by **check1**. The chain_id caret acts as a pointer and marks the last verified message in a message queue.
+A chain id is similar to a checkpoint and is created by **check1**. The `chain_id` caret acts as a pointer and marks the last verified message in a message queue.
 
 Chain IDs are usually used to continue verification.
 
