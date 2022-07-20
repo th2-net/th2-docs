@@ -35,7 +35,6 @@ The following repositories are required by **th2-check1** module:
   - [**th2-grpc-common.proto**](https://github.com/th2-net/th2-grpc-common/blob/master/src/main/proto/th2_grpc_common/common.proto)
     - this gRPC `common.proto` file contains definitions on common classes required by the check1 service.
 
-<notice info>
 
 A `.proto` file is the interface definition written using Interface Definition Language (IDL) from Protocol Buffers and defines the interface between a client and server for gRPC. The Protocol Buffers IDL is a custom, platform-neutral language with an open specification.
 
