@@ -5,7 +5,7 @@ import * as path from "path";
 
 const highestLevel = 3
 export const nuxtCommonPagesNodes: ContentNode[] = [
-  { path: '/boxes/dashboard', title: 'Dashboard'}
+  { path: '/modules/dashboard', title: 'Dashboard'}
 ]
 
 export const cachePagesPaths = async (): Promise<Map<string, string>> => {
