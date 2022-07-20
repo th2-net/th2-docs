@@ -82,7 +82,7 @@ Figure 5. Flowchart illustrating `chain_id`
 
 ## Differences between a checkpoint and chain_id
 
-- A checkpoint marks the last message of a message queue but a `chain_id` marks the last verified message.
+- A checkpoint marks the last message of a message queue but a chain_id marks the last verified message.
 
 - A checkpoint is used to begin verification but chain_id's are used to continue verification.
 
