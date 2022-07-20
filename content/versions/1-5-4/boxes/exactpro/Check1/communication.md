@@ -159,31 +159,3 @@ spec:
 | `event`| the pin sends events to estore (note - this pin is created by default for each box);|
 | `store` | all messages, which are transferred via this pin, will be stored in Cradle|
 
-### Links
-
-Links describe the connection between pins. The link between the script and **check1** is given below.
-
-The link describes the connection between the pin to_check1 and server
-
-```yaml
-- name: script-to-check1
-        from:
-          service-class: com.exactpro.th2.check1.Check1Handler
-          strategy: filter
-          box: script-entry-point
-          pin: to_check1
-        to:
-          service-class: com.exactpro.th2.check1.grpc.Check1Service
-          strategy: robin
-          box: check1
-          pin: server
-```
-<notice info>
-
-This example is from the `th2-infra-schema-demo` repository branch `ver-1.5.4-main_scenario`.
-
-Users can make their custom pins and links according to their requirements. 
-
-</notice>
-
-
