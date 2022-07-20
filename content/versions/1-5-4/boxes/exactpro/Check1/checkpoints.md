@@ -10,7 +10,7 @@ related:
 
 ## Overview
 
-You can submit all 3 requests to **check1** with a `checkpoint` or `chain_id` and **check1** will return a new chain id value with its response.
+You can submit all 3 requests to **check1** with a `checkpoint` or `chain_id` and **check1** will return a new `chain_id` value with the response.
 
 ## What are Checkpoints
 
