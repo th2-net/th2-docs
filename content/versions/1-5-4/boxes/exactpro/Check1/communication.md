@@ -28,7 +28,9 @@ Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 **check1** uses gRPC for the remote procedure calls. 
 Use the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1) to generate language specific API for **check1**. This repository contains the required `.proto` files for client-server interface and it automatically publishes the required packages.
 
-**check1** uses the message broker RabbitMQ for sending and receiving messages.
+<!-- TODO: list all possible events created by estore -->
+
+**check1** uses the message broker RabbitMQ for receiving messages to verify.
 
 ## Interactions with other components
 
