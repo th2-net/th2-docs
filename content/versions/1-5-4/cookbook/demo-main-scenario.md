@@ -31,18 +31,18 @@ You will deploy a th2 environment, configured for this demo script. The boxes ar
 ![Environment schema](https://github.com/th2-net/th2-infra-schema-demo/blob/master/schema-ver-154.png?raw=true "Environment schema")
 
 The demo script uses the following boxes:
-1. **script** - demo script is running.
+1. **script** -  communicates with the act and check1 components to initiates test scenarios: sends order messages to the SUT via act and message verification requests to check1.
 2. **act-fix** - initiates FIX message sending.
-3. **check1** - needed for data comparison.
+3. **check1** - conducts message verification for the user by executing custom logic called rules.
 4. **codec-fix** - encrypts and decrypts messages on the client side.
 5. **conn-client-fix** - (connectivity client FIX) sends and receives the FIX messages on the client side.
 6. **conn-server-fix** - (connectivity server FIX) sends and receives the FIX messages on the server side.
 7. **conn-server-dc** - (connectivity server Drop Copy) replicates the FIX messages for one or more participants.
-8. **conn-dc-fix** - (connectivity Drop Copy FIX) needed for receiving the replicated FIX messages.
+8. **conn-dc-fix** - (connectivity Drop Copy FIX) receives replicated FIX messages.
 9. **codec-sim-fix** - encrypts and decrypts messages on the server side.
 10. **sim** - (simulator) simulates server (exchange) activity.
-11. **estore** - store for events.
-12. **mstore** - store for messages.
+11. **estore** - stores all events in a data lake.
+12. **mstore** - stores all messages in a data lake.
 
 ### Create th2 environment
 
