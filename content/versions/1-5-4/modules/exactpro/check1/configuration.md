@@ -82,8 +82,8 @@ The following table gives a short description about the customizable properties 
 |`check-null-value-as-empty`|`boolean`|`false`|Parameter used for `EMPTY` and `NOT_EMPTY` operations to check if `NULL_VALUE` is empty. Default: `false`. For example, if the `checkNullValueAsEmpty` parameter is true, then `NULL_VALUE` is equal to `EMPTY`, otherwise `NULL_VALUE` is equal to `NOT_EMPTY`.|
 
 ### Pins configuration
-In the example below, **check1** has two pins named `server` and `in_parsed_message`
-with connection types `grpc` and `mq` respectively. 
+In the example below, **check1** has two pins named `server` and `in_parsed_message` with connection types `grpc` and `mq` respectively. 
+
 The attributes of the MQ pin are `subscribe` and `parsed`.
 
 ```yaml
@@ -101,4 +101,16 @@ spec:
         - "subscribe"
         - "parsed"
 
+```
+### Attributes for Pins: connection_type:`mq`
 
+| Attribute Name | Description|
+|---|---|
+|`FIRST`| pin will take only messages which have metadata attribute direction = FIRST|
+|`SECOND`|pin will take only messages which have metadata attribute direction = SECOND|
+| `parsed`| message is transferred in th2 internal format (json-like)|
+| `raw`| message is transferred in the initial system format (sent from/to SUT)|
+| `publish`| the box distributes messages|
+| `subscribe`| the box consumes messages|
+| `event`| the pin sends events to estore (note - this pin is created by default for each box);|
+| `store` | all messages, which are transferred via this pin, will be stored in Cradle|
