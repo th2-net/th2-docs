@@ -84,7 +84,7 @@ The following table gives a short description about the customizable properties 
 ### Pins configuration
 In the example below, **check1** has two pins named `server` and `in_parsed_message` with connection types `grpc` and `mq` respectively. 
 
-The attributes of the MQ pin are `subscribe` and `parsed`.
+The attribute of the MQ pin are `subscribe` and `parsed`. So all messages recieved with it will be used for verification process.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
