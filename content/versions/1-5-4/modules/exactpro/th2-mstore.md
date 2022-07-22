@@ -43,7 +43,7 @@ Session alias, direction and sequence number are a ***compound unique identifier
 
 mstore uses two libraries - common and <term term="Cradle">Cradle</term>.
 
-Common library is responsible for collecting messages to **mstore** component from all pins with `store` attribute.
+Common library is responsible for collecting messages in **mstore** from all pins with `store` attribute.
 
 **mstore** uses Cradle library to write message batches in Cassandra.
 
