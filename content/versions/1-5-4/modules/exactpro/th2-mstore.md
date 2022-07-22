@@ -13,7 +13,7 @@ related:
 
 **mstore** (th2 message store) is an important th2 component responsible for storing raw messages into Cradle. This component has a pin for listening to messages via MQ.
 
-As a part of th2-core, **mstore** is responsible for saving and displaying data. This component's logic is still the same for all the th2 environments. Messages - data that is going in or out of th2. **mstore** saves message content and metadata. 
+As a part of th2-core, **mstore** is responsible for saving and displaying data. This component's logic is same for all the th2 environments. Messages are the data that is going in or out of th2. **mstore** saves content and metadata of those messages. 
 
 When marking the pins during configurating other components, you can specify `store` attribute, which means that the messages from this pin will be stored via **mstore.** 
 
