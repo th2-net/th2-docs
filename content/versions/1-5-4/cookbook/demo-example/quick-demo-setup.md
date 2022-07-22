@@ -4,10 +4,10 @@ weight: 0
 read_before:
   - title: Install th2
     icon: mdi-tune-vertical
-    href: ../getting-started/install-th2
+    href: ../../getting-started/install-th2
   - title: Generate th2 configs with REST API
     icon: mdi-api
-    href: ./config-api
+    href: ../config-api
 tokens_link:
   - title: Creating a personal access token
     icon: mdi-github
@@ -15,11 +15,11 @@ tokens_link:
 requirements_link:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../getting-started/requirements/software
+    href: ../../getting-started/requirements/software
 continue_learning:
   - title: Demo main scenario
     icon: mdi-script-text-play-outline
-    href: ./demo-main-scenario
+    href: ./demo-script
 ---
 
 Before working with th2, it is needed to install it. This section contains instructions on how to quickly setup th2 in your Kubernetes cluster. 
