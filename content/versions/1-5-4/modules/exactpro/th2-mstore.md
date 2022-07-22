@@ -41,7 +41,7 @@ Raw message is a base entity of th2. All incoming / outgoing data is stored in t
 
 Session alias, direction and sequence number are a ***compound unique identifier** of raw messages within th2.
 
-mstore uses two libraries - common and <term term="Cradle">Cradle</term>.
+**mstore** uses two libraries - common and <term term="Cradle">Cradle</term>.
 
 Common library is responsible for collecting messages in **mstore** from all pins with `store` attribute.
 
