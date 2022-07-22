@@ -143,7 +143,7 @@ check.submitCheckSequenceRule(CheckSequenceRuleRequest(
             check_order=True))
             
 # For future requests we can use stored chain_id.
-...
+#...
 ```
 <!-- TODO: Add a link to the checkpoints page -->
 
