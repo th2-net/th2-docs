@@ -27,7 +27,7 @@ mstore interacts with Cradle and Common libraries. Using RabbitMQ mstore gets me
 
 You must mark a pin that produces raw messages in **conn**, **read** and **hand** boxes via the `store` attribute, in order to automatically connect that pin to **mstore** and to collect all messages into Cradle.
 
-mstore consumes raw messages. Parsed messages will not be accepted. 
+**mstore** consumes the raw messages. The parsed messages will not be accepted. 
 
 Raw message is a base entity of th2. All incoming / outgoing data is stored in this format. Every raw message contains the following important parts:​
 
