@@ -15,7 +15,7 @@ related:
 
 As a part of th2-core, **mstore** is responsible for saving and displaying data. This component's logic is still the same for all the th2 environments. Messages - data that is going in or out of th2. **mstore** saves message content and metadata. 
 
-During pins of other components configuration, you can specify `store` attribute, means that messages from this pin will be stored via mstore. 
+When marking the pins during configurating other components, you can specify `store` attribute, which means that the messages from this pin will be stored via **mstore.** 
 
 mstore interacts with Cradle and Common libraries. Using RabbitMQ mstore gets messages in batches, then trying to pack it more compactly, and finally writing them to Cassandra using Cradle library.
 
