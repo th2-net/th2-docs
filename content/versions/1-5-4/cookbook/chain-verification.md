@@ -2,7 +2,6 @@
 title: Chain Verification
 weight: 20
 read_before:
-read_before:
 - title: Check1
   icon: mdi-script-text-play-outline
   href: ./1-5-4/boxes/exactpro/check1
