@@ -127,10 +127,6 @@ ver1_chain = check.submitCheckSequenceRule(CheckSequenceRuleRequest(
             timeout=3000,
             parent_event_id=input_parameters['case_id'],
             pre_filter=PreFilter(fields={'SecurityID': ValueFilter(simple_filter=Instrument)}),
-            
-            # The filter_object contains the key fields list (ClOrdID), message type, and the parameter
-            # values for the execution report 
-            
             message_filters = [filter_object]
         ))
         
