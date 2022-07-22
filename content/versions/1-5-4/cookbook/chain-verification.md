@@ -110,7 +110,7 @@ We can request two `CheckSequenceRuleRequest`s from checkpoint - the first for v
 ### Usage Example for chain_id
 
 ```python
-...
+#...
 check_connection = grpc.insecure_channel(check1_addr)
 check = verifier_pb2_grpc.VerifierStub(check_connection)
 
