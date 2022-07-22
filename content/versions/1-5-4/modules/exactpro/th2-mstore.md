@@ -29,7 +29,7 @@ You must mark a pin that produces raw messages in **conn**, **read** and **hand*
 
 mstore consumes raw messages. Parsed messages will not be accepted. 
 
-Raw message is a base entity of th2. All incoming / outgoing data is stored in this format. Every raw message contains important parts:​
+Raw message is a base entity of th2. All incoming / outgoing data is stored in this format. Every raw message contains the following important parts:​
 
 - session alias - unique identifier of business session;
 
