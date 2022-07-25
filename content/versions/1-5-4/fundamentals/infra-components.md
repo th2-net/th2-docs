@@ -3,11 +3,11 @@ title: th2-infra components
 weight: 5
 ---
 
-th2-infra components are the main part of the **th2-core**, one of the components of the th2 itself. While th2 environments are responsible for testing your system, the infra components provide control over these environments. 
+th2-infra components are the main part of the **th2-core**, one of the components of the th2 itself. While the th2 environments are responsible for testing your system, the infra components provide control over these environments. 
 
 <!--more-->
 
-Infra components are the intermediate layer between user and Kubernetes cluster. This layer changes th2 environments in accordance with the state of the **th2-infra-schema**.
+Infra components are the intermediate layer between the user and the Kubernetes cluster. This layer changes the th2 environments in accordance with the state of the **th2-infra-schema**.
 
 ![](/img/fundamentals/infra/infra-comp-1.png)
 
@@ -15,11 +15,11 @@ Infra components are the intermediate layer between user and Kubernetes cluster.
 
 There are 5 Infra components:
 
-1. **[th2-infra-schema](https://github.com/th2-net/th2-infra-schema-demo)** - a special repository that contains schema configurations, acting as a config files storage that works via Git.
-2. **[th2-infra-mgr](https://github.com/th2-net/th2-infra-mgr)** watches for changes in the repositories and deploys changed components to Kubernetes. 
+1. **[th2-infra-schema](https://github.com/th2-net/th2-infra-schema-demo)** - a special repository that contains schema configurations, acting as a config files' storage that works via Git.
+2. **[th2-infra-mgr](https://github.com/th2-net/th2-infra-mgr)** - component that watches for the changes in the repositories and deploys the changed components to Kubernetes. 
 3. **[th2-infra-operator](https://github.com/th2-net/th2-infra-operator)** - an implementation of Kubernetes custom resource controller.
-4. **[th2-infra-editor](https://github.com/th2-net/th2-infra-editor)** - web GUI for schema control.
-5. **th2-infra-repo** - abstract chart used by helm operator (the element is hidden in the diagram below).
+4. **[th2-infra-editor](https://github.com/th2-net/th2-infra-editor)** - a web GUI for schema control.
+5. **th2-infra-repo** - an abstract chart used by Helm operator (the element is hidden in the diagram below).
 
 ## Components interactions
 
@@ -29,13 +29,13 @@ There are 5 Infra components:
 
 You have 2 ways to edit your **th2-infra-schema**:
 
-1. Git-based - by committing changes directly into your **th2-infra-schema**.
+1. Git-based - by committing the changes directly into your **th2-infra-schema**.
 2. GUI-based - by interacting with **th2-infra-editor** (special Graphical User Interface).
 
 ### infra-editor and infra-mgr interaction
 
 
-**th2-infra-editor** gets information on current state of **th2-infra-schema** from **th2-infra-mgr**, displays it for user using web GUI, and allows them to configure environment via sending changes to **th2-infra-mgr**.
+**th2-infra-editor** gets information on current state of **th2-infra-schema** from **th2-infra-mgr**, displays it for the user using web GUI, and allows them to configure environment via sending changes to **th2-infra-mgr**.
 
 ### Reading-editing infra-schema by infra-mgr 
 
@@ -60,7 +60,7 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 
 ## Scenarios 
 
-All the infra components are created to work as one system for **th2-infra-schema** `=>` th2 environment interpretation.
+All the infra components are created to work as one system for **th2-infra-schema** `=>` the th2 environment interpretation.
 
 There are several scenarios for the infra components.
 
@@ -68,11 +68,11 @@ There are several scenarios for the infra components.
 <!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
 
 1. Create new schema with **th2-infra-editor**  
-  The schema is edited manually by default, but you can change it with **th2-infra-editor** Web GUI.
+  The schema is edited manually by default, but you can change it with the **th2-infra-editor** Web GUI.
 
 [![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
 
-2. Create th2 environment from **th2-infra-schema** branch
+2. Create th2 environment from the **th2-infra-schema** branch
 
 [![Create th2 environment from th2-infra-schema branch](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/TP5BZnCn48Jl_XMjFS0f5hky8nIjDa820P5s471079oPdjYI7r6x7H27_UthUSWp4srkIVTNrJNbsyYAE3ahBBOC783CGJCqXh1c4xnWmnPXIwWOWVKDe3yP2jwXPsWfk6wuChubjOgrHgTWJyhNMeZVqyOT23uyEoB5u3T_G4N8apaGyavne7ut_ic0HkkMErsMRR0D4boTtx_giE6dg8Dd2XQ-f3sIHyPOHfNQxmr_knUY2_UG7ZQZ2DRmIt6jeGq4Mwty8Ql6gnbiCZZPPVYhYOn-e2j8nqPrP_IaI0l5A72zu1DQLw555R4enHX3Dd83NROrN4lOuL-uwuk5ZoVqtATUhSwot4Zux0qRPSr_XE-3qKuvZ4TLuzEQbt9uti9lg-THp12PvAQyoHfUoUax0Viiux8tByMkuNLn_gb3l8YzoLZmhJaaGhXFc30kqNbvRoNyw4_FkrkapM7rbFQTVA9aeI_wlo-PPvuxnUQ4K64CYMfSj7DkSFsYEDo5VvczHTyaPny1)
 
@@ -95,7 +95,7 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 ## Configuration
 
-All the th2-infra components are deployed within `th2-infra` Helm release. So these components can be configured at initialization only with provided config files.
+All the **th2-infra** components are deployed within `th2-infra` Helm release. So these components can be configured at initialization only with provided config files.
 
 ### th2-infra configuration
 
