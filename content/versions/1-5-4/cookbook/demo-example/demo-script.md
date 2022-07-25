@@ -1,9 +1,9 @@
 ---
-title: Demo main scenario
+title: Demo script
 weight: 10
 read_before:
   - title: Install th2
-    href: ../getting-started/install-th2
+    href: ../../getting-started/install-th2
     icon: mdi-tune-vertical
   - title: Quick cluster setup
     href: ./quick-demo-setup
