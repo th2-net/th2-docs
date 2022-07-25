@@ -17,7 +17,7 @@ As a part of th2-core, **mstore** is responsible for saving and displaying data.
 
 When marking the pins during configurating other components, you can specify `store` attribute, which means that the messages from this pin will be stored via **mstore.** 
 
-mstore interacts with Cradle and Common libraries. Using RabbitMQ mstore gets messages in batches, then trying to pack it more compactly, and finally writing them to Cassandra using Cradle library.
+**mstore** interacts with Cradle and Common libraries. Using RabbitMQ **mstore** gets messages in batches, then it will try to pack batches more compactly, and finally write them to Cassandra using Cradle library. Take into account that the batches cannot be merged, if combined batch exceeds the size limitation configured in Cradle. 
 
 ## Family
 
