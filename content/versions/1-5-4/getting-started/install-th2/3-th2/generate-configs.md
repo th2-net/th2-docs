@@ -164,7 +164,7 @@ K8S_HOSTNAME=<cluster-hostname>
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
 By using it you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
-**Secrets**, **Custom Resources**).
+**Secrets**, **Custom resources**).
 
 Install Helm Operator:
 
@@ -191,7 +191,7 @@ helm install ingress -n "service" \
 
 Prometheus is an open-source systems' monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
-It also contains **Custom Resource Definitions** (CRD) required by the th2 infra.
+It also contains **Custom resource Definitions** (CRD) required by the th2 infra.
 
 Install Prometheus:
 

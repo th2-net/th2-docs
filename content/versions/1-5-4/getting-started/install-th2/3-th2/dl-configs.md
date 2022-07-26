@@ -359,7 +359,7 @@ Make sure that you are located in the `th2-infra/example-values` directory.
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
 Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
-**Secrets**, **Custom Resources**).
+**Secrets**, **Custom resources**).
 
 Download and install the Helm Operator:
 
@@ -385,7 +385,7 @@ helm install -n service --version=3.31.0 ingress ingress-nginx/ingress-nginx -f 
 
 Prometheus is an open-source systems monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
-And also it contains Custom Resource Definitions (CRD) required by the th2 infra.
+And also it contains Custom resource Definitions (CRD) required by the th2 infra.
 
 Download and install Prometheus:
 
