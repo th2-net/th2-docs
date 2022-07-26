@@ -45,7 +45,7 @@ Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
-**th2-infra-mgr** applies <term term="Custom Resource">Custom Resources</term> from **th2-infra-schema** to the Kubernetes cluster. **th2-infra-operator** watches over the new <term term="Custom Resource">CR's</term> and creates/changes/deletes th2 components using `helm-operator`.
+**th2-infra-mgr** applies <term term="Custom resource">Custom resources</term> from **th2-infra-schema** to the Kubernetes cluster. **th2-infra-operator** watches over the new <term term="Custom resource">CR's</term> and creates/changes/deletes th2 components using `helm-operator`.
 
 ## Data transformation
 
@@ -54,9 +54,9 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 | **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Git branch                                                                            | th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)   |
-| `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` <term term="Custom Resource"></term> | Kubernetes <term term="ConfigMap"></term>, Kubernetes <term term="Pod"></term> |
-| `Th2Link` <term term="Custom Resource"></term>                                        | Queues in RabbitMQ                                                             |
-| `Th2Dictionary` <term term="Custom Resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
+| `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` <term term="Custom resource"></term> | Kubernetes <term term="ConfigMap"></term>, Kubernetes <term term="Pod"></term> |
+| `Th2Link` <term term="Custom resource"></term>                                        | Queues in RabbitMQ                                                             |
+| `Th2Dictionary` <term term="Custom resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
 
 ## Scenarios 
 
