@@ -46,7 +46,7 @@ Figure 1 shows a message queue with the messages from the same **session alias**
 
 **check1** begins verification at checkpoint1, after receiving the first `CheckSequenceRuleRequest`. The user is expecting message 4 and message 5 as responses to order message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
 
-Similarly, **check1** begins verification at `checkpoint2` and verifies the expected message 7 and message 8. The user is informed about the successful verification for each order.
+Similarly, **check1** begins verification at checkpoint2 and identifies message 7 and message 8. The user is informed about the successful verification for each order.
 
 However, message 6 was not identified. Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
 
