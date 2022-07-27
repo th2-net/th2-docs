@@ -64,7 +64,7 @@ Any message that passes `PreFilter` but is not identified by the main filter is 
 
 After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start verification from `checkpoint1`, but the user now requests a `chain_id` from the first `CheckSequenceRuleRequest`.
 
-**check1** creates the `chain_id` caret which acts as a pointer to the verified message. This caret stops at the last verified message. The `chain_id` of the message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
+**check1** creates the `chain_id` caret which acts as a pointer to the verified message. This caret stops at the last verified message. The `chain_id` of message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
 
 ![](/img/cookbook/chain-verification/chain_id.png "Figure2.chain_id")
 
