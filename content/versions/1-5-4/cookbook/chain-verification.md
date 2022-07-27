@@ -50,7 +50,7 @@ Similarly, **check1** begins verification at checkpoint2 and identifies message 
 
 However, message 6 was not identified. Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
 
-Therefore, the message 6 is what is known as an **extra message**. Identification of the extra messages is important as their prescence can indicate a prevailing issue in the system under test.
+Message 6 is an **extra message**. Identification of extra messages is important as their presence can indicate a prevailing issue in the system under test.
 
 <notice info>
 <!-- TODO : make into hover over terms -->
