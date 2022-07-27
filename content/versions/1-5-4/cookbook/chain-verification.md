@@ -29,7 +29,7 @@ This section explains how **check1** identifies system messages using **chain ve
 ## Examples and scenario
 Imagine a scenario where the user submits two consecutive trade orders (messages) to the system.
 
-The user will expect 2 messages from the system for each message sent to the system.
+The user will expect 2 messages from the system in response to each order message sent to the system.
 
 ### Example 1: Using two separate `CheckSequenceRuleRequests` with checkpoints
 
