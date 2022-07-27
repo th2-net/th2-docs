@@ -12,7 +12,7 @@ read_before:
 <notice info>
 <!-- TODO: add these as hover over terms -->
 
-A **rule** is a logic used for verifying system messages.
+A **rule** is logic used for verifying system messages.
 
 A **rule request** contains information required for verification and calls the respective **rule** for execution.
 
