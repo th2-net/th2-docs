@@ -7,7 +7,7 @@ read_before:
   href: ./1-5-4/boxes/exactpro/check1
 ---
 ## Overview
-**check1** is a component of th2 that performs message verification at the user’s request. The users can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
+**check1** is a component of th2 that performs message verification at the user’s request. The user can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
 
 <notice info>
 <!-- TODO: add these as hover over terms -->
