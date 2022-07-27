@@ -48,7 +48,7 @@ Figure 1 shows a message queue with the messages from the same **session alias**
 
 Similarly, **check1** begins verification at `checkpoint2` and verifies the expected message 7 and message 8. The user is informed about the successful verification for each order.
 
-However,the message 6 was not identified. The message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. Moreover, because **check1** identifies the message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
+However, message 6 was not identified. Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
 
 Therefore, the message 6 is what is known as an **extra message**. Identification of the extra messages is important as their prescence can indicate a prevailing issue in the system under test.
 
