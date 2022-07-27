@@ -20,7 +20,7 @@ A **rule request** contains information required for verification and calls the 
 
 During verification **check1** checks if the system's message is accurate.
 
-A system message is also called an execution report and contains details about the order or the trade.
+A system message is also called an execution report and contains details about the trade (order execution).
 
 The system can return more than one message in response to an order.
 
