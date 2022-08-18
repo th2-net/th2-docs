@@ -8,7 +8,7 @@ related:
     icon: "mdi-github"
     href: "https://github.com/th2-net/cradleapi"
 ---
-
+## Overview
 **th2-estore** is one of the core components in the th2 environment. It is responsible for storing events into <term term="Cradle">Cradle</term>. Sending events to **th2-estore** from other components is possible via special methods from the **th2-common** library.
 
 <!--more-->

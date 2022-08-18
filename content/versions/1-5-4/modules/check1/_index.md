@@ -1,11 +1,12 @@
 ---
 title: check1
-inner-title: check1 - a brief introduction.
+inner-title: check1 - a brief introduction
 
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
+weight: 15
 ---
 <!-- TODO: Add usecase subpage -->
 

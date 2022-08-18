@@ -5,6 +5,7 @@ related:
   - name: "th2-net/th2-codec"
     icon: "mdi-github"
     href: "https://github.com/th2-net/th2-codec"
+weight: 10
 --- 
 
 ## Overview 
