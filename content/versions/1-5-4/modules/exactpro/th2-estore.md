@@ -9,7 +9,7 @@ related:
     href: "https://github.com/th2-net/cradleapi"
 ---
 
-**th2-estore** is one of the core components in the th2 environment. It is responsible for storing events into <term term="Cradle">Cradle</term>. Sending events to **th2-estore** from other components is possible via special methods from the **th2-common** library.
+**th2-estore** is one of the core components in the th2 environment. It is responsible for storing events into <term term="Cradle">Cradle</term>. Sending events to **th2-estore** from other components is possible via special methods from the <term term="th2-common">th2-common</term> library.
 
 <!--more-->
 
@@ -69,7 +69,7 @@ Make sure to indicate `Th2Estore` when specifying `kind` of the <term term="Cust
 
 </notice>
 
-Infra schema can only contain one **estore** box description. It consists of one required option - docker image. Configuration for <term term="Pin">pins</term>  is specified in `Th2Estore` <term term="Custom resource">custom resource</term> definition. More details will be in “Automatic <term term="Pin">pins</term>  configuration“ section.
+Infra schema can only contain one **estore** box description. It consists of one required option - <term term="docker image"docker_image</term>. Configuration for <term term="Pin">pins</term>  is specified in `Th2Estore` <term term="Custom resource">custom resource</term> definition. More details will be in “Automatic <term term="Pin">pins</term>  configuration“ section.
 
 General view of the component will look like this: 
 
@@ -97,6 +97,6 @@ spec:
 
 ### Automatic pins configuration
 
-**th2-infra-operator** (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to **th2-estore** by any other component.
+<term term="th2-infra-operator">th2_infra-operator</term> (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to **th2-estore** by any other component.
 
 At the same time, any box with <term term="Custom resource">CR</term> kind `Th2Box` will get special MQ <term term="Pin">pin</term> for sending events to the **th2-estore**. These <term term="Pin">pins</term>  have attributes `event` and `publish`. 
