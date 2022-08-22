@@ -10,6 +10,7 @@ related:
   - name: "th2-net/th2-grpc-check2-recon"
     icon: "mdi-github"
     href: "https://github.com/th2-net/th2-grpc-check2-recon"
+weight: 20
 ---
 
 ## Overview 
