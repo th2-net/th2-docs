@@ -97,6 +97,6 @@ spec:
 
 ### Automatic pins configuration
 
-<term term="th2-infra-operator">th2_infra-operator</term> (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to **th2-estore** by any other component.
+<term term="th2-infra-operator">th2-infra-operator</term> (component responsible for creating boxes) automatically adds special MQ <term term="Pin">pin</term> for receiving events to **th2-estore** by any other component.
 
 At the same time, any box with <term term="Custom resource">CR</term> kind `Th2Box` will get special MQ <term term="Pin">pin</term> for sending events to the **th2-estore**. These <term term="Pin">pins</term>  have attributes `event` and `publish`. 

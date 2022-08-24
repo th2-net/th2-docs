@@ -9,6 +9,7 @@ weight: 10
 --- 
 
 ## Overview 
+
 The **codec** is a component responsible for transforming <term term='message'>messages</term> from human-readable format into a format of a corresponding protocol and vice versa. It contains the main logic for encoding and decoding messages. The **codec** usually uses a <term term='dictionary'>dictionary</term> to decode and encode messages. Dictionaries contain message structure, fields and values that **codec** can decode. 
 
 ### Encoding
@@ -143,6 +144,7 @@ There are 3 types of **codec**-related repositories.
 You can use a link to a docker image of needed **codec** from its GitHub repository to deploy it using **th2-infra**.
 
 ## Functions:
+
 The **codec** component handles message flows between components such as `conn`, `act`, `check1`, `read` and other. On the scheme below you can see an example of interaction with other th2 components .
 
 ![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
