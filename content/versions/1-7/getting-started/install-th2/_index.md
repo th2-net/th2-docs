@@ -4,7 +4,7 @@ title: Install th2
 weight: 5
 continue_learning:
   - title: Interact with th2
-    href: ./use-th2
+    href: ./create-th2-env
     icon: mdi-account
 ---
 

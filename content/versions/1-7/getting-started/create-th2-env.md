@@ -1,5 +1,5 @@
 ---
-title: Use th2
+title: Create th2 environment
 weight: 6
 read_before:
   - title:  Install th2
