@@ -7,7 +7,7 @@ read_before:
   href: ./1-5-4/boxes/exactpro/check1
 ---
 ## Overview
-**check1** is a component of th2 that performs message verification at the user’s request. The user can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
+**check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. The user can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
 
 <notice info>
 <!-- TODO: add these as hover over terms -->
@@ -24,6 +24,7 @@ A system message is also called an execution report and contains details about t
 
 The system can return more than one message in response to an order.
 
+<!-- TODO: change this sentence to better reflect the articles idea -->
 This section explains how **check1** identifies system messages using **chain verification** with `chain_id`.
 
 ## Examples and scenario
@@ -42,7 +43,7 @@ Figure 1. A chain of system messages (responses) from the same session alias in 
 </figcaption>
 </center>
 
-Figure 1 shows a message queue with the messages from the same **session alias** and `direction = FIRST` (from the system). Two checkpoints have been created after the successful submission of each order.
+Figure 1 shows a message queue with the messages from the same **session alias** and `direction = FIRST` (from the system). Two <term term='checkpoint'>checkpoints</term> have been created after the successful submission of each order.
 
 **check1** begins verification at checkpoint1, after receiving the first `CheckSequenceRuleRequest`. The user is expecting message 4 and message 5 as responses to order message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
 
@@ -62,7 +63,7 @@ Any message that passes `PreFilter` but is not identified by the main filter is 
 
 ### Example2: Using two linked CheckSequenceRuleRequests
 
-After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start verification from `checkpoint1`, but the user now requests a `chain_id` from the first `CheckSequenceRuleRequest`.
+After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start verification from `checkpoint1`, but the user now requests a <term term='chain id'>`chain_id`</term> from the first `CheckSequenceRuleRequest`.
 
 **check1** creates the `chain_id` caret which acts as a pointer to the verified message. This caret stops at the last verified message. The `chain_id` of message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
 
@@ -103,7 +104,7 @@ Figure 4. Checking messages from different instruments
 </figcaption>
 </center>
 
-We can request two `CheckSequenceRuleRequest`s from the checkpoint - the first for verification of two messages on `Instrument1` and the second for verification of two messages on `Instrument2`. Then the two `chain_id` carets will be created, with each of them stopping when desired messages are found. The desired message is searched based on the key fields of each individual filter in `CheckSequenceRuleRequest`.
+We can request two `CheckSequenceRuleRequests` from the checkpoint - the first for verification of two messages on `Instrument1` and the second for verification of two messages on `Instrument2`. Then the two `chain_id` carets will be created, with each of them stopping when the desired messages are found. Each desired message is searched based on the key fields of each individual filter in `CheckSequenceRuleRequest`.
 
 
 ### Usage Example for chain_id
