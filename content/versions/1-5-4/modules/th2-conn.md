@@ -7,6 +7,7 @@ related:
   - name: "th2-conn repositories in th2-net"
     icon: "mdi-github"
     href: "https://github.com/orgs/th2-net/repositories?q=th2-conn&type=all&language=&sort="
+weight: 5
 ---
 
 **th2-conn** (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
