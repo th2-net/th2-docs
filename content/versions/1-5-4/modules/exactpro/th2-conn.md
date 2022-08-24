@@ -9,7 +9,7 @@ related:
     href: "https://github.com/orgs/th2-net/repositories?q=th2-conn&type=all&language=&sort="
 ---
 
-**th2-conn** (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the <term term="communication protocol">interaction protocol</term>, receiving and sending messages from and to the system, respectively.
+**th2-conn** (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
 
 <!--more-->
 
@@ -23,7 +23,7 @@ There is no universal template for the **th2-conn** component, but you can use o
 
 </notice>
 
-Different **th2-conn** repositories in [th2-net](https://github.com/th2-net) use connect component with different types of <term term="communication protocol">communication protocols</term>.
+Different **th2-conn** repositories in [th2-net](https://github.com/th2-net) use connect component with different types of communication protocols.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -52,7 +52,7 @@ Some of the `th2-conn` repositories implement not only some protocol. They are m
 
 ### Dirty
 
-Some of the **th2-conn** repositories have “dirty“ in the name. It means that the component can be used for <term term="negative testing">negative testing</term> as it provides an ability to send invalid messages in order to get a protocol error.
+Some of the **th2-conn** repositories have “dirty“ in the name. It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
 
 |Repository|Protocol(s)|
 |----------|-----------|
