@@ -26,6 +26,12 @@ Before working with th2, it is needed to install it. This section contains instr
 
 <!--more-->
 
+<notice info>
+
+In order to save time on dowloading and changing configuration files, this guide uses [th2-configs-generator](https://github.com/d0rich/th2-configs-generator) web service, developed by community.
+
+</notice>
+
 This guide is targeted on minikube cluster, like in [demo example](./demo-main-scenario). But with some changes it can be used for a full-fledged Kubernetes cluster.
 
 The diagram below shows all components of th2 infrastructure and interconnectivities between them. 
@@ -139,8 +145,8 @@ NODE_NAME=minikube
 ```
 
 ```shell
-kubectl apply -f "https://th2.dev/api/config/$VERSION/pvs?node-name=$NODE_NAME"
-kubectl apply -f "https://th2.dev/api/config/$VERSION/pvcs"
+kubectl apply -f "https://th2-configs-generator.onrender.com/$VERSION/pvs?node-name=$NODE_NAME"
+kubectl apply -f "https://th2-configs-generator.onrender.com/$VERSION/pvcs"
 ```
 
 ## Deploy th2
@@ -211,38 +217,38 @@ Install the Helm Operator:
 ```shell
 helm install helm-operator -n "service" \
   --version=1.2.0 fluxcd/helm-operator \
-  -f "https://th2.dev/api/config/$VERSION/helm-operator.values"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/helm-operator.values"
 ```
 Install NGINX Ingress Controller:
 ```shell
 helm install ingress -n "service" \
   --version=3.31.0 ingress-nginx/ingress-nginx \
-  -f "https://th2.dev/api/config/$VERSION/ingress.values"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/ingress.values"
 ```
 Install Grafana and Prometheus:
 ```shell
 helm install prometheus -n "monitoring" \
   --version=15.0.0 prometheus-community/kube-prometheus-stack \
-  -f "https://th2.dev/api/config/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/prometheus-operator.values?hosts=$K8S_HOSTNAME"
 ```
 Install th2-infra components and RabbitMQ:
 ```shell
 helm install th2-infra -n "service" \
   --version=1.5.4 th2/th2 \
-  -f "https://th2.dev/api/config/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
-  -f "https://th2.dev/api/config/$VERSION/secrets"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/service.values?repository=$SCHEMA_LINK&platform=$PLATFORM&token=$TOKEN&host=$MQ_HOSTNAME&c-host=$CASSANDRA_HOST&dc=$CASSANDRA_DC" \
+  -f "https://th2-configs-generator.onrender.com/$VERSION/secrets"
 ```
 Install Kubernetes Dashboard:
 ```shell
 helm install dashboard -n "monitoring" \
   kubernetes-dashboard/kubernetes-dashboard \
-  -f "https://th2.dev/api/config/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/dashboard.values?hosts=$K8S_HOSTNAME"
 ```
 Install Grafana Loki:
 ```shell
 helm install loki -n "monitoring" \
   --version=0.40.1 grafana/loki-stack \
-  -f "https://th2.dev/api/config/$VERSION/loki.values"
+  -f "https://th2-configs-generator.onrender.com/$VERSION/loki.values"
 ```
 
 <notice info>
