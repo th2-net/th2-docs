@@ -1,5 +1,6 @@
 ---
 title: infra-operator
+weight: 5
 inner-title: th2-infra-operator
 related:
   - name: "th2-net/th2-infra-operator"

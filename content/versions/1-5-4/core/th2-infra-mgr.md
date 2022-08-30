@@ -1,5 +1,6 @@
 ---
 title: infra-mgr
+weight: 0
 inner-title: th2-infra-mgr
 related:
   - name: "th2-net/th2-infra-mgr"

@@ -1,5 +1,6 @@
 ---
 title: th2-estore
+weight: 10
 repo_owner: th2-net
 repo: th2-estore
 skip_readme: true

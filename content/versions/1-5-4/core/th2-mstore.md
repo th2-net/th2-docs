@@ -1,5 +1,6 @@
 ---
 title: th2-mstore
+weight: 15
 repo_owner: th2-net
 repo: th2-mstore
 skip_readme: true
