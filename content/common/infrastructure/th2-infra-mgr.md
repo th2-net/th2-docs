@@ -2,10 +2,12 @@
 title: infra-mgr
 weight: 0
 inner-title: th2-infra-mgr
+repo_owner: th2-net
+repo: th2-infra-mgr
 related:
-  - name: "th2-net/th2-infra-mgr"
+  - name: "th2-net/th2-infra"
     icon: "mdi-github"
-    href: "https://github.com/th2-net/th2-infra-mgr"
+    href: "https://github.com/th2-net/th2-infra"
 --- 
 
 `th2-infra-mgr` (from th2 infrastructure manager) is the component in the [th2 infra components](https://th2.dev/1-5-4/fundamentals/infra-components). It is installed alongside with the th2 framework infrastructure. Basically, th2-infra-mgr is the one of middle steps of interaction between user and Kubernetes cluster in building system for tests.
