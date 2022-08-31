@@ -14,8 +14,8 @@ Examples of the **th2-infra-schema** repository configurations are available in 
 ## Publish th2-infra-schema
 
 You have two options on how to publish **th2-infra-schema**:
-- Create a new repository from scratch.
-- Copy the repository template.
+- create a new repository from scratch;
+- copy the repository template;
 
 You can use either GitHub or GitLab for hosting the repository.
 

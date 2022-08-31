@@ -4,7 +4,7 @@ weight: 5
 pre: "<b>1. </b>"
 ---
 
-This section contains instructions on how to get started using th2.
+This section contains instructions on how to set up th2.
 
 <!--more--> 
 
