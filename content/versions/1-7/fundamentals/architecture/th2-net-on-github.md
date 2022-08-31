@@ -1,5 +1,5 @@
 ---
-title: th2-net on GitHub overview
+title: th2-net on GitHub
 weight: 0
 ---
 
