@@ -50,8 +50,6 @@ Independently of how you are going to run the fundamental system, you will need 
 | cqlsh   |                 |
 
 
-## Full setup
-
 You can find some th2 use cases with provided machines listing.
 
 <recommendations :items="use_cases_link"></recommendations>
@@ -61,7 +59,7 @@ One machine can combine several types listed here.
 You can choose either a full setup, or a [quick setup](#quick-installation) for demo purposes. 
 
 
-### th2 node
+## th2 node
 
 The th2 node is a machine where your th2 system will run fully or partially.
 
@@ -88,7 +86,7 @@ The th2 node is a machine where your th2 system will run fully or partially.
     kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
     ```
 
-### Operator box
+## Operator box
 
 The operator box is a machine used to monitor and control the th2 cluster.
 
@@ -105,7 +103,7 @@ The operator box is a machine used to monitor and control the th2 cluster.
    A browser is required to access the th2 web interface, Kubernetes dashboard, Grafana, etc.  
    - [Download](https://www.google.com/chrome)
 
-### Apache Cassandra node
+## Apache Cassandra node
 
 The Apache Cassandra node is a machine where the Cassandra database for your th2 system will be deployed.
 
@@ -128,7 +126,7 @@ Also it is needed to:
 - create a user with admin rights for th2;
 - provide access to the Cassandra database over the network.
 
-### Tester box
+## Tester box
 
 Tester boxes are machines used for executing test scripts and getting test execution results.
 
@@ -144,40 +142,3 @@ Tester boxes are machines used for executing test scripts and getting test execu
 4. Programming languages and appropriate package managers for running your th2 modules locally
    th2 is a microservices solution allowing to use diverse programming languages. To support them, Docker containers can be used so that there's no need to install a programming language locally.  
    However, the possibility to run your code locally exists. It is implemented through th2 external boxes communicating with a th2 cluster. In this case, programming languages are installed locally for external boxes only.  
-
-## Quick installation 
-Fundamental system for th2 can be run in Docker containers. It is easier to configure and control. 
-
-
-<notice note>
-
-We would not recommend this approach for production systems. But you still can use it for demo purposes.
-
-</notice>
-
-## Kubernetes cluster
-
-### Install minikube
-
-Minikube runs a Kubernetes cluster inside a container. It is easier to configure than a common Kubernetes cluster, but it cannot be expanded to several nodes. See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
-
-### Run cluster
-
-The th2 modules will run on the Kubernetes [cluster](https://kubernetes.io/docs/reference/glossary/?fundamental=true#term-cluster).
-
-With minikube it is possible to specify a version of a Kubernetes cluster before running it.
-
-```shell
-minikube start --kubernetes-version v1.19.14
-```
-
-### Cassandra cluster
-
-Download and run Docker container with Cassandra:
-
-```shell
-docker run --name th2-storage \
-  -p "0.0.0.0:9042:9042" \
-  -v "$HOME/cassandra:/var/lib/cassandra" \
-  -d "bitnami/cassandra:latest"
-```
