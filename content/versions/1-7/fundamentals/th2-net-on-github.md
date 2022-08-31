@@ -1,6 +1,6 @@
 ---
 title: th2-net on GitHub
-weight: 0
+weight: 5
 ---
 
 th2 is the next generation test harness, based on microservices architecture. It is made up of components with corresponding [repositories](https://github.com/orgs/th2-net/repositories) on GitHub. 

@@ -1,6 +1,8 @@
 ---
 title: th2-infra components
 weight: 5
+related: []
+
 ---
 
 th2-infra components are the main part of the **th2-core**, one of the components of the th2 itself. While the th2 environments are responsible for testing your system, the infra components provide control over these environments. 

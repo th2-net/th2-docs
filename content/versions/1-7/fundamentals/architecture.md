@@ -20,10 +20,10 @@ Modules: A set of components targeted at performing various actions that are com
 [Placeholder] Data Services: A Python library supporting the data-driven approach behind th2 framework; it allows users to retrieve data from th2 data storage and perform data analysis via Jupyter Notebooks.
 
 These functional blocks correspond to the following groups of GitHub repositories:
-- th2 Infrastructure
-- th2 Core 
-- th2 Modules
-- th2 Data Services
+- [th2 Infrastructure](#th2-infrastructure)
+- [th2 Core](#th2-core) 
+- [th2 Modules](#th2-modules)
+- [th2 Data Services](#th2-data-services)
 
 ## th2 Infrastructure
 
@@ -56,8 +56,8 @@ An open set of repositories related to different actions required for testing ac
 - [th2-sim](https://github.com/th2-net/th2-sim)
 - [th2-check2-recon](https://github.com/th2-net/th2-check2-recon-template)
 - [th2-read](https://github.com/th2-net/th2-read-file-common-core)
-- [th2-hand](https://github.com/th2-net/th2-hand)
-- etc. 
+- [th2-hand](https://github.com/th2-net/th2-hand)  
+- ...
 
 ## th2 Data services
 

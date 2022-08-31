@@ -21,11 +21,17 @@ th2-infra is a repository containing a set of charts and values for the deployme
 
 After any new schema environment is being configured, it connects to RabbitMQ, Cassandra, Dashboard, and Grafana by itself.  Configuration for this is stored in the [`th2-infra`](https://github.com/th2-net/th2-infra) repository.
 
+![](/img/fundamentals/th2-infra-3.png)
+
+## Interaction with th2
+
 Interaction with th2 can be done via:
 1. K8s Dashboard;
 2. Grafana;
 3. th2 Report GUI for each schema environment; 
-4. Infra Editor; [fact check required]
+4. Infra Editor; 
 5. RabbitMQ dashboard.
 
 th2 uses [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) to provide access to these web applications via HTTP.
+
+![](/img/fundamentals/th2-infra-4.png)
