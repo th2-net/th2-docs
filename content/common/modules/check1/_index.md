@@ -2,10 +2,9 @@
 title: check1
 inner-title: check1 - a brief introduction
 
-related:
-- name: "th2-net/th2-check1"
-  icon: "mdi-github"
-  href: "https://github.com/th2-net/th2-check1"
+repo_owner: th2-net
+repo: th2-check1
+related: []
 weight: 15
 ---
 <!-- TODO: Add usecase subpage -->
