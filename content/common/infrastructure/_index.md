@@ -8,6 +8,5 @@ th2 allows users to control multiple schema environments for different testing l
 Learn more about th2 infrastructure:
 - [th2-infra](./infrastructure/th2-infra-repo)
 - [th2-infra-schema](./infrastructure/th2-infra-schema)
-- [th2-infra-mgr](./infrastructure/th2-infra-mgr)
-- [th2-infra-operator](./infrastructure/th2-infra-operator)
+- [th2-infra components](./infrastructure/infra-components)
 
