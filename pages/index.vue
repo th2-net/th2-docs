@@ -1,6 +1,6 @@
 <template>
   <div class="mx-3 pb-16">
-    <h1>th2: Next-generation test automation framework</h1>
+    <h1>th2: Next-generation framework for automation in testing</h1>
     <h2 class="mt-16">What is th2?</h2>
     <p>
       <a href="https://github.com/th2-net" target="_blank">th2</a> is an open-source toolkit providing end-to-end

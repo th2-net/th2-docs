@@ -7,17 +7,17 @@ weight: 0
 
 <!--more-->
 
-For the open-sourced part of th2, these repositories are created and maintained on GitHub. The organizational structure of th2-related code is explained in the subsection [“th2-net organization on GitHub”](./architecture/th2-net-on-github). Dependencies schema is provided [here](https://raw.githubusercontent.com/d0rich/th2-dependencies/master/output/schema.svg). Main component groups and their current status on GitHub can be seen on the [Dashboard](./architecture/dashboard).
+For the open-sourced part of th2, these repositories are created and maintained on GitHub. The organizational structure of th2-related code is explained in the subsection [th2-net organization on GitHub](./architecture/th2-net-on-github). Dependencies schema is provided [here](https://raw.githubusercontent.com/d0rich/th2-dependencies/master/output/schema.svg). Main component groups and their current status on GitHub can be seen on the [Dashboard](./architecture/dashboard).
 
 From the *functional* perspective, the framework consists of the following blocks:
 
-Infrastructure: a set of service components that facilitate th2 boxes' deployment and ensure the functioning of the th2 framework, its monitoring, and interaction between its components.  
+**Infrastructure**: a set of service components that facilitate th2 boxes' deployment and ensure the functioning of the th2 framework, its monitoring, and interaction between its components.  
 
-Core: A set of components that are central to th2 framework as they ensure data storage and access to it, as well as provide capabilities to view and analyze test execution reports through a GUI.
+**Core**: A set of components that are central to th2 framework as they ensure data storage and access to it, as well as provide capabilities to view and analyze test execution reports through a GUI.
 
-Modules: A set of components targeted at performing various actions that are commonly used in software testing; the capabilities of these components can be customized, and new th2 components may be created based on them to reflect the specifics of a client system or a test scenario.
+**Modules**: A set of components targeted at performing various actions that are commonly used in software testing; the capabilities of these components can be customized, and new th2 components may be created based on them to reflect the specifics of a client system or a test scenario.
 
-[Placeholder] Data Services: A Python library supporting the data-driven approach behind th2 framework; it allows users to retrieve data from th2 data storage and perform data analysis via Jupyter Notebooks.
+**Data Services**: A Python library supporting the data-driven approach behind th2 framework; it allows users to retrieve data from th2 data storage and perform data analysis via Jupyter Notebooks.
 
 These functional blocks correspond to the following groups of GitHub repositories:
 - [th2 Infrastructure](#th2-infrastructure)
