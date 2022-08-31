@@ -1,6 +1,6 @@
 ---
 title: infra-mgr
-weight: 0
+weight: 10
 inner-title: th2-infra-mgr
 repo_owner: th2-net
 repo: th2-infra-mgr

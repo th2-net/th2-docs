@@ -1,6 +1,6 @@
 ---
 title: infra-operator
-weight: 5
+weight: 15
 inner-title: th2-infra-operator
 repo_owner: th2-net
 repo: th2-infra-operator

@@ -1,6 +1,7 @@
 ---
 title: Links
 weight: 30
+related: []
 ---
 
 After all the pins are defined and configured, you should also specify the links between them. It can be done by uploading a special CR called the th2 link. Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). The most important is the location of the `.yaml` files in the links directory. Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.

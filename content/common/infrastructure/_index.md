@@ -1,11 +1,13 @@
 ---
 title: Infrastructure
-weight: 19
+weight: 13
 ---
 
-Section about th2 infrastructure.
+th2 allows users to control multiple schema environments for different testing logic. Infra components are used for creating, changing and deleting schema environments.
 
-<!--more-->
-
-
+Learn more about th2 infrastructure:
+- [th2-infra](./infrastructure/th2-infra-repo)
+- [th2-infra-schema](./infrastructure/th2-infra-schema)
+- [th2-infra-mgr](./infrastructure/th2-infra-mgr)
+- [th2-infra-operator](./infrastructure/th2-infra-operator)
 
