@@ -40,7 +40,7 @@ export const actions = {
     // @ts-ignore
     const versionFromPath = route.path
       .match(/\/[^\/]*/)[0]
-    let versionNow: Th2Version = state.versions.find((v: Th2Version) => v.content_dir === `/versions${versionFromPath}`) || state.versions[0]
+    let versionNow: Th2Version = state.versions.find((v: Th2Version) => v.content_dir === `/versions${versionFromPath}`) || state.versions.reverse()[0]
     commit('setVersion', versionNow)
     await dispatch('getPagesTree', versionNow)
   },
