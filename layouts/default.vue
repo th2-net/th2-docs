@@ -112,9 +112,7 @@
         <Nuxt />
       </div>
     </v-main>
-    <v-footer>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
@@ -126,9 +124,11 @@ import ContentTree from "../components/layout/ContentTree";
 import ThemeSwitcher from "../components/layout/ThemeSwitcher";
 import SiteLogo from "../components/layout/SiteLogo";
 import SearchWindow from "../components/layout/SearchWindow";
+import FooterVue from '~/components/layout/Footer.vue';
+import Footer from '~/components/layout/Footer.vue';
 export default {
   name: "DefaultLayout",
-  components: {SearchWindow, SiteLogo, ThemeSwitcher, ContentTree},
+  components: { SearchWindow, SiteLogo, ThemeSwitcher, ContentTree, FooterVue, Footer },
   data () {
     return {
       windowSize: { x: 0, y: 0 },
