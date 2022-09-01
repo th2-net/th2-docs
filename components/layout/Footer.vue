@@ -46,6 +46,7 @@ export default Vue.extend({
   name: "Footer",
   computed: {
     logo(){
+      // @ts-ignore
       return this.$vuetify.theme.dark ? '/footer/logo_white.svg' : '/footer/logo.svg'
     },
     contacts(){
