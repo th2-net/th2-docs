@@ -3,7 +3,9 @@
     <v-col class="footer__content">
       <v-row no-gutters>
         <v-col class="px-8 py-4">
-          <img :src="logo" class="mb-4" style="min-width: 200px" />
+          <a href="https://exactpro.com/" class="mb-4">
+            <img :src="logo" style="min-width: 200px" />
+          </a>
           <div class="text-center">
             Build Software to Test Software
           </div>
