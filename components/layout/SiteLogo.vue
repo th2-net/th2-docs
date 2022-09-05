@@ -1,6 +1,7 @@
 <template>
   <div class="logo-container">
-    <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <nuxt-link to="/">
+      <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
          viewBox="0, 0, 400,152.5327262379055">
       <g id="svgg">
         <path id="path0"
@@ -32,6 +33,7 @@
               stroke="none" :fill="dark ? '#2c445c' : '#ffffff'" fill-rule="evenodd"></path>
       </g>
     </svg>
+    </nuxt-link>
   </div>
 </template>
 
