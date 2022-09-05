@@ -3,7 +3,7 @@ title: Demo example
 weight: 0
 ---
 
-Demo example contains script examples that demonstrates how th2 works. 
+Demo example contains script examples that demonstrate how th2 works. 
 
 To run the demo script you will need Kubernetes cluster with th2 setup. 
 

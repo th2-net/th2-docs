@@ -14,6 +14,8 @@ This guide contains instructions on how to:
 1. deploy the th2 environment with an exchange simulator to your th2 cluster
 2. run a special script to check exchange and client requests.
 
+Demo script provides a simple trade scenario (simple passive buy order and an IOC order) to show the user how th2 tests the system, highlight the functions of th2 as test harness, and allow the user to get a feel for th2. It allows users to experience setting up requests to activate procedures (rules) used in the verification process.
+
 ## Requirements
 
 1. th2 cluster
