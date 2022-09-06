@@ -14,6 +14,9 @@ This guide contains instructions on how to:
 1. deploy the th2 environment with an exchange simulator to your th2 cluster
 2. run a special script to check exchange and client requests.
 
+Demo script provides a simple trade scenario with two passive buy orders and an aggressive IOC sell order. Run this demo script to use the th2 application and learn about the components (services) of th2, and the opensource solutions used by th2. 
+The demo script also introduces users to the various th2 libraries, creation of test orders and verifying system messages.
+
 ## Requirements
 
 1. th2 cluster
