@@ -4,52 +4,89 @@ weight: 5
 related: []
 ---
 
-Each th2 box has a number of pins. The pins are used by the box to send/receive messages, or to execute gRPC commands. 
+Each th2 box has a number of pins. Pins are used by a box to send/receive messages, or to execute gRPC commands. 
 
-Each pin has the following parameters:
-- `name` - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
-- `connection-type` - sets the connection type which a pin uses (`mq` or `grpc`);
-- `attributes` - define the type of message streams which go through this particular pin. 
+## Configuration 
 
-In the example config below the box has two pins: `in` and `in_raw`.
+The available configuration fields for a pin are listed below.
+
+- `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
+- `connection-type` (mandatory) - sets the connection type which a pin uses (`mq` or `grpc`);
+- `attributes` (optional) - define the type of message streams which go through this particular pin. 
+
+### Filters section
+
+Additionally, a pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
+Filter options available: 
+- `EQUAL`;
+- `NOT_EQUAL`;
+- `EMPTY`;
+- `NOT_EMPTY`;
+- `WILDCARD`.
+
+For example: 
+
+```yaml
+- name: fix_to_send
+  connection-type: mq
+  attributes: [send, parsed, subscribe]
+  filters:
+    - metadata:
+        - field-name: session_alias
+          expected-value: conn1_session_alias
+          operation: EQUAL
+    - message: 
+        - field-name: [string] *
+          expected-value: [string] *
+          operation: NOT_EQUAL
+```
+In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
+
 ```yaml
 - name: in
   connection-type: mq
   attributes:
     - first
     - parsed
-    - publish
+    - subscribe
     - store
 - name: in_raw
   connection-type: mq
   attributes:
     - first
     - raw
-    - publish
+    - subscribe
     - store
 ```
-### MQ connection type
 
-MQ pins transfer messages through RabbitMQ - queue manager used by the th2. In the example below pins `in` and `in_raw` allow a th2 box to operate with raw and parsed messages that come into it from the environment under test.
+### Settings section for MQ connection type
+
+MQ pins transfer messages through RabbitMQ - queue manager used by th2.
+If `connection-type: mq` we can specify `settings` section. Under this section we can specify two settings that configure which strategy will be used while declaring queues in rabbitMq.
+- `storageOnDemand` (optional) - option which defines an overflow strategy which will be drop-head if set to `false`. *Default*: `true`. 
+- `queueLength` (optional) - the length of the queue created by the operator. *Default*: 1000 msg.  
+Important: `queueLength` isn't used if `storageOnDemand` is set to `true`. 
+
+<notice note> Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. To prevent that, please configure the queue limit on your external box pins. </notice>
+
+For example: 
+
 ```yaml
-- name: in
-  connection-type: mq
-  attributes:
-    - first
-    - parsed
-    - publish
-    - store
-- name: in_raw
-  connection-type: mq
-  attributes:
-    - first
-    - raw
-    - publish
-    - store
+pins:
+    - name: to_send
+      connection-type: mq
+      attributes:
+        - subscribe
+        - send
+        - raw
+      settings:
+        storageOnDemand: false
+        queueLength: 1000
 ```
 ### gRPC connection type  
 
 If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
+
 ```yaml
 extended-settings:
   service:
@@ -62,7 +99,7 @@ extended-settings:
 ```
 ## Attributes
 
-Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box. Attributes section cannot be empty. 
+Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.  
 
 The set of attributes varies from one th2 component to another. Each th2 component can have its own mandatory or optional attributes. 
 
@@ -110,21 +147,3 @@ Please note that there are also `general_decoder_in`, `general_decoder_out`, `ge
 |`send`|Pin transfers event batches.|Used by any box that publishes events. **th2-estore** <br> consumes this type of messages.|
 |`event`|Indicates that the messages that come into this pin <br> will be stored in Cradle.|Used by pins that produce data to the th2, <br> for example, conn, read, this attribute <br> should be marked.|
 |`store`|Special attribute for the **th2-conn** pin to receive data <br> from act or other components.|**th2-conn**|
-
-## Filters
-Additionally, a pin can have a filter section. In this case, the  message is sent or received via this particular pin only if this message complies with the filter parameter.
-```yaml
-- name: fix_to_send
-  connection-type: mq
-  attributes: [send, parsed, subscribe]
-  filters:
-    - metadata:
-        - field-name: session_alias
-          expected-value: conn1_session_alias
-          operation: EQUAL
-```
-Filter options available: 
-- `EQUAL`;
-- `NOT_EQUAL`;
-- `EMPTY`;
-- `NOT_EMPTY`.
