@@ -25,7 +25,7 @@ your own testing system. These components are called **boxes**.
 
 There are two types of th2 boxes:
 
-1. **Core** - stores main configuration for schema environments. The core components create and control these environments. The core connects to the data store from inside the schema environments.  
+1. **Core** - intermediate layer between datalake and testing environment. This type of components provides not only write-read operations, it also provides GUI to investigate data in web browser. 
 2. **Modules** - contain custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 
