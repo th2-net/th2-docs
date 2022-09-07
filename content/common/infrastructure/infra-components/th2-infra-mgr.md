@@ -22,11 +22,11 @@ The th2 infra components control all infrastructure of th2 environments, from Ra
 
 From **infra-schema** **infra-mgr** receives information about th2 environment needed to build. Actually, **infra-schema** describes desired state of cluster with the set of `.yaml` config files.
 
-Also, there is **infra-editor**, which can be called visualization of **infra-mgr**. **infra-editor** is a web based GUI for working with th2 state. When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
+Infra-editor, a component providing the visualization of infra-schemas, is a web-based GUI for working with the state of th2. When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
 
 ### Infra schema
 
-**infra-mgr** continiously reads **infra-schema** for updates. Also it can apply changes to the **infra-schema**, in some configuration cases.
+**infra-mgr** continously reads **infra-schema** for updates. Also it can apply changes to the **infra-schema**, in some configuration cases.
 
 ### Kubernetes cluster
 

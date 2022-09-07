@@ -39,13 +39,14 @@ You have 2 ways to edit your **th2-infra-schema**:
 
 ### Reading-editing infra-schema by infra-mgr 
 
-**th2-infra-mgr** can check **th2-infra-schema** repository and store its state in the cache.
+Infra-mgr monitors the state of the infra-schema in git. Using the settings in the infra-mgr-config-file a user is able roll out the schemas in Git to kubernetes.
 
-Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
+If changes are required, users can update the CRs in the infra-schema, and these updates will be translated to Kubernetes by the infra-mgr.
 
 ### infra-mgr and infra-operator interaction
 
-**th2-infra-mgr** applies <term term="Custom resource">Custom resources</term> from **th2-infra-schema** to the Kubernetes cluster. **th2-infra-operator** watches over the new <term term="Custom resource">CR's</term> and creates/changes/deletes th2 components using `helm-operator`.
+Users can conveniently make desired changes to the <term term="Custom resource">Custom resources</term> of the **infra-schema**. The **infra-mgr** will translate the updated schema to kubernetes, while infra-operator monitors the changed custom resources in order to configure the message/event routing in RabbitMQ or upload helm releases for further configuration and deployment of th2 boxes in the cluster.
+
 
 ## Data transformation
 
@@ -55,12 +56,12 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Git branch                                                                            | th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)   |
 | `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` <term term="Custom resource"></term> | Kubernetes <term term="ConfigMap"></term>, Kubernetes <term term="Pod"></term> |
-| `Th2Link` <term term="Custom resource"></term>                                        | Queues in RabbitMQ                                                             |
+| `Th2Link` <term term="Custom resource"></term>                                        | Bindings in RabbitMQ                                                           |
 | `Th2Dictionary` <term term="Custom resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
 
 ## Scenarios 
 
-All the infra components are created to work as one system for **th2-infra-schema** `=>` the th2 environment interpretation.
+All the infra components are designed to work together to transform the data representations provided by th2-infra-schema into the actual implementation of the th2 environment
 
 There are several scenarios for the infra components.
 
