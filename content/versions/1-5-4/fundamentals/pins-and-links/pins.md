@@ -3,7 +3,7 @@ title: Pins
 weight: 5
 ---
 
-Each th2 box has a number of pins. Pins are used by a box to send/receive messages, or to execute gRPC commands. 
+Each th2 box has a number of pins. Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands.  
 
 ## Configuration 
 
@@ -11,32 +11,31 @@ The available configuration fields for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
 - `connection-type` (mandatory) - sets the connection type which a pin uses (`mq` or `grpc`);
-- `attributes` (optional) - define the type of message streams which go through this particular pin. 
+- `attributes` (optional) - define the type of message streams which go through this particular pin;
+- `settings` (optional) - section specifies two settings that configure which strategy will be used while declaring queues in rabbitMq: `storageOnDemand` and `queueLength`;
+- `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.  
 
-### Filters section
-
-Additionally, a pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
-Filter options available: 
-- `EQUAL`;
-- `NOT_EQUAL`;
-- `EMPTY`;
-- `NOT_EMPTY`.
-
-For example: 
+Configuration example:
 
 ```yaml
-- name: fix_to_send
-  connection-type: mq
-  attributes: [send, parsed, subscribe]
-  filters:
-    - metadata:
-        - field-name: session_alias
-          expected-value: conn1_session_alias
-          operation: EQUAL
-    - message: 
-        - field-name: [string] *
-          expected-value: [string] *
-          operation: NOT_EQUAL
+pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
+    - name: [string] 
+      connection-type: [enum] 
+      attributes: [string array] 
+        - atr1
+        - atr2
+      settings: [object]
+        storageOnDemand: [enum boolean]
+        queueLength: [string] 
+      filters:
+        - metadata:
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum] 
+          message: 
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum] 
 ```
 In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
 
@@ -55,6 +54,31 @@ In one configuration it is possible to specify several pins. In the example conf
     - raw
     - subscribe
     - store
+```
+### Filters section
+
+A pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
+Filter options available: 
+- `EQUAL`;
+- `NOT_EQUAL`;
+- `EMPTY`;
+- `NOT_EMPTY`.
+
+For example: 
+
+```yaml
+- name: fix_to_send
+  connection-type: mq
+  attributes: [send, parsed, subscribe]
+  filters:
+    - metadata:
+        - field-name: session_alias
+          expected-value: conn1_session_alias
+          operation: EQUAL
+    - message: 
+        - field-name: field_name
+          expected-value: value
+          operation: NOT_EQUAL
 ```
 
 ### Settings section for MQ connection type
@@ -81,7 +105,7 @@ pins:
         storageOnDemand: false
         queueLength: 1000
 ```
-### gRPC connection type  
+### extended-settings for gRPC connection type  
 
 If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
 
@@ -95,7 +119,7 @@ extended-settings:
         targetPort: 8080
         nodePort: 31179
 ```
-## Attributes
+## Attributes section
 
 Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.  
 

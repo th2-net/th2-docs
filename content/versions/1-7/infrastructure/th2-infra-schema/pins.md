@@ -4,7 +4,7 @@ weight: 5
 related: []
 ---
 
-Each th2 box has a number of pins. Pins are used by a box to send/receive messages, or to execute gRPC commands. 
+Each th2 box has a number of pins. Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands. 
 
 ## Configuration 
 
@@ -12,11 +12,60 @@ The available configuration fields for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
 - `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`)
-- `attributes` (optional) - define the type of message streams which go through this particular pin. 
+- `attributes` (optional) - define the type of message streams which go through this particular pin;
+- `settings` (optional) - section specifies two settings that configure which strategy will be used while declaring queues in rabbitMq: `storageOnDemand` and `queueLength`;
+- `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.  
+- `service-class` - should be specified if the pin is grpc-client , in other words if pin is used as “from” component in link;
+- `service-classes` - should be specified if the pin is grpc-server , in other words if pin is used as “to” component in link.
 
+Configuration example:
+
+```yaml
+pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
+    - name: [string] 
+      connection-type: [enum] 
+      attributes: [string array] 
+        - atr1
+        - atr2
+      settings: [object]
+        storageOnDemand: [enum boolean]
+        queueLength: [string] 
+      filters:
+        - metadata:
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum] 
+          message: 
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum]
+      service-class: [string, used if pin is grpc-client] *
+      service-classes: [string-array, used if pin is grpc-server] *
+        - com.exactpro.th2.box.grpc.BoxService
+        - com.exactpro.th2.otherbox.grpc.OtherBoxService
+```
+
+In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
+
+```yaml
+- name: in
+  connection-type: mq
+  attributes:
+    - first
+    - parsed
+    - subscribe
+    - store
+- name: in_raw
+  connection-type: mq
+  attributes:
+    - first
+    - raw
+    - subscribe
+    - store
+```
 ### Filters section
 
-Additionally, a pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
+A pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
 Filter options available: 
 - `EQUAL`;
 - `NOT_EQUAL`;
@@ -36,28 +85,11 @@ For example:
           expected-value: conn1_session_alias
           operation: EQUAL
     - message: 
-        - field-name: [string] *
-          expected-value: [string] *
+        - field-name: field_name
+          expected-value: value
           operation: NOT_EQUAL
 ```
-In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
 
-```yaml
-- name: in
-  connection-type: mq
-  attributes:
-    - first
-    - parsed
-    - subscribe
-    - store
-- name: in_raw
-  connection-type: mq
-  attributes:
-    - first
-    - raw
-    - subscribe
-    - store
-```
 
 ### Settings section for MQ connection type
 
@@ -83,7 +115,7 @@ pins:
         storageOnDemand: false
         queueLength: 1000
 ```
-### gRPC connection type  
+### service-class(es) setting for gRPC connection type  
 
 If it is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
 
@@ -92,11 +124,13 @@ If it is `grpc-server`, you should specify `service-classes` as array; if `grpc-
     - name: server
       connection-type: grpc-server
       service-classes:
-       - com.exactpro.th2.act.grpc.ActService
+        - com.exactpro.th2.act.grpc.ActService
+        - com.exactpro.th2.box.grpc.BoxService
     - name: to_check1
       connection-type: grpc-client
       service-class: com.exactpro.th2.check1.grpc.Check1Service
 ```
+<notice note> Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` them the server should contain the same service class in its list.</notice>
 
 If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
 
@@ -110,7 +144,7 @@ extended-settings:
         targetPort: 8080
         nodePort: 31179
 ```
-## Attributes
+## Attributes section 
 
 Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.  
 
