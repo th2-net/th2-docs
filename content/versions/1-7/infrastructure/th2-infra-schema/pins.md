@@ -11,7 +11,7 @@ Each th2 box has a number of pins. Pins are used by a box to send/receive messag
 The available configuration fields for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
-- `connection-type` (mandatory) - sets the connection type which a pin uses (`mq` or `grpc`);
+- `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`)
 - `attributes` (optional) - define the type of message streams which go through this particular pin. 
 
 ### Filters section
@@ -84,6 +84,19 @@ pins:
         queueLength: 1000
 ```
 ### gRPC connection type  
+
+If it is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
+
+```yaml
+  pins:
+    - name: server
+      connection-type: grpc-server
+      service-classes:
+       - com.exactpro.th2.act.grpc.ActService
+    - name: to_check1
+      connection-type: grpc-client
+      service-class: com.exactpro.th2.check1.grpc.Check1Service
+```
 
 If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
 
