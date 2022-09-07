@@ -17,6 +17,7 @@ The available configuration fields for a pin are listed below.
 - `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.  
 - `service-class` - should be specified if the pin is grpc-client , in other words if pin is used as “from” component in link;
 - `service-classes` - should be specified if the pin is grpc-server , in other words if pin is used as “to” component in link.
+- `strategy` - defines the strategy of requests. Possible values: `filter` or `robin`. *Default*: `robin`. 
 
 Configuration example:
 
@@ -43,6 +44,7 @@ pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
       service-classes: [string-array, used if pin is grpc-server] *
         - com.exactpro.th2.box.grpc.BoxService
         - com.exactpro.th2.otherbox.grpc.OtherBoxService
+      strategy: [string, default: 'robin']
 ```
 
 In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
