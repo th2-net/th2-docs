@@ -36,49 +36,9 @@ Mostly, **infra-operator** communicates with other infra components using Kubern
 
 ## Configuration
 
-**infra-operator** can be configured on 2 levels:
+Settings for **infra-operator** should be defined in the `infraOperator` section of values file, which is applied during **th2-infra** installation to the Kubernetes cluster.
 
-1. On the level of infra components
-2. Internal configuration
-
-### Part of infra components
-
-Settings for **infra-operator** should be defined in the section of special config map, which is applied during **th2-infra** installation to the Kubernetes cluster.
-
-An example below provides default values for the configuration:
-
-```yaml
-# service.values.yaml
-# ...
-infraOperator:
-  image:
-    repository: ghcr.io/th2-net/th2-infra-operator
-    tag: 3.1.3
-  config:
-    chart:
-      repository: http://infra-repo:8080
-      version: 0.4.3
-      name: infra-operator-tpl
-    namespacePrefixes: 
-    - "th2-"
-    k8sUrl: "<kubernetes-external-entrypoint>"
-    rabbitMQManagement:
-      host: "rabbitmq-discovery.service.svc.cluster.local" - deprecated. host is taken from rabbitmq config
-      port: "15672"
-      username: "th2"
-      password: "${RABBITMQ_PASS}"
-      persistence: true
-      schemaPermissions:
-        configure: ""
-        read: ".*"
-        write: ".*"
-```
-
-### Internal
-
-The **infra-operator** configuration is given with the  `infra-operator.yml` file that should be on the classpath of the application. The configuration file itself must be created by the person responsible for installing th2 and filled with predetermined values. 
-
-The template of the `infra-operator.yml` file is given below:
+All possible parameters with descriptions are provided below:
 
 ```yaml
 # infra-operator.yml
@@ -165,3 +125,49 @@ ingressHost: hostName
 # host name that will be used inside ingress rules
 
 ```
+<spoiler title="Example of infra-operator config in service.values.yaml">
+
+```yaml
+# service.values.yaml
+# ...
+infraOperator:
+  image:
+    repository: ghcr.io/th2-net/th2-infra-operator
+    tag: 3.1.3
+  config:
+    namespacePrefixes: 
+    - "th2-"
+```
+
+</spoiler>
+
+<spoiler title="Default values for infra-operator section">
+
+```yaml
+# service.values.yaml
+# ...
+infraOperator:
+  image:
+    repository: ghcr.io/th2-net/th2-infra-operator
+    tag: 3.1.3
+  config:
+    chart:
+      repository: http://infra-repo:8080
+      version: 0.4.3
+      name: infra-operator-tpl
+    namespacePrefixes: 
+    - "th2-"
+    k8sUrl: "<kubernetes-external-entrypoint>"
+    rabbitMQManagement:
+      host: "rabbitmq-discovery.service.svc.cluster.local" - deprecated. host is taken from rabbitmq config
+      port: "15672"
+      username: "th2"
+      password: "${RABBITMQ_PASS}"
+      persistence: true
+      schemaPermissions:
+        configure: ""
+        read: ".*"
+        write: ".*"
+```
+
+</spoiler>
