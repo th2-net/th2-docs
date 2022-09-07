@@ -40,7 +40,7 @@ There are two ways of communication between the components via links:
 
 - gRPC - for specifying rooting calls.
 
-For each of the connection type there is a separate option in configuration:
+For each of the connection type there is a separate option in a configuration:
 
 - `router-mq`
 
@@ -97,7 +97,7 @@ spec:
 
 gRPC links are described in the section `router-grpc`.
 
-`Router-grpc` links can additionally have `service-class` and strategy properties.
+`Router-grpc` links can additionally have `service-class` and `strategy` properties. `strategy` can have `robin` or `filter` parameters. 
 
 Example of gRPC link:
 
