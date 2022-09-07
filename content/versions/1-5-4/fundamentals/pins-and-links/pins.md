@@ -89,7 +89,11 @@ If `connection-type: mq` we can specify `settings` section. Under this section w
 - `queueLength` (optional) - the length of the queue created by the operator. *Default*: 1000 msg.  
 Important: `queueLength` isn't used if `storageOnDemand` is set to `true`. 
 
-<notice note> Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. To prevent that, please configure the queue limit on your external box pins. </notice>
+<notice note> 
+
+Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. To prevent that, please configure the queue limit on your external box pins. 
+
+</notice>
 
 For example: 
 
@@ -105,9 +109,46 @@ pins:
         storageOnDemand: false
         queueLength: 1000
 ```
-### extended-settings for gRPC connection type  
+### Settings section gRPC connection type  
 
-If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
+gRPC pins use gRPC technology for synchronous client-server API calls between different boxes in the cluster. 
+
+Logically gRPC pin can stand for server endpoint and client endpoint, but in both cases pin should have `grpc` type.
+
+<notice info>
+
+gRPC pins for client endpoints affect on the box's config map only. Technically, you can connect to gRPC server without created client pins, but is convenient to have generated endpoints configuration.
+
+</notice>
+
+For example: 
+
+```yaml
+pins:
+    - name: to_check1
+      connection-type: grpc
+    - name: server
+      connection-type: grpc
+```
+
+<notice note>
+
+If your gRPC pin stands for server endpoint it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
+
+</notice>
+
+To create endpoint box should have:
+
+- `extended-settings.service.enabled`: `true`;
+- `extended-settings.service.type`: type of native Kubernetes service, which you want to use;
+
+In endpoint options:
+
+- `name` - name of endpoint unique for box;
+- `targetPort` - docker container port for listening;
+- `nodePort` - kubernetes node port for listening;
+
+Example of extended settings:
 
 ```yaml
 extended-settings:

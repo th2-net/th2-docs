@@ -115,9 +115,21 @@ pins:
         storageOnDemand: false
         queueLength: 1000
 ```
-### service-class(es) setting for gRPC connection type  
+### Settings section for gRPC connection type  
 
-If it is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
+gRPC pins use gRPC technology for synchronous client-server API calls between different boxes in the cluster. 
+
+Logically gRPC pin can stand for server endpoint and client endpoint. For these cases th2 specification contains appropriate connection types:
+- `connection-type: grpc-server`
+- `connection-type: grpc-client`
+
+<notice info>
+
+`grpc-client` pins affect on the box's config map only. Technically, you can connect to gRPC server without created client pins, but is convenient to have generated endpoints configuration.
+
+</notice>
+
+If `connection-type` is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
 
 ```yaml
   pins:
@@ -130,9 +142,30 @@ If it is `grpc-server`, you should specify `service-classes` as array; if `grpc-
       connection-type: grpc-client
       service-class: com.exactpro.th2.check1.grpc.Check1Service
 ```
-<notice note> Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` them the server should contain the same service class in its list.</notice>
+<notice note> 
 
-If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
+Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` them the server should contain the same service class in its list.
+
+</notice>
+
+<notice note>
+
+If your gRPC pin stands for server endpoint it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
+
+</notice>
+
+To create endpoint box should have:
+
+- `extended-settings.service.enabled`: `true`;
+- `extended-settings.service.type`: type of native Kubernetes service, which you want to use;
+
+In endpoint options:
+
+- `name` - name of endpoint unique for box;
+- `targetPort` - docker container port for listening;
+- `nodePort` - kubernetes node port for listening;
+
+Example of extended settings:
 
 ```yaml
 extended-settings:
