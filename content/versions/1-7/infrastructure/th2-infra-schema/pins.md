@@ -150,6 +150,20 @@ Important note about `service-classes` and `service-class` is that they must be 
 
 </notice>
 
+If you specified `grpc-server` connection type, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
+
+```yaml
+  pins:
+    - name: server
+      connection-type: grpc-server
+      service-classes:
+       - com.exactpro.th2.act.grpc.ActService
+    - name: to_check1
+      connection-type: grpc-client
+      service-class: com.exactpro.th2.check1.grpc.Check1Service
+```
+
+
 <notice note>
 
 If you want to provide access to gRPC server from external boxes, it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
