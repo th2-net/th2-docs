@@ -66,7 +66,8 @@ Filter options available:
 - `EQUAL`;
 - `NOT_EQUAL`;
 - `EMPTY`;
-- `NOT_EMPTY`.
+- `NOT_EMPTY`;
+- `WILDCARD`.
 
 For example: 
 
