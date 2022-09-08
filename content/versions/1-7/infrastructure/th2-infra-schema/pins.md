@@ -49,14 +49,14 @@ In one configuration it is possible to specify several pins. In the example conf
   attributes:
     - first
     - parsed
-    - publish
+    - subscribe
     - store
 - name: in_raw
   connection-type: mq
   attributes:
     - first
     - raw
-    - publish
+    - subscribe
     - store
 ```
 ### Filters section
