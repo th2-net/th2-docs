@@ -111,7 +111,7 @@ pins:
         storageOnDemand: false
         queueLength: 1000
 ```
-### Settings section for gRPC connection type  
+### Settings section for gRPC connection type 
 
 <notice note>
 
