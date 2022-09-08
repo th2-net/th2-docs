@@ -71,9 +71,9 @@ There are several scenarios for the infra components.
 1. Create new schema with **th2-infra-editor**  
   The schema is edited manually by default, but you can change it with the **th2-infra-editor** Web GUI.
 
-[![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
+[![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/ROunJmGX48LxViLKTf1uMctCvQAzZULv1M5dNH8ODZEptjyNX8l6s50ylddVEubwrZqder4JmWkZLmJ2AqXOCNkuHbr1ruEDjB2tE4SjRCpvRmHFTnjIYEbu0Iymk5zO_kWCIw7ErCGi9St8DzdP_F0zCXVZGwlV1QkslM3P7eTWWdjt6_rQHx_rep79LgvA9ZZy1xL1DbMacoPuSD_Vp-mfhB1moP2zQFMEUOxTA7nqemMGFYCNoaZwJlisDyd69Q28SywSaEOzfoy0)
 
-2. Create th2 environment from the **th2-infra-schema** branch
+1. Create th2 environment from the **th2-infra-schema** branch
 
 [![Create th2 environment from th2-infra-schema branch](/img/fundamentals/infra/new-env.png)](https://www.plantuml.com/plantuml/png/TP99ZzD048Nl_IjASu1JMiomHoWQ4Y61W4WO0GV4eMENtItrObLNX-KmlvssutY9Pcv9rVTUlNxoRMH5d9mL5ci63a2cqGoL8IpP12_Oi4NO4If6O7q3w8-6WdVe6MeAhXkkZAz9hMAfqIauaFAb5kBdj74DmPj7BL8CVlCBL8GycGCXxnG7wdV3dmnej6wvq-Eo3hP2WglB-rSTTlefok2PWeMFwO3aaJ6Eeq8T3eO_Vn6Y2tUNxZQ32DRmGt6feGu4EwryarN3rGnM6PpiClp9H4P_eWj8RQMwCtfIf8LY4BXUy1wjAz2YYZWgnH13Ld83NROrN4lOus_OziN2koDwxbElLXTPRYHyy8QDikOVmjUJqLuvZAqgyNxDKmblszR-FUExud4KCqAcdEFycZKyazCp0ViemxBt7djTmtDv_cw-wn0Vn5vaBFZQD8aGjiPNnZTn3Y_RUodXMtzyNjuYRuwhfxolv3qj2_sW_-inzSnphzWS4GgC8L69Ytuk3QwVZ0xRy2Upj-YhvEn_)
 
