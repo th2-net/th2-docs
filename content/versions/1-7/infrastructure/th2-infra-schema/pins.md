@@ -126,7 +126,7 @@ extended-settings:
 ```
 ## Attributes section 
 
-Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box. Attributes section cannot be empty.
+Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.
 
 The set of attributes varies from one th2 component to another. Each th2 component can have its own mandatory or optional attributes. 
 
