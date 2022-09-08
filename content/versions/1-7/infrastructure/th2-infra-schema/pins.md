@@ -11,7 +11,7 @@ Each th2 box has a number of pins. Pins are used by a box (available only for `T
 The available configuration fields for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
-- `connection-type` (mandatory) - sets the connection type used by the pin. Possible values are `mq` or `grpc`.
+- `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`).
 - `attributes` (optional) - define the type of message streams which go through this particular pin;
 - `settings` (optional) - section specifies two settings that configure which strategy will be used while declaring queues in rabbitMq: `storageOnDemand` and `queueLength`;
 - `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.  
