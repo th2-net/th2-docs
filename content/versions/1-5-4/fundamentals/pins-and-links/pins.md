@@ -133,7 +133,7 @@ pins:
 
 <notice note>
 
-If your gRPC pin stands for server endpoint it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
+If you want to provide access to gRPC server from external boxes, it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
 
 </notice>
 
