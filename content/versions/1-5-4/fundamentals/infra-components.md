@@ -69,11 +69,11 @@ There are several scenarios for the infra components.
 <!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
 
 1. Create new schema with **th2-infra-editor**  
-  The schema is edited manually by default, but you can change it with the **th2-infra-editor** Web GUI.
+  **th2-infra-editor** is one of th2 ecosystem tools, which provides web GUI for editing your **infra-schema**.
 
 [![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/ROunJmGX48LxViLKTf1uMctCvQAzZULv1M5dNH8ODZEptjyNX8l6s50ylddVEubwrZqder4JmWkZLmJ2AqXOCNkuHbr1ruEDjB2tE4SjRCpvRmHFTnjIYEbu0Iymk5zO_kWCIw7ErCGi9St8DzdP_F0zCXVZGwlV1QkslM3P7eTWWdjt6_rQHx_rep79LgvA9ZZy1xL1DbMacoPuSD_Vp-mfhB1moP2zQFMEUOxTA7nqemMGFYCNoaZwJlisDyd69Q28SywSaEOzfoy0)
 
-1. Create th2 environment from the **th2-infra-schema** branch
+2. Create th2 environment from the **th2-infra-schema** branch
 
 [![Create th2 environment from th2-infra-schema branch](/img/fundamentals/infra/new-env.png)](https://www.plantuml.com/plantuml/png/TP9DZzCm48Rl_XMZFS2fbbY-ArGjMo61W4e40GV4mKqciILx78qdHN3eRrydRJwwshsrCyyxytYKcoI6fGjUUQm590AxnWfKZh4K5qc94u-mPJI28FOQa0wE8mKaWPfZw8ihHpMRLIej1WDxDbHQfNxFdT0ml7lI8gT8cpzW4kJA4eYvPoJoq3l_oO157ovxTchMqLV8S7L__rMFdNwgCf9mzF2vsoCJ2gQfL9ZztidNRqhrSiVkk3c7O0s_Z9GMwiYmjOQQd1gtmh7Au3mkmrzS4gGJNK3NLgPVO-T4Tv4u1y8G-8W-5EZH99oIwgoXAxs1tcqDppJiy2_S3eU53mSa6QnNgtikrne-aHDdlFkFyFqqQ6S2fjQK-73ckORtRUl_ZVYsU9hKWj1TzXXViuONUducuA0oDllPqrtNy5AFtyrF6zEZsAkCHQfTqp72hQFAKPCkuUNrNcluCInV7k_2D-lQsVUDVk3AoZuw_-ralPYvC-8E20Mcs769ITqWLLtmTm00)
 
