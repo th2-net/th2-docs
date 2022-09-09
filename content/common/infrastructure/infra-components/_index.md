@@ -47,7 +47,11 @@ Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
-**th2-infra-mgr** applies <term term="Custom resource">Custom resources</term> from **th2-infra-schema** to the Kubernetes cluster. **th2-infra-operator** watches over the new <term term="Custom resource">CR's</term> and creates/changes/deletes th2 components using `helm-operator`.
+Users can conveniently make their desired changes to the cluster by changing the <term term="Custom resource">Custom resources</term> of the **infra-schema**.
+The **infra-mgr** will then translate the updated schema to kubernetes. 
+The **infra-operator** which monitors the cluster for changes to custom resources will configure the message/event routing in RabbitMQ as required.
+It will also upload helm releases for further configuration and deployment of th2 boxes in the cluster as required.
+
 
 ## Data transformation
 
