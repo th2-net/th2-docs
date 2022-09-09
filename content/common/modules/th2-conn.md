@@ -24,7 +24,7 @@ There is no universal template for the **th2-conn** component, but you can use o
 
 </notice>
 
-[th2-net](https://github.com/th2-net) repositories name of which starts with "th2-conn-" contain implementations of **th2-conn**  for the specific communication protocols.
+[th2-net](https://github.com/th2-net) repositories with names starting with "th2-conn-" contain implementations of **th2-conn**  for specific communication protocols.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -40,7 +40,7 @@ There is no universal template for the **th2-conn** component, but you can use o
 
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
-|[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Recieved Messages Handler, Sending Messages, etc.|
+|[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
 
 ### Platforms
 
@@ -73,7 +73,7 @@ Some of the public repositories related to the **th2-conn** are not for common u
 
 ## Configuration
 
-Configuration for **th2-conn** is provided below. Please, refer to the instructions for the appropriate **th2-conn** component to specify `custom-config` object.
+A generic configuration for **th2-conn** is provided below. To specify the `custom-config` object for a particular **th2-conn** implementation provided as a [th2-net](https://github.com/th2-net) repository, refer to the "Configuration" section of its ReadMe file.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -98,10 +98,10 @@ spec:
 
 ### Required pins
 
-The **th2-conn** box has 3 types of pins:
+A **th2-conn** box has 3 types of pins:
 
 - `out_raw` - raw messages that go from **th2-conn** to the system.
 - `in_raw` - raw messages that go from the system to **th2-conn**.
 - `to_send` - messages that go from a user to **th2-conn**.
 
-The connect component uses a separate queue to send messages. The component subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. It can automatically send <term term="heartbeat messages">heartbeat messages</term>, logon/logout commands and requests to retransmit messages between an external system and th2.
+The **th2-conn** box uses a separate queue to send messages. It subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. It can automatically send <term term="heartbeat messages">heartbeat messages</term>, logon/logout commands and requests to retransmit messages between an external system and th2.
