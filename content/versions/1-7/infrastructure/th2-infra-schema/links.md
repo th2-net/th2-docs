@@ -98,7 +98,7 @@ spec:
 
 gRPC links are described in the section `router-grpc`.
 
-<notice note> From version 1.6 this section no longer contains `strategy` and `service-class` fields. For newer releases, the properties are to be specified in configurations of pins. [More details](./pins#service-classes-setting-for-grpc-connection-type) </notice>
+<notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. For newer releases, the properties are to be specified in configurations of pins ([More details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
 
 
 Example of gRPC link:
