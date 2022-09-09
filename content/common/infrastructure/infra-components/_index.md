@@ -57,7 +57,7 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Git branch                                                                            | th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)   |
 | `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` <term term="Custom resource"></term> | Kubernetes <term term="ConfigMap"></term>, Kubernetes <term term="Pod"></term> |
-| `Th2Link` <term term="Custom resource"></term>                                        | Queues in RabbitMQ                                                             |
+| `Th2Link` <term term="Custom resource"></term>                                        | Bindings in RabbitMQ                                                           |
 | `Th2Dictionary` <term term="Custom resource"></term>                                  | Kubernetes <term term="ConfigMap"></term> (saved in encoded format)            |
 
 ## Scenarios 
