@@ -10,7 +10,7 @@ related:
 weight: 5
 ---
 
-**th2-conn** (where “conn” stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
+**th2-conn** (where "conn" stands for "connect") component is responsible for the communication with a target system. This component implements the logic of the interaction protocol, receiving and sending messages from and to the system, respectively.
 
 <!--more-->
 
@@ -20,11 +20,11 @@ weight: 5
 
 <notice info>
 
-There is no universal template for the **th2-conn** component, but you can use one of the already created **th2-conn** repositories in [th2-net](https://github.com/th2-net) or take some custom protocol realisation from there and implement it to your version of **th2-conn**.
+There is no universal template for the **th2-conn** component, but you can use one of the already created **th2-conn** repositories in [th2-net](https://github.com/th2-net) or use one of the custom protocol implementations provided there to apply it to your own version of **th2-conn**.
 
 </notice>
 
-Different **th2-conn** repositories in [th2-net](https://github.com/th2-net) use connect component with different types of communication protocols.
+[th2-net](https://github.com/th2-net) repositories with names starting with "th2-conn-" contain implementations of **th2-conn**  for specific communication protocols.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -36,15 +36,15 @@ Different **th2-conn** repositories in [th2-net](https://github.com/th2-net) use
 
 ### Templates
 
-**th2-conn** repositories with the “template“ part in their name allow you to add custom logic into a component. 
+**th2-conn** repositories with the "template" in their name allow you to add custom logic into a component. 
 
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
-|[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Recieved Messages Handler, Sending Messages, etc.|
+|[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
 
 ### Platforms
 
-Some of the `th2-conn` repositories implement not only some protocol. They are made for a specific platform for processing data.
+Besides protocol-specific implementations, [th2-net](https://github.com/th2-net) repositories from the **th2-conn** family also contain platform-specific ones. See the examples below:
 
 |Repository|Platform|
 |----------|--------|
@@ -53,7 +53,7 @@ Some of the `th2-conn` repositories implement not only some protocol. They are m
 
 ### Dirty
 
-Some of the **th2-conn** repositories have “dirty“ in the name. It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
+Some of the **th2-conn** repositories have "dirty" in the name. It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -64,7 +64,7 @@ Some of the **th2-conn** repositories have “dirty“ in the name. It means tha
 
 ### Other
 
-Some of the public repositories related to the **th2-conn** are not for community usage, but they are still usefull for the th2 ecosystem.
+Some of the public repositories related to the **th2-conn** are not for common use, but they are still useful for the th2 ecosystem.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -73,7 +73,7 @@ Some of the public repositories related to the **th2-conn** are not for communit
 
 ## Configuration
 
-Configuration for the **th2-conn** is provided below. Please refer to the instructions for the appropriate **th2-conn** component to specify `custom-config` object.
+A generic configuration for **th2-conn** is provided below. To specify the `custom-config` object for a particular **th2-conn** implementation provided as a [th2-net](https://github.com/th2-net) repository, refer to the "Configuration" section of its ReadMe file.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -98,10 +98,10 @@ spec:
 
 ### Required pins
 
-The **th2-conn** box has 3 types of pins:
+A **th2-conn** box has 3 types of pins:
 
-- `out_raw` - raw messages that go from the **th2-conn** to the system.
+- `out_raw` - raw messages that go from **th2-conn** to the system.
 - `in_raw` - raw messages that go from the system to **th2-conn**.
 - `to_send` - messages that go from a user to **th2-conn**.
 
-The connect component uses a separate queue to send messages. The component subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. Here you can automatically send <term term="heartbeat messages">heartbeat messages</term> , send a logon/logout, requests to retransmit messages in the event of a gap, etc.
+The **th2-conn** box uses a separate queue to send messages. It subscribes to that pin at the start and waits for the messages. The messages received from that pin will be sent to the target system. Also, this component is responsible for maintaining connections and sessions in the cases where it is provided by the communication protocol. It can automatically send <term term="heartbeat messages">heartbeat messages</term>, logon/logout commands and requests to retransmit messages between an external system and th2.
