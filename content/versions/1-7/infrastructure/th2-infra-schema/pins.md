@@ -16,7 +16,7 @@ The available configuration fields for a pin are listed below.
 - `settings` (optional) - section specifies two settings that configure which strategy will be used while declaring queues in rabbitMq: `storageOnDemand` and `queueLength`;
 - `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
 - `service-class` – should be specified if the pin is a gRPC-client (in other words, if it is specified as the “from” component in a config for any link);
-- `service-classes` - should be specified if the pin is grpc-server , in other words if pin is used as “to” component in link.
+- `service-classes` – should be specified if the pin is a gRPC-server (in other words, if the pin is specified as the “to” component in a config for any link).
 - `strategy` - defines the strategy of requests. Possible values: `filter` or `robin`. *Default*: `robin`.
 
 Configuration example:
