@@ -39,9 +39,12 @@ You have 2 ways to edit your **th2-infra-schema**:
 
 **th2-infra-editor** gets information on current state of **th2-infra-schema** from **th2-infra-mgr**, displays it for the user using web GUI, and allows them to configure environment via sending changes to **th2-infra-mgr**.
 
-### Reading-editing infra-schema by infra-mgr 
+### Reading-editing infra-schema by infra-mgr
 
-**th2-infra-mgr** can check **th2-infra-schema** repository and store its state in the cache.
+The infra-mgr monitors the state of the **th2-infra-schema** repository and stores the state it in its cache.
+Users can roll out their customized infra-schemas easily by using infra-mgr.
+All a user has to do is pick one of four options provided in the infra-mgr-config-file. 
+This file is present with each infra-schema.
 
 Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
 
