@@ -47,7 +47,7 @@ pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
       strategy: [string, default: 'robin']
 ```
 
-In one configuration it is possible to specify several pins. In the example config below the box has two pins: `in` and `in_raw`.
+It is possible to specify several pins in one configuration. In the example config file below, a box has two pins: `in` and `in_raw`.
 
 ```yaml
 - name: in
