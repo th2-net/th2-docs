@@ -69,7 +69,7 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 
 ## Scenarios 
 
-All the infra components are created to work as one system for **th2-infra-schema** `=>` the th2 environment interpretation.
+All the infra components are created to work together to transform the data representations provided by th2-infra-schema into the actual implementation of the th2 environment
 
 There are several scenarios for the infra components.
 
