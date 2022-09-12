@@ -13,4 +13,4 @@ This section provides detailed instructions on how to install and configure th2 
 <!--more-->
 
 If you just want to get a flavor of how it works, check out our Cookbook
-for a [quick setup](../cookbook/quick-demo-setup) guide followed by a [demo example](../cookbook/demo-main-scenario). 
+for a [quick setup](../cookbook/quick-setup) guide. 
