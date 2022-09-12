@@ -9,11 +9,6 @@ schema_link:
   - title: There should be the link to th2-infra-schema
     href: ''
     icon: mdi-graph
-demo_link:
-  - title:  Demo main scenario
-    href: ../cookbook/demo-main-scenario
-    icon: mdi-language-python
----
 
 Understand how testing is going with th2.
 
@@ -49,7 +44,3 @@ Details for th2-read-log [README.md](https://github.com/th2-net/th2-read-log#con
 Sometimes it is [needed](./requirements/software#tester-box) to install additional software to run external boxes and scripts.
 
 </notice>
-
-For practice you can try some script demonstration examples. Repositories with schema environments and external boxes are provided.
-
-<recommendations :items="demo_link"></recommendations>
