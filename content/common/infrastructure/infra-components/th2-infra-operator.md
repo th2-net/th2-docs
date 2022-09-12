@@ -36,9 +36,9 @@ Mostly, **infra-operator** communicates with other infra components using Kubern
 
 ## Configuration
 
-Settings for **infra-operator** should be defined in the `infraOperator` section of values file, which is applied during **th2-infra** installation to the Kubernetes cluster.
+Settings for **infra-operator** should be defined in the `infraOperator` section of the values file. They will be applied during deployment of **th2-infra** into the Kubernetes cluster. 
 
-All possible parameters with descriptions are provided below:
+All possible parameters with the descriptions are provided below:
 
 ```yaml
 # infra-operator.yml

@@ -20,7 +20,7 @@ The th2 infra components control all infrastructure of th2 environments, from Ra
 
 [![img](/img/boxes/exactpro/infra-mgr/infra-mgr-functionality.png)](https://www.plantuml.com/plantuml/png/VP71QiCm38RlUWgTDXYai5qsnYY5ibFPfTVIWs8hYMbi5rc1zUsdrApPO2mNnvy-IJzuKvH4fpZ2o9sYPfJG3ue-23iDEG4ST7XgGkg46lP1i-3RtPcJ2-FwY5ImmfzQxAiZ9QVg684kZvu5Yniu4XvWyIk2nZveyoSNS5aOVBWc80b6nf1E1Mxp6vTJ5_hLnP8V0UocaaVSJIrBOhK6yAJKKc7SKYcKl110pOgDD6kSKxxYkn6i0M0cpMIbUhVgdid_WRSvHcjp0wMU2rJ3X6MzIH-Kg6TC5BcSoN7vLzlkxnVXbjXM2PCodlXIXpm0f6oWpQevOkuM6H1ttngICBfhhqShj1Vy_JuXpG0VLyzepNQ-0DivpuQD_Krn_080)
 
-From **infra-schema** **infra-mgr** receives information about th2 environment needed to build. Actually, **infra-schema** describes desired state of cluster with the set of `.yaml` config files.
+**infra-mgr** receives necessary information about th2 environment from an **infra-schema** which describes a target state of cluster via a set of `.yaml` config files.
 
 Also, there is **infra-editor**, which can be called visualization of **infra-mgr**. **infra-editor** is a web based GUI for working with th2 state. When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
 

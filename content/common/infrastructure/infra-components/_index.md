@@ -41,19 +41,19 @@ You have 2 ways to edit your **th2-infra-schema**:
 
 ### Reading-editing infra-schema by infra-mgr
 
-The infra-mgr monitors the state of the **th2-infra-schema** repository and stores the state it in its cache.
-Users can roll out their customized infra-schemas easily by using infra-mgr.
-All a user has to do is pick one of four options provided in the infra-mgr-config-file. 
-This file is present with each infra-schema.
+The **infra-mgr** monitors the state of the **th2-infra-schema** repository and stores it in its cache.
+Users can deploy their customized **infra-schemas** easily by using **infra-mgr**.
+All a user has to do is pick one of four options provided in the infra-mgr config file. 
+This file is present with each **infra-schema**.
 
 Also, **th2-infra-mgr** can change **th2-infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
-Users can conveniently make their desired changes to the cluster by changing the <term term="Custom resource">Custom resources</term> of the **infra-schema**.
-The **infra-mgr** will then translate the updated schema to kubernetes. 
-The **infra-operator** which monitors the cluster for changes to custom resources will configure the message/event routing in RabbitMQ as required.
-It will also upload helm releases for further configuration and deployment of th2 boxes in the cluster as required.
+Users can conveniently introduce changes to the cluster by editing <term term="Custom resource">Custom resources</term> of the **infra-schema**.
+The **infra-mgr** monitors the infra-schema repository for the changes and rolls out updated schemas to Kubernetes. 
+The **infra-operator** which monitors the cluster for changes to custom resources  configures the message/event routing in RabbitMQ as required.
+It will also upload Helm releases for further configuration and deployment of th2 boxes in the cluster if requested.
 
 
 ## Data transformation
@@ -69,7 +69,7 @@ There is dependency between the types of data in **th2-infra-schema** and what w
 
 ## Scenarios 
 
-All the infra components are created to work together to transform the data representations provided by th2-infra-schema into the actual implementation of the th2 environment
+All the infra components are created to work together to transform the data representations provided by **th2-infra-schema** into the actual implementation of the th2 environment.
 
 There are several scenarios for the infra components.
 
