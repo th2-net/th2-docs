@@ -4,7 +4,7 @@ weight: 0
 read_before:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../getting-started/requirements/software
+    href: ../../getting-started/requirements/software
 continue_learning:
   - title: Publish infra schema
     href: ./2-infra-schema

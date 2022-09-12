@@ -9,6 +9,7 @@ schema_link:
   - title: There should be the link to th2-infra-schema
     href: ''
     icon: mdi-graph
+---
 
 Understand how testing is going with th2.
 
