@@ -4,52 +4,171 @@ weight: 5
 related: []
 ---
 
-Each th2 box has a number of pins. The pins are used by the box to send/receive messages, or to execute gRPC commands. 
+Each th2 box has a number of pins. Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands.
 
-Each pin has the following parameters:
-- `name` - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
-- `connection-type` - sets the connection type which a pin uses (`mq` or `grpc`);
-- `attributes` - define the type of message streams which go through this particular pin. 
+## Configuration
 
-In the example config below the box has two pins: `in` and `in_raw`.
+The configuration fields available for a pin are listed below.
+
+- `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
+- `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`)
+- `attributes` (optional) - define the type of message streams which go through this particular pin;
+- `settings` (optional) – the section specifies two settings determining the strategy to be used to declare queues in RabbitMQ: `storageOnDemand` and `queueLength`;
+- `filters` (optional and available only for `mq` connection type) - the section describes what messages/metadata can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
+- `service-class` – should be specified if the pin is a gRPC-client (in other words, if it is specified as the “from” component in a config for any link);
+- `service-classes` – should be specified if the pin is a gRPC-server (in other words, if the pin is specified as the “to” component in a config for any link).
+- `strategy` - defines the strategy of requests. Possible values: `filter` or `robin`. *Default*: `robin`.
+
+Configuration example:
+
+```yaml
+pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
+    - name: [string] 
+      connection-type: [enum] 
+      attributes: [string array] 
+        - atr1
+        - atr2
+      settings: [object]
+        storageOnDemand: [enum boolean]
+        queueLength: [string] 
+      filters:
+        - metadata:
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum] 
+          message: 
+            - field-name: [string] 
+              expected-value: [string] 
+              operation: [enum]
+      service-class: [string, used if pin is grpc-client] *
+      service-classes: [string-array, used if pin is grpc-server] *
+        - com.exactpro.th2.box.grpc.BoxService
+        - com.exactpro.th2.otherbox.grpc.OtherBoxService
+      strategy: [string, default: 'robin']
+```
+
+It is possible to specify several pins in one configuration. In the example config file below, a box has two pins: `in` and `in_raw`.
+
 ```yaml
 - name: in
   connection-type: mq
   attributes:
     - first
     - parsed
-    - publish
+    - subscribe
     - store
 - name: in_raw
   connection-type: mq
   attributes:
     - first
     - raw
-    - publish
+    - subscribe
     - store
 ```
-### MQ connection type
+### Filters section
 
-MQ pins transfer messages through RabbitMQ - queue manager used by the th2. In the example below pins `in` and `in_raw` allow a th2 box to operate with raw and parsed messages that come into it from the environment under test.
+A pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
+Filter options available:
+- `EQUAL`;
+- `NOT_EQUAL`;
+- `EMPTY`;
+- `NOT_EMPTY`;
+- `WILDCARD`.
+
+For example:
+
 ```yaml
-- name: in
+- name: fix_to_send
   connection-type: mq
-  attributes:
-    - first
-    - parsed
-    - publish
-    - store
-- name: in_raw
-  connection-type: mq
-  attributes:
-    - first
-    - raw
-    - publish
-    - store
+  attributes: [send, parsed, subscribe]
+  filters:
+    - metadata:
+        - field-name: session_alias
+          expected-value: conn1_session_alias
+          operation: EQUAL
+    - message: 
+        - field-name: field_name
+          expected-value: value
+          operation: NOT_EQUAL
 ```
-### gRPC connection type  
 
-If the pin connection type is gRPC, a corresponding endpoint should be defined in the `extended-settings` of the box.
+
+### Settings section for MQ connection type
+
+MQ pins transfer messages through RabbitMQ - queue manager used by th2.
+If `connection-type: mq` we can specify `settings` section. Under this section we can specify two settings that configure which strategy will be used while declaring queues in RabbitMQ.
+- `storageOnDemand` (optional) - option which defines an overflow strategy which will be drop-head if set to `false`. *Default*: `true`.
+- `queueLength` (optional) - the length of the queue created by the operator. *Default*: 1000 msg.  
+  Important: `queueLength` isn't used if `storageOnDemand` is set to `true`.
+
+<notice note> Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. To prevent that, please configure the queue limit on your external box pins. </notice>
+
+For example:
+
+```yaml
+pins:
+    - name: to_send
+      connection-type: mq
+      attributes:
+        - subscribe
+        - send
+        - raw
+      settings:
+        storageOnDemand: false
+        queueLength: 1000
+```
+### Settings section for gRPC connection type
+
+gRPC pins use gRPC technology for synchronous client-server API calls between different boxes in the cluster.
+
+Logically, a gRPC pin can stand for server endpoint and client endpoint. For these cases, th2 specification contains corresponding connection types:
+- `connection-type: grpc-server`
+- `connection-type: grpc-client`
+
+<notice info>
+
+`grpc-client` pins affect the box's config map only. Technically, you can connect to gRPC server without created client pins, but it is convenient to have generated endpoints configuration.
+
+</notice>
+
+If `connection-type` is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string.
+
+```yaml
+  pins:
+    - name: server
+      connection-type: grpc-server
+      service-classes:
+        - com.exactpro.th2.act.grpc.ActService
+        - com.exactpro.th2.box.grpc.BoxService
+    - name: to_check1
+      connection-type: grpc-client
+      service-class: com.exactpro.th2.check1.grpc.Check1Service
+```
+<notice note> 
+
+Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` then the server should contain the same service class in its list.
+
+</notice>
+
+<notice note>
+
+If you want to provide access to gRPC server from external boxes, it is required to create an endpoint in `extended-settings.service.endpoints` option in box configuration.
+
+</notice>
+
+To create an endpoint a box should have:
+
+- `extended-settings.service.enabled`: `true`;
+- `extended-settings.service.type`: type of a native Kubernetes service, which you want to use;
+
+In endpoint options:
+
+- `name` - name of endpoint unique for a box;
+- `targetPort` - Docker container port for listening;
+- `nodePort` - Kubernetes node port for listening;
+
+Example of extended settings:
+
 ```yaml
 extended-settings:
   service:
@@ -60,11 +179,11 @@ extended-settings:
         targetPort: 8080
         nodePort: 31179
 ```
-## Attributes
+## Attributes section
 
-Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box. Attributes section cannot be empty. 
+Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.
 
-The set of attributes varies from one th2 component to another. Each th2 component can have its own mandatory or optional attributes. 
+The set of attributes varies from one th2 component to another. Each th2 component can have its own mandatory or optional attributes.
 
 If you are defining a pin in which data will be published by the current box, you must specify the `publish` attribute; if the pin is supposed to receive data from another box, then you can optionally specify `subscribe`. Although the `subscribe` attribute is optional, it’s still recommended to specify it, to maintain consistency. If the pin is accepting data and the `subscribe` attribute is not specified, then by default the pin will be considered as `subscribe` anyway. You cannot apply both attributes to one pin at the same time. A pin can have either a `publish` or a `subscribe` attribute.
 
@@ -82,9 +201,9 @@ Below is the list of possible attributes for pins. They are grouped in such a wa
 |---|---|---|
 |`first`|Pin transfers messages that are sent <br> from a server to a client.|Used by the **th2-conn** component to retransmit dialog <br> between the **th2-conn** and remote system into the th2.|
 |`second`|Pin transfers messages that are sent <br> from a client to a server.|Used by the **th2-conn** component to retransmit dialog <br> between the **th2-conn** and remote system into the th2.|
-    
+
 ### th2-codec message type attributes:
-There are two types of **th2-codec**: _decoder_ and _encoder_. Every type of **th2-codec** connection has `subscribe` and `publish` pins. The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. th2-codec works with either parsed or raw messages. 
+There are two types of **th2-codec**: _decoder_ and _encoder_. Every type of **th2-codec** connection has `subscribe` and `publish` pins. The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. th2-codec works with either parsed or raw messages.
 
 |Attribute|Description|Usage|
 |---|---|---|
@@ -110,21 +229,3 @@ Please note that there are also `general_decoder_in`, `general_decoder_out`, `ge
 |`send`|Pin transfers event batches.|Used by any box that publishes events. **th2-estore** <br> consumes this type of messages.|
 |`event`|Indicates that the messages that come into this pin <br> will be stored in Cradle.|Used by pins that produce data to the th2, <br> for example, conn, read, this attribute <br> should be marked.|
 |`store`|Special attribute for the **th2-conn** pin to receive data <br> from act or other components.|**th2-conn**|
-
-## Filters
-Additionally, a pin can have a filter section. In this case, the  message is sent or received via this particular pin only if this message complies with the filter parameter.
-```yaml
-- name: fix_to_send
-  connection-type: mq
-  attributes: [send, parsed, subscribe]
-  filters:
-    - metadata:
-        - field-name: session_alias
-          expected-value: conn1_session_alias
-          operation: EQUAL
-```
-Filter options available: 
-- `EQUAL`;
-- `NOT_EQUAL`;
-- `EMPTY`;
-- `NOT_EMPTY`.

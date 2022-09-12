@@ -98,9 +98,10 @@ spec:
 
 gRPC links are described in the section `router-grpc`.
 
-`Router-grpc` links can additionally have `service-class` and strategy properties.
+<notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. For newer releases, the properties are to be specified in configurations of pins ([More details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
 
-Example of gRPC link:
+
+An example of a gRPC link:
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -112,13 +113,9 @@ spec:
     router-grpc:
       - name: act-to-check1
         from:
-          service-class: com.exactpro.th2.check1.Check1Handler
-          strategy: filter
           box: act-fix
           pin: to_check1
         to:
-          service-class: com.exactpro.th2.check1.grpc.Check1Service
-          strategy: robin
           box: check1
           pin: server
 ```
@@ -177,25 +174,18 @@ spec:
 #####################ACT-FIX -> CHECK1########################################
       - name: act-to-check1
         from:
-          service-class: com.exactpro.th2.check1.Check1Handler
-          strategy: filter
           box: act-fix
           pin: to_check1
         to:
-          service-class: com.exactpro.th2.check1.grpc.Check1Service
-          strategy: robin
           box: check1
           pin: server
 ##############################################################################
 #####################RECON -> UTIL############################################
       - name: recon-to-util
         from:
-          strategy: filter
           box: recon
           pin: to_util
         to:
-          service-class: com.exactpro.th2.util.grpc.MessageComparatorService
-          strategy: robin
           box: util
           pin: server
 ```
