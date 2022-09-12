@@ -22,7 +22,7 @@ There are two types of schema environment components:
 ![](/img/fundamentals/th2-infra-2.png)
 
 Learn more about th2 infrastructure:
-- [th2-infra](./infrastructure/th2-infra-repo)
+- [th2-infra](./infrastructure/th2-infra-repository)
 - [th2-infra-schema](./infrastructure/th2-infra-schema)
 - [th2-infra components](./infrastructure/infra-components)
 
