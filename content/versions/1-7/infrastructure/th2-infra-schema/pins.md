@@ -8,12 +8,12 @@ Each th2 box has a number of pins. Pins are used by a box (available only for `T
 
 ## Configuration
 
-The available configuration fields for a pin are listed below.
+The configuration fields available for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
 - `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`)
 - `attributes` (optional) - define the type of message streams which go through this particular pin;
-- `settings` (optional) - section specifies two settings that configure which strategy will be used while declaring queues in rabbitMq: `storageOnDemand` and `queueLength`;
+- `settings` (optional) – the section specifies two settings determining the strategy to be used to declare queues in RabbitMQ: `storageOnDemand` and `queueLength`;
 - `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
 - `service-class` – should be specified if the pin is a gRPC-client (in other words, if it is specified as the “from” component in a config for any link);
 - `service-classes` – should be specified if the pin is a gRPC-server (in other words, if the pin is specified as the “to” component in a config for any link).
@@ -121,17 +121,17 @@ pins:
 
 gRPC pins use gRPC technology for synchronous client-server API calls between different boxes in the cluster.
 
-Logically gRPC pin can stand for server endpoint and client endpoint. For these cases th2 specification contains appropriate connection types:
+Logically, a gRPC pin can stand for server endpoint and client endpoint. For these cases, th2 specification contains corresponding connection types:
 - `connection-type: grpc-server`
 - `connection-type: grpc-client`
 
 <notice info>
 
-`grpc-client` pins affect on the box's config map only. Technically, you can connect to gRPC server without created client pins, but is convenient to have generated endpoints configuration.
+`grpc-client` pins affect the box's config map only. Technically, you can connect to gRPC server without created client pins, but it is convenient to have generated endpoints configuration.
 
 </notice>
 
-If `connection-type` is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string
+If `connection-type` is `grpc-server`, you should specify `service-classes` as array; if `grpc-client` - `service-class` as string.
 
 ```yaml
   pins:

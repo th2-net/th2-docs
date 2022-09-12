@@ -101,7 +101,7 @@ gRPC links are described in the section `router-grpc`.
 <notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. For newer releases, the properties are to be specified in configurations of pins ([More details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
 
 
-Example of a gRPC link:
+An example of a gRPC link:
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
