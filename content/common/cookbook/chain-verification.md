@@ -4,7 +4,7 @@ weight: 20
 read_before:
 - title: Check1
   icon: mdi-script-text-play-outline
-  href: ./1-5-4/boxes/exactpro/check1
+  href: ../modules/check1
 ---
 ## Overview
 **check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. The user can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
