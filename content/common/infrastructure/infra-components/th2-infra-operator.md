@@ -36,16 +36,97 @@ Mostly, **infra-operator** communicates with other infra components using Kubern
 
 ## Configuration
 
-**infra-operator** can be configured on 2 levels:
+Settings for **infra-operator** should be defined in the `infraOperator` section of the values file. They will be applied during deployment of **th2-infra** into the Kubernetes cluster. 
 
-1. On the level of infra components
-2. Internal configuration
+All possible parameters with the descriptions are provided below:
 
-### Part of infra components
+```yaml
+# infra-operator.yml
+# version 1.5.4
+namespacePrefixes:
+  - namespace-
+  - prefixes-
+# these prefixes are used to filter namespaces that infra-operator will manage as a schema
+chart:
+# this section includes information about git or helm repository as a source of helm charts
+# you can specify either git or helm repository
+  # git repository parameters 
+  git: git@some.server.com:some/repository
+  # git repository URL for helm charts used by Th2 Custom Resources
+  
+  ref: branch
+  # branch for helm charts
+  path: /path/to/charts
+  # repository path for charts
+  # helm repository parameters 
+  repository: https://helm.server.com/some/repository
+  # helm repository URL for helm charts used by Th2 Custom Resources
+  name: components
+  # the name of the Helm chart without an alias
+  version: 3.2.0
+  # the targeted Helm chart version
+rabbitMQManagement:
+  host: host
+  # RabbitMQ host used for managing vHosts and users
+  
+  port: 8080
+  # RabbitMQ port
+  
+  username: username
+  # RabbitMQ management username
+  
+  password: password
+  # password for management user
+  
+  persistence: true
+  # determines if the RabbitMQ resources are persistent or not
+  
+  schemaPermissions:
+  # this section describes what permissions schema RabbitMQ user will have on its own resources
+  # see RabbitMQ documentation to find out how permissions are described
+    configure: pattern
+    # configuration permissions on resources
+    
+    read: pattern
+    # read permission on resources
+    
+    write: pattern
+    # write permission on resources
+    
+configMaps:
+# this section contains names of the ConfigMaps that are mounted in the boxes
+  rabbitMQ: rabbit-mq-config-map
+  # RabbitMQ server connectivity ConfigMap
+k8sUrl: kubernetes-address
+# address for kubernetes cluster. 
+# this will be used as host in gRPC config for boxes that are running in node network or externally
+schemaSecrets:
+# this section contains secret names that are mounted in the boxes
+  rabbitMQ: rabbitmq
+  # secret name to connect to RabbitMQ server
+  cassandra: cassandra
+  # secret name to connect to cassandra database
+  
+ingressHost: hostName
+# host name that will be used inside ingress rules
+```
+<spoiler title="Example of infra-operator config in service.values.yaml">
 
-Settings for **infra-operator** should be defined in the section of special config map, which is applied during **th2-infra** installation to the Kubernetes cluster.
+```yaml
+# service.values.yaml
+# ...
+infraOperator:
+  image:
+    repository: ghcr.io/th2-net/th2-infra-operator
+    tag: 3.1.3
+  config:
+    namespacePrefixes: 
+    - "th2-"
+```
 
-An example below provides default values for the configuration:
+</spoiler>
+
+<spoiler title="Default values for infra-operator section">
 
 ```yaml
 # service.values.yaml
@@ -74,94 +155,4 @@ infraOperator:
         write: ".*"
 ```
 
-### Internal
-
-The **infra-operator** configuration is given with the  `infra-operator.yml` file that should be on the classpath of the application. The configuration file itself must be created by the person responsible for installing th2 and filled with predetermined values. 
-
-The template of the `infra-operator.yml` file is given below:
-
-```yaml
-# infra-operator.yml
-# version 1.5.4
-
-namespacePrefixes:
-  - namespace-
-  - prefixes-
-# these prefixes are used to filter namespaces that infra-operator will manage as a schema
-
-chart:
-# this section includes information about git or helm repository as a source of helm charts
-# you can specify either git or helm repository
-
-  # git repository parameters 
-  git: git@some.server.com:some/repository
-  # git repository URL for helm charts used by Th2 Custom Resources
-  
-  ref: branch
-  # branch for helm charts
-
-  path: /path/to/charts
-  # repository path for charts
-
-  # helm repository parameters 
-  repository: https://helm.server.com/some/repository
-  # helm repository URL for helm charts used by Th2 Custom Resources
-
-  name: components
-  # the name of the Helm chart without an alias
-
-  version: 3.2.0
-  # the targeted Helm chart version
-
-rabbitMQManagement:
-  host: host
-  # RabbitMQ host used for managing vHosts and users
-  
-  port: 8080
-  # RabbitMQ port
-  
-  username: username
-  # RabbitMQ management username
-  
-  password: password
-  # password for management user
-  
-  persistence: true
-  # determines if the RabbitMQ resources are persistent or not
-  
-  schemaPermissions:
-  # this section describes what permissions schema RabbitMQ user will have on its own resources
-  # see RabbitMQ documentation to find out how permissions are described
-
-    configure: pattern
-    # configuration permissions on resources
-    
-    read: pattern
-    # read permission on resources
-    
-    write: pattern
-    # write permission on resources
-    
-configMaps:
-# this section contains names of the ConfigMaps that are mounted in the boxes
-
-  rabbitMQ: rabbit-mq-config-map
-  # RabbitMQ server connectivity ConfigMap
-
-k8sUrl: kubernetes-address
-# address for kubernetes cluster. 
-# this will be used as host in gRPC config for boxes that are running in node network or externally
-
-schemaSecrets:
-# this section contains secret names that are mounted in the boxes
-
-  rabbitMQ: rabbitmq
-  # secret name to connect to RabbitMQ server
-
-  cassandra: cassandra
-  # secret name to connect to cassandra database
-  
-ingressHost: hostName
-# host name that will be used inside ingress rules
-
-```
+</spoiler>
