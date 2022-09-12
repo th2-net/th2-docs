@@ -14,7 +14,7 @@ The configuration fields available for a pin are listed below.
 - `connection-type` (mandatory) - sets the connection type used by the pin (starting from th2-infra v1.6.0, the options are `mq`, `grpc-client` or `grpc-server`; for earlier versions, possible values are `mq` or `grpc`)
 - `attributes` (optional) - define the type of message streams which go through this particular pin;
 - `settings` (optional) – the section specifies two settings determining the strategy to be used to declare queues in RabbitMQ: `storageOnDemand` and `queueLength`;
-- `filters` (optional and available only for `mq` connection type) - section describes what messages/metadate can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
+- `filters` (optional and available only for `mq` connection type) - the section describes what messages/metadata can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
 - `service-class` – should be specified if the pin is a gRPC-client (in other words, if it is specified as the “from” component in a config for any link);
 - `service-classes` – should be specified if the pin is a gRPC-server (in other words, if the pin is specified as the “to” component in a config for any link).
 - `strategy` - defines the strategy of requests. Possible values: `filter` or `robin`. *Default*: `robin`.
@@ -96,7 +96,7 @@ For example:
 ### Settings section for MQ connection type
 
 MQ pins transfer messages through RabbitMQ - queue manager used by th2.
-If `connection-type: mq` we can specify `settings` section. Under this section we can specify two settings that configure which strategy will be used while declaring queues in rabbitMq.
+If `connection-type: mq` we can specify `settings` section. Under this section we can specify two settings that configure which strategy will be used while declaring queues in RabbitMQ.
 - `storageOnDemand` (optional) - option which defines an overflow strategy which will be drop-head if set to `false`. *Default*: `true`.
 - `queueLength` (optional) - the length of the queue created by the operator. *Default*: 1000 msg.  
   Important: `queueLength` isn't used if `storageOnDemand` is set to `true`.
@@ -146,26 +146,26 @@ If `connection-type` is `grpc-server`, you should specify `service-classes` as a
 ```
 <notice note> 
 
-Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` them the server should contain the same service class in its list.
+Important note about `service-classes` and `service-class` is that they must be compatible for link to be applied. For example, if the client has a service class `com.exactpro.th2.box.grpc.BoxService` then the server should contain the same service class in its list.
 
 </notice>
 
 <notice note>
 
-If you want to provide access to gRPC server from external boxes, it is required to create enpoint in `extended-settings.service.endpoints` option in box configuration.
+If you want to provide access to gRPC server from external boxes, it is required to create an endpoint in `extended-settings.service.endpoints` option in box configuration.
 
 </notice>
 
-To create endpoint box should have:
+To create an endpoint a box should have:
 
 - `extended-settings.service.enabled`: `true`;
-- `extended-settings.service.type`: type of native Kubernetes service, which you want to use;
+- `extended-settings.service.type`: type of a native Kubernetes service, which you want to use;
 
 In endpoint options:
 
-- `name` - name of endpoint unique for box;
-- `targetPort` - docker container port for listening;
-- `nodePort` - kubernetes node port for listening;
+- `name` - name of endpoint unique for a box;
+- `targetPort` - Docker container port for listening;
+- `nodePort` - Kubernetes node port for listening;
 
 Example of extended settings:
 
