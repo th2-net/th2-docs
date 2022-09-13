@@ -7,7 +7,8 @@ read_before:
   href: ../modules/check1
 ---
 ## Overview
-**check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. The user can request verification by submitting a **rule request** which invokes a **rule** found in **check1**.
+**check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. 
+The user can request verification by submitting a <term term='rule request'>rule request</term> which invokes a <term term='rule (check1)'>rule</term> found in **check1**.
 
 <notice info>
 <!-- TODO: add these as hover over terms -->
@@ -25,7 +26,7 @@ A system message is also called an execution report and contains details about t
 The system can return more than one message in response to an order.
 
 <!-- TODO: change this sentence to better reflect the articles idea -->
-This section explains how **check1** identifies system messages using **chain verification** with `chain_id`.
+This section explains how **check1** identifies system messages using chain verification with `chain_id`.
 
 ## Examples and scenario
 Imagine a scenario where the user submits two consecutive trade orders (messages) to the system.
@@ -38,20 +39,26 @@ The user will expect 2 messages from the system in response to each order messag
 <center>
 <figcaption>
 
-Figure 1. A chain of system messages (responses) from the same session alias in the same direction.
+Figure 1. A chain of system messages (responses) from the same `session alias` in the same `direction`.
 
 </figcaption>
 </center>
 
-Figure 1 shows a message queue with the messages from the same **session alias** and `direction = FIRST` (from the system). Two <term term='checkpoint'>checkpoints</term> have been created after the successful submission of each order.
+Figure 1 shows a message queue with the messages from the same `session alias` and `direction = FIRST` (from the system). 
+Two <term term='checkpoint'>checkpoints</term> have been created after the successful submission of each order.
 
-**check1** begins verification at checkpoint1, after receiving the first `CheckSequenceRuleRequest`. The user is expecting message 4 and message 5 as responses to order message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
+**check1** begins verification at checkpoint1, after receiving the first `CheckSequenceRuleRequest`. 
+The user is expecting message 4 and message 5 as responses to order message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
 
-Similarly, **check1** begins verification at checkpoint2 and identifies message 7 and message 8. The user is informed about the successful verification for each order.
+Similarly, **check1** begins verification at checkpoint2 and identifies message 7 and message 8. 
+The user is informed about the successful verification for each order.
 
-However, message 6 was not identified. Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
+However, message 6 was not identified. 
+Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. 
+Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
 
-Message 6 is an **extra message**. Identification of extra messages is important as their presence can indicate a prevailing issue in the system under test.
+Message 6 is an extra message. 
+Identification of extra messages is important as their presence can indicate a prevailing issue in the system under test.
 
 <notice info>
 <!-- TODO : make into hover over terms -->
@@ -65,7 +72,9 @@ Any message that passes `PreFilter` but is not identified by the main filter is 
 
 After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start verification from `checkpoint1`, but the user now requests a <term term='chain id'>`chain_id`</term> from the first `CheckSequenceRuleRequest`.
 
-**check1** creates the `chain_id` caret which acts as a pointer to the verified message. This caret stops at the last verified message. The `chain_id` of message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
+**check1** creates the `chain_id` caret which acts as a pointer to the verified message. 
+This caret stops at the last verified message. 
+The `chain_id` of message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
 
 ![](/img/cookbook/chain-verification/chain_id.png "Figure2.chain_id")
 
@@ -77,7 +86,8 @@ Figure 2. `chain_id` caret marks the last verified message, which is used as the
 </figcaption>
 </center>
 
-The user can now request this `chain_id` in their second `CheckSequenceRuleRequest` and **check1** will start verifying from the message 6. **check1** will identify the message 6 as an extra system response and inform the user that there is an extra message.
+The user can now request this `chain_id` in their second `CheckSequenceRuleRequest` and **check1** will start verifying from the message 6. 
+**check1** will identify the message 6 as an extra system response and inform the user that there is an extra message.
 
 ![](/img/cookbook/chain-verification/chain_id2.png "Figure3.chain_id2")
 <center>
@@ -88,9 +98,12 @@ Figure 3. After the second `CheckSequenceRuleRequest`
 </figcaption>
 </center>
 
-**check1** temporarily stores the `chain_id`. The storage time is determined by the **check1** custom configuration `cleanup-older-than` with `cleanup-time-unit`. Therefore, `chain_id` is removed once the verified message chain is removed. 
+**check1** temporarily stores the `chain_id`. 
+The storage time is determined by the **check1** custom configuration `cleanup-older-than` with `cleanup-time-unit`. 
+Therefore, `chain_id` is removed once the verified message chain is removed. 
 
-Using this stored `chain_id` we can link as many `CheckSequenceRuleRequests` as required to conduct a complete check of the whole message chain. This act of **"chaining"** rule requests together is called chain verification. 
+Using this stored `chain_id` we can link as many `CheckSequenceRuleRequests` as required to conduct a complete check of the whole message chain. 
+This act of "chaining" rule requests together is called chain verification. 
 
 ### Example 4 : Messages from different instruments
 
@@ -104,7 +117,9 @@ Figure 4. Checking messages from different instruments
 </figcaption>
 </center>
 
-We can request two `CheckSequenceRuleRequests` from the checkpoint - the first for verification of two messages on `Instrument1` and the second for verification of two messages on `Instrument2`. Then the two `chain_id` carets will be created, with each of them stopping when the desired messages are found. Each desired message is searched based on the key fields of each individual filter in `CheckSequenceRuleRequest`.
+We can request two `CheckSequenceRuleRequests` from the checkpoint - the first for verification of two messages on `Instrument1` and the second for verification of two messages on `Instrument2`. 
+Then the two `chain_id` carets will be created, with each of them stopping when the desired messages are found. 
+Each desired message is searched based on the key fields of each individual filter in `CheckSequenceRuleRequest`.
 
 
 ### Usage Example for chain_id
