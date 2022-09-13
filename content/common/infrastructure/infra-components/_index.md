@@ -5,11 +5,11 @@ related: []
 
 ---
 
-th2-infra components are the main part of the **th2-core**, one of the components of the th2 itself. While the th2 environments are responsible for testing your system, the infra components provide control over these environments. 
+The th2-infra components are the th2 infrastructure. While infra-schema contains the th2 test environment responsible for testing your system, the other infra components provide control over these environments. 
 
 <!--more-->
 
-Infra components are the intermediate layer between the user and the Kubernetes cluster. This layer changes the th2 environments in accordance with the state of the **th2-infra-schema**.
+These infra components are the intermediate layer between the user and the Kubernetes cluster. This layer changes the th2 environments in accordance with the state of the **th2-infra-schema**.
 
 ![](/img/fundamentals/infra/infra-comp-1.png)
 
