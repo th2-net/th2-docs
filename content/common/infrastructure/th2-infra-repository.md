@@ -11,7 +11,7 @@ th2-infra is a repository containing a set of charts and values for the deployme
 
 <!--more-->
 
-1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator, allowing one to declaratively manage Helm chart releases. The th2 uses this component to create/edit/delete schema environments.
+1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator, allowing one to declaratively manage Helm chart releases. 
 2. [RabbitMQ](https://www.rabbitmq.com/) – one of the most popular open source message brokers. The th2 components use RabbitMQ to send and receive messages.
 3. [Apache Cassandra](https://cassandra.apache.org/_/index.html) – a NoSQL distributed database. The th2 uses Cassandra to store the history of events and messages.  
 4. [K8s Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) – a web-based Kubernetes user interface. Here you can track Kubernetes objects and their hardware usage.
