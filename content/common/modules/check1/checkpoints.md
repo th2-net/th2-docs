@@ -28,9 +28,9 @@ Figure 1. Associations with Checkpoint class.
 </center>
 
 
-After receiving a `CheckpointRequest` from the **th2-act** methods or directly from the script,
+After receiving a `CheckpointRequest` from the **act** methods or directly from the script,
 **check1** will locate the last message in all queues, note the sequence number and timestamps 
-and send it to the **th2-act** component via `CheckPointResponse` .
+and send it to the **act** component via `CheckPointResponse` .
 
 ![](/img/boxes/exactpro/check1/checkpoint_path.png "Figure 2.Checkpoint path")
 <center> 
@@ -51,7 +51,8 @@ Figure 3. A queue of messages from the same session alias arranged according to 
 
 ## Chain ID
 
-A chain id is similar to a checkpoint and is created by **check1**. The `chain_id` caret acts as a pointer and marks the last verified message in a message queue.
+A chain id is similar to a checkpoint and is created by **check1**. 
+The `chain_id` caret acts as a pointer and marks the last verified message in a message queue.
 
 Chain IDs are usually used to continue verification.
 
@@ -64,7 +65,10 @@ Figure 4. The structure of ChainID class.
 </center>
 
 
-When the `chain_id` parameter in a rule request is `Null` **check1** generates a `chain_id` caret that points to the verified message. After verification is completed, this `chain_id` caret stops at the last verified message of the message queue. **check1** returns the `chain_id` value in the response and this value is sent back with the next rule request to continue verification. **check1** temporarily stores the `chain_id` value. The storage time allocated is set by the **check1** custom configuration `cleanup-older-than` and `cleanup-time-unit`.
+When the `chain_id` parameter in a rule request is `Null` **check1** generates a `chain_id` caret that points to the verified message. 
+After verification is completed, this `chain_id` caret stops at the last verified message of the message queue. 
+**check1** returns the `chain_id` value in the response and this value is sent back with the next rule request to continue verification. 
+**check1** temporarily stores the `chain_id` value. The storage time allocated is set by the **check1** custom configuration `cleanup-older-than` and `cleanup-time-unit`.
 
 Joining several rule requests to continuously check the whole message queue is known as chain verification.
 

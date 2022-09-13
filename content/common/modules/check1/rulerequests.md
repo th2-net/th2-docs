@@ -9,16 +9,19 @@ related:
 ---
 
 ## The need for verification
-When an order message is placed and sent to the exchange (system), the exchange responds with the messages of its own.  These system messages (execution reports) contain information about the placed order, the current status of the order, the price and quantity of the shares and various other required details about the order’s execution.
+When an order message is placed and sent to the exchange (system), the exchange responds with the messages of its own. 
+These system messages (execution reports) contain information about the placed order, the current status of the order, the price and quantity of the shares and various other required details about the order’s execution.
 
-The goal of th2 is to check whether the system is performing order execution as expected. One way to verify that the system is properly functioning is to verify the messages sent by the system for accuracy.
+The goal of th2 is to check whether the system is performing order execution as expected. 
+One way to verify that the system is properly functioning is to verify the messages sent by the system for accuracy.
 
 This process of meeting expectations is known as verification and is conducted by the th2 component **check1**.
 
 Once verification is complete you are warned about all identified issues.
 
 ## The script
-The th2-script is code written by the user and contains a set of test scenarios and requests to be sent to the th2 components. In regards to **check1**, the **script** contains the rule requests that you will submit to the **check1** component via gRPC to begin the verification process.
+The **script** in th2 is code written by the user and contains a set of test scenarios and requests to be sent to the th2 components. 
+In regards to **check1**, the **script** contains the rule requests that you will submit to the **check1** component via gRPC to begin the verification process.
 
 <!-- TODO: Create term for gRPC -->
 <notice info>
@@ -46,7 +49,8 @@ The expected values are determined by the user.
 
 ## Rules
 
-**check1** contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. These rules are unique to **check1** and are found only in the **check1**.
+**check1** contains rules, which are a set of logical steps used to conduct the comparison between the expected and the actual results. 
+These rules are unique to **check1** and are found only in the **check1**.
 
 The rules presented in **check1** are:
 
@@ -66,7 +70,9 @@ The `CheckSequenceRule` is supplemented by `SilenceCheck`.
 
 ## Rule requests
 
-You can initiate the verification process by submitting the rule requests to the **check1**. Once these rules requests are received, **check1** begins verification by executing the respective rule. For example, CheckSequenceRuleRequest calls CheckSequenceRule .
+You can initiate the verification process by submitting the rule requests to the **check1**. 
+Once these rules requests are received, **check1** begins verification by executing the respective rule. 
+For example, `CheckSequenceRuleRequest` calls `CheckSequenceRule`.
 
 These are the three rule requests:
 
