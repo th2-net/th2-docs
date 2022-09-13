@@ -10,23 +10,28 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 --- 
 
-`th2-infra-mgr` (from th2 infrastructure manager) is the component in the [th2 infra components](../infra-components). It is installed alongside with the th2 framework infrastructure. Basically, th2-infra-mgr is the one of middle steps of interaction between user and Kubernetes cluster in building system for tests.
+**infra-mgr** (from th2 infrastructure manager) is the component in the [infra components](../infra-components). 
+It is installed alongside with the th2 framework infrastructure. 
+Basically, **infra-mgr** is the one of middle steps of interaction between user and Kubernetes cluster in building system for tests.
 
 <!--more-->
 
 ## Functionality
 
-The th2 infra components control all infrastructure of th2 environments, from RabbitMQ exchanges to Kubernetes Pods.  As for **infra-mgr**, it interacts with the **infra-schema**, **infra-editor**, and with Kubernetes cluster during process of changing th2 environment. 
+The th2 infra components control all infrastructure of th2 environments, from RabbitMQ exchanges to Kubernetes Pods.  
+As for **infra-mgr**, it interacts with the **infra-schema**, **infra-editor**, and with Kubernetes cluster during process of changing th2 environment. 
 
 [![img](/img/boxes/exactpro/infra-mgr/infra-mgr-functionality.png)](https://www.plantuml.com/plantuml/png/VP71QiCm38RlUWgTDXYai5qsnYY5ibFPfTVIWs8hYMbi5rc1zUsdrApPO2mNnvy-IJzuKvH4fpZ2o9sYPfJG3ue-23iDEG4ST7XgGkg46lP1i-3RtPcJ2-FwY5ImmfzQxAiZ9QVg684kZvu5Yniu4XvWyIk2nZveyoSNS5aOVBWc80b6nf1E1Mxp6vTJ5_hLnP8V0UocaaVSJIrBOhK6yAJKKc7SKYcKl110pOgDD6kSKxxYkn6i0M0cpMIbUhVgdid_WRSvHcjp0wMU2rJ3X6MzIH-Kg6TC5BcSoN7vLzlkxnVXbjXM2PCodlXIXpm0f6oWpQevOkuM6H1ttngICBfhhqShj1Vy_JuXpG0VLyzepNQ-0DivpuQD_Krn_080)
 
 **infra-mgr** receives necessary information about th2 environment from an **infra-schema** which describes a target state of cluster via a set of `.yaml` config files.
 
-Also, there is **infra-editor**, which can be called visualization of **infra-mgr**. **infra-editor** is a web based GUI for working with th2 state. When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
+Also, there is **infra-editor**, which can be called visualization of **infra-mgr**. **infra-editor** is a web based GUI for working with th2 state. 
+When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
 
 ### Infra schema
 
-**infra-mgr** continiously reads **infra-schema** for updates. Also it can apply changes to the **infra-schema**, in some configuration cases.
+**infra-mgr** continiously reads **infra-schema** for updates. 
+Also it can apply changes to the **infra-schema**, in some configuration cases.
 
 ### Kubernetes cluster
 
@@ -34,12 +39,13 @@ Depending on the configuration for th2 environment, **infra-mgr** can commit 3 t
 
 1. Create namespace for each th2 environment;
 2. Create basic ConfigMaps for th2 environment;
-3. Apply th2 Custom Resources which will be cought by **infra-operator**;
+3. Apply th2 Custom Resources which will be caught by **infra-operator**;
 4. Delete existing namespaces, Deployments, Pods.
 
 ### Cassandra
 
-When new th2 environment is created, **infra-mgr** creates special config map for the Cassandra database. Then with config map created **estore** or **mstore** creates new keyspace in the Cassandra database for storing messages and events. 
+When new th2 environment is created, **infra-mgr** creates special config map for the Cassandra database. 
+Then with config map created **estore** or **mstore** creates new keyspace in the Cassandra database for storing messages and events. 
 
 <notice info>
 
@@ -107,7 +113,8 @@ infraMgr:
 
 ### th2 environment
 
-`infra-mgr-config.yml` is a setting file, in which you configure synchronization type between Git and Kubernetes. There are 4 synchronization options:
+`infra-mgr-config.yml` is a setting file, in which you configure synchronization type between Git and Kubernetes. 
+There are 4 synchronization options:
 
 1. `off` - No synchronization will be done;
 2. `deny` - No synchronization will be done and associated namespaces will be removed from Kubernetes;

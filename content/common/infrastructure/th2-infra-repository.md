@@ -7,7 +7,8 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 ---
 
-th2-infra is a repository containing a set of charts and values for the deployment of infrastructure components. Also, it provides monitoring capabilities that are technologically supported by a number of third-party open-source solutions:
+[th2-infra](https://github.com/th2-net/th2-infra) is a repository containing a set of charts and values for the deployment of infrastructure components. 
+Also, it provides monitoring capabilities that are technologically supported by a number of third-party open-source solutions:
 
 <!--more-->
 
@@ -19,7 +20,8 @@ th2-infra is a repository containing a set of charts and values for the deployme
 6. [Prometheus](https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/) – an open source monitoring system for which Grafana provides out-of-the-box support.
 7. [Grafana Loki](https://grafana.com/oss/loki/) – a horizontally-scalable, highly-available, multi-tenant log aggregation system.
 
-After any new schema environment is being configured, it connects to RabbitMQ, Cassandra, Dashboard, and Grafana by itself.  Configuration for this is stored in the [`th2-infra`](https://github.com/th2-net/th2-infra) repository.
+After any new schema environment is being configured, it connects to RabbitMQ, Cassandra, Dashboard, and Grafana by itself.  
+Configuration for this is stored in the [th2-infra](https://github.com/th2-net/th2-infra) repository.
 
 ![](/img/fundamentals/th2-infra-3.png)
 
