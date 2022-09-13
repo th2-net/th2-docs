@@ -13,10 +13,10 @@ th2 allows users to control multiple schema environments for different testing l
 
 There are two types of schema environment components:
 
-1. **Core components** contain:
-   - Events and messages store (events and messages that are produced by the whole environment)
-   - Components for accessing data
-   - GUI to display events and messages
+1. **Core components** are responsible for:
+   - saving data from the testing environment to the database. 
+   - fetching data from the database
+   - displaying events and messages using a GUI
 2. **Modules** - components of this type are responsible for any custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 ![](/img/fundamentals/th2-infra-2.png)
