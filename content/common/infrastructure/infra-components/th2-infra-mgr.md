@@ -35,7 +35,7 @@ Depending on the configuration for th2 environment, **infra-mgr** can commit 3 t
 1. Create namespace for each th2 environment;
 2. Create basic ConfigMaps for th2 environment;
 3. Apply th2 Custom Resources which will be cought by **infra-operator**;
-4. Delete existing namespaces, Deployments, Pods.
+4. Deletes existing custom resources.
 
 ### Cassandra
 
