@@ -7,7 +7,7 @@ weight: 0
 
 <!--more-->
 
-For the open-sourced part of th2, these repositories are created and maintained on GitHub. The organizational structure of th2-related code is explained in the subsection [th2-net organization on GitHub](./architecture/th2-net-on-github). Dependencies schema is provided [here](https://raw.githubusercontent.com/d0rich/th2-dependencies/master/output/schema.svg). Main component groups and their current status on GitHub can be seen on the [Dashboard](./architecture/dashboard).
+For the open-sourced part of th2, these repositories are created and maintained on GitHub. The organizational structure of th2-related code is explained in the subsection [th2-net organization on GitHub](./1-7/fundamentals/th2-net-on-github). Dependencies schema is provided [here](https://raw.githubusercontent.com/d0rich/th2-dependencies/master/output/schema.svg). Main component groups and their current status on GitHub can be seen on the [Dashboard](./1-7/fundamentals/th2-net-on-github/dashboard).
 
 From the *functional* perspective, the framework consists of the following blocks:
 
