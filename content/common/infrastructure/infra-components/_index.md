@@ -77,7 +77,7 @@ There are several scenarios for the infra components.
 <!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
 
 1. Create new schema with **th2-infra-editor**  
-  The schema is edited manually by default, but you can change it with the **th2-infra-editor** Web GUI.
+  The schema is edited manually, but you can change it with the **th2-infra-editor** Web GUI.
 
 [![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
 
