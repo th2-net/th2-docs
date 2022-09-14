@@ -10,7 +10,7 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 --- 
 
-**infra-operator** (from th2 infrastructure operator) is one of the components in the th2 infra components, which works with the current state of th2 system. 
+**infra-operator** (th2 infrastructure operator) is one of th2 infra components that works with the current state of th2 system. 
 It is installed along with the th2 framework infrastructure.
 
 Basically, **infra-operator** is an implementation of Kubernetes custom controller. 
