@@ -50,7 +50,7 @@ Two <term term='checkpoint'>checkpoints</term> have been created after the succe
 After receiving the first `CheckSequenceRuleRequest`, **check1** begins verification at `checkpoint1`. 
 The user is expecting Message 4 and Message 5 as responses to the order Message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
 
-Similarly, **check1** begins verification at checkpoint2 and identifies message 7 and message 8. 
+Similarly, **check1** begins verification at `checkpoint2` and identifies Message 7 and Message 8. 
 The user is informed about the successful verification for each order.
 
 However, message 6 was not identified. 
