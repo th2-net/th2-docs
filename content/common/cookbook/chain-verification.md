@@ -100,7 +100,7 @@ Figure 3. After the second `CheckSequenceRuleRequest`
 
 **check1** temporarily stores the `chain_id`. 
 The storage time is determined by the **check1** custom configuration `cleanup-older-than` with `cleanup-time-unit`. 
-Therefore, `chain_id` is removed once the verified message chain is removed. 
+Therefore, once the verified message chain is removed, `chain_id` is removed as well. 
 
 Using this stored `chain_id` we can link as many `CheckSequenceRuleRequests` as required to conduct a complete check of the whole message chain. 
 This act of "chaining" rule requests together is called chain verification. 
