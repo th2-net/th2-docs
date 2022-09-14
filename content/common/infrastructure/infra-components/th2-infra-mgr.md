@@ -10,7 +10,7 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 --- 
 
-**infra-mgr** (from th2 infrastructure manager) is the component in the [infra components](../infra-components). 
+**infra-mgr** (th2 Infrastructure manager) is one of the th2 [infra components](../infra-components). 
 It is installed alongside with the th2 framework infrastructure. 
 Basically, **infra-mgr** is the one of middle steps of interaction between user and Kubernetes cluster in building system for tests.
 
