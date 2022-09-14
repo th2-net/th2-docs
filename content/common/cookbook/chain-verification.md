@@ -74,7 +74,7 @@ After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start 
 
 **check1** creates the `chain_id` caret which acts as a pointer to the verified message. 
 This caret stops at the last verified message. 
-The `chain_id` of message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
+The `chain_id` of Message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
 
 ![](/img/cookbook/chain-verification/chain_id.png "Figure2.chain_id")
 
