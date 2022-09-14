@@ -4,7 +4,7 @@ weight: 0
 read_before:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../getting-started/requirements/software
+    href: ../../getting-started/requirements/software
 continue_learning:
   - title: Publish infra schema
     href: ./2-infra-schema
@@ -56,7 +56,7 @@ You can find some th2 use cases with provided machines listing.
 
 One machine can combine several types listed here.
 
-You can choose either a full setup, or a [quick setup](#quick-installation) for demo purposes. 
+You can choose either a full setup, or a [quick setup](../../cookbook/quick-setup) for demo purposes. 
 
 
 ## th2 node

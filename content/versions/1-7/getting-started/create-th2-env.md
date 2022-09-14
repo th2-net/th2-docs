@@ -9,10 +9,6 @@ schema_link:
   - title: There should be the link to th2-infra-schema
     href: ''
     icon: mdi-graph
-demo_link:
-  - title:  Demo main scenario
-    href: ../cookbook/demo-main-scenario
-    icon: mdi-language-python
 ---
 
 Understand how testing is going with th2.

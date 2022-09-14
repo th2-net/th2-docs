@@ -217,7 +217,7 @@ Codec never mixes messages from the stream and the general connections.
 
 <notice info>
 
-SEE ALSO: [stream and general pins description](../../fundamentals/pins-and-links/pins#stream-and-general-codec-pins) 
+SEE ALSO: [stream and general pins description](/1-7/infrastructure/th2-infra-schema/pins#stream-and-general-codec-pins) 
 
 </notice>
 

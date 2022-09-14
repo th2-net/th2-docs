@@ -28,7 +28,7 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 
 ## Kubernetes ports
 
-[Check](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports) that certain ports are open on your machines.
+[Certain ports](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports) are open on your machines.
 
 ## Cassandra ports
 
