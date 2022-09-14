@@ -10,9 +10,11 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 --- 
 
-**infra-operator** (from _th2 infrastructure operator_) is one of the components in the th2 infra components, which works with the current state of th2 system. It is installed along with the th2 framework infrastructure.
+**infra-operator** (th2 infrastructure operator) is one of th2 infra components that works with the current state of th2 system. 
+It is installed along with the th2 framework infrastructure.
 
-Basically, **infra-operator** is an implementation of Kubernetes custom controller. It ensures the synchronization between <term term="Custom resource">custom resources</term> in the Kubernetes cluster and the Helm releases in Kubernetes cluster. 
+Basically, **infra-operator** is an implementation of Kubernetes custom controller. 
+It ensures the synchronization between <term term="Custom resource">custom resources</term> and Helm releases in the Kubernetes cluster. 
 
 As the component’s name suggests, **infra-operator** monitors th2 custom resources in the Kubernetes cluster.
 
@@ -30,13 +32,15 @@ Being the component that interacts with schema environment, **infra-operator** h
 - Generates RabbitMQ configs for each resource that needs it.
 - Generates [gRPC](https://grpc.io/docs/) configs for each resource that needs it.
 
-Mostly, **infra-operator** communicates with other infra components using Kubernetes as an intermediary. All the interconnections are displayed on the diagram below.
+Mostly, **infra-operator** communicates with other infra components using Kubernetes as an intermediary. 
+All the interconnections are displayed on the diagram below.
 
 [![img](/img/boxes/exactpro/infra-operator/operator-functionality.png)](https://www.plantuml.com/plantuml/png/XP0nQyCm48Lt_OgRsibBnr92e4kXJI66TWaTPFlP4aYw89qwvhTNDaLs0gNhlUyxlTC-YOwIlLCEev0mHJiPeS56z68vAB7YG2qx48yavg6nOOowuJEY5evAdTQXdo8ztPKaSTXzaKvK9YkmMajMLvmCdB_EJ0rx3XBPqMlk40C4gOvQtNLM3aUbAawNVDbjs4TwiqdWQIpP2vnluQ0JA9y7FUzQnU5Af5ypBEPpMmKr7zaqD-n11prX_f_2tjUr2rbxLkoOaV4Vz6auIOLktwpOvgYap9_qnr9_M_fTY_q6jKYSOr_aFSAGlVi1)
 
 ## Configuration
 
-Settings for **infra-operator** should be defined in the `infraOperator` section of the values file. They will be applied during deployment of **th2-infra** into the Kubernetes cluster. 
+Settings for **infra-operator** should be defined in the `infraOperator` section of the values file. 
+They will be applied during deployment of **infra** into the Kubernetes cluster. 
 
 All possible parameters with the descriptions are provided below:
 

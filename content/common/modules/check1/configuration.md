@@ -51,7 +51,8 @@ spec:
 ```
 
 ### th2-check1 custom configuration
-Some of the **check1** properties are customizable. The customizable parameters, along with their default values are provided in the following code snippet (a part of the config file):
+Some of the **check1** properties are customizable. 
+The customizable parameters, along with their default values are provided in the following code snippet (a part of the config file):
 ```yaml
 {
 custom config:
@@ -67,7 +68,8 @@ custom config:
 }   
 ```
 ### Properties that can be customized
-The following table gives a short description about the customizable properties of the **check1**. You can change these property values to obtain a desired configuration of the **check1**.
+The following table gives a short description about the customizable properties of the **check1**. 
+You can change these property values to obtain a desired configuration of the **check1**.
 
 |Property name|Type|Default Value|Property description|
 |---|---|---|---|

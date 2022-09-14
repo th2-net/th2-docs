@@ -54,11 +54,11 @@ Check if your machine has access to the following endpoints.
 
 Repositories:
 
-- kubernetes-dashboard: https://kubernetes.github.io/dashboard/
-- flux: https://charts.fluxcd.io
-- ingress-nginx: https://kubernetes.github.io/ingress-nginx
-- loki: https://grafana.github.io/loki/charts
-- th2: https://th2-net.github.io
+- Kubernetes dashboard: `https://kubernetes.github.io/dashboard/`
+- FluxCD: `https://charts.fluxcd.io`
+- Ingress NGINX: `https://kubernetes.github.io/ingress-nginx`
+- Loki: `https://grafana.github.io/loki/charts`
+- th2: `https://th2-net.github.io`
 
 <notice note>
 
@@ -68,10 +68,12 @@ to a resource is broken, you'll see a `this site can’t be reached` error.
 </notice>
 
 Container registries:
-- ghcr.io
-- quay.io
-- docker.io
-- k8s.gcr.io
+- `ghcr.io`
+- `quay.io`
+- `docker.io`
+- `k8s.gcr.io`
+
+<!--Instructions about how to check accessibility needed--> 
 
 <notice note>
 

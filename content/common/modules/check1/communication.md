@@ -11,22 +11,23 @@ related:
 ## Learn more:
 Check interacts with other th2 components in th2 through gRPC and RabbitMQ.
 
-- Read more about **[gRPC](https://grpc.io/)**
+- Read more about [gRPC](https://grpc.io/)
 
 <!-- TODO: Read more about th2 gRPC modules here -->
 
-- Read more about **[RabbitMQ](https://www.rabbitmq.com/documentation.html)**
+- Read more about [RabbitMQ](https://www.rabbitmq.com/documentation.html)
 
 <!-- TODO: Read about th2 pins here and th2 links  -->
 
 <!-- TODO: Read about th2 components API here -->
 
-- Th2 uses kubernetes. Learn more about kubernetes  **[config maps](https://kubernetes.io/docs/concepts/configuration/configmap/)**
+- Th2 uses kubernetes. Learn more about kubernetes  [config maps](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
 
 ## Overview
 **check1** uses gRPC for the remote procedure calls. 
-Use the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1) to generate language specific API for **check1**. This repository contains the required `.proto` files for client-server interface and it automatically publishes the required packages.
+Use the th2-grpc-check1 [repository](https://github.com/th2-net/th2-grpc-check1) to generate language specific API for **check1**. 
+This repository contains the required `.proto` files for client-server interface and it automatically publishes the required packages.
 
 <!-- TODO: list all possible events created by estore -->
 
@@ -57,7 +58,7 @@ rpc submitNoMessageCheck(NoMessageCheckRequest) returns (NoMessageCheckResponse)
 ```
 
 ### A checkpoint request
-**check1** receives a checkpoint request and sends back checkpoints to **th2-act**.
+**check1** receives a checkpoint request and sends back checkpoints to **act**.
 
 The `CheckpointResponse` contains a checkpoint and the status of the request (`SUCCESS` or `ERROR`).
 
@@ -87,7 +88,7 @@ Figure 3. Class diagram of **check1** responses.
 
 Storing message queues
 
-**check1** receives decoded system messages from the **th2-codec** component via RabbitMQ.
+**check1** receives decoded system messages from the **codec** component via RabbitMQ.
 
 
 ![](/img/boxes/exactpro/check1/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
@@ -97,7 +98,11 @@ Figure 4. A queue of messages from the same session alias arranged according to 
 </figcaption>
 </center>
 
-Figure 4 shows a message queue. The queue contains messages of the same direction and session alias. The messages in the queue are arranged in the order received. Each queue is stored in a cache and there are two caches for each session alias (one for each direction). The size of each cache is determined by the **check1**’s message-cache-size . Users can edit this property in **check1**’s custom configuration.
+Figure 4 shows a message queue. The queue contains messages of the same `direction` and `session alias`. 
+The messages in the queue are arranged in the order received. 
+Each queue is stored in cache and there are separate cache flows for each `session alias` (one for each direction). 
+The size of each cache is determined by the **check1**’s message-cache-size. 
+Users can edit this property in **check1**’s custom configuration.
 
 <notice info>
 
@@ -127,8 +132,10 @@ mq pin:
 
 mq pin for receiving messages should have `subscribe` and `parsed` attributes
 In the example below, **check1** has two pins named `server` and `in_parsed_message`
-with connection types `grpc` and `mq` respectively. 
+with connection types `grpc` and `mq` respectively.
 The attributes of the MQ pin are `subscribe` and `parsed`.
+
+<!-- TODO: add info about changes from grpc to grpc-client and grpc-server -->
 
 ```yaml
 apiVersion: th2.exactpro.com/v1

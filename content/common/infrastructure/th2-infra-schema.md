@@ -10,11 +10,13 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 ---
 
-th2 allows you to create your own microservices architecture based on Kubernetes without need of learning Kubernetes deeply. All you need is install th2 and define components of your own system with YAML manifests in the `th2-infra-schema` repository.
+th2 allows you to create your own Kubernetes-based microservices architecture without a prerequisite of profound knowledge of Kubernetes itself. 
+All you need is install th2 and define components of your own system with YAML manifests in the **infra-schema** repository.
 
 <!--more-->
 
-`th2-infra-schema` is one of the main components of th2. It is a repository, which defines your testing system architecture, boxes and connections inside it.
+**infra-schema** is one of the main components of th2. 
+It is a repository, which defines your testing system architecture, boxes and connections inside it.
 
 Repository structure:
 - 📁 boxes
@@ -25,9 +27,11 @@ Repository structure:
 
 ## Boxes
 
-`boxes` folder contains configuration for components of `modules` group. The configuration files are Custom Resource manifests for Kubernetes. th2 provides a number of <term term="Custom resource">Custom Resource</term> kinds, but for boxes configuration you will need only `Th2Box` kind.
+`boxes` folder contains configuration for components of `modules` group. 
+The configuration files are Custom Resource manifests for Kubernetes. 
+th2 provides a number of <term term="Custom resource">Custom Resource</term> kinds, but for boxes configuration you will need only `Th2Box` kind.
 
-You can see structure of the manifest below.
+You can see the structure of the manifest below.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -43,13 +47,17 @@ spec:
   extended-settings: # Low level settings for component
 ```
 
-`apiVersion`, `kind`, `metadata` are the base fields for the Kubernetes object manifest. The real differences from usual manifests are in the `spec` field.
+`apiVersion`, `kind`, `metadata` are the base fields for the Kubernetes object manifest. 
+The real differences from usual manifests are in the `spec` field.
 
-`image-name` is a link to the Docker image of the box in the registry. `image-version` specifies the version of the image.
+`image-name` is a link to the Docker image of the box in the registry.
+`image-version` specifies the version of the image.
 
-`type` and `custom-config` fields are specific to each box. You can find more information in the GitHub repository of the needed box.
+`type` and `custom-config` fields are specific to each box. 
+You can find more information in the GitHub repository of the needed box.
 
-`pins` are some kind of ports, that used for interaction with other components. We recommend you to read Theory of [pins](./th2-infra-schema/pins) and [links](./th2-infra-schema/links).
+`pins` are some kind of ports, that used for interaction with other components. 
+More details on [pins](./th2-infra-schema/pins) and [links](./th2-infra-schema/links) can be found in corresponding documentation sections.
 
 `extended-settings` defines low level configuration of the box (e.g. hardware limits).
 
@@ -75,7 +83,8 @@ extended-settings:
 
 ## Dictionaries
 
-`dictionaries` folder contains manifests of `Th2Dictionary` kind. It contains `data` field, that you can fill with any static data you want.
+`dictionaries` folder contains manifests of `Th2Dictionary` kind. 
+It contains `data` field, that you can fill with any static data you want.
 
 If you want to use dictionary in the box, you should create a [dictionary link](./th2-infra-schema/links).
 
@@ -91,7 +100,9 @@ spec:
 
 ## Links
 
-`links` folder contains manifests for `Th2Link` kind. It is entity for pins connecting. Full guide is available in [Theory of pins and links](./th2-infra-schema/links).
+`links` folder contains manifests for `Th2Link` kind. 
+It is an entity for connecting pins. 
+A full guide is available on the [Links](./th2-infra-schema/links) page.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -114,11 +125,11 @@ There are special kinds for these components:
 - `Th2Mstore` - box for message store
 - `Th2CoreBox` - any other box in core
 
-These kinds are not different from `Th2Box` by your side, but it is imporant infrormation for `th2-infra-mgr` for environment creation.
+These kinds are not different from `Th2Box` by your side, but it is imporant information for **infra-mgr** for environment creation.
 
 ## Infra manager configuration
 
-`infra-mgr-config.yml` defines behavior of the `th2-infra-mgr` with this current *Schema Environment*.
+`infra-mgr-config.yml` defines the behavior of the **infra-mgr** with a current *Schema environment*.
 
 It is also the manifest. There is a special `SettingsFile` kind for it.
 
@@ -168,4 +179,10 @@ Possible `logLevel` values:
 - `TRACE`
 - `ALL`
 
-`mqRouter` fields mostly configures retry functionality. `prefetchCount` field influences how many messages will be read from RabbitMQ (high value should increase throughput, but also increases memory requirements).
+`mqRouter` fields mostly configures retry functionality. 
+The `prefetchCount` field specifies the number of messages to be read from RabbitMQ.
+<notice info >
+
+Higher values increase the throughput, but set higher memory requirements
+
+</notice >

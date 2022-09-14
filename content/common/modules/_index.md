@@ -15,7 +15,7 @@ The subsections below describe some of the modules contributed by Exactpro. The 
 <!--more-->
 
 ## Contents
-1. [th2-conn](modules/th2-conn)
+1. [conn](modules/conn)
 2. [codec](modules/codec)
 3. [check1](modules/check1)
 4. [check2-recon](modules/check2-recon)

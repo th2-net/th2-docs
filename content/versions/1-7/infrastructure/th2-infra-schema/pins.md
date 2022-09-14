@@ -4,7 +4,8 @@ weight: 5
 related: []
 ---
 
-Each th2 box has a number of pins. Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands.
+Each th2 box has a number of pins. 
+Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands.
 
 ## Configuration
 
@@ -47,7 +48,8 @@ pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
       strategy: [string, default: 'robin']
 ```
 
-It is possible to specify several pins in one configuration. In the example config file below, a box has two pins: `in` and `in_raw`.
+It is possible to specify several pins in one configuration. 
+In the example config file below, a box has two pins: `in` and `in_raw`.
 
 ```yaml
 - name: in
@@ -67,7 +69,9 @@ It is possible to specify several pins in one configuration. In the example conf
 ```
 ### Filters section
 
-A pin can have a `filters` section. Filters can have `metadata` or `message` fields. In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
+A pin can have a `filters` section. 
+Filters can have `metadata` or `message` fields. 
+In this case, the metadata/message is sent or received via this particular pin only if it complies with the filter parameter.
 Filter options available:
 - `EQUAL`;
 - `NOT_EQUAL`;
@@ -101,7 +105,8 @@ If `connection-type: mq` we can specify `settings` section. Under this section w
 - `queueLength` (optional) - the length of the queue created by the operator. *Default*: 1000 msg.  
   Important: `queueLength` isn't used if `storageOnDemand` is set to `true`.
 
-<notice note> Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. To prevent that, please configure the queue limit on your external box pins. </notice>
+<notice note> Please note that if an external box has a pin with `subscribe` attribute and exists a box in Kubernetes that publishes on your pin (e.g. **act** has `from_codec` pin related to the queue in rabbitMQ and receives messages from **codec**), then if you close your external application - the messages will accumulate in the queue and can fill the cluster memory. 
+To prevent that, please configure the queue limit on your external box pins. </notice>
 
 For example:
 
@@ -121,7 +126,8 @@ pins:
 
 gRPC pins use gRPC technology for synchronous client-server API calls between different boxes in the cluster.
 
-Logically, a gRPC pin can stand for server endpoint and client endpoint. For these cases, th2 specification contains corresponding connection types:
+Logically, a gRPC pin can stand for server endpoint and client endpoint. 
+For these cases, th2 specification contains corresponding connection types:
 - `connection-type: grpc-server`
 - `connection-type: grpc-client`
 
@@ -181,13 +187,20 @@ extended-settings:
 ```
 ## Attributes section
 
-Attributes define the behavior of the pins and describe what message stream goes through a particular pin. They are specific for each box.
+Attributes define the behavior of the pins and describe what message stream goes through a particular pin. 
+They are specific for each box.
 
-The set of attributes varies from one th2 component to another. Each th2 component can have its own mandatory or optional attributes.
+The set of attributes varies from one th2 component to another. 
+Each th2 component can have its own mandatory or optional attributes.
 
-If you are defining a pin in which data will be published by the current box, you must specify the `publish` attribute; if the pin is supposed to receive data from another box, then you can optionally specify `subscribe`. Although the `subscribe` attribute is optional, it’s still recommended to specify it, to maintain consistency. If the pin is accepting data and the `subscribe` attribute is not specified, then by default the pin will be considered as `subscribe` anyway. You cannot apply both attributes to one pin at the same time. A pin can have either a `publish` or a `subscribe` attribute.
+If you are defining a pin in which data will be published by the current box, you must specify the `publish` attribute; if the pin is supposed to receive data from another box, then you can optionally specify `subscribe`. 
+Although the `subscribe` attribute is optional, it’s still recommended to specify it, to maintain consistency. 
+If the pin is accepting data and the `subscribe` attribute is not specified, then by default the pin will be considered as `subscribe` anyway. 
+You cannot apply both attributes to one pin at the same time. 
+A pin can have either a `publish` or a `subscribe` attribute.
 
-Below is the list of possible attributes for pins. They are grouped in such a way that in most cases only one option of two is used for a pin.
+Below is the list of possible attributes for pins. 
+They are grouped in such a way that in most cases only one option of two is used for a pin.
 
 ### MQ action attributes:
 
@@ -199,24 +212,27 @@ Below is the list of possible attributes for pins. They are grouped in such a wa
 ### th2-conn message direction attributes:
 |Attribute|Description|Usage|
 |---|---|---|
-|`first`|Pin transfers messages that are sent <br> from a server to a client.|Used by the **th2-conn** component to retransmit dialog <br> between the **th2-conn** and remote system into the th2.|
-|`second`|Pin transfers messages that are sent <br> from a client to a server.|Used by the **th2-conn** component to retransmit dialog <br> between the **th2-conn** and remote system into the th2.|
+|`first`|Pin transfers messages that are sent <br> from a server to a client.|Used by the **conn** component to retransmit dialog <br> between the **conn** and remote system into the th2.|
+|`second`|Pin transfers messages that are sent <br> from a client to a server.|Used by the **conn** component to retransmit dialog <br> between the **conn** and remote system into the th2.|
 
 ### th2-codec message type attributes:
-There are two types of **th2-codec**: _decoder_ and _encoder_. Every type of **th2-codec** connection has `subscribe` and `publish` pins. The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. th2-codec works with either parsed or raw messages.
+There are two types of **codec**: `decoder` and `encoder`. 
+Every type of **codec** connection has `subscribe` and `publish` pins. 
+The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. 
+**codec** works with either `parsed` or `raw` messages.
 
-|Attribute|Description|Usage|
-|---|---|---|
-|`raw`|Pin transfers raw message batches.|**th2-codec** publishes raw messages after encoding and <br> subscribes to raw messages for decoding.|
-|`parsed`|Pin transfers parsed message batches.|Can be used by different th2 components. E.g., **th2-codec** <br> publishes parsed messages after decoding and subscribes <br> to parsed messages for encoding. <br> _act_, _check_, _script_ components work with this type of messages.|
+|Attribute|Description| Usage                                                                                                                                                                                                                                       |
+|---|---|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`raw`|Pin transfers raw message batches.| **codec** publishes raw messages after encoding and <br> subscribes to raw messages for decoding.                                                                                                                                           |
+|`parsed`|Pin transfers parsed message batches.| Can be used by different th2 components. E.g., **codec** <br> publishes parsed messages after decoding and subscribes <br> to parsed messages for encoding. <br> **act**, **check_** **script** components work with this type of messages. |
 
 ### th2-codec message direction attributes:
 |Attribute|Description|Usage|
 |---|---|---|
-|`decoder_in`|Describes input pin for decoder codec <br> (transforms protocol message into human-readable).|**th2-codec**|
-|`decoder_out`|Describes output pin for decoder codec <br> (transforms protocol message into human-readable).|**th2-codec**|
-|`encoder_in`|Describes input pin for encoder codec <br> (transforms human-readable message to protocol message).|**th2-codec**|
-|`encoder_out`|Describes output pin for encoder codec <br> (transforms human-readable message to protocol message).|**th2-codec**|
+|`decoder_in`|Describes input pin for decoder codec <br> (transforms protocol message into human-readable).|**codec**|
+|`decoder_out`|Describes output pin for decoder codec <br> (transforms protocol message into human-readable).|**codec**|
+|`encoder_in`|Describes input pin for encoder codec <br> (transforms human-readable message to protocol message).|**codec**|
+|`encoder_out`|Describes output pin for encoder codec <br> (transforms human-readable message to protocol message).|**codec**|
 
 ### Stream and general codec pins:
 
@@ -224,8 +240,8 @@ Please note that there are also `general_decoder_in`, `general_decoder_out`, `ge
 
 
 ### Non-mutually exclusive attributes:
-|Attribute|Description|Usage|
-|---|---|---|
-|`send`|Pin transfers event batches.|Used by any box that publishes events. **th2-estore** <br> consumes this type of messages.|
-|`event`|Indicates that the messages that come into this pin <br> will be stored in Cradle.|Used by pins that produce data to the th2, <br> for example, conn, read, this attribute <br> should be marked.|
-|`store`|Special attribute for the **th2-conn** pin to receive data <br> from act or other components.|**th2-conn**|
+|Attribute| Description                                                                                   | Usage                                                                                                                  |
+|---|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+|`send`| Pin transfers event batches.                                                                  | Used by any box that publishes events. **estore** <br> consumes this type of messages.                                 |
+|`event`| Indicates that the messages that come into this pin <br> will be stored in Cradle.            | Used by pins that produce data to the th2, <br> for example, **conn**, **read**, this attribute <br> should be marked. |
+|`store`| Special attribute for the **conn** pin to receive data <br> from **act** or other components. | **th2-conn**                                                                                                           |

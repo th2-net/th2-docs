@@ -3,14 +3,15 @@ title: th2-net on GitHub
 weight: 5
 ---
 
-th2 is the next generation test harness, based on microservice architecture. It is made up of components with the  corresponding [repositories](https://github.com/orgs/th2-net/repositories) on GitHub. 
+th2 is the next generation test harness, based on microservice architecture. 
+It is made up of components with the  corresponding [repositories](https://github.com/orgs/th2-net/repositories) on GitHub. 
 
 <!--more-->
 
 th2-net repositories can be classified based on their: 
 1. usage – how a repository is supposed to be used;
 2. functionality – which th2 functional module is related to the repository;
-3. box groups – based on the th2 structural blocks, such as th2-core, th2-infra, etc.;
+3. box groups – based on the th2 structural blocks, such as Core, infra, etc.;
 4. technology support – which technologies are supported by the module.
 
 In th2-net organization on GitHub this classification is implemented with [topics](https://github.blog/2017-01-31-introducing-topics/).
@@ -21,13 +22,19 @@ First group of topics are the usage topics which combine such components as:  `t
 
 [th2-box](https://github.com/search?q=topic%3Ath2-box+org%3Ath2-net+fork%3Atrue&type=repositories) repository has a prepared Docker configuration for using current repository as a th2 module.
 
-[th2-library](https://github.com/search?q=topic%3Ath2-library+org%3Ath2-net+fork%3Atrue&type=repositories) repository contains library with specific for th2 logic. It might be published in an appropriate package registry.
+[th2-library](https://github.com/search?q=topic%3Ath2-library+org%3Ath2-net+fork%3Atrue&type=repositories) repository contains library with specific for th2 logic. 
+It might be published in an appropriate package registry.
 
-[th2-grpc-library](https://github.com/search?q=topic%3Ath2-grpc-library+org%3Ath2-net+fork%3Atrue&type=repositories) repository contains `.proto` definitions for gRPC messages and scripts for native library generation. The repository is not a library itself, but there are published Python and Java packages, which are generated with current repository. The packages have the same name as the repository.
+[th2-grpc-library](https://github.com/search?q=topic%3Ath2-grpc-library+org%3Ath2-net+fork%3Atrue&type=repositories) repository contains `.proto` definitions for gRPC messages and scripts for native library generation. 
+The repository is not a library itself, but there are published Python and Java packages, which are generated with current repository. 
+The packages have the same name as the repository.
 
 ## Functionality topics
 
-Each module of th2 has its own functionality. Also, a module can have different variants of its implementation – for example, `th2-grpc-library` repositories are created for certain modules. All these repositories comprise a module-specific repository family united by the functionality of its main component. Functionality-related topics are named in line with the names of the corresponding modules:
+Each module of th2 has its own functionality. 
+Also, a module can have different variants of its implementation – for example, `th2-grpc-library` repositories are created for certain modules. 
+All these repositories comprise a module-specific repository family united by the functionality of its main component. 
+Functionality-related topics are named in line with the names of the corresponding modules:
 - [th2-check1](https://github.com/search?q=topic%3Ath2-check1+org%3Ath2-net+fork%3Atrue&type=repositories)
 - [th2-act](https://github.com/search?q=topic%3Ath2-act+org%3Ath2-net+fork%3Atrue&type=repositories)
 - [th2-conn](https://github.com/search?q=topic%3Ath2-conn+org%3Ath2-net+fork%3Atrue&type=repositories)
