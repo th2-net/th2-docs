@@ -87,7 +87,7 @@ Figure 2. `chain_id` caret marks the last verified message, which is used as the
 </center>
 
 The user can now request this `chain_id` in their second `CheckSequenceRuleRequest`, and **check1** will start verification from Message 6. 
-**check1** will identify the message 6 as an extra system response and inform the user that there is an extra message.
+**check1** will identify Message 6 as an extra system response and inform the user that there is a redundant message.
 
 ![](/img/cookbook/chain-verification/chain_id2.png "Figure3.chain_id2")
 <center>
