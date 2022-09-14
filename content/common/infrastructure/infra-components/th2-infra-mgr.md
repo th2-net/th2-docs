@@ -113,7 +113,7 @@ infraMgr:
 
 ### th2 environment
 
-`infra-mgr-config.yml` is a setting file, in which you configure synchronization type between Git and Kubernetes. 
+`infra-mgr-config.yml` is a configuration file specifying the type of synchronization between Git and Kubernetes. 
 There are 4 synchronization options:
 
 1. `off` - No synchronization will be done;
