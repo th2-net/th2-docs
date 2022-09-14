@@ -57,7 +57,7 @@ In our example, however, Message 6 is not identified.
 Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. 
 Moreover, as **check1** identifies Message 6 as `checkpoint2`, it was not checked by the second `CheckSequenceRuleRequest`. 
 
-Message 6 is an extra message. 
+Message 6 is a redundant message. 
 Identification of extra/redundant messages is important as their presence can indicate a  potential defect in the system under test.
 
 <notice info>
