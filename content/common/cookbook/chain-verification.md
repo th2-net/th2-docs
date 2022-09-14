@@ -55,7 +55,7 @@ In each case of successful order message verification, the user is notified acco
 
 In our example, however, Message 6 is not identified. 
 Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. 
-Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
+Moreover, as **check1** identifies Message 6 as `checkpoint2`, it was not checked by the second `CheckSequenceRuleRequest`. 
 
 Message 6 is an extra message. 
 Identification of extra messages is important as their presence can indicate a prevailing issue in the system under test.
