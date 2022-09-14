@@ -77,7 +77,7 @@ Make sure to indicate `Th2Estore` when specifying `kind` of the <term term="Cust
 Infra schema can contain only one **estore** box description. 
 It consists of a single required option - <term term="Docker Image">docker_image</term>. 
 Configuration for <term term="pin">pins</term> is specified in the `Th2Estore` <term term="Custom resource">custom resource</term> definition. 
-More details will be in “Automatic <term term="pin">pins</term>  configuration“ section.
+More details on that are provided in the “Automatic pins configuration“ section.
 
 General view of the component will look like this: 
 
