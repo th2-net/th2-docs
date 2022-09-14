@@ -21,7 +21,7 @@ Sending events to **estore** from other components is possible via special metho
 ### Events
 
 Event is a fundamental unit of data stored and processed by th2. 
-Information, related to the work of every component, the executed tests, and the problems that happened are presented as an events hierarchy. 
+Test execution data as well as information related to the work of all th2 components are presented via events hierarchy. 
 Every event consists of important parts:
 
 - `id` - unique identifier (in UUID format) within the th2.
