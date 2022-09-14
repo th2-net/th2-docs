@@ -57,7 +57,7 @@ Repositories:
 - Kubernetes dashboard: `https://kubernetes.github.io/dashboard/`
 - FluxCD: `https://charts.fluxcd.io`
 - Ingress NGINX: `https://kubernetes.github.io/ingress-nginx`
-- loki: `https://grafana.github.io/loki/charts`
+- Loki: `https://grafana.github.io/loki/charts`
 - th2: `https://th2-net.github.io`
 
 <notice note>
