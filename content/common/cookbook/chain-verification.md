@@ -51,7 +51,7 @@ After receiving the first `CheckSequenceRuleRequest`, **check1** begins verifica
 The user is expecting Message 4 and Message 5 as responses to the order Message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
 
 Similarly, **check1** begins verification at `checkpoint2` and identifies Message 7 and Message 8. 
-The user is informed about the successful verification for each order.
+In each case of successful order message verification, the user is notified accordingly.
 
 However, message 6 was not identified. 
 Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. 
