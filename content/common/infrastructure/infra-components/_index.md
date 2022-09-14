@@ -10,7 +10,7 @@ While the th2 environments are responsible for testing your system, the infra co
 
 <!--more-->
 
-Infra components are the intermediate layer between the user and the Kubernetes cluster. 
+Infra components are an intermediate layer between the user and the Kubernetes cluster. 
 This layer changes the th2 environments in accordance with the state of the **infra-schema**.
 
 ![](/img/fundamentals/infra/infra-comp-1.png)
