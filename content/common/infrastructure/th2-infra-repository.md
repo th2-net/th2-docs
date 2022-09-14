@@ -21,7 +21,7 @@ Also, it provides monitoring capabilities that are technologically supported by 
 7. [Grafana Loki](https://grafana.com/oss/loki/) – a horizontally-scalable, highly-available, multi-tenant log aggregation system.
 
 After any new schema environment is being configured, it automatically connects to RabbitMQ, Cassandra, Dashboard, and Grafana.  
-Configuration for this is stored in the [th2-infra](https://github.com/th2-net/th2-infra) repository.
+The configuration supporting this is stored in the [th2-infra](https://github.com/th2-net/th2-infra) repository.
 
 ![](/img/fundamentals/th2-infra-3.png)
 
