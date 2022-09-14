@@ -48,7 +48,7 @@ Users can deploy their customized **infra-schemas** easily by using **infra-mgr*
 All a user has to do is pick one of four options provided in the infra-mgr config file. 
 This file is present with each **infra-schema**.
 
-Also, **infra-mgr** can change **infra-schema** repository.
+Also, **infra-mgr** can change the **infra-schema** repository.
 
 ### infra-mgr and infra-operator interaction
 
