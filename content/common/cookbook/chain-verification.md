@@ -45,7 +45,7 @@ Figure 1. A chain of system messages (responses) from the same `session alias` i
 </center>
 
 Figure 1 shows a message queue with the messages from the same `session alias` and `direction = FIRST` (from the system). 
-Two <term term='checkpoint'>checkpoints</term> have been created after the successful submission of each order.
+Upon successful submission of each of the orders, two <term term='checkpoint'>checkpoints</term> are created.
 
 After receiving the first `CheckSequenceRuleRequest`, **check1** begins verification at `checkpoint1`. 
 The user is expecting Message 4 and Message 5 as responses to the order Message 1, and **check1** identifies these messages using the `key_fields_list` provided in the first `CheckSequenceRuleRequest`.
