@@ -45,7 +45,7 @@ Depending on the configuration for th2 environment, **infra-mgr** can commit 3 t
 ### Cassandra
 
 When a new th2 environment is created, **infra-mgr** generates a special config map for the Cassandra database. 
-Then with config map created **estore** or **mstore** creates new keyspace in the Cassandra database for storing messages and events. 
+This new config map is then used by **estore** or **mstore** to create a new keyspace in the Cassandra database for storing messages and events. 
 
 <notice info>
 
