@@ -101,7 +101,7 @@ spec:
 ## Links
 
 `links` folder contains manifests for `Th2Link` kind. 
-It is entity for pins connecting. 
+It is an entity for connecting pins. 
 A full guide is available on the [Links](./th2-infra-schema/links) page.
 
 ```yaml
