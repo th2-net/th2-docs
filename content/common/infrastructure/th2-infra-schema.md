@@ -129,7 +129,7 @@ These kinds are not different from `Th2Box` by your side, but it is imporant inf
 
 ## Infra manager configuration
 
-`infra-mgr-config.yml` defines behavior of the **infra-mgr** with this current *Schema Environment*.
+`infra-mgr-config.yml` defines the behavior of the **infra-mgr** with a current *Schema environment*.
 
 It is also the manifest. There is a special `SettingsFile` kind for it.
 
