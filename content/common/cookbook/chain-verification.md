@@ -53,7 +53,7 @@ The user is expecting Message 4 and Message 5 as responses to the order Message 
 Similarly, **check1** begins verification at `checkpoint2` and identifies Message 7 and Message 8. 
 In each case of successful order message verification, the user is notified accordingly.
 
-However, message 6 was not identified. 
+In our example, however, Message 6 is not identified. 
 Message 6 is a response from the system that was not expected by the user and therefore was not identified by the first `CheckSequenceRuleRequest`. 
 Moreover, because **check1** identifies message 6 as `checkpoint2` it was not checked by the second `CheckSequenceRuleRequest`. 
 
