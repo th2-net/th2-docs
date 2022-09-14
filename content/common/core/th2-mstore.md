@@ -59,7 +59,7 @@ Common library is responsible for collecting messages in **mstore** from all pin
 ## Configuration:
 
 **infra-schema** can only contain one **mstore** box description. 
-It consists of one required option - docker image. 
+It consists of one required option - a Docker image. 
 Pin configuration is generated and managed by **infra-operator**.
 
 ### Configuration parameters
