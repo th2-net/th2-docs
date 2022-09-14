@@ -74,7 +74,7 @@ Make sure to indicate `Th2Estore` when specifying `kind` of the <term term="Cust
 
 </notice>
 
-Infra schema can only contain one **estore** box description. 
+Infra schema can contain only one **estore** box description. 
 It consists of one required option - <term term="Docker Image">docker_image</term>. 
 Configuration for <term term="pin">pins</term>  is specified in `Th2Estore` <term term="Custom resource">custom resource</term> definition. 
 More details will be in “Automatic <term term="pin">pins</term>  configuration“ section.
