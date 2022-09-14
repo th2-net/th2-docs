@@ -31,7 +31,7 @@ Repository structure:
 The configuration files are Custom Resource manifests for Kubernetes. 
 th2 provides a number of <term term="Custom resource">Custom Resource</term> kinds, but for boxes configuration you will need only `Th2Box` kind.
 
-You can see structure of the manifest below.
+You can see the structure of the manifest below.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
