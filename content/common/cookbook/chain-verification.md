@@ -58,7 +58,7 @@ Message 6 is a response from the system that was not expected by the user and th
 Moreover, as **check1** identifies Message 6 as `checkpoint2`, it was not checked by the second `CheckSequenceRuleRequest`. 
 
 Message 6 is an extra message. 
-Identification of extra messages is important as their presence can indicate a prevailing issue in the system under test.
+Identification of extra/redundant messages is important as their presence can indicate a  potential defect in the system under test.
 
 <notice info>
 <!-- TODO : make into hover over terms -->
