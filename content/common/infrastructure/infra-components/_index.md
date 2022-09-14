@@ -5,7 +5,7 @@ related: []
 
 ---
 
-infra components are the main part of the core, one of the components of the th2 itself. 
+th2-infra components are an important part of th2 infrastructure.
 While the th2 environments are responsible for testing your system, the infra components provide control over these environments. 
 
 <!--more-->
