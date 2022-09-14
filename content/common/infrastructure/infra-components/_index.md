@@ -23,7 +23,7 @@ There are 5 Infra components:
 2. **[th2-infra-mgr](https://github.com/th2-net/th2-infra-mgr)** - component that watches for the changes in the repositories and deploys the changed components to Kubernetes. 
 3. **[th2-infra-operator](https://github.com/th2-net/th2-infra-operator)** - an implementation of Kubernetes custom resource controller.
 4. **[th2-infra-editor](https://github.com/th2-net/th2-infra-editor)** - a web GUI for schema control.
-5. **infra-repo** - an abstract chart used by Helm operator (the element is hidden in the diagram below).
+5. **infra-repo** - an abstract chart used by Helm operator (the element is not shown on the diagram below).
 
 ## Components interactions
 
