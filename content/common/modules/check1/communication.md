@@ -100,7 +100,7 @@ Figure 4. A queue of messages from the same session alias arranged according to 
 
 Figure 4 shows a message queue. The queue contains messages of the same `direction` and `session alias`. 
 The messages in the queue are arranged in the order received. 
-Each queue is stored in a cache and there are two caches for each `session alias` (one for each direction). 
+Each queue is stored in cache and there are separate cache flows for each `session alias` (one for each direction). 
 The size of each cache is determined by the **check1**’s message-cache-size. 
 Users can edit this property in **check1**’s custom configuration.
 
