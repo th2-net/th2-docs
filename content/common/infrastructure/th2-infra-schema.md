@@ -10,7 +10,7 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 ---
 
-th2 allows you to create your own microservices architecture based on Kubernetes without need of learning Kubernetes deeply. 
+th2 allows you to create your own Kubernetes-based microservices architecture without a prerequisite of profound knowledge of Kubernetes itself. 
 All you need is install th2 and define components of your own system with YAML manifests in the **infra-schema** repository.
 
 <!--more-->
