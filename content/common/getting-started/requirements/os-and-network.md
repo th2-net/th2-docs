@@ -55,7 +55,7 @@ Check if your machine has access to the following endpoints.
 Repositories:
 
 - Kubernetes dashboard: `https://kubernetes.github.io/dashboard/`
-- flux: `https://charts.fluxcd.io`
+- FluxCD: `https://charts.fluxcd.io`
 - ingress-nginx: `https://kubernetes.github.io/ingress-nginx`
 - loki: `https://grafana.github.io/loki/charts`
 - th2: `https://th2-net.github.io`
