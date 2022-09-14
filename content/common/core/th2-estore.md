@@ -22,7 +22,7 @@ Sending events to **estore** from other components is possible via special metho
 
 Event is a fundamental unit of data stored and processed by th2. 
 Test execution data as well as information related to the work of all th2 components are presented via events hierarchy. 
-Every event consists of important parts:
+Every event in th2 consists of important parts:
 
 - `id` - unique identifier (in UUID format) within the th2.
 - `parentId` - optional link to a parent event.
