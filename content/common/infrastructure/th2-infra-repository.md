@@ -34,6 +34,6 @@ Interaction with th2 can be done via:
 4. Infra Editor; 
 5. RabbitMQ dashboard.
 
-th2 uses [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) to provide access to these web applications via HTTP.
+th2 uses [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) to provide access to corresponding web applications via HTTP.
 
 ![](/img/fundamentals/th2-infra-4.png)
