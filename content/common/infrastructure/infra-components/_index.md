@@ -73,7 +73,7 @@ There is dependency between the types of data in **infra-schema** and what will 
 
 All the infra components are created to work together to transform the data representations provided by **infra-schema** into the actual implementation of the th2 environment.
 
-There are several scenarios for the infra components.
+The below scenarios outline typical ways to interact with infra components in th2.
 
 <!-- Plantuml code is ciphered inside link -->
 <!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
