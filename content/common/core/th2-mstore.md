@@ -115,7 +115,7 @@ spec:
 
 ### Message batches
 
-**mstore** can consume `RawMessageBatch` objects. 
+**mstore** consumes `RawMessageBatch` objects. 
 Every batch must be built via the following rules:
 
 - all messages in one batch must have identical `session alias` and `direction`;
