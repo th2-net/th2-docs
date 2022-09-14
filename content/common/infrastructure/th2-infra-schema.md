@@ -57,7 +57,7 @@ The real differences from usual manifests are in the `spec` field.
 You can find more information in the GitHub repository of the needed box.
 
 `pins` are some kind of ports, that used for interaction with other components. 
-We recommend you to read Theory of [pins](./th2-infra-schema/pins) and [links](./th2-infra-schema/links).
+More details on [pins](./th2-infra-schema/pins) and [links](./th2-infra-schema/links) can be found in corresponding documentation sections.
 
 `extended-settings` defines low level configuration of the box (e.g. hardware limits).
 
