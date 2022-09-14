@@ -34,7 +34,7 @@ Take into account that the batches cannot be merged, if combined batch exceeds t
 To automatically connect the pin to **mstore** and to collect all the messages into <term term="Cradle">Cradle</term>, you must mark a pin that produces raw messages in **conn**, **read** and **hand** boxes via the `store` attribute. 
 
 **mstore** consumes raw messages. 
-The parsed messages will not be accepted. 
+Parsed messages are not accepted. 
 
 Raw message is a base entity of th2. 
 All incoming / outgoing data is stored in this format. 
