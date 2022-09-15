@@ -12,10 +12,10 @@ Also, it provides monitoring capabilities that are technologically supported by 
 
 <!--more-->
 
-1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator, allowing one to declaratively manage Helm chart releases. The th2 uses this component to create/edit/delete schema environments.
-2. [RabbitMQ](https://www.rabbitmq.com/) – one of the most popular open source message brokers. The th2 components use RabbitMQ to send and receive messages.
-3. [Apache Cassandra](https://cassandra.apache.org/_/index.html) – a NoSQL distributed database. The th2 uses Cassandra to store the history of events and messages.  
-4. [K8s Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) – a web-based Kubernetes user interface. Here you can track Kubernetes objects and their hardware usage.
+1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator allowing one to declaratively manage Helm chart releases. 
+2. [RabbitMQ](https://www.rabbitmq.com/) – one of the most popular open source message brokers used in th2 for managing message flows.
+3. [Apache Cassandra](https://cassandra.apache.org/_/index.html) – a NoSQL distributed database used in the th2 framework to store the history of events and messages.  
+4. [K8s Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) – a web-based user interface used to track Kubernetes objects and their hardware usage.
 5. [Grafana](https://grafana.com/grafana/) – flexible dashboard for any data. Here you can track the state of your system and customize views.
 6. [Prometheus](https://grafana.com/docs/grafana/latest/getting-started/getting-started-prometheus/) – an open source monitoring system for which Grafana provides out-of-the-box support.
 7. [Grafana Loki](https://grafana.com/oss/loki/) – a horizontally-scalable, highly-available, multi-tenant log aggregation system.

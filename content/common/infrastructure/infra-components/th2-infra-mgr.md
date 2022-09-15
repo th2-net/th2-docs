@@ -25,22 +25,23 @@ As for **infra-mgr**, it interacts with the **infra-schema**, **infra-editor**, 
 
 **infra-mgr** receives necessary information about th2 environment from an **infra-schema** which describes a target state of cluster via a set of `.yaml` config files.
 
-Also, there is **infra-editor**, which can be called visualization of **infra-mgr**. **infra-editor** is a web based GUI for working with th2 state. 
-When user saves new state in GUI, it firstly changes **infra-schema** and then, processes go like **infra-schema** was changed manually.
+**infra-schemas** in th2 can be vizualized in **infra-editor**, a web-based GUI for working with th2 states. 
+When the user saves a new state in GUI, it changes a corresponding **infra-schema**. 
+Once updated, the **infra-schema** is applied by the same workflow as if it was changed manually.
 
 ### Infra schema
 
-**infra-mgr** continiously reads **infra-schema** for updates. 
-Also it can apply changes to the **infra-schema**, in some configuration cases.
+**infra-mgr** continiously monitors the **infra-schema** for updates. 
+Also, it can apply changes to the **infra-schema**, in some configuration cases.
 
 ### Kubernetes cluster
 
-Depending on the configuration for th2 environment, **infra-mgr** can commit 3 types of actions in the Kubernetes cluster:
+Depending on the configuration for th2 environment, **infra-mgr** can commit 3 types of changes in the Kubernetes cluster:
 
-1. Create namespace for each th2 environment;
-2. Create basic ConfigMaps for th2 environment;
+1. Create namespaces for each th2 environment;
+2. Create basic ConfigMaps for th2 environments;
 3. Apply th2 Custom Resources which will be fetched by **infra-operator**;
-4. Delete existing namespaces, Deployments, Pods.
+4. Delete existing custom resources.
 
 ### Cassandra
 

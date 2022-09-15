@@ -5,8 +5,8 @@ related: []
 
 ---
 
-th2-infra components are an important part of th2 infrastructure.
-While the th2 environments are responsible for testing your system, the infra components provide control over these environments. 
+The th2-infra components are an important part of the th2 infrastructure. 
+While the infra-schema describes a th2 environment configured for a particular testing use case, the other infra components provide control over such environments. 
 
 <!--more-->
 
@@ -78,8 +78,8 @@ The below scenarios outline typical ways to interact with infra components in th
 <!-- Plantuml code is ciphered inside link -->
 <!-- To see plantuml code, go to a link in browser and change '/png/' to '/uml/' in the path -->
 
-1. Using **infra-editor**, create a new infra-schema.   
-  The schema is edited manually by default, but you can change it with the **infra-editor** Web GUI.
+1. Create new schema using **infra-editor**  
+  The schema is edited manually, but you can change it with the **infra-editor** Web GUI.
 
 [![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
 
