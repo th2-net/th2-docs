@@ -60,7 +60,8 @@ It will also upload Helm releases for further configuration and deployment of th
 
 ## Data transformation
 
-There is dependency between the types of data in **infra-schema** and what will be created in the cluster.
+The table below depicts information on dependencies between th2 elements from **infra-schema** that become clusters 
+in Kubernetes or RabbitMQ. 
 
 | **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
