@@ -26,7 +26,9 @@ We would not recommend this approach for production systems. But you still can u
 
 ### Install minikube
 
-Minikube runs a Kubernetes cluster inside a container. It is easier to configure than a common Kubernetes cluster, but it cannot be expanded to several nodes. See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
+Minikube runs a Kubernetes cluster inside a container. 
+It is easier to configure than a common Kubernetes cluster, but it cannot be expanded to several nodes. 
+See the instructions for installation [here](https://minikube.sigs.k8s.io/docs/start/).
 
 ### Run cluster
 

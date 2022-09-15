@@ -16,12 +16,14 @@ weight: 20
 ## Overview 
 
 **сheck2-recon** is one of the th2 modules. 
-The purpose of **check2-recon** is to compare several event streams. The module matches related messages and detects discrepancies between actual and expected messages. 
+The purpose of **check2-recon** is to compare several event streams. 
+The module matches related messages and detects discrepancies between actual and expected messages. 
 Besides direct comparison, **check2-recon** can create notes about potential inconsistencies inside the messages.
 
 <notice info>
 
-In the name of this module, "recon" stands for "reconciliation" rather than "reconnaissance". In th2, we use "recon" as a shortened term instead of "reconciliation". 
+In the name of this module, "recon" stands for "reconciliation" rather than "reconnaissance". 
+In th2, we use "recon" as a shortened term instead of "reconciliation". 
 
 </notice>
 
@@ -138,7 +140,8 @@ def get_attributes(self) -> [list]:
                'NewOrderSingle': MessageGroupType.single}
 ```
 
-Methods `group()`, `hash()`, `check()`  in class Rule are responsible for messages processing. Every incoming single message comes to the `group` method, then `hash` method, then `check` method.
+Methods `group()`, `hash()`, `check()`  in class Rule are responsible for messages processing. 
+Every incoming single message comes to the `group` method, then `hash` method, then `check` method.
 
 The lifecycle of an incoming message is:
 
@@ -173,7 +176,10 @@ def group(self, message: ReconMessage, attributes: tuple):
 
 ### hash()
 
-Method `hash()` generates the hash key for the message to join it in the future. Hash key depends on one or several fields of the message. The fields are defined by a user in `method` implementation. If all these fields are the same in 2 messages, final hash keys also will be equal.
+Method `hash()` generates the hash key for the message to join it in the future. 
+Hash key depends on one or several fields of the message. 
+The fields are defined by a user in `method` implementation. 
+If all these fields are the same in 2 messages, final hash keys also will be equal.
 
 ![Hash method](/img/boxes/exactpro/check2-recon/hash-method.png)
 
@@ -188,8 +194,10 @@ def hash(self, message: ReconMessage, attributes: tuple):
 
 ### check()
 
-Method `check()` compares the message with all messages from different groups and equal hash key. After the comparison `check` method generates an event with its result. Filling of the final event is defined by the 
-algorithm written by a user. After that original message is available for comparison with future messages until timeout (message's Time To Live).
+Method `check()` compares the message with all messages from different groups and equal hash key. 
+After the comparison `check` method generates an event with its result. 
+Filling of the final event is defined by the algorithm written by a user. 
+After that original message is available for comparison with future messages until timeout (message's Time To Live).
 
 ![Check method](/img/boxes/exactpro/check2-recon/check-method.png)
 

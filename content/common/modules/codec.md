@@ -10,7 +10,10 @@ weight: 10
 
 ## Overview 
 
-The **codec** is a component responsible for transforming <term term='message'>messages</term> from human-readable format into a format of a corresponding protocol and vice versa. It contains the main logic for encoding and decoding messages. The **codec** usually uses a <term term='dictionary'>dictionary</term> to decode and encode messages. Dictionaries contain message structure, fields and values that **codec** can decode. 
+The **codec** is a component responsible for transforming <term term='message'>messages</term> from human-readable format into a format of a corresponding protocol and vice versa. 
+It contains the main logic for encoding and decoding messages. 
+The **codec** usually uses a <term term='dictionary'>dictionary</term> to decode and encode messages. 
+Dictionaries contain message structure, fields and values that **codec** can decode. 
 
 ### Encoding
 During encoding **codec** replaces each parsed message of supported protocols in a message group with a raw one by encoding parsed message content.
@@ -19,7 +22,8 @@ NOTE: **codec** can merge content of subsequent raw messages into a resulting ra
 
 
 ### Decoding
-During decoding **codec** must replace each raw message in a message group with a parsed one by decoding raw message content. If an exception was thrown, all raw messages will be replaced with `th2-codec-error` parsed messages.
+During decoding **codec** must replace each raw message in a message group with a parsed one by decoding raw message content. 
+If an exception was thrown, all raw messages will be replaced with `th2-codec-error` parsed messages.
 
 NOTE: **codec** can replace a raw message with a parsed message followed by several raw messages (e.g. when a **codec** decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).
 
@@ -145,17 +149,25 @@ You can use a link to a docker image of needed **codec** from its GitHub reposit
 
 ## Functions:
 
-The **codec** component handles message flows between components such as `conn`, `act`, `check1`, `read` and other. On the scheme below you can see an example of interaction with other th2 components .
+The **codec** component handles message flows between components such as **conn**, **act**, **check1**, **read** and other. 
+On the scheme below you can see an example of interaction with other th2 components .
 
 ![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
-The **codec** component has eight pins - four stream, and four general ones. Functionality of stream and general pins is the same. Creating one component with eight pins instead of two components with four same pins was selected to decrease the amount of required settings in `infra-schema` and resource utilisation of the resulting system. General pins are used by the data-provider component, other components are usually connected to stream pins.
+The **codec** component has eight pins - four stream, and four general ones. 
+Functionality of stream and general pins is the same. 
+Creating one component with eight pins instead of two components with four same pins was selected to decrease the amount of required settings in **infra-schema** and resource utilisation of the resulting system. 
+General pins are used by the data-provider component, other components are usually connected to stream pins.
 
 ### Why do we need a chain of codecs?
 
-It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
+It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. 
+The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). 
+Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
 
-In case you need to encode/decode a message but do no have a **codec** implementation for such decoding, you can reuse already implemented **codecs** by joining them into a chain of **codecs**. For example, you have HTTP, JSON and XML **codec**. You can join them together for decoding XML over HTTP or JSON over HTTP.
+In case you need to encode/decode a message but do no have a **codec** implementation for such decoding, you can reuse already implemented **codecs** by joining them into a chain of **codecs**. 
+For example, you have HTTP, JSON and XML **codec**. 
+lYou can join them together for decoding XML over HTTP or JSON over HTTP.
 
 If the **codec** component gets a message that does not match an expected format (a raw message of corresponding protocol to `in_codec_decode` pin and a parsed message to `in_codec_encode` pin) it will be sent through the corresponding out pins without changes.
 
@@ -176,7 +188,7 @@ Config file includes the following parameters:
 
 - `extended-settings: service` - here we specify whether the object is available for other components, envVariables (environment variables of pod deployment),  resources (amount of resources available for a Pod), etc. 
 
-The `codec` settings can be specified in `codecSettings` field of `custom-config`. 
+The **codec** settings can be specified in `codecSettings` field of `custom-config`. 
 
 For example:
 
@@ -197,21 +209,24 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- **stream encode / decode** connections used for all testing activities performed with th2; act, conn, sim, recon, bookchecker microservices connections to **codec** through stream encode / encode connections.
+- `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through stream encode / decode connections.
 
-- **general encode / decode** connections work on demand; those connections used mainly for th2 report UI; in order to show the end-user messages stored in cassandra report-data-viewer request said messages from rpt-data-provider via **codec**.
+- `general encode / decode` connections work on demand; those connections used mainly for th2 report UI; in order to show the end-user messages stored in cassandra **report-data-viewer** request said messages from **rpt-data-provider** via **codec**.
 
 Codec never mixes messages from the stream and the general connections.
 
 <notice info>
 
-SEE ALSO: [stream and general pins description](../../fundamentals/pins-and-links/pins#stream-and-general-codec-pins) 
+SEE ALSO: [stream and general pins description](/1-7/infrastructure/th2-infra-schema/pins#stream-and-general-codec-pins) 
 
 </notice>
 
-Pins are a part of the main th2 concept. They describe what are the inputs and outputs of a box. You can read more about them here.
+Pins are a part of the main th2 concept. 
+They describe what are the inputs and outputs of a box. 
+You can read more about them [here](../infrastructure/th2-infra-schema/pins).
 
-Every **codec** operation is associated with 2 pins - `subscribe` and `publish`.  The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. 
+Every **codec** operation is associated with 2 pins - `subscribe` and `publish`. 
+The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. 
 
 **Typical codec has the following pins**: 
 
@@ -237,7 +252,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `name` in metadata must be filled in as a box name.
 
-- `image-name` must contain a <term term='link'>link</term> to the image of **codec**` on your project (preferably the last version). For one project you can have more than one **codec** for the same protocol.
+- `image-name` must contain a <term term='link'>link</term> to the image of **codec** on your project (preferably the last version). For one project you can have more than one **codec** for the same protocol.
 
 - `image-version` should be filled with image tag (version of image in your project’s **codec**).
 
@@ -253,9 +268,10 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `service` parameter: set `service.enabled` `true` if you want this component to be available to other components. For the bookchecker it is false.
 
-This configuration is a general way for deploying components in th2. It contains box configuration, pins descriptions and other common parameters for a box.
+This configuration is a general way for deploying components in th2. 
+It contains box configuration, pins descriptions and other common parameters for a box.
 
-Extended example of the **th2-codec** configuration:
+Extended example of the **codec** configuration:
 
 ```yaml
 apiVersion: th2.exactpro.com/vl 
@@ -364,11 +380,14 @@ spec:
 ```
 
 ### Codec-related links
-Schema API allows configuring routing streams of messages via links between connections and filters on pins. Let's consider some examples of routing in a **codec** box.
+Schema API allows configuring routing streams of messages via links between connections and filters on pins. 
+Let's consider some examples of routing in a **codec** box.
 
  
 #### Split on 'publish' pins
-For example, you got a big source data stream, and you want to split them into some pins via session alias. You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. Every decoded messages will be directed to all declared pins and will send to MQ only if it passes the filter.
+For example, you got a big source data stream, and you want to split them into some pins via session alias. 
+You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. 
+Every decoded messages will be directed to all declared pins and will send to MQ only if it passes the filter.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -399,7 +418,14 @@ spec:
 The filtering can also be applied for pins with a `subscribe` attribute.
 
 ### Links config
-The main link that every **codec** instance should have is a dictionary link. The **codec** instance will use a linked dictionary as a reference for validations. **If protocol-specific codec needs dictionary,  it won't properly function without it**.
+The main link that every **codec** instance should have is a dictionary link. 
+The **codec** instance will use a linked dictionary as a reference for validations. 
+
+<notice note >
+
+If protocol-specific codec needs dictionary,  it won't properly function without it
+
+</notice >
 
 Example:
 
@@ -492,11 +518,11 @@ spec:
 ```
 
 #### act link(-s)
-To send messages to the system under test via `act` microservice (and consequently receive responses for sent messages), the `act` should be linked with **codec** in the following way:
+To send messages to the system under test via **act** microservice (and consequently receive responses for sent messages), the **act** should be linked with **codec** in the following way:
 
-- Dedicated to desired **conn**, `act` pin with applied session-alias filter should be linked to `in_codec_encode` **codec** pin for particular **codec**.
+- Dedicated to desired **conn**, **act** pin with applied session-alias filter should be linked to `in_codec_encode` **codec** pin for particular **codec**.
 
-- `out_codec_decode` **codec** pin should be linked to `act`'s pre-configured dedicated pin for particular **codec** in order to receive responses for requests.
+- `out_codec_decode` **codec** pin should be linked to **act**'s pre-configured dedicated pin for particular **codec** in order to receive responses for requests.
 
 
 ```yaml[from-codec-links.yml]
@@ -534,11 +560,11 @@ spec:
 ```
 
 #### Simulator link(-s)
-The `simulator` should be linked to the **codec** in order to interact with a system under test through the desired **conn**. 
+The **simulator** should be linked to the **codec** in order to interact with a system under test through the desired **conn**. 
 
-- To send messages to the system under test , link dedicated to desired **conn** `sim` pin with applied session-alias as attribute should be linked to `in_codec_encode` **codec** pin;
+- To send messages to the system under test, link dedicated to desired **conn**, **sim** pin with applied session-alias as attribute should be linked to `in_codec_encode` **codec** pin;
 
-- To receive messages from the system under test , link `out_codec_decode` **codec** pin with `sim`'s subscribe pin.
+- To receive messages from the system under test , link `out_codec_decode` **codec** pin with **sim**'s subscribe pin.
 
 
 ```yaml[from-codec-links.yml]
@@ -576,11 +602,11 @@ spec:
 ```
 
 #### Report Data Provider link(-s)
-In order to show messages that passing through **codec** in Report UI, **codec** should be linked to `rpt-data-provider` in the following way:
+In order to show messages that passing through **codec** in Report UI, **codec** should be linked to **rpt-data-provider** in the following way:
 
-Dedicated to desired **codec** `rpt-data-provider` pin should be linked to `in_codec_general_decode` **codec** pin.
+Dedicated to desired **codec**, **rpt-data-provider** pin should be linked to `in_codec_general_decode` **codec** pin.
 
-`out_codec_general_decode` **codec** pin should be linked to `rpt-data-provider` pre-configured dedicated pin for particular **codec**.
+`out_codec_general_decode` **codec** pin should be linked to **rpt-data-provider** pre-configured dedicated pin for particular **codec**.
 
 
 ```yaml[from-codec-links.yml]
@@ -659,7 +685,10 @@ interface IPipelineCodecFactory : AutoCloseable {
     override fun close() {}
 }
 ```
-**NOTE**: both init methods have default implementations. One of them must be overridden in your factory implementation. If your **codec** needs the MAIN dictionary only you can override the init (dictionary: InputStream) method. Otherwise, you should override init(pipelineCodecContext: IPipelineCodecContext) method.
+**NOTE**: both init methods have default implementations. 
+One of them must be overridden in your factory implementation. 
+If your **codec** needs the MAIN dictionary only you can override the init (dictionary: InputStream) method. 
+Otherwise, you should override init(pipelineCodecContext: IPipelineCodecContext) method.
 
 **IMPORTANT**: implementation should be loadable via Java's built-in service loader.
 

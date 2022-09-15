@@ -4,7 +4,11 @@ weight: 30
 related: []
 ---
 
-After all the pins are defined and configured, you should also specify the links between them. It can be done by uploading a special CR called the th2 link. Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). The most important is the location of the `.yaml` files in the links directory. Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.
+After all the pins are defined and configured, you should also specify the links between them. 
+It can be done by uploading a special CR called the th2 link. 
+Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). 
+The most important is the location of the `.yaml` files in the links directory. 
+Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.
 
 Links from the `boxes-relation` section connect boxes (Kubernetes pods) using pins, whereas, the  `dictionaries-relation` links allow boxes to use dictionary files (that are not related to the Kubernetes pods). 
 
@@ -75,7 +79,7 @@ spec:
 ```
 ### MQ Router
 
-MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the to section. The message flow between the pins should be from `publish` to `subscribe`. 
+MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the `to` section. The message flow between the pins should be from `publish` to `subscribe`. 
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -98,7 +102,8 @@ spec:
 
 gRPC links are described in the section `router-grpc`.
 
-<notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. For newer releases, the properties are to be specified in configurations of pins ([More details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
+<notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. 
+For newer releases, the properties are to be specified in configurations of pins ([more details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
 
 
 An example of a gRPC link:
