@@ -3,22 +3,16 @@ title: Infrastructure
 weight: 13
 ---
 
-th2 allows users to control multiple schema environments for different testing logic. 
-Infra components are used for creating, changing and deleting schema environments.
+The infrastructure of th2 consists of elements collectively referred to as Infra-Components. 
+One of the components is the infra-schema, which is a test environment designed using th2 boxes of type <term term='core'>Core</term> and <term term='module'>Module</term>. 
+The rest of the infra components work together to monitor and maintain this test environment in a state desired by the user.
+Finally, users can change or update a deployed test environment using these infra-components.
+
+In addition to information about the infra components this section will also cover the “Theory of Pins and Links”.
+Pins and Links are th2’s unique solution to setting up communication between the various th2 boxes found in the infra-schema.
 
 <!--more-->
 
-![](/img/fundamentals/th2-infra-1.png)
-
-## Schema environment
-
-There are two types of schema environment components:
-
-1. Core components are responsible for:
-   - saving data from the testing environment to the database. 
-   - fetching data from the database
-   - displaying events and messages using a GUI
-2. Modules - boxes of the type Module contain custom logic (e.g. connection between client and system, analyzers, client and exchange simulators).
 
 ![](/img/fundamentals/th2-infra-2.png)
 
