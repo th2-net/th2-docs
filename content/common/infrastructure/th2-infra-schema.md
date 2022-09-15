@@ -125,7 +125,7 @@ There are special kinds for these components:
 - `Th2Mstore` - box for message store
 - `Th2CoreBox` - any other box in core
 
-These kinds are not different from `Th2Box` by your side, but it is imporant information for **infra-mgr** for environment creation.
+These kinds help **infra-mgr** to identify the box definitions, and thus, are necessary for creating environments.
 
 ## Infra manager configuration
 
