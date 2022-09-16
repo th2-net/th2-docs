@@ -3,13 +3,11 @@ title: Infrastructure
 weight: 13
 ---
 
-The infrastructure of th2 consists of elements collectively referred to as Infra-Components. 
-One of the components is the infra-schema, which is a test environment designed using th2 boxes of type <term term='core'>Core</term> and <term term='module'>Module</term>. 
+The infrastructure of th2 consists of elements collectively referred to as Infra components. 
+One of the components is the infra-schema describing a test environment consisting of th2 <term term='core'>Core</term> and <term term='module'>Module</term> boxes. 
 The rest of the infra components work together to monitor and maintain this test environment in a state desired by the user.
-Finally, users can change or update a deployed test environment using these infra-components.
+Additionally, infra components allow users to change or update deployed test environments.
 
-In addition to information about the infra components this section will also cover the “Theory of Pins and Links”.
-Pins and Links are th2’s unique solution to setting up communication between the various th2 boxes found in the infra-schema.
 
 <!--more-->
 
