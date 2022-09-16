@@ -97,7 +97,7 @@ The below scenarios outline typical ways to interact with infra components in th
 
 ## Installation
 
-**th2 infra components**  are deployed as a single Helm release
+**th2 infra components**  are deployed as a single Helm release:
  
 ```shell
 helm repo add th2 https://th2-net.github.io
@@ -108,7 +108,7 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 Configure the infra-components at initialization using their corresponding config files.
 
-A short configuration and a full configuration is provided below.
+A short configuration and a full configuration are provided below.
 
 ### th2-infra configuration
 
