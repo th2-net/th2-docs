@@ -60,7 +60,7 @@ It will also upload Helm releases for further configuration and deployment of th
 
 ## Data transformation
 
-There is dependency between the types of data in **infra-schema** and what will be created in the cluster.
+The table below provides the mapping between the elements of a th2 **infra-schema**  and corresponding entities of a deployed Kubernetes cluster. 
 
 | **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
