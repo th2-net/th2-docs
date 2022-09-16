@@ -14,6 +14,7 @@ related:
 It is installed along with the th2 framework infrastructure.
 
 Basically, **infra-operator** is an implementation of Kubernetes custom controller. 
+
 It monitors <term term="Custom resource">custom resources</term> and ensures the synchronization between them and Helm releases in the Kubernetes cluster. 
 
 
