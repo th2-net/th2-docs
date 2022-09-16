@@ -123,7 +123,7 @@ spec:
 There are special kinds for these components:
 - `Th2Estore` - box for events store
 - `Th2Mstore` - a box for message store
-- `Th2CoreBox` - any other box in core
+- `Th2CoreBox` - any other box in th2 Core
 
 These kinds help **infra-mgr** to identify the box definitions, and thus, are necessary for creating environments.
 
