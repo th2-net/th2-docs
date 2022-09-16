@@ -79,8 +79,7 @@ Pin configuration is generated and managed by **infra-operator**.
 
 ### Required pins and links
 
-The **mstore** component has nothing we call "pin" in general. 
-There are MQ queues, and you fill it with raw messages via `store` attribute for several pins (usually for **conn**, **hand** and **read** components).
+A user does not need to set up a MQ pin in the **mstore** custom resource. The inbound **mstore** queues receive raw messages from all the boxes that have `mq` pins with the attribute `store`.  Examples of such boxes include **conn**, **hand**, and **read**.
 
 ### Configuration example
 

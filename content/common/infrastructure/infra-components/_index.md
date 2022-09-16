@@ -60,7 +60,7 @@ It will also upload Helm releases for further configuration and deployment of th
 
 ## Data transformation
 
-There is dependency between the types of data in **infra-schema** and what will be created in the cluster.
+The table below provides the mapping between the elements of a th2 **infra-schema**  and corresponding entities of a deployed Kubernetes cluster. 
 
 | **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -97,7 +97,7 @@ The below scenarios outline typical ways to interact with infra components in th
 
 ## Installation
 
-You can deploy all infra components as one Helm release:
+**th2 infra components**  are deployed as a single Helm release:
  
 ```shell
 helm repo add th2 https://th2-net.github.io
@@ -106,8 +106,9 @@ helm install -n service --version=<version> th2-infra th2/th2 -f configuration.y
 
 ## Configuration
 
-All the infra components are deployed within infra Helm release. 
-So these components can be configured at initialization only with provided config files.
+Configure the infra-components at initialization using their corresponding config files.
+
+A short configuration and a full configuration are provided below.
 
 ### th2-infra configuration
 
