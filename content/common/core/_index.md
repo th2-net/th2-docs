@@ -3,8 +3,7 @@ title: Core
 weight: 20
 ---
 
-Core components are responsible for creating and controlling schema environments, saving messages and events to data store. 
-The core connects to the data store from the inside of the schema environments. 
+This section provides detailed information about the functionality and configuration of th2 boxes of the type <term term="core">Core</term>. 
 <!--more-->
 
 ## Contents
