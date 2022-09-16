@@ -61,7 +61,6 @@ It will also upload Helm releases for further configuration and deployment of th
 ## Data transformation
 
 The table below provides the mapping between the elements of a th2 **infra-schema**  and corresponding entities of a deployed Kubernetes cluster. 
-in Kubernetes or RabbitMQ. 
 
 | **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
