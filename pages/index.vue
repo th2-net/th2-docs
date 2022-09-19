@@ -86,7 +86,7 @@ export default {
               'see how th2 can be used to test complex distributed systems, prepare a\n' +
               'basic configuration and run a demo script.' },
           { title: 'Fundamentals', href: `./${this.$store.getters.versionDirName}/fundamentals`, icon: 'mdi-atom',
-            text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
+            text: 'Learn about architecture of th2 and its key concepts.' },
           { title: 'Modules', href: `./${this.$store.getters.versionDirName}/modules`, icon: 'mdi-package-variant-closed',
             text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
           { title: 'Cookbook', href: `./${this.$store.getters.versionDirName}/cookbook`, icon: 'mdi-book-open-blank-variant',
