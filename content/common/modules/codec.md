@@ -261,9 +261,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `type` specifies the type of component in th2.
 
-- `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
-
-- `codecClassName` is a link to the factory for **codec**. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
+- `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs.
 
 - `CodecParameters.parseMessageLengthAsSeparateMessage` - when set to `true`, **codec** parses `MessageLength` as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
 
@@ -293,7 +291,6 @@ spec:
     log4j.logger.com.exactpro.th2.readlog.impl.RegexpContentParser=DEBUG 
     log4j.logger.com.exactpro.th2=DEBUG 
   custom-config:
-    codecClassName: com./exactpro.sf.externalapi.codec.impl.ExternalSoupCodecFactory
     codecParameters:
       parseMessageLengthAsSeparateMessage: true
   pins:
