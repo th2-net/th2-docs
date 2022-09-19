@@ -265,7 +265,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - In `extended-settings.resources` the `limits` must be greater than `requests`. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that `limits` > `requests`.
 
-- `service` parameter: set `service.enabled` `true` if you want this component to be available to other components. For the bookchecker it is false.
+- `service` parameter: set `service.enabled` `true` if you want this component to be available to other components.
 
 This configuration is a general way for deploying components in th2. 
 It contains box configuration, pins descriptions and other common parameters for a box.
