@@ -156,7 +156,10 @@ On the scheme below you can see an example of interaction with other th2 compone
 
 The **codec** component has eight pins - four stream, and four general ones. 
 Functionality of stream and general pins is the same. 
-Creating one component with eight pins instead of two components with four same pins was selected to decrease the amount of required settings in **infra-schema** and resource utilisation of the resulting system. 
+Common system setup uses two data flows: to the system and from the system; to data provider and from data provider. 
+Messages from these flows cannot be mixed. 
+First option to avoid this intersection is usage of two instances of component with four pins. 
+But implemented option with eight pins allows to decrease amount of required settings in **infra-schema** and resource utilization of the resulting system. 
 General pins are used by the data-provider component, other components are usually connected to stream pins.
 
 ### Why do we need a chain of codecs?
