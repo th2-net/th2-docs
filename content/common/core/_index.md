@@ -3,7 +3,7 @@ title: Core
 weight: 20
 ---
 
-This section provides detailed information about the functionality and configuration of the th2 boxes of the type <term term="core">Core</term>. 
+This section provides detailed information about the functionality and configuration of <term term="core">core</term> th2 boxes. 
 <!--more-->
 
 ## Contents
