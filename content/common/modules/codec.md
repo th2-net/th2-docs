@@ -263,8 +263,6 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs.
 
-- `CodecParameters.parseMessageLengthAsSeparateMessage` - when set to `true`, **codec** parses `MessageLength` as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
-
 - In `extended-settings.resources` the `limits` must be greater than `requests`. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that `limits` > `requests`.
 
 - `service` parameter: set `service.enabled` `true` if you want this component to be available to other components. For the bookchecker it is false.
@@ -272,111 +270,51 @@ API Kubernetes documentation contains specification format for any in-built Kube
 This configuration is a general way for deploying components in th2. 
 It contains box configuration, pins descriptions and other common parameters for a box.
 
+You can configure specific implementation of codec using `codecSettings` section (for **codec-sailfish-...** `codecParameters` used instead `codecSettings`)
+
 Extended example of the **codec** configuration:
 
 ```yaml
-apiVersion: th2.exactpro.com/vl 
+apiVersion: th2.exactpro.com/v1
 kind: Th2Box
 metadata:
-  name: codec-itch-mold-book-checker
+  name: codec
 spec:
-  image-name: nexus.exactpro.com:12000/th2-net/th2-codec-soup 
-  image-version: 3.10.4 
-  type: th2-codec
-  logFile: |
-    log4j.root Logger=DEBUG, CON
-    log4j.appender.CON=org.apache.log4j.ConsoleAppender 
-    log4j.appender.CON.layout=org.apache.log4j.Pattern Layout
-    log4j.appender.CON.layout.ConversionPattern=%d{dd MMM yyyy HH:mm:ss,SSS} %-6p [%-15t] %c - %m%n 
-    log4j.logger.com.exactpro.th2.readlog.impl.RegexpContentParser=DEBUG 
-    log4j.logger.com.exactpro.th2=DEBUG 
   custom-config:
-    codecParameters:
-      parseMessageLengthAsSeparateMessage: true
+    codecSettings:
+      parameter1: value
+      parameter2:
+        - value1
+        - value2
   pins:
     # encoder
-    - name: in_codec_encode 
+    - name: in_codec_encode
       connection-type: mq
-      attributes:
-        - encoder_in
-        - parsed
-        - subscribe
-    - name: out_codec_encode 
+      attributes: [ 'encoder_in', 'parsed', 'subscribe' ]
+    - name: out_codec_encode
       connection-type: mq
-      attributes:
-        - encoder_out
-        - raw
-        - publish
+      attributes: [ 'encoder_out', 'raw', 'publish' ]
     # decoder
-    - name: in_codec_decode 
+    - name: in_codec_decode
       connection-type: mq
-      attributes:
-        - decoder_in
-        - raw
-        - subscribe
-    - name: out_codec_decode_itchmold_al_bookchecker 
-      connection-type: mq 
-      attributes:
-        - decoder_out
-        - parsed
-        - publish 
-      filters:
-        - metadata:
-            - field-name: session_alias
-              expected-value: itchmold-a1-bookchecker 
-              operation: EQUAL
-            - field-name: message_type 
-              expected-value: PacketHeader 
-              operation: NOT_EQUAL
-    - name: out_codec_decode_itchmold_a2_bookchecker 
-      connection-type: mq 
-      attributes:
-        - decoder_out
-        - parsed
-        - publish 
-      filters:
-        - metadata:
-            - field-name: session_alias
-              expected-value: itchmold-a2-bookchecker 
-              operation: EQUAL
-            - field-name: message_type 
-              expected-value: PacketHeader 
-              operation: NOT_EQUAL
-    - name: in_codec_general_encode 
-      connection-type: mq 
-      attributes:
-        - general_encoder_in
-        - parsed
-        - subscribe
-    - name: out_codec_general_encode 
-      connection-type: mq 
-      attributes:
-        - generalencoderout
-        - raw
-        - publish
+      attributes: ['decoder_in', 'raw', 'subscribe']
+    - name: out_codec_decode
+      connection-type: mq
+      attributes: ['decoder_out', 'parsed', 'publish']
+    # encoder general (technical)
+    - name: in_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_in', 'parsed', 'subscribe']
+    - name: out_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_out', 'raw', 'publish']
     # decoder general (technical)
-    - name: in_codec_general_decode 
-      connection-type: mq 
-      attributes:
-        - general_decoder_in
-        - raw
-        - subscribe
-    - name: out_codec_general_decode 
-      connection-type: mq 
-      attributes:
-        - general_decoder_out
-        - parsed
-        - publish
-  extended-settings: 
-    service:
-      enabled: false 
-    resources: 
-      limits: 
-        memory: 500Mi 
-        cpu: 300m 
-      requests: 
-        memory: 300Mi 
-        cpu: 150m
+    - name: in_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_in', 'raw', 'subscribe']
+    - name: out_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_out', 'parsed', 'publish']
 ```
 
 ### Codec-related links
