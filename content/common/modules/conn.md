@@ -61,10 +61,10 @@ It means that the component can be used for negative testing as it provides an a
 
 Some of the public repositories related to the **conn** are not for common use, but they are still useful for the th2 ecosystem.
 
-|Repository|Protocol(s)|
-|----------|-----------|
-|[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)|Contains [GitHub action](https://github.com/features/actions) for publishing packages with gRPC client classes. These clients can send special requests to th2-conn components. <br> Supported th2-conn repositories: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
-|[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)|	Contains [GitHub action](https://github.com/features/actions) for publishing docker images for some of th2-conn boxes.|
+|Repository| Protocol(s)                                                                                                                                                                                                                                                                                                                                         |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)| Contains common gRPC interface for **conn** modules. This interface can be used to control a **conn** (e.g. start or stop it). <br> **conn** modules implementing this interface: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
+|[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)| Builds [FIX](https://www.fixtrading.org/what-is-fix/), [SOUP](https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/souptcp.pdf), [NTG](https://www.lseg.com/sites/default/files/content/documents/MIT203%20-%20Native%20Trading%20Gateway%20Specification%20-%20Issue%2010.4.pdf) **conns** on top of [th2-conn](https://github.com/th2-net/th2-conn) Docker image.|
 
 ## Configuration
 
