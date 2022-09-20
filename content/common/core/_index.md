@@ -3,8 +3,7 @@ title: Core
 weight: 20
 ---
 
-Core components are responsible for creating and controlling schema environments, saving messages and events to data store. 
-The core connects to the data store from the inside of the schema environments. 
+This section describes the functionality of th2 <term term="core">Core</term> components and provides the information on configuring the corresponding boxes in the th2 cluster. 
 <!--more-->
 
 ## Contents
