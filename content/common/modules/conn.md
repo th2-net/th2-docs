@@ -34,6 +34,7 @@ There is no universal template for the **conn** component, but you can use one o
 |[th2-conn-http-client](https://github.com/th2-net/th2-conn-http-client)|HTTP, HTTPS|
 |[th2-conn-http-server](https://github.com/th2-net/th2-conn-http-server)|HTTP, HTTPS|
 |[th2-conn-ws-client](https://github.com/th2-net/th2-conn-ws-client)|WebSocket|
+|[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
 
 ### Templates
 
@@ -42,15 +43,7 @@ There is no universal template for the **conn** component, but you can use one o
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
 |[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
-
-### Platforms
-
-Besides protocol-specific implementations, [th2-net](https://github.com/th2-net) repositories from the **conn** family also contain platform-specific ones. See the examples below:
-
-|Repository|Platform|
-|----------|--------|
-|[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|
-|[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
+|[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|Allows you create **conn** implementations based on Sailfish services|
 
 ### Dirty
 
