@@ -3,7 +3,7 @@ title: Core
 weight: 20
 ---
 
-This section provides detailed information about the functionality and configuration of <term term="core">core</term> th2 boxes. 
+This section describes the functionality of th2 <term term="core">Core</term> components and provides the information on configuring the corresponding boxes in the th2 cluster. 
 <!--more-->
 
 ## Contents
