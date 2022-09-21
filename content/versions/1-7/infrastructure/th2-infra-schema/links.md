@@ -43,7 +43,7 @@ There are two ways of communication between the components via links:
 
 - RabbitMQ - message broker for asynchronous messaging;
 
-- gRPC - for specifying rooting calls.
+- gRPC - for specifying routing calls.
 
 For each of the connection type there is a separate option in configuration:
 
@@ -69,7 +69,7 @@ spec:
           box: destination_box_name
           pin: subscribe_pin_name
     router-grpc:
-      - name: qrpc_relation_link
+      - name: grpc_relation_link
         from:
           box: source_box_name
           pin: source_pin_name
