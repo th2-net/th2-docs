@@ -381,6 +381,10 @@ spec:
       name: fix-sell
       type: MAIN
 ```
+#### Connectivity links
+**conn** is a th2 module, that communicate with other modules via links. 
+Check [template](../infrastructure/th2-infra-schema/links#boxes-links) to create links properly.
+
 
 
 #### Report Data Provider link(-s)
