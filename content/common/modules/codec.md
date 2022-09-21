@@ -156,10 +156,10 @@ On the scheme below you can see an example of interaction with other th2 compone
 
 The **codec** component has eight pins - four stream, and four general ones. 
 Functionality of stream and general pins is the same. 
-Common system setup uses two data flows: to the system and from the system; to data provider and from data provider. 
+A common system setup uses two data flows: 1) to and from the system, and 2) to and from data provider. 
 Messages from these flows cannot be mixed. 
-First option to avoid this intersection is usage of two instances of component with four pins. 
-But implemented option with eight pins allows to decrease amount of required settings in **infra-schema** and resource utilization of the resulting system. 
+One way to avoid this intersection is to use two instances of a component with four pins. 
+Another option is to configure eight pins – this allows the user to decrease the amount of required settings in **infra-schema** as well as resource utilization of the resulting system. 
 General pins are used by the data-provider component, other components are usually connected to stream pins.
 
 ### Why do we need a chain of codecs?
@@ -263,14 +263,14 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs.
 
-- In `extended-settings.resources` the `limits` must be greater than `requests`. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that `limits` > `requests`.
+- In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`. So, if you face an error “Search line limits were exceeded” when deploying a **codec** box in Kubernetes, you should increase the box's resources and check that `limits` > `requests`.
 
-- `service` parameter: set `service.enabled` `true` if you want this component to be available to other components.
+- `service` parameter: to make this component available to other th2 boxes, set `service.enabled` to `true`.
 
 This configuration is a general way for deploying components in th2. 
 It contains box configuration, pins descriptions and other common parameters for a box.
 
-You can configure specific implementation of codec using `codecSettings` section (for **codec-sailfish-...** `codecParameters` used instead `codecSettings`)
+You can configure a specific implementation of **codec** using the `codecSettings` section (Exception: for **codec-sailfish-...**, use `codecParameters` instead of `codecSettings`).
 
 Extended example of the **codec** configuration:
 
@@ -384,7 +384,7 @@ spec:
 
 
 #### Report Data Provider link(-s)
-In order to show messages that passing through **codec** in Report UI, **codec** should be linked to **rpt-data-provider** in the following way:
+For messages passing through **codec** to be displayed in Report UI, **codec** should be linked to **rpt-data-provider** in the following way:
 
 Dedicated to desired **codec**, **rpt-data-provider** pin should be linked to `in_codec_general_decode` **codec** pin.
 
