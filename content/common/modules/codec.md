@@ -261,7 +261,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `type` specifies the type of component in th2.
 
-- `logFile` settings can be added upon request to the th2-support team. The field is not mandatory and is only filled out in case of the user requiring log information on a very detailed level.
+- `logFile` - this field is not mandatory and is only filled out in case of the user requiring log information on a very detailed level.
 
 - In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`. So, if you face an error “Search line limits were exceeded” when deploying a **codec** box in Kubernetes, you should increase the box's resources and check that `limits` > `requests`.
 
