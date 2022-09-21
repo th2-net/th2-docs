@@ -261,7 +261,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `type` specifies the type of component in th2.
 
-- `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs.
+- `logFile` settings can be added upon request to the th2-support team. The field is not mandatory and is only filled out in case of the user requiring log information on a very detailed level.
 
 - In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`. So, if you face an error “Search line limits were exceeded” when deploying a **codec** box in Kubernetes, you should increase the box's resources and check that `limits` > `requests`.
 
@@ -382,8 +382,8 @@ spec:
       type: MAIN
 ```
 #### Connectivity links
-**conn** is a th2 module, that communicate with other modules via links. 
-Check [template](../infrastructure/th2-infra-schema/links#boxes-links) to create links properly.
+Functionally, **codec** is a regular th2 box that communicates with other boxes via pins and links. 
+To configure the connections, use a template on the [Links](../infrastructure/th2-infra-schema/links#boxes-links) page.
 
 
 
