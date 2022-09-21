@@ -34,6 +34,7 @@ There is no universal template for the **conn** component, but you can use one o
 |[th2-conn-http-client](https://github.com/th2-net/th2-conn-http-client)|HTTP, HTTPS|
 |[th2-conn-http-server](https://github.com/th2-net/th2-conn-http-server)|HTTP, HTTPS|
 |[th2-conn-ws-client](https://github.com/th2-net/th2-conn-ws-client)|WebSocket|
+|[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
 
 ### Templates
 
@@ -42,15 +43,7 @@ There is no universal template for the **conn** component, but you can use one o
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
 |[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
-
-### Platforms
-
-Besides protocol-specific implementations, [th2-net](https://github.com/th2-net) repositories from the **conn** family also contain platform-specific ones. See the examples below:
-
-|Repository|Platform|
-|----------|--------|
-|[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|
-|[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
+|[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|Allows you to create **conn** implementations based on Sailfish services|
 
 ### Dirty
 
@@ -68,10 +61,10 @@ It means that the component can be used for negative testing as it provides an a
 
 Some of the public repositories related to the **conn** are not for common use, but they are still useful for the th2 ecosystem.
 
-|Repository|Protocol(s)|
-|----------|-----------|
-|[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)|Contains [GitHub action](https://github.com/features/actions) for publishing packages with gRPC client classes. These clients can send special requests to th2-conn components. <br> Supported th2-conn repositories: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
-|[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)|	Contains [GitHub action](https://github.com/features/actions) for publishing docker images for some of th2-conn boxes.|
+|Repository| Protocol(s)                                                                                                                                                                                                                                                                                                                                         |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)| Contains a common gRPC interface for the **conn** modules. This interface can be used to control a **conn** (e.g. start or stop it). <br> The **conn** modules implementing this interface: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
+|[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)| Builds [FIX](https://www.fixtrading.org/what-is-fix/), [SOUP](https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/souptcp.pdf), [NTG](https://www.lseg.com/sites/default/files/content/documents/MIT203%20-%20Native%20Trading%20Gateway%20Specification%20-%20Issue%2010.4.pdf) **conn** implementations on top of the [th2-conn](https://github.com/th2-net/th2-conn) Docker image.|
 
 ## Configuration
 
