@@ -156,7 +156,10 @@ On the scheme below you can see an example of interaction with other th2 compone
 
 The **codec** component has eight pins - four stream, and four general ones. 
 Functionality of stream and general pins is the same. 
-Creating one component with eight pins instead of two components with four same pins was selected to decrease the amount of required settings in **infra-schema** and resource utilisation of the resulting system. 
+A common system setup uses two data flows: 1) to and from the system, and 2) to and from data provider. 
+Messages from these flows cannot be mixed. 
+One way to avoid this intersection is to use two instances of a component with four pins. 
+Another option is to configure eight pins – this allows the user to decrease the amount of required settings in **infra-schema** as well as resource utilization of the resulting system. 
 General pins are used by the data-provider component, other components are usually connected to stream pins.
 
 ### Why do we need a chain of codecs?
@@ -258,125 +261,60 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `type` specifies the type of component in th2.
 
-- `logFile` settings can be added on request to th2-support. There's no need to fill this field, because mostly you don’t need higher levels of logs. 
+- `logFile` settings can be added upon request to the th2-support team. The field is not mandatory and is only filled out in case of the user requiring log information on a very detailed level.
 
-- `codecClassName` is a link to the factory for **codec**. If you want to learn more about this mechanism, find “Factory method pattern” on the Internet.
+- In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`. So, if you face an error “Search line limits were exceeded” when deploying a **codec** box in Kubernetes, you should increase the box's resources and check that `limits` > `requests`.
 
-- `CodecParameters.parseMessageLengthAsSeparateMessage` - when set to `true`, **codec** parses `MessageLength` as a separate message. This helps to separate the logical content of the message from its length, because, for example, in ITCH, MDF and FIX protocols the length of the messages is constant and there is no need to glue it to the message itself. For protocols with variable length like OMnet protocol you need to fill this field.
-
-- In `extended-settings.resources` the `limits` must be greater than `requests`. So, if in Kubernetes you faced an error “Search line limits were exceeded” when you try to bring up the box then you should increase box resources and check that `limits` > `requests`.
-
-- `service` parameter: set `service.enabled` `true` if you want this component to be available to other components. For the bookchecker it is false.
+- `service` parameter: to make this component available to other th2 boxes, set `service.enabled` to `true`.
 
 This configuration is a general way for deploying components in th2. 
 It contains box configuration, pins descriptions and other common parameters for a box.
 
+You can configure a specific implementation of **codec** using the `codecSettings` section (Exception: for **codec-sailfish-...**, use `codecParameters` instead of `codecSettings`).
+
 Extended example of the **codec** configuration:
 
 ```yaml
-apiVersion: th2.exactpro.com/vl 
+apiVersion: th2.exactpro.com/v1
 kind: Th2Box
 metadata:
-  name: codec-itch-mold-book-checker
+  name: codec
 spec:
-  image-name: nexus.exactpro.com:12000/th2-net/th2-codec-soup 
-  image-version: 3.10.4 
-  type: th2-codec
-  logFile: |
-    log4j.root Logger=DEBUG, CON
-    log4j.appender.CON=org.apache.log4j.ConsoleAppender 
-    log4j.appender.CON.layout=org.apache.log4j.Pattern Layout
-    log4j.appender.CON.layout.ConversionPattern=%d{dd MMM yyyy HH:mm:ss,SSS} %-6p [%-15t] %c - %m%n 
-    log4j.logger.com.exactpro.th2.readlog.impl.RegexpContentParser=DEBUG 
-    log4j.logger.com.exactpro.th2=DEBUG 
   custom-config:
-    codecClassName: com./exactpro.sf.externalapi.codec.impl.ExternalSoupCodecFactory
-    codecParameters:
-      parseMessageLengthAsSeparateMessage: true
+    codecSettings:
+      parameter1: value
+      parameter2:
+        - value1
+        - value2
   pins:
     # encoder
-    - name: in_codec_encode 
+    - name: in_codec_encode
       connection-type: mq
-      attributes:
-        - encoder_in
-        - parsed
-        - subscribe
-    - name: out_codec_encode 
+      attributes: [ 'encoder_in', 'parsed', 'subscribe' ]
+    - name: out_codec_encode
       connection-type: mq
-      attributes:
-        - encoder_out
-        - raw
-        - publish
+      attributes: [ 'encoder_out', 'raw', 'publish' ]
     # decoder
-    - name: in_codec_decode 
+    - name: in_codec_decode
       connection-type: mq
-      attributes:
-        - decoder_in
-        - raw
-        - subscribe
-    - name: out_codec_decode_itchmold_al_bookchecker 
-      connection-type: mq 
-      attributes:
-        - decoder_out
-        - parsed
-        - publish 
-      filters:
-        - metadata:
-            - field-name: session_alias
-              expected-value: itchmold-a1-bookchecker 
-              operation: EQUAL
-            - field-name: message_type 
-              expected-value: PacketHeader 
-              operation: NOT_EQUAL
-    - name: out_codec_decode_itchmold_a2_bookchecker 
-      connection-type: mq 
-      attributes:
-        - decoder_out
-        - parsed
-        - publish 
-      filters:
-        - metadata:
-            - field-name: session_alias
-              expected-value: itchmold-a2-bookchecker 
-              operation: EQUAL
-            - field-name: message_type 
-              expected-value: PacketHeader 
-              operation: NOT_EQUAL
-    - name: in_codec_general_encode 
-      connection-type: mq 
-      attributes:
-        - general_encoder_in
-        - parsed
-        - subscribe
-    - name: out_codec_general_encode 
-      connection-type: mq 
-      attributes:
-        - generalencoderout
-        - raw
-        - publish
+      attributes: ['decoder_in', 'raw', 'subscribe']
+    - name: out_codec_decode
+      connection-type: mq
+      attributes: ['decoder_out', 'parsed', 'publish']
+    # encoder general (technical)
+    - name: in_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_in', 'parsed', 'subscribe']
+    - name: out_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_out', 'raw', 'publish']
     # decoder general (technical)
-    - name: in_codec_general_decode 
-      connection-type: mq 
-      attributes:
-        - general_decoder_in
-        - raw
-        - subscribe
-    - name: out_codec_general_decode 
-      connection-type: mq 
-      attributes:
-        - general_decoder_out
-        - parsed
-        - publish
-  extended-settings: 
-    service:
-      enabled: false 
-    resources: 
-      limits: 
-        memory: 500Mi 
-        cpu: 300m 
-      requests: 
-        memory: 300Mi 
-        cpu: 150m
+    - name: in_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_in', 'raw', 'subscribe']
+    - name: out_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_out', 'parsed', 'publish']
 ```
 
 ### Codec-related links
@@ -443,166 +381,14 @@ spec:
       name: fix-sell
       type: MAIN
 ```
-
-#### Connectivity link(-s)
-In order to connect **conn** microservice to **codec**, you have to define three links:
-
-- Link `fix_to_send` **conn** pin with `out_codec_encode` pin so `act` and `sim` components can send messages to the system under test.
-
-- Link `in_raw` and `out_raw` **conn** pins with `in_codec_decode` **codec** pin so all message flow managed by the particular **conn** gets parsed and stored in **mstore**.
-
-```yaml[from-codec-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-codec-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: codec-to-gtwquod5
-      from:
-        box: codec-fix-sell
-        pin: out_codec_encode
-      to:
-        box: gtwquod5
-        pin: fix_to_send
-```
+#### Connectivity links
+Functionally, **codec** is a regular th2 box that communicates with other boxes via pins and links. 
+To configure the connections, use a template on the [Links](../infrastructure/th2-infra-schema/links#boxes-links) page.
 
 
-```yaml[from-conn-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-conn-links
-spec:
-  boxes-relation:
-    router-mq: 
-- name: gtwquod5-codec-fix-sell-in
-      from:
-        box: gtwquod5
-        pin: in_raw
-      to:
-        box: codec-fix-sell
-        pin: in_codec_decode
-- name: gtwquod5-codec-fix-sell-out
-      from:
-        box: gtwquod5
-        pin: out_raw
-      to:
-        box: codec-fix-sell
-        pin: in_codec_decode
-```
-
- 
-#### check1 link(-s)
-In order to check parsed messages via requests to **check1** microservice, **codec** should be linked to **check1** in the following way:
-
-- `out_codec_decode` **codec** pin should be linked to **check1**'s pre-configured dedicated pin for particular **codec**.
-
-
-```yaml[from-codec-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-codec-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: codec-sell-to-check1
-      from:
-        box: codec-fix-sell
-        pin: out_codec_decode
-      to:
-        box: check1
-        pin: from_codec_fix_sell
-```
-
-#### act link(-s)
-To send messages to the system under test via **act** microservice (and consequently receive responses for sent messages), the **act** should be linked with **codec** in the following way:
-
-- Dedicated to desired **conn**, **act** pin with applied session-alias filter should be linked to `in_codec_encode` **codec** pin for particular **codec**.
-
-- `out_codec_decode` **codec** pin should be linked to **act**'s pre-configured dedicated pin for particular **codec** in order to receive responses for requests.
-
-
-```yaml[from-codec-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-codec-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: from-codec-sell-to-act
-      from:
-        box: codec-fix-sell
-        pin: out_codec_decode
-      to:
-        box: act
-        pin: from_codec_fix_sell
-```
-
-```yaml[from-act-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-act-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: act-to-gtwquod5
-      from:
-        box: act
-        pin: to_send_gtwquod5
-      to:
-        box: codec-fix-sell
-        pin: in_codec_encode
-```
-
-#### Simulator link(-s)
-The **simulator** should be linked to the **codec** in order to interact with a system under test through the desired **conn**. 
-
-- To send messages to the system under test, link dedicated to desired **conn**, **sim** pin with applied session-alias as attribute should be linked to `in_codec_encode` **codec** pin;
-
-- To receive messages from the system under test , link `out_codec_decode` **codec** pin with **sim**'s subscribe pin.
-
-
-```yaml[from-codec-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-codec-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: codec-sell-to-sim
-      from:
-        box: codec-fix-sell
-        pin: out_codec_decode
-      to:
-        box: sim-quod
-        pin: subscribe
-```
-
-```yaml[from-sim-links.yml]
-apiVersion: th2.exactpro.com/v1
-kind: Th2Link
-metadata:
-  name: from-sim-links
-spec:
-  boxes-relation:
-    router-mq:
-- name: sim-quod-to-gtwquod5
-      from:
-        box: sim-quod
-        pin: send_gtwquod5
-      to:
-        box: codec-fix-sell
-        pin: in_codec_encode
-```
 
 #### Report Data Provider link(-s)
-In order to show messages that passing through **codec** in Report UI, **codec** should be linked to **rpt-data-provider** in the following way:
+For messages passing through **codec** to be displayed in Report UI, **codec** should be linked to **rpt-data-provider** in the following way:
 
 Dedicated to desired **codec**, **rpt-data-provider** pin should be linked to `in_codec_general_decode` **codec** pin.
 
