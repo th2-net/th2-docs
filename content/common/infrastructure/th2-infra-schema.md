@@ -181,8 +181,9 @@ Possible `logLevel` values:
 
 `mqRouter` fields mostly configures retry functionality. 
 The `prefetchCount` field specifies the number of messages to be read from RabbitMQ.
-<notice info >
 
-Higher values increase the throughput, but set higher memory requirements
+<notice info>
+
+Higher values increase the throughput, but set higher memory requirements.
 
 </notice >
