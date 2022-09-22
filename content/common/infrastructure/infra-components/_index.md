@@ -13,7 +13,7 @@ While the infra-schema describes a th2 environment configured for a particular t
 Infra components are an intermediate layer between the user and the Kubernetes cluster. 
 This layer changes the th2 environments in accordance with the state of the **infra-schema**.
 
-![](/img/fundamentals/infra/infra-comp-1.png)
+![](/img/fundamentals/th2-infra-1.png)
 
 ## Components
 
