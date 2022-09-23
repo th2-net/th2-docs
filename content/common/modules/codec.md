@@ -143,7 +143,7 @@ There are 3 types of **codec**-related repositories.
  
 ### Build script collection:
 
-[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - project that builds FAST, FIX, ITCH, NTG, and SOUP **codecs** using their Sailfish implementation and `th2-codec-sailsfish`as a base.
+[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - a repository that builds FAST, FIX, ITCH, NTG, and SOUP **codecs** using their Sailfish implementation and `th2-codec-sailsfish` as a base.
 
 You can use a link to a docker image of needed **codec** from its GitHub repository to deploy it using **th2-infra**.
 
