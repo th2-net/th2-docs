@@ -13,7 +13,7 @@ weight: 10
 The **codec** is a component responsible for transforming <term term='message'>messages</term> from human-readable format into a format of a corresponding protocol and vice versa. 
 It contains the main logic for encoding and decoding messages. 
 The **codec** usually uses <term term='dictionary'>dictionary</term> to decode and encode messages. 
-Dictionaries contain message structure, fields and values that **codec** can decode. 
+Dictionaries contain message structures, fields and values that **codec** can decode. 
 
 ### Encoding
 During encoding **codec** replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.
