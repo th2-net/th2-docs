@@ -16,7 +16,7 @@ The **codec** usually uses <term term='dictionary'>dictionary</term> to decode a
 Dictionaries contain message structures, fields and values that **codec** can decode. 
 
 ### Encoding
-During encoding **codec** replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.
+During encoding, **codec** replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.
 
 NOTE: **codec** can merge content of subsequent raw messages into a resulting raw message (e.g. when a **codec** encodes only a transport layer and its payload is already encoded).
 
