@@ -8,7 +8,7 @@ continue_learning:
     icon: mdi-account
 ---
 
-This section describes full th2 deployment. It has information on how to configure Kubernetes environment for th2 and set up th2 components.
+This section provides detailed instructions on how to install and configure th2 as a full-capability Kubernetes cluster.
 
 <!--more-->
 
