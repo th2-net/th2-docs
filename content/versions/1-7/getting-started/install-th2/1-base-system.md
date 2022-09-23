@@ -81,7 +81,7 @@ A th2 node is a machine where your th2 system will run fully or partially. th2 n
 The operator box is a machine used to monitor and control the th2 cluster.
 
 1. Git  
-   Git is the most popular project version control system. Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in the git repositories with the state of the testing system and updates the corresponding components.
+   Created in line with the DevOps/GitOps paradigm, th2 synchronizes configuration in the Git repositories with the state of the testing system and updates the corresponding components.
    - [Installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 2. kubectl  
    [Kubectl](https://kubernetes.io/docs/reference/kubectl/) is a command line interface for interacting with a Kubernetes cluster.  
