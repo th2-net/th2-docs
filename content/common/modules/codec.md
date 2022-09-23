@@ -12,11 +12,11 @@ weight: 10
 
 The **codec** is a component responsible for transforming <term term='message'>messages</term> from human-readable format into a format of a corresponding protocol and vice versa. 
 It contains the main logic for encoding and decoding messages. 
-The **codec** usually uses a <term term='dictionary'>dictionary</term> to decode and encode messages. 
-Dictionaries contain message structure, fields and values that **codec** can decode. 
+The **codec** usually uses <term term='dictionary'>dictionary</term> to decode and encode messages. 
+Dictionaries contain message structures, fields and values that **codec** can decode. 
 
 ### Encoding
-During encoding **codec** replaces each parsed message of supported protocols in a message group with a raw one by encoding parsed message content.
+During encoding, **codec** replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.
 
 NOTE: **codec** can merge content of subsequent raw messages into a resulting raw message (e.g. when a **codec** encodes only a transport layer and its payload is already encoded).
 
@@ -27,7 +27,7 @@ If an exception was thrown, all raw messages will be replaced with `th2-codec-er
 
 NOTE: **codec** can replace a raw message with a parsed message followed by several raw messages (e.g. when a **codec** decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).
 
-The schema below describes encoding/decoding process. 
+The schema below describes encoding/decoding processes. 
 
 ![](/img/boxes/exactpro/codec/codec_inside_processes.png)
 
@@ -112,7 +112,7 @@ There are 3 types of **codec**-related repositories.
 
 - Library - use it to build your own **codec** component.
 
-- Build script collection - use it to translate messages from raw to parsed (and back) with re-using of Sailfish code (see protocols in Readme files of a repository). SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish).
+- Build script collection - use it to translate messages from raw to parsed (and back) with re-using of Sailfish code (see protocols in Readme files of the repository). SEE ALSO: [Sailfish](https://exactpro.com/test-tools/sailfish).
 
 ### Box repositories list:
 
@@ -135,42 +135,42 @@ There are 3 types of **codec**-related repositories.
 
 ### Library repositories:
 
-- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - a common **codec** library which takes care of some boilerplate stuff like subscribing/publishing to message queues and loading **codec** settings. All th2 **codecs** were made based on this library.
+- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) — a common **codec** library with basic functionalities of subscribing/publishing message queues and loading **codec** settings; all **codecs** written specifically for th2 are based on this library.
 
-- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing proto messages and **codec** service with RPC methods that are used in **codec**. 
+- [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing gRPC interface for **th2-codec** library. This interface can be used to encode/decode messages via RPC call. 
 
-- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all **codecs** that use Sailfish as a library were made using this library.
+- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all **codecs** that use Sailfish as a library are created based on this library.
  
 ### Build script collection:
 
-[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - collection of codecs for four different protocols using their sailfish implementation and `th2-codec-sailsfish` library. It contains four docker images, each of them is a box.
+[th2-net/th2-codec-generic](https://github.com/th2-net/th2-codec-generic) - a repository that builds FAST, FIX, ITCH, NTG, and SOUP **codecs** using their Sailfish implementation and `th2-codec-sailsfish` as a base.
 
 You can use a link to a docker image of needed **codec** from its GitHub repository to deploy it using **th2-infra**.
 
 ## Functions:
 
 The **codec** component handles message flows between components such as **conn**, **act**, **check1**, **read** and other. 
-On the scheme below you can see an example of interaction with other th2 components .
+On the scheme below you can see an example of interaction with other th2 components.
 
 ![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
 
-The **codec** component has eight pins - four stream, and four general ones. 
-Functionality of stream and general pins is the same. 
+The **codec** component has eight pins - four for the stream, and four general ones. 
+Functionality of the stream and the general pins is the same. 
 A common system setup uses two data flows: 1) to and from the system, and 2) to and from data provider. 
 Messages from these flows cannot be mixed. 
 One way to avoid this intersection is to use two instances of a component with four pins. 
 Another option is to configure eight pins – this allows the user to decrease the amount of required settings in **infra-schema** as well as resource utilization of the resulting system. 
-General pins are used by the data-provider component, other components are usually connected to stream pins.
+General pins are used by the data-provider component, other components are usually connected to the stream pins.
 
 ### Why do we need a chain of codecs?
 
 It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. 
 The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). 
-Also, sometimes different systems use the same transport protocol but with different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
+Also, sometimes different systems use the same transport protocol but with the different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).
 
-In case you need to encode/decode a message but do no have a **codec** implementation for such decoding, you can reuse already implemented **codecs** by joining them into a chain of **codecs**. 
+In case you need to encode/decode a message but do not have a single **codec** for such case, you can reuse already implemented **codecs** by joining them into a chain of **codecs**. It is also recommended for the **codec** to work only with a single protocol.  
 For example, you have HTTP, JSON and XML **codec**. 
-lYou can join them together for decoding XML over HTTP or JSON over HTTP.
+You can join them together for decoding XML over HTTP or JSON over HTTP.
 
 If the **codec** component gets a message that does not match an expected format (a raw message of corresponding protocol to `in_codec_decode` pin and a parsed message to `in_codec_encode` pin) it will be sent through the corresponding out pins without changes.
 
@@ -185,11 +185,11 @@ Config file includes the following parameters:
 
 - `kind`- kind of the created object, possible values - `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore`, `Th2Dictionary`.
 
-- `metadata` (name, UID and optional field namespace) - should be equal to the file name.
+- `metadata` (name, UID and optional field namespace) - should be equal to the file name without extension.
 
-- `spec` - required object state; here image-name and image-version specified (including versions), type, custom-config (component-specific set of parameters), pins (to communicate with other boxes).
+- `spec` - required object configuration. This seciton contains `image-name` and `image-version` (including versions), `type`, `custom-config` (component-specific set of parameters), `pins` (to communicate with other boxes).
 
-- `extended-settings: service` - here we specify whether the object is available for other components, envVariables (environment variables of pod deployment),  resources (amount of resources available for a Pod), etc. 
+- `extended-settings: service` - here we specify whether the object is available for other components, envVariables (environment variables for pod deployment), resources (amount of resources available for a Pod), etc. 
 
 The **codec** settings can be specified in `codecSettings` field of `custom-config`. 
 
@@ -212,9 +212,9 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through stream encode / decode connections.
+- `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through the stream encode / decode connections.
 
-- `general encode / decode` connections work on demand; those connections used mainly for th2 report UI; in order to show the end-user messages stored in cassandra **report-data-viewer** request said messages from **rpt-data-provider** via **codec**.
+- `general encode / decode` connections work on demand; those connections are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
 Codec never mixes messages from the stream and the general connections.
 
@@ -229,7 +229,7 @@ They describe what are the inputs and outputs of a box.
 You can read more about them [here](../infrastructure/th2-infra-schema/pins).
 
 Every **codec** operation is associated with 2 pins - `subscribe` and `publish`. 
-The first one is used to receive messages to decode/encode while the second one is used to send decoded/encoded messages further. 
+The first one is used to receive messages to decode/encode, while the second one is used to send decoded/encoded messages further. 
 
 **Typical codec has the following pins**: 
 
@@ -251,7 +251,7 @@ The first one is used to receive messages to decode/encode while the second one 
 
 ### Configuration example
 
-API Kubernetes documentation contains specification format for any in-built Kubernetes object; th2-specific custom resources can be found in a Readme file of component repository.
+API Kubernetes documentation contains specification format for any in-built Kubernetes object. th2-specific custom resources can be found in a Readme file of the component repository.
 
 - `name` in metadata must be filled in as a box name.
 
@@ -268,7 +268,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 - `service` parameter: to make this component available to other th2 boxes, set `service.enabled` to `true`.
 
 This configuration is a general way for deploying components in th2. 
-It contains box configuration, pins descriptions and other common parameters for a box.
+It contains box configuration, pins' descriptions and other common parameters for a box.
 
 You can configure a specific implementation of **codec** using the `codecSettings` section (Exception: for **codec-sailfish-...**, use `codecParameters` instead of `codecSettings`).
 
@@ -318,14 +318,14 @@ spec:
 ```
 
 ### Codec-related links
-Schema API allows configuring routing streams of messages via links between connections and filters on pins. 
+Schema API allows configuring routing streams of the messages via links between the connections and the filters on pins. 
 Let's consider some examples of routing in a **codec** box.
 
  
 #### Split on 'publish' pins
-For example, you got a big source data stream, and you want to split them into some pins via session alias. 
-You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. 
-Every decoded messages will be directed to all declared pins and will send to MQ only if it passes the filter.
+For example, you have got a big source data stream, and you want to split them into some pins via session alias. 
+You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin, or in addition to it. 
+Every decoded message will be directed to all declared pins and will be sent to MQ only if it passes the filter.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -361,7 +361,7 @@ The **codec** instance will use a linked dictionary as a reference for validatio
 
 <notice note >
 
-If protocol-specific codec needs dictionary,  it won't properly function without it
+If a protocol-specific **codec** requires a dictionary, it won't properly function without it.
 
 </notice >
 
@@ -440,7 +440,7 @@ maven {
 
 3. set main class to `com.exactpro.th2.codec.MainKt`
 
-This is usually done by using Gradle application plugin where you can set main class like this:
+This is usually done by using Gradle application plugin where you can set the main class like this:
 
 ```
 application {
@@ -460,7 +460,7 @@ interface IPipelineCodec : AutoCloseable {
 }
 ```
 
-5. implement a factory for it using IPipelineCodecFactory interface:
+5. implement a factory for it, using the IPipelineCodecFactory interface:
 ```
 interface IPipelineCodecFactory : AutoCloseable {
     val protocols: Set<String>
@@ -473,8 +473,8 @@ interface IPipelineCodecFactory : AutoCloseable {
 ```
 **NOTE**: both init methods have default implementations. 
 One of them must be overridden in your factory implementation. 
-If your **codec** needs the MAIN dictionary only you can override the init (dictionary: InputStream) method. 
-Otherwise, you should override init(pipelineCodecContext: IPipelineCodecContext) method.
+If your **codec** needs the MAIN dictionary, only you can override the `init(dictionary: InputStream)` method. 
+Otherwise, you should override the `init(pipelineCodecContext: IPipelineCodecContext)` method.
 
 **IMPORTANT**: implementation should be loadable via Java's built-in service loader.
 
