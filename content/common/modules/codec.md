@@ -135,7 +135,7 @@ There are 3 types of **codec**-related repositories.
 
 ### Library repositories:
 
-- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) - a common **codec** library which takes care of some boilerplate stuff like subscribing/publishing message queues and loading **codec** settings. All **codecs** written specifically for th2 are based on this library.
+- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) — a common **codec** library with basic functionalities of subscribing/publishing message queues and loading **codec** settings; all **codecs** written specifically for th2 are based on this library.
 
 - [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing gRPC interface for **th2-codec** library. This interface can be used to encode/decode messages via RPC call. 
 
