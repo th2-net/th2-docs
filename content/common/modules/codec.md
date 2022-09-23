@@ -474,7 +474,7 @@ interface IPipelineCodecFactory : AutoCloseable {
 **NOTE**: both init methods have default implementations. 
 One of them must be overridden in your factory implementation. 
 If your **codec** needs the MAIN dictionary, only you can override the `init(dictionary: InputStream)` method. 
-Otherwise, you should override init (pipelineCodecContext: IPipelineCodecContext) method.
+Otherwise, you should override the `init(pipelineCodecContext: IPipelineCodecContext)` method.
 
 **IMPORTANT**: implementation should be loadable via Java's built-in service loader.
 
