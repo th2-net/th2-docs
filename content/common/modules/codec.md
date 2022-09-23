@@ -361,7 +361,7 @@ The **codec** instance will use a linked dictionary as a reference for validatio
 
 <notice note >
 
-If protocol-specific codec needs dictionary, it won't properly function without it.
+If a protocol-specific **codec** requires a dictionary, it won't properly function without it.
 
 </notice >
 
