@@ -460,7 +460,7 @@ interface IPipelineCodec : AutoCloseable {
 }
 ```
 
-5. implement a factory for it, using IPipelineCodecFactory interface:
+5. implement a factory for it, using the IPipelineCodecFactory interface:
 ```
 interface IPipelineCodecFactory : AutoCloseable {
     val protocols: Set<String>
