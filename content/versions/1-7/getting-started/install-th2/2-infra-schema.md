@@ -15,7 +15,7 @@ Examples of the **infra-schema** repository configurations are available in the 
 
 You have two options on how to publish **th2-infra-schema**:
 - create a new repository from scratch;
-- copy the repository template;
+- copy the repository template.
 
 You can use either GitHub or GitLab for hosting the repository.
 
@@ -29,8 +29,8 @@ repository or use it as a template. It can be either **public** or **private**.
 
 <notice info >
 
-Th2 will synchronize with the published **th2-infra-schema** using SSH.
-In the future, you will be able to provide the link to this repository in a separate th2 configuration.
+th2 synchronizes with the published **th2-infra-schema** using SSH. 
+In the next steps, you will be given instructions on how to provide the link to this repository in a separate th2 configuration.
 
 </notice >
 
