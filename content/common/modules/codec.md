@@ -214,7 +214,7 @@ The **codec** has four types of pins: stream encode, stream decode, general enco
 
 - `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through the stream encode / decode connections.
 
-- `general encode / decode` connections work on demand; those connections are mainly used for the th2 report UI; in order to show the end-user messages stored in Cassandra **report-data-viewer** requests the said messages from **rpt-data-provider** via **codec**.
+- `general encode / decode` connections work on demand; those connections are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
 Codec never mixes messages from the stream and the general connections.
 
