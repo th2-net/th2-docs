@@ -356,12 +356,12 @@ spec:
 The filtering can also be applied for pins with a `subscribe` attribute.
 
 ### Links config
-The main link that every **codec** instance should have is a dictionary link. 
+The main link that almost every **codec** instance should have is a dictionary link. 
 The **codec** instance will use a linked dictionary as a reference for validations. 
 
 <notice note >
 
-If a protocol-specific **codec** requires a dictionary, it won't properly function without it.
+If a protocol-specific **codec** requires a dictionary, it won't start without dictionary.
 
 </notice >
 
