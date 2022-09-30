@@ -323,7 +323,7 @@ Let's consider some examples of routing in a **codec** box.
 
  
 #### Split on 'publish' pins
-For example, you have got a big source data stream, and you want to split them into some pins via session alias. 
+For example, you have got a big source data stream, and you want to split it into different pins by session alias. 
 You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin, or in addition to it. 
 Every decoded message will be directed to all declared pins and will be sent to MQ only if it passes the filter.
 
