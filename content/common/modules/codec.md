@@ -212,11 +212,11 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through the stream encode / decode connections.
+- `stream encode / decode` pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through `stream` `encode` / `decode` pins.
 
-- `general encode / decode` connections work on demand; those connections are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
+- `general encode / decode` pins work on demand; those pins are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
-Codec never mixes messages from the stream and the general connections.
+Codec never mixes messages from the stream and the general pins.
 
 <notice info>
 
