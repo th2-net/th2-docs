@@ -30,7 +30,7 @@ repository or use it as a template. It can be either **public** or **private**.
 <notice info >
 
 th2 synchronizes with the published **th2-infra-schema** using SSH. 
-In the next steps, you will be given instructions on how to provide the link to this repository in a separate th2 configuration.
+In the next steps, there are instructions on how to provide the link to this repository in a separate th2 configuration.
 
 </notice >
 
