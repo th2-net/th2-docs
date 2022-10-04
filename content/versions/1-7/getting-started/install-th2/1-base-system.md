@@ -68,12 +68,12 @@ A th2 node is a machine where your th2 system runs fully or partially. th2 node 
 2. Kubernetes v1.19.x or 1.20.x
 
    The Kubernetes cluster should be installed with the [flannel CNI plugin](https://coreos.com/flannel/docs/latest/kubernetes.html#the-flannel-cni-plugin) (a single master node in the development mode, and one master and 2+ worker nodes in the production mode). Kubernetes is needed as a technology platform to support the microservices nature of the th2 framework.
-   - [Kubernetes tools installation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
-   - [Creating a cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+   - [Kubernetes tools installation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/).
+   - [Creating a cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/).
    - The [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) is a service that powers Kubernetes.  
    - [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) is a set of tools for creating and managing a Kubernetes cluster.     
    - Installing flannel CNI 
-      Execute the following command in the terminal: ```kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml```
+      Execute the following command in the terminal: <br />```kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml```
     
    
 ## Operator box
