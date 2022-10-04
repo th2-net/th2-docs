@@ -37,7 +37,7 @@ Cassandra plays a role of data storage for th2. It is a high performance NoSQL d
 
 ## Common tools
 
-Regardless of how you are going to run the cluster, you will need tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. It can also be useful for possible debugging.
+Regardless of how you are going to run the cluster, you need tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. It can also be useful for possible debugging.
 
 | Tool    | Version         |
 | ------- | --------------- |
@@ -57,23 +57,23 @@ You can choose either a full setup described in this section, or a [quick setup]
 
 ## th2 node
 
-A th2 node is a machine where your th2 system will run fully or partially. th2 node requires the following applications to be installed. 
+A th2 node is a machine where your th2 system runs fully or partially. th2 node requires the following applications to be installed. 
 
 1. Docker CE v19+
 
-   Docker is an open-source application containerization technology. In th2, services are run inside separate Docker containers. To install Docker, follow the [official guide](https://docs.docker.com/engine/install/). Upon installation, you will need to [configure Docker](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker) for Kubernetes.
+   Docker is an open-source application containerization technology. In th2, services are run inside separate Docker containers. To install Docker, follow the [official guide](https://docs.docker.com/engine/install/). Upon installation, you need to [configure Docker](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker) for Kubernetes.
 
    [Overlay2 storage driver prerequisites](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#prerequisites)
    
 2. Kubernetes v1.19.x or 1.20.x
 
    The Kubernetes cluster should be installed with the [flannel CNI plugin](https://coreos.com/flannel/docs/latest/kubernetes.html#the-flannel-cni-plugin) (a single master node in the development mode, and one master and 2+ worker nodes in the production mode). Kubernetes is needed as a technology platform to support the microservices nature of the th2 framework.
-   - [Kubernetes tools installation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
-   - [Creating a cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+   - [Kubernetes tools installation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/).
+   - [Creating a cluster](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/).
    - The [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) is a service that powers Kubernetes.  
    - [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) is a set of tools for creating and managing a Kubernetes cluster.     
    - Installing flannel CNI 
-      Execute the following command in the terminal: ```kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml```
+      Execute the following command in the terminal: <br />```kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml```
     
    
 ## Operator box
@@ -95,7 +95,7 @@ The operator box is a machine used to monitor and control the th2 cluster.
 
 ## Apache Cassandra node
 
-An Apache Cassandra node is a machine where the Cassandra database for th2 system will be deployed.
+An Apache Cassandra node is a machine where the Cassandra database for th2 system is deployed.
 
 1. Cassandra 3.11.6+  
    Cassandra plays the role of data storage for th2. It is a NoSQL distributed database with high performance. So the storage is quite flexible for user needs.
