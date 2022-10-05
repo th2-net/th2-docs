@@ -425,14 +425,14 @@ To implement a **codec** using this library you need to:
 
 1. add the following repositories into `build.gradle`:
 
-```
+```groovy
 maven {
-       url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
-   }
-   
-   maven {
-       url 'https://s01.oss.sonatype.org/content/repositories/releases/'
-   }
+    url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+}
+
+maven {
+    url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+}
 ```
 
 2. add dependency on `com.exactpro.th2:codec:4.6.0` into `build.gradle`
@@ -441,7 +441,7 @@ maven {
 
 This is usually done by using Gradle application plugin where you can set the main class like this:
 
-```
+```groovy
 application {
    mainClassName 'com.exactpro.th2.codec.MainKt'
 }
@@ -449,7 +449,7 @@ application {
 
 4. implement `codec` itself by implementing IPipelineCodec interface:
 
-```
+```groovy
 interface IPipelineCodec : AutoCloseable {
     fun encode(messageGroup: MessageGroup): MessageGroup = TODO("encode(messageGroup) method is not implemented")
     fun encode(messageGroup: MessageGroup, context: IReportingContext): MessageGroup = encode(messageGroup)
@@ -460,7 +460,7 @@ interface IPipelineCodec : AutoCloseable {
 ```
 
 5. implement a factory for it, using the IPipelineCodecFactory interface:
-```
+```groovy
 interface IPipelineCodecFactory : AutoCloseable {
     val protocols: Set<String>
     val settingsClass: Class<out IPipelineCodecSettings>
