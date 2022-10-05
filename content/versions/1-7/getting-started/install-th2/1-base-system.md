@@ -57,13 +57,13 @@ You can choose either a full setup described in this section, or a [quick setup]
 
 ## th2 node
 
-A th2 node is a machine where your th2 system runs fully or partially. th2 node requires the following applications to be installed. 
+A th2 node is a machine where your th2 system runs fully or partially. A th2 node requires the following applications to be installed. 
 
 1. Docker CE v19+
 
    Docker is an open-source application containerization technology. In th2, services are run inside separate Docker containers. To install Docker, follow the [official guide](https://docs.docker.com/engine/install/). Upon installation, you need to [configure Docker](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker) for Kubernetes.
 
-   [Overlay2 storage driver prerequisites](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#prerequisites)
+   [Overlay2 storage driver prerequisites](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#prerequisites).
    
 2. Kubernetes v1.19.x or 1.20.x
 
@@ -112,7 +112,7 @@ An Apache Cassandra node is a machine where the Cassandra database for th2 syste
     pip install cqlsh
     ```
 
-Also it is needed to:
+Also, it is needed to:
 - create a user with admin rights for th2;
 - provide access to the Cassandra database over the network.
 
