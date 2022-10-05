@@ -39,9 +39,7 @@
 
 			</div>
 		</v-main>
-		<v-footer>
-			<span>&copy; {{ new Date().getFullYear() }}</span>
-		</v-footer>
+		<Footer />
 	</div>
 </template>
 
@@ -60,13 +58,15 @@ import ContentTree from "~/components/layout/ContentTree";
 import ThemeSwitcher from "~/components/layout/ThemeSwitcher";
 import SiteLogo from "~/components/layout/SiteLogo";
 import SearchWindow from "~/components/layout/SearchWindow";
+import Footer from '~/components/layout/Footer'
 export default {
 	name: "DefaultLayout",
 	components: {
-		SearchWindow,
-		SiteLogo,
-		ThemeSwitcher,
-		ContentTree
+			SearchWindow,
+			SiteLogo,
+			ThemeSwitcher,
+			ContentTree,
+			Footer
 		},
 	data () {
 		return {
