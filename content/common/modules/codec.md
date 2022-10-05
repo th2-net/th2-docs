@@ -212,7 +212,7 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- `stream encode / decode` pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through `stream` `encode` / `decode` pins.
+- `stream encode / decode` pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through the `stream` `encode` / `decode` pins.
 
 - `general encode / decode` pins work on demand; those pins are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
@@ -323,8 +323,7 @@ Let's consider some examples of routing in a **codec** box.
 
  
 #### Split on 'publish' pins
-For example, you have got a big source data stream, and you want to split it into different pins by session alias. 
-You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin, or in addition to it. 
+To split a big source data stream into different pins by session alias, consider declaring multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. 
 Every decoded message will be directed to all declared pins and will be sent to MQ only if it passes the filter.
 
 ```yaml
@@ -356,12 +355,12 @@ spec:
 The filtering can also be applied for pins with a `subscribe` attribute.
 
 ### Links config
-The main link that almost every **codec** instance should have is a dictionary link. 
-The **codec** instance will use a linked dictionary as a reference for validations. 
+The main link for a typical **codec** instance is a dictionary link. 
+A linked dictionary serves as a reference for validations performed by a **codec** instance. 
 
 <notice note >
 
-If a protocol-specific **codec** requires a dictionary, it won't start without dictionary.
+If a protocol-specific **codec** requires a dictionary, it won't start without it.
 
 </notice >
 
