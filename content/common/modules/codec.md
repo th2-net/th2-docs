@@ -31,13 +31,13 @@ The schema below describes encoding/decoding processes.
 
 ![](/img/boxes/exactpro/codec/codec_inside_processes.png)
 
-- **raw** - <term term='pin'>pin</term> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.
+- `raw` - <term term='pin'>pin</term> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.
 
-- **parsed** - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.
+- `parsed` - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.
 
-- **encode** - pin configuration item, message passing through this pin will be translated from parsed to raw.
+- `encode` - pin configuration item, message passing through this pin will be translated from parsed to raw.
 
-- **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
+- `decode` - pin configuration item, message passing through this pin will be translated from raw to parsed.
 
 
 Example of a raw message (FIX protocol):
