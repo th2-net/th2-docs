@@ -11,7 +11,7 @@ related:
 
 <!--more-->
 
-Some infrastructure are technologically supported by a number of third-party open-source solutions:
+Some infrastructure components are technologically supported by a number of third-party open-source solutions:
 
 1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator allowing one to declaratively manage Helm chart releases. 
 2. [RabbitMQ](https://www.rabbitmq.com/) – one of the most popular open source message brokers used in th2 for managing message flows.
