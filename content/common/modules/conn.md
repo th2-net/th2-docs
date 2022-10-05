@@ -19,13 +19,20 @@ This component implements the logic of the interaction protocol, receiving and s
 
 ## Family
 
-<notice info>
+There is a number of repositories on GitHub, created as a part of connectivity module implementation. 
 
 There is no universal template for the **conn** component, but you can use one of the already created **conn** repositories in [th2-net](https://github.com/th2-net) or use one of the custom protocol implementations provided there to apply it to your own version of **conn**.
 
+<notice note>
+
+Some of the **conn** repositories have `dirty` in the name. 
+It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
+
 </notice>
 
-[th2-net](https://github.com/th2-net) repositories with names starting with `th2-conn-` contain implementations of **conn**  for specific communication protocols.
+### Boxes
+
+[th2-net](https://github.com/th2-net) repositories with names starting with `th2-conn-` contain implementations of **conn**  for specific communication protocols. They already have docker image in the registry.
 
 |Repository|Protocol(s)|
 |----------|-----------|
@@ -35,33 +42,32 @@ There is no universal template for the **conn** component, but you can use one o
 |[th2-conn-http-server](https://github.com/th2-net/th2-conn-http-server)|HTTP, HTTPS|
 |[th2-conn-ws-client](https://github.com/th2-net/th2-conn-ws-client)|WebSocket|
 |[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
+|[th2-conn-dirty-fix](https://github.com/th2-net/th2-conn-dirty-fix)|[FIX](https://www.fixtrading.org/what-is-fix/)|
+|[th2-conn-dirty-http](https://github.com/th2-net/th2-conn-dirty-http)|	HTTP, HTTPS|
+|[th2-conn-dirty-pillar](https://github.com/th2-net/th2-conn-dirty-pillar) |[Pillar](https://pillarprotocol.com/)|
 
 ### Templates
 
-**conn** repositories with the `template` in their name allow you to add custom logic into a component. 
+**conn** repositories with the `template` in their name are the templates of boxes. You can add custom logic into these boxes. 
 
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|
 |[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
 |[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|Allows you to create **conn** implementations based on Sailfish services|
 
-### Dirty
+### Libraries
 
-Some of the **conn** repositories have "dirty" in the name. 
-It means that the component can be used for negative testing as it provides an ability to send invalid messages in order to get a protocol error.
+**conn** repositories with the `core` are the libraries, which can be useful for box implementation. 
 
 |Repository|Protocol(s)|
 |----------|-----------|
-|[th2-conn-dirty-fix](https://github.com/th2-net/th2-conn-dirty-fix)|[FIX](https://www.fixtrading.org/what-is-fix/)|
-|[th2-conn-dirty-http](https://github.com/th2-net/th2-conn-dirty-http)|	HTTP, HTTPS|
-|[th2-conn-dirty-pillar](https://github.com/th2-net/th2-conn-dirty-pillar) |[Pillar](https://pillarprotocol.com/)|
 |[th2-conn-dirty-tcp-core](https://github.com/th2-net/th2-conn-dirty-tcp-core) |TCP|
 
 ### Other
 
 Some of the public repositories related to the **conn** are not for common use, but they are still useful for the th2 ecosystem.
 
-|Repository| Protocol(s)                                                                                                                                                                                                                                                                                                                                         |
+|Repository| Description                                                                                                                                                                                                                                                                                                                                         |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[th2-grpc-conn](https://github.com/th2-net/th2-grpc-conn)| Contains a common gRPC interface for the **conn** modules. This interface can be used to control a **conn** (e.g. start or stop it). <br> The **conn** modules implementing this interface: <br> [th2-conn-qfj](https://github.com/th2-net/th2-conn-qfj) <br> [th2-conn-http-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template) |
 |[th2-conn-generic](https://github.com/th2-net/th2-conn-generic)| Builds [FIX](https://www.fixtrading.org/what-is-fix/), [SOUP](https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/souptcp.pdf), [NTG](https://www.lseg.com/sites/default/files/content/documents/MIT203%20-%20Native%20Trading%20Gateway%20Specification%20-%20Issue%2010.4.pdf) **conn** implementations on top of the [th2-conn](https://github.com/th2-net/th2-conn) Docker image.|
