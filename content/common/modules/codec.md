@@ -212,11 +212,11 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- `stream encode / decode` pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through the `stream` `encode` / `decode` pins.
+- _stream encode / decode_ pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through the _stream encode / decode_ pins.
 
-- `general encode / decode` pins work on demand; those pins are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
+- _general encode / decode_ pins work on demand; those pins are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
-Codec never mixes messages from the stream and the general pins.
+Codec never mixes messages from the _stream_ and the _general_ pins.
 
 <notice info>
 
@@ -233,21 +233,21 @@ The first one is used to receive messages to decode/encode, while the second one
 
 **Typical codec has the following pins**: 
 
-- Pin for the stream encoding input: `encoder_in` `parsed` `subscribe`
+- Pin for the _stream encoding_ input: `encoder_in` `parsed` `subscribe`
 
-- Pin for the stream encoding output: `encoder_out` `raw` `publish`
+- Pin for the _stream encoding_ output: `encoder_out` `raw` `publish`
 
-- Pin for the general encoding input: `general_encoder_in` `parsed` `subscribe`
+- Pin for the _general encoding_ input: `general_encoder_in` `parsed` `subscribe`
 
-- Pin for the general encoding output: `general_encoder_out` `raw` `publish`
+- Pin for the _general encoding_ output: `general_encoder_out` `raw` `publish`
 
-- Pin for the stream decoding input: `decoder_in` `raw` `subscribe`
+- Pin for the _stream decoding_ input: `decoder_in` `raw` `subscribe`
 
-- Pin for the stream decoding output: `decoder_out` `parsed` `publish`
+- Pin for the _stream decoding_ output: `decoder_out` `parsed` `publish`
 
-- Pin for the general decoding input: `general_decoder_in` `raw` `subscribe`
+- Pin for the _general decoding_ input: `general_decoder_in` `raw` `subscribe`
 
-- Pin for the general decoding output: `general_decoder_out` `parsed` `publish`
+- Pin for the _general decoding_ output: `general_decoder_out` `parsed` `publish`
 
 ### Configuration example
 
