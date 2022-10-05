@@ -358,11 +358,6 @@ The filtering can also be applied for pins with a `subscribe` attribute.
 The main link for a typical **codec** instance is a dictionary link. 
 A linked dictionary serves as a reference for validations performed by a **codec** instance. 
 
-<notice note >
-
-If a protocol-specific **codec** requires a dictionary, it won't start without it.
-
-</notice >
 
 Example:
 
