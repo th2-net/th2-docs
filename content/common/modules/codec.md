@@ -366,7 +366,8 @@ If a protocol-specific **codec** requires a dictionary, it won't start without i
 
 Example:
 
-```yaml[dictionary-links.yml]
+```yaml
+##### dictionary-links.yml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -394,7 +395,8 @@ Dedicated to desired **codec**, **rpt-data-provider** pin should be linked to `i
 `out_codec_general_decode` **codec** pin should be linked to **rpt-data-provider** pre-configured dedicated pin for particular **codec**.
 
 
-```yaml[from-codec-links.yml]
+```yaml
+##### from-codec-links.yml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
