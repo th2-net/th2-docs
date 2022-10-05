@@ -4,40 +4,48 @@
       <slot name="total">
         <h2>Total hardware minimal requirements</h2>
       </slot>
-      <table style="margin-top: 2rem">
-        <thead>
-        <tr>
-          <th>Requirement for node</th>
-          <th>Infra & Core Components</th>
-          <th>Custom & Building blocks components</th>
-          <th>Apache Cassandra node</th>
-          <th>Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Memory (GB)</td>
-          <td>{{th2_core.memory / 1000}} GB</td>
-          <td>{{th2_custom.memory / 1000}} GB</td>
-          <td>{{cassandra.memory / 1000}} GB</td>
-          <td>{{(th2_core.memory + th2_custom.memory + cassandra.memory) / 1000}} GB</td>
-        </tr>
-        <tr>
-          <td>CPU (cores)</td>
-          <td>{{Math.ceil(th2_core.core / 1000)}} cores</td>
-          <td>{{Math.ceil(th2_custom.core / 1000)}} cores</td>
-          <td>{{Math.ceil(cassandra.core / 1000)}} cores</td>
-          <td>{{Math.ceil((th2_core.core + th2_custom.core + cassandra.core) / 1000)}} cores</td>
-        </tr>
-        <tr>
-          <td>Disk space (GB)</td>
-          <td>{{th2_core.space}} GB</td>
-          <td>{{th2_custom.space}} GB</td>
-          <td>{{cassandra.space}} GB</td>
-          <td>{{th2_core.space + th2_custom.space + cassandra.space}} GB</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="v-sheet v-sheet--outlined elevation-2 mt-12">
+        <div class="v-data-table">
+          <div class="v-data-table__wrapper">
+            <table>
+              <thead>
+              <tr>
+                <th>Requirement for node</th>
+                <th>Infra & Core Components</th>
+                <th>Custom & Building blocks components</th>
+                <th>Apache Cassandra node</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Memory (GB)</td>
+                <td>{{th2_core.memory / 1000}} GB</td>
+                <td>{{th2_custom.memory / 1000}} GB</td>
+                <td>{{cassandra.memory / 1000}} GB</td>
+                <td>{{(th2_core.memory + th2_custom.memory + cassandra.memory) / 1000}} GB</td>
+              </tr>
+              <tr>
+                <td>CPU (cores)</td>
+                <td>{{Math.ceil(th2_core.core / 1000)}} cores</td>
+                <td>{{Math.ceil(th2_custom.core / 1000)}} cores</td>
+                <td>{{Math.ceil(cassandra.core / 1000)}} cores</td>
+                <td>{{Math.ceil((th2_core.core + th2_custom.core + cassandra.core) / 1000)}} cores</td>
+              </tr>
+              <tr>
+                <td>Disk space (GB)</td>
+                <td>{{th2_core.space}} GB</td>
+                <td>{{th2_custom.space}} GB</td>
+                <td>{{cassandra.space}} GB</td>
+                <td>{{th2_core.space + th2_custom.space + cassandra.space}} GB</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+      
     </div>
 
 
@@ -45,140 +53,159 @@
       <h2>th2 components requirements</h2>
     </slot>
 
-    <table>
-      <thead>
-      <tr>
-        <th>Infra & Core Components</th>
-        <th>Memory (MB)</th>
-        <th>CPU (millicores)</th>
-        <th>Comment</th>
-        <th>Included to node</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>th2 infra</td>
-        <td>1000 MB</td>
-        <td>800 m</td>
-        <td>Required for all solutions: helm, infra-mgr, infra-editor, infra-operator</td>
-        <td><input type="checkbox" v-model="checks.infra"></td>
-      </tr>
-      <tr>
-        <td>th2 core</td>
-        <td>2500 MB</td>
-        <td>2000 m</td>
-        <td>Required for all solutions: mstore, estore, rpt-provider, rpt-viewer</td>
-        <td><input type="checkbox" v-model="checks.core"></td>
-      </tr>
-      <tr>
-        <td>th2 monitoring</td>
-        <td>1500 MB</td>
-        <td>2000 m</td>
-        <td>Recommended. Plus Loki log storage: 150 GB disk space</td>
-        <td><input type="checkbox" v-model="checks.monitoring"></td>
-      </tr>
-      <tr>
-        <td>Rabbitmq replica 1 in th2 infra</td>
-        <td>2000 MB</td>
-        <td>1000 m</td>
-        <td>Required for all solutions</td>
-        <td><input type="checkbox" v-model="checks.rabbitmq"></td>
-      </tr>
-      <tr>
-        <td>Other supporting components in th2 infra</td>
-        <td>500 MB</td>
-        <td>250 m</td>
-        <td>Depends on the deployment configuration. E.g. in-cluster CD system, ingress and etc</td>
-        <td><input type="checkbox" v-model="checks.other"></td>
-      </tr>
-      </tbody>
+    <div class="v-sheet v-sheet--outlined elevation-2 mt-12">
+      <div class="v-data-table">
+        <div class="v-data-table__wrapper">
+          <table>
+            <thead>
+            <tr>
+              <th>Infra & Core Components</th>
+              <th>Memory (MB)</th>
+              <th>CPU (millicores)</th>
+              <th>Comment</th>
+              <th>Included to node</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>th2 infra</td>
+              <td>1000 MB</td>
+              <td>800 m</td>
+              <td>Required for all solutions: helm, infra-mgr, infra-editor, infra-operator</td>
+              <td><input type="checkbox" v-model="checks.infra"></td>
+            </tr>
+            <tr>
+              <td>th2 core</td>
+              <td>2500 MB</td>
+              <td>2000 m</td>
+              <td>Required for all solutions: mstore, estore, rpt-provider, rpt-viewer</td>
+              <td><input type="checkbox" v-model="checks.core"></td>
+            </tr>
+            <tr>
+              <td>th2 monitoring</td>
+              <td>1500 MB</td>
+              <td>2000 m</td>
+              <td>Recommended. Plus Loki log storage: 150 GB disk space</td>
+              <td><input type="checkbox" v-model="checks.monitoring"></td>
+            </tr>
+            <tr>
+              <td>Rabbitmq replica 1 in th2 infra</td>
+              <td>2000 MB</td>
+              <td>1000 m</td>
+              <td>Required for all solutions</td>
+              <td><input type="checkbox" v-model="checks.rabbitmq"></td>
+            </tr>
+            <tr>
+              <td>Other supporting components in th2 infra</td>
+              <td>500 MB</td>
+              <td>250 m</td>
+              <td>Depends on the deployment configuration. E.g. in-cluster CD system, ingress and etc</td>
+              <td><input type="checkbox" v-model="checks.other"></td>
+            </tr>
+            </tbody>
 
-    </table>
-    <table style="margin-top: 2rem">
-      <thead>
-      <tr>
-        <th>Custom &amp; Building blocks components</th>
-        <th>Memory (MB)</th>
-        <th>CPU (millicores)</th>
-        <th>Included to node</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>th2 in-cluster connectivity services</td>
-        <td>200 MB</td>
-        <td>200 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.conn">
-        </td>
-      </tr>
-      <tr>
-        <td>th2 codec, act</td>
-        <td>200 MB</td>
-        <td>200 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.codec_act">
-        </td>
-      </tr>
-      <tr>
-        <td>th2 Java read</td>
-        <td>200 MB</td>
-        <td>200 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.java_read">
-        </td>
-      </tr>
-      <tr>
-        <td>th2 recon</td>
-        <td>200 MB</td>
-        <td>200 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.recon">
-        </td>
-      </tr>
-      <tr>
-        <td>th2 check2</td>
-        <td>800 MB</td>
-        <td>200 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.check2">
-        </td>
-      </tr>
-      <tr>
-        <td>th2 hand</td>
-        <td>300 MB</td>
-        <td>400 m</td>
-        <td>
-          <input type="number" min="0" v-model="numbers.hand">
-        </td>
-      </tr>
-      </tbody>
-    </table>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="v-sheet v-sheet--outlined elevation-2 mt-12">
+      <div class="v-data-table">
+        <div class="v-data-table__wrapper">
+          <table>
+            <thead>
+            <tr>
+              <th>Custom &amp; Building blocks components</th>
+              <th>Memory (MB)</th>
+              <th>CPU (millicores)</th>
+              <th>Included to node</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>th2 in-cluster connectivity services</td>
+              <td>200 MB</td>
+              <td>200 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.conn">
+              </td>
+            </tr>
+            <tr>
+              <td>th2 codec, act</td>
+              <td>200 MB</td>
+              <td>200 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.codec_act">
+              </td>
+            </tr>
+            <tr>
+              <td>th2 Java read</td>
+              <td>200 MB</td>
+              <td>200 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.java_read">
+              </td>
+            </tr>
+            <tr>
+              <td>th2 recon</td>
+              <td>200 MB</td>
+              <td>200 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.recon">
+              </td>
+            </tr>
+            <tr>
+              <td>th2 check2</td>
+              <td>800 MB</td>
+              <td>200 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.check2">
+              </td>
+            </tr>
+            <tr>
+              <td>th2 hand</td>
+              <td>300 MB</td>
+              <td>400 m</td>
+              <td>
+                <input type="number" min="0" v-model="numbers.hand">
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
 
     <slot name="cassandra">
       <h2>Apache Cassandra cluster hardware requirements</h2>
     </slot>
-
-    <table style="margin-top: 2rem">
-      <thead>
-      <tr>
-        <th>Apache Cassandra node</th>
-        <th>Memory (MB)</th>
-        <th>CPU (millicores)</th>
-        <th>Disk space (GB)</th>
-        <th>Included to node</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Cassandra node_n</td>
-        <td>4000 MB</td>
-        <td>2000 m</td>
-        <td>215 GB</td>
-        <td><input type="checkbox" v-model="checks.cassandra"></td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="v-sheet v-sheet--outlined elevation-2 mt-12">
+      <div class="v-data-table">
+        <div class="v-data-table__wrapper">
+          <table>
+            <thead>
+            <tr>
+              <th>Apache Cassandra node</th>
+              <th>Memory (MB)</th>
+              <th>CPU (millicores)</th>
+              <th>Disk space (GB)</th>
+              <th>Included to node</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Cassandra node_n</td>
+              <td>4000 MB</td>
+              <td>2000 m</td>
+              <td>215 GB</td>
+              <td><input type="checkbox" v-model="checks.cassandra"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </template>
 
