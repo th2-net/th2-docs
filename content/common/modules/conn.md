@@ -43,8 +43,6 @@ It means that the component can be used for negative testing as it provides an a
 |[th2-conn-ws-client](https://github.com/th2-net/th2-conn-ws-client)|WebSocket|
 |[th2-conn-kafka](https://github.com/th2-net/th2-conn-kafka)|[Kafka](https://kafka.apache.org/)|
 |[th2-conn-dirty-fix](https://github.com/th2-net/th2-conn-dirty-fix)|[FIX](https://www.fixtrading.org/what-is-fix/)|
-|[th2-conn-dirty-http](https://github.com/th2-net/th2-conn-dirty-http)|	HTTP, HTTPS|
-|[th2-conn-dirty-pillar](https://github.com/th2-net/th2-conn-dirty-pillar) |[Pillar](https://pillarprotocol.com/)|
 
 ### Templates
 
