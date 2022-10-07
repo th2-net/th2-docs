@@ -6,7 +6,7 @@ read_before:
     icon: mdi-alert-circle-outline
     href: ../../getting-started/requirements/software
 continue_learning:
-  - title: Publish infra schema
+  - title: Publish infra-schema
     href: ./2-infra-schema
 use_cases_link:
   - title: th2 use cases
