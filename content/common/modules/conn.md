@@ -30,6 +30,14 @@ It means that the component can be used for negative testing as it provides an a
 
 </notice>
 
+### Libraries
+
+**conn** repositories with the `core` are the libraries, which can be useful for box implementation. 
+
+|Repository|Protocol(s)|
+|----------|-----------|
+|[th2-conn-dirty-tcp-core](https://github.com/th2-net/th2-conn-dirty-tcp-core) |TCP|
+
 ### Boxes
 
 [th2-net](https://github.com/th2-net) repositories with names starting with `th2-conn-` contain implementations of **conn**  for specific communication protocols. They already have docker image in the registry.
@@ -52,14 +60,6 @@ It means that the component can be used for negative testing as it provides an a
 |----------|-----------|------------|
 |[th2-conn-ws-client-template](https://github.com/th2-net/th2-conn-http-ws-client-template)|HTTP, HTTPS, WebSocket|Authorization, Received Messages Handler, Sending Messages, etc.|
 |[th2-conn](https://github.com/th2-net/th2-conn)|[Sailfish](https://github.com/Exactpro/sailfish-core)|Allows you to create **conn** implementations based on Sailfish services|
-
-### Libraries
-
-**conn** repositories with the `core` are the libraries, which can be useful for box implementation. 
-
-|Repository|Protocol(s)|
-|----------|-----------|
-|[th2-conn-dirty-tcp-core](https://github.com/th2-net/th2-conn-dirty-tcp-core) |TCP|
 
 ### Other
 
