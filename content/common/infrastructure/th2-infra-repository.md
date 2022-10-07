@@ -7,10 +7,11 @@ related:
     href: "https://github.com/th2-net/th2-infra"
 ---
 
-[th2-infra](https://github.com/th2-net/th2-infra) is a repository containing a set of charts and values for the deployment of infrastructure components. 
-Also, it provides monitoring capabilities that are technologically supported by a number of third-party open-source solutions:
+[th2-infra](https://github.com/th2-net/th2-infra) is a repository containing a source code of th2 Helm charts, example Kubernetes manifests for persistent volumes, and example `.values.yaml` files for the deployment of infrastructure components. 
 
 <!--more-->
+
+Some infrastructure components are technologically supported by a number of third-party open-source solutions:
 
 1. [Helm Operator](https://docs.fluxcd.io/projects/helm-operator/) – a Kubernetes operator allowing one to declaratively manage Helm chart releases. 
 2. [RabbitMQ](https://www.rabbitmq.com/) – one of the most popular open source message brokers used in th2 for managing message flows.

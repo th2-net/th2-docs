@@ -31,13 +31,13 @@ The schema below describes encoding/decoding processes.
 
 ![](/img/boxes/exactpro/codec/codec_inside_processes.png)
 
-- **raw** - <term term='pin'>pin</term> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.
+- `raw` - <term term='pin'>pin</term> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.
 
-- **parsed** - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.
+- `parsed` - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.
 
-- **encode** - pin configuration item, message passing through this pin will be translated from parsed to raw.
+- `encode` - pin configuration item, message passing through this pin will be translated from parsed to raw.
 
-- **decode** - pin configuration item, message passing through this pin will be translated from raw to parsed.
+- `decode` - pin configuration item, message passing through this pin will be translated from raw to parsed.
 
 
 Example of a raw message (FIX protocol):
@@ -135,11 +135,11 @@ There are 3 types of **codec**-related repositories.
 
 ### Library repositories:
 
-- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) — a common **codec** library with basic functionalities of subscribing/publishing message queues and loading **codec** settings; all **codecs** written specifically for th2 are based on this library.
+- [th2-net/th2-codec](https://github.com/th2-net/th2-codec) — a common **codec** library with basic functionalities of subscribing/publishing to message queues and loading **codec** settings; all **codecs** written specifically for th2 are based on this library.
 
 - [th2-net/th2-grpc-codec](https://github.com/th2-net/th2-grpc-codec) - library containing gRPC interface for **th2-codec** library. This interface can be used to encode/decode messages via RPC call. 
 
-- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all **codecs** that use Sailfish as a library are created based on this library.
+- [th2-net/th2-codec-sailfish](https://github.com/th2-net/th2-codec-sailfish) - all **codecs** that use Sailfish as a library are based on this library.
  
 ### Build script collection:
 
@@ -212,11 +212,11 @@ spec:
 ### Required pins and links
 The **codec** has four types of pins: stream encode, stream decode, general encode, general decode.
 
-- `stream encode / decode` connections used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices connections to **codec** through the stream encode / decode connections.
+- _stream encode / decode_ pins are used for all testing activities performed with th2; **act**, **conn**, **sim**, **recon**, **bookchecker** microservices interact with **codec** through the _stream encode / decode_ pins.
 
-- `general encode / decode` connections work on demand; those connections are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
+- _general encode / decode_ pins work on demand; those pins are mainly used for the th2 report UI: in order to show messages stored in Cassandra to the end user, **report-data-viewer** requests these messages from **rpt-data-provider** via **codec**.
 
-Codec never mixes messages from the stream and the general connections.
+Codec never mixes messages from the _stream_ and the _general_ pins.
 
 <notice info>
 
@@ -233,21 +233,21 @@ The first one is used to receive messages to decode/encode, while the second one
 
 **Typical codec has the following pins**: 
 
-- Pin for the stream encoding input: `encoder_in` `parsed` `subscribe`
+- Pin for the _stream encoding_ input: `encoder_in` `parsed` `subscribe`
 
-- Pin for the stream encoding output: `encoder_out` `raw` `publish`
+- Pin for the _stream encoding_ output: `encoder_out` `raw` `publish`
 
-- Pin for the general encoding input: `general_encoder_in` `parsed` `subscribe`
+- Pin for the _general encoding_ input: `general_encoder_in` `parsed` `subscribe`
 
-- Pin for the general encoding output: `general_encoder_out` `raw` `publish`
+- Pin for the _general encoding_ output: `general_encoder_out` `raw` `publish`
 
-- Pin for the stream decoding input: `decoder_in` `raw` `subscribe`
+- Pin for the _stream decoding_ input: `decoder_in` `raw` `subscribe`
 
-- Pin for the stream decoding output: `decoder_out` `parsed` `publish`
+- Pin for the _stream decoding_ output: `decoder_out` `parsed` `publish`
 
-- Pin for the general decoding input: `general_decoder_in` `raw` `subscribe`
+- Pin for the _general decoding_ input: `general_decoder_in` `raw` `subscribe`
 
-- Pin for the general decoding output: `general_decoder_out` `parsed` `publish`
+- Pin for the _general decoding_ output: `general_decoder_out` `parsed` `publish`
 
 ### Configuration example
 
@@ -263,7 +263,7 @@ API Kubernetes documentation contains specification format for any in-built Kube
 
 - `logFile` - this field is not mandatory and is only filled out in case of the user requiring log information on a very detailed level.
 
-- In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`. So, if you face an error “Search line limits were exceeded” when deploying a **codec** box in Kubernetes, you should increase the box's resources and check that `limits` > `requests`.
+- In `extended-settings.resources`, the `limits` value must be greater than the value of `requests`.
 
 - `service` parameter: to make this component available to other th2 boxes, set `service.enabled` to `true`.
 
@@ -323,8 +323,7 @@ Let's consider some examples of routing in a **codec** box.
 
  
 #### Split on 'publish' pins
-For example, you have got a big source data stream, and you want to split them into some pins via session alias. 
-You can declare multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin, or in addition to it. 
+To split a big source data stream into different pins by session alias, consider declaring multiple pins with attributes `['decoder_out', 'parsed', 'publish']` and filters instead of a common pin or in addition to it. 
 Every decoded message will be directed to all declared pins and will be sent to MQ only if it passes the filter.
 
 ```yaml
@@ -356,18 +355,14 @@ spec:
 The filtering can also be applied for pins with a `subscribe` attribute.
 
 ### Links config
-The main link that every **codec** instance should have is a dictionary link. 
-The **codec** instance will use a linked dictionary as a reference for validations. 
+The main link for a typical **codec** instance is a dictionary link. 
+A linked dictionary serves as a reference for validations performed by a **codec** instance. 
 
-<notice note >
-
-If a protocol-specific **codec** requires a dictionary, it won't properly function without it.
-
-</notice >
 
 Example:
 
-```yaml[dictionary-links.yml]
+```yaml
+##### dictionary-links.yml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -395,7 +390,8 @@ Dedicated to desired **codec**, **rpt-data-provider** pin should be linked to `i
 `out_codec_general_decode` **codec** pin should be linked to **rpt-data-provider** pre-configured dedicated pin for particular **codec**.
 
 
-```yaml[from-codec-links.yml]
+```yaml
+##### from-codec-links.yml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Link
 metadata:
@@ -426,14 +422,14 @@ To implement a **codec** using this library you need to:
 
 1. add the following repositories into `build.gradle`:
 
-```
+```groovy
 maven {
-       url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
-   }
-   
-   maven {
-       url 'https://s01.oss.sonatype.org/content/repositories/releases/'
-   }
+    url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+}
+
+maven {
+    url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+}
 ```
 
 2. add dependency on `com.exactpro.th2:codec:4.6.0` into `build.gradle`
@@ -442,7 +438,7 @@ maven {
 
 This is usually done by using Gradle application plugin where you can set the main class like this:
 
-```
+```groovy
 application {
    mainClassName 'com.exactpro.th2.codec.MainKt'
 }
@@ -450,7 +446,7 @@ application {
 
 4. implement `codec` itself by implementing IPipelineCodec interface:
 
-```
+```groovy
 interface IPipelineCodec : AutoCloseable {
     fun encode(messageGroup: MessageGroup): MessageGroup = TODO("encode(messageGroup) method is not implemented")
     fun encode(messageGroup: MessageGroup, context: IReportingContext): MessageGroup = encode(messageGroup)
@@ -461,7 +457,7 @@ interface IPipelineCodec : AutoCloseable {
 ```
 
 5. implement a factory for it, using the IPipelineCodecFactory interface:
-```
+```groovy
 interface IPipelineCodecFactory : AutoCloseable {
     val protocols: Set<String>
     val settingsClass: Class<out IPipelineCodecSettings>
