@@ -36,7 +36,7 @@ It means that the component can be used for negative testing as it provides an a
 
 |Repository|Protocol(s)|
 |----------|-----------|
-|[th2-conn-dirty-tcp-core](https://github.com/th2-net/th2-conn-dirty-tcp-core) |TCP|
+|[th2-conn-dirty-tcp-core](https://github.com/th2-net/th2-conn-dirty-tcp-core) |TCP (also can be used for higher level protocols, e.g. FIX)|
 
 ### Boxes
 
