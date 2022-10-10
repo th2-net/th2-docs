@@ -1,4 +1,4 @@
-name: CI
+name: JavaScript Unwelcome words CI
 
 on:
   push:
