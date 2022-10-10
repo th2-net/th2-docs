@@ -3,17 +3,18 @@ name: CI
 on:
   push:
   workflow_dispatch:
+  
+env:
+  FORBIDDEN_EXPRESSIONS: {{ secrets.UNWELCOME_EXPRESSIONS }}
 
 jobs:
   test:
-    env:
-      FORBIDDEN_EXPRESSIONS: {{ secrets.UNWELCOME_EXPRESSIONS }}
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.sha }}
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 16
       uses: actions/setup-node@v3
       with:
         node-version: 16
