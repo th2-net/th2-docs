@@ -1,4 +1,8 @@
 import { readFileSync, readdirSync, lstatSync } from 'fs'
+import 'dotenv/config'
+
+const FORBIDDEN_EXPRESSIONS = process.env.FORBIDDEN_EXPRESSIONS?.split('\n') || []
+const FORBIDDEN_EXPRESSIONS_EXCEPTIONS = process.env.FORBIDDEN_EXPRESSIONS_EXCEPTIONS?.split('\n') || []
 
 let excludedFiles = [
   /package(-lock)?.json/,
@@ -11,6 +15,18 @@ let excludedFolders = [
   'node_modules',
   '.git'
 ]
+
+function createForbiddenRegExs(words: string[]){
+  return words.map(word => {
+    let wordChanged = word//.replace(/\\b/g, '')
+    let flags = ''
+    if (wordChanged.includes('(?i)')){
+      wordChanged = wordChanged.replace('(?i)', '')
+      flags += 'i'
+    }
+    return new RegExp(wordChanged, flags)
+  })
+}
 
 function checkPath(path: string, rules: (string | RegExp)[]){
   for (let rule of rules){
@@ -28,7 +44,6 @@ function forAllFiles(checkFileCallBack: (content: string) => boolean, folderPath
   let currentFolder = readdirSync(folderPath)
     .filter(path => !checkPath(path, excludedFolders))
     .filter(path => !checkPath(path, excludedFiles))
-  console.log(currentFolder)
   for (let path of currentFolder){
     let localPath = `${folderPath}/${path}`
     let stat = lstatSync(localPath)
@@ -42,4 +57,14 @@ function forAllFiles(checkFileCallBack: (content: string) => boolean, folderPath
   }
 }
 
-forAllFiles((content: string) => false)
+const forbiddenRegExs = createForbiddenRegExs(FORBIDDEN_EXPRESSIONS)
+
+forAllFiles((content: string) => {
+  let changedContent = content.replaceAll('*', '').replaceAll('_', '')
+  for (let regex of forbiddenRegExs) {
+    if (regex.test(content)) {
+      return true
+    }
+  }
+  return false
+})
