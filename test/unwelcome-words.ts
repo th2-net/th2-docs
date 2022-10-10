@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, lstatSync } from 'fs'
 import 'dotenv/config'
 
 const FORBIDDEN_EXPRESSIONS = process.env.FORBIDDEN_EXPRESSIONS?.split('\n') || []
+const COMMIT_MESSAGE = process.env.COMMIT_MESSAGE || ''
 
 let excludedFiles = [
   /package(-lock)?.json/,
@@ -50,7 +51,7 @@ function forAllFiles(checkFileCallBack: (content: string) => boolean, folderPath
       forAllFiles(checkFileCallBack, localPath)
     } else if (stat.isFile()){
       if (checkFileCallBack(readFileSync(localPath, { encoding: 'utf-8' })))
-        throw new Error(`Forbidden content found in ${localPath}`)
+        throw new Error(`Unwelcome words found in ${localPath}`)
     }
 
   }
@@ -67,5 +68,11 @@ forAllFiles((content: string) => {
   }
   return false
 })
+
+for (let regex of forbiddenRegExs) {
+  if (regex.test(COMMIT_MESSAGE)) {
+    throw new Error(`Unwelcome words found in commit message`)
+  }
+}
 
 console.log('No unwelcome words found')
