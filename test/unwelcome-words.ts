@@ -2,7 +2,6 @@ import { readFileSync, readdirSync, lstatSync } from 'fs'
 import 'dotenv/config'
 
 const FORBIDDEN_EXPRESSIONS = process.env.FORBIDDEN_EXPRESSIONS?.split('\n') || []
-const FORBIDDEN_EXPRESSIONS_EXCEPTIONS = process.env.FORBIDDEN_EXPRESSIONS_EXCEPTIONS?.split('\n') || []
 
 let excludedFiles = [
   /package(-lock)?.json/,
@@ -18,7 +17,7 @@ let excludedFolders = [
 
 function createForbiddenRegExs(words: string[]){
   return words.map(word => {
-    let wordChanged = word//.replace(/\\b/g, '')
+    let wordChanged = word
     let flags = ''
     if (wordChanged.includes('(?i)')){
       wordChanged = wordChanged.replace('(?i)', '')
@@ -62,9 +61,11 @@ const forbiddenRegExs = createForbiddenRegExs(FORBIDDEN_EXPRESSIONS)
 forAllFiles((content: string) => {
   let changedContent = content.replaceAll('*', '').replaceAll('_', '')
   for (let regex of forbiddenRegExs) {
-    if (regex.test(content)) {
+    if (regex.test(changedContent)) {
       return true
     }
   }
   return false
 })
+
+console.log('No unwelcome words found')
