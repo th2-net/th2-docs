@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    env:
+      FORBIDDEN_EXPRESSIONS: {{ secrets.UNWELCOME_EXPRESSIONS }}
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.sha }}
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm ci
+    - name: Run CI action
+      run: npm run test
