@@ -3,45 +3,58 @@ title: Script
 weight: 25
 ---
 
-In the computer programming, a *script* is a program, or a sequence of instructions, that is interpreted or carried out by another program, rather than by a computer processor. 
-The scripts in the software testing should implement business logic necessary, for checking the level of the software quality. 
-This logic can include both positive and negative testing to check that there are no discrepancies between the requirements and the actual system behavior.
+In computing, the term *script* generally refers to "[a sequence of instructions or commands for a computer to execute](https://www.merriam-webster.com/dictionary/script)". 
+In software testing, a script (or a test script) is generally understood as a short program used to test part of the functionality of a software system.
+Most often, test logic implemented in a script describes atomic actions triggering interaction with a system under test and/or performing rule-based checks of varying complexity.
 
-In th2, the **script** means a sequence of instructions for the th2 components. 
-It allows user to interact with the system under test (SUT) using the functionality of the th2 boxes.
+In th2, the *script* is a piece of code that contains a sequence of instructions for the th2 components. 
 
-To start using the script you need to set up a th2 cluster with all the necessary components running, as well as th2 script entry point within it. 
-After configuration of the script, you can use created connections to interact with the th2 modules. 
+Logically, this sequence corresponds to a test scenario covering a particular business use case. 
+The script triggers test execution events involving th2 modules that are responsible for separate test actions needed for the test scenario. 
+One of the advantages of th2 is the ability of a test script to cover complex business scenarios and initiate sophisticated rule-based and model-based checks.
+
+Technically, the script works in the th2 cluster as an external box that interacts with the th2 components. 
+It can be implemented in any programming language. 
+The current implementations in the th2 ecosystem contain libraries and programming modules supporting Python, Java, and Kotlin. 
+These libraries underpin th2's advanced testing capabilities, allowing for more effective implementation of complex testing logic.
+
+
+To start using the script, you need to set up a th2 cluster with all the necessary components as well as a th2 script entry point within it. 
+Once the script entry point is configured, created connections can be used to interact with the th2 modules. 
 Each module is made to implement a certain piece of logic. 
 Execution of each and every action might be a complex and time consuming, however, using the methods inside the script makes the process easier. 
 
 <notice info>
 
+Each programming module is made to implement a certain piece of logic. 
+These modules help improve the code quality and make its execution more efficient.
+This is achieved through a possibility to call the methods, corresponding to most common actions, within the script.
+
 The user implements business logic (a particular test scenario) as a function being invoked during the script execution. 
-The th2 modules decrease complexity of the script as far as particular actions (behaviors) are encapsulated in those modules.
+The th2 modules decrease complexity of the script as particular actions (behaviors) are encapsulated in those modules.
 
 </notice>
 
-## Typical use case
+## Typical use
 
-One of the most common use cases for th2 is an active testing. 
-In this case we use **script** to send messages to the system and verify its replies. 
-th2 has a ready-made components - **act** and **check1**, that respectively send messages to the SUT and verify its responses. 
+One of the most common use cases for th2 is active testing, when a test script triggers interaction with the system under test by sending messages and then checks the responses.
+
+
+The th2 ecosystem provides ready-made components for sending messages (**act**) and performing rule-based checks of system responses (**check1**). 
 The **script** communicates with **act** and **check1** via gRPC, and sends events to **estore** via RabbitMQ. 
-The **script** sends messages via **act**, provides verification rules to **check1**, and receives information about verification results. 
-In the diagram below, you can see the system that is configured in above mentioned way. 
+This interaction is shown on the diagram below. 
 
 ![](/img/fundamentals/script/script_pic1.png) 
 
 <center> 
 <figcaption class="mb-2">
-Figure 1. Active testing with th2 and script
+Figure 1. Script interaction with **act**, **check1**, and **estore** modules.
 </figcaption>
 </center>
 
 <notice info>
 
-Outside of the scope of this diagram, the messages sent to the system are encoded in the **codec** component and then sent through the **conn** component to the system. 
+Prior to being sent to the system under test,  test messages are encoded in the **codec** component. After that, they are picked by the **conn** component to be sent to an external system. 
 Correspondingly, replies from the system go through the **conn** component, are decoded in **codec** and finally arrive back to the scope of this diagram, to **check1** to be verified.
 
 </notice>
