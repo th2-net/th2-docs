@@ -4,12 +4,11 @@ on:
   push:
   workflow_dispatch:
   
-env:
-  FORBIDDEN_EXPRESSIONS: {{ secrets.UNWELCOME_EXPRESSIONS }}
-
 jobs:
   test:
     runs-on: ubuntu-20.04
+    env:
+      FORBIDDEN_EXPRESSIONS: ${{ secrets.UNWELCOME_EXPRESSIONS }}
     steps:
     - uses: actions/checkout@v2
       with:
