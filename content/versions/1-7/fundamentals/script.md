@@ -48,7 +48,7 @@ This interaction is shown on the diagram below.
 
 <center> 
 <figcaption class="mb-2">
-Figure 1. Script interaction with **act**, **check1**, and **estore** modules.
+Figure 1. Communication between the script, the th2 test environment and the system under test (SUT) during testing.
 </figcaption>
 </center>
 
