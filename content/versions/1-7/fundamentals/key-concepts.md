@@ -46,20 +46,13 @@ All *messages* produced are associated with their subsequent test event and can 
 
 ## Event
 
+_Event_ is a data structure describing action that took part inside a th2 component at some timestamp.
+
 An _event_ corresponds to a significant action or occurrence in a software system.
 In th2, _events_ correspond to the actions of th2 components during a test run.
 
-An _event_ is the instance of `Event` class having attributes that record information about the corresponding action.
-Of these `Event` attributes, `ID`, `name` (for a single _event_), and `start_timestamp` are mandatory for storing _events_. 
-
-While a single _event_ represents a single action, a batch of _events_ represents a sequence of actions that take place during a test run.
-Typically, batch creation is set up within a test script.
-Each _event_ batch contains a root _event_ that represents the first action.
-The subsequent _events_ in a batch can be identified as either parent or child _events_ according to their hierarchy level.
-In an _event_ batch, _events_ reference their parent _event_ or other _events_ within the same batch. Different _event_ batches are isolated from each other.
-_Events_ outside a batch do not reference _events_ within the batch. 
+_Events_ have a hierarchy: some specific event can relate to another one as a parent or child event. So all children events can describe their parent in more details. Events created in different components are not restricted to have parent or sibling relation.
 
 All _events_ are sent via RabbitMQ to the [th2-event-store](https://github.com/th2-net/th2-estore) component which then saves them in th2’s data lake Cassandra via [Cradle API](https://github.com/th2-net/cradleapi).
-_Events_ are either stored separately or in batches.
 The saved _events_ are later extracted from the storage and displayed in the th2 test report in a chronologically and hierarchically organized manner.
 
