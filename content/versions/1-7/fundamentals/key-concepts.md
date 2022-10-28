@@ -46,9 +46,7 @@ All *messages* produced are associated with their subsequent test event and can 
 
 ## Event
 
-An _event_ corresponds to any significant action or occurrence during a certain time interval.
-In th2, _events_ are used identify the test actions performed by th2 components during a test run.
-A th2 test _event_ is defined using attributes in the class `Event`.
+_Event_ in th2 is any noteworthy test action performed by th2 components during a test run.
 
 _Events_ have a hierarchy: an _event_ can relate to another as a parent, or child.
 _Events_ created in different components are not restricted from relating to one another.
