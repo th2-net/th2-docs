@@ -43,3 +43,15 @@ Consequently, a *message* exists as raw *message* (encoded) of class `RawMessage
 Within the th2 cluster, *messages* are transferred between the th2 components by the message broker RabbitMQ. 
 All raw *messages* are saved to the th2 data lake using RabbitMQ, the component [th2-message-store](https://github.com/th2-net/th2-mstore), and [Cradle API](https://github.com/th2-net/cradleapi).
 All *messages* produced are associated with their subsequent test event and can be viewed in the final th2 test report.
+
+## Event
+
+_Event_ in th2 is any noteworthy test action performed by th2 components during a test run.
+
+_Events_ have a hierarchy: an _event_ can relate to another as a parent, or child.
+_Events_ created in different components are not restricted from relating to one another.
+All _events_ are sent via RabbitMQ to the [th2-event-store](https://github.com/th2-net/th2-estore) component which then saves them in th2’s data lake Cassandra via [Cradle API](https://github.com/th2-net/cradleapi).
+_Events_ are either stored as a single _event_ or as an _event_ batch.
+
+The saved _events_ are later extracted from the Cassandra and displayed in the th2 test report in a chronologically and hierarchically organized manner.
+
