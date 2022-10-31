@@ -12,7 +12,7 @@ Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/re
 The configuration fields available for a pin are listed below.
 
 - `name` (mandatory) - reflects a pin’s main purpose and is used in the configuration file describing corresponding links;
-- `connection-type` (mandatory) - sets the connection type used by the pin. Possible values: `mq`, `grpc-client` or `grpc-server`
+- `connection-type` (mandatory) - sets the connection type used by the pin. Possible values: `mq`, `grpc-client` or `grpc-server`;
 - `attributes` (optional) - define the type of message streams which go through this particular pin;
 - `settings` (optional) – the section specifies two settings determining the strategy to be used to declare queues in RabbitMQ: `storageOnDemand` and `queueLength`;
 - `filters` (optional and available only for `mq` connection type) - the section describes what messages/metadata can go through this particular pin. Filters can be applied to `metadata` or `message` and contain the following parameters: `field-name`, `expected-value`, `operation`.
