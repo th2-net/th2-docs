@@ -129,34 +129,3 @@ infraOperator:
 ```
 
 </spoiler>
-
-<spoiler title="Default values for infra-operator section">
-
-```yaml
-# service.values.yaml
-# ...
-infraOperator:
-  image:
-    repository: ghcr.io/th2-net/th2-infra-operator
-    tag: 3.1.3
-  config:
-    chart:
-      repository: http://infra-repo:8080
-      version: 0.4.3
-      name: infra-operator-tpl
-    namespacePrefixes: 
-    - "th2-"
-    k8sUrl: "<kubernetes-external-entrypoint>"
-    rabbitMQManagement:
-      host: "rabbitmq-discovery.service.svc.cluster.local" - deprecated. host is taken from rabbitmq config
-      port: "15672"
-      username: "th2"
-      password: "${RABBITMQ_PASS}"
-      persistence: true
-      schemaPermissions:
-        configure: ""
-        read: ".*"
-        write: ".*"
-```
-
-</spoiler>
