@@ -36,19 +36,19 @@
         </v-row>
 
         <!-- Releases -->
-        <section class="my-4" v-if="repoInfo">
-          <div>Releases</div>
-          <spoiler class="release" :title="`${release.name} (${timeSince(release.published_at)})`" v-for="release in repoInfo.releases" :key="release.id">
-            <v-card-text>
-              <div>{{release.tag_name}}</div>
-              <p class="text-h4 text--primary">
-                {{release.name}}
-              </p>
-              <p>{{release.published_at.toLocaleDateString()}} ({{timeSince(release.published_at)}})</p>
-              <div class="text--primary" v-html="mdToHtml(release.body)" />
-            </v-card-text>
-          </spoiler>
-        </section>
+<!--        <section class="my-4" v-if="repoInfo">-->
+<!--          <div>Releases</div>-->
+<!--          <spoiler class="release" :title="`${release.name} (${timeSince(release.published_at)})`" v-for="release in repoInfo.releases" :key="release.id">-->
+<!--            <v-card-text>-->
+<!--              <div>{{release.tag_name}}</div>-->
+<!--              <p class="text-h4 text&#45;&#45;primary">-->
+<!--                {{release.name}}-->
+<!--              </p>-->
+<!--              <p>{{release.published_at.toLocaleDateString()}} ({{timeSince(release.published_at)}})</p>-->
+<!--              <div class="text&#45;&#45;primary" v-html="mdToHtml(release.body)" />-->
+<!--            </v-card-text>-->
+<!--          </spoiler>-->
+<!--        </section>-->
         <v-divider class="my-8" />
         <nuxt-content :document="page" />
       </article>
