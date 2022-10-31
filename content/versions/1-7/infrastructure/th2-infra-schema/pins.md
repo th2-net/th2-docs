@@ -49,23 +49,49 @@ pins: [object-array] (optional, available only for Th2Box and Th2CoreBox)
 ```
 
 It is possible to specify several pins in one configuration. 
-In the example config file below, a box has two pins: `in` and `in_raw`.
+In the example config file below, a **codec** box has eight pins: `in_codec_encode`, `out_codec_encode`, `in_codec_decode`, `out_codec_decode`, `in_codec_general_encode`, `out_codec_general_encode`, `in_codec_general_decode` and `out_codec_general_decode`.
 
 ```yaml
-- name: in
-  connection-type: mq
-  attributes:
-    - first
-    - parsed
-    - subscribe
-    - store
-- name: in_raw
-  connection-type: mq
-  attributes:
-    - first
-    - raw
-    - subscribe
-    - store
+apiVersion: th2.exactpro.com/v1
+kind: Th2Box
+metadata:
+  name: codec
+spec:
+  custom-config:
+    codecSettings:
+      parameter1: value
+      parameter2:
+        - value1
+        - value2
+  pins:
+    # encoder
+    - name: in_codec_encode
+      connection-type: mq
+      attributes: [ 'encoder_in', 'parsed', 'subscribe' ]
+    - name: out_codec_encode
+      connection-type: mq
+      attributes: [ 'encoder_out', 'raw', 'publish' ]
+    # decoder
+    - name: in_codec_decode
+      connection-type: mq
+      attributes: ['decoder_in', 'raw', 'subscribe']
+    - name: out_codec_decode
+      connection-type: mq
+      attributes: ['decoder_out', 'parsed', 'publish']
+    # encoder general (technical)
+    - name: in_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_in', 'parsed', 'subscribe']
+    - name: out_codec_general_encode
+      connection-type: mq
+      attributes: ['general_encoder_out', 'raw', 'publish']
+    # decoder general (technical)
+    - name: in_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_in', 'raw', 'subscribe']
+    - name: out_codec_general_decode
+      connection-type: mq
+      attributes: ['general_decoder_out', 'parsed', 'publish']
 ```
 ### Filters section
 
