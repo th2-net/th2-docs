@@ -135,6 +135,7 @@ Table 2. The parameters unique to `CheckSequenceRuleRequest`
 
 
 Table 3. The parameters unique to `CheckRuleRequest`
+
 |Name|Type/Class|Actions performed / Description|
 |---|---|---|
 |`root_filter`|`RootMessageFilter`|Used to verify `metadata.properties` from the message.|
