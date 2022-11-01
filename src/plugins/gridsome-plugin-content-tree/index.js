@@ -16,7 +16,7 @@ module.exports = function (api) {
             ._collection.data
             .map(v => ({
                 title: 'Dashboard',
-                path: `/${v.folder}/boxes/dashboard/`,
+                path: `/${v.folder}/fundamentals/th2-net-on-github/dashboard/`,
                 weight: -1000
             }))
 

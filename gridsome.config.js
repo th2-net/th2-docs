@@ -86,7 +86,7 @@ module.exports = {
     Th2Version: [
       {
         name: 'Modules Dashboard',
-        path: '/:folder/boxes/dashboard',
+        path: '/:folder/fundamentals/th2-net-on-github/dashboard',
         component: './src/templates/Dashboard.vue'
       }
     ]
