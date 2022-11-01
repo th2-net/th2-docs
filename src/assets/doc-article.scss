@@ -1,0 +1,142 @@
+.v-application .doc-article {
+
+  img{
+    max-width: 100%;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  ul, ol{
+    margin-bottom: 16px;
+  }
+
+
+  & h1{
+    font-size: 1.8rem;
+    margin-top: 3.3rem;
+    margin-bottom: 1.15rem;
+  }
+
+  & h2{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+    &::after{
+      content: " ";
+      display: block;
+      width: 100%;
+      visibility: visible;
+      border-bottom: solid 1px var(--divider-color);
+    }
+  }
+
+  & h3{
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  & h4, h5, h6{
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  & h1, & h2, & h3 {
+
+    /* Fix anchor scrollTo */
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -85px;
+      height: 85px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Style anchor links on headings added by @nuxt/content */
+    & > a {
+      font-size: 1.5rem;
+      color: var(--link-color);
+      opacity: 1;
+      margin-left: 0;
+      padding-right: .25em;
+      transition: opacity .1s ease-in-out;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media screen and (min-width: 1024px){
+        margin-left: -1.5rem;
+        opacity: 0;
+      }
+    }
+    &:hover {
+      & > a {
+        opacity: 1;
+      }
+    }
+  }
+
+  & .remark-highlight{
+    position: relative;
+    border-radius: 5px;
+    code {
+      padding: 0;
+    }
+
+    /* Style copy button added in `pages/_.vue` */
+    & > .copy {
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: .75rem;
+      margin-bottom: .75rem;
+      transition: opacity .1s ease-in-out;
+
+      &:hover {
+        background-color: var(--copy-btn__bg-color--hover);
+      }
+
+      &:focus {
+        border: none;
+      }
+    }
+    &:hover {
+      & > .copy {
+        opacity: 1;
+      }
+    }
+  }
+
+
+
+}
+
+.v-application .doc-article{
+
+  table, td{
+    border-color: var(--table__border-color);
+  }
+
+  table tr:hover{
+    background-color: var(--table__bg-color--hover);
+  }
+
+  th{
+    background-color: var(--table__bg-color--header);
+  }
+
+  pre{
+    code{
+      background: unset;
+    }
+  }
+
+  input{
+    color: inherit;
+  }
+}
+
