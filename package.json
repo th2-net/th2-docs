@@ -6,6 +6,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "update-readmes": "ts-node scripts/update-readmes.ts",
+    "test:unwelcome-words": "ts-node --project tsconfig.scripts.json .github/scripts/unwelcome-words.ts",
     "cypress:open": "cypress open"
   },
   "dependencies": {
