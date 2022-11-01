@@ -31,12 +31,12 @@ import ECharts from 'vue-echarts'
 export default function (Vue, { appOptions, router, head, isClient }) {
   head.link.push({
     rel: 'stylesheet',
-    href: '/css/materialdesignicons.min.css',
+    href: '/th2-docs/css/materialdesignicons.min.css',
   })
 
   head.link.push({
     rel: 'stylesheet',
-    href: '/css/roboto.css',
+    href: '/th2-docs/css/roboto.css',
   });
 
   Vue.use(Vuetify)
