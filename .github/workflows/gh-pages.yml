@@ -27,8 +27,8 @@ jobs:
       - name: Installing packages
         run: npm ci
 
-      - name: Compile plugins
-        run: npm run compile-plugins
+#      - name: Compile plugins
+#        run: npm run compile-plugins
 
       - name: Build Gridsome site
         run: npm run build
