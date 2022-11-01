@@ -1,4 +1,4 @@
-# th2-docs
+# th2-docs-nuxt
 
 ## Requirements
 
@@ -22,9 +22,18 @@ Create `.env` file in the root directory:
 ```dotenv
 GITHUB_CLIENT_ID=GITHUB_CLIENT_ID
 GITHUB_CLIENT_SECRET=GITHUB_CLIENT_SECRET
+BASE_URL=http://localhost:3000/api
+PUBLIC_BASE_URL=http://localhost:3000/api
 ```
 
-## Develop
+## Run locally
+
+Run to serve docs:
+
+```shell
+npm run build
+npm run start
+```
 
 Run to edit docs:
 
@@ -32,8 +41,12 @@ Run to edit docs:
 npm run dev
 ```
 
-Run to only explore database with GraphQL:
+# Running with Docker
 
-```shell
-npm run explore
+You can run this repository within the Docker container. But hot reload for writing and development is unavailable, so you should restart container to see changes.
+
 ```
+docker-compose --file docker-compose.writer.yaml up --build
+```
+
+The website will be available at http://localhost:3000.

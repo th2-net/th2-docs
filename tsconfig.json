@@ -1,29 +1,39 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "target": "ES2018",
+    "module": "commonjs",
     "moduleResolution": "Node",
     "lib": [
       "ESNext",
       "ESNext.AsyncIterable",
       "DOM"
     ],
-    "noImplicitReturns": true,
-    "outDir": "./built/",
+    "esModuleInterop": true,
+    "allowJs": true,
     "sourceMap": true,
     "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
     "types": [
+      "@nuxt/types",
+      "@nuxtjs/axios",
+      "@nuxt/content",
       "@types/node",
-      "cypress"
+      "@types/express"
     ]
   },
-  "include": [
-    "./src/**/*",
-    "./cypress/**/*.ts"
-  ],
   "exclude": [
-    "gridsome.config.js",
-    "gridsome.server.js",
-    "node_modules"
+    "node_modules",
+    ".nuxt",
+    "dist"
   ]
 }

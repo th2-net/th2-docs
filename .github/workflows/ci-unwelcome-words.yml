@@ -1,23 +1,23 @@
-name: JavaScript Unwelcome words CI
+name: Unwelcome words CI
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-20.04
-    env:
-      FORBIDDEN_EXPRESSIONS: ${{ secrets.UNWELCOME_EXPRESSIONS }}
-      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.sha }}
-    - name: Use Node.js 16
-      uses: actions/setup-node@v3
+    - name: Checkout tool
+      uses: actions/checkout@v2
       with:
-        node-version: 16
-    - run: npm i dotenv
+        repository: exactpro-th2/ci-github-action
+        ref: master
+        token: ${{ secrets.PAT_CI_ACTION }}
+        path: ci-github-action
     - name: Run CI action
-      run: npm run test:unwelcome-words
+      uses: ./ci-github-action
+      with:
+        ref: ${{ github.sha }}

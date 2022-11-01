@@ -1,0 +1,23 @@
+name: JavaScript Unwelcome words CI
+
+on:
+  push:
+  workflow_dispatch:
+  
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    env:
+      FORBIDDEN_EXPRESSIONS: ${{ secrets.UNWELCOME_EXPRESSIONS }}
+      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.sha }}
+    - name: Use Node.js 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm ci
+    - name: Run CI action
+      run: npm run test

@@ -1,0 +1,109 @@
+$max-width: 1280px;
+$max-width-md: 1024px;
+$max-width-sm: 800px;
+$aside-width: 18rem;
+$aside-width-md: 15rem;
+$window-width-md: 1270px;
+$window-width-sm: 1024px;
+
+.layout--full{
+  display: grid;
+  grid-template-columns: $aside-width 1fr;
+  margin: 0 auto;
+  padding: 0 1rem;
+  min-height: 100%;
+  width: 100vw;
+
+  .layout__aside--left--sm{
+    display: none;
+  }
+
+  .layout__aside--left--lg{
+    border: solid var(--layout__border-color);
+    border-width: 0 1px 0 0;
+    position: relative;
+
+    .sticky-tree{
+      position: sticky;
+      top: 80px;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      padding-bottom: 5rem;
+    }
+  }
+
+  .layout__doc-page{
+    display: grid;
+    grid-template-columns: 1fr $aside-width;
+  }
+  .layout__main{
+    max-width: calc(100vw - #{$aside-width} * 2 );
+    padding: 1rem 2rem;
+  }
+  .layout__aside--right{
+    border: solid var(--layout__border-color);
+    border-width: 0 0 0 1px;
+    position: relative;
+    padding-right: 40px;
+
+    .sticky-page-content{
+      position: sticky;
+      top: 80px;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 5rem;
+    }
+  }
+}
+@media screen and (max-width: $window-width-md) {
+  .layout--full{
+    grid-template-columns: $aside-width-md 1fr;
+
+    .layout__doc-page{
+      grid-template-columns: 1fr $aside-width-md;
+    }
+
+    .layout__main{
+      max-width: calc(100vw - #{$aside-width-md} * 2 );
+    }
+  }
+}
+
+@media screen and (max-width: $window-width-sm) {
+  .layout--full{
+    max-width: $max-width-sm;
+    display: flex;
+    min-height: unset;
+
+    .layout__aside--left--sm{
+      display: block;
+    }
+
+    .layout__aside--left--lg{
+      display: none;
+    }
+
+    .layout__aside--left, .layout__aside--left--sm, .layout__aside--left--lg{
+      max-width: unset;
+      min-width: unset;
+    }
+
+    .layout__doc-page{
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+
+    .layout__main{
+      max-width: unset;
+      min-width: unset;
+      padding: 1rem 0;
+    }
+    .layout__aside--right{
+      border: none;
+      max-width: unset;
+      min-width: unset;
+    }
+  }
+}

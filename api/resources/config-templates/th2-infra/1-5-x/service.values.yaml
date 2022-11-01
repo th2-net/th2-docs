@@ -1,0 +1,23 @@
+infraMgr:
+  git:
+    repository: <repository>
+    httpAuthUsername: <username>
+    httpAuthPassword: <password>
+
+rabbitmq:
+  prometheus:
+    operator:
+      enabled: false
+  persistentVolume:
+    enabled: true
+    storageClass: local-storage
+    size: 10Gi
+    
+externalRabbitMQHost:
+  host: <host>
+
+cassandra:
+  internal: false
+  host: <cassandra-host>
+  cluster:
+    datacenter: <datacenter>
