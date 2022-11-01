@@ -43,7 +43,7 @@ cd th2-infra/example-values
 
 ## Create namespaces
 
-Create the namespaces for _`monitoring`_ and _`service`_.
+Create the namespaces for _monitoring_ and _service_.
 
 ```shell
 kubectl create namespace monitoring
@@ -74,7 +74,7 @@ mkdir /opt/grafana /opt/prometheus /opt/loki /opt/rabbitmq
 <notice info >
 
 If you are using minikube, create the directories inside it. To do so,
-first connect to the minikube filesystem with `minikube SSH`, then execute the `mkdir` command provided above.
+first connect to the minikube filesystem with `minikube ssh`, then execute the `mkdir` command provided above.
 
 ```shell
 minikube ssh
@@ -93,7 +93,7 @@ with the name of your node (can be retrieved with the `kubectl get nodes` comman
 
 A `pvs.yaml` example:
 
-```yaml
+```yaml[pvs.yaml]
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -123,7 +123,7 @@ kubectl apply -f ./pvcs.yaml
 ```
 
 You can start configuring the cluster once all the required software is installed on your test and operator boxes 
-and the th2-infra repositories are ready.
+and the `th2-infra` repositories are ready.
 
 ## Configure dashboard.values.yaml
 
@@ -140,7 +140,7 @@ The hostname must be resolved from the test boxes.
 Define the dashboard hostname in the `dashboard.values.yaml`
 ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/dashboard.values.yaml)):
 
-```yaml
+```yaml[dashboard.values.yaml]
 ...
 ingress:
   ...
@@ -155,7 +155,7 @@ ingress:
 
 Define the Grafana hostname in the `prometheus-operator.values.yaml` ([file in github](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/prometheus-operator.values.yaml)):
 
-```yaml
+```yaml[prometheus-operator.values.yaml]
 ...
 grafana:
   ...
@@ -171,11 +171,11 @@ The `th2-infra-mgr` component monitors the `th2-infra-schema` repository and upd
 according to the user's actions in the `th2-infra-editor` GUI. To make it possible,
 it is required that the `th2-infra-mgr` component is granted an access with write permissions.
 
-Different Git systems have different mechanisms for accessing a repository. So your next actions depend on the system where your th2-infra-schema is published.
+Different Git systems have different mechanisms for accessing a repository. So your next actions depend on the system where your `th2-infra-schema` is published.
 
 ### GitHub
 
-Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in SSH have underwent changes. These changes affected the th2 SSH connections to the GitHub repositories. 
+Due to the [improvements in Git protocol security](https://github.blog/2021-09-01-improving-git-protocol-security-github/) on GitHub, keys supported in ssh have underwent changes. These changes affected the th2 ssh connections to the GitHub repositories. 
 SSH keys generated with RSA algorithm are no longer accepted when uploaded to GitHub after March 15, 2022. Keys uploaded before this date will continue to work.
 
 GitHub repositories can be accessed via personal access tokens. In case you cannot use a token, update your th2 version to use ssh connection.
@@ -204,15 +204,15 @@ Generate SSH keys pair without a passphrase:
 ssh-keygen -t rsa -m pem -f ./infra-mgr-rsa.key
 ```
 
-[Add an SSH key to your GitLab account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account)
+[Add a ssh key to your GitLab account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account)
 
-Create a Kubernetes Secret `infra-mgr` from the private SSH key:
+Create a Kubernetes Secret `infra-mgr` from the private ssh key:
 
 ```shell
 kubectl -n service create secret generic infra-mgr --from-file=infra-mgr=./infra-mgr-rsa.key
 ```
 
-In this case your link to configuration will be the default link to clone repository with SSH.
+In this case your link to configuration will be the default link to clone repository with ssh.
 
 
 ## Configure service.values.yaml
@@ -223,11 +223,11 @@ In this case your link to configuration will be the default link to clone reposi
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the following values:
-- `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository;
-- `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository;
-- `infraMgr.git.httpAuthPassword` - empty string.
+- `infraMgr.git.repository` - HTTPS link to your `th2-infra-schema` repository
+- `infraMgr.git.httpAuthUsername` - GitHub personal access token with permissions for repository
+- `infraMgr.git.httpAuthPassword` - empty string
 
-```yaml
+```yaml[service.values.yaml]
 infraMgr:
   git:
     repository: https://github.com/th2-net/th2-infra-schema-demo.git
@@ -238,15 +238,15 @@ infraMgr:
 #### Link for infra-schema in GitLab
 
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
-set the `infraMgr.git.repository` value to the SSH link of your `th2-infra-schema` repository.
+set the `infraMgr.git.repository` value to the ssh link of your `th2-infra-schema` repository.
 
 <notice note>
 
-Configured SSH key required for providing access to infra schema in GitLab.
+Configured ssh key required for providing access to infra schema in GitLab.
 
 </notice>
 
-```yaml
+```yaml[service.values.yaml]
 infraMgr:
   git:
     repository: git@github.com:th2-net/th2-infra-demo-configuration.git
@@ -258,7 +258,7 @@ infraMgr:
 In your copy of the `service.values.yaml` [GitHub file](https://github.com/th2-net/th2-infra/blob/release-v1.5.x/example-values/service.values.yaml),
 set the `externalRabbitMQHost.host` value to the hostname of your cluster.
 
-```yaml
+```yaml[service.values.yaml]
 ...
 externalRabbitMQHost:
   host: <th2_host_name>
@@ -278,7 +278,7 @@ You can find more information [here](https://minikube.sigs.k8s.io/docs/handbook/
 
 </notice >
 
-```yaml
+```yaml[service.values.yaml]
 ...
 cassandra:
   internal: false
@@ -313,7 +313,7 @@ Do not commit the `secrets.yaml` file into Git to keep its data confidential.
 </notice >
 
 Example:
-```yaml
+```yaml[secrets.yaml]
 # required only for images from a private registry, will be attached as the first PullSecret to deployments
 #productRegistry:
 #  username: user
@@ -359,7 +359,7 @@ Make sure that you are located in the `th2-infra/example-values` directory.
 
 The Helm Operator is a Kubernetes operator, allowing one to declaratively manage Helm chart releases.
 Using this you can automatically create Kubernetes objects (as **Pods**, **Namespaces**, **Deployments**, **Configmaps**,
-**Secrets**, **Custom Resources**).
+**Secrets**, **Custom resources**).
 
 Download and install the Helm Operator:
 
@@ -385,7 +385,7 @@ helm install -n service --version=3.31.0 ingress ingress-nginx/ingress-nginx -f 
 
 Prometheus is an open-source systems monitoring and alerting toolkit.
 It will be used by Grafana as a data source.
-And also it contains **Custom Resource Definitions** (CRD) required by the th2 infra.
+And also it contains Custom resource Definitions (CRD) required by the th2 infra.
 
 Download and install Prometheus:
 
@@ -394,13 +394,13 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm install --version=15.0.0 prometheus -n monitoring prometheus-community/kube-prometheus-stack -f ./prometheus-operator.values.yaml
 ```
 
-### Install th2-infra components in the _`service`_ namespace
+### Install th2-infra components in the _service_ namespace
 
 `th2-infra` helm chart contains description for 4 th2 components:
-1. [_`th2-infra-editor`_](https://github.com/th2-net/th2-infra-editor)
-2. [_`th2-infra-mgr`_](https://github.com/th2-net/th2-infra-mgr)
-3. [_`th2-infra-operator`_](https://github.com/th2-net/th2-infra-operator)
-4. [_`th2-infra-repo`_](https://github.com/th2-net/th2-infra-repo)
+1. [_**th2-infra-editor**_](https://github.com/th2-net/th2-infra-editor)
+2. [_**th2-infra-mgr**_](https://github.com/th2-net/th2-infra-mgr)
+3. [_**th2-infra-operator**_](https://github.com/th2-net/th2-infra-operator)
+4. [_**th2-infra-repo**_](https://github.com/th2-net/th2-infra-repo)
 
 Download and install `th2-infra`:
 
@@ -449,7 +449,7 @@ Check if the service pods are running:
 kubectl get pods -n service
 ```
 
-```shell
+```shell[Output]
 NAME                                               READY   STATUS    RESTARTS   AGE
 helm-operator-79fc58f746-q8qwd                     1/1     Running   0          21d
 infra-editor-7cd68c8587-q5tfp                      1/1     Running   0          20d
@@ -467,7 +467,7 @@ Check if the monitoring pods are running:
 kubectl get pods -n monitoring
 ```
 
-```shell
+```shell[Output]
 NAME                                                     READY   STATUS    RESTARTS   AGE
 ........
 pod/dashboard-kubernetes-dashboard-77d85586db-j9v8f      1/1     Running   0          56s
@@ -483,7 +483,7 @@ prometheus-prometheus-prometheus-oper-prometheus-0       3/3     Running   1    
 ```
 #### Access from browser
 
-Check the access to `Grafana` (the default `user/password: admin/prom-operator` must be changed for information security purposes):  
+Check the access to Grafana (the default `user/password: admin/prom-operator` must be changed for information security purposes):  
 `http://your-host:30000/grafana/login`.
 
 ## Check out installed services

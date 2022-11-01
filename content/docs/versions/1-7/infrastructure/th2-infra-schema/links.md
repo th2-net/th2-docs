@@ -1,9 +1,14 @@
 ---
 title: Links
 weight: 30
+related: []
 ---
 
-After all the pins are defined and configured, you should also specify the links between them. It can be done by uploading a special CR called the th2 link. Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). The most important is the location of the `.yaml` files in the links directory. Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.
+After all the pins are defined and configured, you should also specify the links between them. 
+It can be done by uploading a special CR called the th2 link. 
+Based on the components that the links connect, they can be separated into several files (e.g. `from-codec-links.yaml`, `from-act-links.yaml`, `dictionary-links.yaml`). 
+The most important is the location of the `.yaml` files in the links directory. 
+Also, all links can be configured in one file, but links for the dictionary should be in the `dictionaries-relation` section, and all other links in the `boxes-relation` section.
 
 Links from the `boxes-relation` section connect boxes (Kubernetes pods) using pins, whereas, the  `dictionaries-relation` links allow boxes to use dictionary files (that are not related to the Kubernetes pods). 
 
@@ -38,7 +43,7 @@ There are two ways of communication between the components via links:
 
 - RabbitMQ - message broker for asynchronous messaging;
 
-- gRPC - for specifying rooting calls.
+- gRPC - for specifying routing calls.
 
 For each of the connection type there is a separate option in configuration:
 
@@ -64,7 +69,7 @@ spec:
           box: destination_box_name
           pin: subscribe_pin_name
     router-grpc:
-      - name: qrpc_relation_link
+      - name: grpc_relation_link
         from:
           box: source_box_name
           pin: source_pin_name
@@ -74,7 +79,7 @@ spec:
 ```
 ### MQ Router
 
-MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the to section. The message flow between the pins should be from `publish` to `subscribe`. 
+MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the `to` section. The message flow between the pins should be from `publish` to `subscribe`. 
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -97,9 +102,11 @@ spec:
 
 gRPC links are described in the section `router-grpc`.
 
-`Router-grpc` links can additionally have `service-class` and strategy properties.
+<notice note> Starting from v.1.7 of th2-infra-schema, this section no longer contains the `strategy` and `service-class` fields. 
+For newer releases, the properties are to be specified in configurations of pins ([more details](./pins#service-classes-setting-for-grpc-connection-type)). </notice>
 
-Example of gRPC link:
+
+An example of a gRPC link:
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -111,13 +118,9 @@ spec:
     router-grpc:
       - name: act-to-check1
         from:
-          service-class: com.exactpro.th2.check1.Check1Handler
-          strategy: filter
           box: act-fix
           pin: to_check1
         to:
-          service-class: com.exactpro.th2.check1.grpc.Check1Service
-          strategy: robin
           box: check1
           pin: server
 ```
@@ -176,25 +179,18 @@ spec:
 #####################ACT-FIX -> CHECK1########################################
       - name: act-to-check1
         from:
-          service-class: com.exactpro.th2.check1.Check1Handler
-          strategy: filter
           box: act-fix
           pin: to_check1
         to:
-          service-class: com.exactpro.th2.check1.grpc.Check1Service
-          strategy: robin
           box: check1
           pin: server
 ##############################################################################
 #####################RECON -> UTIL############################################
       - name: recon-to-util
         from:
-          strategy: filter
           box: recon
           pin: to_util
         to:
-          service-class: com.exactpro.th2.util.grpc.MessageComparatorService
-          strategy: robin
           box: util
           pin: server
 ```
