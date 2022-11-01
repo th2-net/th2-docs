@@ -18,6 +18,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - run: npm ci
+    - run: npm i dotenv
     - name: Run CI action
       run: npm run test:unwelcome-words
