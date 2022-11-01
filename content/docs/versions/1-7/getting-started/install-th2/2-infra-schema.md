@@ -1,7 +1,8 @@
 ---
-title: "2. Publish infra-schema"
 weight: 1
 ---
+
+# 2. Publish infra-schema
 
 ## infra-schema
 

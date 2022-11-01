@@ -1,5 +1,4 @@
 ---
-title: Create th2 environment
 weight: 6
 read_before:
   - title:  Install th2
@@ -10,6 +9,8 @@ schema_link:
     href: ''
     icon: mdi-graph
 ---
+
+# Create th2 environment
 
 Understand how testing is going with th2.
 

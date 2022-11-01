@@ -1,7 +1,8 @@
 ---
-title: Key concepts
 weight: 20
 ---
+
+# Key concepts
 
 ## Box
 Across this documentation resource, the term *box* can refer to two different things: 

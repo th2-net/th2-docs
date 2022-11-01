@@ -1,7 +1,8 @@
 ---
-title: Script
 weight: 25
 ---
+
+# Script
 
 In computing, the term *script* generally refers to "[a sequence of instructions or commands for a computer to execute](https://www.merriam-webster.com/dictionary/script)". 
 In software testing, a script (or a test script) is generally understood as a short program used to test part of the functionality of a software system.

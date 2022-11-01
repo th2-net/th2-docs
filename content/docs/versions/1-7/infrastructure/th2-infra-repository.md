@@ -1,11 +1,12 @@
 ---
-title: th2-infra
 weight: 0
 related:
   - name: "th2-net/th2-infra"
     icon: "mdi-github"
     href: "https://github.com/th2-net/th2-infra"
 ---
+
+# th2-infra
 
 [th2-infra](https://github.com/th2-net/th2-infra) is a repository containing a source code of th2 Helm charts, example Kubernetes manifests for persistent volumes, and example `.values.yaml` files for the deployment of infrastructure components. 
 

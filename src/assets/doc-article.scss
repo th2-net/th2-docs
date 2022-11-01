@@ -13,6 +13,8 @@
 
   & h1{
     font-size: 1.8rem;
+    margin-top: 3.3rem;
+    margin-bottom: 1.15rem;
   }
 
   & h2{
@@ -39,7 +41,7 @@
     margin-bottom: 0.6rem;
   }
 
-  & h2, & h3 {
+  & h1, & h2, & h3 {
 
     /* Fix anchor scrollTo */
     &::before {

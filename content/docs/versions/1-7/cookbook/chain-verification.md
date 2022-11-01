@@ -1,11 +1,13 @@
 ---
-title: Chain Verification
 weight: 20
 read_before:
 - title: Check1
   icon: mdi-script-text-play-outline
   href: ../modules/check1
 ---
+
+# Chain Verification
+
 ## Overview
 **check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. 
 The user can request verification by submitting a <term term='rule request'>rule request</term> which invokes a <term term='rule (check1)'>rule</term> found in **check1**.

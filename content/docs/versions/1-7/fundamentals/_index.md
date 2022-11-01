@@ -1,7 +1,8 @@
 ---
-title: Fundamentals
 weight: 10
 ---
+
+# Fundamentals
 
 This section provides an overview of the basics of th2: its architecture, components and key concepts.
 

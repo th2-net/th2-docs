@@ -1,5 +1,4 @@
 ---
-title: "1. Set up the environment"
 weight: 0
 read_before:
   - title: th2 software requirements
@@ -25,7 +24,7 @@ clusters_link:
     href: ../requirements/software#apache-cassandra-node
 ---
 
-<!--more-->
+# 1. Set up the environment
 
 ## th2 platform 
 

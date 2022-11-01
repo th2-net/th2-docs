@@ -1,7 +1,8 @@
 ---
-title: System requirements
 weight: 0
 ---
+
+# System requirements
 
 When allocating resources for your th2 solution, follow the guidelines below:
 - The right balance of CPUs, memory, disks, number of nodes depends on your particular use case, the number of services you are planning to deploy, and expected data load.

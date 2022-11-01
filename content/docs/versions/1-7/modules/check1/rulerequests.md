@@ -1,12 +1,13 @@
 ---
-title: Rule requests
-inner-title: check1 - Introduction to verification by rule request
+tree-title: Rule requests
 weight : 5
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
 ---
+
+# check1 - Introduction to verification by rule request
 
 ## The need for verification
 When an order message is placed and sent to the exchange (system), the exchange responds with the messages of its own. 

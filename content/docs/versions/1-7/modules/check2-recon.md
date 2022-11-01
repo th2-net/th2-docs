@@ -1,5 +1,4 @@
 ---
-title: check2-recon
 repo_owner: th2-net
 repo: th2-check2-recon-template
 skip_readme: true
@@ -12,6 +11,8 @@ related:
     href: "https://github.com/th2-net/th2-grpc-check2-recon"
 weight: 20
 ---
+
+# check2-recon
 
 ## Overview 
 

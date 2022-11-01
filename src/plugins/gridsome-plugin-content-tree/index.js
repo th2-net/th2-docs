@@ -5,11 +5,13 @@ module.exports = function (api) {
         const docPages = getCollection('DocPage')
             ._collection.data
             .filter(page => !page.path.startsWith('/versions') && !page.path.startsWith('/common'))
-            .map(page => ({
-                title: page.title,
-                path: page.path,
-                weight: page.weight
-            }))
+            .map(page => {
+                return {
+                    title: page['tree-title'] || page.tree_title || page.title,
+                    path: page.path,
+                    weight: page.weight
+                }
+            })
         const dashboardPages = getCollection('Th2Version')
             ._collection.data
             .map(v => ({

@@ -1,5 +1,4 @@
 ---
-title: Quick th2 setup
 weight: 0
 schema_links:
   - title: Publish infra schema
@@ -8,6 +7,8 @@ install_links:
   - title: Deploy th2
     href: ../getting-started/install-th2/3-th2
 ---
+
+# Quick th2 setup
 
 This page is about how to setup small limited Kubernetes cluster with th2 for trial purposes.
 

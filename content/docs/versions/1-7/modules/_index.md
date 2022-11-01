@@ -1,8 +1,9 @@
 ---
-title: Modules
 weight: 25
 pre: "<b>2. </b>"
 ---
+
+# Modules
 
 This section provides descriptions of modules which are a part of th2 microservices architecture. 
 

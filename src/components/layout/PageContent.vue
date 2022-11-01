@@ -7,13 +7,14 @@
       <ul v-scroll="onScroll">
         <li v-for="(header, index) in headings" :key="header.anchor"
             :class="{
-        'py-2': header.depth === 2,
-        'h2-border': header.depth === 2 && index > 0,
-        'ml-2 pb-2': header.depth === 3,
-        'ml-3 pb-2': header.depth === 4,
-        'ml-4 pb-2': header.depth === 5,
-        'ml-5 pb-2': header.depth >= 6
-        }">
+											'font-weight-bold': header.depth === 1,
+											'py-2': header.depth === 2,
+											'h2-border': header.depth === 2 && index > 0 && headings[index-1].depth !== 1,
+											'ml-2 pb-2': header.depth === 3,
+											'ml-3 pb-2': header.depth === 4,
+											'ml-4 pb-2': header.depth === 5,
+											'ml-5 pb-2': header.depth >= 6
+										}">
           <a :href="header.anchor" :class="{'active': isHighlighted(header.anchor)}">
             <div>{{header.value}}</div>
           </a>

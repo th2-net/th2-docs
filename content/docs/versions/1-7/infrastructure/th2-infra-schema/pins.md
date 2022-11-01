@@ -1,8 +1,9 @@
 ---
-title: Pins
 weight: 5
 related: []
 ---
+
+# Pins
 
 Each th2 box has a number of pins. 
 Pins are used by a box (available only for `Th2Box` and `Th2CoreBox`) to send/receive messages, or to execute gRPC commands.

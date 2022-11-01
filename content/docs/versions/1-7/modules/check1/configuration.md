@@ -1,12 +1,13 @@
 ---
-title: Configuration
-inner-title: check1 - custom configuration
+tree-title: Configuration
 weight: 20
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
 ---
+
+# check1 - custom configuration
 
 ## Configuration of check1
 The general configuration of the **check1** component is given below. 

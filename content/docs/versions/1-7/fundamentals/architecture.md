@@ -1,7 +1,8 @@
 ---
-title: Architecture
 weight: 0
 ---
+
+# Architecture
 
 [th2](https://github.com/th2-net), a framework for automation in software testing, is designed as a set of microservices that is build out of a number of repositories. 
 

@@ -1,9 +1,9 @@
 ---
-title: th2-infra components
 weight: 5
 related: []
-
 ---
+
+# th2-infra components
 
 The th2-infra components are an important part of the th2 infrastructure. 
 While the infra-schema describes a th2 environment configured for a particular testing use case, the other infra components provide control over such environments. 

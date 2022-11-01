@@ -1,7 +1,8 @@
 ---
-title: Infrastructure
 weight: 13
 ---
+
+# Infrastructure
 
 The infrastructure of th2 consists of elements collectively referred to as Infra components. 
 One of the components is the infra-schema describing a test environment consisting of th2 <term term='core'>Core</term> and <term term='module'>Module</term> boxes. 

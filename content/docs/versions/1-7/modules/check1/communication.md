@@ -1,12 +1,13 @@
 ---
-title: Communication
-inner-title: check1 - introduction to communication
+tree-title: Communication
 weight : 15
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
 ---
+
+# check1 - introduction to communication
 
 ## Learn more:
 Check interacts with other th2 components in th2 through gRPC and RabbitMQ.

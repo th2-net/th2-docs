@@ -1,7 +1,6 @@
 ---
-title: infra-operator
+tree-title: infra-operator
 weight: 15
-inner-title: th2-infra-operator
 repo_owner: th2-net
 repo: th2-infra-operator
 related:
@@ -9,6 +8,8 @@ related:
     icon: "mdi-github"
     href: "https://github.com/th2-net/th2-infra"
 --- 
+
+# th2-infra-operator
 
 **infra-operator** (th2 infrastructure operator) is one of th2 infra components that works with the current state of th2 system. 
 It is installed along with the th2 framework infrastructure.

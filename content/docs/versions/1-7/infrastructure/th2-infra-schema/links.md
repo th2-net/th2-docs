@@ -1,8 +1,9 @@
 ---
-title: Links
 weight: 30
 related: []
 ---
+
+# Links
 
 After all the pins are defined and configured, you should also specify the links between them. 
 It can be done by uploading a special CR called the th2 link. 

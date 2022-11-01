@@ -1,12 +1,13 @@
 ---
-title: check1
-inner-title: check1 - a brief introduction
-
+tree-title: check1
 repo_owner: th2-net
 repo: th2-check1
 related: []
 weight: 15
 ---
+
+# check1 - a brief introduction
+
 <!-- TODO: Add usecase subpage -->
 
 ## Overview

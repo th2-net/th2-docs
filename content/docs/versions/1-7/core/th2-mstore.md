@@ -1,5 +1,4 @@
 ---
-title: th2-mstore
 weight: 15
 repo_owner: th2-net
 repo: th2-mstore
@@ -9,6 +8,8 @@ related:
     icon: "mdi-github"
     href: "https://github.com/th2-net/cradleapi"
 ---
+
+# th2-mstore
 
 ## Overview
 

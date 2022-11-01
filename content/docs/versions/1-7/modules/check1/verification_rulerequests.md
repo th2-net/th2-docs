@@ -1,12 +1,13 @@
 ---
-title: Verification
-inner-title: Verification by a single rule request
+tree-title: Verification
 weight: 25
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
 ---
+
+# Verification by a single rule request
 
 ##  Verification using `CheckSequenceRuleRequest`
 

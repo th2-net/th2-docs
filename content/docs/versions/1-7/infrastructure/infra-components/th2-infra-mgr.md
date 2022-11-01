@@ -1,7 +1,6 @@
 ---
-title: infra-mgr
+tree-title: infra-mgr
 weight: 10
-inner-title: th2-infra-mgr
 repo_owner: th2-net
 repo: th2-infra-mgr
 related:
@@ -9,6 +8,8 @@ related:
     icon: "mdi-github"
     href: "https://github.com/th2-net/th2-infra"
 --- 
+
+# th2-infra-mgr
 
 **infra-mgr** (th2 Infrastructure manager) is one of the th2 [infra components](../infra-components). 
 It is installed alongside with the th2 framework infrastructure. 

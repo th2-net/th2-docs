@@ -1,12 +1,13 @@
 ---
-title: Checkpoints
-inner-title: check1 - introduction to checkpoints and chain IDs
+tree-title: Checkpoints
 weight : 10
 related:
 - name: "th2-net/th2-check1"
   icon: "mdi-github"
   href: "https://github.com/th2-net/th2-check1"
 ---
+
+# check1 - introduction to checkpoints and chain IDs
 
 ## Overview
 

@@ -1,8 +1,9 @@
 ---
-title: OS and network
 inner-title: Operational system and network requirements
 weight: 5
 ---
+
+# OS and network
 
 <!-- ## Kubernetes minimum requirements
 Machines that meet Kubernetes minimum requirements for the workers

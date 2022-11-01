@@ -2,8 +2,8 @@
 	<div class="layout__doc-page">
 		<v-container class="layout__main space-bottom">
 			<article>
-        <h1 v-if="!doc.inner_title">{{ doc.title }}</h1>
-        <h1 v-else>{{ doc.inner_title }}</h1>
+<!--        <h1 v-if="!doc.inner_title">{{ doc.title }}</h1>-->
+<!--        <h1 v-else>{{ doc.inner_title }}</h1>-->
         <GitHubRepoInfo />
 				<recommendations v-if="!doc._githubRepository && doc.read_before && doc.read_before.length"
                          class="my-4" :items="doc.read_before" >
