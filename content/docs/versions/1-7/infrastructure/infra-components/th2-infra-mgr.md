@@ -22,7 +22,40 @@ Basically, **infra-mgr** is the of middle steps of interaction between the user 
 The th2 infra components control all infrastructure of th2 environments, from RabbitMQ exchanges to Kubernetes Pods.  
 As for **infra-mgr**, it interacts with the **infra-schema**, **infra-editor**, and with Kubernetes cluster during process of changing th2 environment. 
 
-[![img](/img/boxes/exactpro/infra-mgr/infra-mgr-functionality.png)](https://www.plantuml.com/plantuml/png/VP71QiCm38RlUWgTDXYai5qsnYY5ibFPfTVIWs8hYMbi5rc1zUsdrApPO2mNnvy-IJzuKvH4fpZ2o9sYPfJG3ue-23iDEG4ST7XgGkg46lP1i-3RtPcJ2-FwY5ImmfzQxAiZ9QVg684kZvu5Yniu4XvWyIk2nZveyoSNS5aOVBWc80b6nf1E1Mxp6vTJ5_hLnP8V0UocaaVSJIrBOhK6yAJKKc7SKYcKl110pOgDD6kSKxxYkn6i0M0cpMIbUhVgdid_WRSvHcjp0wMU2rJ3X6MzIH-Kg6TC5BcSoN7vLzlkxnVXbjXM2PCodlXIXpm0f6oWpQevOkuM6H1ttngICBfhhqShj1Vy_JuXpG0VLyzepNQ-0DivpuQD_Krn_080)
+```plantuml
+@startuml
+left to right direction
+
+[th2-infra-editor <&pencil>] as editor
+[th2-infra-mgr <&person>] as mgr
+folder schema [
+th2-infra-schema
+----
+boxes
+core
+dictionaries
+links
+infra-mgr-config.yml
+]
+
+control Kubernetes
+
+database Cassandra
+
+editor -r-> mgr : Edit schema
+mgr -u-> schema : Read
+mgr -u-> schema : Commit changes
+
+mgr --> Kubernetes : Manage namespaces
+mgr --> Kubernetes : Manage CR's
+mgr --> Cassandra: Create keyspaces*
+
+note bottom of Cassandra
+  Keyspaces are created 
+  by th2-infra-mgr in th2 1.7 and 1.8
+end note
+@enduml
+```
 
 **infra-mgr** receives necessary information about th2 environment from an **infra-schema** which describes a target state of cluster via a set of `.yaml` config files.
 

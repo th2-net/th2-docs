@@ -45,7 +45,7 @@ The th2 ecosystem provides ready-made components for sending messages (**act**) 
 The **script** communicates with **act** and **check1** via gRPC, and sends events to **estore** via RabbitMQ. 
 This interaction is shown on the diagram below. 
 
-![](/img/fundamentals/script/script_pic1.png) 
+![](./script_pic1.png) 
 
 <center> 
 <figcaption class="mb-2">
@@ -336,7 +336,7 @@ You can also use other classes with the similar functionality created by you or 
 This action helps to recognize what will happen when the script runs. 
 For creating `event` object we import `Event`, `EventBatch`, `EventID` and `EventStatus` classes from `th2_grpc_common` and the `Timestamp` class from the `google.protobuf.timestamp_pb2` libraries.
 
-![](/img/fundamentals/script/script_pic2.png) 
+![](./script_pic2.png) 
 
 <spoiler title="Code examples">
 
@@ -402,7 +402,7 @@ This action leads to sending message to the system by **act** component.
 To make it happen you need to create a message using `Message`, `Value`, `MessageID`, `MessageMetadata`, `ConnectionID` and `ListValue` classes from `the th2_grpc_common` library and `datetime` class from the `datetime` library. 
 Then, you need to place the message to **act** using `PlaceMessageRequest` class from the `th2_grpc_act_template` library and `ConnectionID` from the `th2_grpc_common` library.
 
-![](/img/fundamentals/script/script_pic3.png) 
+![](./script_pic3.png) 
 
 <spoiler title="Code examples">
 
@@ -525,7 +525,7 @@ This action helps to verify whether the response from the actual system equals t
 For this we need to filter the messages and then apply verification rule. 
 For filtering we use `MessageFilter`, `FilterOperation` and `ValueFilter` classes from the `th2_grpc_common` library, for sending `check rule request` we use the `th2_grpc_check1` library.
 
-![](/img/fundamentals/script/script_pic4.png) 
+![](./script_pic4.png) 
 
 <spoiler title="Message filter code examples">
 

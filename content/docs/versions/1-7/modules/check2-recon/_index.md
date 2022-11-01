@@ -109,7 +109,7 @@ spec:
 
 In files containing the rule class Rule should be defined. Structure of class Rule is as follows.
 
-![Rule class](/img/boxes/exactpro/check2-recon/rule-class-uml.png)
+![Rule class](./rule-class-uml.png)
 
 Getters:
 
@@ -155,7 +155,7 @@ The lifecycle of an incoming message is:
 5. If a message with the same hash is found in each group, `check(messages)` is called for all these messages. Depending on the types of message groups and their number, it will be determined which messages to delete and which to keep.
 6. If no similar messages are found, then just add the message to the group.
 
-![Rule flow](/img/boxes/exactpro/check2-recon/rule-flow-dfd.png)
+![Rule flow](./rule-flow-dfd.png)
 
 ### group()
 
@@ -164,7 +164,7 @@ sets the message's group id. Further, it will help to reveal the group the
 message belongs to. Let us say, it means that we put a message to the group 
 with `group` method.
 
-![Group method](/img/boxes/exactpro/check2-recon/group-method.png)
+![Group method](./group-method.png)
 
 Implementation example:
 
@@ -185,7 +185,7 @@ Hash key depends on one or several fields of the message.
 The fields are defined by a user in `method` implementation. 
 If all these fields are the same in 2 messages, final hash keys also will be equal.
 
-![Hash method](/img/boxes/exactpro/check2-recon/hash-method.png)
+![Hash method](./hash-method.png)
 
 Implementation example:
 
@@ -204,7 +204,7 @@ After the comparison `check` method generates an event with its result.
 Filling of the final event is defined by the algorithm written by a user. 
 After that original message is available for comparison with future messages until timeout (message's Time To Live).
 
-![Check method](/img/boxes/exactpro/check2-recon/check-method.png)
+![Check method](./check-method.png)
 
 Implementation example:
 

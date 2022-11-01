@@ -21,7 +21,7 @@ It monitors <term term="Custom resource">custom resources</term> and ensures the
 
 ## Functionality
 
-![img](/img/boxes/exactpro/infra-operator/main.png)
+![img](./infra-operator.png)
 
 Being the component that interacts with schema environment, **infra-operator** has the following objectives:
 
@@ -36,7 +36,27 @@ Being the component that interacts with schema environment, **infra-operator** h
 Mostly, **infra-operator** communicates with other infra components using Kubernetes as an intermediary. 
 All the interconnections are displayed on the diagram below.
 
-[![img](/img/boxes/exactpro/infra-operator/operator-functionality.png)](https://www.plantuml.com/plantuml/png/XP0nQyCm48Lt_OgRsibBnr92e4kXJI66TWaTPFlP4aYw89qwvhTNDaLs0gNhlUyxlTC-YOwIlLCEev0mHJiPeS56z68vAB7YG2qx48yavg6nOOowuJEY5evAdTQXdo8ztPKaSTXzaKvK9YkmMajMLvmCdB_EJ0rx3XBPqMlk40C4gOvQtNLM3aUbAawNVDbjs4TwiqdWQIpP2vnluQ0JA9y7FUzQnU5Af5ypBEPpMmKr7zaqD-n11prX_f_2tjUr2rbxLkoOaV4Vz6auIOLktwpOvgYap9_qnr9_M_fTY_q6jKYSOr_aFSAGlVi1)
+```plantuml
+@startuml
+left to right direction
+title Role of th2-infra-operator
+
+[th2-infra-mgr <&person>] as mgr
+[th2-infra-operator] as operator
+[helm-operator] as hoperator
+control Kubernetes
+control RabbitMQ
+
+hoperator ~u~> Kubernetes: Listem for HelmRelease updates
+operator ~d~> Kubernetes : Listen for CR updates
+
+mgr --> Kubernetes : Manage th2 CR's
+operator --> RabbitMQ: Manage Queues
+operator --> RabbitMQ: Manage Vhosts
+operator --> Kubernetes: Manage HelmReleases
+hoperator --> Kubernetes: Update Kubernetes Native Resources
+@enduml
+```
 
 ## Configuration
 

@@ -94,7 +94,7 @@ These are the three rule requests:
 ### Structure of the three rule requests
 
 
-![](/img/boxes/exactpro/check1/structure_of_each_request.png "Figure 5. structure of each request` ")
+![](./img/structure_of_each_request.png "Figure 5. structure of each request` ")
 <center> 
 <figcaption class="mb-2">
 Figure 1. Class structure of each request.

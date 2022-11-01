@@ -16,7 +16,7 @@ This component implements the logic of the interaction protocol, receiving and s
 
 <!--more-->
 
-![](/img/boxes/exactpro/th2-conn/th2-conn.png)
+![](./th2-conn.png)
 
 ## Family
 

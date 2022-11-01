@@ -196,4 +196,4 @@ spec:
           pin: server
 ```
 Below is the illustration of links between boxes given in the configuration file above.
-![](/img/fundamentals/links_schema.png) 
+![](./links_schema.png) 

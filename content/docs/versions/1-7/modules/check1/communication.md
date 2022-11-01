@@ -38,7 +38,7 @@ This repository contains the required `.proto` files for client-server interface
 
 <!-- FIXME: Remove focus on estore and mstore -->
 
-![](/img/boxes/exactpro/check1/communication_othercomponents.png "Figure 1. Communication with other components ")
+![](./img/communication_othercomponents.png "Figure 1. Communication with other components ")
 
 <center> 
 <figcaption class="mb-2">
@@ -63,7 +63,7 @@ rpc submitNoMessageCheck(NoMessageCheckRequest) returns (NoMessageCheckResponse)
 
 The `CheckpointResponse` contains a checkpoint and the status of the request (`SUCCESS` or `ERROR`).
 
-![](/img/boxes/exactpro/check1/checkpointrequest_class.png "Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating other associations ")
+![](./img/checkpointrequest_class.png "Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating other associations ")
 <center> 
 <figcaption class="mb-2">
 Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating other associations.
@@ -77,7 +77,7 @@ Figure 2. Definitions for CheckPointRequest and CheckpointResponse illustrating 
 
 All the responses to the rule request contain a `chain_id` and the status of the request (`SUCCESS` or `ERROR`).
 
-![](/img/boxes/exactpro/check1/ruleresponse_class.png "Figure 3. Class diagram of check1 responses ")
+![](./img/ruleresponse_class.png "Figure 3. Class diagram of check1 responses ")
 
 <center> 
 <figcaption class="mb-2">
@@ -92,7 +92,7 @@ Storing message queues
 **check1** receives decoded system messages from the **codec** component via RabbitMQ.
 
 
-![](/img/boxes/exactpro/check1/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
+![](./img/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
 <center>
 <figcaption class="mb-2">
 Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST.

@@ -26,7 +26,7 @@ is the template repository with the predefined infra-schemas.
 Fork the [th2-infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo/tree/master)
 repository or use it as a template. It is either **public** or **private**.
 
-![](/img/getting-started/th2-infra-schema/git-based/clone-th2-infra-schema-demo.png)
+![](./clone-th2-infra-schema-demo.png)
 
 <notice info >
 

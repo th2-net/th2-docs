@@ -30,7 +30,7 @@ NOTE: **codec** can replace a raw message with a parsed message followed by seve
 
 The schema below describes encoding/decoding processes. 
 
-![](/img/boxes/exactpro/codec/codec_inside_processes.png)
+![](./codec_inside_processes.png)
 
 - `raw` - <term term='pin'>pin</term> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.
 
@@ -153,7 +153,7 @@ You can use a link to a docker image of needed **codec** from its GitHub reposit
 The **codec** component handles message flows between components such as **conn**, **act**, **check1**, **read** and other. 
 On the scheme below you can see an example of interaction with other th2 components.
 
-![](/img/boxes/exactpro/codec/codec_interaction_with_other_components.png)
+![](./codec_interaction_with_other_components.png)
 
 The **codec** component has eight pins - four for the stream, and four general ones. 
 Functionality of the stream and the general pins is the same. 

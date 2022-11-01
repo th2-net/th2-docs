@@ -140,7 +140,7 @@ The main field is `k8s-propagation`. It can contain one of four values:
 - `sync` - synchronizes repository changes with Kubernetes
 - `rule` - synchronizes repository changes with Kubernetes and watches resource changes in Kubernetes and brings them back to repository state
 
-![infra-mgr behaviour](/img/infrastructure/mgr-behaviour.png)
+![infra-mgr behaviour](./mgr-behaviour.png)
 
 Full `infra-mgr-config.yml` configuration:
 

@@ -13,7 +13,7 @@ Additionally, infra components allow users to change or update deployed test env
 <!--more-->
 
 
-![](/img/fundamentals/th2-infra-2.png)
+![](./th2-infra-2.png)
 
 Learn more about th2 infrastructure:
 - [th2-infra](./infrastructure/th2-infra-repository)

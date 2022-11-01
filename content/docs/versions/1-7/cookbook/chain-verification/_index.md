@@ -37,7 +37,7 @@ The user will expect 2 messages from the system in response to each order messag
 
 ### Example 1: Using two separate `CheckSequenceRuleRequests` with checkpoints
 
-![](/img/cookbook/chain-verification/message_chain_with_two_checkpoints.png "Figure1.message_chain_with_two_checkpoints")
+![Figure1.message_chain_with_two_checkpoints](./message_chain_with_two_checkpoints.png )
 <center>
 <figcaption>
 
@@ -78,7 +78,7 @@ After the first `CheckSequenceRuleRequest` is sent to **check1**, it will start 
 This caret stops at the last verified message. 
 The `chain_id` of Message 5 is returned as the last verified message with the `CheckSequenceResponse`. 
 
-![](/img/cookbook/chain-verification/chain_id.png "Figure2.chain_id")
+![Figure2.chain_id](./chain_id.png)
 
 <center>
 <figcaption>
@@ -91,7 +91,7 @@ Figure 2. `chain_id` caret marks the last verified message, which is used as the
 The user can now request this `chain_id` in their second `CheckSequenceRuleRequest`, and **check1** will start verification from Message 6. 
 **check1** will identify Message 6 as an extra system response and inform the user that there is a redundant message.
 
-![](/img/cookbook/chain-verification/chain_id2.png "Figure3.chain_id2")
+![Figure3.chain_id2](./chain_id2.png)
 <center>
 <figcaption>
 
@@ -109,7 +109,7 @@ This act of "chaining" rule requests together is called chain verification.
 
 ### Example 4 : Messages from different instruments
 
-![](/img/cookbook/chain-verification/two_instruments2.png "Figure4.two_instruments2")
+![Figure4.two_instruments2](./two_instruments2.png)
 
 <center>
 <figcaption>

@@ -13,7 +13,7 @@ While the infra-schema describes a th2 environment configured for a particular t
 Infra components are an intermediate layer between the user and the Kubernetes cluster. 
 This layer changes the th2 environments in accordance with the state of the **infra-schema**.
 
-![](/img/fundamentals/infra/infra-comp-1.png)
+![](./infra-comp-1.png)
 
 ## Components
 
@@ -27,7 +27,7 @@ There are 5 Infra components:
 
 ## Components interactions
 
-![img.png](/img/fundamentals/infra/infra-comp-2.png)
+![img.png](./infra-comp-2.png)
 
 ### Edit infra-schema
 
@@ -81,19 +81,110 @@ The below scenarios outline typical ways to interact with infra components in th
 1. Create new schema using **infra-editor**  
   
 
-[![Create new schema with th2-infra-editor](/img/fundamentals/infra/new-schema.png)](https://www.plantuml.com/plantuml/png/RP0zIy0m48Rt_8gRt5AmRaLAqTt5iNGuqgi9v4CkL_htlPeMHLmol7dkdfURgY3BdgAH897WbGc58DC1rNbA24SG3-9x6_B6Q6aDKjYO-My4pm-Vb5s8um9OeOM_iVJH6AubDqOJivMu4j-osVpmBJABGNUktokfzdp1iXqlmG2FtLtwJKk_jw6habLE9GFq_q5d8HiLQQO1dhhlxnV6x3niN18ahABUYVAgH_e2)
+```plantuml
+@startuml
+title Create new schema with th2-infra-editor
+
+[th2-infra-editor <&pencil>] as editor
+[th2-infra-mgr <&person>] as mgr
+folder schema [
+th2-infra-schema
+]
+actor user
+
+user -r-> editor: 1. Create New Schema
+editor --> mgr: 2. Create New Schema
+mgr -l-> schema: 3. New Branch from master
+@enduml
+```
 
 2. Create th2 environment from the **infra-schema** branch
 
-[![Create th2 environment from th2-infra-schema branch](/img/fundamentals/infra/new-env.png)](https://www.plantuml.com/plantuml/png/TP99ZzD048Nl_IjASu1JMiomHoWQ4Y61W4WO0GV4eMENtItrObLNX-KmlvssutY9Pcv9rVTUlNxoRMH5d9mL5ci63a2cqGoL8IpP12_Oi4NO4If6O7q3w8-6WdVe6MeAhXkkZAz9hMAfqIauaFAb5kBdj74DmPj7BL8CVlCBL8GycGCXxnG7wdV3dmnej6wvq-Eo3hP2WglB-rSTTlefok2PWeMFwO3aaJ6Eeq8T3eO_Vn6Y2tUNxZQ32DRmGt6feGu4EwryarN3rGnM6PpiClp9H4P_eWj8RQMwCtfIf8LY4BXUy1wjAz2YYZWgnH13Ld83NROrN4lOus_OziN2koDwxbElLXTPRYHyy8QDikOVmjUJqLuvZAqgyNxDKmblszR-FUExud4KCqAcdEFycZKyazCp0ViemxBt7djTmtDv_cw-wn0Vn5vaBFZQD8aGjiPNnZTn3Y_RUodXMtzyNjuYRuwhfxolv3qj2_sW_-inzSnphzWS4GgC8L69Ytuk3QwVZ0xRy2Upj-YhvEn_)
+```plantuml
+@startuml
+left to right direction
+title Create th2 environment from th2-infra-schema branch
+
+[th2-infra-mgr <&person>] as mgr
+[th2-infra-operator] as operator
+[helm-operator] as hoperator
+folder "th2-infra-schema" as schema
+control Kubernetes
+control RabbitMQ
+
+mgr ~u~> schema : Watch for Changes
+operator ~d~> Kubernetes : Listen for CR updates
+hoperator ~u~> Kubernetes: Listem for HelmRelease updates
+
+schema .d.> mgr : 1. New Branch Event
+mgr --> Kubernetes : 2. Initialize Schema Namespace
+mgr --> Kubernetes : 3. Apply Schema CR's
+Kubernetes .u.> operator: 4. CR update event
+operator --> RabbitMQ: 5. Create Vhost
+operator --> RabbitMQ: 6. Configure Bindings
+operator --> Kubernetes: 7. Update HelmRelease
+Kubernetes ..> hoperator: 8. HelmRelease update
+hoperator --> Kubernetes: 9. Create Kubernetes Native Resources
+@enduml
+```
 
 3. Update th2 environment
 
-[![Update th2 environment](/img/fundamentals/infra/update-env.png)](https://www.plantuml.com/plantuml/png/TP7FwzD04CNl-rSCFUWf2zOVIf1GMWH1BHWH3-9Xcvra5_P7sPrKJ_tRtMpZDYb-RycyzpupUTb54e56QvZ1de0y13qe0ga3TgIzOwJ987m_Iq48fBQ0xgA3TnOTCVOpJIhj-Y0gEmHu_-oC8NhN_08H8KsM1fyqGJvaRNv91eN6hZLLnDuRYG4sTqZi55gncMotHzPvHy4R-3IUC3WaZ6NKYjD9qvUlZ4t7NSThCuUWXX-2EWMz3t1GmWqfLTPcvu9NmsST2MrsVqHZMpGe8iAOMudi7fIh8Cn9TzlJbW2Rp-2IDrDDoVY2mn5_my5Rgma-NAPw9wMg7eXR_kzlVCkGn7qUsSB2HzwKVcjuoRDZtWsOoRESyQMc6buLzbuxgTqGryvb9w-BTr79wevqXhhVyOR_fpkcdkI_BVm5yoX8Nn1QZ7uC7Qw--n7mZYTV5p0XPfA4lV-JGZjqShJcBm00)
+```plantuml
+@startuml
+left to right direction
+title Update th2 environment
+
+[th2-infra-mgr <&person>] as mgr
+[th2-infra-operator] as operator
+[helm-operator] as hoperator
+folder "th2-infra-schema" as schema
+control Kubernetes
+control RabbitMQ
+
+mgr ~u~> schema : Watch for Changes
+hoperator ~u~> Kubernetes: Listem for HelmRelease updates
+operator ~d~> Kubernetes : Listen for CR updates
+
+schema .d.> mgr : 1. New Commit Event
+mgr --> Kubernetes : 2. Update Schema CR's
+Kubernetes .u.> operator: 3. CR's update event
+operator --> RabbitMQ: 4. Update Bindings
+operator --> Kubernetes: 5. Update HelmRelease
+Kubernetes ..> hoperator: 6. HelmRelease update
+hoperator --> Kubernetes: 7. Update Kubernetes Native Resources
+@enduml
+```
 
 4. Delete th2 environment
 
-[![Delete th2 environment](/img/fundamentals/infra/delete-env.png)](https://www.plantuml.com/plantuml/png/TP3Dwjim4CJlUehbVsXF5YJzDiMaQGk5je6wq1vA3ugzjWJw2DBQz9HdhvGuiXt8pTxzpUneTe64fy5efh4Z80TUzPAWLHuRKiuoKgGHFg56GY2v1RIZyiuQjCJOdpWfbEsyA4pluVsp4_hWRFKNH80uMG8kxWGvVzbDFn6GgCrw9_EoSxf53q-pIMWa6l6KiEidQvmbxpHy7OxeBHA6FAh5yQZe-m_6KhZpSAuc4PJmMr0ZeNCUFafX-wZAPw_ax5V2DnK8pON-4kFMg544XE7KYdHl5hOh8KnAUxrJPm6ROl2MLwcc26xuhUIz5pP6-pocXjEoAEvCjvdzUV69riy3Mo1yu5Mkk8GNF18t2IRV73cPvvvAU3cdKBPLjW-Fo5UP_2LTM1kkkdlDeKRZHbnMjmeRiyevx1k-12Vjb5e-lF8sNrau7mIfCLa4D_W6LnNT6xpBx_cWDUpTFmpByZEtsToNVn06mqaqo7Pesy7e_m00)
+```plantuml
+@startuml
+left to right direction
+title Delete th2 environment
+
+[th2-infra-mgr <&person>] as mgr
+[th2-infra-operator] as operator
+[helm-operator] as hoperator
+folder "th2-infra-schema" as schema
+control Kubernetes
+control RabbitMQ
+
+mgr ~u~> schema : Watch for Changes
+hoperator ~u~> Kubernetes: Listem for HelmRelease updates
+operator ~d~> Kubernetes : Listen for CR updates
+
+schema .d.> mgr : 1. Delete Branch Event
+mgr --> Kubernetes : 2. Delete Schema CR's
+Kubernetes .u.> operator: 3. CR Delete event
+operator --> RabbitMQ: 4. Delete Bindings
+operator --> RabbitMQ: 5. Delete Vhost
+operator --> Kubernetes: 6. Remove HelmRelease
+Kubernetes ..> hoperator: 7. HelmRelease Remove event
+hoperator --> Kubernetes: 8. Remove Kubernetes Native Resources
+mgr --> Kubernetes: 9. Delete Schema Namespace
+@enduml
+```
 
 ## Installation
 

@@ -25,7 +25,7 @@ Some infrastructure components are technologically supported by a number of thir
 After any new schema environment is being configured, it automatically connects to RabbitMQ, Cassandra, Dashboard, and Grafana.  
 The configuration supporting this is stored in the [th2-infra](https://github.com/th2-net/th2-infra) repository.
 
-![](/img/fundamentals/th2-infra-3.png)
+![](./th2-infra-3.png)
 
 ## Interaction with th2
 
@@ -38,4 +38,4 @@ Interaction with th2 can be done via:
 
 th2 uses [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) to provide access to corresponding web applications via HTTP.
 
-![](/img/fundamentals/th2-infra-4.png)
+![](./th2-infra-4.png)
