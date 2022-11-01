@@ -93,6 +93,7 @@ Storing message queues
 
 
 ![](./img/queue.png "Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST ")
+
 <center>
 <figcaption class="mb-2">
 Figure 4. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST.

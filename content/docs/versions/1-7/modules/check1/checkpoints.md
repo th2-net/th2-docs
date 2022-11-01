@@ -22,6 +22,7 @@ Checkpoint data contains the message sequence number in session and the message 
 returned as a universally unique identifier (UUID) to the **act** component.
 
 ![](./img/checkpoint_class.png "Figure1.Checkpoint Class")
+
 <center> 
 <figcaption class="mb-2">
 Figure 1. Associations with Checkpoint class.
@@ -34,6 +35,7 @@ After receiving a `CheckpointRequest` from the **act** methods or directly from 
 and send it to the **act** component via `CheckPointResponse` .
 
 ![](./img/checkpoint_path.png "Figure 2.Checkpoint path")
+
 <center> 
 <figcaption class="mb-2">
 Figure 2. A checkpoint is not stored 
@@ -44,6 +46,7 @@ The script receives the checkpoint from **act** and sends it to the **check1**.
 **check1** starts verification from the location and time when the checkpoint was created.
 
 ![](./img/message_queue_checkpoint.png "Figure 3.message_queue_checkpoint")
+
 <center> 
 <figcaption class="mb-2">
 Figure 3. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST 
@@ -75,6 +78,7 @@ Joining several rule requests to continuously check the whole message queue is k
 
 
 ![](./img/chainid_flowchart.png "Figure 4.chainid_flowchart")
+
 <center> 
 <figcaption class="mb-2">
 

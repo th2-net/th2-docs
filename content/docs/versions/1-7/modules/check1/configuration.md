@@ -12,7 +12,8 @@ related:
 ## Configuration of check1
 The general configuration of the **check1** component is given below. 
 
-```yaml [check1.yml]
+```yaml
+##### check1.yaml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Box
 metadata:
@@ -103,5 +104,4 @@ spec:
       attributes:
         - "subscribe"
         - "parsed"
-
-
+```

@@ -12,6 +12,7 @@ related:
 ##  Verification using `CheckSequenceRuleRequest`
 
 ![Figure 1. Verification of message queue by **check1** using `CheckSequenceRuleRequest`](./img/verification_flowchart.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure1. Verification of message queue by **check1** using `CheckSequenceRuleRequest`.
@@ -22,6 +23,7 @@ Figure1. Verification of message queue by **check1** using `CheckSequenceRuleReq
 ## Structure of the `CheckSequenceRuleRequest`
 
 ![Figure 2. Class Diagram of CheckSequenceRuleRequest](./img/checksequence_class.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 2. Class Diagram of `CheckSequenceRuleRequest`
@@ -37,6 +39,7 @@ The pre-filter allows checking of only those messages that have passed through i
 Therefore, users must be careful to not accidentally filter out potentially necessary messages.
 
 ![Figure 3. Messages (in black) are not considered for verification due to PreFilter](./img/prefilter.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 3. Messages (in black) are not considered for verification due to PreFilter. 
@@ -51,6 +54,7 @@ The expected responses are identified via the key fields found in the main filte
 Each filter contains a key field which matches with a single expected message. `CLOrdid` (client order id) is used as the key field and **check1** matches the filter-message pair according to the value.
 
 ![Figure 4. The three filters matching up with three responses(turquois color)](./img/mainfilter.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 4. The three filters matching up with three responses (turquois color)
@@ -62,6 +66,7 @@ If a message passed pre-filter, but is not in the expected, it is considered as 
 The extra messages are located by setting the `silence_check` parameter to `True` or by the `auto-silence-check-after-sequence-rule` in the **check1** custom configuration.
 
 ![Figure 5. An extra message is identified by silence check](./img/silencecheck.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 5. An extra message is identified by silence check
@@ -85,6 +90,7 @@ The filters in `CheckSequenceRuleRequest` are an ordered list and the order rece
 To check order, the `CheckSequenceRuleRequest` parameter `check_order` is set to `True`.
 
 ![Figure 6. Filter order (expected order) does not match the message order received (actual)](./img/checkorder.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 6. Filter order (expected order) does not match the message order received (actual).
@@ -101,6 +107,7 @@ Once verification is complete **check1** returns a chain id value which can be u
 ## Using CheckRuleRequest for  verification
 
 ![Figure 7. Structure of the CheckRuleRequest](./img/checkrule_class.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 7. Structure of the CheckRuleRequest.
@@ -114,6 +121,7 @@ Since the `CheckRuleResponse` returns a value for chain_id you could use this ru
 This rule request is used to check for extra messages, and comes with a PreFilter class. 
 
 ![Figure 8. Structure of NoMessageCheckRequest](./img/Nomessage_class.png)
+
 <center> 
 <figcaption class="mb-2">
 Figure 8. Structure of NoMessageCheckRequest.
