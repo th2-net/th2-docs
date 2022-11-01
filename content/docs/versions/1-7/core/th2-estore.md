@@ -1,4 +1,8 @@
 ---
+<<<<<<<< HEAD:content/docs/versions/1-7/core/th2-estore.md
+========
+title: th2-estore
+>>>>>>>> master:content/common/core/th2-estore.md
 weight: 10
 repo_owner: th2-net
 repo: th2-estore
@@ -10,8 +14,11 @@ related:
     href: "https://github.com/th2-net/cradleapi"
 ---
 
+<<<<<<<< HEAD:content/docs/versions/1-7/core/th2-estore.md
 # th2-estore
 
+========
+>>>>>>>> master:content/common/core/th2-estore.md
 **estore** is one of the core components in the th2 environment. 
 It is responsible for storing events into <term term="Cradle">Cradle</term>. 
 Sending events to **estore** from other components is possible via special methods from the <term term="th2-common">th2-common</term> library.
