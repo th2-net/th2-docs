@@ -13,11 +13,13 @@
     "sourceMap": true,
     "strict": true,
     "types": [
-      "@types/node"
+      "@types/node",
+      "cypress"
     ]
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./cypress/**/*.ts"
   ],
   "exclude": [
     "gridsome.config.js",
