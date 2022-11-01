@@ -48,7 +48,7 @@ Regardless of how you are going to run the cluster, you need tools to interact w
 
 You can find some th2 use cases with provided machines listing.
 
-<recommendations :items="use_cases_link"></recommendations>
+<recommendations :items="$frontmatter.use_cases_link"></recommendations>
 
 One machine can combine several types listed here.
 

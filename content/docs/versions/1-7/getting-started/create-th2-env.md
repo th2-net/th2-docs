@@ -24,7 +24,7 @@ First of all, you need a special th2 schema environment for testing.
 This environment includes modules your tests will interact with and a bunch of components for historical data storage and displaying status and actions of the environment. 
 During installation you have binded **infra-schema** repository to the th2 cluster. For creating a new schema environment just create a new branch with `yaml` files describing it.
 
-<recommendations :items="schema_link"></recommendations>
+<recommendations :items="$frontmatter.schema_link"></recommendations>
 
 Now you can run your test scripts or any software, that simulates activity of real people.
 

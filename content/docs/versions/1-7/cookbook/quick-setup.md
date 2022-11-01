@@ -56,13 +56,13 @@ docker run --name th2-storage \
 
 th2-infra-schema deployment is the same as in full-fledged th2 version:
 
-<recommendations :items="schema_links"></recommendations>
+<recommendations :items="$frontmatter.schema_links"></recommendations>
 
 ## Deploy th2
 
 th2 installation into Kubernetes cluster is very similar to standard instructions, but there are some differences.
 
-<recommendations :items="install_links"></recommendations>
+<recommendations :items="$frontmatter.install_links"></recommendations>
 
 1. Whenever you want to create folders for PersistentVolume and PersistentVolumeClaim, do it via `minikube ssh`.
 2. When you define Cassandra hostname in `service.values.yaml`, set it as `host.minikube.internal` for Cassandra on localhost.
