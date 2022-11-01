@@ -1,5 +1,5 @@
 ---
-title: 1. Set up the environment 
+title: "1. Set up the environment"
 weight: 0
 read_before:
   - title: th2 software requirements

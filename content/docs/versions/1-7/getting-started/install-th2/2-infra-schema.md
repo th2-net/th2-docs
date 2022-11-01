@@ -1,5 +1,5 @@
 ---
-title: 2. Publish infra-schema
+title: "2. Publish infra-schema"
 weight: 1
 ---
 
