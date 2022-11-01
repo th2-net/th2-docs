@@ -1,4 +1,4 @@
-# th2-docs-nuxt
+# th2-docs
 
 ## Requirements
 
