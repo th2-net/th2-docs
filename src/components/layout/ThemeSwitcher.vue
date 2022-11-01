@@ -21,13 +21,13 @@ export default {
 		if (this.$vuetify.theme.dark)
 			return {
 				link: [
-					{ rel: 'stylesheet', href: '/css/darkTheme.css' },
+					{ rel: 'stylesheet', href: '/th2-docs/css/darkTheme.css' },
 				]
 			}
 		else
 			return {
 				link: [
-					{ rel: 'stylesheet', href: '/css/lightTheme.css' },
+					{ rel: 'stylesheet', href: '/th2-docs/css/lightTheme.css' },
 				]
 			}
 	}

@@ -7,6 +7,7 @@
 module.exports = {
   siteName: 'Gridsome',
   siteUrl: 'https://th2.dev',
+  pathPrefix: '/th2-docs',
   plugins: [
     {
       use: '@gridsome/plugin-sitemap',
