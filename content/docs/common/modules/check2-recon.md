@@ -60,7 +60,8 @@ In particular, the adjustment is needed for the parameters for a Kubernetes Pod 
 
 Example of the Pod configuration:
 
-```yaml[check2-recon.yaml]
+```yaml
+##### check2-recon.yaml #####
 apiVersion: th2.exactpro.com/v1
 kind: Th2Box
 metadata:
@@ -123,7 +124,8 @@ Group types are available in a **check2-recon** package. At the moment there are
 
 Examples of getters:
 
-```python[rule_demo.py]
+```python
+##### rule_demo.py #####
 def get_name(self) -> str:
        return "Rule_demo"
        
@@ -165,7 +167,8 @@ with `group` method.
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
+##### rule_demo.py #####
 def group(self, message: ReconMessage, attributes: tuple):
        message_type: str = message.proto_message.metadata.message_type
        if message_type not in ['ExecutionReport', 'NewOrderSingle']:
@@ -185,7 +188,8 @@ If all these fields are the same in 2 messages, final hash keys also will be equ
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
+##### rule_demo.py #####
 def hash(self, message: ReconMessage, attributes: tuple):
        cl_ord_id = message.proto_message.fields['ClOrdID'].simple_value
        message.hash = hash(message.proto_message.fields['ClOrdID'].simple_value)
@@ -203,7 +207,8 @@ After that original message is available for comparison with future messages unt
 
 Implementation example:
 
-```python[rule_demo.py]
+```python
+##### rule_demo.py #####
 def check(self, messages: [ReconMessage]) -> Event:
        settings = ComparisonSettings()
        compare_result = self.message_comparator.compare(messages[0].proto_message, messages[1].proto_message, settings)
@@ -216,6 +221,7 @@ def check(self, messages: [ReconMessage]) -> Event:
        body = EventUtils.create_event_body(verification_component)
        attach_ids = [msg.proto_message.metadata.id for msg in messages]
        return EventUtils.create_event(name=f"Match by '{ReconMessage.get_info(info_for_name)}'",
+                                      attached_message_ids=attach_ids,
                                       attached_message_ids=attach_ids,
                                       body=body)
 ```
