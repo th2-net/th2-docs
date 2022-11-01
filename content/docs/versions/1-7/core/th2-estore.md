@@ -2,6 +2,7 @@
 weight: 10
 repo_owner: th2-net
 repo: th2-estore
+hide_releases: true
 skip_readme: true
 related:
   - name: "th2-net/cradleapi"

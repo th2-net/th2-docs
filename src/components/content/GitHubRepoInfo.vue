@@ -31,7 +31,7 @@
     </v-row>
 
     <!-- Releases -->
-    <div class="my-4">
+    <div class="my-4" v-if="!doc.hide_releases">
       <div>Releases</div>
       <spoiler class="release" :title="`${release.name} (${timeSince(release.published_at)})`" v-for="release in repoInfo.releases" :key="release.id">
         <v-card-text>

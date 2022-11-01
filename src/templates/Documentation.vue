@@ -42,6 +42,7 @@ query DocPage ($id: ID!) {
     continue_learning{title, href, icon}
     terms {id, title, content}
     related {name, icon, href}
+		hide_releases
     _githubRepository{
       html_url
       language
