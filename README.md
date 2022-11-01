@@ -1,14 +1,39 @@
-# Default starter for Gridsome
+# th2-docs-nuxt
 
-This is the project you get when you run `gridsome create new-project`.
+## Requirements
 
-### 1. Install Gridsome CLI tool if you don't have
+You will need to install [Node.js 16.13.2 LTS](https://nodejs.org/en/).
 
-`npm install --global @gridsome/cli`
+Installation can take up to an hour, because it downloads [VS build tools](https://visualstudio.microsoft.com/downloads/?q=build+tools).
+You can install it beforehand.
 
-### 2. Create a Gridsome project
+## Install dependencies
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+```bash
+npm install
+```
+
+For detailed explanation on how things work, check out [NuxtJS documentation](https://nuxtjs.org/docs/).
+
+## Configure environment
+
+Create `.env` file in the root directory:
+
+```dotenv
+GITHUB_CLIENT_ID=GITHUB_CLIENT_ID
+GITHUB_CLIENT_SECRET=GITHUB_CLIENT_SECRET
+```
+
+## Develop
+
+Run to edit docs:
+
+```shell
+npm run dev
+```
+
+Run to only explore database with GraphQL:
+
+```shell
+npm run explore
+```
