@@ -95,7 +95,9 @@ export default {
 		}
 	},
 	created() {
-		this.versionNow = this.pagesTrees.find(versionTree => this.$route.path.startsWith(versionTree.path))?.title || '1.5.4'
+		this.versionNow = this.pagesTrees
+			.find(versionTree => this.$route.path.startsWith(versionTree.path))
+			?.title || '1.7'
 	}
 
 }

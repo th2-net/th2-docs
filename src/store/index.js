@@ -6,8 +6,8 @@ export default new Vuex.Store({
   state(){
     return {
       currentTh2Version: {
-        title: '1.5.4',
-        path: '/1-5-4/'
+        title: '1.7',
+        path: '/1-7/'
       }
     }
   },
