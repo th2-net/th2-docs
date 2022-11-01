@@ -3,11 +3,8 @@ tree-title: Software
 weight: 10
 ---
 
-<<<<<<<< HEAD:content/docs/versions/1-7/getting-started/requirements/software.md
 # Software requirements
 
-========
->>>>>>>> master:content/common/getting-started/requirements/software.md
 This table contains the list of Technologies and their versions which are required to work with th2. Installation instructions are given in [Installation](/1-7/getting-started/install-th2/1-base-system) section. 
 
 ## th2 node

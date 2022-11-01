@@ -12,15 +12,10 @@ related:
 weight: 20
 ---
 
-<<<<<<<< HEAD:content/docs/versions/1-7/modules/check2-recon/_index.md
 # check2-recon
 
 ## Overview 
 
-========
-## Overview 
-
->>>>>>>> master:content/common/modules/check2-recon.md
 **сheck2-recon** is one of the th2 modules. 
 The purpose of **check2-recon** is to compare several event streams. 
 The module matches related messages and detects discrepancies between actual and expected messages. 
