@@ -36,7 +36,7 @@ export default {
 				{ hid: 'og:title', name: 'og:title', content: 'th2 docs' },
 				{ hid: 'og:description', name: 'og:description',
 					content: 'Documentation for th2 - the next-generation test automation framework for financial markets' },
-				{ hid: 'og:image', name: 'og:image', content: 'https://th2-docs.herokuapp.com/og-image.png' },
+				{ hid: 'og:image', name: 'og:image', content: 'https://th2.dev/og-image.png' },
 				{ hid: 'robot', name: 'robot', content: 'none' }
 			],
 			link: [
