@@ -77,7 +77,7 @@ export default {
               'basic configuration and run a demo script.' },
         { title: 'Fundamentals', href: `.${this.$store.state.currentTh2Version.path}fundamentals`, icon: 'mdi-atom',
           text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
-        { title: 'Boxes', href: `.${this.$store.state.currentTh2Version.path}boxes`, icon: 'mdi-package-variant-closed',
+        { title: 'Modules', href: `.${this.$store.state.currentTh2Version.path}modules`, icon: 'mdi-package-variant-closed',
           text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
         { title: 'Cookbook', href: `.${this.$store.state.currentTh2Version.path}cookbook`, icon: 'mdi-book-open-blank-variant',
           text: 'Try out the prepared th2 configurations or components combinations,\n' +
