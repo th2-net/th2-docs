@@ -103,6 +103,10 @@ $window-width-sm: 1024px;
       border: none;
       max-width: unset;
       min-width: unset;
+
+      .sticky-page-content{
+        padding-bottom: unset;
+      }
     }
   }
 }
