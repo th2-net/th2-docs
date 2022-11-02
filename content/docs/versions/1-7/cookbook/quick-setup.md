@@ -2,10 +2,10 @@
 weight: 0
 schema_links:
   - title: Publish infra schema
-    href: ../getting-started/install-th2/2-infra-schema
+    href: ../../getting-started/install-th2/2-infra-schema
 install_links:
   - title: Deploy th2
-    href: ../getting-started/install-th2/3-th2
+    href: ../../getting-started/install-th2/3-th2
 ---
 
 # Quick th2 setup
