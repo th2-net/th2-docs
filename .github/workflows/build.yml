@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Build
 
 on:
   workflow_dispatch:
@@ -39,4 +39,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          commit_message: 'Automatic deploy: ${{ github.event.head_commit.message }}'
+          publish_branch: dist
+          commit_message: 'Automatic build: ${{ github.event.head_commit.message }}'
