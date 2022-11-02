@@ -10,6 +10,7 @@ This section provides an overview of the basics of th2: its architecture, compon
 
 Table of contents:
 
-1. [Architecture](./fundamentals/architecture)
-2. [th2-net on GitHub](./fundamentals/th2-net-on-github)
-3. [Key concepts](./fundamentals/key-concepts)
+1. [Architecture](./architecture)
+2. [th2-net on GitHub](./th2-net-on-github)
+3. [Key concepts](./key-concepts)
+4. [Script](./script)
