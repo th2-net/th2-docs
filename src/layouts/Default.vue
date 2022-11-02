@@ -90,7 +90,7 @@ html {
 #app{
 	font-family: "Open Sans", sans-serif;
 }
-.v-app-bar--fixed.top-layout, .top-layout{
+.v-app-bar.v-app-bar--fixed.top-layout, .top-layout{
 	z-index: 100 ;
 }
 </style>
