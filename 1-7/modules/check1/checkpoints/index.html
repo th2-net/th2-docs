@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>check1 - introduction to checkpoints and chain IDs | th2 docs</title><meta name="gridsome:hash" content="abeff389279d6af89c434cc24d3a5ad91fcb6e17"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="check1 - introduction to checkpoints and chain IDs"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.560450bc.css" as="style"><link rel="preload" href="/assets/js/app.363c025a.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--documentation-vue.03e222b6.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--checkpoints-md.b5154f99.js" as="script"><link rel="prefetch" href="/assets/js/page--node-modules--gridsome--app--pages--404-vue.5c129d40.js"><link rel="prefetch" href="/assets/js/page--src--pages--about-vue.4b251a8f.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.88dc88b3.js"><link rel="prefetch" href="/assets/js/page--src--templates--dashboard-vue.910a7438.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--dashboard-vue.cd37e2e0.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--documentation-vue.0f2d32f2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--cookbook--chain-verification--index-md.1bdc3400.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--cookbook--index-md.b50f1d36.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--cookbook--quick-setup-md.b26cd042.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--core--index-md.b590e632.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--core--th-2-estore-md.d50acb68.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--core--th-2-mstore-md.b008c4ed.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--fundamentals--architecture-md.7a729765.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--fundamentals--index-md.ba7ea6a3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--fundamentals--key-concepts-md.3f7b5a13.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--fundamentals--script--index-md.b434ae67.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--fundamentals--th-2-net-on-github-md.bdbaa2a6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--create-th-2-env-md.6ff7582f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--index-md.cb7440a7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--install-th-2--1-base-system-md.833c143c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--install-th-2--2-infra-schema-md.24fa1c91.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--install-th-2--3-th-2-md.eee4d188.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--install-th-2--index-md.2094c973.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--requirements--hardware-md.28747a5a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--requirements--index-md.12da35e5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--requirements--os-and-network-md.1702f21e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--getting-started--requirements--software-md.1bbfc6dc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--index-md.592249eb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--index-md.9772c6d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--infra-components--index-md.b85e9708.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--infra-components--th-2-infra-mgr-md.342c224a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--infra-components--th-2-infra-operator-md.5373216a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--th-2-infra-repository-md.b420bfc3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--th-2-infra-schema--links-md.c860257f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--th-2-infra-schema--pins-md.279bcfac.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--infrastructure--th-2-infra-schema-md.d89cc6cf.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--communication-md.cbff0a0f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--configuration-md.437ed915.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--index-md.31bdff7f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--rulerequests-md.eaf698a4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--verification-rulerequests-md.9102f126.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-2-recon--index-md.e200aaf4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--codec--index-md.ddd3ba6f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--conn--index-md.90761793.js"><link rel="prefetch" href="/assets/js/vue-remark--content--docs--versions--1-7--modules--index-md.13db2277.js"><link rel="stylesheet" href="/assets/css/0.styles.560450bc.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div data-v-51d12f43><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-51d12f43><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-51d12f43><a href="/" class="logo-container active" data-v-1863a5a8 data-v-51d12f43><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-1863a5a8></a><div class="search-container" data-v-e54dafa2 data-v-51d12f43><button class="search-btn" data-v-e54dafa2><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-e54dafa2></i><span data-v-e54dafa2>
+    Search
+  </span></button><div class="v-dialog__container" data-v-e54dafa2><!----></div></div><div class="header-btns" data-v-51d12f43><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-51d12f43><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-51d12f43></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-51d12f43><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-51d12f43><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark" data-v-51d12f43></i></span></button></div></div></div></header><aside class="layout__aside--left--sm pt-16 px-5 v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--is-mobile theme--light" style="height:100%;top:0px;transform:translateX(-100%);width:90vw;min-width:300px;" data-v-51d12f43><div class="v-navigation-drawer__content"><aside class="pt-5 content-tree-panel pl-3" data-v-031b6544 data-v-51d12f43><div class="sticky-tree px-3 ml-n3" data-v-031b6544><h3 class="mb-3" data-v-031b6544>Content</h3><div class="v-input my-3 v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--enclosed v-text-field--outlined v-select" data-v-031b6544><div class="v-input__control"><div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1742" class="v-input__slot"><fieldset aria-hidden="true"><legend style="width:0px;"><span class="notranslate">&#8203;</span></legend></fieldset><div class="v-select__slot"><div class="v-select__selections"><div class="v-select__selection v-select__selection--comma">1.7</div><input id="input-1742" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div><div class="v-input__append-inner"><div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div></div><input type="hidden" value="1.7"></div><div class="v-menu"><!----></div></div><div class="v-text-field__details"><div class="v-messages theme--light"><div class="v-messages__wrapper"></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544> Home </span></div></a></div><div class="py-2" data-v-031b6544><a href="/1-7/getting-started/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Getting started
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/requirements/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								System requirements
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/install-th2/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Install th2
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/create-th2-env/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Create th2 environment
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/fundamentals/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Fundamentals
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/architecture/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Architecture
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/th2-net-on-github/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-net on GitHub
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/key-concepts/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Key concepts
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/script/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Script
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/infrastructure/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Infrastructure
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/th2-infra-repository/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/th2-infra-schema/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra-schema
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/infra-components/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra components
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/core/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Core
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/core/th2-estore/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-estore
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/core/th2-mstore/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-mstore
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/modules/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Modules
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/conn/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								conn
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/codec/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								codec
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/check1/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								check1
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/check2-recon/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								check2-recon
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/cookbook/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              📖 Cookbook
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/cookbook/quick-setup/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Quick th2 setup
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/cookbook/chain-verification/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Chain Verification
+							</div></a></div></div></div></div></div></div></div></aside></div><div class="v-navigation-drawer__border"></div></aside><main class="v-main" style="padding-top:560px;padding-right:0px;padding-bottom:0px;padding-left:0px;" data-v-51d12f43><div class="v-main__wrap"><div class="layout--full" data-v-51d12f43><aside class="pt-5 content-tree-panel layout__aside--left--lg" data-v-031b6544 data-v-51d12f43><div class="sticky-tree px-3 ml-n3" data-v-031b6544><h3 class="mb-3" data-v-031b6544>Content</h3><div class="v-input my-3 v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--enclosed v-text-field--outlined v-select" data-v-031b6544><div class="v-input__control"><div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1804" class="v-input__slot"><fieldset aria-hidden="true"><legend style="width:0px;"><span class="notranslate">&#8203;</span></legend></fieldset><div class="v-select__slot"><div class="v-select__selections"><div class="v-select__selection v-select__selection--comma">1.7</div><input id="input-1804" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div><div class="v-input__append-inner"><div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div></div><input type="hidden" value="1.7"></div><div class="v-menu"><!----></div></div><div class="v-text-field__details"><div class="v-messages theme--light"><div class="v-messages__wrapper"></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544> Home </span></div></a></div><div class="py-2" data-v-031b6544><a href="/1-7/getting-started/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Getting started
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/requirements/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								System requirements
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/install-th2/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Install th2
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/getting-started/create-th2-env/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Create th2 environment
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/fundamentals/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Fundamentals
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/architecture/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Architecture
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/th2-net-on-github/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-net on GitHub
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/key-concepts/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Key concepts
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/fundamentals/script/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Script
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/infrastructure/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Infrastructure
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/th2-infra-repository/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/th2-infra-schema/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra-schema
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/infrastructure/infra-components/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-infra components
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/core/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Core
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/core/th2-estore/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-estore
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/core/th2-mstore/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								th2-mstore
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/modules/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              Modules
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/conn/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								conn
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/codec/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								codec
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/check1/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								check1
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/modules/check2-recon/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								check2-recon
+							</div></a></div></div></div></div></div></div><div class="py-2" data-v-031b6544><a href="/1-7/cookbook/" class="main-section" data-v-031b6544><div class="tree__path-name" data-v-031b6544><span data-v-031b6544>
+              📖 Cookbook
+            </span></div></a><div class="v-treeview ml-n3 v-treeview--dense theme--light" data-v-031b6544><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/cookbook/quick-setup/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Quick th2 setup
+							</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/1-7/cookbook/chain-verification/" data-v-031b6544><div class="tree__path-name" data-v-031b6544>
+								Chain Verification
+							</div></a></div></div></div></div></div></div></div></aside><div class="layout__doc-page"><div class="container layout__main space-bottom"><article><!----><!----><div class="doc-article"><h1 id="check1---introduction-to-checkpoints-and-chain-ids"><a href="#check1---introduction-to-checkpoints-and-chain-ids" aria-hidden="true">#</a>check1 - introduction to checkpoints and chain IDs</h1><h2 id="overview"><a href="#overview" aria-hidden="true">#</a>Overview</h2><p>You can submit all 3 requests to <strong>check1</strong> with a <code>checkpoint</code> or <code>chain_id</code> and <strong>check1</strong> will return a new <code>chain_id</code> value with the response.</p><h2 id="what-are-checkpoints"><a href="#what-are-checkpoints" aria-hidden="true">#</a>What are Checkpoints</h2><p>In order for <strong>check1</strong> to begin verification you must provide a starting point in the message queue. 
+This starting point is called a checkpoint.</p><p>Checkpoint data contains the message sequence number in session and the message creation timestamp,
+returned as a universally unique identifier (UUID) to the <strong>act</strong> component.</p><p><img title="Figure1.Checkpoint Class" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2188 653' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-d260a34615177a0c763900167230f087'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-d260a34615177a0c763900167230f087)' width='2188' height='653' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAATCAYAAAAgcwuHAAAACXBIWXMAAAsSAAALEgHS3X78AAAG6ElEQVRYw9VXe0xTVxhvbW87ELh90JZHaSvQ2wIFnTwvD0Gdw033z7ZksExeZg81yx7R/WG2ZVu2ZFvc/lji5hYTY4xDpwj44CEW2vJ%2b9klpAVHeUASncX8sc3bfub3daoWBU2J2kl9%2b3znn%2b77z3XPvPfd3GYwVtkPfHqb4w4%2b%2bCD577kJmZXUNea76Elm5ItSQFZUXydr6RtJsc5B9ZjtpBPQabWSvqZ%2bsvlBHnqvy%2bK0kH/KtOl%2bb%2bfOpipR9b3/AQXV99vkhxqq2ts6eNYihyOy7brf7T4CXlwPyQ%2b3WnTvuXqPJbbZa3RabzW0bGHBb%2bvvdv9%2b9%2b1D5/rh3j8o3t3Dz5vdHjklRXXWXm5irugG19VpqA44dL8%2bYnp2bm7/56xQUMLVw6/bEDbBnXDdcM3NLwzW/4BoZHXPpDM0ufXOLq0HbSNmt7R2uyelZ1yzyc9HwjV087wysPT98bdTx5dffRaC6Tp%2bpWt0NUKxLojhKnijcmExK4uI0ERrN%2bnCpVE6o1QmRcEPYtfVtnJ%2bOlnOPn6jk9JmuY33m69jYxG/sQ98c4TbqTBj4%2bILjtQevzlG%2bDdoubHhkAbPYxrFrY7fZZus4Njp%2bh213zGBmGOt3TGPapl5s/4GPA478eIyblb1dFBEZH4TqkskTV/cVwPlyikPFBA9ICIgFqAAb0f4ARIBgQAAgECAA8FEIgE3bAh9eCwgB8GgI6b7IJw75iem%2bN473T1WBgaGiWGoDBMLo1d0ASRhBcVi4WoDjApzNYilYLJaKzWbLuVxuKNjxYCsxDJNiGFsOdgybzVIiHw6HI/HayA%2bgRjHgsw7sBMTIH%2bw4YAXtR3hyUP04Ok6F8isU6zBUi1yRFCwOI4I89alWdwPEEiXFIolSKI9OZ903F6761/cv7umdj7UWWXQ601MLESKWeDYAeHUv3rsBwOGALAAJm5EBnA6LpwKnecaJPOBssWeO9IBI9%2bn78lIg/Xz84lA%2bAtYj0Hohj7QBn3z6FQO%2b6wz4rqJP3H2oAsA3l9IAr7/xLvNiTQMDDi2GJjGLnZyylRWrTObC4RMcKU0QRkTGRQLCEdBYXHwGRhCpXEKVxiFUqTTS7uOIiHiOSExwxBIVDYLqS6M0HJXa19ff9vTV6nTOnr37mdZ%2bB6P8dOUD9S8FdK1nKs7/N%2b2QtCELU8encmWKRL5MruEhqNQpAYWvlaxh/I8bcxk85TmlA%2bBkxoGZOPTRQcRaJM%2baFeTzgnqifB9hb/8hcjwKGIyT5RWa8clpA4gLw7RrTg8w%2bGJq1tXsHBoxjU5Mddjsjha7c7DJOTSMoLcNOPQ2%2b0CzY3DIMOAcNMCcwTl81eCfwwcov372xrzu2th4O4irZFTD8ROn1qAz5vIVHfUU6Qxtr4DY6gFf3QM5ZueoWscmJvWWfrvB7oA1h4YNqAYr9KEeqg5QZt5reqCG2bl5/djkVDuIp3jG%2bYv1ue4VNufQEMhYm9vucLgHnE5K0trsdmq8o6vLbQVZOzE9vdJ07q4eYz5915m%2bbLbaDy4Xi%2bRwn8lMSWqTxUKtbQTu7u2l6lpJq6nTZjPefOt9xaXaht1NhpbihkZdqb6lvai5rXNXC6BR11yibTKUoLkrjfrSzu6%2bXW2d3cXwX1DU2tFV1NbRXdza3lUCfmXIF%2bxifUtbqVZnKNE3txU1aHWl9Vcay3SG1mID5O3uMxd29ZpeNVpsBQ1afWlR8R4kL4Ph0AyFJ0AIahOJn5B33ju4pbm1owxiqDq88TC2q65Bu1sHuY1mW0H/wGCh1e4s6DVZCy39jgLH0EgBHIiFZttAYZ/JWtBjtBT2wJr%2bQLFN%2btaSvfsOyGA9bjCtuiSASFqNBdGqDqky9LMRTttIvclom0PbOD0voFVgJB0TRgP5yOmzwb8FlZbtZYbgMhZsAGttUARrU94ONq32MFphRtE5JPT6MXSNj6FhwYxIabw4JW2LJG/zTn72pucFWTnbBZnZ%2bUIy61lhTi70s7cLyMxtwty8nXw0lkE%2bI8yAPszx0zK2hObk7uBvykOxz/HRGDDE5HtiNr9AzWWQW0NzIT8C%2bAu25b%2bIr9%2bQI4U7L1isrJjYZFFUlFyG83jJPACO4%2bnIFonFSj5fsD4E9XE8lS8QJOI4muclg62BuSS6nwLzaTKZHP2jMA//cBT75Ww1G%2bHEyTMYnA2sl14uXiuVafjo9BXRwiJlGaQu0U/1s5eKQWLJ65tMiykRLa6Y6BAMFUV71aZgmVv3yJ/cEF4Munb8iX9/xWGEj%2bIkvBwNICTA8A8SAxwDDLbKDzBGz4F/jJiy6XHE1JgydhGAvzIB/MVUAZJw1RMA8ffFe3%2b0fOS2EKAExKwiID8R%2bBcyMvBPhTusegAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="2188" data-src="/assets/static/checkpoint_class.96a17e6.fe50da7505ab373dc4cf67337748b109.png" data-srcset="/assets/static/checkpoint_class.82a2fbd.fe50da7505ab373dc4cf67337748b109.png 480w, /assets/static/checkpoint_class.cbab2cf.fe50da7505ab373dc4cf67337748b109.png 1024w, /assets/static/checkpoint_class.96a17e6.fe50da7505ab373dc4cf67337748b109.png 2188w" data-sizes="(max-width: 2188px) 100vw, 2188px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/checkpoint_class.96a17e6.fe50da7505ab373dc4cf67337748b109.png" class="g-image g-image--loaded" width="2188"></noscript></p><center><figcaption class="mb-2">
+Figure 1. Associations with Checkpoint class.
+</figcaption></center><p>After receiving a <code>CheckpointRequest</code> from the <strong>act</strong> methods or directly from the script,
+<strong>check1</strong> will locate the last message in all queues, note the sequence number and timestamps 
+and send it to the <strong>act</strong> component via <code>CheckPointResponse</code> .</p><p><img title="Figure 2.Checkpoint path" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1026' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-27051f00e9f4c808a5438444e8b8ce2e'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-27051f00e9f4c808a5438444e8b8ce2e)' width='2560' height='1026' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAaCAYAAAAHfFpPAAAACXBIWXMAAAsSAAALEgHS3X78AAALOUlEQVRYw9VYCVRTVxp%2byQs62o621qq1Wm1dK3a0WnWquLEqcEBwF6zHKgG1drpodSRuOCqiyJKNAEnYwYWl6GgBF7ZAVkgIEDYFpo6nrZ32qNTWgLnz35sEo4CCcuaceef8ufv37v3uv71QVC%2bexQKJtRwO4rxIIHFcLJQ64nIhN65TbPthngvICNv11idbc5uinBJJfX9W7Ye7M/Qu35ypdtxNRO%2b4K03ruCtdR%2bq4j4zBHE5m7VyEEAOvE1y9SdbHF7XA71or1kyY52rFwhi70ipt8CzvAKzg8zWdWM994EAsSxnplHQWwSFNi2MS0BJREloqTjVLfCq0ExHux%2bNOiWcQzBdZCKBt8Y5dqCcvFl67%2bfZ6oeo/a2Iq0Wq%2bCq0WqImsjdWhtSJtZ5uMCTVonVD18GhunT1eu%2b98DcHYmawj5eEcw8iNIvW91cIKWGPGwhjr4qps8FREVsHYhhhVx96z1dN7R4BQyrKU8ZaDGeGgJodIoWk2J4TIR/uPmByiRJgYE4y3O0ozMBGplnVPEHAw20A2ffJSw8Q1fOU9H64S%2bUTLH/lEK0wrospNLvvPm1wPZplWRJaZfLgKEx5bEa1Aq3iKDrjlOXgt3CQTl0EJlQQLDjMWyDTieXgNxnE7lGNy3JNscg7OALxsky9PibFM3lFy07oYDfoyrWp2XwkQOUrSMAEP4KDGBRFC4%2bzgwyAhxrkhJ4xgBkY4tBHGf8daAfOTuyPgkIWAU5cbJ6zmK39ZEYUPL38IBBhh40anfenGZSG5pI778BjMaQcC/jiQVfvREwQkaq0EjAECHsDhOqw4roeyjUu%2blhA8XPflqTCWEeY8XCtQmnpNwGKLCUAZ53buInKUpiOsCU5J55BLWjZySc1CzqmZ0HeW9ONxt7MXEMxP6c4EjnxbRzYdXXBjHGy63S%2bxEW2Q1CI/qQGkDm1MvoH8kxpJnfRJQBLqkV%2b8DoXkGGaSA5%2brIQTssJgAaMboT%2bIq0IaEBvN8jJPUhD5JaSZ4uG7uN6ANMLYpoRYBiTMpL24R7c0teUqKaXfeZbJZD14%2bPgDDcpCpINvhhtlw02woAxfx4tnzT0bvXMSPD7TpD4B5O0DsLeuecDaS4hZSYie0M0W3MjChcjsIGyQwKFHH/jRGth1kB67jPsvYts%2bSdeuz1P%2b2s5gPwfhHbh0pb/3ygPl5apUvW/oYC5cYa7OwZEeQTR8bsMB3rE8sbR34zJtfFplrqwW985hPPeFFZQw4KPW0tHc8ou7cf/gikNT3vzx4Auv%2b7%2b2kfKHHi1%2b0wVekCPKNVQZYJNBbULLZLerbP%2bNxrAk2YZCBzQFumYUjA9y%2bnS2WY0ya3VJBCmsJP5nlLEq3oyZ/9FzSprOF9Dj/06zF%2b86z2GKV3ebsXzsxA/IRvSW23O5TcQVriwQkXs16FtYo3xB6zLqTrBk7xKxAsZLln93WibWrFrCEJawAaSVrK2BtT9LSJJR6RxYjr5PXkcexy8jjeB7yDM0Hj1yOvGNLibPx5F1ldh8apWazEEqnLuTF5S4UxNtT/fQESTV72RL1sf7AApy9AWJ1OGnYH6aK6u48pQGR1w0eJ/LuuB%2b/dNsj9LvbHifyf/SKKGrxFF593%2bwDChg9EECbtULq7p5bgJYKUjcfOIEGgA95a2OMYiS1pfzV68Uyrk6rvaFSqXSVlZV6rVarl8vl%2btraWlKvrq7W37x5U1ut1zcXlqn2UlTOQLZEM9dfpG72E6l/4GTWjHA9JRu%2blq8Y6Xpa%2bcbfJLIxWl1VnkajqauoqKiCR6/T6fRQ1yuVSoyn01dVNcmVmsRBX8iGfJVW9SHE%2b%2bb1Maqfzbt2oUrqf%2b49e27iCz1HBqGEaSHA2Tn5HHIUpPl/Fo4GAwGj1wkUb006oBhWqtBsqayoiITDhpaVlYXBwcNg82Hl5eVE6urqTjQ0NIbWVOujrsg0Kyl28VAgYDoQoIaNGyCjG7UsvGzEap7iLfcI%2bYggsWJMdY1hH2CEq9XqEwqFIgxICGtoaAjT6/Vh8I5Qubw8QqbQfDb7uHr4Nxn6KRuEKjVEGrPHpD7uSsBiUeJREAFkcdGgztEQ33nQDl/EF4%2b0qDijewKkTHOMl7i4pOdAzBe795cJAAElfjGquv7AAiKLgABz2KEcuhLgEC1C809x0YLTAuQQGQMlH2dwyDEhY54l/WU%2bhwBnnAMsFMa74fYs0ZFOwnCYA6F7KUwbAoqBgOru3ovn9Qbve0tUsBBwo0cCwJOfhwyuEOTKQl7sxYXc2ALouwSa8I6FgB58gMTqAzzcMv%2bJ3Pg5p9ZFGT7w4ckmruSWT1nO1b1XUia/DDZ5q1KrbQCVbQJ1bTIYDE1gt02g/qQOqtsIJtJSVi5X7hTLZvnFaccCAXWw8V83xqpXeEaUTwKTmjrnaPl44UW1q0qtbgCcG%2bBTGsG3NIFZNWFsMIcm8AVN4AcawO98n5Kv2uged/N1ILIJCLB4vvnP9gFr%2bHr7TXE/vNYZ1iRpz/hAskaBhHfhm4DrzD83b1tExwAv0QWmP7%2bURS1DlE5XtRU2GwIbCwb75MDmOGCvHHBYHHB%2bnPr6ek5jY2MwkHAQxr9Iv6p9BWNul6oCg8TKr7cm6ofPO1hAf5WiIeFPWVU3CuYGw%2bH3AyZHJpMRjObmZg6QwSkuLubU1NQEA/7h766XTjVjKYMCxYrdZNNz/k4VGu50USlznKxGQ3y5iiVeUYWDSRLEv2C96R5JmHf0FPX/9MwYO6Tb/leGvj3J6515Hus7/cKXfIaNrfdMwLHwJ9qeiVfJOv%2bIfNIuLCxkXrt2jc7Ly6OzsrJouCEaborOzc2lwQxoUFsa1JcuKiqic3JymFt2fEXWjbR3GDhi2vw/4TrrzQnU4TNK0i9TqCmMUVBQQDAzMzMJBtw6fenSJTojI4MuKS2lLwB%2bXPTJLqY7tLtDzNkUMuH95Vs9cSL1%2bjh75tFfzRoBX03P%2bY%2bgMxEaD86TD5oyEbeXWKLGrVu3qLa2NuwEGe3t7YyOjg7Go0ePSNtkMpHSaDQy7t69S9p4zpUrVwg2g8HAGdwA67taf/6NlDCPCNZawKJgDalb%2b3Ab15vv/EaNCswg%2b9gmUQZA%2bNxlvtn9XU1g07mfhjxtDr0kgLaYyPLlOXk4cviQd/Al9DVdy8tqqx2DSRMC3pnrTvlw5X2SKzU/UdTcOBJV/GLUFY8TIaeeneCwdz/o08dOZyIklJIwCOHQg5iBNJEQ88eDtoFA6AiQN3speC75Ohtkx8BOz%2b5F2SMX%2bUYoo2sY7CYK4Ju23jY4QYo1cHAvCZBaM0FX59Qs5MQ/E7gxsnX0emHZ9GG75aMvllR%2brtGoEUSBe5D%2btoHXboMo0AZtUodo0AYevA28ehuM36%2btrenIV9R8MWhn4ejV4QXT3Y9dnraSr54Me5sM%2b%2bqTrOQqpiwPL5sIHz3ucPh6kMYe84DOw0Pp%2bxy175YArAEpmQiI8CQmlXSehKxag2EMOKdVcFAvSHu9wdl5Q7jyhvhPpKWlxRtCoDeMewMpXhAWfVta/zUGr532l1kD7Aa9SjTgrwEnycX0RcLwfwXjI6waUPxYAxb07Vug9z4gH5sA8QFzeLF0Q4XspX2ArRN8IROYGcM0EwA%2bQGj1AUv6lQBrFJgGWWQeEDEDt5daNAPUnQFCww3TkOSQcAcaQMPt06D6dGtrKw0aQOpgBjRoAA6HjO6iQF8fw%2b171IBN5igQKFEfZItV0eZE4FDXz%2bGXeT4OjXyi7Zqe01/QL0UAyWq76XtvUD9mVaABpFwan0rN%2bHKPnUOUiPG8zPF/9TT92AY%2bYKX5P01OCu22x/qn7GtdTOC/VozfRdf6EEoAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/checkpoint_path.42db587.dc81ee8b8c1640f00a9cb9471b7732d6.png" data-srcset="/assets/static/checkpoint_path.82a2fbd.dc81ee8b8c1640f00a9cb9471b7732d6.png 480w, /assets/static/checkpoint_path.cbab2cf.dc81ee8b8c1640f00a9cb9471b7732d6.png 1024w, /assets/static/checkpoint_path.2665e34.dc81ee8b8c1640f00a9cb9471b7732d6.png 1920w, /assets/static/checkpoint_path.42db587.dc81ee8b8c1640f00a9cb9471b7732d6.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/checkpoint_path.42db587.dc81ee8b8c1640f00a9cb9471b7732d6.png" class="g-image g-image--loaded" width="2560"></noscript></p><center><figcaption class="mb-2">
+Figure 2. A checkpoint is not stored 
+</figcaption></center><p>The script receives the checkpoint from <strong>act</strong> and sends it to the <strong>check1</strong>. 
+<strong>check1</strong> starts verification from the location and time when the checkpoint was created.</p><p><img title="Figure 3.message_queue_checkpoint" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2188 436' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-b092b1e7cfaeb3847ef9348a12b33f6b'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-b092b1e7cfaeb3847ef9348a12b33f6b)' width='2188' height='436' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAANCAYAAAAZr2hsAAAACXBIWXMAAAsSAAALEgHS3X78AAAGAElEQVRIx92WeVBTRxjAH%2bEKMQmHtiAychSPerTakdqqiEdLPbG1M2g9kKJY21qHoqNU0VE7/cODO4kokgNzvPcwghwFSu20tRaQtIISQ0JAwSKeeI0GFd1%2b%2b9jQiDqtztjp9M18s/v2975jv%2b/bTSjqX3x4rnxqacZxJzyHcQzIFzGZtSuWZtTEwdybrFP/6wc260LGrasOtKFlkt9RTJYBwftoss77L8UrBBGB9CMicBhFhPcjo4CMjnMPEC8Q974JgI0n4Y3P%2b4q5C11wa3Fa1Ui8viT9kQTwiR9H20%2bKo1%2bfGAXEt5099zMIJBgkFCQAxA/En0ggyEAi/oQFkfVB5PuXiG7/vgmIldVtgo2jqCS6G5LRtWj30VE9Cah2TAA%2bFoOJD2x7CLFtj2OgQxz%2bxKc9vpeJLl5zehHd4UwqizPNe4YjwAWzrvyh1/vJ%2bu1RG3SdKxXN4dAJ/Oe4A%2bwx8F/UJh0fN9JaYhBP0lp8si4irY5b1LWP3mOBzd9SyHXBrC/ls6OSdB32daj%2b323CifgUOvhzjMHzWQtCHZXJeEcyMnioupqHEOoNYEhAgPProaHCVwMDxUF%2bfj4jgoLE/cXiXuPwLRYnu%2bxbvx7rurs4O4sC/fy8R4eEiBZHRrqh9vbeYGaMH08dl6t42Vksl6QF24s//SBZf%2bvz/CsD8Lt8V7ZzdU4OD1296kTsc5sGwx6DfX09g/39fUYGB4veDQvz6Cwr643VHsuGJUtcxg0fLvTz8ektBjIYemwZDLyK1FTnJprm9Ay5uZRFp3tiTjzEAoHn0y4PEtQ//uUjVXMdO3Soc184J8WwfGFq1aXYzJohT9F3F/D5XqSqjz2SxEQqenLEExVFAoEr381NSLrjkaejtOSvl8r09Onpa9Z8WLJz5%2bzv0tJmZCYkcNW4XVkpOKvXT2hm2fBGjSa8UauNaMjL436rG9Vqvlmnm2DWaifDejjMI2DO6dXu3etqoem3zhw8GN7CshPrlcrpio0b8QUm9PX2DjqVlzferKMjmrXqCSc07Hv75JVvk8Q65W3ePFG6dm00xDLrh8zMWcf27HnFHmdLfv5r4GuqSaOZhEfw2ctgPgpkKqxPMgGDcZidnVSpRvwslc7Ubd06V5qYGN1eWDgcr/%2bUmEQdT95GUa16PTKq1aiJYe4BROBoEbdJWjfvj4ICBIYfmGn6/sXiYgQbW42ZhWWmwAYxewisu6OoCJlp3RbMmlh2HATwAL7Fa93nDx9GVpbdhVlpasobEOBtK8MgrHf%2bMPijNVLMLpR9OwiScwNaFIGNu9gm2GA4f0WFYrB5AWLDevfbwSb4/h6zzoYTrpB8KxSLY%2bd6Yq61dyuec2vAWnpiPnXRVM/dQbauaxRlVarQKYnsTl2WpOuMVotMqjxukyfSMta1HFCj%2biyJrS5TcqdNq0NQ%2bU2Y1aVmxDeBXn2WtKs%2bU2LD3zVqtCmc3q7Uj4z7cx8Au4eZVaECpsnhqrEjZa5RLr8DNrux3Sa5EpnUahazmuRt00wK5c2TEmk3%2bLM15cqR6YC6FLNfVq8de1qhuAk62K7Nsl%2bO/f2Kj9ePcZ8NM%2bbKL52UyFC9RGozyrKxP6PcK4R/ZGFciFGusDTAWr1EZmuQyrBNa9X65P4FYdMCKuYscKeulZWhNshsK5uPbpRXYOWV2OlplWrx9fJy1ArsLMMiOBIIMr0BM5NSNedKSQk6BxltZVl0q6ICsx2cnkI55dyhQ6gdBLMbYAPYXswacnLDrFDh81ARbJMwmmPZ%2b4bhzumALnRgZVxSd6f5ArNdgMqfBZvXIWaoZA135LZ8LYZkXL4MHYrZVYgL9MyYHVuV4AH7sXSWlnLsclExZm2/fbNDoBAOdjm6KoFHQWvEWRgmFgsYXQ4j/lNBWQ/pBwCLNTPMxxyj6RUg%2bE8H1VxY4AnzGMKWwTweJJQ7qyVFApgvAhZH2EqwOwKz1soKdzgW0cCWO7Ax3MVUW%2bUC8/lmhl4BLAbYJ/D%2bpv1%2bgHkUYXa9Sb13AE3PBBbP6TEMZtMc2Dv4e8LigUU6Xoh/AqnMjXbZ6X%2bTAAAAAElFTkSuQmCC' /%3e%3c/svg%3e" width="2188" data-src="/assets/static/message_queue_checkpoint.96a17e6.2cb9dbb524401f25e4970e9e2007a7fa.png" data-srcset="/assets/static/message_queue_checkpoint.82a2fbd.2cb9dbb524401f25e4970e9e2007a7fa.png 480w, /assets/static/message_queue_checkpoint.cbab2cf.2cb9dbb524401f25e4970e9e2007a7fa.png 1024w, /assets/static/message_queue_checkpoint.96a17e6.2cb9dbb524401f25e4970e9e2007a7fa.png 2188w" data-sizes="(max-width: 2188px) 100vw, 2188px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/message_queue_checkpoint.96a17e6.2cb9dbb524401f25e4970e9e2007a7fa.png" class="g-image g-image--loaded" width="2188"></noscript></p><center><figcaption class="mb-2">
+Figure 3. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST 
+</figcaption></center><h2 id="chain-id"><a href="#chain-id" aria-hidden="true">#</a>Chain ID</h2><p>A chain id is similar to a checkpoint and is created by <strong>check1</strong>. 
+The <code>chain_id</code> caret acts as a pointer and marks the last verified message in a message queue.</p><p>Chain IDs are usually used to continue verification.</p><p><img title="Figure 4.chainid_class" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 1084 316' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-9cf5c5e3b6d6a0ef83f85deff3c1a0ae'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-9cf5c5e3b6d6a0ef83f85deff3c1a0ae)' width='1084' height='316' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAATCAYAAAAgcwuHAAAACXBIWXMAAAsSAAALEgHS3X78AAADPElEQVRYw%2b2WW0hUURSGR2e0y5iFBUEPEdRLEGGaShkU3R6aiKDsar0EJQpNqaF5I9MySzEvM2PW5EsIpVmad8W0UMdbc1ExTjmiGD6UEAajHt3u1j6sGWeGpIeOMWkLPvbZ66yzz1r/XucikYBdDgtzf1ZU5FFSWip7UVKyaHleXCx7XV4uS0hKkkqsdiMmxk2yBI1SOjc5Fxoakp2T8zS/oOChOj8/V2zy1OrcPJUqV6XR2HwagM0ZGvSpIC4X4lj8QuQB98p%2brNU%2buqpUKh3UYMXTJWCzOL4qKzM4CMB2Hs9ZZijlxWJ6dpaHNflPZjP/wWjkv4%2bP85CE4GP8sFgEKMZ%2bHRvjuw0G3jw0ZPOJmQ9PyAQrsqaurtFBANYe7AQLmpqZoWIwOT0tKPrZbKa3kpNpXUMDzczKotCGdHB4mCVBa8FXVVMjHFdUVdGbcXH0dmoKvZOWRgcGB4Xr2Tpi5TTBMx0ou2ezgwCQVA47AQpNwg2JGFimpggsSdra20lKairhBgbIvfR0EhMbS%2bLi44lCoSCRUVEkKjqaJCQmCsfhERHkiVZL7mdkkFadTrierSNiTqyzaEV1dZODANrCQvVCPnvvW1pobX29sPNDIyMUiqNvKiup3mgU%2bDI6So09PdTU20vhc0XfQfxCWmNTU6uDANcjI%2b%2b%2bbW7%2b1tHV1dfW0cGJiQ4w9fVxvf39HBTLdev1HBTKGQGDySTAfNZjFsvQdXZyYucCwn/Um0zDDzIzX0LZ7vYa7AXWA3LAG1gFeOE4H/Zx3r%2bJdRVYnh5AsI%2bPz1pb9Z6enrvguVs274/CIjO5XO4Hwzp7XzCwHNXxQt8W7IiDwEb0rQRWA/vQtwnYjN0jAzYAazDWzQWx/gLvdBZgNxZ/AQhH31H2kwhcBHzRdwRQou8KihMGXMLYE3idVQBXM7f5BLB2ANvRrehTAKeBUGA7%2bvyBa8BJ4DzuPit%2bB3AGOAucwlipC3dAgLMAQdgBv7IVTrspdRqt5oVibfsHXgO%2bzgIcB/ZjazAxAlElNvfD0Tr3tzsOcGIPng90UYKwW0Ps3lW2R%2bAYcAA49Af86fV/i8Ps4%2bfcFlJ8ky92PCT/bc5%2bAqUig5kkiScaAAAAAElFTkSuQmCC' /%3e%3c/svg%3e" width="1084" data-src="/assets/static/chainid_class.0e74ebb.d2c461e0411d0bc0ddfeb23d162cc09e.png" data-srcset="/assets/static/chainid_class.82a2fbd.d2c461e0411d0bc0ddfeb23d162cc09e.png 480w, /assets/static/chainid_class.0e74ebb.d2c461e0411d0bc0ddfeb23d162cc09e.png 1084w" data-sizes="(max-width: 1084px) 100vw, 1084px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/chainid_class.0e74ebb.d2c461e0411d0bc0ddfeb23d162cc09e.png" class="g-image g-image--loaded" width="1084"></noscript></p><center><figcaption class="mb-2">
+Figure 4. The structure of ChainID class.
+</figcaption></center><p>When the <code>chain_id</code> parameter in a rule request is <code>Null</code>, <strong>check1</strong> generates a <code>chain_id</code> caret that points to the verified message. 
+After verification is completed, this <code>chain_id</code> caret stops at the last verified message of the message queue. 
+<strong>check1</strong> returns the <code>chain_id</code> value in the response and this value is sent back with the next rule request to continue verification. 
+<strong>check1</strong> temporarily stores the <code>chain_id</code> value. The storage time allocated is set by the <strong>check1</strong> custom configuration <code>cleanup-older-than</code> and <code>cleanup-time-unit</code>.</p><p>Joining several rule requests to continuously check the whole message queue is known as chain verification.</p><p><img title="Figure 4.chainid_flowchart" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2524 1124' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-fd60dfd44e5abea50fe4892c8d299d26'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-fd60dfd44e5abea50fe4892c8d299d26)' width='2524' height='1124' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAdCAYAAAAaeWr3AAAACXBIWXMAAAsSAAALEgHS3X78AAALo0lEQVRYw91ZC3BU5RXezVIQwVFn2un4aKftdLSlZVosau04SDvis%2b3YsVatDNWOrVVUXgKlKOENMiAhkGzer8075Hn3mc3uJtndbJ6EJJsNSQhJyPsBgiIk2Xvv3%2b/8e3ddIrYzKo7DnTlzzv/a/57vP/85301UO0s7bo4sbF1Asr2ojcuOYm/I3s5t74LI4y0Ldpb6Fu4qOzVXhQfrVDfEA4dadwmdk7vKOochI7BH0PdZEToHoS/B8a3KuogbAgA4NLlb3812lvgYnGJoMzjLbZLd%2bi6uEQ3soGOExg8o6zQ3SAR0Dq9PqGD/OnRcfCOqWNqQZJc2JNslst88KkivHy6S1saXS68dKpghIPaZe/fSuj2G0zcGAJvSnCMQti7BCkct8qa0ahkgyGvjzPL6xAr5nRSHjDF5Q7LDT/O25tTvo3Xr4stvGAAG4SDbkGSbhva/dUzv35ha5QcY0vokm39zhsv/doyBZApgsK25jXtoHcZuDAD2GLovH6m5wA5VjrEPqsYD2jHKPrCNsA%2bqJwJt6IPo0zZNs91CV9T1vgJnTSbVWaMxYENDIvrD2l/ps6Ok/Y8oey/sKG5/LrLY%2b/yBsq5nVufWbP5zmknYX9rxLPqfRyn8C%2bY8B/0SSuFivq64Xa1UAzVE838FSTNo7yzrUH1eKe0Pcx5Oq0OgwO7/tD8039w6GtIQjaVtTMN16xi3Z0vYnIjg2s886Ynv3qbLzXrlf5ROrgHIl6g%2bvmuefNhJRyjOzoP95Ozxa4HwBatAh2ZLabemUF/PCc6uFMPcfqPJdM5uZ6cNpr9Rn2ConbevxKs5Yu2ZU9g4xEN/e4mPnw7K54Moo/v3W/re22s6E8nF2BO5T9HcNvcG7R0AbzOcvyUcyEe0qVyvTNJxPaA4rziaddHpZNBv8zGzOaJXEFSMMZUsSeqGnvNqBYTbTC0j75hahndAtsGODMhw5Kc2F4wN74H%2bawiEQYuF/whrbo4YKi83fex2swGLhY3bbGzQbFlJY%2bdra9XhwO03dmuUHLKJ8gSSI8N1YrgqCm/wck4BZxlYJvrb2Z4A3xDBLb5HayNL2tWPaFNUywBAEASf3hDaZ8hiyboA53Hy0qTDQXod9V9sbAjNiTG2cbDMbWOvnBhnrObsDPMM%2bLmuOTvNPIN%2bpT0d6q8fYczaPiEChB%2bF7pvY2DivRxCExqwsZjp2bKZepxNr0tPZqaIiNm63v8gBYmwu5CZC/41UDwfgfUv/anLutYP5U%2bAN4tuxRhEVRVwdXSqiooioLCK4BLVnUFoJnMndZafupLVZjktXReNbaVkRYddBN2K1stNlZf4%2bg0GC5geC/reUd5kHmU/vRG1r29iruY42lljqmk4x1PozzI1iuqleTCpzi2iLmdYTYhraED/6pBxH2yfVPZfupY0ilA3TpurqGAC4UpWUxBoyM1ltRobYjY0/rKxkOQVFf9iXmn2gyukZ2VhseHLx4YTFDx7Vrn4zz529MdnBQJRE4g%2bb013yGq1Z3pTuBJewyACF6zVaE2m2KcP10ao8%2b1NLo479crk27f5lsSlLEQX3IwKWPBaX9uii6MQ1XkGv9dfXM1t8wlRZVBSzarXMGhdHIEgfu5zMUlL692KHK8/mcF7WVXtW3rH34KoD1oacwuoOpi10yHBShsNyfrVPTjc3cMmt9HKdZqyTMyyNrLCm67Kj6%2bI9PLsSAGcEYSnCf6StoIDpo6P91cnJMsSP68GGLOU8Pqvd9Q%2bfONm2saaphd9h1ZaXFr5b3LoFGZ79J7t%2b6t%2b6GhGsUQSPEMEvuKYI2JTuEnFFZt7FNdlW0Dz5vnXgLlq%2bNr9WvQxXIBj%2bLyfr5t0VFf/dLkH4CcK/64xez5wpKTN0GDiUGboGAyZzsd/tnD8wNPJMtat226n2ru9jqSa/oXeDs%2bcTZvVNTtNpIxLE%2bKJKMSa/QsywNIlxhQ7xSLZJLK7t8Ved/lgq905cwhW4J5hoeBRM2O0/7S4tHbcnJLDSqKjpXrwAQEmenTgbJaZOcHTPI3uv0LkxtuEyO2gfZkh8bGNqJduS6WHkLEgUWxdvYdvymzmfOAw%2bsVvolPcJHT%2bgtfl1Q3MqvBMae/ukJr%2bx76occ6W29u7W/PzuOp2O4SCudJWUsF6DoXj2u6zCdaQHv/PPhlHGcKrMdupD5ui8wCo6znHbDrGdOs/bNF59BkC1TzKUw3tDOQARMIdrvX5RS17uME6AISeEnG9zNl6T%2bGzO9z6%2brdjnfK%2boXYgs6TDuELqN28u6QkLtyNJTxm1F7YZtRT7Le0W%2bPM0/Sude67fy6nvUqhdWqYasVv4ulz2eu5EHupGcGXRhcN64rSKi/Uy/OjO3SGNvOsMPz9Q6uggO2VENaizecRdsd7l3nItF0dxuG3NiTgN0CvRNvJ4GQeg2GPjGg5WVvx6w24%2bESpHTE9ikZXgxFj0NeRzyBAl%2b6DGrd%2bxRyIryttEVlpbhFZbWES7lpNGmfhoPSvj6MLmd9sA6HgkTtgpNgBgZf9wuCIdZsDIoOSucB%2bAd1F%2bOeuLHcNdUFe56vqm12vO6s75p0lPX9HAY2fgThQ0yJ8MdYlVBHbSDEt4OzZs1HiaV3R8xd98UhWMT9riV9gJw6gMZ%2bQGqnpBxR57DdfDc2MRt1K7rOXsVHQbjC4FgJgEpgo33HeM6XAJ9o1xjboQlnEDRj1a2%2bji6no6u3zmaWo70ejvuDG3kHc%2b2d37I9E0DU8aTw6L%2bxADVUUWGJUPzoEj9JojhxKBIbRoL9pN82jfEhezA2NAMAYuXXB5walRjtVcH6ru1ckm5wzVYV9f0Q2q73HVXnXbQYWWd4uio4ujVEg7Mtdnj1j0BvXbrLarNO7nzsbYmfl8rfOcyUFaozPiRWWVdeZOcUOKUozKN8rE8qxxbYJOjcywy6q%2bcVOaSo7NNMuoybLecrK%2bRkYVl1GX5SJZJRjaWY/KtMjI1L01Hcy2isXmI2bsuPsKZ58khzfqePv4q0Yxpfl8o/ILsB7buUV/XL8MnEjO4fipR9x3IIoVw8E1tHefSS%2brOsNjjdj/VUQDAUo11LK%2byncFJFldYybLtLSzVUMsSS5wM5IP3w3mWJLgx/wSDs0RUWFxRJW9nWptZQkm1nCzUUBSx%2br7p3yh7ht5p4atr1A8dib%2bP7KczC67vp/Gy2NSg/jbo6X2o0XNe1BXdqnp55e36k0O5xZ7TcNThR52lF2ekj7s7GUVGfHEVy6o4SeMMEcFiCyo4QCAlAMPD5xIocJYDgShiICWMoiWxzCXpG/tZen3Ps6pnnrzl5RzhZnCDm0GS5i/Xpt7627g0DsxDx5KuAuerB0AbAuBbcJ4AuG9FXPrSJdHx62KMtVWpeg%2bdsJhZ0cxPMoXacIJOFNSSO0/9KDfcUTphAoDGaW62rYUc5v2kKTq0x%2b0yAZQm1EgbSh2xPzt09PnHE3Q/x96/giyBPACmeE/g/VKu/x9IglEw%2bylvG0tz9V1hRTXdfnKGTpGEACBAyOEs20mWbmrgzgavAAFAkUE2OYocwtcRYDQHIiMpSXYQF4fv3MOffzhfo/OkEQ1EU9UJLt8chWjo3P3TrARUEhSTkh3PA%2bREEAw6WdLkrPa4g0XnmHmY6yxN3PFU5QoQKPThQm1Kppa2cYkYGvbgSfCwvXkO7R0URID6awMh%2bAT5Of0FRdGZTlBIoensDEJagkMSsrkEMCSEvoRT523cbQlhLSHj8zHSNEZ2YqlTQgLFHKsUU1DB5xe6uyR8mvqJsmKP5Uq0aT4vEr/2B4QhCEBiA76jEa6swjfJBS/O77ut4zzX%2bMCgjxHOs/m4YlM/ymhAwMcDfeN8Tjl%2bg/qIB2CPB5U9vzn/dDErNBOOL8ILtkCfh4xDJoKC/onw9rWE5gRl1tg49rgAiQn/%2b9436iFWFca8FoK9LeDSPAQ9tAA1PKwdsMHyFpi4VtqKTf20JjgX7YUAYf5X8ve9L/D8F5T01JbXQMZ%2bAAAAAElFTkSuQmCC' /%3e%3c/svg%3e" width="2524" data-src="/assets/static/chainid_flowchart.b62cb44.17615c2d22c3ed440437c1d826afb4b8.png" data-srcset="/assets/static/chainid_flowchart.82a2fbd.17615c2d22c3ed440437c1d826afb4b8.png 480w, /assets/static/chainid_flowchart.cbab2cf.17615c2d22c3ed440437c1d826afb4b8.png 1024w, /assets/static/chainid_flowchart.2665e34.17615c2d22c3ed440437c1d826afb4b8.png 1920w, /assets/static/chainid_flowchart.b62cb44.17615c2d22c3ed440437c1d826afb4b8.png 2524w" data-sizes="(max-width: 2524px) 100vw, 2524px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/chainid_flowchart.b62cb44.17615c2d22c3ed440437c1d826afb4b8.png" class="g-image g-image--loaded" width="2524"></noscript></p><center><figcaption class="mb-2"><p>Figure 5. Flowchart illustrating <code>chain_id</code></p></figcaption></center><h2 id="differences-between-a-checkpoint-and-chain_id"><a href="#differences-between-a-checkpoint-and-chain_id" aria-hidden="true">#</a>Differences between a checkpoint and chain_id</h2><ul><li><p>A checkpoint marks the last message of a message queue but a chain_id marks the last verified message.</p></li><li><p>A checkpoint is used to begin verification but chain_id's are used to continue verification.</p></li><li><p>Checkpoints are not stored in check1 but chain_id's are temporarily stored in check1</p></li><li><p>If the value of the chain_id is provided in a rule request, the checkpoint is ignored.</p></li></ul></div><!----><!----></article></div><aside class="pl-5 pt-5 page-content-panel layout__aside--right" data-v-6c750122><nav class="pr-2 sticky-page-content" data-v-6c750122><div data-v-6c750122><div><a href="https://github.com/th2-net/th2-docs/blob/master/content/versions/1-7/modules/check1/checkpoints.md" target="_blank" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light"></i></span></a><a href="https://github.com/th2-net/th2-docs/blob/master/content/versions/1-7/modules/check1/checkpoints.md" target="_blank">
+       Edit this page
+    </a></div></div><div data-v-6c750122><div><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;check1 - introduction to checkpoints and chain IDs&quot; article&amp;body=I've read [&quot;check1 - introduction to checkpoints and chain IDs&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/versions/1-7/modules/check1/checkpoints.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light"></i></span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;check1 - introduction to checkpoints and chain IDs&quot; article&amp;body=I've read [&quot;check1 - introduction to checkpoints and chain IDs&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/versions/1-7/modules/check1/checkpoints.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank">
+       Create an issue
+    </a></div></div><h3 class="mb-3 mt-7" data-v-6c750122>On this page</h3><ul data-v-6c750122><li class="font-weight-bold" data-v-6c750122><a href="#check1---introduction-to-checkpoints-and-chain-ids" data-v-6c750122><div data-v-6c750122>check1 - introduction to checkpoints and chain IDs</div></a></li><li class="py-2" data-v-6c750122><a href="#overview" data-v-6c750122><div data-v-6c750122>Overview</div></a></li><li class="py-2 h2-border" data-v-6c750122><a href="#what-are-checkpoints" data-v-6c750122><div data-v-6c750122>What are Checkpoints</div></a></li><li class="py-2 h2-border" data-v-6c750122><a href="#chain-id" data-v-6c750122><div data-v-6c750122>Chain ID</div></a></li><li class="py-2 h2-border" data-v-6c750122><a href="#differences-between-a-checkpoint-and-chain_id" data-v-6c750122><div data-v-6c750122>Differences between a checkpoint and chain_id</div></a></li></ul></nav></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-06eeece5 data-v-51d12f43><div class="footer__content col" data-v-06eeece5><div class="d-flex justify-space-between footer__sections" data-v-06eeece5><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-06eeece5><a href="https://exactpro.com/" class="mb-4" data-v-06eeece5><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-06eeece5></a><div class="text-center" data-v-06eeece5>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-06eeece5><h2 data-v-06eeece5>Contact Us</h2><div class="highliter my-3" data-v-06eeece5></div><div class="d-flex align-center contact" data-v-06eeece5><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-06eeece5><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-06eeece5></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-06eeece5>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-06eeece5><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-06eeece5><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-06eeece5></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-06eeece5>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-06eeece5><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-06eeece5><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-06eeece5></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-06eeece5>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-06eeece5><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-06eeece5><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-06eeece5></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-06eeece5>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-06eeece5><h2 data-v-06eeece5>Follow Us</h2><div class="highliter my-3" data-v-06eeece5></div><div class="d-flex" data-v-06eeece5><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-06eeece5><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-06eeece5><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-06eeece5><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-06eeece5><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-06eeece5><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-06eeece5><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-06eeece5><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-06eeece5><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-06eeece5><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-06eeece5><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-06eeece5><div class="text-center text-caption" data-v-06eeece5>
+      Copyright © 2009 - 2022 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-06eeece5><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-06eeece5>
+         Terms and Conditions 
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-06eeece5>
+         Privacy policy 
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-06eeece5>
+         Cookies policy 
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"title":"check1 - introduction to checkpoints and chain IDs","inner_title":"","description":"","content":"\n# check1 - introduction to checkpoints and chain IDs\n\n## Overview\n\nYou can submit all 3 requests to **check1** with a `checkpoint` or `chain_id` and **check1** will return a new `chain_id` value with the response.\n\n## What are Checkpoints\n\nIn order for **check1** to begin verification you must provide a starting point in the message queue. \nThis starting point is called a checkpoint.\n\nCheckpoint data contains the message sequence number in session and the message creation timestamp,\nreturned as a universally unique identifier (UUID) to the **act** component.\n\n![](.\u002Fimg\u002Fcheckpoint_class.png \"Figure1.Checkpoint Class\")\n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\nFigure 1. Associations with Checkpoint class.\n\u003C\u002Ffigcaption\u003E \n\u003C\u002Fcenter\u003E\n\n\nAfter receiving a `CheckpointRequest` from the **act** methods or directly from the script,\n**check1** will locate the last message in all queues, note the sequence number and timestamps \nand send it to the **act** component via `CheckPointResponse` .\n\n![](.\u002Fimg\u002Fcheckpoint_path.png \"Figure 2.Checkpoint path\")\n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\nFigure 2. A checkpoint is not stored \n\u003C\u002Ffigcaption\u003E\n\u003C\u002Fcenter\u003E\n\nThe script receives the checkpoint from **act** and sends it to the **check1**. \n**check1** starts verification from the location and time when the checkpoint was created.\n\n![](.\u002Fimg\u002Fmessage_queue_checkpoint.png \"Figure 3.message_queue_checkpoint\")\n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\nFigure 3. A queue of messages from the same session alias arranged according to the time received and and direction= FIRST \n\u003C\u002Ffigcaption\u003E \n\u003C\u002Fcenter\u003E\n\n## Chain ID\n\nA chain id is similar to a checkpoint and is created by **check1**. \nThe `chain_id` caret acts as a pointer and marks the last verified message in a message queue.\n\nChain IDs are usually used to continue verification.\n\n![](.\u002Fimg\u002Fchainid_class.png \"Figure 4.chainid_class\")\n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\nFigure 4. The structure of ChainID class.\n\u003C\u002Ffigcaption\u003E\n\u003C\u002Fcenter\u003E\n\n\nWhen the `chain_id` parameter in a rule request is `Null`, **check1** generates a `chain_id` caret that points to the verified message. \nAfter verification is completed, this `chain_id` caret stops at the last verified message of the message queue. \n**check1** returns the `chain_id` value in the response and this value is sent back with the next rule request to continue verification. \n**check1** temporarily stores the `chain_id` value. The storage time allocated is set by the **check1** custom configuration `cleanup-older-than` and `cleanup-time-unit`.\n\nJoining several rule requests to continuously check the whole message queue is known as chain verification.\n\n\n![](.\u002Fimg\u002Fchainid_flowchart.png \"Figure 4.chainid_flowchart\")\n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\n\nFigure 5. Flowchart illustrating `chain_id`\n\n\u003C\u002Ffigcaption\u003E\n\u003C\u002Fcenter\u003E\n\n\n\n## Differences between a checkpoint and chain_id\n\n- A checkpoint marks the last message of a message queue but a chain_id marks the last verified message.\n\n- A checkpoint is used to begin verification but chain_id's are used to continue verification.\n\n- Checkpoints are not stored in check1 but chain_id's are temporarily stored in check1\n\n- If the value of the chain_id is provided in a rule request, the checkpoint is ignored.\n","fileInfo":{"path":"versions\u002F1-7\u002Fmodules\u002Fcheck1\u002Fcheckpoints.md"},"headings":[{"anchor":"#check1---introduction-to-checkpoints-and-chain-ids","value":"check1 - introduction to checkpoints and chain IDs","depth":1},{"anchor":"#overview","value":"Overview","depth":2},{"anchor":"#what-are-checkpoints","value":"What are Checkpoints","depth":2},{"anchor":"#chain-id","value":"Chain ID","depth":2},{"anchor":"#differences-between-a-checkpoint-and-chain_id","value":"Differences between a checkpoint and chain_id","depth":2}],"read_before":[],"continue_learning":[],"terms":[],"related":[{"name":"th2-net\u002Fth2-check1","icon":"mdi-github","href":"https:\u002F\u002Fgithub.com\u002Fth2-net\u002Fth2-check1"}],"hide_releases":null,"_githubRepository":null}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.363c025a.js" defer></script><script src="/assets/js/page--src--templates--documentation-vue.03e222b6.js" defer></script><script src="/assets/js/vue-remark--content--docs--versions--1-7--modules--check-1--checkpoints-md.b5154f99.js" defer></script>
+  </body>
+</html>

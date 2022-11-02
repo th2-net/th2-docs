@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+Sitemap: https:/th2.dev/sitemap.xml
+Host: https://th2.dev
