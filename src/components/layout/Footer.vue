@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="flex justify-center py-6" 
+  <v-footer class="flex justify-center py-6"
             :color="$vuetify.theme.dark ? 'primary darken-4' : 'secondary'" dark>
     <v-col class="footer__content">
       <div class="d-flex justify-space-between footer__sections">
@@ -28,14 +28,14 @@
           <div class="highliter my-3" />
           <div class="d-flex">
             <v-btn icon tile large class="mr-2"
-                 v-for="social in socials" :key="social.href" 
+                 v-for="social in socials" :key="social.href"
                  :href="social.href" target="_blank">
-            <v-img :src="social.icon" />
+            <v-img :src="social.icon" eager />
           </v-btn>
           </div>
-          
+
         </div>
-        
+
       </div>
       <v-divider class="my-12" />
       <div class="text-center text-caption">
@@ -45,7 +45,7 @@
         <a v-for="policy in policies" :key="policy.href"
            class="mx-1"
            :href="policy.href" target="blank">
-           {{policy.text}} 
+           {{policy.text}}
         </a>
       </div>
     </v-col>

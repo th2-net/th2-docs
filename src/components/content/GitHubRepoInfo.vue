@@ -5,7 +5,7 @@
       <v-col>
         <v-list-item :href="repoInfo.owner.html_url" target="_blank">
           <v-list-item-avatar>
-            <v-img  :src="repoInfo.owner.avatar_url" :alt="repoInfo.owner.login" />
+            <v-img eager :src="repoInfo.owner.avatar_url" :alt="repoInfo.owner.login" />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>{{repoInfo.owner.login}}</v-list-item-title>

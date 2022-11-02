@@ -12,7 +12,7 @@
           <v-list>
             <v-list-item v-for="repo in groupItem.repos" :key="repo.id" :href="repo.html_url" target="_blank">
               <v-list-item-avatar>
-                <v-img  :src="repo.owner.avatar_url" :alt="repo.owner.login" />
+                <v-img  :src="repo.owner.avatar_url" :alt="repo.owner.login" eager />
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title>{{repo.full_name}}</v-list-item-title>
@@ -28,7 +28,7 @@
     <v-list>
       <v-list-item v-for="repo in lastReleases" :key="repo.id" :href="repo.html_url" target="_blank">
         <v-list-item-avatar>
-          <v-img  :src="repo.owner.avatar_url" :alt="repo.owner.login" />
+          <v-img  :src="repo.owner.avatar_url" :alt="repo.owner.login" eager />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>{{repo.full_name}}</v-list-item-title>
@@ -50,7 +50,7 @@
       <v-card v-for="repo in quarter[1]" :key="repo.id" class="my-4">
         <v-card-title>
           <v-avatar class="mr-3">
-            <v-img :src="repo.owner.avatar_url" />
+            <v-img :src="repo.owner.avatar_url" eager />
           </v-avatar>
           {{repo.full_name}}
         </v-card-title>
