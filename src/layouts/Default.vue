@@ -8,7 +8,9 @@
 			class="top-layout"
 		>
 			<div class="header-container">
-				<site-logo />
+				<g-link to="/" class="logo-container">
+					<img :src="logo" />
+				</g-link>
 				<search-window :window-size="windowSize" />
 				<div class="header-btns">
           <v-btn dark :href="$static.metadata.githubRepoLink" target="_blank" icon>
@@ -54,16 +56,15 @@ query {
 <script>
 import '~/assets/layout.scss'
 import '~/assets/scrollbar.scss'
+import logo from '../assets/img/Th2Logo_full_white.png'
 import ContentTree from "~/components/layout/ContentTree";
 import ThemeSwitcher from "~/components/layout/ThemeSwitcher";
-import SiteLogo from "~/components/layout/SiteLogo";
 import SearchWindow from "~/components/layout/SearchWindow";
 import Footer from '~/components/layout/Footer'
 export default {
 	name: "DefaultLayout",
 	components: {
 			SearchWindow,
-			SiteLogo,
 			ThemeSwitcher,
 			ContentTree,
 			Footer
@@ -72,7 +73,8 @@ export default {
 		return {
 			windowSize: { x: 0, y: 0 },
 			navPanel: false,
-			title: 'th2 docs'
+			title: 'th2 docs',
+			logo
 		}
 	},
 	methods:{
@@ -110,8 +112,23 @@ html {
 	height: 100%;
 	width: 100%;
 }
+.logo-container{
+	max-width: ($max-width / 5);
+	min-width: ($max-width / 5) - 50px;
+	height: 80%;
+	display: flex;
+	justify-content: flex-start;
+
+	svg{
+		height: 100%;
+	}
+}
 @media screen and (max-width: $window-width-md) {
 	.header-btns{
+		max-width: ($max-width-md / 5);
+		min-width: ($max-width-md / 5) - 30px;
+	}
+	.logo-container{
 		max-width: ($max-width-md / 5);
 		min-width: ($max-width-md / 5) - 30px;
 	}
@@ -124,6 +141,10 @@ html {
 	}
 	.header-container {
 		justify-content: space-between;
+	}
+	.logo-container{
+		max-width: unset;
+		min-width: unset;
 	}
 }
 </style>
