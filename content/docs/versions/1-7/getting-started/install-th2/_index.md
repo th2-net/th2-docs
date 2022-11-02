@@ -2,7 +2,7 @@
 weight: 5
 continue_learning:
   - title: Interact with th2
-    href: ./create-th2-env
+    href: ../create-th2-env
     icon: mdi-account
 ---
 
@@ -12,4 +12,4 @@ This section provides detailed instructions on how to install and configure th2 
 
 <!--more-->
 
-If you just want to get a flavor of how it works, check out our Cookbook for a [quick setup](../cookbook/quick-setup) guide.
+If you just want to get a flavor of how it works, check out our Cookbook for a [quick setup](../../cookbook/quick-setup) guide.
