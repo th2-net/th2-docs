@@ -3,25 +3,14 @@ weight: 0
 read_before:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../../getting-started/requirements/software
+    href: ../../../getting-started/requirements/software
 continue_learning:
   - title: Publish infra-schema
-    href: ./2-infra-schema
+    href: ./../2-infra-schema
 use_cases_link:
   - title: th2 use cases
     icon: mdi-cog
-    href: ../requirements/hardware
-install_variants:
-  - title: Basic installation
-    href: ./basic
-    icon: mdi-hand-back-left-outline
-clusters_link:
-  - title: Run Kubernetes cluster
-    icon: mdi-kubernetes
-    href: ../requirements/software#th2-node
-  - title: Run Cassandra cluster
-    icon: mdi-database
-    href: ../requirements/software#apache-cassandra-node
+    href: ../../requirements/hardware
 ---
 
 # 1. Set up the environment
@@ -51,7 +40,7 @@ You can find some th2 use cases with provided machines listing.
 
 One machine can combine several types listed here.
 
-You can choose either a full setup described in this section, or a [quick setup](../../cookbook/quick-setup) for demo purposes. 
+You can choose either a full setup described in this section, or a [quick setup](./../../../cookbook/quick-setup) for demo purposes. 
 
 
 ## th2 node
