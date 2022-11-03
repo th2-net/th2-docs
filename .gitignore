@@ -2,6 +2,7 @@
 .cache
 .DS_Store
 src/.temp
+src/plugins/.build
 node_modules
 dist
 .env

@@ -60,10 +60,10 @@ module.exports = {
         },
         plugins: [
           require("@akebifiky/remark-simple-plantuml"),
-          require('./src/plugins/remark-buetify-tables'),
+          require('./src/plugins/.build/remark-buetify-tables'),
           require('remark-prism'),
           require('remark-emoji'),
-          require('./src/plugins/remark-copy-code-btn'),
+          require('./src/plugins/.build/remark-copy-code-btn'),
           //(options) => (tree) => {console.log(tree.children.filter(c => c.type === 'html'))}
         ],
       }
@@ -76,11 +76,11 @@ module.exports = {
         typeName: 'Term'
       }
     },
-      require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
-      require('./src/plugins/gridsome-source-th2-github'),
-      require('./src/plugins/gridsome-plugin-th2-check-content'),
-      require('./src/plugins/gridsome-plugin-th2-dashboard'),
-      require('./src/plugins/gridsome-plugin-content-tree')
+      require('./src/plugins/.build/gridsome-plugin-th2-normalize-docs'),
+      require('./src/plugins/.build/gridsome-source-th2-github'),
+      require('./src/plugins/.build/gridsome-plugin-th2-check-content'),
+      require('./src/plugins/.build/gridsome-plugin-th2-dashboard'),
+      require('./src/plugins/.build/gridsome-plugin-content-tree')
   ],
   templates: {
     Th2Version: [
