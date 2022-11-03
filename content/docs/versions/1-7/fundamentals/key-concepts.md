@@ -30,6 +30,14 @@ For example, the [th2-conn-generic](https://github.com/th2-net/th2-conn-generic)
 
 In th2 implementation, a box functionally representing a *module* is defined through the `Th2Box` kind specified in its Custom Resource, as opposed to the `Th2CoreBox` kind reserved for th2 Core boxes.
 
+## Core Box
+_Core boxes_ are th2-boxes that are essential for achieving the business needs of th2.
+ Therefore, _core boxes_ are always present in every infra-schema and their custom resources are located in the folder labelled _core_. 
+
+Another way to recognize a _core box_ is by the value of the `kind` field. A custom resource of a _core box_ has the following value: `kind:Th2CoreBox`. This is the norm for all core boxes except for [th2-estore](../../core/th2-estore) and [th2-mstore](../../core/th2-mstore). These two _core boxes_ have their own unique custom resource definition and therefore have unique `kind` values.
+
+Unlike modules, _core boxes_ are not customized and deployed as is.
+
 ## Message
 
 In th2, a *Message* is the entity that is used to transfer information to and from a system under test (SUT). 
