@@ -23,7 +23,7 @@ A set of boxes (in the form of CRs) is provided in infra-schema in a Git reposit
 ## External Box
 
 _External box_ is an option that allows users to run any th2 box runtime on a local machine like it is already a part of the Kubernetes cluster. 
-To enable this work mode, configure the custom resource to `extended-settings.externalBox.enable:true` 
+To enable this work mode, configure the custom resource to `extended-settings.externalBox.enabled:true` 
 This feature is very useful for temporarily running scripts for specific tasks (including testing activities). 
 External boxes can also be used to test and debug a new th2 box or run th2 boxes only when required.
 
