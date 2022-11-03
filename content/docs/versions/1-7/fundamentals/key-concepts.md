@@ -20,6 +20,13 @@ To deploy a box, a custom resource (CR) must be created. Each CR is a `yaml` fil
 The CR contains information such as Docker image and version, resources, pins, etc. 
 A set of boxes (in the form of CRs) is provided in infra-schema in a Git repository.
 
+## External Box
+To set the external box option enable the `externalBox` field of a custom resource to `true`.
+With this option you can run any th2 box runtime on your local machine like it is already a part of the kubernetes cluster.
+This feature is very useful for temporarily running scripts for specific tasks (including testing activities). 
+External boxes can also be used to test and debug a new th2 box or run th2 boxes only when required.
+
+
 ## Module
 While a box is a particular instance in th2 implementation, a *module* is the functional unit within the th2 framework. 
 th2 *modules* are responsible for a wide range of functionalities associated with specific software testing actions, such as connecting to external systems, sending and receiving messages, performing rule-based checks.
