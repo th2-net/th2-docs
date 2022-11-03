@@ -39,12 +39,12 @@ PersistentVolume mapped to `/opt/components` directory is already created during
 kubectl apply -f ./persistence/pvc.yaml
 ```
 
-Details for **read-log** [README.md](https://github.com/th2-net/th2-read-log#configuration)
+Details for **read-log ** [README.md](https://github.com/th2-net/th2-read-log#configuration)
 
 ## Send requests to environment
 
 <notice info>
 
-Sometimes it is [needed](./requirements/software#tester-box) to install additional software to run external boxes and scripts.
+Sometimes it is [needed](../requirements/software#tester-box) to install additional software to run external boxes and scripts.
 
 </notice>
