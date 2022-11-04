@@ -3,15 +3,24 @@ const h = require('hastscript')
 const visit = require('unist-util-visit')
 
 
-module.exports = (options = {}) => tree => {
-    visit(tree, 'element', (codeNode, index, parent) => {
+/**
+ * This plugin adds copy code button to every code sample,
+ * processed by remark-prism (https://github.com/sergioramos/remark-prism).
+ *
+ * !!! Remark dependencies can't be updated to be compatible with Gridsome.
+ *
+ * @param options
+ * @returns {function(*): *}
+ */
+module.exports = (options = {}) => (tree: any) => {
+    visit(tree, 'element', (codeNode: any, index: number, parent: any) => {
         if (codeNode?.properties?.className === 'remark-highlight')
             parent.children.splice(index, 1, addCopyCodeBtn(codeNode))
     })
     return {...tree}
 }
 
-function addCopyCodeBtn(codeNode){
+function addCopyCodeBtn(codeNode: any){
     const newNode = {
         ...codeNode,
         data: {
