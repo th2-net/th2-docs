@@ -1,4 +1,8 @@
-import colors from 'vuetify/es5/util/colors'
+// @ts-ignore
+import colors, {Colors} from 'vuetify/lib/util/colors'
+import {UserVuetifyPreset} from "vuetify/types/services/presets";
+
+const vuetifyColors: Colors = colors
 
 const exactproColors = {
   main: {
@@ -31,7 +35,7 @@ const exactproColors = {
   }
 }
 
-export default {
+const config: UserVuetifyPreset = {
   customVariables: ['~/assets/variables.scss'],
   theme: {
     dark: false,
@@ -39,22 +43,24 @@ export default {
     themes: {
       light: {
         primary: exactproColors.main.turquoise.base,
-        accent:  colors.grey.darken2,
+        accent:  vuetifyColors.grey.darken2,
         secondary: exactproColors.main.navyBlue.base,
         info: exactproColors.extra.blue.base,
-        warning: colors.amber.base,
+        warning: vuetifyColors.amber.base,
         error: exactproColors.extra.red.base,
-        success: colors.green.accent3
+        success: vuetifyColors.green.accent3
       },
       dark: {
         primary: exactproColors.main.turquoise.base,
-        accent:  colors.grey.darken3,
+        accent:  vuetifyColors.grey.darken3,
         secondary: exactproColors.main.navyBlue.base,
         info: exactproColors.extra.blue.base,
-        warning: colors.amber.base,
+        warning: vuetifyColors.amber.base,
         error: exactproColors.extra.red.base,
-        success: colors.green.accent3
+        success: vuetifyColors.green.accent3
       }
     }
   }
 }
+
+export default config
