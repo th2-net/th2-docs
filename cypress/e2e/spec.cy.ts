@@ -10,11 +10,16 @@ describe('Check all docs pages', async () => {
 
   })
   const sitemap = await axios.get<SitemapNode[]>('http://localhost:8080/sitemap.dev.json')
-  for (let sitemapNode of sitemap.data){
-    //cy.log(sitemapNode.path) 
-  }
 
-  it('passes', () => {
-    cy.visit('http://localhost:8080')
+
+  it('Visit all pages', () => {
+    for (let sitemapNode of sitemap.data){
+      it(`visit ${sitemapNode.path}`, () => {
+        cy.visit('http://localhost:8080' + sitemapNode.path) 
+      })
+      
+    }
+    cy.visit('http://localhost:8080/404')
+    
   })
 })
