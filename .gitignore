@@ -12,3 +12,4 @@ content/docs/common/test.md
 .nuxt
 .graphqlconfig
 schema.graphql
+/static/sitemap.dev.json
