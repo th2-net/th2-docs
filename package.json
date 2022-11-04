@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npm run plugins:compile && gridsome build",
     "dev": "npm run plugins:compile && gridsome develop",
-    "explore": "gridsome explore",
+    "explore": "npm run plugins:compile && gridsome explore",
     "update-readmes": "ts-node scripts/update-readmes.ts",
     "plugins:compile": "tsc --project tsconfig.plugins.json",
     "test:unwelcome-words": "ts-node --project tsconfig.scripts.json .github/scripts/unwelcome-words.ts",
