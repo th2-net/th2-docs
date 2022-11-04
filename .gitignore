@@ -3,6 +3,7 @@
 .DS_Store
 src/.temp
 src/plugins/.build
+src/plugins/**/*.js
 node_modules
 dist
 .env

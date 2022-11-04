@@ -3,7 +3,7 @@
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import vuetifyConfig from './plugins/.build/vuetify'
+import vuetifyConfig from './plugins/vuetify'
 import store from './store'
 import DefaultLayout from '~/layouts/Default.vue'
 
