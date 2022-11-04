@@ -12,7 +12,7 @@ const visit = require('unist-util-visit')
  * @param options
  * @returns {function(*): *}
  */
-module.exports = (options = {}) => (tree: any) => {
+export default (options = {}) => (tree: any) => {
     visit(tree, 'element', (codeNode: any, index: number, parent: any) => {
         if (codeNode?.properties?.className === 'remark-highlight')
             parent.children.splice(index, 1, addCopyCodeBtn(codeNode))
