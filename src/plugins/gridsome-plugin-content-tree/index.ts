@@ -1,5 +1,5 @@
 import {savePagesTrees} from './pages-tree'
-import {PageRaw, PageReduced} from "./types";
+import {PageRaw, PageReduced, Th2Version} from "./types";
 
 module.exports = (api: any) => {
     // Construct content trees
@@ -16,8 +16,7 @@ module.exports = (api: any) => {
             })
         const dashboardPages: PageReduced[] = getCollection('Th2Version')
             ._collection.data
-            // FIXME: specify type for version
-            .map((version: any) => ({
+            .map((version: Th2Version) => ({
                 title: 'Dashboard',
                 path: `/${version.folder}/fundamentals/th2-net-on-github/dashboard/`,
                 weight: -1000
