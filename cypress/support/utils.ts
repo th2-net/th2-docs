@@ -53,7 +53,9 @@ export function testLinksOnPage(url: string){
       if (href.startsWith('http') && !href.includes('www.linkedin.com') && !href.includes('youtube.com')){
         cy.request({
           url: link.prop('href'),
-          failOnStatusCode: true
+          failOnStatusCode: true,
+          retryOnStatusCodeFailure: true,
+          retryOnNetworkFailure: true
         })
       }
     })
