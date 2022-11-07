@@ -18,15 +18,20 @@ describe('Broken Link', () => {
     beforeEach(() => {
         cy.viewport(1280, 1000)
     })
-    it('Find all broken links', () => {
+    it('Links are correct', () => {
         cy.visit('http://localhost:8080/1-7/fundamentals/')
-        cy.get('a').each(link => {
-            if (link.prop('href'))
-            cy.request({
-                url: link.prop('href'),
-                failOnStatusCode: true
+        cy.get('a').should('have.attr', 'href')
+        cy.get('a')
+            .each(link => {
+                const href: string = link.prop('href')
+                // We can't check links which are not leading to http requests
+                // LinkedIn server returns status 999 for some reason
+                if (href.startsWith('http') && !href.includes('www.linkedin.com')){
+                    cy.request({
+                        url: link.prop('href'),
+                        failOnStatusCode: true
+                    })
+                }
             })
-            cy.log( link.prop('href'))
-        })
     })
 })
