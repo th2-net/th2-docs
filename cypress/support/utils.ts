@@ -7,10 +7,21 @@ export function testAllPagesFromSitemap(testCallback: (pagePath: string) => unkn
                              sitemapPath: string = '/sitemap.dev.json') {
   cy.request(hostPath + sitemapPath)
     .then(response => {
-      const sitemap: SitemapNode[] = response.body
-      for (let sitemapNode of sitemap){
-        testCallback(hostPath + sitemapNode.path)
+      if (sitemapPath.endsWith('.json')) {
+        const sitemap: SitemapNode[] = response.body
+        for (let sitemapNode of sitemap){
+          testCallback(hostPath + sitemapNode.path)
+        }
+      } else if (sitemapPath.endsWith('.xml')) {
+        const urls = Cypress.$(response.body)
+          .find("loc")
+          .toArray()
+          .map((el) => el.innerText)
+        for (let url of urls){
+          testCallback(url)
+        }
       }
+
     })
 }
 
