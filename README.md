@@ -37,3 +37,49 @@ Run to only explore database with GraphQL:
 ```shell
 npm run explore
 ```
+
+## Test website
+
+You can run any configuration with Cypress UI. To start it:
+
+```shell
+npm run cypress:open
+```
+
+### Development
+
+To test docs website in development mode you should run development server firstly:
+
+```shell
+npm run dev
+```
+
+Then run `development.cy.ts` spec from UI or by executing:
+
+```shell
+npm run cypress:test-dev
+```
+
+### Prebuilt website
+
+To test production version of docs website you should build it and run local server firstly:
+
+```shell
+npm run build
+npm run prod:local
+```
+
+Then run `production.local.cy.ts` spec from UI or by executing:
+
+```shell
+npm run cypress:test-prebuilt-prod
+```
+
+### Production
+
+To test deployed docs website run `production.cy.ts` spec from UI or by executing:
+
+```shell
+npm run cypress:test-prod
+```
+
