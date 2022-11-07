@@ -46,6 +46,8 @@ You can run any configuration with Cypress UI. To start it:
 npm run cypress:open
 ```
 
+After test is complete report will be created in `cypress/results`.
+
 ### Development
 
 To test docs website in development mode you should run development server firstly:
