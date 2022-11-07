@@ -13,3 +13,6 @@ content/docs/common/test.md
 .graphqlconfig
 schema.graphql
 /static/sitemap.dev.json
+/cypress/downloads
+/cypress/screenshots
+/cypress/videos
