@@ -26,7 +26,6 @@ describe('Broken Link', () => {
                 url: link.prop('href'),
                 failOnStatusCode: true
             })
-            checkIfEleExists('#error-404-flag')
             cy.log( link.prop('href'))
         })
     })
