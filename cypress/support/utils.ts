@@ -39,6 +39,24 @@ export function randomstring(length: number): string{
   return stringBuilder.join('')
 }
 
+export function testLinksOnPage(url: string){
+  cy.visit(url)
+  // a element without href is error
+  cy.get('a').should('have.attr', 'href')
+  cy.get('a')
+    .each(link => {
+      const href: string = link.prop('href')
+      // We can't check links which are not leading to http requests
+      // LinkedIn server returns status 999 for some reason
+      if (href.startsWith('http') && !href.includes('www.linkedin.com')){
+        cy.request({
+          url: link.prop('href'),
+          failOnStatusCode: true
+        })
+      }
+    })
+}
+
 export function checkIfEleExists(ele: string): Promise<void>{
   return new Promise((resolve,reject)=>{
     /// here if  ele exists or not
