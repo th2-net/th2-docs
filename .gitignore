@@ -16,3 +16,4 @@ schema.graphql
 /cypress/downloads
 /cypress/screenshots
 /cypress/videos
+/cypress/results
