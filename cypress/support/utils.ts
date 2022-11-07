@@ -14,6 +14,20 @@ export function testAllPagesFromSitemap(testCallback: (pagePath: string) => unkn
     })
 }
 
+export function randomstring(length: number): string{
+  const chars = Array
+    .from(Array(26))
+    .map((e, i) => i + 97)
+    .map(charCode => String.fromCharCode(charCode))
+  chars.push('/')
+  const stringBuilder: string[] = []
+  for (let i = 0; i < length; i++){
+    const randomChar = chars[Math.floor(Math.random() * chars.length)]
+    stringBuilder.push(randomChar)
+  }
+  return stringBuilder.join('')
+}
+
 export function checkIfEleExists(ele: string): Promise<void>{
   return new Promise((resolve,reject)=>{
     /// here if  ele exists or not
