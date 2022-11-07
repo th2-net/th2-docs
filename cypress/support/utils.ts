@@ -49,7 +49,8 @@ export function testLinksOnPage(url: string){
       const href: string = link.prop('href')
       // We can't check links which are not leading to http requests
       // LinkedIn server returns status 999 for some reason
-      if (href.startsWith('http') && !href.includes('www.linkedin.com')){
+      // YouTube produces a lot of new links
+      if (href.startsWith('http') && !href.includes('www.linkedin.com') && !href.includes('youtube.com')){
         cy.request({
           url: link.prop('href'),
           failOnStatusCode: true
