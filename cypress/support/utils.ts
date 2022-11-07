@@ -41,6 +41,7 @@ export function randomstring(length: number): string{
 
 export function testLinksOnPage(url: string){
   cy.visit(url)
+  cy.log(url)
   // a element without href is error
   cy.get('a').should('have.attr', 'href')
   cy.get('a')

@@ -1,16 +1,19 @@
 import {testAllPagesFromSitemap, testLinksOnPage} from "../support/utils";
 
-const hostPath = 'https://th2.dev'
+const hostPath = 'http://localhost:8080'
 const sitemapPath = '/sitemap.xml'
+function getLocalUrl(url: string){
+  return url.replace('https://th2.dev', 'http://localhost:8080')
+}
 
-describe('Check docs website production', () => {
+describe('Check local docs website production', () => {
   it('Sitemap should exist', () => {
     cy.request(hostPath + sitemapPath)
   })
 
   it('Website pages should not contain JS errors', () => {
     testAllPagesFromSitemap((path: string) => {
-      cy.visit(path)
+      cy.visit(getLocalUrl(path))
         // Let JavaScript start to catch possible errors
         .wait(1000)
     }, hostPath, sitemapPath)
@@ -24,7 +27,7 @@ describe('Check docs website production', () => {
       return false
     })
     testAllPagesFromSitemap((path: string) => {
-      cy.visit(path)
+      cy.visit(getLocalUrl(path))
         .get('#error-404-flag')
         .should('not.exist')
     }, hostPath, sitemapPath)
@@ -32,7 +35,7 @@ describe('Check docs website production', () => {
 
   it('Links should be correct', () => {
     testAllPagesFromSitemap((url) => {
-      testLinksOnPage(url)
+      testLinksOnPage(getLocalUrl(url))
     }, hostPath, sitemapPath)
   })
 })
