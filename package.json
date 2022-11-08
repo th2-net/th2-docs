@@ -6,7 +6,7 @@
     "dev": "npm run plugins:compile && gridsome develop",
     "explore": "npm run plugins:compile && gridsome explore",
     "update-readmes": "ts-node scripts/update-readmes.ts",
-    "plugins:compile": "tsc --project tsconfig.plugins.json",
+    "plugins:compile": "tsc --project src/plugins/tsconfig.json",
     "test:unwelcome-words": "ts-node --project tsconfig.scripts.json .github/scripts/unwelcome-words.ts",
     "cypress:open": "cypress open"
   },
