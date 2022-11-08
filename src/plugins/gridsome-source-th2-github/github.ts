@@ -1,14 +1,20 @@
-const axios = require("axios");
+import { Octokit } from 'octokit'
+import {ReducedRepositoryRaw, RepositoriesListRaw} from "./types";
 
-const githubAuth = {
-    username: process.env.GITHUB_CLIENT_ID,
-    password: process.env.GITHUB_CLIENT_SECRET
-}
+const octokit = new Octokit({
+    auth: process.env.GITHUB_CLIENT_ID
+})
 
 export async function getRepoInfo (owner = 'th2-net', repoName: string){
     try {
-        const { data: repo } = await axios.get(`https://api.github.com/repos/${owner}/${repoName}`, { auth: githubAuth })
-        const { data: releases } = await axios.get(repo.releases_url.replace('{/id}', ''), { auth: githubAuth })
+        const { data: repo } = await octokit.rest.repos.get({
+            owner,
+            repo: repoName
+        })
+        const { data: releases } = await octokit.rest.repos.listReleases({
+            owner,
+            repo: repoName
+        })
         if (!repo.description) repo.description = ''
         return {repository: repo, releases}
     }
@@ -17,9 +23,13 @@ export async function getRepoInfo (owner = 'th2-net', repoName: string){
     }
 }
 
-export async function getRepoReleases(repo: any){
+export async function getRepoReleases(repo: ReducedRepositoryRaw){
     try {
-        const { data: releases } = await axios.get(repo.releases_url.replace('{/id}', ''), { auth: githubAuth })
+
+        const { data: releases } = await octokit.rest.repos.listReleases({
+            owner: repo.owner.login,
+            repo: repo.name
+        })
         return releases
     }
     catch (e) {
@@ -27,14 +37,18 @@ export async function getRepoReleases(repo: any){
     }
 }
 
-export async function getAllTh2NetRepos() {
+export async function getAllTh2NetRepos(): Promise<RepositoriesListRaw> {
     try {
-        let response = await axios.get(`https://api.github.com/orgs/th2-net/repos?per_page=100&page=1`, { auth: githubAuth })
-        const repos = [...response.data]
-        response = await axios.get(`https://api.github.com/orgs/th2-net/repos?per_page=100&page=2`, { auth: githubAuth })
-        repos.push(...response.data)
-        response = await axios.get(`https://api.github.com/orgs/th2-net/repos?per_page=100&page=3`, { auth: githubAuth })
-        repos.push(...response.data)
+        const th2Net = await octokit.rest.orgs.get({ org: 'th2-net' })
+        const repos: RepositoriesListRaw = []
+        for (let i = 0; i * 100 < th2Net.data.public_repos; i ++) {
+            repos.push(
+              ...(await octokit.rest.repos.listForOrg({
+                      org: 'th2-net',
+                      per_page: 100,
+                      page: i + 1 })).data
+            )
+        }
         return repos
     }
     catch (e) { return [] }
