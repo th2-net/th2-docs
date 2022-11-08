@@ -38,6 +38,7 @@ For example, the [th2-conn-generic](https://github.com/th2-net/th2-conn-generic)
 
 In th2 implementation, a box functionally representing a *module* is defined through the `Th2Box` kind specified in its Custom Resource, as opposed to the `Th2CoreBox` kind reserved for th2 Core boxes.
 
+
 ## Core Box
 _Core boxes_ are th2-boxes that are essential for achieving the business needs of th2.
  Therefore, _core boxes_ are always present in every infra-schema and their custom resources are located in the folder labelled _core_. 
@@ -45,6 +46,7 @@ _Core boxes_ are th2-boxes that are essential for achieving the business needs o
 Another way to recognize a _core box_ is by the value of the `kind` field. A custom resource of a _core box_ has the following value: `kind:Th2CoreBox`. This is the norm for all core boxes except for [th2-estore](../../core/th2-estore) and [th2-mstore](../../core/th2-mstore). These two _core boxes_ have their own unique custom resource definition and therefore have unique `kind` values.
 
 Unlike modules, _core boxes_ are not customized and deployed as is.
+
 
 ## Message
 
@@ -72,3 +74,11 @@ _Events_ are either stored as a single _event_ or as an _event_ batch.
 
 The saved _events_ are later extracted from the Cassandra and displayed in the th2 test report in a chronologically and hierarchically organized manner.
 
+## Dictionary
+A _dictionary_ is static data/document shared between components.
+It is present in an infra-schema as a custom resource of kind `Th2Dictionary`.
+When an infra-schema is rolled out, the _dictionary_ is converted to a Kubernetes config map (base 64 encoded). 
+
+A common use case of a _dictionary_ is defining the protocol specification used by the customer.
+Messages created by the user are cross-referenced against the _dictionary_ to verify that the required information and message structure is present.
+This ensures that the messages created by th2 are standardized and accepted by the customer’s gateway.
