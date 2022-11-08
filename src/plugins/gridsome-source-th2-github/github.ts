@@ -5,7 +5,7 @@ const githubAuth = {
     password: process.env.GITHUB_CLIENT_SECRET
 }
 
-module.exports.getRepoInfo = async function(owner = 'th2-net', repoName){
+export async function getRepoInfo (owner = 'th2-net', repoName: string){
     try {
         const { data: repo } = await axios.get(`https://api.github.com/repos/${owner}/${repoName}`, { auth: githubAuth })
         const { data: releases } = await axios.get(repo.releases_url.replace('{/id}', ''), { auth: githubAuth })
@@ -17,7 +17,7 @@ module.exports.getRepoInfo = async function(owner = 'th2-net', repoName){
     }
 }
 
-module.exports.getRepoReleases = async function(repo){
+export async function getRepoReleases(repo: any){
     try {
         const { data: releases } = await axios.get(repo.releases_url.replace('{/id}', ''), { auth: githubAuth })
         return releases
@@ -27,7 +27,7 @@ module.exports.getRepoReleases = async function(repo){
     }
 }
 
-module.exports.getAllTh2NetRepos = async function () {
+export async function getAllTh2NetRepos() {
     try {
         let response = await axios.get(`https://api.github.com/orgs/th2-net/repos?per_page=100&page=1`, { auth: githubAuth })
         const repos = [...response.data]
