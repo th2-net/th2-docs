@@ -82,4 +82,3 @@ When an infra-schema is rolled out, the _dictionary_ is converted to a Kubernete
 A common use case of a _dictionary_ is defining the protocol specification used by the customer.
 Messages created by the user are cross-referenced against the _dictionary_ to verify that the required information and message structure is present.
 This ensures that the messages created by th2 are standardized and accepted by the customer’s gateway.
-Each _dictionary_ is written for a single protocol only.
