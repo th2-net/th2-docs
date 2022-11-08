@@ -82,3 +82,8 @@ When an infra-schema is rolled out, the _dictionary_ is converted to a Kubernete
 A common use case of a _dictionary_ is defining the protocol specification used by the customer.
 Messages created by the user are cross-referenced against the _dictionary_ to verify that the required information and message structure is present.
 This ensures that the messages created by th2 are standardized and accepted by the customer’s gateway.
+
+## Pins
+A _pin_ is a point of connection to a box. _Pins_ are required to create channels of communication between boxes. A _pin_ can be used for synchronous and asynchronous messaging depending on its connection type.
+
+_Pins_ required by a module are declared in the module's custom resource by the user. Every declared _pin_ has a `name` and a `connection-type`. 
