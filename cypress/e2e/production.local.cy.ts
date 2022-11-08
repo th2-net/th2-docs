@@ -48,14 +48,4 @@ describe('Error 404 tests', () => {
   it('/404/ page should return status code 200', () => {
     cy.request(hostPath + '/404/').its('status').should('equal', 200)
   })
-
-  it('Not existing pages should return status code 404', () => {
-    const testPaths: string[] = []
-    for (let i = 0; i < 10; i++){
-      testPaths.push(`/${randomstring(20)}`)
-    }
-    for (let path of testPaths){
-      cy.request(hostPath + path).its('status').should('equal', 404)
-    }
-  })
 })
