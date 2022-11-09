@@ -1,8 +1,3 @@
-const u = require('unist-builder')
-const h = require('hastscript')
-const visit = require('unist-util-visit')
-
-
 /**
  * This plugin adds copy code button to every code sample,
  * processed by remark-prism (https://github.com/sergioramos/remark-prism).
@@ -12,24 +7,28 @@ const visit = require('unist-util-visit')
  * @param options
  * @returns {function(*): *}
  */
-export default (options = {}) => (tree: any) => {
+module.exports = (options = {}) => (tree: any) => {
+    const u = require('unist-builder')
+    const h = require('hastscript')
+    const visit = require('unist-util-visit')
+
+    function addCopyCodeBtn(codeNode: any){
+        const newNode = {
+            ...codeNode,
+            data: {
+                ...codeNode.data,
+                hChildren: [
+                    ...codeNode.data.hChildren,
+                    h('copy-code-btn')
+                ]
+            },
+            children: [ ...codeNode.children, u('html', '<copy-code-btn />')] }
+        return newNode
+    }
+
     visit(tree, 'element', (codeNode: any, index: number, parent: any) => {
         if (codeNode?.properties?.className === 'remark-highlight')
             parent.children.splice(index, 1, addCopyCodeBtn(codeNode))
     })
     return {...tree}
-}
-
-function addCopyCodeBtn(codeNode: any){
-    const newNode = {
-        ...codeNode,
-        data: {
-          ...codeNode.data,
-          hChildren: [
-              ...codeNode.data.hChildren,
-              h('copy-code-btn')
-          ]
-        },
-        children: [ ...codeNode.children, u('html', '<copy-code-btn />')] }
-    return newNode
 }
