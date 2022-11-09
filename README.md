@@ -20,8 +20,7 @@ For detailed explanation on how things work, check out [NuxtJS documentation](ht
 Create `.env` file in the root directory:
 
 ```dotenv
-GITHUB_CLIENT_ID=GITHUB_CLIENT_ID
-GITHUB_CLIENT_SECRET=GITHUB_CLIENT_SECRET
+GITHUB_TOKEN=GITHUB_TOKEN
 ```
 
 ## Develop

@@ -2,7 +2,7 @@ import { Octokit } from 'octokit'
 import {ReducedRepositoryRaw, RepositoriesListRaw} from "./types";
 
 const octokit = new Octokit({
-    auth: process.env.GITHUB_CLIENT_ID
+    auth: process.env.GITHUB_TOKEN
 })
 
 export async function getRepoInfo (owner = 'th2-net', repoName: string){
@@ -19,6 +19,7 @@ export async function getRepoInfo (owner = 'th2-net', repoName: string){
         return {repository: repo, releases}
     }
     catch (e) {
+        console.error(e)
         return null
     }
 }
