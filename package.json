@@ -29,6 +29,8 @@
     "@gridsome/transformer-remark": "^0.6.4",
     "@saber2pr/types-github-api": "^0.0.7",
     "@types/cli-progress": "^3.11.0",
+    "@types/extract-domain": "^2.3.1",
+    "@types/js-levenshtein": "^1.1.1",
     "@vue/composition-api": "^1.6.2",
     "badwords-list": "^1.0.0",
     "cli-progress": "^3.11.2",

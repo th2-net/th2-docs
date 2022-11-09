@@ -13,3 +13,4 @@ export type RepositoriesListRaw = GetResponseDataTypeFromEndpointMethod<typeof o
 export type ReducedRepositoryRaw = ArrayElement<RepositoriesListRaw>
 export type ReleaseRaw = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.repos.getRelease>
 export type ReleasesListRaw = GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.repos.listReleases>
+export type ReducedReleaseRaw = ArrayElement<ReleasesListRaw>
