@@ -31,7 +31,9 @@ module.exports = function (api: any){
         let count = 1
         for (const docPage of docPagesCollection._collection.data) {
             if (docPage.repo && docPage.repo_owner) {
-                const {repository, releases}: any = await getRepoInfo(docPage.repo_owner, docPage.repo)
+                const details = await getRepoInfo(docPage.repo_owner, docPage.repo)
+                if (!details) continue
+                const {repository, releases} = details
                 addRepoToDatabase(repository, releases)
                 docPage._githubRepository = store.createReference('Repository', repository.id)
                 docPage.internal.mimeType = 'text/markdown'

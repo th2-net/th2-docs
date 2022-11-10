@@ -1,10 +1,10 @@
-const {prepareData} = require('./prepare')
-const {checkContent, checkObjectForUrls} = require('./check')
-const cliProgress = require('cli-progress')
+import {prepareData} from './prepare'
+import {checkContent, checkObjectForUrls} from './check'
+import * as cliProgress from 'cli-progress'
 
-module.exports = function (api){
+module.exports = function (api: any){
     if (process.env.NODE_ENV === 'production'){
-        api.loadSource(({ getCollection }) => {
+        api.loadSource(({ getCollection }: any) => {
             const documentsCollection= getCollection('DocPage'),
                 termsCollection= getCollection('Term'),
                 repositoriesCollection= getCollection('Repository'),
@@ -22,7 +22,7 @@ module.exports = function (api){
             console.time('check_content')
             const progress = new cliProgress.SingleBar({  }, cliProgress.Presets.shades_classic);
             progress.start(contentToCheck.length, 0)
-            contentToCheck.forEach((node, index) => {
+            contentToCheck.forEach((node, index: number) => {
                 checkContent(node)
                 progress.update(index+1)
             })
@@ -32,7 +32,7 @@ module.exports = function (api){
             console.log('Checking urls...')
             console.time('check_urls')
             progress.start(unitedCollection.length, 0)
-            contentToCheck.forEach((node, index) => {
+            contentToCheck.forEach((node: Object, index: number) => {
                 checkObjectForUrls(node)
                 progress.update(index+1)
             })

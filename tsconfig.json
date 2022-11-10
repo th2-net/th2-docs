@@ -24,6 +24,7 @@
   "exclude": [
     "gridsome.config.js",
     "gridsome.server.js",
-    "node_modules"
+    "node_modules",
+    "./src/plugins"
   ]
 }
