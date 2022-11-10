@@ -87,3 +87,17 @@ This ensures that the messages created by th2 are standardized and accepted by t
 A _pin_ is a point of connection to a box. _Pins_ are required to create channels of communication between boxes. A _pin_ can be used for synchronous and asynchronous messaging depending on its connection type.
 
 _Pins_ required by a module are declared in the module's custom resource by the user. Every declared _pin_ has a `name` and a `connection-type`. 
+
+## Links
+A _link_ is a connection between two th2 components.
+It can describe the directional communication between two pins or the relationship between a box and dictionary.
+
+A th2 box can be linked to multiple boxes, dictionaries, or a combination of both.
+_Link’s_ allow th2 users to easily organize and clearly communicate to the infra operator the intended relationships within their test environment.
+
+Each individual _link_ is a simple declaration and can be identified by its name.
+All _links_ are declared in a single custom resource of kind `Th2Link`.
+This custom resource is located in its dedicated folder , aptly named links, in the infra-schema.
+
+
+
