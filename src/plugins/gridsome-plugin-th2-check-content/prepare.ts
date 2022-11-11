@@ -1,4 +1,4 @@
-import {ContentToCheck, PrepareDataInput} from "./models";
+import {ContentToCheck, PrepareDataInput} from "./types";
 import { markdownToTxt } from "markdown-to-txt";
 
 export function prepareData({   documentsCollection,

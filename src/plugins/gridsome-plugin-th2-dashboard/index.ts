@@ -1,21 +1,26 @@
 import {saveDashboardData, getReleasesFeedRepos, getReposFamiliesByTopics} from './dashboard'
+import { RepositoriesCollection } from '../types/gridsome/collections/repositories'
+import { ReleasesCollection } from '../types/gridsome/collections/releases'
+import { TopicsCollection } from '../types/gridsome/collections/topics'
 
 module.exports = function (api: any) {
     api.loadSource(({ getCollection }: any) => {
-        const repositoriesCollection = getCollection('Repository')
-        const releasesCollection = getCollection('Release')
-        const topicsCollection = getCollection('Topic')
-        const repositories = repositoriesCollection._collection.data.map((repo: any) => {
+        const repositoriesCollection: RepositoriesCollection = getCollection('Repository')
+        const releasesCollection: ReleasesCollection = getCollection('Release')
+        const topicsCollection: TopicsCollection = getCollection('Topic')
+        const repositories = repositoriesCollection._collection.data.map(repo => {
             return {
                 ...repo,
-                releases: repo.releases.map((r: any) => releasesCollection.getNodeById(r.id)),
-                topics: repo.topics.map((t: any) => t.id)
+                releases: repo.releases.map(r => releasesCollection.getNodeById(r.id)),
+                topics: repo.topics.map(t => t.id)
             }
         })
         // TODO: optimize data for dashboard
         saveDashboardData({
+            // @ts-ignore
             releasesFeed: getReleasesFeedRepos(repositories),
-            families: getReposFamiliesByTopics(repositories, topicsCollection._collection.data.map((t:any) => t.title))
+            // @ts-ignore
+            families: getReposFamiliesByTopics(repositories, topicsCollection._collection.data.map(t => t.title))
         })
     })
 }

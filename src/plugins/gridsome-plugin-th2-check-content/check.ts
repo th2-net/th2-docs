@@ -1,4 +1,4 @@
-import {ContentToCheck, extractUrls} from './models'
+import {ContentToCheck, extractUrls} from './types'
 import {getStringsFromObjectDeep} from './prepare'
 import levenshtein from 'js-levenshtein'
 import extractDomain from 'extract-domain'
