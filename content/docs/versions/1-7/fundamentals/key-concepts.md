@@ -97,7 +97,7 @@ _Links_ allow th2 users to easily organize the intended relationships within the
 
 Each individual _link_ is a simple declaration and can be identified by its name.
 All _links_ are declared in a single custom resource (CR) of kind `Th2Link`.
-This custom resource is located in its dedicated folder ,aptly named links, in the infra-schema.
+This custom resource is located in its dedicated folder, aptly named links, in the infra-schema.
 
 
 
