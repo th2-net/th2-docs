@@ -1,11 +1,6 @@
 import {findTermsInDoc} from './terms'
-// const {findTermsInDoc} = require('./terms')
-
 import {markdownToTxt} from 'markdown-to-txt'
-//const { markdownToTxt } = require('markdown-to-txt')
-
 import {getDocumentedTh2Versions} from './th2-versions'
-//const {getDocumentedTh2Versions} = require("./th2-versions");
 
 const versions = getDocumentedTh2Versions()
 
