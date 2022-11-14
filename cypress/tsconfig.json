@@ -9,20 +9,14 @@
       "DOM"
     ],
     "noImplicitReturns": true,
-    "outDir": "./built/",
     "sourceMap": true,
     "strict": true,
     "types": [
-      "@types/node"
+      "@types/node",
+      "cypress"
     ]
   },
   "include": [
-    "./src/**/*"
+    "./**/*.ts"
   ],
-  "exclude": [
-    "gridsome.config.js",
-    "gridsome.server.js",
-    "node_modules",
-    "./cypress/**/*.ts"
-  ]
 }
