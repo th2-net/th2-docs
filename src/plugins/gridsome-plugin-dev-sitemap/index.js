@@ -1,8 +1,8 @@
-const tree = require('../../../temp/pagesTrees.json')
 const fs = require('fs')
 
 module.exports = function (api) {
     if (process.env.NODE_ENV === 'production') return
+    const tree = require('../../../temp/pagesTrees.json')
     // List of all pages in development
     api.loadSource(({getCollection}) => {
         const sitemap = []
