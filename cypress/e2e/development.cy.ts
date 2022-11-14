@@ -34,7 +34,7 @@ describe('Content tests', () => {
 })
 
 describe('Error 404 tests', () => {
-  it('All pages from sitemap should not error 404 flag', () => {
+  it('All pages from sitemap should not contain an error 404 flag', () => {
     testAllPagesFromSitemap((path: string) => {
       cy.visit(path)
         // Wait to not cause abortion
@@ -44,7 +44,7 @@ describe('Error 404 tests', () => {
     }, hostPath, sitemapPath)
   })
 
-  it('Not existing pages should contain error marker', () => {
+  it('Not existing pages should not contain an error marker', () => {
     const testPaths: string[] = ['/404']
     for (let i = 0; i < 10; i++){
       testPaths.push(`/${randomstring(20)}`)
