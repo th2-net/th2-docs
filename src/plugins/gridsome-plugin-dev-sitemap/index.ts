@@ -1,12 +1,17 @@
 const fs = require('fs')
 
-module.exports = function (api) {
+type SitemapNode = {
+    path:string,
+    children?: SitemapNode[]
+}
+
+module.exports = function (api: any) {
     if (process.env.NODE_ENV === 'production') return
     const tree = require('../../../temp/pagesTrees.json')
     // List of all pages in development
-    api.loadSource(({getCollection}) => {
-        const sitemap = []
-        function getNodes(nodes = []){
+    api.loadSource(() => {
+        const sitemap: SitemapNode[] = []
+        function getNodes(nodes: SitemapNode[] = []){
             for (let node of nodes){
                 sitemap.push({
                     path: node.path
