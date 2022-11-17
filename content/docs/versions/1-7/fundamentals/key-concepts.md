@@ -99,5 +99,19 @@ Each individual _link_ is a simple declaration and can be identified by its name
 All _links_ are declared in a single custom resource (CR) of kind `Th2Link`.
 This custom resource is located in its dedicated folder, aptly named links, in the infra-schema.
 
+## Infra Schema
+_Infra-schema_ is an infra component that represents the th2 test environment that will be built, as well as, the design of the test environment infrastructure based on the business requirements.
+An _infra-schema_ can also be thought of as a set or collection of th2 entities that make up a single test environment. 
+
+However, each _infra-schema_ is actually a set of declarative manifests called custom resources (CR).
+The CRs are created for each module, core box, external box, dictionary, declared link, config-file required for the th2 test environment.  
+
+In a practical sense, the _infra-schema_ enables users to customize test environments by making modifications to CRs.
+The modifications include editing, adding or deleting the CRs in the _infra-schema_. 
+The user can create multiple _infra-schemas_ based on their needs.
+The custom _infra-schemas_ are stored as Git repository branches. 
+
+
+
 
 
