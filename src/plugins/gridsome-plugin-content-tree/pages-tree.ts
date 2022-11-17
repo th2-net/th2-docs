@@ -1,28 +1,29 @@
-const fs = require('fs')
+import * as fs from 'fs'
+import {PageReduced, TreeNode} from "./types";
 
-function constructPagesTree(pages){
-    const processedPages = pages
+function constructPagesTree(pages: PageReduced[]){
+    const processedPages: TreeNode[] = pages
         .map(page => ({...page, children: []}))
         .sort((a, b) => {
             if ((a?.weight || -100) < (b?.weight || -100)) return -1
             if ((a?.weight || -100) > (b?.weight || -100)) return 1
             return 0
         })
-    // Список секций верхнего уровня
+    // Higher level pages
     let sections = processedPages.filter(page => {
         const pathFolders = page.path.split('/')
         return pathFolders.length === 3
     })
-    function buildNextLevel(allPages, higherSections, level = 1){
-        // Находим все страницы на уровень ниже
+    function buildNextLevel(allPages: TreeNode[], higherSections: TreeNode[], level = 1){
+        // Find all lower level pages
         let lowerSections = allPages.filter(page => {
             const pathFolders = page.path.split('/')
             return pathFolders.length === (level + 1)
         })
-        // Проверяем, есть ли страницы на уровень ниже
+        // Check if lower level pages exist
         if (lowerSections.length === 0)
             return;
-        // Присваиваем дочерние страницы
+        // Bind children pages
         higherSections.forEach(section => {
             section.children = lowerSections.filter(lowerSection => {
                 return lowerSection.path.includes(section.path) &&
@@ -36,7 +37,7 @@ function constructPagesTree(pages){
     return sections
 }
 
-module.exports.savePagesTrees = function(pages) {
+export function savePagesTrees(pages: PageReduced[]) {
     const unitedTree = constructPagesTree(pages)
     if (!fs.readdirSync('./').includes('temp'))
         fs.mkdirSync('./temp')

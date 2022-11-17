@@ -12,8 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GITHUB_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
-      GITHUB_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout

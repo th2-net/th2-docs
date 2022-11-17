@@ -1,12 +1,16 @@
-const fs = require('fs')
+import * as fs from 'fs'
+import { RepositoryItem } from '../types/gridsome/collections/repositories';
 
-function getReleasesFeedRepos(repositories){
+export function getReleasesFeedRepos(repositories: RepositoryItem[]){
   const filteredRepos = repositories.filter((repo) => repo.releases?.length)
   // Sort - repos with newest releases are first
   const sortedRepos = filteredRepos.sort((a, b) => {
+    // TODO: update the algorithm
+    // @ts-ignore
     if (a.releases[0].published_at > b.releases[0].published_at  ) {
       return -1;
     }
+    // @ts-ignore
     if (a.releases[0].published_at < b.releases[0].published_at) {
       return 1;
     }
@@ -16,7 +20,7 @@ function getReleasesFeedRepos(repositories){
   return sortedRepos
 }
 
-function getReposFamiliesByTopics(repositories, allTopics = []) {
+export function getReposFamiliesByTopics(repositories: RepositoryItem[], allTopics: string[] = []) {
   const reposWithTopics = repositories.filter(repo => repo?.topics?.length)
   const GROUPS = ['th2-infra', 'th2-core', 'th2-check1', 'th2-act', 'th2-conn', 'th2-check2', 'th2-act-ui']
   const infoTopics = allTopics.filter(t => !GROUPS.includes(t))
@@ -24,24 +28,20 @@ function getReposFamiliesByTopics(repositories, allTopics = []) {
     return {
       family: group,
       repos: reposWithTopics
-          .filter(r => r.topics.includes(group))
+          .filter(r => r.topics.some(topic => topic.id === group))
           .map(r => {
-            r.custom_info = { info_topics: infoTopics.filter(t => r.topics.includes(t)) }
-            return r
+            return {
+              ...r,
+              custom_info: { info_topics: infoTopics.filter(t => r.topics.some(topic => topic.id === t)) }
+            }
           }
       )
     }
   })
 }
 
-function saveDashboardData(data){
+export function saveDashboardData(data: any){
   if (!fs.readdirSync('./').includes('temp'))
     fs.mkdirSync('./temp')
   fs.writeFileSync('./temp/dashboard.json', JSON.stringify(data, null, 2), "utf-8")
-}
-
-module.exports = {
-  getReleasesFeedRepos,
-  getReposFamiliesByTopics,
-  saveDashboardData
 }

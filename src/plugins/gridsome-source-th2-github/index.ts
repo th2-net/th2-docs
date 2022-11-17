@@ -1,25 +1,26 @@
-const {getRepoInfo, getAllTh2NetRepos, getRepoReleases} = require('./github')
-const cliProgress = require('cli-progress')
+import {getRepoInfo, getAllTh2NetRepos, getRepoReleases} from './github'
+import * as cliProgress from 'cli-progress'
 const progress = new cliProgress.SingleBar({  }, cliProgress.Presets.shades_classic)
 
-module.exports = function (api){
-    api.loadSource(async ({ getCollection, addCollection, store }) => {
+
+module.exports = function (api: any){
+    api.loadSource(async ({ getCollection, addCollection, store }: any) => {
         const repositoriesCollection = addCollection('Repository')
         const releasesCollection = addCollection('Release')
         const topicsCollection = addCollection('Topic')
         const docPagesCollection = getCollection('DocPage')
 
-        function addRepoToDatabase(repository, releases) {
+        function addRepoToDatabase(repository: any, releases: any) {
             for (const release of releases){
                 if (!releasesCollection.getNodeById(release.id))
                     releasesCollection.addNode(release)
             }
-            repository.releases = releases.map(r => store.createReference('Release', r.id))
+            repository.releases = releases.map((r: any) => store.createReference('Release', r.id))
             for (const topic of repository.topics) {
                 if (topicsCollection.getNodeById(topic))
                     topicsCollection.addNode({ id: topic, title: topic })
             }
-            repository.topics = repository.topics.map(t => store.createReference('Topic', t.id))
+            repository.topics = repository.topics.map((t: any) => store.createReference('Topic', t.id))
             if (!repositoriesCollection.getNodeById(repository.id))
                 repositoriesCollection.addNode(repository)
         }
@@ -30,7 +31,9 @@ module.exports = function (api){
         let count = 1
         for (const docPage of docPagesCollection._collection.data) {
             if (docPage.repo && docPage.repo_owner) {
-                const {repository, releases} = await getRepoInfo(docPage.repo_owner, docPage.repo)
+                const details = await getRepoInfo(docPage.repo_owner, docPage.repo)
+                if (!details) continue
+                const {repository, releases} = details
                 addRepoToDatabase(repository, releases)
                 docPage._githubRepository = store.createReference('Repository', repository.id)
                 docPage.internal.mimeType = 'text/markdown'

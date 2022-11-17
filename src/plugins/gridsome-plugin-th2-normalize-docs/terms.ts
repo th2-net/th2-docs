@@ -1,6 +1,6 @@
-const HTMLParser = require("node-html-parser")
+import * as HTMLParser from 'node-html-parser'
 
-module.exports.findTermsInDoc = function (md) {
+export function findTermsInDoc(md: string){
     const content = HTMLParser.parse(md)
     const termNodes = content.getElementsByTagName('term')
     const terms = termNodes
