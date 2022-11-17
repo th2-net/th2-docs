@@ -20,6 +20,14 @@ To deploy a box, a custom resource (CR) must be created. Each CR is a `yaml` fil
 The CR contains information such as Docker image and version, resources, pins, etc. 
 A set of boxes (in the form of CRs) is provided in infra-schema in a Git repository.
 
+## External Box
+
+_External box_ is an optional feature that allows users to run any th2 box runtime on a local machine like it is already a part of the Kubernetes cluster. 
+To enable this work mode, configure the custom resource to `extended-settings.externalBox.enabled:true` 
+This feature is very useful for temporarily running scripts for specific tasks (including testing activities). 
+External boxes can also be used to test and debug a new th2 box or run th2 boxes only when required.
+
+
 ## Module
 While a box is a particular instance in th2 implementation, a *module* is the functional unit within the th2 framework. 
 th2 *modules* are responsible for a wide range of functionalities associated with specific software testing actions, such as connecting to external systems, sending and receiving messages, performing rule-based checks.
@@ -30,6 +38,7 @@ For example, the [th2-conn-generic](https://github.com/th2-net/th2-conn-generic)
 
 In th2 implementation, a box functionally representing a *module* is defined through the `Th2Box` kind specified in its Custom Resource, as opposed to the `Th2CoreBox` kind reserved for th2 Core boxes.
 
+
 ## Core Box
 _Core boxes_ are th2-boxes that are essential for achieving the business needs of th2.
  Therefore, _core boxes_ are always present in every infra-schema and their custom resources are located in the folder labelled _core_. 
@@ -37,6 +46,7 @@ _Core boxes_ are th2-boxes that are essential for achieving the business needs o
 Another way to recognize a _core box_ is by the value of the `kind` field. A custom resource of a _core box_ has the following value: `kind:Th2CoreBox`. This is the norm for all core boxes except for [th2-estore](../../core/th2-estore) and [th2-mstore](../../core/th2-mstore). These two _core boxes_ have their own unique custom resource definition and therefore have unique `kind` values.
 
 Unlike modules, _core boxes_ are not customized and deployed as is.
+
 
 ## Message
 
@@ -63,4 +73,31 @@ All _events_ are sent via RabbitMQ to the [th2-event-store](https://github.com/t
 _Events_ are either stored as a single _event_ or as an _event_ batch.
 
 The saved _events_ are later extracted from the Cassandra and displayed in the th2 test report in a chronologically and hierarchically organized manner.
+
+## Dictionary
+A _dictionary_ is static data/document shared between components.
+It is present in an infra-schema as a custom resource of kind `Th2Dictionary`.
+When an infra-schema is rolled out, the _dictionary_ is converted to a Kubernetes config map (base 64 encoded). 
+
+A common use case of a _dictionary_ is defining the protocol specification used by the customer.
+Messages created by the user are cross-referenced against the _dictionary_ to verify that the required information and message structure is present.
+This ensures that the messages created by th2 are standardized and accepted by the customer’s gateway.
+
+## Pins
+A _pin_ is a point of connection to a box. _Pins_ are required to create channels of communication between boxes. A _pin_ can be used for synchronous and asynchronous messaging depending on its connection type.
+
+_Pins_ required by a module are declared in the module's custom resource by the user. Every declared _pin_ has a `name` and a `connection-type`. 
+
+## Links
+A _link_ is a connection between two th2 components.
+It can describe the directional communication between two pins or the relationship between a box and a dictionary.
+
+A th2 box can be linked to multiple boxes, dictionaries, or a combination of both.
+_Links_ allow th2 users to easily organize the intended relationships within their test environment.
+
+Each individual _link_ is a simple declaration and can be identified by its name.
+All _links_ are declared in a single custom resource (CR) of kind `Th2Link`.
+This custom resource is located in its dedicated folder, aptly named links, in the infra-schema.
+
+
 

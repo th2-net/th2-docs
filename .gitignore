@@ -14,3 +14,8 @@ content/docs/common/test.md
 .nuxt
 .graphqlconfig
 schema.graphql
+/static/sitemap.dev.json
+/cypress/downloads
+/cypress/screenshots
+/cypress/videos
+/cypress/results

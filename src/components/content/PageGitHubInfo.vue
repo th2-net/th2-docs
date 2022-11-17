@@ -29,7 +29,7 @@ import Vue from 'vue'
 export default Vue.extend({
   computed: {
     editPageLink(){
-      return `${this.$static.metadata.githubRepoLink}/blob/master/content/${this.$page.doc.fileInfo.path}`
+      return `${this.$static.metadata.githubRepoLink}/blob/master/content/docs/${this.$page.doc.fileInfo.path}`
     }
   }
 })
