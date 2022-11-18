@@ -19,3 +19,6 @@ schema.graphql
 /cypress/screenshots
 /cypress/videos
 /cypress/results
+/cypress/fixtures/sitemap.dev.json
+/cypress/fixtures/sitemap.prod.json
+/cypress/fixtures/sitemap.prod.local.json
