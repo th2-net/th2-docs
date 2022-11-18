@@ -13,36 +13,38 @@ describe('Check specific files', () => {
 })
 
 describe('Uncaught exceptions', () => {
-  it('Website pages should not contain JS errors', () => {
+  context('Website pages should not contain JS errors', () => {
     testAllPagesFromSitemap((path: string) => {
-      cy.visit(getLocalUrl(path))
-        // Let JavaScript start to catch possible errors
-        .wait(1000)
-    }, hostPath, sitemapPath)
+      it(`Page ${path} should not contain JS errors`, () => {
+        cy.visit(getLocalUrl(path))
+          // Let JavaScript start to catch possible errors
+          .wait(1000)
+      })
+    }, 'prod-local')
   })
 })
 
 describe('Content tests', () => {
-  it('Links should be correct', () => {
-    // Ignore JS errors
-    Cypress.on('uncaught:exception', (err, runnable) => {
-      // returning false here prevents Cypress from
-      // failing the test
-      return false
-    })
+  context('Links should be correct', () => {
     testAllPagesFromSitemap((url) => {
-      testLinksOnPage(getLocalUrl(url))
-    }, hostPath, sitemapPath)
+      it(`Link on page '${url}' should be correct`, () => {
+        // Ignore JS errors
+        Cypress.on('uncaught:exception', () => false)
+        testLinksOnPage(getLocalUrl(url))
+      })
+    }, 'prod-local')
   })
 })
 
 describe('Error 404 tests', () => {
-  it('All pages from sitemap should not contain error 404 flag', () => {
+  context('All pages from sitemap should not contain error 404 flag', () => {
     testAllPagesFromSitemap((path: string) => {
-      cy.visit(getLocalUrl(path))
-        .get('#error-404-flag')
-        .should('not.exist')
-    }, hostPath, sitemapPath)
+      it(`Page '${path}' should not contains error 404  flag`, () => {
+        cy.visit(getLocalUrl(path))
+          .get('#error-404-flag')
+          .should('not.exist')
+      })
+    }, 'prod-local')
   })
 
   it('/404/ page should return status code 200', () => {
