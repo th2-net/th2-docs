@@ -8,3 +8,6 @@ This section contains step-by-step instructions with prepared configurations for
 
 <!--more-->
 
+## Contents
+1. [Quick th2 setup](quick-setup/)
+2. [Chain Verification](chain-verification/)
