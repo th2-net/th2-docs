@@ -3,26 +3,12 @@ type SitemapNode = {
 }
 
 export function testAllPagesFromSitemap(testCallback: (pagePath: string) => unknown,
-                             hostPath: string = 'http://localhost:8080',
-                             sitemapPath: string = '/sitemap.dev.json') {
-  cy.request(hostPath + sitemapPath)
-    .then(response => {
-      if (sitemapPath.endsWith('.json')) {
-        const sitemap: SitemapNode[] = response.body
-        for (let sitemapNode of sitemap){
-          testCallback(hostPath + sitemapNode.path)
-        }
-      } else if (sitemapPath.endsWith('.xml')) {
-        const urls = Cypress.$(response.body)
-          .find("loc")
-          .toArray()
-          .map((el) => el.innerText)
-        for (let url of urls){
-          testCallback(url)
-        }
-      }
-
-    })
+                             sitemapType: 'dev' | 'prod' | 'prod-local') {
+  const sitemap: SitemapNode[] = sitemapType === "dev" ? require('../fixtures/sitemap.dev.json') :
+    sitemapType === "prod" ? require('../fixtures/sitemap.prod.json'): require('../fixtures/sitemap.prod.local.json')
+  for (let sitemapNode of sitemap){
+    testCallback(sitemapNode.path)
+  }
 }
 
 export function randomstring(length: number): string{
