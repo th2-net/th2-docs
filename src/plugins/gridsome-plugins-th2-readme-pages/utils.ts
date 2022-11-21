@@ -35,11 +35,17 @@ export async function getMarkdownFile(url: string){
 export function processParsedReadme(md: string, readmePath: string): string {
   const globalRepositoryLink: string = readmePath.replace('README.md', '')
   const allImageLinks = [...md.matchAll(/\!\[[^\[\]]*\]\([^\(\)]*\)/g)].map(match => match[0])
+  const allTagLikePlaceholders = [...md.matchAll(/\<(.*)\>/g)].map(match => match[0])
   let newMd = md//.replace(/^\#+/gm,'$1#')
   allImageLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
       newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
+    })
+  allTagLikePlaceholders
+    .filter(content => !content.includes('!--'))
+    .forEach(content => {
+      newMd = newMd.replace(content, content.replace('<', '{').replace('>', '}'))
     })
   return newMd
 }
