@@ -58,8 +58,7 @@
           <div><a :href="repo.html_url" target="_blank">GitHub repository</a></div>
           <div>Language: {{repo.language}}</div>
           <div class="my-2">{{repo.description}}</div>
-          <div>Last release: {{repo.releases[0].name}} (<time :datetime="repo.updated_at">{{timeSince(repo.releases[0].published_at)}}</time>)</div>
-          <div>Last updated <time :datetime="repo.updated_at">{{timeSince(repo.updated_at)}}</time></div>
+          <div>Last release: {{repo.releases[0].name}} (<time :datetime="repo.releases[0].published_at">{{timeSince(repo.releases[0].published_at)}}</time>)</div>
         </v-card-text>
       </v-card>
     </div>
