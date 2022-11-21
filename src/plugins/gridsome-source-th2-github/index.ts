@@ -17,7 +17,7 @@ module.exports = function (api: any){
             }
             repository.releases = releases.map((r: any) => store.createReference('Release', r.id))
             for (const topic of repository.topics) {
-                if (topicsCollection.getNodeById(topic))
+                if (!topicsCollection.getNodeById(topic))
                     topicsCollection.addNode({ id: topic, title: topic })
             }
             repository.topics = repository.topics.map((t: any) => store.createReference('Topic', t.id))
