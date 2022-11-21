@@ -8,7 +8,7 @@
         <v-tab v-for="groupTab in families" :key="groupTab.family" > {{groupTab.family}} </v-tab>
       </v-tabs>
       <v-tabs-items :value="familyTab1" style="max-height: 400px; overflow: auto">
-        <v-tab-item v-for="groupItem in families" :key="groupItem.family">
+        <v-tab-item v-for="groupItem in families" :key="groupItem.family" eager>
           <v-list>
             <v-list-item v-for="repo in groupItem.repos" :key="repo.id" :href="repo.html_url" target="_blank">
               <v-list-item-avatar>
