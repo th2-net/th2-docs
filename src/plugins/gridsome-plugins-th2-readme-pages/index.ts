@@ -15,10 +15,15 @@ module.exports = async function (api: any) {
       writeReadmeFile(doc.fileInfo.path, content)
     }
 
-    api.loadSource(async ({ getCollection, addCollection, store }: any) => {
-      // Merge cache collection into docs collection
-      const readmesCollection: DocumentsCollection = getCollection('ReadmePage')
-      console.log(readmesCollection._collection.data)
+
+    // Merge cache collection into docs collection
+    const readmesCollection: DocumentsCollection = getCollection('ReadmePage')
+    readmesCollection._collection.data.forEach((readme, i) => {
+      const index = docsCollection._collection.data.findIndex(doc => doc.fileInfo.path === readme.fileInfo.path)
+      if (index !== -1){
+        docsCollection._collection.data[index] = readme
+      }
+      readmesCollection._collection.data.splice(i, 1)
     })
   })
 }
