@@ -5,13 +5,12 @@ export function getReleasesFeedRepos(repositories: RepositoryItem[]){
   const filteredRepos = repositories.filter((repo) => repo.releases?.length)
   // Sort - repos with newest releases are first
   const sortedRepos = filteredRepos.sort((a, b) => {
-    // TODO: update the algorithm
-    // @ts-ignore
-    if (a.releases[0].published_at > b.releases[0].published_at  ) {
+    const aPublished = a.releases[0].published_at ?? new Date(0)
+    const bPublished = b.releases[0].published_at ?? new Date(0)
+    if (aPublished > bPublished) {
       return -1;
     }
-    // @ts-ignore
-    if (a.releases[0].published_at < b.releases[0].published_at) {
+    if (aPublished < bPublished) {
       return 1;
     }
     // a = b
