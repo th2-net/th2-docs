@@ -29,10 +29,10 @@ module.exports = function (api: any){
         console.time('load_repos_for_pages')
         progress.start(docPagesCollection._collection.data.length, 0)
         let count = 1
-        for (const docPage of docPagesCollection._collection.data) {
+        let promises = docPagesCollection._collection.data.map(async (docPage: any) => {
             if (docPage.repo && docPage.repo_owner) {
                 const details = await getRepoInfo(docPage.repo_owner, docPage.repo)
-                if (!details) continue
+                if (!details) return
                 const {repository, releases} = details
                 addRepoToDatabase(repository, releases)
                 docPage._githubRepository = store.createReference('Repository', repository.id)
@@ -44,7 +44,8 @@ module.exports = function (api: any){
                     docPagesCollection.updateNode(docPage)
             }
             progress.update(count++)
-        }
+        })
+        await Promise.all(promises)
         progress.stop()
         console.timeEnd('load_repos_for_pages')
 
@@ -55,11 +56,12 @@ module.exports = function (api: any){
             console.time('load_all_th2_repos')
             progress.start(repos.length, 0)
             count = 1
-            for (const repository of repos) {
+            promises = repos.map(async (repository) => {
                 const releases = await getRepoReleases(repository)
                 addRepoToDatabase(repository,releases)
                 progress.update(count++)
-            }
+            })
+            await Promise.all(promises)
             progress.stop()
             console.timeEnd('load_all_th2_repos')
         }
