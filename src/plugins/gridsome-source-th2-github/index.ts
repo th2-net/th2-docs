@@ -20,7 +20,7 @@ module.exports = function (api: any){
                 if (!topicsCollection.getNodeById(topic))
                     topicsCollection.addNode({ id: topic, title: topic })
             }
-            repository.topics = repository.topics.map((t: any) => store.createReference('Topic', t.id))
+            repository.topics = repository.topics.map((t: string) => store.createReference('Topic', t))
             if (!repositoriesCollection.getNodeById(repository.id))
                 repositoriesCollection.addNode(repository)
         }
