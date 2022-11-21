@@ -5,4 +5,10 @@ export type DocumentsCollection = GridsomeCollection<{
   path: string
   content: string
   readme?: string
+  fileInfo: {
+    extension: string
+    directory: string
+    path: string
+    name: string
+  }
 }>

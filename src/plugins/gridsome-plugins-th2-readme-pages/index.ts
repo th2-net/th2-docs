@@ -1,5 +1,7 @@
 const VueRemark = require('@gridsome/vue-remark')
+import * as fs from 'fs'
 import {DocumentsCollection} from "../types/gridsome/collections/documents";
+import {clearCache, readDoc, writeReadmeFile} from "./utils";
 
 module.exports = async function (api: any) {
   api.loadSource(async ({ getCollection, addCollection, store }: any) => {
@@ -7,11 +9,17 @@ module.exports = async function (api: any) {
     const docsToReplace = docsCollection._collection.data.filter(doc => !!doc.readme)
     console.log(docsToReplace)
 
+    clearCache()
+
+    for (let doc of docsToReplace){
+      writeReadmeFile(doc.fileInfo.path, readDoc(doc.fileInfo.path))
+    }
+
     new VueRemark(api, {
       ...VueRemark.defaultOptions(),
-      typeName: 'ReadmePage', // Required
-      baseDir: './content/.cache/readmes', // Where .md files are located
-      template: './src/templates/Documentation.vue', // Optional
+      typeName: 'ReadmePage',
+      baseDir: './content/.cache/readmes',
+      template: './src/templates/Documentation.vue',
       refs: {
         terms: {
           typeName: 'Term'
