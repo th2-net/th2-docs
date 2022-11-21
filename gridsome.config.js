@@ -68,6 +68,7 @@ module.exports = {
         ],
       }
     },
+    require('./src/plugins/gridsome-plugins-th2-readme-pages'),
       // Terms Nodes
     {
       use: '@gridsome/source-filesystem',
@@ -76,12 +77,12 @@ module.exports = {
         typeName: 'Term'
       }
     },
-      require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
-      require('./src/plugins/gridsome-source-th2-github'),
-      require('./src/plugins/gridsome-plugin-th2-check-content'),
-      require('./src/plugins/gridsome-plugin-th2-dashboard'),
-      require('./src/plugins/gridsome-plugin-content-tree'),
-      require('./src/plugins/gridsome-plugin-dev-sitemap')
+    require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
+    require('./src/plugins/gridsome-source-th2-github'),
+    require('./src/plugins/gridsome-plugin-th2-check-content'),
+    require('./src/plugins/gridsome-plugin-th2-dashboard'),
+    require('./src/plugins/gridsome-plugin-content-tree'),
+    require('./src/plugins/gridsome-plugin-dev-sitemap')
   ],
   templates: {
     Th2Version: [
