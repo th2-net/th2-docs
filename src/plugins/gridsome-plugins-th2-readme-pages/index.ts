@@ -1,7 +1,7 @@
 const VueRemark = require('@gridsome/vue-remark')
 import * as fs from 'fs'
 import {DocumentsCollection} from "../types/gridsome/collections/documents";
-import {clearCache, readDoc, writeReadmeFile} from "./utils";
+import {clearCache, readDoc, writeReadmeFile, getMarkdownFile} from "./utils";
 
 module.exports = async function (api: any) {
   api.loadSource(async ({ getCollection, addCollection, store }: any) => {
@@ -12,7 +12,9 @@ module.exports = async function (api: any) {
     clearCache()
 
     for (let doc of docsToReplace){
-      writeReadmeFile(doc.fileInfo.path, readDoc(doc.fileInfo.path))
+      if (!doc.readme) continue
+      const content = `${readDoc(doc.fileInfo.path)}\n${await getMarkdownFile(doc.readme)}`
+      writeReadmeFile(doc.fileInfo.path, content)
     }
 
     new VueRemark(api, {

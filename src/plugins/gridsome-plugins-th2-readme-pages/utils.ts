@@ -1,4 +1,5 @@
 import * as fs from 'fs'
+import axios from 'axios'
 
 export function createFolder(path: string){
   fs.mkdirSync(path)
@@ -20,4 +21,13 @@ export function writeReadmeFile(path: string, content: string){
   const dirPath = filePath.join('/')
   fs.mkdirSync('content/.cache/readmes/' + dirPath, { recursive: true })
   fs.writeFileSync('content/.cache/readmes/' + path, content, { encoding: "utf-8" })
+}
+
+export async function getMarkdownFile(url: string){
+  try {
+    const { data: content } = await axios.get(url)
+    return content
+  } catch (e){
+
+  }
 }

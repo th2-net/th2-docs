@@ -1,4 +1,4 @@
 ---
 title: README
-readme: https://github.com/th2-net/th2-check1/blob/master/README.md
+readme: https://raw.githubusercontent.com/th2-net/th2-check1/master/README.md
 ---
