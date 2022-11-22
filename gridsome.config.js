@@ -9,7 +9,7 @@ const remarkPlugins = [
   require('./src/plugins/remark-buetify-tables'),
   require('remark-prism'),
   require('remark-emoji'),
-  require('./src/plugins/remark-copy-code-btn'),
+  //require('./src/plugins/remark-copy-code-btn'),
 ]
 const vueRemarkCommonOptions = {
   template: './src/templates/Documentation.vue', // Optional
@@ -73,6 +73,7 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
+    require('./src/plugins/gridsome-plugins-th2-readme-pages'),
     {
       use: '@gridsome/vue-remark',
       options: {
@@ -82,7 +83,6 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
-    require('./src/plugins/gridsome-plugins-th2-readme-pages'),
       // Terms Nodes
     {
       use: '@gridsome/source-filesystem',
