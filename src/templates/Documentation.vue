@@ -52,6 +52,11 @@ query DocPage ($id: ID!) {
       releases {id, name, tag_name, body, published_at}
     }
   }
+  readmeDoc: readmePage(id: $id) {
+    title
+    headings {anchor, value, depth}
+    fileInfo{path}
+  }
 }
 </page-query>
 
@@ -67,7 +72,7 @@ import CopyCodeBtn from "../components/content/CopyCodeBtn";
 export default {
 	name: "Documentation",
   metaInfo() {
-    const page = this.$page.doc
+    const page = this.doc
     return this.getMetaInfo({
       title: page?.title,
       description: page?.description,
@@ -78,15 +83,10 @@ export default {
 	components: {
 		PageContent, GitHubRepoInfo
 	},
-  data() {
-    return {
-      variable: 123
-    }
-  },
 	mixins: [seoMixin],
   computed: {
     doc() {
-      return this.$page.doc
+      return this.$page.doc || this.$page.readmeDoc
     }
   }
 }

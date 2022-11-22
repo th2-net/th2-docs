@@ -28,7 +28,8 @@ module.exports = function (api: any) {
             docPage.internal.mimeType = 'text/markdown'
             docPage.internal.content = docPage.content
             if (process.env.NODE_ENV === 'production')
-                docPages.removeNode(docPage.id)
+                try { docPages?.removeNode(docPage.id) }
+                catch(e) {}
             const path = docPage.path.replace('/versions', '')
             docPages.addNode({...docPage, path, id: path, $uid: path})
         }
@@ -36,7 +37,10 @@ module.exports = function (api: any) {
             docPage.internal.mimeType = 'text/markdown'
             docPage.internal.content = docPage.content
             if (process.env.NODE_ENV === 'production')
-                docPages.removeNode(docPage.id)
+                try {
+                    docPages?.removeNode(docPage.id)
+                } catch(e){}
+                
             for (const version of versions){
                 const path = docPage.path.replace('/common', `/${version}`)
                 docPages.addNode({...docPage, path, id: path, $uid: path})

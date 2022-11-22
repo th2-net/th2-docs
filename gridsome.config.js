@@ -77,7 +77,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'ReadmePage',
-        baseDir: './content/.cache/readmes',
+        baseDir: './content/.cache/readmes/versions',
         template: './src/templates/Documentation.vue',
         ...vueRemarkCommonOptions
       }

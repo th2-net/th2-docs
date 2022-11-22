@@ -28,8 +28,11 @@ import Vue from 'vue'
 
 export default Vue.extend({
   computed: {
+    doc(){
+      return this.$page.doc || this.$page.readmeDoc
+    },
     editPageLink(){
-      return `${this.$static.metadata.githubRepoLink}/blob/master/content/docs/${this.$page.doc.fileInfo.path}`
+      return `${this.$static.metadata.githubRepoLink}/blob/master/content/docs/${this.doc.fileInfo.path}`
     }
   }
 })

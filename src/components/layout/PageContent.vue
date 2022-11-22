@@ -48,7 +48,7 @@ export default {
   },
 	computed: {
 		headings(){
-			return this.$page.doc.headings
+			return this.$page?.doc?.headings || this.$page?.readmeDoc?.headings
 		}
 	},
   methods:{

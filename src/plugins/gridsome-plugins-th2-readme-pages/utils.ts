@@ -45,9 +45,9 @@ export function processParsedReadme(md: string, readmePath: string): string {
       newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
     })
   allTagLikePlaceholders
-    .filter(content => !content.includes('!--'))
+    .filter(content => !content.includes('!--') && content !== '<br>')
     .forEach(content => {
-      newMd = newMd.replace(content, content.replace('<', `<span v-html='"&#60;`).replace('>', `&#62;"'/>`))
+      newMd = newMd.replace(content, content.replace('<', `<span v-pre v-text='"&#60;`).replace('>', `&#62;"'/>`))
     })
   return newMd
 }
