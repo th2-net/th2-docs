@@ -7,6 +7,7 @@
 const remarkPlugins = [
   require("@akebifiky/remark-simple-plantuml"),
   require('./src/plugins/remark-buetify-tables'),
+  require('./src/plugins/remark-default-code-snippet-lang'),
   require('remark-prism'),
   require('remark-emoji'),
   //require('./src/plugins/remark-copy-code-btn'),
