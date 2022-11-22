@@ -44,15 +44,17 @@ export function processParsedReadme(md: string, readmePath: string): string {
       newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${globalRepositoryLink}`))
       newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
     })
+  let nextPart: string = newMd
   allTagLikePlaceholders
     .filter(content => !content.includes('!--') && content !== '<br>')
-    .filter(content => {
-      const [contentBefore] = newMd.split(content)
-      const snippetCount = contentBefore.split('\`\`\`').length - 1
-      return snippetCount % 2 === 1
-    })
     .forEach(content => {
-      newMd = newMd.replace(content, content.replace('<', `<`).replace('>', `\\>`))
+      const splittedContent = nextPart.split(content)
+      splittedContent.shift()
+      const contentAfter = splittedContent.join(content)
+      const snippetCount = contentAfter.split('\`\`\`').length - 1
+      nextPart = contentAfter
+      if (snippetCount % 2 !== 0) return
+      newMd = newMd.replace(content + contentAfter, content.replace(content, content.replace('<', `<`).replace('>', `\\>`)) + contentAfter)
     })
   return newMd
 }
