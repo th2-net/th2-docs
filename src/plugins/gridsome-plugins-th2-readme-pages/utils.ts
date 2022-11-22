@@ -36,7 +36,8 @@ export function processParsedReadme(md: string, readmePath: string): string {
   const globalRepositoryLink: string = readmePath.replace('README.md', '')
   const allRelativeLinks = [...md.matchAll(/\[[^\[\]]*\]\([\w-\.\/]+\)/g)].map(match => match[0])
   const allTagLikePlaceholders = [...md.matchAll(/(\<[\w-\.]+\>)/g)].map(match => match[0])
-  let newMd = md//.replace(/^\#+/gm,'$1#')
+  const allCodeSnippets = [...md.matchAll(/^\`\`\`/gm)].map(match => match[0])
+  let newMd = md.replace(/^\`\`\`/gm, '\n```\n')//.replace(/^\#+/gm,'$1#')
   allRelativeLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
@@ -44,10 +45,11 @@ export function processParsedReadme(md: string, readmePath: string): string {
       newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${globalRepositoryLink}`))
       newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
     })
+  // FIXME: html like placeholders are cause errors in development mode only. To turn off check of non matching html tags
   allTagLikePlaceholders
     .filter(content => !content.includes('!--') && content !== '<br>')
     .forEach(content => {
-      newMd = newMd.replace(content, content.replace('<', `<span v-pre v-text='"&#60;`).replace('>', `&#62;"'/>`))
+      //newMd = newMd.replace(content, content.replace('<', `<`).replace('>', `>`))
     })
   return newMd
 }
