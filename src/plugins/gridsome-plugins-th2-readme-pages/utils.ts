@@ -33,16 +33,29 @@ export async function getMarkdownFile(url: string){
 }
 
 export function processParsedReadme(md: string, readmePath: string): string {
-  const globalRepositoryLink: string = readmePath.replace('README.md', '')
+  const splittedPath = readmePath.split('/')
+  splittedPath.pop()
+  const rawFolderLink: string = splittedPath.join('/')
+  const folderLink: string = splittedPath.join('/')
+    .replace('/master', '/tree/master')
+    .replace('raw.githubusercontent.com', 'github.com')
+  const fileLink: string = splittedPath.join('/')
+    .replace('/master', '/blob/master')
+    .replace('raw.githubusercontent.com', 'github.com')
   const allRelativeLinks = [...md.matchAll(/\[[^\[\]]*\]\([\w-\.\/]+\)/g)].map(match => match[0])
   const allTagLikePlaceholders = [...md.matchAll(/(\<[\w-\.]+\>)/g)].map(match => match[0])
   let newMd = md.replace(/^\`\`\`/gm, '\n```\n')//.replace(/^\#+/gm,'$1#')
   allRelativeLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
-      console.log(link)
-      newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${globalRepositoryLink}`))
-      newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${globalRepositoryLink}`))
+      // TODO: process upper level relative links
+      if (link.split('/').at(-1)?.includes('.')){
+        newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${fileLink}`))
+        newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${fileLink}/`))
+      } else {
+        newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${folderLink}`))
+        newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${folderLink}/`))
+      }
     })
   let nextPart: string = newMd
   allTagLikePlaceholders
