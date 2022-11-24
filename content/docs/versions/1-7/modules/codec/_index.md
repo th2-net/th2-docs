@@ -379,7 +379,7 @@ spec:
 ```
 #### Connectivity links
 Functionally, **codec** is a regular th2 box that communicates with other boxes via pins and links. 
-To configure the connections, use a template on the [Links](../../infrastructure/th2-infra-schema/links#boxes-links) page.
+To configure the connections, use a template on the [Links](../../infrastructure/th2-infra-schema/links/#boxes-links) page.
 
 
 
