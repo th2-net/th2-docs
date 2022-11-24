@@ -1,0 +1,4 @@
+---
+title: README
+readme: https://raw.githubusercontent.com/th2-net/th2-codec/master/README.md
+---
