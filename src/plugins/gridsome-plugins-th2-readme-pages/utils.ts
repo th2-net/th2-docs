@@ -42,13 +42,14 @@ export function processParsedReadme(md: string, readmePath: string): string {
   const fileLink: string = splittedPath.join('/')
     .replace('/master', '/blob/master')
     .replace('raw.githubusercontent.com', 'github.com')
-  const allRelativeLinks = [...md.matchAll(/\[[^\[\]]*\]\([\w-\.\/]+\)/g)].map(match => match[0])
+  const allRelativeLinks = [...md.matchAll(/\[[^\[\]]*\]\([\w-\.\/\"\s]+\)/g)].map(match => match[0])
   const allTagLikePlaceholders = [...md.matchAll(/(\<[\w-\.]+\>)/g)].map(match => match[0])
   let newMd = md.replace(/^\`\`\`/gm, '\n```\n')//.replace(/^\#+/gm,'$1#')
   allRelativeLinks
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
       // TODO: process upper level relative links
+      // FIXME: process raw image files
       if (link.split('/').at(-1)?.includes('.')){
         newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${fileLink}`))
         newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${fileLink}/`))
