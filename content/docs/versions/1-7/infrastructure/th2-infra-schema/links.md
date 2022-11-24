@@ -80,7 +80,9 @@ spec:
 ```
 ### MQ Router
 
-MQ links are described in the `router-mq` section of the link `.yaml` file. When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the `to` section. The message flow between the pins should be from `publish` to `subscribe`. 
+MQ links are described in the `router-mq` section of the link `.yaml` file. 
+When using MQ links, you should keep in mind that the pins that are marked with the `publish` attribute must be specified in the `from` section, and those marked with `subscribe` (or not marked with either) must be specified in the `to` section. 
+The message flow between the pins should be from `publish` to `subscribe`. 
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
