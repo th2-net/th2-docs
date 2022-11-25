@@ -1,5 +1,7 @@
 <template>
 	<v-select class="my-3" outlined dense
+						label="Version"
+						v-if="versions.length"
 						v-model="versionNow"
 						@change="onVersionChange"
 						:items="versions">
