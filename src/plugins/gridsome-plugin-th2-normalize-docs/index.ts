@@ -1,8 +1,5 @@
 import {findTermsInDoc} from './terms'
 import {markdownToTxt} from 'markdown-to-txt'
-import {getDocumentedTh2Versions} from './th2-versions'
-
-const versions = getDocumentedTh2Versions()
 
 module.exports = function (api: any) {
     // Update pages metadata
@@ -17,42 +14,6 @@ module.exports = function (api: any) {
         if (node.internal.typeName === 'Term') {
             node.id = node.title
             return node
-        }
-    })
-
-    // Move common pages to every version
-    api.loadSource(({getCollection}: any) => {
-        // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-        const docPages = getCollection('DocPage')
-        for (const docPage of docPages._collection.data.filter((page: any) => page.path.startsWith('/versions'))) {
-            docPage.internal.mimeType = 'text/markdown'
-            docPage.internal.content = docPage.content
-            if (process.env.NODE_ENV === 'production')
-                try { docPages?.removeNode(docPage.id) }
-                catch(e) {}
-            const path = docPage.path.replace('/versions', '')
-            docPages.addNode({...docPage, path, id: path, $uid: path})
-        }
-        for (const docPage of docPages._collection.data.filter((page: any) => page.path.startsWith('/common'))) {
-            docPage.internal.mimeType = 'text/markdown'
-            docPage.internal.content = docPage.content
-            if (process.env.NODE_ENV === 'production')
-                try {
-                    docPages?.removeNode(docPage.id)
-                } catch(e){}
-                
-            for (const version of versions){
-                const path = docPage.path.replace('/common', `/${version}`)
-                docPages.addNode({...docPage, path, id: path, $uid: path})
-            }
-        }
-    })
-
-    // Add th2 versions
-    api.loadSource(({addCollection}:any) => {
-        const versionsCollection = addCollection('Th2Version')
-        for (const version of getDocumentedTh2Versions()){
-            versionsCollection.addNode({ folder: version })
         }
     })
 }
