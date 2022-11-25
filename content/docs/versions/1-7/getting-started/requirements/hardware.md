@@ -3,6 +3,8 @@ tree-title: Hardware
 weight: 4
 ---
 
+import RequirementsCalculatorApp from '~/components/apps/RequirementsCalculatorApp.vue'
+
 # Recommended hardware
 
 ## Sample hardware configurations
