@@ -32,7 +32,7 @@ Figure 1. Associations with Checkpoint class.
 
 After receiving a `CheckpointRequest` from the **act** methods or directly from the script,
 **check1** will locate the last message in all queues, note the sequence number and timestamps 
-and send it to the **act** component via `CheckPointResponse` .
+and send it to the **act** component via `CheckPointResponse`.
 
 ![](./img/checkpoint_path.png "Figure 2.Checkpoint path")
 

@@ -2,11 +2,11 @@
 weight: 6
 read_before:
   - title:  Install th2
-    href: ./install-th2
+    href: .././install-th2/
     icon: mdi-tune-vertical
 schema_link:
-  - title: There should be the link to th2-infra-schema
-    href: ''
+  - title: th2-infra-schema
+    href: '../../infrastructure/th2-infra-schema/'
     icon: mdi-graph
 ---
 
@@ -32,7 +32,8 @@ Now you can run your test scripts or any software, that simulates activity of re
 ## Persistent Volume for read components
 
 If you would like to include **read** components into your configuration, you also have to set up a dedicated PersistentVolume for the **read** log directory.
-PersistentVolume mapped to `/opt/components` directory is already created during the installation. Now you need to create a PersistentVolumeClaim. PVC example can be found in [`example-values/persistence/`](https://github.com/th2-net/th2-infra/tree/v1.7.3/example-values/persistence).
+PersistentVolume mapped to `/opt/components` directory is already created during the installation. Now you need to create a PersistentVolumeClaim. 
+PVC example can be found in [`example-values/persistence/`](https://github.com/th2-net/th2-infra/tree/v1.7.3/example-values/persistence).
 
 * create PVC:
 ```shell
@@ -45,6 +46,6 @@ Details for **read-log ** [README.md](https://github.com/th2-net/th2-read-log#co
 
 <notice info>
 
-Sometimes it is [needed](../requirements/software#tester-box) to install additional software to run external boxes and scripts.
+Sometimes it is [needed](../requirements/software/#tester-box) to install additional software to run external boxes and scripts.
 
 </notice>

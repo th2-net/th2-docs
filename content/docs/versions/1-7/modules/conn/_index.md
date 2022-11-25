@@ -55,7 +55,8 @@ It means that the component can be used for negative testing as it provides an a
 
 ### Templates
 
-**conn** repositories with the `template` in their name are the templates of boxes. You can add custom logic into these boxes. 
+**conn** repositories with the `template` in their name are the templates of boxes. 
+You can add custom logic into these boxes. 
 
 |Repository|Protocol(s)|Custom Logic|
 |----------|-----------|------------|

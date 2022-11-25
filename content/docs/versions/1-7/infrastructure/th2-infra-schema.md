@@ -58,7 +58,7 @@ The real differences from usual manifests are in the `spec` field.
 You can find more information in the GitHub repository of the needed box.
 
 `pins` are some kind of ports, that used for interaction with other components. 
-More details on [pins](pins) and [links](links) can be found in corresponding documentation sections.
+More details on [pins](pins/) and [links](links/) can be found in corresponding documentation sections.
 
 `extended-settings` defines low level configuration of the box (e.g. hardware limits).
 
@@ -87,7 +87,7 @@ extended-settings:
 `dictionaries` folder contains manifests of `Th2Dictionary` kind. 
 It contains `data` field, that you can fill with any static data you want.
 
-If you want to use dictionary in the box, you should create a [dictionary link](links).
+If you want to use dictionary in the box, you should create a [dictionary link](links/).
 
 ```yaml
 apiVersion: th2.exactpro.com/v1
@@ -103,7 +103,7 @@ spec:
 
 `links` folder contains manifests for `Th2Link` kind. 
 It is an entity for connecting pins. 
-A full guide is available on the [Links](links) page.
+A full guide is available on the [Links](links/) page.
 
 ```yaml
 apiVersion: th2.exactpro.com/v1

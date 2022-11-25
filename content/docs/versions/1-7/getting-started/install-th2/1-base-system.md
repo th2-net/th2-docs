@@ -3,14 +3,14 @@ weight: 0
 read_before:
   - title: th2 software requirements
     icon: mdi-alert-circle-outline
-    href: ../../../getting-started/requirements/software
+    href: ../../../getting-started/requirements/software/
 continue_learning:
   - title: Publish infra-schema
-    href: ./../2-infra-schema
+    href: ./../2-infra-schema/
 use_cases_link:
   - title: th2 use cases
     icon: mdi-cog
-    href: ../../requirements/hardware
+    href: ../../requirements/hardware/
 ---
 
 # 1. Set up the environment
@@ -19,13 +19,17 @@ use_cases_link:
 
 th2 is running over Kubernetes and Cassandra clusters, which should be installed to use them as a platform for th2.
 
-Kubernetes is needed as an environment underpinning the idea of th2 as a microservices framework. It provides flexibility for any component of th2 to be created, updated or deleted without impacting the entire solution.
+Kubernetes is needed as an environment underpinning the idea of th2 as a microservices framework. 
+It provides flexibility for any component of th2 to be created, updated or deleted without impacting the entire solution.
 
-Cassandra plays a role of data storage for th2. It is a high performance NoSQL distributed database. So the storage is quite flexible for user needs.
+Cassandra plays a role of data storage for th2. It is a high performance NoSQL distributed database. 
+So the storage is quite flexible for user needs.
 
 ## Common tools
 
-Regardless of how you are going to run the cluster, you need tools to interact with it. Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. It can also be useful for possible debugging.
+Regardless of how you are going to run the cluster, you need tools to interact with it. 
+Interaction with Cassandra and Kubernetes is needed for the process of the th2 configuration. 
+It can also be useful for possible debugging.
 
 | Tool    | Version         |
 | ------- | --------------- |
@@ -40,7 +44,7 @@ You can find some th2 use cases with provided machines listing.
 
 One machine can combine several types listed here.
 
-You can choose either a full setup described in this section, or a [quick setup](./../../../cookbook/quick-setup) for demo purposes. 
+You can choose either a full setup described in this section, or a [quick setup](./../../../cookbook/quick-setup/) for demo purposes. 
 
 
 ## th2 node
