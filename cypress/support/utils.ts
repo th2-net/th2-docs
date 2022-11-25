@@ -33,6 +33,10 @@ export function testLinksOnPage(url: string){
   cy.get('a')
     .each(link => {
       const href: string = link.prop('href')
+      if (href.startsWith('mailto') || href.startsWith('tel')) return
+      expect(
+        href.startsWith('http') || href.split('#')[0].endsWith('/'),
+        `[${href}] Relative link should end with '/'`).to.be.eq(true)
       // We can't check links which are not leading to http requests
       // LinkedIn server returns status 999 for some reason
       // YouTube produces a lot of new links
