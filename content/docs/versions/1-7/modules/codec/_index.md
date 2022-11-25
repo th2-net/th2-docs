@@ -221,13 +221,13 @@ Codec never mixes messages from the _stream_ and the _general_ pins.
 
 <notice info>
 
-SEE ALSO: [stream and general pins description](/1-7/infrastructure/th2-infra-schema/pins#stream-and-general-codec-pins) 
+SEE ALSO: [stream and general pins description](/1-7/infrastructure/th2-infra-schema/pins/#stream-and-general-codec-pins) 
 
 </notice>
 
 Pins are a part of the main th2 concept. 
 They describe what are the inputs and outputs of a box. 
-You can read more about them [here](../infrastructure/th2-infra-schema/pins).
+You can read more about them [here](../../infrastructure/th2-infra-schema/pins/).
 
 Every **codec** operation is associated with 2 pins - `subscribe` and `publish`. 
 The first one is used to receive messages to decode/encode, while the second one is used to send decoded/encoded messages further. 
@@ -370,8 +370,7 @@ metadata:
   name: dictionary-links
 spec:
   dictionaries-relation:
-
- - name: codec-fix-sell-dictionary
+  - name: codec-fix-sell-dictionary
     box: codec-fix-sell
     dictionary:
       name: fix-sell
@@ -400,7 +399,7 @@ metadata:
 spec:
   boxes-relation:
     router-mq:
-- name: provider-to-codec-fix-sell
+    - name: provider-to-codec-fix-sell
       from:
         box: rpt-data-provider
         pin: to_codec-fix-sell
