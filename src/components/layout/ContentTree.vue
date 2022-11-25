@@ -2,13 +2,7 @@
 	<aside class="pt-5 content-tree-panel">
 		<div class="sticky-tree px-3 ml-n3">
 			<h3 class="mb-3">Content</h3>
-			<v-select class="my-3" outlined dense
-								v-model="versionNow"
-								@change="onVersionChange"
-								return-object
-								:items="allVersions" item-text="number">
-
-			</v-select>
+			<VersionSwitcher />
 			<div class="py-2">
 				<g-link exact to="/" class="main-section"
 									 :class="{'nuxt-link-exact-active': '/' === $route.path}">
@@ -51,10 +45,11 @@
 
 <script>
 import pagesTrees from '../../../temp/pagesTrees.json'
-import {mapMutations} from "vuex";
+import VersionSwitcher from "../content/VersionSwitcher";
 
 export default {
   name: "ContentTree",
+	components: {VersionSwitcher},
   data(){
     return {
 			pagesTrees,
@@ -65,9 +60,6 @@ export default {
     pagesTree(){
       return this.pagesTrees || []
     },
-		allVersions(){
-			return ['1.7']
-		},
 		allPaths(){
 			if (!this.pagesTrees) return []
 			const paths = []
@@ -84,17 +76,7 @@ export default {
       return this.allPaths
         .filter(path => this.$route.path.startsWith(path))
     }
-  },
-	methods: {
-    ...mapMutations(['setCurrentTh2Versions']),
-		onVersionChange(event){
-			// TODO: implement new versioning logic
-		}
-	},
-	created() {
-		// TODO: implement new versioning logic
-		this.versionNow = '1.7'
-	}
+  }
 
 }
 </script>

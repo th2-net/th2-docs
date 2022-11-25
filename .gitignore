@@ -10,7 +10,7 @@ dist
 .env.*
 .idea
 temp
-content/docs/common/test.md
+content/docs/test.md
 .nuxt
 .graphqlconfig
 schema.graphql
