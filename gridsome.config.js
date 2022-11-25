@@ -10,7 +10,8 @@ const remarkPlugins = [
   require('./src/plugins/remark-default-code-snippet-lang'),
   require('remark-prism'),
   require('remark-emoji'),
-  //require('./src/plugins/remark-copy-code-btn'),
+  require('./src/plugins/remark-copy-code-btn'),
+  require('./src/plugins/remark-versioned-block')
 ]
 const vueRemarkCommonOptions = {
   template: './src/templates/Documentation.vue', // Optional
