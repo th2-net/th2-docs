@@ -55,7 +55,7 @@ export default {
   name: "GitHubRepoInfo",
   computed: {
     doc() {
-      return this.$page.doc
+      return this.$page?.doc || this.$page?.readmeDoc
     },
     repoInfo() {
       return this.doc._githubRepository

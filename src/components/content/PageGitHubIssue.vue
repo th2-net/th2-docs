@@ -37,9 +37,12 @@ query {
 <script>
 export default {
   computed: {
+    doc(){
+      return this.$page.doc || this.$page.readmeDoc
+    },
     createIssueLink(){
-      const title = `One thing is unclear after reading "${this.$page.doc.title}" article`
-      const body = `I've read ["${this.$page.doc.title}" article](${this.$static.metadata.githubRepoLink}/blob/master/content/${this.$page.doc.fileInfo.path}) and there is one problem.`
+      const title = `One thing is unclear after reading "${this.doc.title}" article`
+      const body = `I've read ["${this.doc.title}" article](${this.$static.metadata.githubRepoLink}/blob/master/content/${this.doc.fileInfo.path}) and there is one problem.`
       const assignees = `d0rich`
       const labels = `by-reader`
       return `${this.$static.metadata.githubRepoLink}/issues/new?title=${title}&body=${body}&assignees=${assignees}&labels=${labels}`

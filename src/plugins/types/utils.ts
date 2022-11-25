@@ -7,4 +7,5 @@ export type GridsomeCollection<ItemType> = {
       data: (ItemType & {internal: GraphInternal})[]
   }
   getNodeById: (id: string | number) => ItemType | null
+  removeNode: (id: string | number) => void
 }
