@@ -49,8 +49,17 @@ export function processParsedReadme(md: string, readmePath: string): string {
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
       // TODO: process upper level relative links
-      // FIXME: process raw image files
-      if (link.split('/').at(-1)?.includes('.')){
+      const lastUrlSection = link.split('/').at(-1)
+      if (
+        lastUrlSection?.includes('.png') ||
+        lastUrlSection?.includes('.svg') ||
+        lastUrlSection?.includes('.jpg') ||
+        lastUrlSection?.includes('.jpeg') ||
+        lastUrlSection?.includes('.gif')
+      ){
+        newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${rawFolderLink}`))
+        newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${rawFolderLink}/`))
+      }else if (lastUrlSection?.includes('.')){
         newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${fileLink}`))
         newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${fileLink}/`))
       } else {
