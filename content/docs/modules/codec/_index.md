@@ -221,7 +221,7 @@ Codec never mixes messages from the _stream_ and the _general_ pins.
 
 <notice info>
 
-SEE ALSO: [stream and general pins description](/1-7/infrastructure/th2-infra-schema/pins/#stream-and-general-codec-pins) 
+SEE ALSO: [stream and general pins description](/infrastructure/th2-infra-schema/pins/#stream-and-general-codec-pins) 
 
 </notice>
 

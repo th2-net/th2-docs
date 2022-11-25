@@ -63,10 +63,10 @@ export default {
   },
   computed: {
     pagesTree(){
-      return this.pagesTrees.find(versionTree => versionTree.title === this.versionNow)?.children || []
+      return this.pagesTrees || []
     },
 		allVersions(){
-			return pagesTrees.map(node => node.title)
+			return ['1.7']
 		},
 		allPaths(){
 			if (!this.pagesTrees) return []
@@ -88,16 +88,12 @@ export default {
 	methods: {
     ...mapMutations(['setCurrentTh2Versions']),
 		onVersionChange(event){
-			this.setCurrentTh2Versions({
-        title: this.versionNow,
-        path: this.pagesTrees.find(versionTree => versionTree.title === this.versionNow)?.path
-      })
+			// TODO: implement new versioning logic
 		}
 	},
 	created() {
-		this.versionNow = this.pagesTrees
-			.find(versionTree => this.$route.path.startsWith(versionTree.path))
-			?.title || '1.7'
+		// TODO: implement new versioning logic
+		this.versionNow = '1.7'
 	}
 
 }

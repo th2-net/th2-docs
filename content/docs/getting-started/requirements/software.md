@@ -5,7 +5,7 @@ weight: 10
 
 # Software requirements
 
-This table contains the list of Technologies and their versions which are required to work with th2. Installation instructions are given in [Installation](/1-7/getting-started/install-th2/1-base-system/) section. 
+This table contains the list of Technologies and their versions which are required to work with th2. Installation instructions are given in [Installation](/getting-started/install-th2/1-base-system/) section. 
 
 ## th2 node
 

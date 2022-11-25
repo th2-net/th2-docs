@@ -24,13 +24,11 @@ module.exports = (api: any) => {
                     weight: page.weight
                 }
             })
-        const dashboardPages: PageReduced[] = getCollection('Th2Version')
-            ._collection.data
-            .map((version: Th2Version) => ({
-                title: 'Dashboard',
-                path: `/${version.folder}/fundamentals/th2-net-on-github/dashboard/`,
-                weight: -1000
-            }))
+        const dashboardPages: PageReduced[] = [{
+          path: '/fundamentals/th2-net-on-github/dashboard/',
+          weight: 0,
+          title: 'Dashboard'
+        }]
 
         savePagesTrees([...docPages, ...readmePages, ...dashboardPages])
     })
