@@ -1,14 +1,7 @@
 <template>
 	<aside class="pt-5 content-tree-panel">
 		<div class="sticky-tree px-3 ml-n3">
-			<h3 class="mb-3">Content</h3>
-			<v-select class="my-3" outlined dense
-								v-model="versionNow"
-								@change="onVersionChange"
-								return-object
-								:items="allVersions" item-text="number">
-
-			</v-select>
+			<VersionSwitcher />
 			<div class="py-2">
 				<g-link exact to="/" class="main-section"
 									 :class="{'nuxt-link-exact-active': '/' === $route.path}">
@@ -51,10 +44,11 @@
 
 <script>
 import pagesTrees from '../../../temp/pagesTrees.json'
-import {mapMutations} from "vuex";
+import VersionSwitcher from "../content/VersionSwitcher";
 
 export default {
   name: "ContentTree",
+	components: {VersionSwitcher},
   data(){
     return {
 			pagesTrees,
@@ -63,11 +57,8 @@ export default {
   },
   computed: {
     pagesTree(){
-      return this.pagesTrees.find(versionTree => versionTree.title === this.versionNow)?.children || []
+      return this.pagesTrees || []
     },
-		allVersions(){
-			return pagesTrees.map(node => node.title)
-		},
 		allPaths(){
 			if (!this.pagesTrees) return []
 			const paths = []
@@ -84,21 +75,7 @@ export default {
       return this.allPaths
         .filter(path => this.$route.path.startsWith(path))
     }
-  },
-	methods: {
-    ...mapMutations(['setCurrentTh2Versions']),
-		onVersionChange(event){
-			this.setCurrentTh2Versions({
-        title: this.versionNow,
-        path: this.pagesTrees.find(versionTree => versionTree.title === this.versionNow)?.path
-      })
-		}
-	},
-	created() {
-		this.versionNow = this.pagesTrees
-			.find(versionTree => this.$route.path.startsWith(versionTree.path))
-			?.title || '1.7'
-	}
+  }
 
 }
 </script>

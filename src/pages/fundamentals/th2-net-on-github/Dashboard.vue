@@ -67,9 +67,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {RepoResponse, dashboardInfoFromJSON, RepoGroupByFamily, DashboardResponse} from "../utils/dashboard-info";
-import {timeFormatterMixin} from "../utils/timeFormatterMixin";
-const dashboardInfo = require('../../temp/dashboard.json')
+import {RepoResponse, dashboardInfoFromJSON, RepoGroupByFamily, DashboardResponse} from "../../../utils/dashboard-info";
+import {timeFormatterMixin} from "../../../utils/timeFormatterMixin";
+const dashboardInfo = require('../../../../temp/dashboard.json')
 
 export default Vue.extend({
   name: "dashboard",

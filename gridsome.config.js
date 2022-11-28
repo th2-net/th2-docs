@@ -10,7 +10,8 @@ const remarkPlugins = [
   require('./src/plugins/remark-default-code-snippet-lang'),
   require('remark-prism'),
   require('remark-emoji'),
-  //require('./src/plugins/remark-copy-code-btn'),
+  require('./src/plugins/remark-copy-code-btn'),
+  require('./src/plugins/remark-versioned-block')
 ]
 const vueRemarkCommonOptions = {
   template: './src/templates/Documentation.vue', // Optional
@@ -79,7 +80,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'ReadmePage',
-        baseDir: './content/.cache/readmes/versions',
+        baseDir: './content/.cache/readmes',
         template: './src/templates/Documentation.vue',
         ...vueRemarkCommonOptions
       }
@@ -98,14 +99,5 @@ module.exports = {
     require('./src/plugins/gridsome-plugin-th2-dashboard'),
     require('./src/plugins/gridsome-plugin-content-tree'),
     require('./src/plugins/gridsome-plugin-dev-sitemap')
-  ],
-  templates: {
-    Th2Version: [
-      {
-        name: 'Modules Dashboard',
-        path: '/:folder/fundamentals/th2-net-on-github/dashboard',
-        component: './src/templates/Dashboard.vue'
-      }
-    ]
-  }
+  ]
 }

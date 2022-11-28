@@ -24,7 +24,7 @@ Developer information about [th2-infra](https://github.com/th2-net/th2-infra/) c
 - Release: Understand the Release Cycle of th2-infra.
 
 Learn more about th2 infrastructure:
-- [th2-infra](../infrastructure/th2-infra-repository/)
-- [th2-infra-schema](../infrastructure/th2-infra-schema/)
-- [th2-infra components](../infrastructure/infra-components/)
+- [th2-infra](/th2-infra-repository/)
+- [th2-infra-schema](/th2-infra-schema/)
+- [th2-infra components](/infra-components/)
 
