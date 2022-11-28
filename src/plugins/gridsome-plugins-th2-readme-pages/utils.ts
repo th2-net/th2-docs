@@ -6,7 +6,8 @@ export function createFolder(path: string){
 }
 
 export function clearCache(){
-  fs.rmSync('content/.cache', {recursive: true})
+  if (fs.existsSync('content/.cache'))
+    fs.rmSync('content/.cache', {recursive: true})
   createFolder('content/.cache')
   createFolder('content/.cache/readmes')
 }

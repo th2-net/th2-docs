@@ -4,114 +4,59 @@ weight: 20
 
 # Key concepts
 
-## Box
-Across this documentation resource, the term *box* can refer to two different things: 
-1) a virtual or physical machine performing a particular function (e.g. *operator box* or *tester box*), and 
-2) an instance of a th2 module deployed within a th2 cluster as a microservice. 
+- **_Box_**:
+In the context of th2 implementation, a microservice.
+This microservice is either an instance of a th2 module or th2 core component deployed within the th2 cluster to perform a particular function.
 
-*th2 box* is a box in the 2nd sense – a th2 component that represents some function or service of th2.
-Across the th2 ecosystem, the source code of each microservice (or box) is typically written in Java or Kotlin, but can be written in any language as per business needs.
-The source code for each open-source module can be found in GitHub: among several repositories comprising a family, there is typically one that is used as is or after customization to deploy a corresponding box (or several boxes) in a th2 cluster.
-Boxes in th2 can refer to implementations of either Core (framework-level th2 functionalities) or Module (specific software testing–related functionalities) instances. 
+- **_External Box_**: 
+An optional work mode that allows you to run any th2 module runtime on your local machine like it is already a part of the th2 cluster.
 
-Each box exists as a docker image in a registry and is deployed as a Docker container. 
-Management of the deployed th2 boxes is orchestrated using the combination of infra components and Kubernetes.
-To deploy a box, a custom resource (CR) must be created. Each CR is a `yaml` file that describes the state of the box after deployment.
-The CR contains information such as Docker image and version, resources, pins, etc. 
-A set of boxes (in the form of CRs) is provided in infra-schema in a Git repository.
+- **_Module_**:
+Any functional unit of th2, the functionality of which can be extended/adapted to meet a wide range of testing needs.
+Unlike th2 Core components, a _module_ can be represented by multiple instances (boxes) running within the same th2 environment.
 
-## External Box
+- **_th2 Core_**:
+_Core_ functional units of th2, the functionality of which is predefined and remains the same in all th2 test environments.
+In contrast to modules, there can be only a single instance (box) of a _th2 core_ functional unit within one th2 environment.
 
-_External box_ is an optional feature that allows users to run any th2 box runtime on a local machine like it is already a part of the Kubernetes cluster. 
-To enable this work mode, configure the custom resource to `extended-settings.externalBox.enabled:true` 
-This feature is very useful for temporarily running scripts for specific tasks (including testing activities). 
-External boxes can also be used to test and debug a new th2 box or run th2 boxes only when required.
+- **_Pin_**:
+A user-declared point of connection to a box.
+A box sends or receives messages via pins.
+
+- **_Link_**:
+A user-declared connection between two th2 components.
+A link determines the origin and the destination of messages during communication.
+
+- **_Dictionary_**:
+Static data shared between th2 components.
+
+- **_Infra components_**:
+The four components that make up the th2 infrastructure and automate the deployment of the test environment infrastructure: infra-schema, infra-mgr, infra-operator, infra-editor.
+
+- **_th2-infra_**: 
+_th2-infra_ is a repository with documentation about how to work with th2 infrastructure.
+This repository has source code for helm charts which is installed with Helm CLI.
+
+- **_infra-Schema_**:
+ A custom test environment designed by the user and implemented as a Git repository of declarative manifests called [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+
+- **_Event_**:
+Any noteworthy action performed by a th2 component during test execution.
+Examples of events: creating checkpoints, sending messages, verification of messages.
+
+- **_Message_**: 
+A unit of information used for data transfer between th2 and the system under test as well as for communication between th2 components.
+
+- **_th2 Report UI_**:
+An interactive web app that displays stored test execution data (events and messages) and allows for a wide range of data analytics capabilities. 
+
+- **_Script_**:
+An executable test scenario triggering events in th2. 
+Test actions, including sending and receiving messages, generating data, or performing various checks, are initiated within the _script_ with the help of th2 libraries.
+In th2, the _script_ is run as an external box. 
 
 
-## Module
-While a box is a particular instance in th2 implementation, a *module* is the functional unit within the th2 framework. 
-th2 *modules* are responsible for a wide range of functionalities associated with specific software testing actions, such as connecting to external systems, sending and receiving messages, performing rule-based checks.
-On GitHub, a typical *module* is represented by a family of [th2-net](https://github.com/th2-net) repositories containing source code for a th2 box to be deployed as is, as well as libraries and templates to support creation of custom th2 boxes of a certain functional type.
 
-In case of customization, a generic Docker image of a specific box is used as a basis for implementing extensions on top of the off-the-shelf functionality of the component (e.g. extensions related to different protocols).
-For example, the [th2-conn-generic](https://github.com/th2-net/th2-conn-generic) repository contains an implementation of the FIX protocol connectivity extension on top of the basic [th2-conn](https://github.com/th2-net/th2-conn) functionality.
-
-In th2 implementation, a box functionally representing a *module* is defined through the `Th2Box` kind specified in its Custom Resource, as opposed to the `Th2CoreBox` kind reserved for th2 Core boxes.
-
-
-## Core Box
-_Core boxes_ are th2-boxes that are essential for achieving the business needs of th2.
- Therefore, _core boxes_ are always present in every infra-schema and their custom resources are located in the folder labelled _core_. 
-
-Another way to recognize a _core box_ is by the value of the `kind` field. A custom resource of a _core box_ has the following value: `kind:Th2CoreBox`. 
-This is the norm for all core boxes except for [th2-estore](../../core/th2-estore/) and [th2-mstore](../../core/th2-mstore/). 
-These two _core boxes_ have their own unique custom resource definition and therefore have unique `kind` values.
-
-Unlike modules, _core boxes_ are not customized and deployed as is.
-
-
-## Message
-
-In th2, a *Message* is the entity that is used to transfer information to and from a system under test (SUT). 
-For example, if an exchange is being tested, order details are sent to the SUT by a *message*, and the SUT’s execution report is received via a *message*.  
-
-A *message* is an instance of the class `Message`. 
-This class is a data structure that contains attributes such as `parent_event_id`, `messageMetaData`, and `fields`.
-*Messages* are encoded and decoded by the th2 components according to the protocol used and the information in the `messageMetaData` and the `fields` should be set up according to the specification of the protocol.
-The protocol used is determined by the system that is being tested.
-Consequently, a *message* exists as raw *message* (encoded) of class `RawMessage`, and a parsed *message* (decoded) of class `Message`. 
-
-Within the th2 cluster, *messages* are transferred between the th2 components by the message broker RabbitMQ. 
-All raw *messages* are saved to the th2 data lake using RabbitMQ, the component [th2-message-store](https://github.com/th2-net/th2-mstore), and [Cradle API](https://github.com/th2-net/cradleapi).
-All *messages* produced are associated with their subsequent test event and can be viewed in the final th2 test report.
-
-## Event
-
-_Event_ in th2 is any noteworthy test action performed by th2 components during a test run.
-
-_Events_ have a hierarchy: an _event_ can relate to another as a parent, or child.
-_Events_ created in different components are not restricted from relating to one another.
-All _events_ are sent via RabbitMQ to the [th2-event-store](https://github.com/th2-net/th2-estore) component which then saves them in th2’s data lake Cassandra via [Cradle API](https://github.com/th2-net/cradleapi).
-_Events_ are either stored as a single _event_ or as an _event_ batch.
-
-The saved _events_ are later extracted from the Cassandra and displayed in the th2 test report in a chronologically and hierarchically organized manner.
-
-## Dictionary
-A _dictionary_ is static data/document shared between components.
-It is present in an infra-schema as a custom resource of kind `Th2Dictionary`.
-When an infra-schema is rolled out, the _dictionary_ is converted to a Kubernetes config map (base 64 encoded). 
-
-A common use case of a _dictionary_ is defining the protocol specification used by the customer.
-Messages created by the user are cross-referenced against the _dictionary_ to verify that the required information and message structure is present.
-This ensures that the messages created by th2 are standardized and accepted by the customer’s gateway.
-
-## Pins
-A _pin_ is a point of connection to a box. _Pins_ are required to create channels of communication between boxes. A _pin_ can be used for synchronous and asynchronous messaging depending on its connection type.
-
-_Pins_ required by a module are declared in the module's custom resource by the user. Every declared _pin_ has a `name` and a `connection-type`. 
-
-## Links
-A _link_ is a connection between two th2 components.
-It can describe the directional communication between two pins or the relationship between a box and a dictionary.
-
-A th2 box can be linked to multiple boxes, dictionaries, or a combination of both.
-_Links_ allow th2 users to easily organize the intended relationships within their test environment.
-
-Each individual _link_ is a simple declaration and can be identified by its name.
-All _links_ are declared in a single custom resource (CR) of kind `Th2Link`.
-This custom resource is located in its dedicated folder, aptly named links, in the infra-schema.
-
-## Infra Schema
-_Infra-schema_ is an infra component that represents the th2 test environment that will be built, as well as, the design of the test environment infrastructure based on the business requirements.
-An _infra-schema_ can also be thought of as a set or collection of th2 entities that make up a single test environment. 
-
-However, each _infra-schema_ is actually a set of declarative manifests called custom resources (CR).
-The CRs are created for each module, core box, external box, dictionary, declared link, config-file required for the th2 test environment.  
-
-In a practical sense, the _infra-schema_ enables users to customize test environments by making modifications to CRs.
-The modifications include editing, adding or deleting the CRs in the _infra-schema_. 
-The user can create multiple _infra-schemas_ based on their needs.
-The custom _infra-schemas_ are stored as Git repository branches. 
 
 
 
