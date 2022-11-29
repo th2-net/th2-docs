@@ -85,14 +85,6 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
-      // Terms Nodes
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: './content/terms/**/*.md',
-        typeName: 'Term'
-      }
-    },
     require('./src/plugins/gridsome/plugin/th2-terms'),
     require('./src/plugins/gridsome/source/th2-github'),
     require('./src/plugins/gridsome/plugin/th2-check-content'),

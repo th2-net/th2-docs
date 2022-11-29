@@ -1,7 +1,14 @@
 import {findTermsInDoc} from './terms'
 import {markdownToTxt} from 'markdown-to-txt'
+const FilesystemSource = require('@gridsome/source-filesystem')
 
 module.exports = function (api: any) {
+    // Parse Terms definitions
+    new FilesystemSource(api, {
+        ...FilesystemSource.defaultOptions(),
+        path: './content/terms/**/*.md',
+        typeName: 'Term'
+    })
     // Update pages metadata
     api.onCreateNode((node: any) => {
         if (node.internal.typeName === 'DocPage') {
