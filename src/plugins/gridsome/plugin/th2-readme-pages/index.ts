@@ -1,4 +1,4 @@
-import {DocumentsCollection} from "../types/gridsome/collections/documents";
+import {DocumentsCollection} from "../../../types/gridsome/collections/documents";
 import {clearCache, readDoc, writeReadmeFile, getMarkdownFile, processParsedReadme} from "./utils";
 
 module.exports = async function (api: any) {

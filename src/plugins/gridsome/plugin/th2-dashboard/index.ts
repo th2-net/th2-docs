@@ -1,7 +1,7 @@
 import {saveDashboardData, getReleasesFeedRepos, getReposFamiliesByTopics} from './dashboard'
-import { RepositoriesCollection } from '../types/gridsome/collections/repositories'
-import { ReleasesCollection } from '../types/gridsome/collections/releases'
-import { TopicsCollection } from '../types/gridsome/collections/topics'
+import { RepositoriesCollection } from '../../../types/gridsome/collections/repositories'
+import { ReleasesCollection } from '../../../types/gridsome/collections/releases'
+import { TopicsCollection } from '../../../types/gridsome/collections/topics'
 
 module.exports = function (api: any) {
     api.loadSource(({ getCollection }: any) => {

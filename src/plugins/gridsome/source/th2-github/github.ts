@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit'
-import {ReducedRepositoryRaw, RepositoriesListRaw} from "../types/github/api";
+import {ReducedRepositoryRaw, RepositoriesListRaw} from "../../../types/github/api";
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN

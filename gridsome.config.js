@@ -6,12 +6,12 @@
 
 const remarkPlugins = [
   require("@akebifiky/remark-simple-plantuml"),
-  require('./src/plugins/remark-buetify-tables'),
-  require('./src/plugins/remark-default-code-snippet-lang'),
+  require('./src/plugins/remark/buetify-tables'),
+  require('./src/plugins/remark/default-code-snippet-lang'),
   require('remark-prism'),
   require('remark-emoji'),
-  require('./src/plugins/remark-copy-code-btn'),
-  require('./src/plugins/remark-versioned-block')
+  require('./src/plugins/remark/copy-code-btn'),
+  require('./src/plugins/remark/versioned-block')
 ]
 const vueRemarkCommonOptions = {
   template: './src/templates/Documentation.vue', // Optional
@@ -75,7 +75,7 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
-    require('./src/plugins/gridsome-plugins-th2-readme-pages'),
+    require('./src/plugins/gridsome/plugin/th2-readme-pages'),
     {
       use: '@gridsome/vue-remark',
       options: {
@@ -93,11 +93,11 @@ module.exports = {
         typeName: 'Term'
       }
     },
-    require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
-    require('./src/plugins/gridsome-source-th2-github'),
-    require('./src/plugins/gridsome-plugin-th2-check-content'),
-    require('./src/plugins/gridsome-plugin-th2-dashboard'),
-    require('./src/plugins/gridsome-plugin-content-tree'),
-    require('./src/plugins/gridsome-plugin-dev-sitemap')
+    require('./src/plugins/gridsome/plugin/th2-normalize-docs'),
+    require('./src/plugins/gridsome/source/th2-github'),
+    require('./src/plugins/gridsome/plugin/th2-check-content'),
+    require('./src/plugins/gridsome/plugin/th2-dashboard'),
+    require('./src/plugins/gridsome/plugin/content-tree'),
+    require('./src/plugins/gridsome/plugin/dev-sitemap')
   ]
 }
