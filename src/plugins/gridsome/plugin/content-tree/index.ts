@@ -20,8 +20,8 @@ module.exports = (api: any) => {
     sectionsCollection.addNode({
       title: 'Explore',
       contentTreeJSON: JSON.stringify(constructPagesTree([
-        {path: '/modules', title: 'Modules', weight: 0},
-        {path: '/dashboard', title: 'GitHub Dashboard', weight: 5},
+        {path: '/explore/modules', title: 'Modules', weight: 0},
+        {path: '/explore/dashboard', title: 'GitHub Dashboard', weight: 5},
       ]))
     })
   })

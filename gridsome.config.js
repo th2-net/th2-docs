@@ -80,6 +80,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'GitOpsPage', // Required
+        pathPrefix: '/deploy',
         baseDir: './content/deploy', // Where .md files are located
         template: './src/templates/Documentation.vue', // Optional
         ...vueRemarkCommonOptions
@@ -89,6 +90,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'TestingPage', // Required
+        pathPrefix: '/test',
         baseDir: './content/test', // Where .md files are located
         template: './src/templates/Documentation.vue', // Optional
         ...vueRemarkCommonOptions
