@@ -24,7 +24,7 @@
     --info-header-bg-color: #006193;
     --info-bg-color: #e4ffff;
     /* content tree */
-    --content-tree__link: #8b8b8b;
+    --content-tree__link: #575757;
     --content-tree__link--hover: #424242;
     --content-tree__link--main: #424242;
     --content-tree__link--active: var(--link-color);

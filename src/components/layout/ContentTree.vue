@@ -10,32 +10,15 @@
 
 			</v-select>
 			<div class="py-2">
-				<g-link exact to="/" class="main-section"
-									 :class="{'nuxt-link-exact-active': '/' === $route.path}">
-					<div class="tree__path-name">
-						<span> Home </span>
-					</div>
-				</g-link>
-			</div>
-			<div v-for="link in pagesTree" :key="link.path"
-					 class="py-2">
-				<g-link exact :to="link.path" class="main-section"
-									 :class="{'nuxt-link-exact-active': link.path === $route.path}">
-					<div class="tree__path-name">
-            <span>
-              {{link.title}}
-            </span>
-					</div>
-				</g-link>
-				<v-treeview v-if="link.children.length"
-										class="ml-n3"
-										:items="link.children"
+			<v-treeview 	class="ml-n3" dense
+										:items="pagesTree"
 										item-key="path"
 										item-text="title"
 										:open="activeRoute"
-										dense>
+                    open-on-click
+										>
 					<template v-slot:label="{ item }">
-						<g-link exact :to="item.path"
+						<g-link exact :to="item.children.length ? null : item.path"
 											 :class="{'nuxt-link-exact-active': item.path === $route.path}">
 							<div class="tree__path-name">
 								{{item.title}}
@@ -43,7 +26,7 @@
 						</g-link>
 					</template>
 				</v-treeview>
-			</div>
+      </div>
 		</div>
 	</aside>
 
