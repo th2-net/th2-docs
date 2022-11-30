@@ -1,7 +1,20 @@
 import * as fs from 'fs'
-import {PageReduced, TreeNode} from "./types";
+import {PageRaw, PageReduced, TreeNode} from "./types";
+import {GridsomeCollection} from "../../../types/utils";
 
-function constructPagesTree(pages: PageReduced[]){
+export function getPagesData(collection: GridsomeCollection<PageRaw>): PageReduced[]{
+    return collection
+        ._collection.data
+        .map((page: PageRaw) => {
+              return {
+                  title: page['tree-title'] || page.tree_title || page.title,
+                  path: page.path,
+                  weight: page.weight ?? -100
+              }
+        })
+}
+
+export function constructPagesTree(pages: PageReduced[]): TreeNode[]{
     const processedPages: TreeNode[] = pages
         .map(page => ({...page, children: []}))
         .sort((a, b) => {
