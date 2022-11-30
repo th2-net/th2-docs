@@ -1,10 +1,10 @@
 # Check content plugin
 
-Plugin checks content for forbidden words or collocations and drops build process if some exists.
+The plugin checks the content for forbidden words or collocations and terminates the build process, if any are found.
 
 ## Requirements
 
-Environment variables with words or collocations should be listed through ",".
+Environment variables with forbidden words or collocations should be provided as a comma-separated list:
 
 ```
 FORBIDDEN=badword1, badword2
