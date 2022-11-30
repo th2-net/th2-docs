@@ -14,7 +14,7 @@ related:
 
 ## Overview
 
-**mstore** (th2 message store) is an important th2 component responsible for storing raw messages into <term term="Cradle">Cradle</term>. 
+**mstore** (th2 message store) is one of <term term="Core">Core</term> components of th2. It is responsible for storing raw messages into the <term term="Cradle">Cradle</term> datalake based on Cassandra database. 
 This component has a pin for listening to messages via MQ.
 
 As a part of th2-core, **mstore** is responsible for saving and displaying data. 
