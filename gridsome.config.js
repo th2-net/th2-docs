@@ -66,11 +66,30 @@ module.exports = {
       use: 'gridsome-plugin-typescript',
     },
       // Documentation Nodes
+      // TODO: Delete DocPage when migration is completed
     {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'DocPage', // Required
         baseDir: './content/docs', // Where .md files are located
+        template: './src/templates/Documentation.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'GitOpsPage', // Required
+        baseDir: './content/deploy', // Where .md files are located
+        template: './src/templates/Documentation.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'TestingPage', // Required
+        baseDir: './content/test', // Where .md files are located
         template: './src/templates/Documentation.vue', // Optional
         ...vueRemarkCommonOptions
       }
