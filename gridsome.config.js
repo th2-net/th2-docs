@@ -6,11 +6,12 @@
 
 const remarkPlugins = [
   require("@akebifiky/remark-simple-plantuml"),
-  require('./src/plugins/remark-buetify-tables'),
-  require('./src/plugins/remark-default-code-snippet-lang'),
+  require('./src/plugins/remark/buetify-tables'),
+  require('./src/plugins/remark/default-code-snippet-lang'),
   require('remark-prism'),
   require('remark-emoji'),
-  //require('./src/plugins/remark-copy-code-btn'),
+  require('./src/plugins/remark/copy-code-btn'),
+  require('./src/plugins/remark/versioned-block')
 ]
 const vueRemarkCommonOptions = {
   template: './src/templates/Documentation.vue', // Optional
@@ -74,38 +75,21 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
-    require('./src/plugins/gridsome-plugins-th2-readme-pages'),
+    require('./src/plugins/gridsome/plugin/th2-readme-pages'),
     {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'ReadmePage',
-        baseDir: './content/.cache/readmes/versions',
+        baseDir: './content/.cache/readmes',
         template: './src/templates/Documentation.vue',
         ...vueRemarkCommonOptions
       }
     },
-      // Terms Nodes
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: './content/terms/**/*.md',
-        typeName: 'Term'
-      }
-    },
-    require('./src/plugins/gridsome-plugin-th2-normalize-docs'),
-    require('./src/plugins/gridsome-source-th2-github'),
-    require('./src/plugins/gridsome-plugin-th2-check-content'),
-    require('./src/plugins/gridsome-plugin-th2-dashboard'),
-    require('./src/plugins/gridsome-plugin-content-tree'),
-    require('./src/plugins/gridsome-plugin-dev-sitemap')
-  ],
-  templates: {
-    Th2Version: [
-      {
-        name: 'Modules Dashboard',
-        path: '/:folder/fundamentals/th2-net-on-github/dashboard',
-        component: './src/templates/Dashboard.vue'
-      }
-    ]
-  }
+    require('./src/plugins/gridsome/plugin/th2-terms'),
+    require('./src/plugins/gridsome/source/th2-github'),
+    require('./src/plugins/gridsome/plugin/th2-check-content'),
+    require('./src/plugins/gridsome/plugin/th2-dashboard'),
+    require('./src/plugins/gridsome/plugin/content-tree'),
+    require('./src/plugins/gridsome/plugin/dev-sitemap')
+  ]
 }
