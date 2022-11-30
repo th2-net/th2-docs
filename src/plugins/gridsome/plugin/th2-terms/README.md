@@ -1,6 +1,6 @@
 # Terms plugin
 
-This plugin creates collection of terms parsed from `content/terms` and links terms with pages when they are used.
+This plugin creates a collection of terms parsed from `content/terms` and, whenever the terms are used, links them to pages.
 
 ## Created structure
 
