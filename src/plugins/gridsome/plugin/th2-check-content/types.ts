@@ -1,8 +1,8 @@
-import { DocumentsCollection } from "../types/gridsome/collections/documents"
-import { TermsCollection } from "../types/gridsome/collections/terms"
-import { RepositoriesCollection } from "../types/gridsome/collections/repositories"
-import { ReleasesCollection } from "../types/gridsome/collections/releases"
-import { TopicsCollection } from "../types/gridsome/collections/topics"
+import { DocumentsCollection } from "../../../types/gridsome/collections/documents"
+import { TermsCollection } from "../../../types/gridsome/collections/terms"
+import { RepositoriesCollection } from "../../../types/gridsome/collections/repositories"
+import { ReleasesCollection } from "../../../types/gridsome/collections/releases"
+import { TopicsCollection } from "../../../types/gridsome/collections/topics"
 
 export type ContentToCheck = {
     nodeMeta: {

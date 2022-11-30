@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { RepositoryItem } from '../types/gridsome/collections/repositories';
+import { RepositoryItem } from '../../../types/gridsome/collections/repositories';
 
 export function getReleasesFeedRepos(repositories: RepositoryItem[]){
   const filteredRepos = repositories.filter((repo) => repo.releases?.length)
