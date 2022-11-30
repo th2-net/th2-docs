@@ -92,6 +92,9 @@ html {
 #app{
 	font-family: "Open Sans", sans-serif;
 }
+.theme--dark.v-application{
+	background: #1d1d1d !important;
+}
 .v-app-bar.v-app-bar--fixed.top-layout, .top-layout{
 	z-index: 100 ;
 }
