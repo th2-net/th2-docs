@@ -56,7 +56,7 @@
 </template>
 <script>
 import Recommendations from "../components/global/Recommendations";
-import {seoMixin} from "../utils/seoMixin";
+import {seoMixin} from "../utils/seo";
 import {mapState} from "vuex";
 export default {
   metaInfo(){

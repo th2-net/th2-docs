@@ -5,7 +5,7 @@
 <!--        <h1 v-if="!doc.inner_title">{{ doc.title }}</h1>-->
 <!--        <h1 v-else>{{ doc.inner_title }}</h1>-->
         <GitHubRepoInfo />
-				<recommendations v-if="!doc._githubRepository && doc.read_before && doc.read_before.length"
+				<recommendations v-if="doc.read_before && doc.read_before.length"
                          class="my-4" :items="doc.read_before" >
 					<div>Before you start take a look at:</div>
 				</recommendations>
@@ -18,7 +18,7 @@
 									 :prev-icon="doc.prev ? doc.prev.icon : ''"
 									 :next-icon="doc.next ? doc.next.icon : ''">
 				</prev-next>
-				<recommendations v-if="!doc._githubRepository && doc.continue_learning && doc.continue_learning.length"
+				<recommendations v-if="doc.continue_learning && doc.continue_learning.length"
                          class="my-4" :items="doc.continue_learning" >
 					<div>Continue learning:</div>
 				</recommendations>
@@ -61,19 +61,18 @@ query DocPage ($id: ID!) {
 </page-query>
 
 <script>
+// TODO: Convert to TypeScript
 // TODO: Move all images for docs to content folder and change links to relative
 // TODO: Edit descriptions, titles and headers to get the correct ones
 import '~/assets/doc-article.scss'
 import PageContent from "../components/layout/PageContent";
-import {seoMixin} from "../utils/seoMixin";
+import {getMetaInfo} from "../utils/seo";
 import GitHubRepoInfo from "../components/content/GitHubRepoInfo";
-import Vue from "vue";
-import CopyCodeBtn from "../components/content/CopyCodeBtn";
 export default {
 	name: "Documentation",
   metaInfo() {
     const page = this.doc
-    return this.getMetaInfo({
+    return getMetaInfo({
       title: page?.title,
       description: page?.description,
       keywords: page?.keywords,
@@ -83,7 +82,6 @@ export default {
 	components: {
 		PageContent, GitHubRepoInfo
 	},
-	mixins: [seoMixin],
   computed: {
     doc() {
       return this.$page.doc || this.$page.readmeDoc
