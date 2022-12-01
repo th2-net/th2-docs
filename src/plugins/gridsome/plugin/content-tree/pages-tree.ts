@@ -2,6 +2,13 @@ import * as fs from 'fs'
 import {PageRaw, PageReduced, TreeNode} from "./types";
 import {GridsomeCollection} from "../../../types/utils";
 
+export function getFirstNonIndexPage(tree: TreeNode[]): TreeNode{
+    if (tree.length === 0)
+        throw new Error('Tree should contain ar least 1 item')
+    if (tree[0].children.length === 0)
+        return tree[0]
+    else return getFirstNonIndexPage(tree[0].children)
+}
 export function getPagesData(collection: GridsomeCollection<PageRaw>): PageReduced[]{
     return collection
         ._collection.data

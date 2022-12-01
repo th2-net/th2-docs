@@ -6,9 +6,16 @@
 		class="top-layout"
 	>
 		<div class="header-container">
-			<g-link to="/" class="logo-container">
+			<g-link to="/" class="logo-container" v-ripple>
 				<img :src="logo" />
 			</g-link>
+			<v-btn v-for="section in sections" :key="section.id"
+						 :to="section.firstPage"
+						 text dark large
+						 :class="{ 'v-btn--active': isSectionActive(section.basePath) }"
+						 class="text-capitalize elevation-0 mx-3">
+				{{section.title}}
+			</v-btn>
 			<div class="header-btns">
 				<v-btn dark :href="$static.metadata.githubRepoLink" target="_blank" icon>
 					<v-icon>mdi-github</v-icon>
@@ -27,6 +34,16 @@
 query {
 	metadata {
 		githubRepoLink
+	}
+	allSection {
+		edges {
+			node {
+				id
+				title
+				firstPage
+				basePath
+			}
+		}
 	}
 }
 </static-query>
@@ -48,6 +65,18 @@ export default {
 	data(){
 		return{
 			logo
+		}
+	},
+	computed: {
+		sections(){
+			return this.$static.allSection.edges
+				.map(e => e.node)
+				.reverse()
+		}
+	},
+	methods: {
+		isSectionActive(basePath){
+			return this.$route.path.startsWith(basePath)
 		}
 	}
 }

@@ -21,11 +21,12 @@
 import '~/assets/layout.scss'
 import '~/assets/scrollbar.scss'
 import Header from "../components/layout/Header.vue";
+import Footer from "../components/layout/Footer.vue";
 import ContentTree from "~/components/layout/ContentTree";
 export default {
 	name: "DefaultLayout",
 	components: {
-			ContentTree, Header
+			ContentTree, Header, Footer
 		},
 	data () {
 		return {

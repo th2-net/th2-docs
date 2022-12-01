@@ -1,4 +1,4 @@
-import {savePagesTrees, getPagesData, constructPagesTree} from './pages-tree'
+import {savePagesTrees, getPagesData, constructPagesTree, getFirstNonIndexPage} from './pages-tree'
 import {PageRaw, PageReduced, Th2Version} from "./types";
 import {SectionsCollection} from "../../../types/gridsome/collections/sections";
 
@@ -8,24 +8,34 @@ module.exports = (api: any) => {
     const gitOpsPages = getPagesData(getCollection('GitOpsPage'))
     const testingPages = getPagesData(getCollection('TestingPage'))
 
+    const gitOpsTree = constructPagesTree(gitOpsPages, 4)
+    const testingTree = constructPagesTree(testingPages, 4)
+    const exploreTree = constructPagesTree([
+      {path: '/explore/modules', title: 'Modules', weight: 0},
+      {path: '/explore/dashboard', title: 'GitHub Dashboard', weight: 5},
+    ])
+
     const sectionsCollection: SectionsCollection = addCollection('Section')
     sectionsCollection.addNode({
       id: 'deploy',
       title: 'Deploy',
-      contentTreeJSON: JSON.stringify(constructPagesTree(gitOpsPages, 4))
+      basePath: '/deploy',
+      firstPage: getFirstNonIndexPage(gitOpsTree).path,
+      contentTreeJSON: JSON.stringify(gitOpsTree)
     })
     sectionsCollection.addNode({
       id: 'test',
       title: 'Test',
-      contentTreeJSON: JSON.stringify(constructPagesTree(testingPages, 4))
+      basePath: 'test',
+      firstPage: getFirstNonIndexPage(testingTree).path,
+      contentTreeJSON: JSON.stringify(testingTree)
     })
     sectionsCollection.addNode({
       id: 'explore',
       title: 'Explore',
-      contentTreeJSON: JSON.stringify(constructPagesTree([
-        {path: '/explore/modules', title: 'Modules', weight: 0},
-        {path: '/explore/dashboard', title: 'GitHub Dashboard', weight: 5},
-      ]))
+      basePath: '/explore',
+      firstPage: getFirstNonIndexPage(exploreTree).path,
+      contentTreeJSON: JSON.stringify(exploreTree)
     })
   })
   // TODO: Delete old pages tree constructor
