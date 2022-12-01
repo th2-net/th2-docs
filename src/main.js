@@ -46,6 +46,12 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   appOptions.vuetify = new Vuetify(vuetifyConfig);
   appOptions.store = store
 
+  router.beforeEach((to, from, next) => {
+    store.commit('setPath', to.path);
+    store.commit('setFullPath', to.fullPath);
+    next();
+  });
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('term', Term)

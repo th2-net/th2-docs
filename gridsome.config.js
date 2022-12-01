@@ -14,7 +14,6 @@ const remarkPlugins = [
   require('./src/plugins/remark/versioned-block')
 ]
 const vueRemarkCommonOptions = {
-  template: './src/templates/Documentation.vue', // Optional
   refs: {
     terms: {
       typeName: 'Term'
@@ -71,6 +70,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'DocPage', // Required
+        pathPrefix: '/docs',
         baseDir: './content/docs', // Where .md files are located
         template: './src/templates/Documentation.vue', // Optional
         ...vueRemarkCommonOptions
@@ -82,7 +82,7 @@ module.exports = {
         typeName: 'GitOpsPage', // Required
         pathPrefix: '/deploy',
         baseDir: './content/deploy', // Where .md files are located
-        template: './src/templates/Documentation.vue', // Optional
+        template: './src/templates/GitOpsPage.vue', // Optional
         ...vueRemarkCommonOptions
       }
     },
@@ -101,6 +101,7 @@ module.exports = {
       use: '@gridsome/vue-remark',
       options: {
         typeName: 'ReadmePage',
+        pathPrefix: '/docs',
         baseDir: './content/.cache/readmes',
         template: './src/templates/Documentation.vue',
         ...vueRemarkCommonOptions
