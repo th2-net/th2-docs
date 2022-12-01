@@ -8,5 +8,5 @@ export type GridsomeCollection<ItemType> = {
   }
   getNodeById: (id: string | number) => ItemType | null
   removeNode: (id: string | number) => void
-  addNode: (item: ItemType) => void
+  addNode: (item: (ItemType & { id?: string | number })) => void
 }

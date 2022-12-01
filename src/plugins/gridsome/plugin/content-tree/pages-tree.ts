@@ -14,7 +14,7 @@ export function getPagesData(collection: GridsomeCollection<PageRaw>): PageReduc
         })
 }
 
-export function constructPagesTree(pages: PageReduced[]): TreeNode[]{
+export function constructPagesTree(pages: PageReduced[], highestLevel: number = 3): TreeNode[]{
     const processedPages: TreeNode[] = pages
         .map(page => ({...page, children: []}))
         .sort((a, b) => {
@@ -25,7 +25,7 @@ export function constructPagesTree(pages: PageReduced[]): TreeNode[]{
     // Higher level pages
     let sections = processedPages.filter(page => {
         const pathFolders = page.path.split('/')
-        return pathFolders.length === 3
+        return pathFolders.length === highestLevel
     })
     function buildNextLevel(allPages: TreeNode[], higherSections: TreeNode[], level = 1){
         // Find all lower level pages
@@ -46,7 +46,7 @@ export function constructPagesTree(pages: PageReduced[]): TreeNode[]{
 
         buildNextLevel(processedPages, lowerSections, level + 1)
     }
-    buildNextLevel(processedPages, sections, 3)
+    buildNextLevel(processedPages, sections, highestLevel)
     return sections
 }
 

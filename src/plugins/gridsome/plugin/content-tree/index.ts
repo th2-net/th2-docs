@@ -8,16 +8,19 @@ module.exports = (api: any) => {
     const gitOpsPages = getPagesData(getCollection('GitOpsPage'))
     const testingPages = getPagesData(getCollection('TestingPage'))
 
-    const sectionsCollection: SectionsCollection = addCollection('Sections')
+    const sectionsCollection: SectionsCollection = addCollection('Section')
     sectionsCollection.addNode({
+      id: 'deploy',
       title: 'Deploy',
-      contentTreeJSON: JSON.stringify(constructPagesTree(gitOpsPages))
+      contentTreeJSON: JSON.stringify(constructPagesTree(gitOpsPages, 4))
     })
     sectionsCollection.addNode({
+      id: 'test',
       title: 'Test',
-      contentTreeJSON: JSON.stringify(constructPagesTree(testingPages))
+      contentTreeJSON: JSON.stringify(constructPagesTree(testingPages, 4))
     })
     sectionsCollection.addNode({
+      id: 'explore',
       title: 'Explore',
       contentTreeJSON: JSON.stringify(constructPagesTree([
         {path: '/explore/modules', title: 'Modules', weight: 0},
