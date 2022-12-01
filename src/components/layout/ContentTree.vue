@@ -4,10 +4,10 @@
 			<VersionSwitcher />
 			<div class="py-2">
 			<v-treeview 	class="ml-n3" dense
-										:items="pagesTree"
+										:items="items"
 										item-key="path"
 										item-text="title"
-										:open="activeRoute"
+										:open="activePathsInContentTree"
                     open-on-click
 										>
 					<template v-slot:label="{ item }">
@@ -26,39 +26,24 @@
 </template>
 
 <script>
-import pagesTrees from '../../../temp/pagesTrees.json'
 import VersionSwitcher from "../content/VersionSwitcher";
+import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: "ContentTree",
 	components: {VersionSwitcher},
-  data(){
-    return {
-			pagesTrees,
-			versionNow: ''
-    }
-  },
   computed: {
-    pagesTree(){
-      return this.pagesTrees || []
-    },
-		allPaths(){
-			if (!this.pagesTrees) return []
-			const paths = []
-			function getPaths(node){
-				paths.push(node.path)
-				for (const child of node.children)
-					getPaths(child)
-			}
-			this.pagesTree.forEach(tree => getPaths(tree))
-			return paths
-		},
-    // All tree nodes to expand
-    activeRoute(){
-      return this.allPaths
-        .filter(path => this.$route.path.startsWith(path))
-    }
-  }
+		...mapGetters(['activePathsInContentTree', 'currentSubsection']),
+		items(){
+			return this.currentSubsection?.children || []
+		}
+  },
+	methods: {
+		...mapMutations(['setPath'])
+	},
+	created() {
+		this.setPath(this.$route.path)
+	}
 
 }
 </script>

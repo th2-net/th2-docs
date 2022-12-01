@@ -34,12 +34,7 @@
 			<ContentTree class="pl-3"/>
 		</v-navigation-drawer>
 		<v-main>
-			<div class="layout--full">
-				<ContentTree class="layout__aside--left--lg" />
-
-				<slot></slot>
-
-			</div>
+			<slot></slot>
 		</v-main>
 		<Footer />
 	</div>

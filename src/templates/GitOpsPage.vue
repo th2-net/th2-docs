@@ -1,5 +1,11 @@
 <template>
-	<Article :doc="doc" />
+	<div class="d-flex flex-row no-gutters">
+		<ContentTree />
+		<v-divider vertical />
+		<Article :doc="doc" />
+		<v-divider vertical />
+		<PageContent />
+	</div>
 </template>
 
 <page-query>
@@ -32,6 +38,8 @@ query {
 // TODO: Edit descriptions, titles and headers to get the correct ones
 import {getMetaInfo} from "../utils/seo";
 import Article from "../components/content/Article.vue";
+import PageContent from "../components/layout/PageContent.vue";
+import ContentTree from "../components/layout/ContentTree.vue";
 import {mapMutations} from "vuex";
 export default {
 	name: "GitOpsPage",
@@ -45,7 +53,7 @@ export default {
 		})
 	},
 	components: {
-		Article
+		Article, PageContent, ContentTree
 	},
 	computed: {
 		doc() {

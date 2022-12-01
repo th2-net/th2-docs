@@ -57,6 +57,25 @@ export default new Vuex.Store({
             currentRoute = currentRoute + '/'
           }
           return state.currentTree.find((subsection: TreeNode) => currentRoute.startsWith(subsection.path))
+        },
+        allPathsInContentTree(state){
+          if (!state.currentTree) return []
+          const paths: string[] = []
+          function getPaths(node: TreeNode){
+            paths.push(node.path)
+            for (const child of node.children)
+              getPaths(child)
+          }
+          state.currentTree.forEach((tree: TreeNode) => getPaths(tree))
+          return paths
+        },
+        activePathsInContentTree(state, getters, rootState: any){
+          let currentRoute: string = rootState.router.path
+          if (!currentRoute.endsWith('/')){
+            currentRoute = currentRoute + '/'
+          }
+          return getters.allPathsInContentTree
+            .filter((path: string) => currentRoute.startsWith(path))
         }
       }
     },
