@@ -68,6 +68,19 @@ export default new Vuex.Store({
         currentTree(state){
           return state.currentTree
         },
+        currentPage(state, getters, rootState: any){
+          const searchNode = (tree: TreeNode[]): TreeNode | undefined => {
+            let foundNode = undefined
+            for (let node of tree) {
+              if (node.path.startsWith(rootState.router.path))
+                return foundNode = node
+              else foundNode = searchNode(node.children)
+              if (foundNode) break
+            }
+            return foundNode
+          }
+          return searchNode(state.currentTree)
+        },
         subsections(state){
           return state.currentTree.map((node: TreeNode) => ({
             title: node.title,

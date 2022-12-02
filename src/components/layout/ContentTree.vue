@@ -1,5 +1,5 @@
 <template>
-	<aside class="pt-5 content-tree-panel sticky-aside">
+	<aside v-if="items.length" class="pt-5 content-tree-panel sticky-aside">
 		<div class="px-3 ml-n3 border-right">
 			<VersionSwitcher />
 			<slot name="sections-nav" />

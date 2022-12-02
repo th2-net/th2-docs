@@ -3,8 +3,8 @@
 		<SubsectionsNav  class="mx-auto my-5" />
 		<div class="doc-page">
 			<ContentTree v-if="!isLayoutSm" class="doc-page__aside" />
-			<Article :doc="doc" class="doc-page__article" />
-			<PageContent class="doc-page__aside" />
+			<Article :doc="doc" :hide-doc="hideDoc" class="doc-page__article" />
+			<PageContent v-if="!hideDoc" class="doc-page__aside" />
 		</div>
 	</div>
 </template>
@@ -21,9 +21,12 @@ export default {
 		Article, PageContent, ContentTree, SubsectionsNav
 	},
 	computed: {
-		...mapGetters(['isLayoutSm']),
+		...mapGetters(['isLayoutSm', 'currentPage']),
 		doc() {
 			return this.$page.doc
+		},
+		hideDoc(){
+			return !!this.currentPage?.children?.length
 		}
 	}
 }
