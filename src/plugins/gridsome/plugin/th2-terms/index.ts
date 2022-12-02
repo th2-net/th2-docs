@@ -11,7 +11,7 @@ module.exports = function (api: any) {
     })
     // Update pages metadata
     api.onCreateNode((node: any) => {
-        if (node.internal.typeName === 'DocPage') {
+        if (['DocPage', 'GitOpsPage', 'TestingPage'].includes(node.internal.typeName)) {
             node.terms = findTermsInDoc(node.content)
             const mdDescription = /^[\w\W]*<!--more-->/.exec(node.content)
             if (mdDescription)
