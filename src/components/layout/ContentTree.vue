@@ -1,9 +1,8 @@
 <template>
-	<aside class="pt-5 content-tree-panel">
-		<div class="sticky-tree px-3 ml-n3">
+	<aside class="pt-5 content-tree-panel sticky-aside">
+		<div class="px-3 ml-n3 border-right">
 			<VersionSwitcher />
-			<div class="py-2">
-			<v-treeview 	class="ml-n3" dense
+			<v-treeview 	class="ml-n3 py-2" dense
 										:items="items"
 										item-key="path"
 										item-text="title"
@@ -18,8 +17,7 @@
 							</div>
 						</g-link>
 					</template>
-				</v-treeview>
-      </div>
+			</v-treeview>
 		</div>
 	</aside>
 
@@ -54,6 +52,9 @@ export default {
 }
 </style>
 <style scoped lang="scss">
+.border-right{
+	border-right: solid 1px var(--layout__border-color);
+}
 .content-tree-panel{
   // Базовые стили ссылок
   a {

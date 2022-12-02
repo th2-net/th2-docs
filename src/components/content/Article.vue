@@ -1,12 +1,12 @@
 <template>
-	<v-container class="layout__main space-bottom">
+	<v-container class="space-bottom px-12">
 		<article>
 			<GitHubRepoInfo />
 			<recommendations v-if="doc.read_before && doc.read_before.length"
 											 class="my-4" :items="doc.read_before" >
 				<div>Before you start take a look at:</div>
 			</recommendations>
-			<VueRemarkContent class="doc-article" />
+			<VueRemarkContent class="vue-remark"/>
 			<prev-next class="my-4" v-if="doc.prev || doc.next"
 								 :prev-title="doc.prev ? doc.prev.title : ''"
 								 :next-title="doc.next ? doc.next.title : ''"
@@ -38,6 +38,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style  lang="scss">
+.space-bottom {
+	margin-bottom: 50vh;
+}
 </style>

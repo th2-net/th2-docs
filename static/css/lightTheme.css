@@ -5,14 +5,14 @@
     --scrollbar-thumb-color--hover: #00646c;
     /* nuxt content */
     --link-color: #3f979f;
-    --divider-color: #121212;
+    --divider-color: var(--layout__border-color);
     --copy-btn__bg-color--hover: #424242;
     --copy-btn__bg-color: #171717;
     --table__border-color: #616161;
     --table__bg-color--hover: #c1c1c1;
     --table__bg-color--header: #5cb2ba;
     /* layout */
-    --layout__border-color: #8f96a3;
+    --layout__border-color: #e3e3e3;
     /* page content */
     --toc-color: #424242;
     --toc-color--active: var(--link-color);

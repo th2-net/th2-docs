@@ -6,6 +6,14 @@ $aside-width-md: 18rem;
 $window-width-md: 1270px;
 $window-width-sm: 1024px;
 
+.sticky-aside{
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding-bottom: 5rem;
+}
+
 //.layout--full{
 //  display: grid;
 //  grid-template-columns: $aside-width 1fr;

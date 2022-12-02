@@ -1,6 +1,6 @@
 <template>
-  <aside class="pl-5 pt-5 page-content-panel" v-if="headings.length">
-    <nav class="pr-2 sticky-page-content">
+  <aside class="pl-5 pt-5 page-content-panel sticky-aside" v-if="headings.length">
+    <nav class="pr-2 pl-4 border-left">
 			<page-git-hub-info />
 			<page-git-hub-issue />
 			<h3 class="mb-3 mt-7">On this page</h3>
@@ -31,12 +31,6 @@ import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue'
 
 export default {
   name: "PageContent",
-  // props: {
-	// 	headings: {
-  //     type: Array,
-  //     default: () => []
-  //   }
-  // },
 	components: {
 		PageGitHubInfo, PageGitHubIssue
 	},
@@ -94,6 +88,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.border-left{
+	border-left: solid 1px var(--layout__border-color);
+}
 .page-content-panel{
   nav{
     min-width: 200px;

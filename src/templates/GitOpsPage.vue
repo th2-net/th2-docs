@@ -1,11 +1,9 @@
 <template>
-	<div class="d-flex flex-column">
+	<div class="d-flex flex-column doc-layout mx-auto">
 		<SubsectionsNav  class="mx-auto my-5" />
-		<div class="d-flex flex-row no-gutters">
+		<div class="doc-page">
 			<ContentTree />
-			<v-divider vertical />
-			<Article :doc="doc" />
-			<v-divider vertical />
+			<Article :doc="doc" class="doc-page__article" />
 			<PageContent />
 		</div>
 	</div>
@@ -77,8 +75,18 @@ export default {
 }
 </script>
 
-<style>
-.space-bottom {
-  margin-bottom: 50vh;
+<style scoped lang="scss">
+@import "src/assets/layout";
+.doc-layout{
+	width: min( 1280px, 95vw );
 }
+.doc-page {
+	display: grid;
+	grid-template-columns: $aside-width 1fr $aside-width;
+}
+
+.doc-page__article {
+	width: min(95vw, 1280px - #{$aside-width} * 2);
+}
+
 </style>
