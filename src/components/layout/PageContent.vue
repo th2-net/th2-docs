@@ -4,7 +4,7 @@
 			<page-git-hub-info />
 			<page-git-hub-issue />
 			<h3 class="mb-3 mt-7">On this page</h3>
-      <ul v-scroll="onScroll">
+      <ul>
         <li v-for="(header, index) in headings" :key="header.anchor"
             :class="{
 											'font-weight-bold': header.depth === 1,
@@ -36,54 +36,50 @@ export default {
 	},
   data(){
     return{
-      headersToCheck: [],
-      headersToHighlight: []
+			headersToHighlight: [],
+			highlightMap: new Map(),
+			observer: new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					this.highlightMap.set('#' + entry.target.id, entry.isIntersecting)
+				})
+				this.headersToHighlight = Array.from(this.highlightMap.keys())
+					.filter(id => this.highlightMap.get(id))
+			})
     }
   },
 	computed: {
 		headings(){
 			return this.$page?.doc?.headings || this.$page?.readmeDoc?.headings
-		}
+		},
 	},
   methods:{
-    onScroll(){
-      const headersToHighlight = []
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-      this.headersToCheck.forEach((el, index) => {
-        if (isInViewport(el))
-          headersToHighlight.push(this.headings[index].anchor)
-      })
-      this.headersToHighlight = headersToHighlight
-    },
     isHighlighted(id){
-      return this.headersToHighlight.findIndex(el => el === id) > -1
+      return this.headersToHighlight.findIndex(h => h === id) > -1
     },
-		scrollToHeading(hash){
-			this.$router.push({ ...this.$route, hash })
+		setupObserver(){
+			this.observer.disconnect()
+			this.headings
+				.forEach(header => {
+					const el = document.getElementById(header.anchor.replace('#', ''))
+					this.observer.observe(el)
+				})
 		}
   },
   mounted() {
 		setTimeout(() => {
-			this.headersToCheck = this.headings
-				.filter(header => header.depth > 1)
-				.map(header => {
-					return document.getElementById(header.anchor.replace('#', ''))
-				})
-			this.onScroll()
+			this.setupObserver()
 		}, 100)
-
   },
   beforeDestroy() {
-    this.headersToCheck = []
-  }
+		this.observer.disconnect()
+  },
+	watch: {
+		$route(){
+			setTimeout(() => {
+				this.setupObserver()
+			}, 100)
+		}
+	}
 }
 </script>
 
