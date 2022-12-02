@@ -1,12 +1,5 @@
 <template>
-	<div class="d-flex flex-column doc-layout mx-auto">
-		<SubsectionsNav  class="mx-auto my-5" />
-		<div class="doc-page">
-			<ContentTree v-if="!isLayoutSm" class="doc-page__aside" />
-			<Article :doc="doc" class="doc-page__article" />
-			<PageContent class="doc-page__aside" />
-		</div>
-	</div>
+	<DocPageCommon />
 </template>
 
 <page-query>
@@ -38,15 +31,12 @@ query {
 // TODO: Convert to TypeScript
 // TODO: Edit descriptions, titles and headers to get the correct ones
 import {getMetaInfo} from "../utils/seo";
-import Article from "../components/content/Article.vue";
-import PageContent from "../components/layout/PageContent.vue";
-import ContentTree from "../components/layout/ContentTree.vue";
-import SubsectionsNav from "../components/layout/SubsectionsNav.vue";
-import {mapGetters, mapMutations} from "vuex";
+import DocPageCommon from "../components/templates/DocPageCommon.vue";
+import {mapMutations} from "vuex";
 export default {
 	name: "GitOpsPage",
 	metaInfo() {
-		const page = this.doc
+		const page = this.$page.doc
 		return getMetaInfo({
 			title: page?.title,
 			description: page?.description,
@@ -55,14 +45,7 @@ export default {
 		})
 	},
 	components: {
-		SubsectionsNav,
-		Article, PageContent, ContentTree
-	},
-	computed: {
-		...mapGetters(['isLayoutSm']),
-		doc() {
-			return this.$page.doc
-		}
+		DocPageCommon
 	},
 	methods: {
 		...mapMutations(['setContentTree'])
@@ -76,49 +59,3 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-@import "src/assets/variables";
-.doc-layout{
-	width: min( #{$max-width}, 95vw );
-}
-.doc-page {
-	display: flex;
-}
-
-.doc-page__aside {
-	width: $aside-width;
-	overflow-x: hidden;
-}
-
-.doc-page__article {
-	width: min(95vw, 1280px - #{$aside-width} * 2);
-}
-
-@media screen and (max-width: $window-width-md) {
-	.doc-page__article{
-		width: min(100%, #{$max-width} - #{$aside-width-md} * 2);
-	}
-	.doc-page__aside {
-		width: $aside-width-md;
-	}
-}
-
-@media screen and (max-width: $window-width-sm) {
-	.doc-layout{
-		width: 95vw;
-	}
-  .doc-page{
-    width: unset;
-    display: flex;
-		flex-direction: column-reverse;
-		margin: auto;
-  }
-	.doc-page__article {
-		width: 95vw
-	}
-	.doc-page__aside {
-		width: unset;
-	}
-}
-
-</style>
