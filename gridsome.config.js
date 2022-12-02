@@ -92,7 +92,7 @@ module.exports = {
         typeName: 'TestingPage', // Required
         pathPrefix: '/test',
         baseDir: './content/test', // Where .md files are located
-        template: './src/templates/Documentation.vue', // Optional
+        template: './src/templates/TestingPage.vue', // Optional
         ...vueRemarkCommonOptions
       }
     },
