@@ -16,6 +16,7 @@ query {
 </static-query>
 
 <script>
+import '~/assets/layout.scss'
 export default {
 	metaInfo() {
 		return {

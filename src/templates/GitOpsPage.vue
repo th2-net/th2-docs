@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/layout";
+@import "src/assets/variables";
 .doc-layout{
 	width: min( 1280px, 95vw );
 }

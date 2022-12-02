@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~/assets/layout.scss';
+@import 'src/assets/variables';
 .header-btns{
 	max-width: ($max-width / 5);
 	min-width: ($max-width / 5) - 50px;
