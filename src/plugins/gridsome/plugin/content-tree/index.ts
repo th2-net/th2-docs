@@ -26,7 +26,7 @@ module.exports = (api: any) => {
     sectionsCollection.addNode({
       id: 'test',
       title: 'Test',
-      basePath: 'test',
+      basePath: '/test',
       firstPage: getFirstNonIndexPage(testingTree).path,
       contentTreeJSON: JSON.stringify(testingTree)
     })
