@@ -1,10 +1,13 @@
 <template>
-	<div class="d-flex flex-row no-gutters">
-		<ContentTree />
-		<v-divider vertical />
-		<Article :doc="doc" />
-		<v-divider vertical />
-		<PageContent />
+	<div class="d-flex flex-column">
+		<SubsectionsNav  class="mx-auto my-5" />
+		<div class="d-flex flex-row no-gutters">
+			<ContentTree />
+			<v-divider vertical />
+			<Article :doc="doc" />
+			<v-divider vertical />
+			<PageContent />
+		</div>
 	</div>
 </template>
 
@@ -40,6 +43,7 @@ import {getMetaInfo} from "../utils/seo";
 import Article from "../components/content/Article.vue";
 import PageContent from "../components/layout/PageContent.vue";
 import ContentTree from "../components/layout/ContentTree.vue";
+import SubsectionsNav from "../components/layout/SubsectionsNav.vue";
 import {mapMutations} from "vuex";
 export default {
 	name: "GitOpsPage",
@@ -53,6 +57,7 @@ export default {
 		})
 	},
 	components: {
+		SubsectionsNav,
 		Article, PageContent, ContentTree
 	},
 	computed: {
