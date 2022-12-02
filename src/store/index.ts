@@ -10,6 +10,26 @@ export default new Vuex.Store({
     }
   },
   modules: {
+    layout: {
+      state(){
+        return {
+          windowWidth: 1280
+        }
+      },
+      mutations: {
+        updateWindowWidth(state) {
+          state.windowWidth = window.innerWidth
+        }
+      },
+      getters: {
+        isLayoutMd(state) {
+          return state.windowWidth < 1280
+        },
+        isLayoutSm(state) {
+          return state.windowWidth < 1024
+        }
+      }
+    },
     router: {
       state(){
         return {

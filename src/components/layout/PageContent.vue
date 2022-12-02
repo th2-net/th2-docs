@@ -88,8 +88,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "src/assets/variables";
+
 .border-left{
 	border-left: solid 1px var(--layout__border-color);
+}
+@media screen and (max-width: $window-width-sm){
+	.border-left{
+		border-left: unset;
+	}
 }
 .page-content-panel{
   nav{

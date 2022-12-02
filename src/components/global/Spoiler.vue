@@ -23,6 +23,6 @@ export default {
 
 <style>
 .doc-page .v-expansion-panel{
-	max-width: min(100%, 100vw);
+	width: min(100%, 95vw);
 }
 </style>

@@ -52,8 +52,14 @@ export default {
 }
 </style>
 <style scoped lang="scss">
+@import "src/assets/variables";
 .border-right{
 	border-right: solid 1px var(--layout__border-color);
+}
+@media screen and (max-width: $window-width-sm){
+	.border-right{
+		border-right: unset;
+	}
 }
 .content-tree-panel{
   // Базовые стили ссылок

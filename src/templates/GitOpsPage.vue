@@ -2,9 +2,9 @@
 	<div class="d-flex flex-column doc-layout mx-auto">
 		<SubsectionsNav  class="mx-auto my-5" />
 		<div class="doc-page">
-			<ContentTree />
+			<ContentTree v-if="!isLayoutSm" class="doc-page__aside" />
 			<Article :doc="doc" class="doc-page__article" />
-			<PageContent />
+			<PageContent class="doc-page__aside" />
 		</div>
 	</div>
 </template>
@@ -42,7 +42,7 @@ import Article from "../components/content/Article.vue";
 import PageContent from "../components/layout/PageContent.vue";
 import ContentTree from "../components/layout/ContentTree.vue";
 import SubsectionsNav from "../components/layout/SubsectionsNav.vue";
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 export default {
 	name: "GitOpsPage",
 	metaInfo() {
@@ -59,6 +59,7 @@ export default {
 		Article, PageContent, ContentTree
 	},
 	computed: {
+		...mapGetters(['isLayoutSm']),
 		doc() {
 			return this.$page.doc
 		}
@@ -78,15 +79,46 @@ export default {
 <style scoped lang="scss">
 @import "src/assets/variables";
 .doc-layout{
-	width: min( 1280px, 95vw );
+	width: min( #{$max-width}, 95vw );
 }
 .doc-page {
-	display: grid;
-	grid-template-columns: $aside-width 1fr $aside-width;
+	display: flex;
+}
+
+.doc-page__aside {
+	width: $aside-width;
+	overflow-x: hidden;
 }
 
 .doc-page__article {
 	width: min(95vw, 1280px - #{$aside-width} * 2);
+}
+
+@media screen and (max-width: $window-width-md) {
+	.doc-page__article{
+		width: min(100%, #{$max-width} - #{$aside-width-md} * 2);
+	}
+	.doc-page__aside {
+		width: $aside-width-md;
+	}
+}
+
+@media screen and (max-width: $window-width-sm) {
+	.doc-layout{
+		width: 95vw;
+	}
+  .doc-page{
+    width: unset;
+    display: flex;
+		flex-direction: column-reverse;
+		margin: auto;
+  }
+	.doc-page__article {
+		width: 95vw
+	}
+	.doc-page__aside {
+		width: unset;
+	}
 }
 
 </style>

@@ -8,6 +8,15 @@
   padding-bottom: 5rem;
 }
 
+@media screen and (max-width: $window-width-sm){
+  .sticky-aside{
+    position: unset;
+    top: unset;
+    max-height: unset;
+    padding-bottom: unset;
+  }
+}
+
 //.layout--full{
 //  display: grid;
 //  grid-template-columns: $aside-width 1fr;
