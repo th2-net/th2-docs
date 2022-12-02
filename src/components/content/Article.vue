@@ -1,5 +1,5 @@
 <template>
-	<v-container class="space-bottom px-12">
+	<v-container class="space-bottom px-md-12 px-4">
 		<article>
 			<GitHubRepoInfo />
 			<recommendations v-if="doc.read_before && doc.read_before.length"
