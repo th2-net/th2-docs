@@ -23,7 +23,7 @@ export function getPagesData(collection: GridsomeCollection<PageRaw>): PageReduc
 
 export function constructPagesTree(pages: PageReduced[], highestLevel: number = 3): TreeNode[]{
     const processedPages: TreeNode[] = pages
-        .map(page => ({...page, children: []}))
+        .map(page => ({...page, followPath: '', children: []}))
         .sort((a, b) => {
             if ((a?.weight || -100) < (b?.weight || -100)) return -1
             if ((a?.weight || -100) > (b?.weight || -100)) return 1
@@ -49,11 +49,19 @@ export function constructPagesTree(pages: PageReduced[], highestLevel: number = 
                 return lowerSection.path.includes(section.path) &&
                     section.path.split('/').length - lowerSection.path.split('/').length === -1
             })
+
         })
 
         buildNextLevel(processedPages, lowerSections, level + 1)
     }
     buildNextLevel(processedPages, sections, highestLevel)
+    function visitNodes(nodes: TreeNode[]){
+        for (let node of nodes) {
+            node.followPath = node.children.length ? getFirstNonIndexPage(node.children).path : node.path
+            visitNodes(node.children)
+        }
+    }
+    visitNodes(sections)
     return sections
 }
 

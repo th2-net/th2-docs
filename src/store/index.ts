@@ -68,7 +68,8 @@ export default new Vuex.Store({
         subsections(state){
           return state.currentTree.map((node: TreeNode) => ({
             title: node.title,
-            path: node.path
+            path: node.path,
+            followPath: node.followPath
           }))
         },
         currentSubsection(state, getters, rootState: any){

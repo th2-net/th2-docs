@@ -7,12 +7,12 @@
 										:items="items"
 										item-key="path"
 										item-text="title"
+									 	hoverable
 										:open="activePathsInContentTree"
-                    open-on-click
 										>
 					<template v-slot:label="{ item }">
-						<g-link exact :to="item.children.length ? null : item.path"
-											 :class="{'nuxt-link-exact-active': item.path === $route.path}">
+						<g-link exact :to="item.followPath"
+											 :class="{'nuxt-link-exact-active':  ($route.path + '/').includes(item.path)}">
 							<div class="tree__path-name">
 								{{item.title}}
 							</div>
@@ -84,9 +84,9 @@ export default {
     // Текст текущей ссылки
     &.nuxt-link-exact-active .tree__path-name {
       color: var(--content-tree__link--active);
-      background-color: var(--content-tree__link-bg--active);
-      border-radius: .5rem;
-      padding: .3rem .7rem;
+      //background-color: var(--content-tree__link-bg--active);
+      //border-radius: .5rem;
+      //padding: .3rem .7rem;
     }
   }
 
