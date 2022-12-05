@@ -96,6 +96,16 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'ModulePage', // Required
+        pathPrefix: '/explore/modules',
+        baseDir: './content/modules', // Where .md files are located
+        template: './src/templates/ModulePage.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
     require('./src/plugins/gridsome/plugin/th2-readme-pages'),
     {
       use: '@gridsome/vue-remark',
