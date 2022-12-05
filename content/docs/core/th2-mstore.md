@@ -14,55 +14,39 @@ related:
 
 ## Overview
 
-**mstore** (th2 message store) is one of <term term="Core">Core</term> components of th2. It is responsible for storing raw messages into the <term term="Cradle">Cradle</term> datalake based on Cassandra database. 
-This component has a pin for listening to messages via MQ.
+**mstore** is a th2 box that fulfills an important business need.
+It is the component solely responsible for storing raw messages into th2’s data lake. 
 
-As a part of th2-core, **mstore** is responsible for saving and displaying data. 
-This component's logic is same for all the th2 environments. 
-Messages are the data that is going in or out of th2. **mstore** saves content and metadata of those messages. 
+<notice info>
+Raw messages are produced by several th2 components during testing. 
+</notice>
 
-When marking the pins during configurating other components, you can specify `store` attribute, which means that the messages from this pin will be stored via **mstore.** 
+Without the **mstore**, it would be very difficult to keep track of the saved items.
+The **mstore** ensures that the messages in the database are stored in the correct order and keeps track of the order of the saved messages.
 
-**mstore** interacts with Cradle and <term term="th2-common">Common libraries</term>. 
-Using RabbitMQ **mstore** gets messages in batches, then it will try to pack batches more compactly, and finally write them to Cassandra using Cradle library. 
-Take into account that the batches cannot be merged, if combined batch exceeds the size limitation configured in Cradle. 
+Due to its importance, the **mstore** is deemed as one of <term term="Core">Core</term> components of th2.
+A single instance (box) of the **mstore** is always required in every th2 environment.
+The logic of this box is the same in every th2 environment and requires no modifications.
+
+The **mstore** automatically receives raw messages from pins with a connection type `mq` and attribute `store`.
+Therefore, users must declare a pin with this configuration in any module that produces raw messages.
+Typically, raw messages are produced by the th2 boxes **conn**, **read**, and **hand**.
+These raw messages are then sent to the **mstore** via RabbitMQ (message broker).
+The **mstore** uses the [Cradle API](https://github.com/th2-net/cradleapi) to save the messages to <term term="Cradle">Cradle</term> (the schema on top of the data lake). th2's data lake is the Cassandra NoSQL database. 
 
 ## Family
 
  [th2-mstore](https://github.com/th2-net/th2-mstore) - component repository.
 
 ## Functionality
-
-To automatically connect the pin to **mstore** and to collect all the messages into <term term="Cradle">Cradle</term>, you must mark a pin that produces raw messages in **conn**, **read** and **hand** boxes via the `store` attribute. 
-
-**mstore** consumes raw messages. 
-Parsed messages are not accepted. 
-
-Raw message is a base entity of th2. 
-All incoming / outgoing data is stored in this format. 
-Every raw message contains the following important parts:​
-
-- session alias - unique identifier of business session;
-
-- direction - <term term="direction">direction</term> of message stream;
-
-- sequence number - incremental identifier;
-
-- data - byte representation of a raw message.
-
-Session alias, direction and sequence number are a compound unique identifier of raw messages within th2.
-
-**mstore** uses two libraries - <term term="th2-common">common</term> and Cradle.
-
-Common library is responsible for collecting messages in **mstore** from all pins with `store` attribute.
-
-**mstore** uses Cradle library to write message batches in Cassandra.
+- The **mstore** automatically receives raw messages, parsed messages are not accepted. 
+- The **mstore** saves these raw messages to th2's data lake.
+- The **mstore** uses the Cradle Api Library to write data into the data lake.
+- The **mstore** tracks all saved messages and ensures that messages are saved to the database in the correct order.
 
 ## Configuration:
 
-**infra-schema** can only contain one **mstore** box description. 
-It consists of one required option - a Docker image. 
-Pin configuration is generated and managed by **infra-operator**.
+**infra-schema** requires one **mstore** box description (custom resource).
 
 ### Configuration parameters
 
@@ -80,10 +64,8 @@ Pin configuration is generated and managed by **infra-operator**.
 ```
 
 ### Required pins and links
+Pin configuration is generated and managed by the **infra-operator**.
 
-A user does not need to set up a MQ pin in the **mstore** custom resource. 
-The inbound **mstore** queues receive raw messages from all the boxes that have `mq` pins with the attribute `store`.  
-Examples of such boxes include **conn**, **hand**, and **read**.
 
 ### Configuration example
 
@@ -115,6 +97,18 @@ spec:
 ```
 
 ## Useful hints
+
+### Raw Messages
+The raw message is a base entity of th2.
+All incoming / outgoing data is stored in this format.
+Every raw message contains the following important parts:​
+
+- session alias - unique identifier of business session;
+- direction - <term term="direction">direction</term> of message stream;
+- sequence number - incremental identifier;
+- data - byte representation of a raw message.
+
+Session alias, direction and sequence number are a compound unique identifier of raw messages within th2.
 
 ### Message batches
 
