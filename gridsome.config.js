@@ -117,6 +117,7 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
+    require('./src/plugins/gridsome/plugin/th2-modules-index'),
     require('./src/plugins/gridsome/plugin/th2-terms'),
     require('./src/plugins/gridsome/source/th2-github'),
     require('./src/plugins/gridsome/plugin/th2-check-content'),
