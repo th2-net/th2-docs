@@ -38,13 +38,7 @@ export default {
     return{
 			headersToHighlight: [],
 			highlightMap: new Map(),
-			observer: new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					this.highlightMap.set('#' + entry.target.id, entry.isIntersecting)
-				})
-				this.headersToHighlight = Array.from(this.highlightMap.keys())
-					.filter(id => this.highlightMap.get(id))
-			})
+			observer: null
     }
   },
 	computed: {
@@ -57,15 +51,29 @@ export default {
       return this.headersToHighlight.findIndex(h => h === id) > -1
     },
 		setupObserver(){
-			this.observer.disconnect()
-			this.headings
-				.forEach(header => {
-					const el = document.getElementById(header.anchor.replace('#', ''))
-					this.observer.observe(el)
-				})
+			this.highlightMap = new Map()
+			if (this.observer){
+				this.observer.disconnect()
+				this.headings
+					.forEach(header => {
+						const el = document.getElementById(header.anchor.replace('#', ''))
+						this.observer.observe(el)
+					})
+			}
 		}
   },
-  mounted() {
+	created() {
+		if (process.isClient){
+			this.observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					this.highlightMap.set('#' + entry.target.id, entry.isIntersecting)
+				})
+				this.headersToHighlight = Array.from(this.highlightMap.keys())
+					.filter(id => this.highlightMap.get(id))
+			})
+		}
+	},
+	mounted() {
 		setTimeout(() => {
 			this.setupObserver()
 		}, 100)
