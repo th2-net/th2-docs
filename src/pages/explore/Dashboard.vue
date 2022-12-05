@@ -1,5 +1,8 @@
 <template>
   <v-container class="layout__main">
+		<div class="d-flex flex-column my-5">
+			<SubsectionsNav  class="mx-auto" />
+		</div>
     <h1>th2 Modules dashboard</h1>
     <!-- Families Section -->
     <section>
@@ -65,14 +68,29 @@
   </v-container>
 </template>
 
+<static-query>
+query {
+	testSection: section(id: "explore"){
+		title
+		contentTreeJSON
+	}
+}
+</static-query>
+
 <script lang="ts">
 import Vue from 'vue'
 import {RepoResponse, dashboardInfoFromJSON, RepoGroupByFamily, DashboardResponse} from "../../utils/dashboard-info";
 import {timeFormatterMixin} from "../../utils/timeFormatterMixin";
+import {mapMutations} from "vuex";
+// @ts-ignore
+import SubsectionsNav from "../../components/layout/SubsectionsNav.vue";
 const dashboardInfo = require('../../../temp/dashboard.json')
 
 export default Vue.extend({
   name: "dashboard",
+	components: {
+		SubsectionsNav
+	},
   // @ts-ignore
   metaInfo(){
     return {
@@ -87,6 +105,9 @@ export default Vue.extend({
     familyTab: null,
     familyTab1: null
   }),
+	methods: {
+		...mapMutations(['setContentTree'])
+	},
   watch: {
     familyTab(v){
       this.familyTab1 = v
@@ -145,6 +166,11 @@ export default Vue.extend({
     this.showChart = true
   },
   created() {
+		this.setContentTree({
+			contentTreeId: 'Explore',
+			// @ts-ignore
+			contentTreeJSON: this.$static.testSection.contentTreeJSON
+		})
     const dashboard = dashboardInfoFromJSON(dashboardInfo)
     this.releasesFeed = dashboard.releasesFeed
     this.families = dashboard.families
