@@ -1,6 +1,6 @@
 <template>
 	<div class="d-flex flex-column doc-layout mx-auto">
-		<SubsectionsNav  class="mx-auto my-5" />
+		<SubsectionsNav class="mx-auto my-5" v-if="subsectionsNavigation" />
 		<div class="doc-page">
 			<ContentTree v-if="!isLayoutSm" class="doc-page__aside" />
 			<Article :doc="doc" :hide-doc="hideDoc" class="doc-page__article" />
@@ -17,6 +17,12 @@ import SubsectionsNav from "../layout/SubsectionsNav.vue";
 import {mapGetters} from "vuex";
 export default {
 	name: "DocPageCommon",
+	props: {
+		subsectionsNavigation: {
+			type: Boolean,
+			default: true
+		}
+	},
 	components: {
 		Article, PageContent, ContentTree, SubsectionsNav
 	},

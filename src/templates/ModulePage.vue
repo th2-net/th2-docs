@@ -1,27 +1,19 @@
 <template>
-	<DocPageCommon />
+	<DocPageCommon :subsections-navigation="false" />
 </template>
 
 <page-query>
-query TestingPage ($id: ID!) {
+query ModulePage ($id: ID!) {
   doc: modulePage(id: $id) {
     title
 		content
 		fileInfo{path}
     headings {anchor, value, depth}
     terms {id, title, content}
+		contentTreeJSON
   }
 }
 </page-query>
-
-<static-query>
-query {
-	testSection: section(id: "explore"){
-		title
-		contentTreeJSON
-	}
-}
-</static-query>
 
 <script>
 // TODO: Convert to TypeScript
@@ -30,7 +22,7 @@ import {getMetaInfo} from "../utils/seo";
 import DocPageCommon from "../components/templates/DocPageCommon.vue";
 import {mapMutations} from "vuex";
 export default {
-	name: "GitOpsPage",
+	name: "ModulePage",
 	metaInfo() {
 		const page = this.$page.doc
 		return getMetaInfo({
@@ -44,13 +36,11 @@ export default {
 		DocPageCommon
 	},
 	methods: {
-		...mapMutations(['setContentTree'])
+		...mapMutations(['setModuleContentTree'])
 	},
 	created() {
-		this.setContentTree({
-			contentTreeId: 'Explore',
-			contentTreeJSON: this.$static.testSection.contentTreeJSON
-		})
+
+		this.setModuleContentTree(this.$page.doc.contentTreeJSON)
 	}
 }
 </script>

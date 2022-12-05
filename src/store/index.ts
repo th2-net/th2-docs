@@ -62,6 +62,14 @@ export default new Vuex.Store({
             state.currentTreeId = payload.contentTreeId
             state.currentTree = JSON.parse(payload.contentTreeJSON)
           }
+        },
+        setModuleContentTree(state, contentTreeJSON: string){
+          const tree: TreeNode[] = JSON.parse(contentTreeJSON)
+          const id = tree[0].path
+          if (state.currentTreeId !== id){
+            state.currentTreeId = id
+            state.currentTree = tree
+          }
         }
       },
       getters: {
