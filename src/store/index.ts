@@ -76,6 +76,10 @@ export default new Vuex.Store({
         currentTree(state){
           return state.currentTree
         },
+        isMainModulePage(state, getters, rootState: any){
+          const path: string = rootState.router.path
+          return path.startsWith('/explore/modules/') && path.split('/').length === 5
+        },
         currentPage(state, getters, rootState: any){
           const searchNode = (tree: TreeNode[]): TreeNode | undefined => {
             let foundNode = undefined

@@ -1,11 +1,17 @@
 <template>
-	<DocPageCommon :subsections-navigation="false" />
+	<DocPageCommon :subsections-navigation="false">
+		<template v-slot:index-content>
+			<VueRemarkContent v-if="isMainModulePage" class="vue-remark module-index-page"/>
+		</template>
+	</DocPageCommon>
 </template>
 
 <page-query>
 query ModulePage ($id: ID!) {
   doc: modulePage(id: $id) {
     title
+		name
+		description
 		content
 		fileInfo{path}
     headings {anchor, value, depth}
@@ -20,7 +26,7 @@ query ModulePage ($id: ID!) {
 // TODO: Edit descriptions, titles and headers to get the correct ones
 import {getMetaInfo} from "../utils/seo";
 import DocPageCommon from "../components/templates/DocPageCommon.vue";
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 export default {
 	name: "ModulePage",
 	metaInfo() {
@@ -35,13 +41,24 @@ export default {
 	components: {
 		DocPageCommon
 	},
+	computed: {
+		...mapGetters(['isMainModulePage'])
+	},
 	methods: {
 		...mapMutations(['setModuleContentTree'])
 	},
 	created() {
-
 		this.setModuleContentTree(this.$page.doc.contentTreeJSON)
 	}
 }
 </script>
+
+<style scoped>
+.module-index-page{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+</style>
 

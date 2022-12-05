@@ -2,8 +2,12 @@
 	<div class="d-flex flex-column doc-layout mx-auto">
 		<SubsectionsNav class="mx-auto my-5" v-if="subsectionsNavigation" />
 		<div class="doc-page">
-			<ContentTree v-if="!isLayoutSm" class="doc-page__aside" />
-			<Article :doc="doc" :hide-doc="hideDoc" class="doc-page__article" />
+			<ContentTree v-if="!isLayoutSm && !isMainModulePage" class="doc-page__aside" />
+			<Article :doc="doc" :hide-doc="hideDoc" class="doc-page__article">
+				<template v-slot:index-content>
+					<slot name="index-content" />
+				</template>
+			</Article>
 			<PageContent v-if="!hideDoc" class="doc-page__aside" />
 		</div>
 	</div>
@@ -27,7 +31,7 @@ export default {
 		Article, PageContent, ContentTree, SubsectionsNav
 	},
 	computed: {
-		...mapGetters(['isLayoutSm', 'currentPage']),
+		...mapGetters(['isLayoutSm', 'currentPage', "isMainModulePage"]),
 		doc() {
 			return this.$page.doc
 		},
