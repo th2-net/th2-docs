@@ -27,6 +27,7 @@ query ModulePage ($id: ID!) {
 import {getMetaInfo} from "../utils/seo";
 import DocPageCommon from "../components/templates/DocPageCommon.vue";
 import {mapGetters, mapMutations} from "vuex";
+import {isMainModulePage} from "../utils/isMainModulePage";
 export default {
 	name: "ModulePage",
 	metaInfo() {
@@ -42,7 +43,9 @@ export default {
 		DocPageCommon
 	},
 	computed: {
-		...mapGetters(['isMainModulePage'])
+		isMainModulePage() {
+			return isMainModulePage(this.$route.path)
+		}
 	},
 	methods: {
 		...mapMutations(['setModuleContentTree'])

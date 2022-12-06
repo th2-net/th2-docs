@@ -19,6 +19,8 @@ import PageContent from "../layout/PageContent.vue";
 import ContentTree from "../layout/ContentTree.vue";
 import SubsectionsNav from "../layout/SubsectionsNav.vue";
 import {mapGetters} from "vuex";
+import {isMainModulePage} from "../../utils/isMainModulePage";
+
 export default {
 	name: "DocPageCommon",
 	props: {
@@ -31,9 +33,12 @@ export default {
 		Article, PageContent, ContentTree, SubsectionsNav
 	},
 	computed: {
-		...mapGetters(['isLayoutSm', 'currentPage', "isMainModulePage"]),
+		...mapGetters(['isLayoutSm', 'currentPage']),
 		doc() {
 			return this.$page.doc
+		},
+		isMainModulePage(){
+			return isMainModulePage(this.$route.path)
 		},
 		hideDoc(){
 			return !!this.currentPage?.children?.length
