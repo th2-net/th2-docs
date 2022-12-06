@@ -52,6 +52,17 @@ module.exports = (api: any) => {
         main_path: tree[0].path
       }
     })
+
+    api.onCreateNode((node: any) => {
+      if (['ModulePage'].includes(node.internal.typeName)) {
+        const tree = modulesTree.filter(m => node.path.startsWith(m.path))
+        node.meta = {
+          contentTreeJSON: JSON.stringify(tree),
+          module_name: tree[0].title,
+          main_path: tree[0].path
+        }
+      }
+    })
   })
 
   // TODO: Delete old pages tree constructor
