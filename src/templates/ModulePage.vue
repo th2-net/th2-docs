@@ -10,7 +10,6 @@
 query ModulePage ($id: ID!) {
   doc: modulePage(id: $id) {
     title
-		name
 		description
 		content
 		fileInfo{path}
@@ -43,7 +42,7 @@ export default {
 				keywords: page?.keywords,
 				image: page?.image
 			}),
-			titleTemplate: this.isMainModulePage ? page.meta.module_name : `%s | ${page.meta.module_name}`,
+			titleTemplate: this.isMainModulePage ? `${page.meta.module_name} - th2 module` : `%s | ${page.meta.module_name}`,
 		}
 	},
 	components: {

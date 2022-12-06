@@ -1,5 +1,5 @@
 ---
-name: check1
+title: check1
 description: th2 module for assertion
 tags: [assertion]
 github: https://github.com/th2-net/th2-check1
