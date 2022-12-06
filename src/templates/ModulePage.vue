@@ -9,6 +9,7 @@
 <page-query>
 query ModulePage ($id: ID!) {
   doc: modulePage(id: $id) {
+		__typename
     title
 		description
 		content

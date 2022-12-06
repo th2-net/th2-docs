@@ -5,6 +5,7 @@
 <page-query>
 query TestingPage ($id: ID!) {
   doc: testingPage(id: $id) {
+		__typename
     title
 		content
 		fileInfo{path}

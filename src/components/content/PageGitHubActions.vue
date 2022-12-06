@@ -32,12 +32,24 @@ export default {
 		doc(){
 			return this.$page.doc || this.$page.readmeDoc
 		},
+		collectionFolder(){
+			switch (this.doc.__typename) {
+				case 'GitOpsPage':
+					return 'deploy'
+				case 'TestingPage':
+					return 'test'
+				case 'ModulePage':
+					return 'modules'
+				default:
+					return 'test'
+			}
+		},
 		editPageLink(){
-			return `${this.$static.metadata.githubRepoLink}/blob/master/content/docs/${this.doc.fileInfo.path}`
+			return `${this.$static.metadata.githubRepoLink}/blob/master/content/${this.collectionFolder}/${this.doc.fileInfo.path}`
 		},
 		createIssueLink(){
 			const title = `One thing is unclear after reading "${this.doc.title}" article`
-			const body = `I've read ["${this.doc.title}" article](${this.$static.metadata.githubRepoLink}/blob/master/content/${this.doc.fileInfo.path}) and there is one problem.`
+			const body = `I've read ["${this.doc.title}" article](${this.$static.metadata.githubRepoLink}/blob/master/content/${this.collectionFolder}/${this.doc.fileInfo.path}) and there is one problem.`
 			const assignees = `d0rich`
 			const labels = `by-reader`
 			return `${this.$static.metadata.githubRepoLink}/issues/new?title=${title}&body=${body}&assignees=${assignees}&labels=${labels}`

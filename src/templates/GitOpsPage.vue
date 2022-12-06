@@ -5,6 +5,7 @@
 <page-query>
 query GitOpsPage ($id: ID!) {
   doc: gitOpsPage(id: $id) {
+		__typename
     title
     inner_title
 		content

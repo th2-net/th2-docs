@@ -5,6 +5,7 @@
 <page-query>
 query DocPage ($id: ID!) {
   doc: docPage(id: $id) {
+		__typename
     title
     inner_title
     description
