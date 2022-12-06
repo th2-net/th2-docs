@@ -26,22 +26,19 @@
 					</ul>
 				</template>
 			</PageContentWrapper>
-
-			<PageGitHubActions />
     </div>
 
   </aside>
 </template>
 
 <script>
-import PageGitHubActions from "../content/PageGitHubActions.vue";
 import PageContentWrapper from "./PageContentWrapper.vue";
 import {mapGetters} from "vuex";
 
 export default {
   name: "PageContent",
 	components: {
-		PageGitHubActions, PageContentWrapper
+		PageContentWrapper
 	},
   data(){
     return{
