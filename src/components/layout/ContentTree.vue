@@ -1,5 +1,5 @@
 <template>
-	<aside v-if="items.length" class="pt-5 content-tree-panel sticky-aside">
+	<aside v-if="items.length || ignoreHidden" class="pt-5 content-tree-panel sticky-aside">
 		<div class="px-3 ml-n3 border-right">
 			<slot name="module-nav" />
 			<VersionSwitcher />
@@ -30,6 +30,9 @@ import VersionSwitcher from "../content/VersionSwitcher";
 import {mapGetters, mapMutations} from "vuex";
 
 export default {
+	props: {
+		ignoreHidden: Boolean
+	},
   name: "ContentTree",
 	components: {VersionSwitcher},
   computed: {

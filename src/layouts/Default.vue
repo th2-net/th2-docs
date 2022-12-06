@@ -19,7 +19,7 @@
 			width="90vw"
 			style="min-width: 300px"
 			class="pt-16 px-5">
-			<ContentTree class="pl-3">
+			<ContentTree class="pl-3" ignore-hidden>
 				<template v-if="isLayoutSm && !isModulePage" v-slot:sections-nav>
 					<SectionsNav group />
 				</template>
