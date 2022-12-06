@@ -34,7 +34,7 @@ import {isMainModulePage} from "../utils/pathIdentification";
 export default {
 	name: "ModulePage",
 	metaInfo() {
-		const page = this.$page.doc
+		const page = this.$page?.doc
 		return {
 			...getMetaInfo({
 				title: page?.title,
@@ -54,13 +54,10 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(['setModuleContentTree', 'resetContentTree'])
+		...mapMutations(['setModuleContentTree'])
 	},
 	created() {
 		this.setModuleContentTree(this.$page.doc.meta.contentTreeJSON)
-	},
-	beforeDestroy() {
-		this.resetContentTree()
 	}
 }
 </script>

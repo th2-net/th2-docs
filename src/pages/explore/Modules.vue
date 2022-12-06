@@ -70,11 +70,17 @@ import {mapGetters, mapMutations} from "vuex";
 import SubsectionsNav from "../../components/layout/SubsectionsNav.vue";
 import {ModuleNote} from "../../plugins/gridsome/plugin/th2-modules-index/types";
 import Vue from "vue"
+import { getMetaInfo } from "../../utils/seo";
 
 export default Vue.extend({
 	name: "Modules",
 	components: {
 		SubsectionsNav
+	},
+	metaInfo() {
+		return getMetaInfo({
+			title: 'Modules'
+		})
 	},
 	data(){
 		return{
@@ -109,7 +115,7 @@ export default Vue.extend({
 		}
 	},
 	methods: {
-		...mapMutations(['setContentTree']),
+		...mapMutations(['setContentTree', "resetContentTree"]),
 		isTagHighlighted(tag: string){
 			if (this.chosenTag === undefined) return false
 			else return this.tags[this.chosenTag] === tag

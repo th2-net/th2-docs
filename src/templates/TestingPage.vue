@@ -33,7 +33,7 @@ import {mapMutations} from "vuex";
 export default {
 	name: "GitOpsPage",
 	metaInfo() {
-		const page = this.$page.doc
+		const page = this.$page?.doc
 		return getMetaInfo({
 			title: page?.title,
 			description: page?.description,
@@ -45,16 +45,13 @@ export default {
 		DocPageCommon
 	},
 	methods: {
-		...mapMutations(['setContentTree', 'resetContentTree'])
+		...mapMutations(['setContentTree'])
 	},
 	created() {
 		this.setContentTree({
 			contentTreeId: 'Test',
 			contentTreeJSON: this.$static.testSection.contentTreeJSON
 		})
-	},
-	beforeDestroy() {
-		this.resetContentTree()
 	}
 }
 </script>
