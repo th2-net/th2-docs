@@ -1,6 +1,7 @@
 <template>
 	<aside v-if="items.length" class="pt-5 content-tree-panel sticky-aside">
 		<div class="px-3 ml-n3 border-right">
+			<slot name="module-nav" />
 			<VersionSwitcher />
 			<slot name="sections-nav" />
 			<v-treeview 	class="ml-n3 py-2" dense

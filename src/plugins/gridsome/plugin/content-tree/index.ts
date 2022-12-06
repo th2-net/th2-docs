@@ -45,7 +45,12 @@ module.exports = (api: any) => {
     const modulesTree = constructPagesTree(modulesPages, 5)
     const modulesCollection: GridsomeCollection<any> = getCollection('ModulePage')
     modulesCollection._collection.data.forEach(item => {
-      item.contentTreeJSON = JSON.stringify(modulesTree.filter(m => item.path.startsWith(m.path)))
+      const tree = modulesTree.filter(m => item.path.startsWith(m.path))
+      item.meta = {
+        contentTreeJSON: JSON.stringify(tree),
+        module_name: tree[0].title,
+        main_path: tree[0].path
+      }
     })
   })
 

@@ -1,7 +1,14 @@
 <template>
 	<div v-resize="onResize">
 		<Header v-model="navPanel" :dense="isLayoutSm">
-			<template v-if="!isLayoutSm" v-slot:sections-nav>
+			<template v-if="isModulePage" v-slot:module-nav>
+				<v-btn :to="moduleMetaInfo.mainPath"
+							 exact large
+							 dark text class="text-lowercase font-weight-bold">
+					{{moduleMetaInfo.name}}
+				</v-btn>
+			</template>
+			<template v-else-if="!isLayoutSm" v-slot:sections-nav>
 				<SectionsNav dark />
 			</template>
 		</Header>
@@ -13,7 +20,7 @@
 			style="min-width: 300px"
 			class="pt-16 px-5">
 			<ContentTree class="pl-3">
-				<template v-if="isLayoutSm" v-slot:sections-nav>
+				<template v-if="isLayoutSm && !isModulePage" v-slot:sections-nav>
 					<SectionsNav group />
 				</template>
 			</ContentTree>
@@ -32,6 +39,7 @@ import Footer from "../components/layout/Footer.vue";
 import ContentTree from "../components/layout/ContentTree";
 import SectionsNav from "../components/layout/SectionsNav.vue";
 import {mapGetters, mapMutations} from "vuex";
+import {isModulePage} from "../utils/pathIdentification";
 export default {
 	name: "DefaultLayout",
 	components: {
@@ -44,7 +52,16 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters(["isLayoutSm"])
+		...mapGetters(["isLayoutSm"]),
+		isModulePage(){
+			return isModulePage(this.$route.path)
+		},
+		moduleMetaInfo(){
+			return {
+				name: this.$page?.doc?.meta?.module_name,
+				mainPath: this.$page?.doc?.meta?.main_path
+			}
+		}
 	},
 	methods:{
 		...mapMutations(['updateWindowWidth']),

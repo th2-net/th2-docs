@@ -6,10 +6,15 @@
 		class="top-layout"
 	>
 		<div class="header-container">
-			<g-link to="/" class="logo-container" v-ripple>
-				<img :src="logo" />
-			</g-link>
+			<div class="meta-btns">
+				<g-link to="/" class="logo-container" v-ripple>
+					<img :src="logo" />
+				</g-link>
+				<slot name="module-nav" />
+			</div>
+			<v-spacer />
 			<slot name="sections-nav" />
+			<v-spacer />
 			<div class="header-btns">
 				<v-btn dark :href="$static.metadata.githubRepoLink" target="_blank" icon>
 					<v-icon>mdi-github</v-icon>
@@ -56,9 +61,12 @@ export default {
 
 <style scoped lang="scss">
 @import 'src/assets/variables';
+.meta-btns{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
 .header-btns{
-	max-width: ($max-width / 5);
-	min-width: ($max-width / 5) - 50px;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -67,28 +75,20 @@ export default {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	width: 100%;
+	width: min(95%, 800px);
+	margin: auto;
 }
 .logo-container{
-	max-width: ($max-width / 5);
-	min-width: ($max-width / 5) - 50px;
 	height: 80%;
 	display: flex;
 	justify-content: flex-start;
-
-svg{
-	height: 100%;
-}
+	margin-right: .5rem;
+	svg{
+		height: 100%;
+	}
 }
 @media screen and (max-width: $window-width-md) {
-	.header-btns{
-		max-width: ($max-width-md / 5);
-		min-width: ($max-width-md / 5) - 30px;
-	}
-	.logo-container{
-		max-width: ($max-width-md / 5);
-		min-width: ($max-width-md / 5) - 30px;
-	}
+
 }
 
 @media screen and (max-width: $window-width-sm) {

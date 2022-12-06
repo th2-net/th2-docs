@@ -16,7 +16,11 @@ query ModulePage ($id: ID!) {
 		fileInfo{path}
     headings {anchor, value, depth}
     terms {id, title, content}
-		contentTreeJSON
+		meta {
+			contentTreeJSON
+			module_name
+			main_path
+		}
   }
 }
 </page-query>
@@ -27,7 +31,7 @@ query ModulePage ($id: ID!) {
 import {getMetaInfo} from "../utils/seo";
 import DocPageCommon from "../components/templates/DocPageCommon.vue";
 import {mapGetters, mapMutations} from "vuex";
-import {isMainModulePage} from "../utils/isMainModulePage";
+import {isMainModulePage} from "../utils/pathIdentification";
 export default {
 	name: "ModulePage",
 	metaInfo() {
@@ -51,7 +55,7 @@ export default {
 		...mapMutations(['setModuleContentTree'])
 	},
 	created() {
-		this.setModuleContentTree(this.$page.doc.contentTreeJSON)
+		this.setModuleContentTree(this.$page.doc.meta.contentTreeJSON)
 	}
 }
 </script>

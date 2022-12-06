@@ -19,7 +19,7 @@ import PageContent from "../layout/PageContent.vue";
 import ContentTree from "../layout/ContentTree.vue";
 import SubsectionsNav from "../layout/SubsectionsNav.vue";
 import {mapGetters} from "vuex";
-import {isMainModulePage} from "../../utils/isMainModulePage";
+import {isMainModulePage} from "../../utils/pathIdentification";
 
 export default {
 	name: "DocPageCommon",
