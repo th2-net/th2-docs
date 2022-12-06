@@ -3,14 +3,26 @@
 		<div class="d-flex flex-column my-5">
 			<SubsectionsNav  class="mx-auto" />
 		</div>
+		<section class="ma-md-16 ma-8">
+			<h1 class="text-md-h1 text-h3">Modules</h1>
+		</section>
+		<nav class="mx-5">
+			<div class="text-h5">Tags:</div>
+			<v-chip-group v-model="chosenTag" color="primary">
+				<v-chip v-for="tag in tags" :key="tag" label >
+					{{tag}}
+				</v-chip>
+			</v-chip-group>
+		</nav>
 		<section class="modules-grid ma-5">
-			<v-card v-for="module in modules" :key="module.name"
+			<v-card v-for="module in displayedModules" :key="module.name"
 							class="" outlined>
 				<v-card-title>
 					{{module.name}}
 				</v-card-title>
 				<v-card-subtitle>
-					<v-chip v-for="tag in module.tags" :key="tag" small label >
+					<v-chip v-for="tag in module.tags" :key="tag" small label
+									:color="isTagHighlighted(tag) ? 'primary' : ''" >
 						{{tag}}
 					</v-chip>
 				</v-card-subtitle>
@@ -64,9 +76,26 @@ export default Vue.extend({
 	components: {
 		SubsectionsNav
 	},
+	data(){
+		return{
+			chosenTag: undefined as number | undefined
+		}
+	},
 	computed: {
 		modules(): ModuleNote[] {
-			return this.$static.modules.edges.map((m: any) => m.node)
+			return this.$static.modules.edges
+				.map((m: any) => m.node)
+				.sort((a: any, b: any) => {
+					if (a.name < b.name) return -1
+					if (a.name > b.name) return 1
+					return 0
+				})
+		},
+		displayedModules(): ModuleNote[] {
+			const chosenTag = this.chosenTag
+			if (chosenTag === undefined)
+				return this.modules
+			else return this.modules.filter(m => m.tags.includes(this.tags[chosenTag]))
 		},
 		tags(): string[] {
 			const tags = new Set<string>()
@@ -79,7 +108,11 @@ export default Vue.extend({
 		}
 	},
 	methods: {
-		...mapMutations(['setContentTree'])
+		...mapMutations(['setContentTree']),
+		isTagHighlighted(tag: string){
+			if (this.chosenTag === undefined) return false
+			else return this.tags[this.chosenTag] === tag
+		}
 	},
 	created() {
 		// @ts-ignore
@@ -98,7 +131,6 @@ export default Vue.extend({
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 1rem;
-	align-items: start;
 }
 
 @media screen and (max-width: $window-width-sm) {
