@@ -34,7 +34,7 @@ Static data shared between th2 components.
 The four components that make up the th2 infrastructure and automate the deployment of the test environment infrastructure: infra-schema, infra-mgr, infra-operator, infra-editor.
 
 **_th2-infra_**: 
-_th2-infra_ is a repository with documentation about how to work with th2 infrastructure.
+_th2-infra_ is a repository with documentation about how to work with th2 infrastructure and the source code for th2 infrastructure Helm charts.
 This repository contains the source code for Helm charts installed with the Helm CLI.
 
 **_infra-schema_**:
