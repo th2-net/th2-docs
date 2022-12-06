@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="d-flex flex-column my-5">
-			<SubsectionsNav  class="mx-auto" />
+			<SubsectionsNav v-if="!isLayoutSm"  class="mx-auto" />
 		</div>
 		<section class="ma-md-16 ma-8">
 			<h1 class="text-md-h1 text-h3">Modules</h1>
@@ -66,7 +66,7 @@ query {
 </static-query>
 
 <script lang="ts">
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 import SubsectionsNav from "../../components/layout/SubsectionsNav.vue";
 import {ModuleNote} from "../../plugins/gridsome/plugin/th2-modules-index/types";
 import Vue from "vue"
@@ -82,6 +82,7 @@ export default Vue.extend({
 		}
 	},
 	computed: {
+		...mapGetters(['isLayoutSm']),
 		modules(): ModuleNote[] {
 			return this.$static.modules.edges
 				.map((m: any) => m.node)

@@ -1,7 +1,7 @@
 <template>
   <v-container class="layout__main">
 		<div class="d-flex flex-column my-5">
-			<SubsectionsNav  class="mx-auto" />
+			<SubsectionsNav v-if="!isLayoutSm"  class="mx-auto" />
 		</div>
     <h1>th2 Modules dashboard</h1>
     <!-- Families Section -->
@@ -81,7 +81,7 @@ query {
 import Vue from 'vue'
 import {RepoResponse, dashboardInfoFromJSON, RepoGroupByFamily, DashboardResponse} from "../../utils/dashboard-info";
 import {timeFormatterMixin} from "../../utils/timeFormatterMixin";
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 // @ts-ignore
 import SubsectionsNav from "../../components/layout/SubsectionsNav.vue";
 const dashboardInfo = require('../../../temp/dashboard.json')
@@ -114,6 +114,7 @@ export default Vue.extend({
     }
   },
   computed: {
+		...mapGetters(['isLayoutSm']),
     lastReleases(): RepoResponse[]{
       return this.releasesFeed.slice(0, 5)
     },

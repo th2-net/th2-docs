@@ -54,6 +54,10 @@ export default new Vuex.Store({
         }
       },
       mutations: {
+        resetContentTree(state){
+          state.currentTree = []
+          state.currentTreeId = null
+        },
         setContentTree(state, payload: {
           contentTreeId: string,
           contentTreeJSON: string

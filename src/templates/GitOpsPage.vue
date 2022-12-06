@@ -48,13 +48,16 @@ export default {
 		DocPageCommon
 	},
 	methods: {
-		...mapMutations(['setContentTree'])
+		...mapMutations(['setContentTree', 'resetContentTree'])
 	},
 	created() {
 		this.setContentTree({
 			contentTreeId: 'Deploy',
 			contentTreeJSON: this.$static.deploySection.contentTreeJSON
 		})
+	},
+	beforeDestroy() {
+		this.resetContentTree()
 	}
 }
 </script>

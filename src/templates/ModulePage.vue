@@ -54,10 +54,13 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(['setModuleContentTree'])
+		...mapMutations(['setModuleContentTree', 'resetContentTree'])
 	},
 	created() {
 		this.setModuleContentTree(this.$page.doc.meta.contentTreeJSON)
+	},
+	beforeDestroy() {
+		this.resetContentTree()
 	}
 }
 </script>

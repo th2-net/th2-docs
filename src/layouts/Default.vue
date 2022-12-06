@@ -11,6 +11,7 @@
 			<template v-else-if="!isLayoutSm" v-slot:sections-nav>
 				<SectionsNav dark />
 			</template>
+
 		</Header>
 		<v-navigation-drawer
 			v-model="navPanel"
@@ -21,7 +22,10 @@
 			class="pt-16 px-5">
 			<ContentTree class="pl-3" ignore-hidden>
 				<template v-if="isLayoutSm && !isModulePage" v-slot:sections-nav>
-					<SectionsNav group />
+					<SectionsNav class="mx-3 my-2" group />
+				</template>
+				<template v-if="isLayoutSm && !isModulePage" v-slot:subsections-nav>
+					<SubsectionsNav class="mx-3 my-2" />
 				</template>
 			</ContentTree>
 		</v-navigation-drawer>
@@ -40,9 +44,11 @@ import ContentTree from "../components/layout/ContentTree";
 import SectionsNav from "../components/layout/SectionsNav.vue";
 import {mapGetters, mapMutations} from "vuex";
 import {isModulePage} from "../utils/pathIdentification";
+import SubsectionsNav from "../components/layout/SubsectionsNav.vue";
 export default {
 	name: "DefaultLayout",
 	components: {
+			SubsectionsNav,
 			ContentTree, Header, Footer, SectionsNav
 		},
 	data () {

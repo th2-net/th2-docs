@@ -3,7 +3,10 @@
 		<div class="px-3 ml-n3 border-right">
 			<slot name="module-nav" />
 			<VersionSwitcher />
-			<slot name="sections-nav" />
+			<div class="d-flex flex-column">
+				<slot name="sections-nav" />
+				<slot name="subsections-nav" />
+			</div>
 			<v-treeview 	class="ml-n3 py-2" dense
 										:items="items"
 										item-key="path"
