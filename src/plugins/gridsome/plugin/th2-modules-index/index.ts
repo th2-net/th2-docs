@@ -1,6 +1,5 @@
 import {GridsomeCollection} from "../../../types/utils";
 import {ModuleDocItem, ModuleNote} from "./types";
-import {DocumentsCollection} from "../../../types/gridsome/collections/documents";
 
 module.exports = (api: any) => {
   // Construct content trees
@@ -19,10 +18,10 @@ module.exports = (api: any) => {
         modulesIndex.addNode({
           id: name,
           name: name,
-          prod_repos: module.prod_repos,
-          custom_repos: module.custom_repos,
           docs: module.path,
-          description: module.description
+          github: module.github,
+          description: module.description,
+          tags: module.tags ?? []
         })
       })
   })
