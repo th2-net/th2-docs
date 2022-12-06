@@ -43,7 +43,7 @@ export default {
 				keywords: page?.keywords,
 				image: page?.image
 			}),
-			titleTemplate: `%s | ${page.meta.module_name}`,
+			titleTemplate: this.isMainModulePage ? page.meta.module_name : `%s | ${page.meta.module_name}`,
 		}
 	},
 	components: {
