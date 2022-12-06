@@ -1,12 +1,16 @@
 <template>
   <aside class="pl-5 pt-5 page-content-panel sticky-aside" v-if="headings.length">
-    <nav class="pr-2 pl-4 border-left">
-			<page-git-hub-info />
-			<page-git-hub-issue />
-			<h3 class="mb-3 mt-7">On this page</h3>
-      <ul>
-        <li v-for="(header, index) in headings" :key="header.anchor"
-            :class="{
+    <div class="pr-2 border-left" :class="{
+			'pl-4': !isLayoutSm
+    }">
+			<PageContentWrapper class="mt-7 mb-5" :dense="isLayoutSm">
+				<template v-slot:title>
+					<h3 :class="{'mb-3': !isLayoutSm}">On this page</h3>
+				</template>
+				<template v-slot:content>
+					<ul>
+						<li v-for="(header, index) in headings" :key="header.anchor"
+								:class="{
 											'font-weight-bold': header.depth === 1,
 											'py-2': header.depth === 2,
 											'h2-border': header.depth === 2 && index > 0 && headings[index-1].depth !== 1,
@@ -15,24 +19,29 @@
 											'ml-4 pb-2': header.depth === 5,
 											'ml-5 pb-2': header.depth >= 6
 										}">
-          <a :href="header.anchor" :class="{'active': isHighlighted(header.anchor)}">
-            <div>{{header.value}}</div>
-          </a>
-        </li>
-      </ul>
-    </nav>
+							<a :href="header.anchor" :class="{'active': isHighlighted(header.anchor)}">
+								<div>{{header.value}}</div>
+							</a>
+						</li>
+					</ul>
+				</template>
+			</PageContentWrapper>
+
+			<PageGitHubActions />
+    </div>
 
   </aside>
 </template>
 
 <script>
-import PageGitHubInfo from "~/components/content/PageGitHubInfo.vue"
-import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue'
+import PageGitHubActions from "../content/PageGitHubActions.vue";
+import PageContentWrapper from "./PageContentWrapper.vue";
+import {mapGetters} from "vuex";
 
 export default {
   name: "PageContent",
 	components: {
-		PageGitHubInfo, PageGitHubIssue
+		PageGitHubActions, PageContentWrapper
 	},
   data(){
     return{
@@ -42,6 +51,7 @@ export default {
     }
   },
 	computed: {
+		...mapGetters(['isLayoutSm']),
 		headings(){
 			return this.$page?.doc?.headings || this.$page?.readmeDoc?.headings
 		},
