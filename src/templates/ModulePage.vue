@@ -36,12 +36,15 @@ export default {
 	name: "ModulePage",
 	metaInfo() {
 		const page = this.$page.doc
-		return getMetaInfo({
-			title: page?.title,
-			description: page?.description,
-			keywords: page?.keywords,
-			image: page?.image
-		})
+		return {
+			...getMetaInfo({
+				title: page?.title,
+				description: page?.description,
+				keywords: page?.keywords,
+				image: page?.image
+			}),
+			titleTemplate: `%s | ${page.meta.module_name}`,
+		}
 	},
 	components: {
 		DocPageCommon
