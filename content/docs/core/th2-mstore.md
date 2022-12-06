@@ -14,31 +14,30 @@ related:
 
 ## Overview
 
-**mstore** is a th2 box that fulfills an important business need.
-It is the component solely responsible for storing raw messages into th2’s data lake. 
+**mstore** (th2 message store) is one of <term term="Core">Core</term> components of th2.
+It is responsible for storing raw messages into <term term="Cradle">Cradle</term>, the data lake based on Cassandra NOSQL database.
 
 <notice info>
 Raw messages are produced by several th2 components during testing. 
 </notice>
 
-Without the **mstore**, it would be very difficult to keep track of the saved items.
-The **mstore** ensures that the messages in the database are stored in the correct order and keeps track of the order of the saved messages.
+Instead of having several components saving raw messages directly into the data lake, the raw messages are routed to the **mstore**.
+The **mstore** will keep track of the order of the saved messages and ensures that messages in the database are stored in the correct order.
 
-Due to its importance, the **mstore** is deemed as one of <term term="Core">Core</term> components of th2.
-A single instance (box) of the **mstore** is always required in every th2 environment.
-The logic of this box is the same in every th2 environment and requires no modifications.
-
-The **mstore** automatically receives raw messages from pins with a connection type `mq` and attribute `store`.
+The **mstore** has a pin for listening to messages via RabbitMQ (message broker).
+Through this pin, the **mstore** automatically receives raw messages from modules having pins with a connection type `mq` and attribute `store`.
 Therefore, users must declare a pin with this configuration in any module that produces raw messages.
 Typically, raw messages are produced by the th2 boxes **conn**, **read**, and **hand**.
-These raw messages are then sent to the **mstore** via RabbitMQ (message broker).
-The **mstore** uses the [Cradle API](https://github.com/th2-net/cradleapi) to save the messages to <term term="Cradle">Cradle</term> (the schema on top of the data lake). th2's data lake is the Cassandra NoSQL database. 
 
+A single instance (box) of the **mstore** is always required in every th2 environment.
+The logic of this box is the same in every th2 environment and requires no modifications.
+ 
 ## Family
 
  [th2-mstore](https://github.com/th2-net/th2-mstore) - component repository.
 
 ## Functionality
+
 - The **mstore** automatically receives raw messages, parsed messages are not accepted. 
 - The **mstore** saves these raw messages to th2's data lake.
 - The **mstore** uses the Cradle Api Library to write data into the data lake.
@@ -68,7 +67,6 @@ Pin configuration is generated and managed by the **infra-operator**.
 
 
 ### Configuration example
-
 General view of the component looks like this:
 
 ```yaml
@@ -99,6 +97,7 @@ spec:
 ## Useful hints
 
 ### Raw Messages
+
 The raw message is a base entity of th2.
 All incoming / outgoing data is stored in this format.
 Every raw message contains the following important parts:​
