@@ -19,6 +19,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 // Global components
 import Term from './components/global/Term'
 import VersionedBlock from "./components/global/VersionedBlock";
+import ModuleIndexActions from "./components/global/ModuleIndexActions.vue";
 import CopyCodeBtn from "./components/content/CopyCodeBtn";
 import CustomStepper from "./components/global/CustomStepper";
 import Notice from "./components/global/Notice";
@@ -46,9 +47,16 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   appOptions.vuetify = new Vuetify(vuetifyConfig);
   appOptions.store = store
 
+  router.beforeEach((to, from, next) => {
+    store.commit('setPath', to.path);
+    store.commit('setFullPath', to.fullPath);
+    next();
+  });
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('term', Term)
+  Vue.component('ModuleIndexActions', ModuleIndexActions)
   Vue.component('versioned-block', VersionedBlock)
   Vue.component('custom-stepper', CustomStepper)
   Vue.component('notice', Notice)

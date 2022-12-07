@@ -25,29 +25,29 @@ module.exports = function (api: any){
                 repositoriesCollection.addNode(repository)
         }
         // Load repos for document pages
-        console.log('Linking pages to GitHub repos...')
-        console.time('load_repos_for_pages')
-        progress.start(docPagesCollection._collection.data.length, 0)
-        let count = 1
-        let promises = docPagesCollection._collection.data.map(async (docPage: any) => {
-            if (docPage.repo && docPage.repo_owner) {
-                const details = await getRepoInfo(docPage.repo_owner, docPage.repo)
-                if (!details) return
-                const {repository, releases} = details
-                addRepoToDatabase(repository, releases)
-                docPage._githubRepository = store.createReference('Repository', repository.id)
-                docPage.internal.mimeType = 'text/markdown'
-                docPage.repo = null
-                docPage.repo_owner = null
-                docPage.internal.content = docPage.content
-                if (docPage._githubRepository)
-                    docPagesCollection.updateNode(docPage)
-            }
-            progress.update(count++)
-        })
-        await Promise.all(promises)
-        progress.stop()
-        console.timeEnd('load_repos_for_pages')
+        // console.log('Linking pages to GitHub repos...')
+        // console.time('load_repos_for_pages')
+        // progress.start(docPagesCollection._collection.data.length, 0)
+        // let count = 1
+        // let promises = docPagesCollection._collection.data.map(async (docPage: any) => {
+        //     if (docPage.repo && docPage.repo_owner) {
+        //         const details = await getRepoInfo(docPage.repo_owner, docPage.repo)
+        //         if (!details) return
+        //         const {repository, releases} = details
+        //         addRepoToDatabase(repository, releases)
+        //         docPage._githubRepository = store.createReference('Repository', repository.id)
+        //         docPage.internal.mimeType = 'text/markdown'
+        //         docPage.repo = null
+        //         docPage.repo_owner = null
+        //         docPage.internal.content = docPage.content
+        //         if (docPage._githubRepository)
+        //             docPagesCollection.updateNode(docPage)
+        //     }
+        //     progress.update(count++)
+        // })
+        // await Promise.all(promises)
+        // progress.stop()
+        // console.timeEnd('load_repos_for_pages')
 
         // Load all th2 repos
         if (process.env.NODE_ENV === 'production'){
@@ -55,8 +55,8 @@ module.exports = function (api: any){
             console.log('Loading all th2 repositories...')
             console.time('load_all_th2_repos')
             progress.start(repos.length, 0)
-            count = 1
-            promises = repos.map(async (repository) => {
+            let count = 1
+            let promises = repos.map(async (repository) => {
                 const releases = await getRepoReleases(repository)
                 addRepoToDatabase(repository,releases)
                 progress.update(count++)

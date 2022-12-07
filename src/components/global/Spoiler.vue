@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style>
-.doc-article .v-expansion-panel{
-	max-width: min(100%, 100vw);
+.doc-page .v-expansion-panel{
+	width: min(100%, 95vw);
 }
 </style>

@@ -1,81 +1,59 @@
 <template>
-	<aside class="pt-5 content-tree-panel">
-		<div class="sticky-tree px-3 ml-n3">
+	<aside v-if="items.length || ignoreHidden" class="pt-5 content-tree-panel sticky-aside">
+		<div class="px-3 ml-n3 border-right">
+			<slot name="module-nav" />
 			<VersionSwitcher />
-			<div class="py-2">
-				<g-link exact to="/" class="main-section"
-									 :class="{'nuxt-link-exact-active': '/' === $route.path}">
-					<div class="tree__path-name">
-						<span> Home </span>
-					</div>
-				</g-link>
+			<div>
+				<div>
+					<slot name="sections-nav" />
+				</div>
+				<div>
+					<slot name="subsections-nav" />
+				</div>
 			</div>
-			<div v-for="link in pagesTree" :key="link.path"
-					 class="py-2">
-				<g-link exact :to="link.path" class="main-section"
-									 :class="{'nuxt-link-exact-active': link.path === $route.path}">
-					<div class="tree__path-name">
-            <span>
-              {{link.title}}
-            </span>
-					</div>
-				</g-link>
-				<v-treeview v-if="link.children.length"
-										class="ml-n3"
-										:items="link.children"
+			<v-treeview 	class="ml-n3 py-2" dense
+										:items="items"
 										item-key="path"
 										item-text="title"
-										:open="activeRoute"
-										dense>
+									 	hoverable
+										:open="activePathsInContentTree"
+										>
 					<template v-slot:label="{ item }">
-						<g-link exact :to="item.path"
-											 :class="{'nuxt-link-exact-active': item.path === $route.path}">
+						<g-link exact :to="item.followPath"
+											 :class="{'nuxt-link-exact-active':  ($route.path + '/').includes(item.path)}">
 							<div class="tree__path-name">
 								{{item.title}}
 							</div>
 						</g-link>
 					</template>
-				</v-treeview>
-			</div>
+			</v-treeview>
 		</div>
 	</aside>
 
 </template>
 
 <script>
-import pagesTrees from '../../../temp/pagesTrees.json'
 import VersionSwitcher from "../content/VersionSwitcher";
+import {mapGetters, mapMutations} from "vuex";
 
 export default {
+	props: {
+		ignoreHidden: Boolean
+	},
   name: "ContentTree",
 	components: {VersionSwitcher},
-  data(){
-    return {
-			pagesTrees,
-			versionNow: ''
-    }
-  },
   computed: {
-    pagesTree(){
-      return this.pagesTrees || []
-    },
-		allPaths(){
-			if (!this.pagesTrees) return []
-			const paths = []
-			function getPaths(node){
-				paths.push(node.path)
-				for (const child of node.children)
-					getPaths(child)
-			}
-			this.pagesTree.forEach(tree => getPaths(tree))
-			return paths
-		},
-    // All tree nodes to expand
-    activeRoute(){
-      return this.allPaths
-        .filter(path => this.$route.path.startsWith(path))
-    }
-  }
+		...mapGetters(['activePathsInContentTree', 'currentSubsection']),
+		items(){
+			return this.currentSubsection?.children || []
+		}
+  },
+	methods: {
+		...mapMutations(['setPath'])
+	},
+	created() {
+		this.setPath(this.$route.path)
+	}
 
 }
 </script>
@@ -86,6 +64,15 @@ export default {
 }
 </style>
 <style scoped lang="scss">
+@import "src/assets/variables";
+.border-right{
+	border-right: solid 1px var(--layout__border-color);
+}
+@media screen and (max-width: $window-width-sm){
+	.border-right{
+		border-right: unset;
+	}
+}
 .content-tree-panel{
   // Базовые стили ссылок
   a {
@@ -108,9 +95,9 @@ export default {
     // Текст текущей ссылки
     &.nuxt-link-exact-active .tree__path-name {
       color: var(--content-tree__link--active);
-      background-color: var(--content-tree__link-bg--active);
-      border-radius: .5rem;
-      padding: .3rem .7rem;
+      //background-color: var(--content-tree__link-bg--active);
+      //border-radius: .5rem;
+      //padding: .3rem .7rem;
     }
   }
 

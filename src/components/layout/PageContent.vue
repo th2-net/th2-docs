@@ -1,12 +1,16 @@
 <template>
-  <aside class="pl-5 pt-5 page-content-panel" v-if="headings.length">
-    <nav class="pr-2 sticky-page-content">
-			<page-git-hub-info />
-			<page-git-hub-issue />
-			<h3 class="mb-3 mt-7">On this page</h3>
-      <ul v-scroll="onScroll">
-        <li v-for="(header, index) in headings" :key="header.anchor"
-            :class="{
+  <aside class="pl-5 pt-5 page-content-panel sticky-aside" v-if="headings.length">
+    <div class="pr-2 border-left" :class="{
+			'pl-4': !isLayoutSm
+    }">
+			<PageContentWrapper class="mt-7 mb-5" :dense="isLayoutSm">
+				<template v-slot:title>
+					<h3 :class="{'mb-3': !isLayoutSm}">On this page</h3>
+				</template>
+				<template v-slot:content>
+					<ul>
+						<li v-for="(header, index) in headings" :key="header.anchor"
+								:class="{
 											'font-weight-bold': header.depth === 1,
 											'py-2': header.depth === 2,
 											'h2-border': header.depth === 2 && index > 0 && headings[index-1].depth !== 1,
@@ -15,85 +19,96 @@
 											'ml-4 pb-2': header.depth === 5,
 											'ml-5 pb-2': header.depth >= 6
 										}">
-          <a :href="header.anchor" :class="{'active': isHighlighted(header.anchor)}">
-            <div>{{header.value}}</div>
-          </a>
-        </li>
-      </ul>
-    </nav>
+							<a :href="header.anchor" :class="{'active': isHighlighted(header.anchor)}">
+								<div>{{header.value}}</div>
+							</a>
+						</li>
+					</ul>
+				</template>
+			</PageContentWrapper>
+    </div>
 
   </aside>
 </template>
 
 <script>
-import PageGitHubInfo from "~/components/content/PageGitHubInfo.vue"
-import PageGitHubIssue from '~/components/content/PageGitHubIssue.vue'
+import PageContentWrapper from "./PageContentWrapper.vue";
+import {mapGetters} from "vuex";
 
 export default {
   name: "PageContent",
-  // props: {
-	// 	headings: {
-  //     type: Array,
-  //     default: () => []
-  //   }
-  // },
 	components: {
-		PageGitHubInfo, PageGitHubIssue
+		PageContentWrapper
 	},
   data(){
     return{
-      headersToCheck: [],
-      headersToHighlight: []
+			headersToHighlight: [],
+			highlightMap: new Map(),
+			observer: null
     }
   },
 	computed: {
+		...mapGetters(['isLayoutSm']),
 		headings(){
 			return this.$page?.doc?.headings || this.$page?.readmeDoc?.headings
-		}
+		},
 	},
   methods:{
-    onScroll(){
-      const headersToHighlight = []
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-      this.headersToCheck.forEach((el, index) => {
-        if (isInViewport(el))
-          headersToHighlight.push(this.headings[index].anchor)
-      })
-      this.headersToHighlight = headersToHighlight
-    },
     isHighlighted(id){
-      return this.headersToHighlight.findIndex(el => el === id) > -1
+      return this.headersToHighlight.findIndex(h => h === id) > -1
     },
-		scrollToHeading(hash){
-			this.$router.push({ ...this.$route, hash })
+		setupObserver(){
+			this.highlightMap = new Map()
+			if (this.observer){
+				this.observer.disconnect()
+				this.headings
+					.forEach(header => {
+						const el = document.getElementById(header.anchor.replace('#', ''))
+						this.observer.observe(el)
+					})
+			}
 		}
   },
-  mounted() {
-		setTimeout(() => {
-			this.headersToCheck = this.headings
-				.filter(header => header.depth > 1)
-				.map(header => {
-					return document.getElementById(header.anchor.replace('#', ''))
+	created() {
+		if (process.isClient){
+			this.observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					this.highlightMap.set('#' + entry.target.id, entry.isIntersecting)
 				})
-			this.onScroll()
+				this.headersToHighlight = Array.from(this.highlightMap.keys())
+					.filter(id => this.highlightMap.get(id))
+			})
+		}
+	},
+	mounted() {
+		setTimeout(() => {
+			this.setupObserver()
 		}, 100)
-
   },
   beforeDestroy() {
-    this.headersToCheck = []
-  }
+		this.observer.disconnect()
+  },
+	watch: {
+		$route(){
+			setTimeout(() => {
+				this.setupObserver()
+			}, 100)
+		}
+	}
 }
 </script>
 
 <style scoped lang="scss">
+@import "src/assets/variables";
+
+.border-left{
+	border-left: solid 1px var(--layout__border-color);
+}
+@media screen and (max-width: $window-width-sm){
+	.border-left{
+		border-left: unset;
+	}
+}
 .page-content-panel{
   nav{
     min-width: 200px;
