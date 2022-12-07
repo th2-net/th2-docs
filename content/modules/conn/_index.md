@@ -1,6 +1,6 @@
 ---
 title: conn
-tags: [other]
+tags: [integration]
 ---
 
 <section>

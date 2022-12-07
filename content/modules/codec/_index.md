@@ -1,6 +1,6 @@
 ---
 title: codec
-tags: [other]
+tags: [utils]
 ---
 
 <section>

@@ -1,7 +1,7 @@
 ---
 title: check2-recon
 description: th2 reconciliation module
-tags: [other]
+tags: [reconciliation]
 ---
 
 <section>
