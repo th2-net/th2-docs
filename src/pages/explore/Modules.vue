@@ -18,14 +18,12 @@
 			<v-card v-for="module in displayedModules" :key="module.name"
 							class="" outlined>
 				<v-card-title>
-					{{module.name}}
-				</v-card-title>
-				<v-card-subtitle>
+					<span class="mr-2">{{module.name}}</span>
 					<v-chip v-for="tag in module.tags" :key="tag" small label
-									:color="isTagHighlighted(tag) ? 'primary' : ''" >
+																 :color="isTagHighlighted(tag) ? 'primary' : ''" >
 						{{tag}}
 					</v-chip>
-				</v-card-subtitle>
+				</v-card-title>
 				<v-card-text v-if="module.description">
 					{{module.description}}
 				</v-card-text>
