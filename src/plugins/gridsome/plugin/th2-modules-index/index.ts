@@ -7,6 +7,13 @@ module.exports = (api: any) => {
     const modulesIndex: GridsomeCollection<ModuleNote> = addCollection('ModuleNote')
     const modules: GridsomeCollection<ModuleDocItem> = getCollection('ModulePage')
 
+    const nonDocumentedModules: ModuleNote[] = require('../../../../../content/modules/not-documented-modules.json')
+
+    nonDocumentedModules.forEach(module => modulesIndex.addNode({
+      ...module,
+      id: module.name
+    }))
+
     modules._collection.data
       .filter((module) => {
         const sections = module.path.split('/')
