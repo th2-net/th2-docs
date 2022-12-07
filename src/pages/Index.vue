@@ -56,8 +56,8 @@
 </template>
 <script>
 import Recommendations from "../components/global/Recommendations";
-import {seoMixin} from "../utils/seoMixin";
-import {mapState} from "vuex";
+import {seoMixin} from "../utils/seo";
+import {mapMutations, mapState} from "vuex";
 export default {
   metaInfo(){
     return this.getMetaInfo({
@@ -84,6 +84,12 @@ export default {
               'create your own, and share your experience with the community.' },
       ]
     }
-  }
+  },
+	methods: {
+		...mapMutations(['resetContentTree'])
+	},
+	created() {
+		this.resetContentTree()
+	}
 }
 </script>

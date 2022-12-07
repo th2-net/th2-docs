@@ -1,0 +1,10 @@
+[
+  {
+    "name": "act",
+    "description": "Module for using asynchronous RabbitMQ messaging in synchronous way with gRPC.",
+    "tags": [
+      "utils"
+    ],
+    "github": "https://github.com/orgs/th2-net/repositories?q=th2-act-core&type=all&language=&sort="
+  }
+]

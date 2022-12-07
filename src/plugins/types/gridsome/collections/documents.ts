@@ -1,6 +1,7 @@
 import { GridsomeCollection } from "../../utils"
 
-export type DocumentsCollection = GridsomeCollection<{
+
+export type DocItem = {
   id: string
   path: string
   content: string
@@ -11,4 +12,5 @@ export type DocumentsCollection = GridsomeCollection<{
     path: string
     name: string
   }
-}>
+}
+export type DocumentsCollection = GridsomeCollection<DocItem>
