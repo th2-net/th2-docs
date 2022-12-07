@@ -8,7 +8,6 @@ module.exports = (api: any) => {
   api.loadSource(({ getCollection, addCollection }: any) => {
     const gitOpsPages = getPagesData(getCollection('GitOpsPage'))
     const testingPages = getPagesData(getCollection('TestingPage'))
-
     const gitOpsTree = constructPagesTree(gitOpsPages, 4)
     const testingTree = constructPagesTree(testingPages, 4)
     const exploreTree = constructPagesTree([
@@ -63,36 +62,5 @@ module.exports = (api: any) => {
         }
       }
     })
-  })
-
-  // TODO: Delete old pages tree constructor
-  api.loadSource(({ getCollection }: any) => {
-      const docPages: PageReduced[] = getCollection('DocPage')
-          ._collection.data
-          .filter((page: PageRaw) => !page.path.startsWith('/versions') && !page.path.startsWith('/common'))
-          .map((page: PageRaw) => {
-              return {
-                  title: page['tree-title'] || page.tree_title || page.title,
-                  path: page.path,
-                  weight: page.weight
-              }
-          })
-      const readmePages: PageReduced[] = getCollection('ReadmePage')
-          ._collection.data
-          .filter((page: PageRaw) => !page.path.startsWith('/versions') && !page.path.startsWith('/common'))
-          .map((page: PageRaw) => {
-              return {
-                  title: page['tree-title'] || page.tree_title || page.title,
-                  path: page.path,
-                  weight: page.weight
-              }
-          })
-      const dashboardPages: PageReduced[] = [{
-        path: '/fundamentals/th2-net-on-github/dashboard/',
-        weight: 0,
-        title: 'Dashboard'
-      }]
-
-      savePagesTrees([...docPages, ...readmePages, ...dashboardPages])
   })
 }

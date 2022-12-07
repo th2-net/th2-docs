@@ -65,17 +65,6 @@ module.exports = {
       use: 'gridsome-plugin-typescript',
     },
       // Documentation Nodes
-      // TODO: Delete DocPage when migration is completed
-    {
-      use: '@gridsome/vue-remark',
-      options: {
-        typeName: 'DocPage', // Required
-        pathPrefix: '/docs',
-        baseDir: './content/docs', // Where .md files are located
-        template: './src/templates/Documentation.vue', // Optional
-        ...vueRemarkCommonOptions
-      }
-    },
     {
       use: '@gridsome/vue-remark',
       options: {
@@ -106,23 +95,24 @@ module.exports = {
         ...vueRemarkCommonOptions
       }
     },
-    require('./src/plugins/gridsome/plugin/th2-readme-pages'),
-    {
-      use: '@gridsome/vue-remark',
-      options: {
-        typeName: 'ReadmePage',
-        pathPrefix: '/docs',
-        baseDir: './content/.cache/readmes',
-        template: './src/templates/Documentation.vue',
-        ...vueRemarkCommonOptions
-      }
-    },
+      // Readme pages plugin should be changed if it will be used with new documents
+    // require('./src/plugins/gridsome/plugin/th2-readme-pages'),
+    // {
+    //   use: '@gridsome/vue-remark',
+    //   options: {
+    //     typeName: 'ReadmePage',
+    //     pathPrefix: '/docs',
+    //     baseDir: './content/.cache/readmes',
+    //     template: './src/templates/Documentation.vue',
+    //     ...vueRemarkCommonOptions
+    //   }
+    // },
     require('./src/plugins/gridsome/plugin/th2-modules-index'),
     require('./src/plugins/gridsome/plugin/th2-terms'),
     require('./src/plugins/gridsome/source/th2-github'),
-    require('./src/plugins/gridsome/plugin/th2-check-content'),
+    // require('./src/plugins/gridsome/plugin/th2-check-content'),
     require('./src/plugins/gridsome/plugin/th2-dashboard'),
     require('./src/plugins/gridsome/plugin/content-tree'),
-    require('./src/plugins/gridsome/plugin/dev-sitemap')
+    // require('./src/plugins/gridsome/plugin/dev-sitemap')
   ]
 }
