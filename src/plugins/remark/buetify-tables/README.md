@@ -1,6 +1,6 @@
 # Buetify Tables Plugin
 
-This plugin wraps all tables into special styled block.
+This plugin wraps all tables into a special styled block.
 
 ## Transform
 

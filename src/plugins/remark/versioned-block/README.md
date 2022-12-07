@@ -1,6 +1,6 @@
 # Versioned block
 
-This plugin changes HTML `div` tags with attribute `version` to `versioned-block` (`VersionedBlock.vue`) Vue component.
+This plugin replaces the HTML `div` tags with the `version` attribute with the `versioned-block` (`VersionedBlock.vue`) Vue component.
 
 ## Transform
 

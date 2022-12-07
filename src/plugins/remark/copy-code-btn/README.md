@@ -1,6 +1,6 @@
 # Copy Code Button
 
-This plugin adds `copy-code-btn` Vue component (`CopyCodeBtn.vue`) to all code snippets.
+This plugin adds the `copy-code-btn` Vue component (`CopyCodeBtn.vue`) to all code snippets.
 
 ## Transform
 

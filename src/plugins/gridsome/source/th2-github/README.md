@@ -1,14 +1,14 @@
 # th2 GitHub source plugin
 
-This plugin parses information about public [th2-net](https//github.com/th2-net) repositories with `octokit`. All information is saved in database. 
+This plugin parses information about public [th2-net](https//github.com/th2-net) repositories with `octokit`. All information is saved in the database. 
 
-If it is needed Documentation pages are linked to GitHub repositories.
+If needed, Documentation pages are linked to GitHub repositories.
 
 ## Requirements
 
-This plugin requires GitHub Personal Access Token as `GITHUB_TOKEN` environment variable.
+This plugin requires the GitHub Personal Access Token (PAT) as a `GITHUB_TOKEN` environment variable.
 
-It is an option to past PAT into `.env`
+It is an option to pass the PAT into `.env`:
 
 ```
 GITHUB_TOKEN=my_token
@@ -16,7 +16,7 @@ GITHUB_TOKEN=my_token
 
 ## Created structure
 
-> Types are available in [graphql schema](../../../../schema.graphql)
+> The types are available in the [GraphQL schema](../../../../schema.graphql):
 
 ```mermaid
 erDiagram
