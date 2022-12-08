@@ -47,13 +47,13 @@ Codec never mixes messages from the _stream_ and the _general_ pins.
 
 <notice info>
 
-SEE ALSO: [stream and general pins description](/infrastructure/th2-infra-schema/pins/#stream-and-general-codec-pins)
+SEE ALSO: [stream and general pins description](/deploy/infrastructure/th2-infra-schema/pins/#stream-and-general-codec-pins)
 
 </notice>
 
 Pins are a part of the main th2 concept.
 They describe what are the inputs and outputs of a box.
-You can read more about them [here](../../infrastructure/th2-infra-schema/pins/).
+You can read more about them [here](/deploy/infrastructure/th2-infra-schema/pins/).
 
 Every **codec** operation is associated with 2 pins - `subscribe` and `publish`.
 The first one is used to receive messages to decode/encode, while the second one is used to send decoded/encoded messages further.
@@ -204,7 +204,7 @@ spec:
 ```
 ### Connectivity links
 Functionally, **codec** is a regular th2 box that communicates with other boxes via pins and links.
-To configure the connections, use a template on the [Links](../../infrastructure/th2-infra-schema/links/#boxes-links) page.
+To configure the connections, use a template on the [Links](/deploy/infrastructure/th2-infra-schema/links/#boxes-links) page.
 
 
 
