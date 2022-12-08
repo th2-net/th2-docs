@@ -1,18 +1,8 @@
 ---
-weight: 15
-repo_owner: th2-net
-repo: th2-mstore
-hide_releases: true
-skip_readme: true
-related:
-  - name: "th2-net/cradleapi"
-    icon: "mdi-github"
-    href: "https://github.com/th2-net/cradleapi"
+weight: 0
 ---
 
-# th2-mstore
-
-## Overview
+# Overview
 
 **mstore** (th2 message store) is an important th2 component responsible for storing raw messages into <term term="Cradle">Cradle</term>. 
 This component has a pin for listening to messages via MQ.
@@ -25,11 +15,7 @@ When marking the pins during configurating other components, you can specify `st
 
 **mstore** interacts with Cradle and <term term="th2-common">Common libraries</term>. 
 Using RabbitMQ **mstore** gets messages in batches, then it will try to pack batches more compactly, and finally write them to Cassandra using Cradle library. 
-Take into account that the batches cannot be merged, if combined batch exceeds the size limitation configured in Cradle. 
-
-## Family
-
- [th2-mstore](https://github.com/th2-net/th2-mstore) - component repository.
+Take into account that the batches cannot be merged, if combined batch exceeds the size limitation configured in Cradle.
 
 ## Functionality
 
@@ -58,85 +44,3 @@ Common library is responsible for collecting messages in **mstore** from all pin
 
 **mstore** uses Cradle library to write message batches in Cassandra.
 
-## Configuration:
-
-**infra-schema** can only contain one **mstore** box description. 
-It consists of one required option - a Docker image. 
-Pin configuration is generated and managed by **infra-operator**.
-
-### Configuration parameters
-
-- `drain-interval` - interval in milliseconds to drain all aggregated batches that are not stored yet. 
-- The default value is `1000`.
-
-- `termination-timeout` - the timeout in milliseconds to await for the inner drain scheduler to finish all the tasks. 
-- The default value is `5000`.
-
-```yaml
-{
-  "drain-interval": 1000,
-  "termination-timeout": 5000
-}
-```
-
-### Required pins and links
-
-A user does not need to set up a MQ pin in the **mstore** custom resource. 
-The inbound **mstore** queues receive raw messages from all the boxes that have `mq` pins with the attribute `store`.  
-Examples of such boxes include **conn**, **hand**, and **read**.
-
-### Configuration example
-
-General view of the component looks like this:
-
-```yaml
-apiVersion: th2.exactpro.com/v1
-kind: Th2Mstore
-metadata:
-  name: mstore
-spec:
-  image-name: ghcr.io/th2-net/th2-mstore
-  image-version: <image version>
-  custom-settings:
-    drain-interval: 1000
-    termination-timeout: 5000
-  extended-settings:
-    service:
-      enabled: false
-    envVariables:
-      JAVA_TOOL_OPTIONS: "-XX:+ExitOnOutOfMemoryError -Ddatastax-java-driver.advanced.connection.init-query-timeout=\"5000 milliseconds\""
-    resources:
-      limits:
-        memory: 500Mi
-        cpu: 200m
-      requests:
-        memory: 100Mi
-        cpu: 20m
-```
-
-## Useful hints
-
-### Message batches
-
-**mstore** consumes `RawMessageBatch` objects. 
-Every batch must be built via the following rules:
-
-- all messages in one batch must have identical `session alias` and `direction`;
-
-- each batch must have messages in ascending order;
-
-- the first message in each batch for session alias + direction pair must have a sequence number that is greater than the last message from the previous batch for the same session alias + direction pair;
-
-- all the parts of one business message must be placed into one th2 batch and also several packages of business messages can be placed into one th2 batch.
-
-<notice note>
-
-Source business message can be split into several pieces when it is transferred via different protocols, for example, FIX message wrapped into HTTP package.
-
-</notice>
-
-<notice note>
-
-**mstore** 4.1+ works with grouped message batches that contains mixed sessions
-
-</notice>
