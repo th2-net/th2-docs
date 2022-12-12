@@ -112,7 +112,10 @@ export function getLinks(crs: CRs): GraphLinks {
           edges.push({
             id: link.name,
             source: link.from.box,
-            target: link.to.box
+            target: link.to.box,
+            lineStyle: {
+              color: 'blue'
+            }
           })
         })
       if (links?.spec && links.spec['boxes-relation'] && links.spec['boxes-relation']['router-mq'])
@@ -120,7 +123,10 @@ export function getLinks(crs: CRs): GraphLinks {
           edges.push({
             id: link.name,
             source: link.from.box,
-            target: link.to.box
+            target: link.to.box,
+            lineStyle: {
+              color: 'red'
+            }
           })
         })
     })
