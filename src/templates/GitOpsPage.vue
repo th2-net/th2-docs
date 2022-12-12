@@ -12,7 +12,7 @@ query GitOpsPage ($id: ID!) {
 		fileInfo{path}
     headings {anchor, value, depth}
     read_before{title, href, icon}
-    continue_learning{title, href, icon}
+    continue_learning{title, href}
     terms {id, title, content}
     related {name, icon, href}
   }
