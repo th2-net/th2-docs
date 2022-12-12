@@ -1,6 +1,8 @@
 <template>
   <div>
 		<SchemaPicker @crs="crs = $event" @loading="loading = $event" />
+		<v-switch label="estore connections" v-model="options.estore" />
+		<v-switch label="mstore connections" v-model="options.mstore"  />
     <v-chart class="chart" :option="option" autoresize :loading="loading" />
   </div>
 </template>
@@ -19,7 +21,11 @@ export default Vue.extend({
 	data(){
 		return{
 			crs: {} as CRs,
-			loading: false
+			loading: false,
+			options: {
+				estore: false,
+				mstore: false
+			}
 		}
 	},
 	computed: {
@@ -50,8 +56,14 @@ export default Vue.extend({
 					position: 'right',
 					formatter: '{b}'
 				},
+				lineStyle: {
+					curveness: 0.3
+				},
 				data: getNodes(crs),
-				links: getLinks(crs),
+				links: getLinks(crs, {
+					estore: this.options.estore,
+					mstore: this.options.mstore
+				}),
 				categories: getCategories(crs)
 			}
 		}

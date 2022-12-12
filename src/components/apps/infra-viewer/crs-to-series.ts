@@ -103,7 +103,10 @@ export function getNodes(crs: CRs): GraphNodes {
   return  nodes
 }
 
-export function getLinks(crs: CRs): GraphLinks {
+export function getLinks(crs: CRs, options: {
+  estore?: boolean
+  mstore?: boolean
+} = {}): GraphLinks {
   const edges: GraphLinks = []
   if (crs.links) {
     crs.links.forEach((links: any) => {
@@ -128,6 +131,30 @@ export function getLinks(crs: CRs): GraphLinks {
               color: 'red'
             }
           })
+        })
+    })
+  }
+  if (crs.boxes){
+    const estore = options.estore ? crs.core?.find(b => b.kind === 'Th2Estore') : undefined
+    const mstore = options.mstore ? crs.core?.find(b => b.kind === 'Th2Mstore') : undefined
+    crs.boxes.forEach(box => {
+      if (estore)
+        edges.push({
+          source: box.metadata?.name,
+          target: estore.metadata?.name,
+          lineStyle: {
+            color: 'violet',
+            type: 'dashed'
+          }
+        })
+      if (mstore)
+        edges.push({
+          source: box.metadata?.name,
+          target: mstore.metadata?.name,
+          lineStyle: {
+            color: 'orange',
+            type: 'dashed'
+          }
         })
     })
   }
