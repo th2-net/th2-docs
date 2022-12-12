@@ -12,7 +12,7 @@ import { use } from 'echarts/core'
 // import ECharts modules manually to reduce bundle size
 import {CanvasRenderer} from 'echarts/renderers'
 import {BarChart, LineChart, GraphChart} from 'echarts/charts'
-import {GridComponent, TooltipComponent} from 'echarts/components'
+import {GridComponent, TooltipComponent, TitleComponent, LegendComponent} from 'echarts/components'
 
 import 'prismjs/themes/prism-tomorrow.css'
 
@@ -41,7 +41,8 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   });
 
   Vue.use(Vuetify)
-  use([CanvasRenderer, BarChart, LineChart, GraphChart, GridComponent, TooltipComponent]);
+  use([CanvasRenderer, BarChart, LineChart, GraphChart,
+    GridComponent, TooltipComponent, TitleComponent, LegendComponent]);
 
   appOptions.vuetify = new Vuetify(vuetifyConfig);
   appOptions.store = store
