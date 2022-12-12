@@ -2,6 +2,26 @@ import {GraphSeriesOption} from 'echarts'
 
 type GraphNodes = GraphSeriesOption['nodes']
 type GraphLinks = GraphSeriesOption['links']
+type GraphCategories = GraphSeriesOption['categories']
+
+export function getCategories(crs: any): GraphCategories {
+  const categories: GraphCategories = []
+  if (crs.boxes) {
+    crs.boxes.forEach((box: any) => {
+      categories.push({
+        name: box.spec.type
+      })
+    })
+  }
+  if (crs.core) {
+    crs.core.forEach((box: any) => {
+      categories.push({
+        name: box.spec.type
+      })
+    })
+  }
+  return categories
+}
 
 export function getNodes(crs: any): any {
   const nodes: GraphNodes = []
