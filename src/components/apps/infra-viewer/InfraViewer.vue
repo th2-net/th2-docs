@@ -1,7 +1,7 @@
 <template>
   <div>
-		<SchemaPicker @crs="displayCRs" />
-    <v-chart class="chart" :option="option" autoresize :loading="!showChart" />
+		<SchemaPicker @crs="crs = $event" />
+    <v-chart class="chart" :option="option" autoresize />
   </div>
 </template>
 
@@ -18,8 +18,23 @@ export default Vue.extend({
   },
 	data(){
 		return{
-			showChart: false,
-			series: {
+			crs: {} as any
+		}
+	},
+	computed: {
+		option(): any{
+			return {
+				tooltip: {},
+				legend: [],
+				series: [
+					this.crsToSeries(this.crs)
+				]
+			}
+		}
+	},
+	methods: {
+		crsToSeries(crs: any): GraphSeriesOption {
+			return {
 				name: 'th2-schema',
 				type: "graph",
 				layout: 'force',
@@ -29,30 +44,10 @@ export default Vue.extend({
 					position: 'right',
 					formatter: '{b}'
 				},
-				data: [],
-				links: []
-			} as GraphSeriesOption
-		}
-	},
-	computed: {
-		option(): any{
-			return {
-				tooltip: {},
-				legend: [],
-				series: [
-					this.series
-				]
+				data: getNodes(crs),
+				links: getLinks(crs),
+				categories: getCategories(crs)
 			}
-		}
-	},
-	methods: {
-		displayCRs(crs: any){
-			console.log(crs)
-			this.series.data = getNodes(crs)
-			this.series.links = getLinks(crs)
-			this.series.categories = getCategories(crs)
-			this.showChart = true
-
 		}
 	}
 })
