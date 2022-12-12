@@ -9,7 +9,7 @@
 import Vue from 'vue'
 import SchemaPicker from './SchemaPicker.vue';
 import {GraphSeriesOption} from 'echarts'
-import {getLinks, getNodes, getCategories } from './crs-to-series';
+import {getLinks, getNodes, getCategories, CRs} from './crs-to-series';
 
 export default Vue.extend({
   name: 'InfraViewer',
@@ -18,7 +18,7 @@ export default Vue.extend({
   },
 	data(){
 		return{
-			crs: {} as any
+			crs: {} as CRs
 		}
 	},
 	computed: {

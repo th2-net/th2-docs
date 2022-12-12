@@ -4,7 +4,62 @@ type GraphNodes = GraphSeriesOption['nodes']
 type GraphLinks = GraphSeriesOption['links']
 type GraphCategories = GraphSeriesOption['categories']
 
-export function getCategories(crs: any): GraphCategories {
+type K8sCR<T> = {
+  kind: string
+  metadata?: {
+    name?: string
+  }
+  spec: T
+}
+
+type Th2BoxCR = K8sCR<{
+  'image-name': string
+  'image-version': string
+  'custom-config'?: any
+  type?: string
+  pins: {
+    name: string
+    'connection-type': string
+    attributes?: string[]
+  }[]
+}>
+
+type Th2BoxLink = {
+  name: string
+  from: {
+    box: string
+    pin: string
+  }
+  to: {
+    box: string
+    pin: string
+  }
+}
+
+type Th2LinkCR = K8sCR<{
+  'boxes-relation'?: {
+    'router-grpc'? : Th2BoxLink[]
+    'router-mq'? : Th2BoxLink[]
+  }
+  'dictionaries-relation'?: {
+    name: string
+    box: string
+    dictionary: {
+      name: string
+      type?: string
+    }
+  }[]
+}>
+
+export type CRs = {
+  boxes?: Th2BoxCR[]
+  core?: Th2BoxCR[]
+  dictionaries?: K8sCR<{ data: string }>[]
+  links?: Th2LinkCR[]
+}
+
+export function getCategories(crs: CRs): GraphCategories {
+  console.log(crs)
   const categories: GraphCategories = []
   if (crs.boxes) {
     crs.boxes.forEach((box: any) => {
@@ -23,7 +78,7 @@ export function getCategories(crs: any): GraphCategories {
   return categories
 }
 
-export function getNodes(crs: any): any {
+export function getNodes(crs: CRs): GraphNodes {
   const nodes: GraphNodes = []
   if (crs.boxes) {
     crs.boxes.forEach((box: any) => {
@@ -48,7 +103,7 @@ export function getNodes(crs: any): any {
   return  nodes
 }
 
-export function getLinks(crs: any): GraphLinks {
+export function getLinks(crs: CRs): GraphLinks {
   const edges: GraphLinks = []
   if (crs.links) {
     crs.links.forEach((links: any) => {

@@ -1,5 +1,6 @@
 // import { Octokit } from 'octokit'
 import axios from 'axios'
+import {CRs} from "./crs-to-series";
 const YAML = require('js-yaml')
 
 type Branches = any // GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.repos.listBranches>
@@ -32,11 +33,11 @@ export async function fetchCRs(repo: {
   owner: string
   name: string
 }, selectedBranch: string = 'master'){
-  const crs = {
-    boxes: [] as any[],
-    core: [] as any[],
-    dictionaries: [] as any[],
-    links: [] as any[]
+  const crs: CRs = {
+    boxes: [] ,
+    core: [] ,
+    dictionaries: [] ,
+    links: []
   }
   try {
     const content = await repoGetContent({
