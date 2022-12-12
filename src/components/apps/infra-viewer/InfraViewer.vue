@@ -25,7 +25,11 @@ export default Vue.extend({
 		option(): any{
 			return {
 				tooltip: {},
-				legend: [],
+				legend: [
+					{
+						data: getCategories(this.crs)?.map(c => c.name)
+					}
+				],
 				series: [
 					this.crsToSeries(this.crs)
 				]
