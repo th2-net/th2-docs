@@ -1,6 +1,12 @@
 <template>
   <div>
-		<v-select v-model="selectedBranch" :items="branches" @change="getCRs" />
+		<v-select v-model="selectedBranch" :items="branches"
+							@change="getCRs" :loading="loading.branches" />
+		<v-progress-circular
+			v-if="loading.crs"
+			indeterminate
+			color="primary"
+		></v-progress-circular>
   </div>
 </template>
 
@@ -22,7 +28,11 @@ export default Vue.extend({
   data(){
     return {
       branches: [] as Branches,
-      selectedBranch: undefined as string | undefined
+      selectedBranch: undefined as string | undefined,
+			loading: {
+				branches: false,
+				crs: false
+			}
     }
   },
   computed: {
@@ -39,6 +49,7 @@ export default Vue.extend({
       }
     },
     async fetchBranches(){
+			this.loading.branches = true
       try {
         const repo = this.getRepo()
         const data = await repoListBranches({
@@ -49,11 +60,14 @@ export default Vue.extend({
       } catch (e){
         this.branches = []
       }
+			this.loading.branches = false
     },
     async getCRs(){
+			this.loading.crs = true
 			const result = await fetchCRs(
 				this.getRepo(),
 				this.selectedBranch)
+			this.loading.crs = false
 			this.$emit('crs', result)
     }
   },
