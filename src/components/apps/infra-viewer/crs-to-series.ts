@@ -52,7 +52,7 @@ export function getLinks(crs: any): GraphLinks {
   const edges: GraphLinks = []
   if (crs.links) {
     crs.links.forEach((links: any) => {
-      if (links.spec['boxes-relation']['router-grpc'])
+      if (links?.spec && links.spec['boxes-relation'] && links.spec['boxes-relation']['router-grpc'])
         links.spec['boxes-relation']['router-grpc'].forEach((link: any) => {
           edges.push({
             id: link.name,
@@ -60,7 +60,7 @@ export function getLinks(crs: any): GraphLinks {
             target: link.to.box
           })
         })
-      if (links.spec['boxes-relation']['router-mq'])
+      if (links?.spec && links.spec['boxes-relation'] && links.spec['boxes-relation']['router-mq'])
         links.spec['boxes-relation']['router-mq'].forEach((link: any) => {
           edges.push({
             id: link.name,
