@@ -1,7 +1,7 @@
 <template>
   <div>
-		<SchemaPicker @crs="crs = $event" />
-    <v-chart class="chart" :option="option" autoresize />
+		<SchemaPicker @crs="crs = $event" @loading="loading = $event" />
+    <v-chart class="chart" :option="option" autoresize :loading="loading" />
   </div>
 </template>
 
@@ -18,21 +18,23 @@ export default Vue.extend({
   },
 	data(){
 		return{
-			crs: {} as CRs
+			crs: {} as CRs,
+			loading: false
 		}
 	},
 	computed: {
 		option(): any{
 			return {
 				tooltip: {},
+				series: [
+					this.crsToSeries(this.crs)
+				],
 				legend: [
 					{
 						data: getCategories(this.crs)?.map(c => c.name)
 					}
-				],
-				series: [
-					this.crsToSeries(this.crs)
 				]
+
 			}
 		}
 	},

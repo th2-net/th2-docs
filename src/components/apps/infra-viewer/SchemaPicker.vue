@@ -77,7 +77,10 @@ export default Vue.extend({
   watch:{
     schemaLink(){
       this.fetchBranches()
-    }
+    },
+		'loading.crs'(value){
+			this.$emit('loading', value)
+		}
   }
 
 })
