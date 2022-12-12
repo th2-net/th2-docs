@@ -1,6 +1,6 @@
 ---
 title: check1
-description: th2 module for assertion
+description: Module for assertions
 tags: [assertion]
 github: https://github.com/th2-net/th2-check1
 ---
@@ -9,10 +9,7 @@ github: https://github.com/th2-net/th2-check1
 
 # check1
 
-th2 module for assertion
-
-- minimalistic
-- really good
+Module for assertions
 
 <module-index-actions />
 
