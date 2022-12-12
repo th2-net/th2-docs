@@ -10,7 +10,8 @@ export function getNodes(crs: any): any {
       nodes.push({
         category: box.spec.type,
         id: box.metadata.name,
-        name: box.metadata.name
+        name: box.metadata.name,
+        symbolSize: 5
       })
     })
   }
@@ -19,7 +20,8 @@ export function getNodes(crs: any): any {
       nodes.push({
         category: box.spec.type,
         id: box.metadata.name,
-        name: box.metadata.name
+        name: box.metadata.name,
+        symbolSize: 5
       })
     })
   }

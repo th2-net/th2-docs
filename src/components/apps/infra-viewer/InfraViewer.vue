@@ -22,6 +22,7 @@ export default Vue.extend({
 			series: {
 				name: 'th2-schema',
 				type: "graph",
+				layout: 'force',
 				roam: true,
 				label: {
 					show: true,
