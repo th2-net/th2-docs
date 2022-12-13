@@ -2,8 +2,13 @@
 	<div class="d-flex flex-column doc-layout mx-auto">
 		<SubsectionsNav class="mx-auto my-5" v-if="subsectionsNavigation && !isLayoutSm" />
 		<div class="doc-page">
-			<ContentTree v-if="!isLayoutSm && !isMainModulePage" class="doc-page__aside" />
-			<Article :doc="doc" :hide-doc="hideDoc" class="doc-page__article">
+			<ContentTree v-if="!isLayoutSm && !isMainModulePage"
+									 class="doc-page__aside"/>
+			<Article :doc="doc" :hide-doc="hideDoc"
+							 class="doc-page__article"
+							 :class="{
+								'main-module-page': isMainModulePage
+							 }">
 				<template v-slot:index-content>
 					<slot name="index-content" />
 				</template>
@@ -63,6 +68,10 @@ export default {
 
 .doc-page__article {
 	width: min(95vw, 1280px - #{$aside-width} * 2);
+}
+
+.doc-page__article.main-module-page {
+	width: min(95vw, 1280px);
 }
 
 @media screen and (max-width: $window-width-md) {
