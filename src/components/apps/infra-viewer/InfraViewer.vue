@@ -13,7 +13,7 @@
 import Vue from 'vue'
 import SchemaPicker from './SchemaPicker.vue';
 import {GraphSeriesOption} from 'echarts'
-import {getLinks, getNodes, getCategories, CRs} from './crs-to-series';
+import {getLinks, getNodes, getCategories, CRs, createFormatter} from './crs-to-series';
 
 export default Vue.extend({
   name: 'InfraViewer',
@@ -49,8 +49,11 @@ export default Vue.extend({
 	methods: {
 		crsToSeries(crs: any): GraphSeriesOption {
 			return {
-				name: 'th2-schema',
 				type: "graph",
+				tooltip: {
+					trigger: 'item',
+					formatter: createFormatter(crs),
+				},
 				layout: 'force',
 				roam: true,
 				label: {
@@ -77,5 +80,8 @@ export default Vue.extend({
 .chart {
 	min-height: 400px;
 	height: 100%;
+}
+.chart ul{
+	margin-bottom: 0;
 }
 </style>

@@ -1,4 +1,4 @@
-import {GraphSeriesOption} from 'echarts'
+import {GraphSeriesOption, TooltipComponentFormatterCallback} from 'echarts'
 
 type GraphNodes = GraphSeriesOption['nodes']
 type GraphLinks = GraphSeriesOption['links']
@@ -62,7 +62,7 @@ export function getCategories(crs: CRs): GraphCategories {
   console.log(crs)
   const categories: GraphCategories = []
   if (crs.boxes) {
-    crs.boxes.forEach((box: any) => {
+    crs.boxes.forEach((box) => {
       categories.push({
         name: box.spec.type
       })
@@ -81,21 +81,21 @@ export function getCategories(crs: CRs): GraphCategories {
 export function getNodes(crs: CRs): GraphNodes {
   const nodes: GraphNodes = []
   if (crs.boxes) {
-    crs.boxes.forEach((box: any) => {
+    crs.boxes.forEach((box) => {
       nodes.push({
         category: box.spec.type,
-        id: box.metadata.name,
-        name: box.metadata.name,
+        id: box.metadata?.name,
+        name: box.metadata?.name,
         symbolSize: 5
       })
     })
   }
   if (crs.core) {
-    crs.core.forEach((box: any) => {
+    crs.core.forEach((box) => {
       nodes.push({
         category: box.spec.type,
-        id: box.metadata.name,
-        name: box.metadata.name,
+        id: box.metadata?.name,
+        name: box.metadata?.name,
         symbolSize: 5
       })
     })
@@ -159,4 +159,35 @@ export function getLinks(crs: CRs, options: {
     })
   }
   return edges
+}
+
+export function createFormatter(crs: CRs): TooltipComponentFormatterCallback<any>{
+  return function (params) {
+    console.log(params)
+    const dataType: string = params.dataType
+    if (dataType === 'node') {
+      const box = crs.boxes?.find(b => b.metadata?.name === params.data.id) ??
+        crs.core?.find(b => b.metadata?.name === params.data.id)
+      console.log(box)
+      if (box){
+        const mqPins = box.spec.pins
+          ?.filter(p => p["connection-type"].startsWith('mq'))
+          .map(p => '<li><code>' + p.name + '</code></li>')
+        const grpcPins = box.spec.pins
+          ?.filter(p => p["connection-type"].startsWith('grpc'))
+          .map(p => '<li><code>' + p.name + '</code></li>')
+        return `
+        <b>${params.data.name}</b></br>
+        kind: <code>${box.kind}</code></br>
+        ${box.spec.type ? `type: <code>${box.spec.type}</code></br>` : ''}
+        ${mqPins?.length ? `mq pins: <ul>${mqPins.join(' ')}</ul>`: ''}
+        ${grpcPins?.length ? `grpc pins: <ul>${grpcPins.join(' ')}</ul>`: ''}`
+      }
+    }
+    if (dataType === 'edge'){
+
+    }
+    return `
+     <b>${params.data.name}</b>`
+  }
 }
