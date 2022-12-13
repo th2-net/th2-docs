@@ -1,11 +1,17 @@
 <template>
-	<div class="d-flex no-gutters">
-		<v-btn class="text-capitalize mr-2" :to="getStartedLink" outlined>
-			Get started
-		</v-btn>
-		<v-btn v-if="githubLink" class="text-capitalize" :to="getStartedLink" outlined>
-			<v-icon>mdi-github</v-icon>
-			GitHub
+	<div>
+		<div class="d-flex no-gutters">
+			<v-btn class="text-capitalize mr-2" :to="getStartedLink" outlined>
+				Get started
+			</v-btn>
+			<v-btn v-if="githubLink" class="text-capitalize" :to="getStartedLink" outlined>
+				<v-icon>mdi-github</v-icon>
+				GitHub
+			</v-btn>
+		</div>
+		<v-btn class="my-2" style="text-transform: none;" to="/explore/modules" exact outlined>
+			<v-icon>mdi-backburger</v-icon>
+			Back to modules
 		</v-btn>
 	</div>
 </template>
