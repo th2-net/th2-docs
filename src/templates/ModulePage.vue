@@ -63,6 +63,12 @@ export default {
 }
 </script>
 
+<style>
+.module-index-page section{
+	min-width: min(400px, 50%);
+}
+</style>
+
 <style scoped>
 .module-index-page{
 	display: flex;
