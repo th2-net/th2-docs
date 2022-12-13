@@ -188,6 +188,6 @@ export function createFormatter(crs: CRs): TooltipComponentFormatterCallback<any
 
     }
     return `
-     <b>${params.data.name}</b>`
+     <pre>${JSON.stringify(params.data, null, 2)}</pre>`
   }
 }
