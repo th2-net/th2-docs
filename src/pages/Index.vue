@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-3 pb-16">
+  <div class="mx-auto px-7 my-16 pb-16" style="max-width: 1280px">
     <h1>th2: Next-generation test automation framework</h1>
     <h2 class="mt-16">What is th2?</h2>
     <p>
