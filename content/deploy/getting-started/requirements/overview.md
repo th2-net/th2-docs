@@ -10,4 +10,4 @@ When allocating resources for your th2 solution, follow the guidelines below:
 - Approximate configuration options for a few use cases are available in the [Sample hardware configurations](../hardware/#sample-hardware-configurations/) section.
   The suggested hardware is the required minimum. You may need to increase CPU capacity, memory,
   and disk space beyond the recommended minimums.
-- The minimal working disk capacity, CPU and memory required for the th2 installation can be calculated via the [Hardware Calculator](../hardware/#minimal-hardware-requirements-calculator).
+- The minimal working disk capacity, CPU and memory required for the th2 installation can be calculated via the [Hardware calculator](../hardware/#minimal-hardware-requirements-calculator).
