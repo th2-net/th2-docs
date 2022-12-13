@@ -6,7 +6,7 @@ read_before:
   href: /explore/modules/check1/
 ---
 
-# Chain Verification
+# Chain verification
 
 ## Overview
 **check1** is a component of th2 that performs message <term term='verification'>verification</term> at the user’s request. 
