@@ -1,12 +1,14 @@
 <template>
 	<div>
 		<v-btn :href="editPageLink" target="_blank"
-					 class="text-capitalize ma-1 justify-start" text :block="block">
+					 style="text-transform: none"
+					 class="ma-1 justify-start" text :block="block">
 			<v-icon color="info">mdi-pencil-outline</v-icon>
 			Edit this page
 		</v-btn>
 		<v-btn :href="createIssueLink" target="_blank"
-					 class="text-capitalize ma-1 justify-start" text :block="block">
+					 style="text-transform: none"
+					 class="ma-1 justify-start" text :block="block">
 			<v-icon color="error">mdi-alert-circle-outline</v-icon>
 			Create an issue
 		</v-btn>
