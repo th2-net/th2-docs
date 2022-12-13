@@ -8,10 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {fetchCRs, repoGetContent, repoListBranches} from "./fetch-infra-schema";
-
-type Branches = any //GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.repos.listBranches>
-type Content = any //GetResponseDataTypeFromEndpointMethod<typeof octokit.rest.repos.getContent>
+import {fetchCRs, repoListBranches} from "./fetch-infra-schema";
 
 export default Vue.extend({
   name: 'InfraSchemaPicker',
@@ -23,7 +20,7 @@ export default Vue.extend({
   },
   data(){
     return {
-      branches: [] as Branches,
+      branches: [] as string[],
       selectedBranch: undefined as string | undefined,
 			loading: {
 				branches: false,
