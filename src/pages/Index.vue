@@ -71,17 +71,13 @@ export default {
     ...mapState(['currentTh2Version']),
     links(){
       return  [
-        { title: 'Getting started', href: `/getting-started/`, icon: 'mdi-school-outline',
-          text: 'Learn about th2, Exactpro\'s next-generation test automation toolkit,\n' +
-              'see how th2 can be used to test complex distributed systems, prepare a\n' +
-              'basic configuration and run a demo script.' },
-        { title: 'Fundamentals', href: `/fundamentals/`, icon: 'mdi-atom',
-          text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
-        { title: 'Modules', href: `/modules/`, icon: 'mdi-package-variant-closed',
-          text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
-        { title: 'Cookbook', href: `/cookbook/`, icon: 'mdi-book-open-blank-variant',
-          text: 'Try out the prepared th2 configurations or components combinations,\n' +
-              'create your own, and share your experience with the community.' },
+        { title: 'Deploy', href: `/deploy/`, icon: 'mdi-kubernetes',
+          text: 'th2 has its own GitOps system under the hood. Learn how th2 deployment work, how th2 ' +
+						'components are integrated into solution, and how to create your own th2 module.' },
+        { title: 'Test', href: `/test/`, icon: 'mdi-bug',
+          text: 'Learn about main testing concepts of th2 and best practices of creating test scenarios.' },
+        { title: 'Explore', href: `/explore/modules`, icon: 'mdi-magnify',
+          text: 'th2 is the huge ecosystem. Explore existing modules for th2 and activity in th2-net organization.' },
       ]
     }
   },
