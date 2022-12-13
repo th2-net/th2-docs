@@ -185,6 +185,42 @@ export function createFormatter(crs: CRs): TooltipComponentFormatterCallback<any
       }
     }
     if (dataType === 'edge'){
+      const findLinkCallback = (linkCR: Th2LinkCR) => {
+        if (linkCR.spec['boxes-relation']){
+          if (linkCR.spec['boxes-relation']['router-mq']){
+            const result = linkCR.spec['boxes-relation']['router-mq']
+              .find(link => link.from.box === params.data.source && link.to.box === params.data.target)
+            if (result) {
+              return {
+                link: result,
+                type: 'mq'
+              }
+            }
+          }
+          if (linkCR.spec['boxes-relation']['router-grpc']){
+            const result = linkCR.spec['boxes-relation']['router-grpc']
+              .find(link => link.from.box === params.data.source && link.to.box === params.data.target)
+            if (result) {
+              return {
+                link: result,
+                type: 'grpc'
+              }
+            }
+          }
+        }
+        return {link: undefined, type: undefined}
+      }
+      const linksCR = crs.links?.find(cr => findLinkCallback(cr).link)
+      if (linksCR){
+        const {link, type} = findLinkCallback(linksCR)
+        if (link){
+          return `
+            <b>${params.data.id}</b></br>
+            type: <code>${type}</code></br>
+            <code>${link.from.box}:${link.from.pin}</code> > <code>${link.to.box}:${link.to.pin}</code></br>
+          `
+        }
+      }
 
     }
     return `
