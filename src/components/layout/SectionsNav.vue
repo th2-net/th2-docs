@@ -7,7 +7,8 @@
 						 'v-btn--active': isSectionActive(section.basePath) ,
 						 'mx-3': !group
 					 }"
-					 class="text-capitalize elevation-0">
+					 style="text-transform: none"
+					 class="elevation-0">
 			{{section.title}}
 		</v-btn>
 	</component>

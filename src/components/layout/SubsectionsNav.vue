@@ -3,7 +3,7 @@
 		<v-btn v-for="subsection in subsections" :key="subsection.path"
 					 outlined
 					 :to="subsection.followPath"
-					 class="text-capitalize"
+					 style="text-transform: none"
 					 :class="{
 						 'v-btn--active': isSectionActive(subsection.path)
 					 }">

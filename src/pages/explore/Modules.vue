@@ -30,11 +30,11 @@
 				<v-card-actions>
 					<v-spacer/>
 					<v-btn v-if="module.docs" :to="module.docs"
-								 plain class="text-capitalize">
-						<v-icon>mdi-file-document-outline</v-icon> docs
+								 plain style="text-transform: none">
+						<v-icon>mdi-file-document-outline</v-icon> Docs
 					</v-btn>
 					<v-btn v-if="module.github" :href="module.github" target="_blank"
-								 plain class="text-capitalize">
+								 plain style="text-transform: none">
 						<v-icon>mdi-github</v-icon> GitHub
 					</v-btn>
 				</v-card-actions>
