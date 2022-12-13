@@ -1,12 +1,8 @@
 <template>
   <div>
 		<v-select v-model="selectedBranch" :items="branches"
+							outlined dense
 							@change="getCRs" :loading="loading.branches" />
-		<v-progress-circular
-			v-if="loading.crs"
-			indeterminate
-			color="primary"
-		></v-progress-circular>
   </div>
 </template>
 

@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <v-sheet outlined rounded class="d-flex flex-column">
 		<SchemaPicker @crs="crs = $event" @loading="loading = $event" />
-		<v-switch label="estore connections" v-model="options.estore" />
-		<v-switch label="mstore connections" v-model="options.mstore"  />
-    <v-chart class="chart" :option="option" autoresize :loading="loading" />
-  </div>
+		<v-row no-gutters class="justify-space-around">
+			<v-switch label="estore connections" inset dense v-model="options.estore" />
+			<v-switch label="mstore connections" inset dense v-model="options.mstore"  />
+		</v-row>
+		<v-chart class="chart" :option="option" autoresize :loading="loading" />
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -73,6 +75,7 @@ export default Vue.extend({
 
 <style>
 .chart {
-	height: 400px;
+	min-height: 400px;
+	height: 100%;
 }
 </style>
