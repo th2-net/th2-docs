@@ -5,7 +5,8 @@
 			<v-switch label="estore connections" inset dense v-model="options.estore" />
 			<v-switch label="mstore connections" inset dense v-model="options.mstore"  />
 		</v-row>
-		<v-chart class="chart" :option="option" autoresize :loading="loading" />
+		<v-chart class="chart" :option="option" autoresize :loading="loading"
+						 :theme="$vuetify.theme.dark ? 'dark' : 'light'" />
   </v-sheet>
 </template>
 
