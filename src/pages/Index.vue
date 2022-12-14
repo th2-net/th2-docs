@@ -13,7 +13,7 @@
     <v-divider class="my-16" />
     <v-row no-gutters>
       <v-card
-          class="mx-auto my-2"
+          class="mx-auto my-2 d-flex flex-column"
           max-width="344"
           v-for="link in links" :key="link.href"
       >
@@ -25,6 +25,7 @@
             {{link.text}}
           </div>
         </v-card-text>
+				<v-spacer />
         <v-card-actions>
           <v-btn
               text
