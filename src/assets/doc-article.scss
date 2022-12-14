@@ -148,3 +148,14 @@
   }
 }
 
+.theme--dark .vue-remark {
+  .v-sheet--outlined {
+    border: thin solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.theme--light .vue-remark {
+  .v-sheet--outlined {
+    border: thin solid rgba(0, 0, 0, 0.12);
+  }
+}
