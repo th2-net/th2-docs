@@ -14,6 +14,7 @@
     <v-row no-gutters>
       <v-card
           class="mx-auto my-2 d-flex flex-column"
+					outlined
           max-width="344"
           v-for="link in links" :key="link.href"
       >
