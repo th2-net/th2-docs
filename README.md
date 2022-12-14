@@ -6,12 +6,13 @@ The th2 toolkit is designed to enable automation in functional and non-functiona
 
 ## Requirements for building the docs locally
 
-1) Install [Node.js 16.13.2 LTS](https://nodejs.org/en/).
+1) Install [Node.js](https://nodejs.org/en/) version 16.13 or higher.
 2) Install dependencies
 ```bash
 npm install
 ```
-For detailed explanation check out [NuxtJS documentation](https://nuxtjs.org/docs/). 
+For detailed explanation check out [NuxtJS documentation](https://nuxtjs.org/docs/).
+
 3) Configure environment:
 
 Create `.env` file in the root directory:
