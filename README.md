@@ -1,86 +1,74 @@
 # th2-docs
+The repository contains the code that powers the th2 documentation portal available at [th2.dev](https://th2.dev/).
+## About th2
 
-## Requirements
+The th2 toolkit is designed to enable automation in functional and non-functional testing for complex distributed transaction processing systems. These include securities trading systems and exchanges, banking and broker systems, post-trade (e.g. clearing, settlement, custody) and payments platforms, and many more. th2 is a Kubernetes-driven microservices solution tailor-made to deliver efficient machine-driven end-to-end test libraries with comprehensive coverage of your system. th2 consolidates the power of the entire Exactpro test tool suite in a single platform.
 
-You will need to install [Node.js 16.13.2 LTS](https://nodejs.org/en/).
+## Building the docs locally
 
-Installation can take up to an hour, because it downloads [VS build tools](https://visualstudio.microsoft.com/downloads/?q=build+tools).
-You can install it beforehand.
-
-## Install dependencies
-
+1) Install [Node.js](https://nodejs.org/en/) version 16.13 or higher.
+2) Install dependencies
 ```bash
 npm install
 ```
+For detailed explanation check out [NuxtJS documentation](https://nuxtjs.org/docs/).
 
-For detailed explanation on how things work, check out [NuxtJS documentation](https://nuxtjs.org/docs/).
-
-## Configure environment
+3) Configure environment:
 
 Create `.env` file in the root directory:
 
 ```dotenv
 GITHUB_TOKEN=GITHUB_TOKEN
 ```
-
-## Develop
-
-Run to edit docs:
+4) Run the website locally for development purposes:
 
 ```shell
 npm run dev
 ```
+The website is running on `localhost:8080`.
 
-Run to only explore database with GraphQL:
+## Contributing to th2-docs
 
-```shell
-npm run explore
-```
+th2 is an open-source project and so are the docs 😺 – we accept and value contributions. 
 
-## Test website
+To suggest improvements or fix an issue in existing documentation, consider opening a pull request.
 
-You can run any configuration with Cypress UI. To start:
+To help you contribute, each website page contains the **Edit this page** and **Create an issue** links in the upper right corner.
 
-```shell
-npm run cypress:open
-```
+The **Edit this page** link will take you to the source file of the current page. To suggest improvements: 
 
-After the test is complete report will be created in `cypress/results`.
+1. Fork the `th2-docs` repo.
+2. Clone the fork to your local machine.
+3. Make the changes.
+4. Create a pull request (PR) from your fork to the equivalent branch of the `th2-docs` repo.
+5. Optional: let us know about your PR – [docops@exactpro.com](mailto:docops@exactpro.com).
 
-### Development
+New to Git? Learn more here: [How to contribute to an Open Source project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github). 
 
-To test docs website in development mode, first run the development server:
+When applying changes, follow the rules:
 
-```shell
-npm run dev
-```
+- PRs should be concise and easy to review. If you are planning widescale edits, consider opening several PRs.
+- A PR should have a clear description of its purpose.
 
-Then, run `development.cy.ts` spec from UI or by executing:
+To report a problem, use the **Create an issue** button. 
 
-```shell
-npm run cypress:test-dev
-```
+The issue should have a short and concise title and a good description of the problem. The `by-reader` label is automatically assigned to the issues created by community members.  
 
-### Prebuilt website
+### Contribution style guide
 
-To test production version of docs website, first build it on local server and then run:
+- Give facts in Present Simple tense.
+- Use active voice.
+- Write in American English.
+- Use sentence case. 
+- Use **bold** formatting for UI elements. 
+- Use *italics* formatting when giving example values or drawing attention to a specific word or phrase.
+- Use backticks, `` ` ``, in Markdown to apply a monospace font and other styling to code in text, inline code, and user input. Use code blocks, `` ``` ``, for code samples or other blocks of code.
 
-```shell
-npm run build
-npm run prod:local
-```
+th2 components formatting guide:
+- Short component name formatted in **bold**, not capitalized.  
+  E.g.: The **codec** component has eight pins – four stream, and four general ones.
+- A full name is used when referring to an exact Git repository (with a link attached).
+E.g.: This is a web app that displays the stored test data using [th2-rpt-data-provider](https://github.com/th2-net/th2-rpt-data-provider). 
 
-Then, run `production.local.cy.ts` spec from UI or by executing:
-
-```shell
-npm run cypress:test-prebuilt-prod
-```
-
-### Production
-
-To test deployed docs website run `production.cy.ts` spec from UI or by executing:
-
-```shell
-npm run cypress:test-prod
-```
-
+### Questions?
+Contact us at [docops@exactpro.com](mailto:docops@exactpro.com).
