@@ -7,13 +7,13 @@ The th2 toolkit is designed to enable automation in functional and non-functiona
 ## Building the docs locally
 
 1) Install [Node.js](https://nodejs.org/en/) version 16.13 or higher.
-2) Install dependencies
+2) Install dependencies:
 ```bash
 npm install
 ```
 For detailed explanation check out [NuxtJS documentation](https://nuxtjs.org/docs/).
 
-3) Configure environment:
+3) Configure environment.
 
 Create `.env` file in the root directory:
 
@@ -29,7 +29,7 @@ The website is running on `localhost:8080`.
 
 ## Contributing to th2-docs
 
-th2 is an open-source project and so are the docs 😺 – we accept and value contributions. 
+th2 is an open-source project and so are the docs – we accept and value contributions. 
 
 To suggest improvements or fix an issue in existing documentation, consider opening a pull request.
 
@@ -43,8 +43,6 @@ The **Edit this page** link will take you to the source file of the current page
 4. Create a pull request (PR) from your fork to the equivalent branch of the `th2-docs` repo.
 5. Optional: let us know about your PR – [docops@exactpro.com](mailto:docops@exactpro.com).
 
-New to Git? Learn more here: [How to contribute to an Open Source project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github). 
-
 When applying changes, follow the rules:
 
 - PRs should be concise and easy to review. If you are planning widescale edits, consider opening several PRs.
@@ -54,12 +52,15 @@ To report a problem, use the **Create an issue** button.
 
 The issue should have a short and concise title and a good description of the problem. The `by-reader` label is automatically assigned to the issues created by community members.  
 
+New to Git? Learn more here: [How to contribute to an Open Source project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github). 
+
 ### Contribution style guide
 
 - Give facts in Present Simple tense.
 - Use active voice.
 - Write in American English.
 - Use sentence case. 
+- Do not use jargon or slang. 
 - Use **bold** formatting for UI elements. 
 - Use *italics* formatting when giving example values or drawing attention to a specific word or phrase.
 - Use backticks, `` ` ``, in Markdown to apply a monospace font and other styling to code in text, inline code, and user input. Use code blocks, `` ``` ``, for code samples or other blocks of code.
@@ -68,7 +69,8 @@ th2 components formatting guide:
 - Short component name formatted in **bold**, not capitalized.  
   E.g.: The **codec** component has eight pins – four stream, and four general ones.
 - A full name is used when referring to an exact Git repository (with a link attached).
-E.g.: This is a web app that displays the stored test data using [th2-rpt-data-provider](https://github.com/th2-net/th2-rpt-data-provider). 
+E.g.: This is a web app that displays the stored test data using [th2-rpt-data-provider](https://github.com/th2-net/th2-rpt-data-provider).
+- Kubernetes namespaces in *italics*. 
 
 ### Questions?
 Contact us at [docops@exactpro.com](mailto:docops@exactpro.com).
