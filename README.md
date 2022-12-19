@@ -66,11 +66,13 @@ New to Git? Learn more here: [How to contribute to an Open Source project on Git
 - Use backticks, `` ` ``, in Markdown to apply a monospace font and other styling to code in text, inline code, and user input. Use code blocks, `` ``` ``, for code samples or other blocks of code.
 
 th2 components formatting guide:
-- Short component name formatted in **bold**, not capitalized.  
+- Short component names are formatted in **bold**, not capitalized.  
   E.g.: The **codec** component has eight pins – four stream, and four general ones.
 - A full name is used when referring to an exact Git repository (with a link attached).
 E.g.: This is a web app that displays the stored test data using [th2-rpt-data-provider](https://github.com/th2-net/th2-rpt-data-provider).
-- Kubernetes namespaces in *italics*. 
+- Kubernetes namespaces are given in *italics*. 
+
+E.g.: Infrastructure components are split into two namespaces: _monitoring_ and _service_. 
 
 ### Questions?
 Contact us at [docops@exactpro.com](mailto:docops@exactpro.com).
