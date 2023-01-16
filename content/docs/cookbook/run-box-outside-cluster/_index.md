@@ -91,7 +91,7 @@ Examples of the repositories with `th2-common` implemented:
 - Java/Kotlin – [th2-sim-template](https://github.com/th2-net/th2-sim-template/)
 - Python – [th2-demo-script](https://github.com/th2-net/th2-demo-script/)
 
-<!--More details about `th2-common` can be found here-->
+More details about `th2-common` can be found [here](../../fundamentals/th2-common/)
 
 ## 2.1. Provide connection configs for th2-common library
 
@@ -165,9 +165,9 @@ var factory = CommonFactory.createFromKubernetes(
 
 </spoiler>  
 
-<!--More details about this option [here](#)-->
+More details about this option [here](../../fundamentals/th2-common/#option-2-access-config-files-from-the-kubernetes-cluster)
 
-After completion of this step, [run your box without arguments](#).
+After completion of this step, [run your box without arguments](./#31-run-without-arguments).
 
 ### 2.1.2. Provide connection configs manually
 `CommonFactory` is a class that contains a set of tools for creating connections between boxes in th2 cluster and module developed.
@@ -179,7 +179,7 @@ Essentially, it transfers the `.json` configuration files to the `CommonFactory`
 
 Configuration of these files varies depending on the components that are to be in interaction with your component.
 
-<!--Add link to [integrations](#)-->
+[integrations](../../fundamentals/th2-common/#th2-common-integrations-configuration)
 
 <spoiler title="Passing .json files to CommonFactory">
 
@@ -344,9 +344,9 @@ def connect(config_path, tries=3):
 
 </spoiler>
 
-<!--More details about this option [here](#)-->
+More details about this option [here](../../fundamentals/th2-common/#option-1-user-creates-the-configuration-files-and-then-provides-the-path-to-these-files)
 
-After completion of this step, [run your box without arguments](#).
+After completion of this step, [run your box without arguments](#31-run-without-arguments).
 
 ### 2.1.3. Provide configs using CLI command arguments
 
@@ -367,7 +367,7 @@ factory = CommonFactory.create_from_arguments()
 
 ```
 
-After completion of this step, [run your box with arguments](#).
+After completion of this step, [run your box with arguments](./#32-run-with-arguments).
 
 ## 3. Run external box
 
@@ -443,5 +443,6 @@ gradle run --args='--namespace myNamespace --boxName myExternalBox --contextName
 
 With these parameters, your component will connect to the destination Kubernetes cluster and namespace, and find the right entry point (that is external box itself) to act from.
 
-Also, there are special ConfigMaps in the *schema* namespace with the parameters for connecting to the th2 infrastructure. `th2-common` will save it automatically in the repository of the box you are running.
+Also, there are special ConfigMaps in the *schema* namespace with the parameters for connecting to the th2 infrastructure. 
+`th2-common` will save it automatically in the repository of the box you are running.
 
