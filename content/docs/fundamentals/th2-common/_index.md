@@ -126,7 +126,7 @@ Secrets are similar to config maps but are specifically intended to hold confide
 
 ## Run component
 
-In first attempts of running your component, you probably will run it as [external box](#). 
+In first attempts of running your component, you probably will run it as [external box](../../cookbook/run-box-outside-cluster/). 
 Depending on the method used to create the component, you can run it in different ways.
 
 ### Option 1: Run without arguments

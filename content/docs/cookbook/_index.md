@@ -10,4 +10,5 @@ This section contains step-by-step instructions with prepared configurations for
 
 ## Contents
 1. [Quick th2 setup](quick-setup/)
-2. [Chain Verification](chain-verification/)
+2. [How to run a box outside the cluster](run-box-outside-cluster/)
+3. [Chain Verification](chain-verification/)
