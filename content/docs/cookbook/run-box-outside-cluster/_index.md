@@ -346,7 +346,7 @@ def connect(config_path, tries=3):
 
 More details about this option [here](../../fundamentals/th2-common/#option-1-user-creates-the-configuration-files-and-then-provides-the-path-to-these-files)
 
-After completion of this step, [run your box without arguments](/#31-run-without-arguments).
+After completion of this step, [run your box without arguments](#31-run-without-arguments).
 
 ### 2.1.3. Provide configs using CLI command arguments
 
