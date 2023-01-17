@@ -11,8 +11,7 @@ module.exports = (api: any) => {
     const gitOpsTree = constructPagesTree(gitOpsPages, 4)
     const testingTree = constructPagesTree(testingPages, 4)
     const exploreTree = constructPagesTree([
-      {path: '/explore/modules/', title: 'Modules', weight: 0},
-      {path: '/explore/dashboard/', title: 'GitHub dashboard', weight: 5}
+      {path: '/explore/modules/', title: 'Modules', weight: 0}
     ], 4)
 
     const sectionsCollection: SectionsCollection = addCollection('Section')
