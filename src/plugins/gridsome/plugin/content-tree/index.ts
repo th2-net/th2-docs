@@ -41,7 +41,7 @@ module.exports = (api: any) => {
   // Add module trees
   api.loadSource(({ getCollection, addCollection }: any) => {
     const modulesPages = getPagesData(getCollection('ModulePage'))
-    const modulesTree = constructPagesTree(modulesPages, 5)
+    const modulesTree = constructPagesTree(modulesPages, 4)
     const modulesCollection: GridsomeCollection<any> = getCollection('ModulePage')
     modulesCollection._collection.data.forEach(item => {
       const tree = modulesTree.filter(m => item.path.startsWith(m.path))
