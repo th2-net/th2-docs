@@ -8,12 +8,10 @@ module.exports = (api: any) => {
   api.loadSource(({ getCollection, addCollection }: any) => {
     const gitOpsPages = getPagesData(getCollection('GitOpsPage'))
     const testingPages = getPagesData(getCollection('TestingPage'))
+    const explorePages = getPagesData(getCollection('ExplorePage'))
     const gitOpsTree = constructPagesTree(gitOpsPages, 4)
     const testingTree = constructPagesTree(testingPages, 4)
-    const exploreTree = constructPagesTree([
-      {path: '/explore/modules/', title: 'Modules', weight: 0},
-      {path: '/explore/dashboard/', title: 'GitHub dashboard', weight: 5}
-    ], 4)
+    const exploreTree = constructPagesTree(explorePages, 4)
 
     const sectionsCollection: SectionsCollection = addCollection('Section')
     sectionsCollection.addNode({
@@ -41,7 +39,7 @@ module.exports = (api: any) => {
   // Add module trees
   api.loadSource(({ getCollection, addCollection }: any) => {
     const modulesPages = getPagesData(getCollection('ModulePage'))
-    const modulesTree = constructPagesTree(modulesPages, 5)
+    const modulesTree = constructPagesTree(modulesPages, 4)
     const modulesCollection: GridsomeCollection<any> = getCollection('ModulePage')
     modulesCollection._collection.data.forEach(item => {
       const tree = modulesTree.filter(m => item.path.startsWith(m.path))
