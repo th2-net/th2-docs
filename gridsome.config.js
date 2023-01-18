@@ -88,6 +88,16 @@ module.exports = {
     {
       use: '@gridsome/vue-remark',
       options: {
+        typeName: 'ExplorePage', // Required
+        pathPrefix: '/explore',
+        baseDir: './content/explore', // Where .md files are located
+        template: './src/templates/ExplorePage.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
         typeName: 'ModulePage', // Required
         pathPrefix: '/modules',
         baseDir: './content/modules', // Where .md files are located

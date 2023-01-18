@@ -8,11 +8,10 @@ module.exports = (api: any) => {
   api.loadSource(({ getCollection, addCollection }: any) => {
     const gitOpsPages = getPagesData(getCollection('GitOpsPage'))
     const testingPages = getPagesData(getCollection('TestingPage'))
+    const explorePages = getPagesData(getCollection('ExplorePage'))
     const gitOpsTree = constructPagesTree(gitOpsPages, 4)
     const testingTree = constructPagesTree(testingPages, 4)
-    const exploreTree = constructPagesTree([
-      {path: '/explore/modules/', title: 'Modules', weight: 0}
-    ], 4)
+    const exploreTree = constructPagesTree(explorePages, 4)
 
     const sectionsCollection: SectionsCollection = addCollection('Section')
     sectionsCollection.addNode({
