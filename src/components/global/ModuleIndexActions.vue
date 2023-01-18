@@ -9,7 +9,7 @@
 				GitHub
 			</v-btn>
 		</div>
-		<v-btn class="my-2" style="text-transform: none;" to="/explore/modules" exact outlined>
+		<v-btn class="my-2" style="text-transform: none;" to="/test/cookbook/modules/" exact outlined>
 			<v-icon>mdi-backburger</v-icon>
 			Back to modules
 		</v-btn>

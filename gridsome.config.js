@@ -88,8 +88,18 @@ module.exports = {
     {
       use: '@gridsome/vue-remark',
       options: {
+        typeName: 'ExplorePage', // Required
+        pathPrefix: '/explore',
+        baseDir: './content/explore', // Where .md files are located
+        template: './src/templates/ExplorePage.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
         typeName: 'ModulePage', // Required
-        pathPrefix: '/explore/modules',
+        pathPrefix: '/modules',
         baseDir: './content/modules', // Where .md files are located
         template: './src/templates/ModulePage.vue', // Optional
         ...vueRemarkCommonOptions
@@ -111,8 +121,6 @@ module.exports = {
     require('./src/plugins/gridsome/plugin/th2-terms'),
     require('./src/plugins/gridsome/source/th2-github'),
     // require('./src/plugins/gridsome/plugin/th2-check-content'),
-    require('./src/plugins/gridsome/plugin/th2-dashboard'),
-    require('./src/plugins/gridsome/plugin/content-tree'),
-    // require('./src/plugins/gridsome/plugin/dev-sitemap')
+    require('./src/plugins/gridsome/plugin/content-tree')
   ]
 }

@@ -1,5 +1,5 @@
 ---
-weight: 0
+weight: 5
 schema_links:
   - title: Publish infra schema
     href: /deploy/getting-started/install-th2/2-infra-schema/
