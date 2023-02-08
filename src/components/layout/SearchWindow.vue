@@ -75,7 +75,7 @@ export default {
     return{
       searchDialog: false,
       searchValue: '', // user input
-      searchProgress: false,
+      searchProgress: false, // show the loader
       searchResults: [],
       // new adds here
       //userPrompt:'',
@@ -104,9 +104,20 @@ export default {
     // }
   }, 
   watch:{
+    
     async searchValue(newValue){
-      const tresult = await axios.get( 'https://th2-search.onrender.com/search/'+ newValue )
-      this.searchResults = tresult.data.result // useful info inside axios data
+      if (this.searchValue.length > 2){
+        this.searchProgress = true
+        try{
+          const tresult = await axios.get( 'https://th2-search.onrender.com/search/'+ newValue )
+          this.searchResults = tresult.data.result // useful info inside axios data
+        }
+        catch(err){
+          console.error(err)
+        }
+        this.searchProgress = false
+      }
+      
     }
   }
 }
