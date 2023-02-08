@@ -68,7 +68,9 @@ export function processParsedReadme(md: string, readmePath: string): string {
           newMd = newMd.replace(link, link.replace(/\]\(\s*\./, `](${folderLink}`))
           newMd = newMd.replace(link, link.replace(/\]\(\s*/, `](${folderLink}/`))
         }
-      } catch(err){}
+      } catch(err){
+        newMd.replace(link, '')
+      }
       
     })
   let nextPart: string = newMd
