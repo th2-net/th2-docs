@@ -90,6 +90,7 @@ module.exports = {
     require('./src/plugins/gridsome/plugin/th2-check-content'),
     require('./src/plugins/gridsome/plugin/th2-dashboard'),
     require('./src/plugins/gridsome/plugin/content-tree'),
-    require('./src/plugins/gridsome/plugin/dev-sitemap')
+    require('./src/plugins/gridsome/plugin/dev-sitemap'),
+    require('./src/plugins/gridsome/plugin/create-index'),
   ]
 }
