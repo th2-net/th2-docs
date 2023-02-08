@@ -50,7 +50,7 @@ export function processParsedReadme(md: string, readmePath: string): string {
     .filter(link => !link.includes('http://') && !link.includes('https://'))
     .forEach(link => {
       // TODO: process upper level relative links
-      const lastUrlSection = link.split('/').at(-1)
+      const lastUrlSection = link.split('/')?.at(-1)
       if (
         lastUrlSection?.includes('.png') ||
         lastUrlSection?.includes('.svg') ||
