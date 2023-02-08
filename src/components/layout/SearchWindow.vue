@@ -18,7 +18,7 @@
             :loading="searchProgress"
             clearable
             @click:clear="searchResults=[]"
-            @input="search"
+            
             outlined prepend-inner-icon="mdi-magnify" />
 
           <div style="max-height: 400px; overflow-y: auto">
@@ -29,13 +29,13 @@
               <v-list-item v-for="page in searchResults" :key="page.path" :id="page.path"
                            two-line
                            @click="searchDialog = false"
-                           :to="page.path" nuxt exact  >
+                           :to="page.path" exact  >
                 <v-list-item-content>
                   <v-list-item-title>
                     {{page.title}}
                   </v-list-item-title>
                   <p>
-                    {{page.description}}
+                    {{page.content}}
                   </p>
                 </v-list-item-content>
               </v-list-item>
@@ -59,6 +59,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 // TODO: Integrate with Algolia search (possible only for public websites)
 export default {
   name: "SearchWindow",
@@ -71,9 +74,12 @@ export default {
   data(){
     return{
       searchDialog: false,
-      searchValue: '',
+      searchValue: '', // user input
       searchProgress: false,
-      searchResults: []
+      searchResults: [],
+      // new adds here
+      //userPrompt:'',
+      fresults: {},
     }
   },
   computed:{
@@ -83,18 +89,24 @@ export default {
     }
   },
   methods: {
-    async search(){
-      // if (this.searchValue.length > 2){
-      //   this.searchProgress = true
-      //   const result = await this.$content('/', {deep:true})
-      //     .only(['title', 'description', 'path', 'dir'])
-      //     .limit(10)
-      //     .search(this.searchValue)
-      //     .fetch()
-      //   this.searchResults = this.processPagesPaths(result)
-      //   this.searchProgress = false
-      // }
-      // else this.searchResults = []
+    // async search(){
+    //   if (this.searchValue.length > 2){
+    //     this.searchProgress = true
+    //     const result = await this.$content('/', {deep:true})
+    //       .only(['title', 'description', 'path', 'dir'])
+    //       .limit(10)
+    //       .search(this.searchValue)
+    //       .fetch()
+    //     this.searchResults = this.processPagesPaths(result)
+    //     this.searchProgress = false
+    //   }
+    //   else this.searchResults = []
+    // }
+  }, 
+  watch:{
+    async searchValue(newValue){
+      const tresult = await axios.get( 'https://th2-search.onrender.com/search/'+ newValue )
+      this.searchResults = tresult.data.result // useful info inside axios data
     }
   }
 }
