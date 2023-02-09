@@ -31,16 +31,16 @@
                            @click="searchDialog = false"
                            :to="page.path" exact  >
                 <v-list-item-content>
-                  <v-list-item-title>
-                    {{page.title}}
+                  <v-list-item-title v-html="highlightPrompt(page.title)">
+                    <!-- {{page.title}} -->
                   </v-list-item-title>
-                  <p>
-                    {{page.content}}
+                  <p v-html="highlightPrompt(page.content)">
+                    <!-- {{page.content}} -->
                   </p>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-          </div>
+          </div> 
 
         </v-card-text>
         <v-divider />
@@ -102,6 +102,11 @@ export default {
     //   }
     //   else this.searchResults = []
     // }
+
+    // this function highlights the userPrompt as described by style class="prompt"
+        highlightPrompt(text){
+          return text.replace(new RegExp(`(${this.searchValue})`,'i'),`<span class="prompt">$1</span>` )
+        }
   }, 
   watch:{
     
@@ -184,4 +189,11 @@ export default {
     }
   }
 }
+</style>
+
+<style>
+    .prompt{
+    color: #3f979f;
+    font-weight: bold;
+  }
 </style>
