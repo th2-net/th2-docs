@@ -29,6 +29,8 @@ import Youtube from "./components/global/Youtube";
 
 import ECharts from 'vue-echarts'
 
+import InstantSearch from 'vue-instantsearch'
+
 export default function (Vue, { appOptions, router, head, isClient }) {
   head.link.push({
     rel: 'stylesheet',
@@ -43,6 +45,8 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.use(Vuetify)
   use([CanvasRenderer, BarChart, LineChart, GraphChart,
     GridComponent, TooltipComponent, TitleComponent, LegendComponent]);
+
+  Vue.use(InstantSearch)
 
   appOptions.vuetify = new Vuetify(vuetifyConfig);
   appOptions.store = store

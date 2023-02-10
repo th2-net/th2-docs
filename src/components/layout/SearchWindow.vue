@@ -12,36 +12,45 @@
       <v-card>
         <v-card-title></v-card-title>
         <v-card-text>
-          <v-text-field
-            placeholder="Search docs..."
-            v-model="searchValue"
-            :loading="searchProgress"
-            clearable
-            @click:clear="searchResults=[]"
-            
-            outlined prepend-inner-icon="mdi-magnify" />
+          <ais-instant-search
+              :search-client="searchClient"
+              index-name="docs"
+            >
+            <!-- <v-text-field
+              placeholder="Search docs..."
+              v-model="searchValue"
+              :loading="searchProgress"
+              clearable
+              @click:clear="searchResults=[]"
+              
+              outlined prepend-inner-icon="mdi-magnify" /> -->
+            <ais-search-box placeholder="Search here…" class="searchbox" />
 
-          <div style="max-height: 400px; overflow-y: auto">
-            <p v-if="!searchValue">Type in search to see results.</p>
-            <p v-else-if="searchResults.length === 0">There no results. Please, try another input.</p>
+            <!-- <div style="max-height: 400px; overflow-y: auto">
+              <p v-if="!searchValue">Type in search to see results.</p>
+              <p v-else-if="searchResults.length === 0">There no results. Please, try another input.</p>
 
-            <v-list>
-              <v-list-item v-for="page in searchResults" :key="page.path" :id="page.path"
-                           two-line
-                           @click="searchDialog = false"
-                           :to="page.path" exact  >
-                <v-list-item-content>
-                  <v-list-item-title v-html="highlightPrompt(page.title)">
-                    <!-- {{page.title}} -->
-                  </v-list-item-title>
-                  <p v-html="highlightPrompt(page.content)">
-                    <!-- {{page.content}} -->
-                  </p>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </div> 
-
+              <v-list>
+                <v-list-item v-for="page in searchResults" :key="page.path" :id="page.path"
+                            two-line
+                            @click="searchDialog = false"
+                            :to="page.path" exact  >
+                  <v-list-item-content>
+                    <v-list-item-title v-html="highlightPrompt(page.title)">
+                    </v-list-item-title>
+                    <p v-html="highlightPrompt(page.content)">
+                    </p>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </div>  -->
+            <ais-hits>
+              <template slot="item" slot-scope="{ item }">
+                <h1><ais-highlight :hit="item" attribute="title" /></h1>
+                <p><ais-highlight :hit="item" attribute="content" /></p>
+              </template>
+            </ais-hits>
+          </ais-instant-search>
         </v-card-text>
         <v-divider />
         <v-card-actions>
@@ -61,6 +70,7 @@
 <script>
 
 import axios from 'axios'
+import algoliasearch from 'algoliasearch'
 
 // TODO: Integrate with Algolia search (possible only for public websites)
 export default {
@@ -73,6 +83,7 @@ export default {
   },
   data(){
     return{
+      searchClient: new algoliasearch('4U0QJ1EU4V', '25c9a8f508bd3bd78959f3da8ffd9568'),
       searchDialog: false,
       searchValue: '', // user input
       searchProgress: false, // show the loader
