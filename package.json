@@ -22,6 +22,7 @@
     "clipboard": "^2.0.10",
     "echarts": "^5.3.3",
     "gridsome": "^0.7.0",
+    "instantsearch.css": "^8.0.0",
     "js-yaml": "^4.1.0",
     "marked": "^4.0.17",
     "vue-axios": "^3.4.1",

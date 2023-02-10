@@ -10,67 +10,27 @@
     </button>
     <v-dialog  :width="dialogWidth" v-model="searchDialog">
       <v-card>
-        <v-card-title></v-card-title>
-        <v-card-text>
-          <ais-instant-search
-              :search-client="searchClient"
-              index-name="docs"
-            >
-            <!-- <v-text-field
-              placeholder="Search docs..."
-              v-model="searchValue"
-              :loading="searchProgress"
-              clearable
-              @click:clear="searchResults=[]"
-              
-              outlined prepend-inner-icon="mdi-magnify" /> -->
-            <ais-search-box placeholder="Search here…" class="searchbox"  />
-
-            <!-- <div style="max-height: 400px; overflow-y: auto">
-              <p v-if="!searchValue">Type in search to see results.</p>
-              <p v-else-if="searchResults.length === 0">There no results. Please, try another input.</p>
-
-              <v-list>
-                <v-list-item v-for="page in searchResults" :key="page.path" :id="page.path"
-                            two-line
-                            @click="searchDialog = false"
-                            :to="page.path" exact  >
-                  <v-list-item-content>
-                    <v-list-item-title v-html="highlightPrompt(page.title)">
-                    </v-list-item-title>
-                    <p v-html="highlightPrompt(page.content)">
-                    </p>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </div>  -->
-            <v-list>
-              <ais-hits>
-                <template slot="item" slot-scope="{ item }">
-                  <v-list-item :key="item.path" two-line
-                            @click="searchDialog = false"
-                            :to="item.path" exact  >
-                    <v-list-item-content>
-                      <v-list-item-title>
-                        <ais-highlight :hit="item" attribute="title" />
-                      </v-list-item-title>
-                      <p><ais-snippet :hit="item" attribute="content" /></p>
-                    </v-list-item-content>
-                  </v-list-item>                  
-                </template>
-              </ais-hits>
-            </v-list>
-          </ais-instant-search>
-        </v-card-text>
-        <v-divider />
-        <v-card-actions>
-          <v-spacer />
-          <v-btn outlined
-                 color="primary"
-                 @click="searchDialog = false">
-            Cancel
-          </v-btn>
-        </v-card-actions>
+        <ais-instant-search
+            :search-client="searchClient"
+            index-name="docs"
+            show-loading-indicator
+          >
+          <ais-configure :hits-per-page.camel="10" />
+          <ais-search-box placeholder="Search here…" class="searchbox"  />
+          <ais-hits :class-names="{
+                'ais-Hits-list': 'ais-Hits-list custom-hits-list',
+                'ais-Hits-item': 'ais-Hits-item custom-list-item'
+              }">
+              <template slot="item" slot-scope="{ item }">
+                <g-link :to="item.path" class="text--primary">
+                  <div @click="searchDialog = false">
+                    <ais-highlight :hit="item" attribute="title" class="text-h5" />
+                    <p><ais-snippet :hit="item" attribute="content" /></p> 
+                  </div>
+                </g-link>    
+              </template>
+            </ais-hits>
+        </ais-instant-search>
       </v-card>
     </v-dialog>
   </div>
@@ -78,11 +38,10 @@
 </template>
 
 <script>
-
+import 'instantsearch.css/themes/algolia-min.css'
 import axios from 'axios'
 import algoliasearch from 'algoliasearch'
 
-// TODO: Integrate with Algolia search (possible only for public websites)
 export default {
   name: "SearchWindow",
   props:{
@@ -94,56 +53,13 @@ export default {
   data(){
     return{
       searchClient: new algoliasearch('4U0QJ1EU4V', '25c9a8f508bd3bd78959f3da8ffd9568'),
-      searchDialog: false,
-      searchValue: '', // user input
-      searchProgress: false, // show the loader
-      searchResults: [],
-      // new adds here
-      //userPrompt:'',
-      fresults: {},
+      searchDialog: false
     }
   },
   computed:{
     dialogWidth(){
       if (this.windowSize.x > 1024) return '500px'
       else return '100vw'
-    }
-  },
-  methods: {
-    // async search(){
-    //   if (this.searchValue.length > 2){
-    //     this.searchProgress = true
-    //     const result = await this.$content('/', {deep:true})
-    //       .only(['title', 'description', 'path', 'dir'])
-    //       .limit(10)
-    //       .search(this.searchValue)
-    //       .fetch()
-    //     this.searchResults = this.processPagesPaths(result)
-    //     this.searchProgress = false
-    //   }
-    //   else this.searchResults = []
-    // }
-
-    // this function highlights the userPrompt as described by style class="prompt"
-        highlightPrompt(text){
-          return text.replace(new RegExp(`(${this.searchValue})`,'i'),`<span class="prompt">$1</span>` )
-        }
-  }, 
-  watch:{
-    
-    async searchValue(newValue){
-      if (this.searchValue.length > 2){
-        this.searchProgress = true
-        try{
-          const tresult = await axios.get( 'https://th2-search.onrender.com/search/'+ newValue )
-          this.searchResults = tresult.data.result // useful info inside axios data
-        }
-        catch(err){
-          console.error(err)
-        }
-        this.searchProgress = false
-      }
-      
     }
   }
 }
@@ -196,7 +112,7 @@ export default {
   }
 
 }
-@media screen and (max-width: $window-width-sm / 2) {
+@media screen and (max-width: ($window-width-sm / 2)) {
   .search-container{
     max-width: unset;
     min-width: unset;
@@ -213,9 +129,38 @@ export default {
 </style>
 
 <style>
-    mark{
-    color: #3f979f;
-    font-weight: bold;
-    background: none !important;
-  }
+.ais-Hits-list.custom-hits-list {
+  margin-top: 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.ais-Hits-item.custom-list-item {
+  width: 100%;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+.ais-Hits-item.custom-list-item a {
+  text-decoration: none;
+}
+.ais-Hits-item.custom-list-item a > div {
+  padding: 1rem;
+  border-radius: 5px;
+  transition: color 0.3s ease-in-out;
+}
+.ais-Hits-item.custom-list-item a > div:hover {
+  background-color: var(--copy-btn__bg-color--hover);
+}
+mark{
+  color: #3f979f;
+  text-decoration: underline;
+  font-weight: bold;
+  background: none !important;
+  font-size: inherit !important;
+}
 </style>

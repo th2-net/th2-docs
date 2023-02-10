@@ -41,7 +41,7 @@ module.exports = (api: any) => {
         index
           .setSettings({
             attributesToHighlight: ['title', 'content'],
-            attributesToSnippet: ['content:10']
+            attributesToSnippet: ['content:20']
           })
           .wait()
       }
