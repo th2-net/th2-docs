@@ -23,7 +23,7 @@ module.exports = (api: any) => {
     ]
 
     //Save information
-    if (process.env.NODE_ENV !== 'production')
+    if (process.env.NODE_ENV === 'production')
       try {
         const algolia = algoliasearch(
           process.env.ALGOLIA_APP_ID ?? '',
