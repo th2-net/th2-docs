@@ -213,8 +213,9 @@ export default {
 </style>
 
 <style>
-    .prompt{
+    mark{
     color: #3f979f;
     font-weight: bold;
+    background: none !important;
   }
 </style>
