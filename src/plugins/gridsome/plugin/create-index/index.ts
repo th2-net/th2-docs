@@ -23,7 +23,7 @@ module.exports = (api: any) => {
     ]
 
     //Save information
-    if (process.env.NODE_ENV === 'production')
+    if (process.env.NODE_ENV !== 'production')
       try {
         const algolia = algoliasearch(
           process.env.ALGOLIA_APP_ID ?? '',
@@ -37,6 +37,12 @@ module.exports = (api: any) => {
             path: page.path,
             content: markdownToTxt(page.content),
           })))
+          .wait()
+        index
+          .setSettings({
+            attributesToHighlight: ['title', 'content'],
+            attributesToSnippet: ['content:10']
+          })
           .wait()
       }
       catch(err){}

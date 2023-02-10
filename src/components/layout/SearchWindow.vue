@@ -24,7 +24,7 @@
               @click:clear="searchResults=[]"
               
               outlined prepend-inner-icon="mdi-magnify" /> -->
-            <ais-search-box placeholder="Search here…" class="searchbox" />
+            <ais-search-box placeholder="Search here…" class="searchbox"  />
 
             <!-- <div style="max-height: 400px; overflow-y: auto">
               <p v-if="!searchValue">Type in search to see results.</p>
@@ -44,12 +44,22 @@
                 </v-list-item>
               </v-list>
             </div>  -->
-            <ais-hits>
-              <template slot="item" slot-scope="{ item }">
-                <h1><ais-highlight :hit="item" attribute="title" /></h1>
-                <p><ais-highlight :hit="item" attribute="content" /></p>
-              </template>
-            </ais-hits>
+            <v-list>
+              <ais-hits>
+                <template slot="item" slot-scope="{ item }">
+                  <v-list-item :key="item.path" two-line
+                            @click="searchDialog = false"
+                            :to="item.path" exact  >
+                    <v-list-item-content>
+                      <v-list-item-title>
+                        <ais-highlight :hit="item" attribute="title" />
+                      </v-list-item-title>
+                      <p><ais-snippet :hit="item" attribute="content" /></p>
+                    </v-list-item-content>
+                  </v-list-item>                  
+                </template>
+              </ais-hits>
+            </v-list>
           </ais-instant-search>
         </v-card-text>
         <v-divider />
