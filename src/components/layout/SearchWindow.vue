@@ -160,7 +160,7 @@ export default Vue.extend({
   transition: color 0.3s ease-in-out;
 }
 .ais-Hits-item.custom-list-item a > div:hover {
-  background-color: var(--copy-btn__bg-color--hover);
+  background-color: var(--search__btn-bg-color--hover);
 }
 mark{
   color: #3f979f;
