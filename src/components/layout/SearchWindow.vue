@@ -21,7 +21,7 @@
                 'ais-Hits-list': 'ais-Hits-list custom-hits-list',
                 'ais-Hits-item': 'ais-Hits-item custom-list-item'
               }">
-              <template slot="item" slot-scope="{ item }">
+              <template #item v-slot="{ item }">
                 <g-link :to="item.path" class="text--primary">
                   <div @click="searchDialog = false">
                     <ais-highlight :hit="item" attribute="title" class="text-h5" />
@@ -37,23 +37,27 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import 'instantsearch.css/themes/algolia-min.css'
-import axios from 'axios'
+import Vue from 'vue'
 import algoliasearch from 'algoliasearch'
 
-export default {
+export default Vue.extend({
   name: "SearchWindow",
   props:{
     windowSize: {
-      type: Object,
+      type: Object as () => { x: number, y: number },
       required: true
     }
   },
   data(){
     return{
-      searchClient: new algoliasearch('4U0QJ1EU4V', '25c9a8f508bd3bd78959f3da8ffd9568'),
-      searchDialog: false
+      searchDialog: false,
+      searchClient: algoliasearch(
+        '4U0QJ1EU4V', 
+        '25c9a8f508bd3bd78959f3da8ffd9568'
+      ),
+      
     }
   },
   computed:{
@@ -62,7 +66,7 @@ export default {
       else return '100vw'
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
