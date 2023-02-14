@@ -31,6 +31,7 @@
                 </g-link>    
               </template>
             </ais-hits>
+            <ais-powered-by :theme="$vuetify.theme.dark? 'dark': 'light'" />
         </ais-instant-search>
       </v-card>
     </v-dialog>
@@ -161,6 +162,11 @@ export default Vue.extend({
 }
 .ais-Hits-item.custom-list-item a > div:hover {
   background-color: var(--search__btn-bg-color--hover);
+}
+.ais-PoweredBy {
+  display: flex;
+  justify-content: end;
+  padding: 0.5rem;
 }
 mark{
   color: #3f979f;
