@@ -31,7 +31,7 @@
                 </g-link>    
               </template>
             </ais-hits>
-            <ais-powered-by :theme="$vuetify.theme.dark? 'dark': 'light'" />
+            <AlgoliaLogo />
         </ais-instant-search>
       </v-card>
     </v-dialog>
@@ -42,33 +42,38 @@
 <script lang="ts">
 import 'instantsearch.css/themes/algolia-min.css'
 import Vue from 'vue'
+import AlgoliaLogo from './AlgoliaLogo.vue'
 import algoliasearch from 'algoliasearch'
 
 export default Vue.extend({
-  name: "SearchWindow",
-  props:{
-    windowSize: {
-      type: Object as () => { x: number, y: number },
-      required: true
+    name: "SearchWindow",
+    components: {
+        AlgoliaLogo
+    },
+    props: {
+        windowSize: {
+            type: Object as () => {
+                x: number;
+                y: number;
+            },
+            required: true
+        }
+    },
+    data() {
+        return {
+            searchDialog: false,
+            // TODO: Use environment variables
+            searchClient: algoliasearch("4U0QJ1EU4V", "25c9a8f508bd3bd78959f3da8ffd9568"),
+        };
+    },
+    computed: {
+        dialogWidth() {
+            if (this.windowSize.x > 1024)
+                return "500px";
+            else
+                return "100vw";
+        }
     }
-  },
-  data(){
-    return{
-      searchDialog: false,
-      // TODO: Use environment variables
-      searchClient: algoliasearch(
-        '4U0QJ1EU4V', 
-        '25c9a8f508bd3bd78959f3da8ffd9568'
-      ),
-      
-    }
-  },
-  computed:{
-    dialogWidth(){
-      if (this.windowSize.x > 1024) return '500px'
-      else return '100vw'
-    }
-  }
 })
 </script>
 
@@ -165,7 +170,7 @@ export default Vue.extend({
 }
 .ais-PoweredBy {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 0.5rem;
 }
 mark{
