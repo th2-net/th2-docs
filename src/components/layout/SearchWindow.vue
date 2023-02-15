@@ -25,7 +25,7 @@
               <template slot="item" slot-scope="{ item }">
                 <g-link :to="item.path" class="text--primary">
                   <div @click="searchDialog = false">
-                    <ais-highlight :hit="item" attribute="title" class="text-h5" />
+                    <ais-highlight :hit="item" attribute="title" class="text-h6" />
                     <p><ais-snippet :hit="item" attribute="content" /></p> 
                   </div>
                 </g-link>    
