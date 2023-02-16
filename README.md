@@ -19,6 +19,8 @@ Create `.env` file in the root directory:
 
 ```dotenv
 GITHUB_TOKEN=GITHUB_TOKEN
+ALGOLIA_APP_ID=ALGOLIA_APP_ID
+ALGOLIA_WRITE_API_KEY=ALGOLIA_WRITE_API_KEY
 ```
 4) Run the website locally for development purposes:
 

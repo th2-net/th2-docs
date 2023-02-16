@@ -11,6 +11,7 @@ dist
 .idea
 temp
 content/docs/test.md
+static/__es-index
 .nuxt
 .graphqlconfig
 schema.graphql
