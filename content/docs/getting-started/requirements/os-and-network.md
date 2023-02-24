@@ -78,6 +78,20 @@ Container registries:
 
 <notice note>
 
-Accessibility of container registries should be tested using Docker.
+Accessibility of container registries can be tested using `telnet` command in terminal to the `80` or `443` port. 
+
+For example:
+
+```shell
+telnet k8s.gcr.io 80
+```
+
+Command will response with following output:
+
+```shell
+Trying 142.251.9.82...
+Connected to googlecode.l.googleusercontent.com.
+Escape character is '^]'.
+```
 
 </notice>
