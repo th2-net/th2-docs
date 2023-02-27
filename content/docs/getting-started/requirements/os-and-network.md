@@ -63,9 +63,7 @@ Repositories:
 
 <notice note>
 
-If you have an `error 404` message trying to access these links with browser, it is OK. 
-However, if your connection to a resource is broken, you'll see a `this site can’t be reached` error.
-You also can check it by adding `/index.yaml` to the end of each link.
+You can check accessibility of these links with browser by adding `/index.yaml` to the end of each link.
 
 </notice>
 
