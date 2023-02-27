@@ -83,7 +83,7 @@ Accessibility of container registries can be tested using `telnet` command in te
 For example:
 
 ```shell
-telnet k8s.gcr.io 80
+telnet k8s.gcr.io 443
 ```
 
 Command will response with following output:
