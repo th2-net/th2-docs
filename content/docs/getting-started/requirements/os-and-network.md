@@ -63,7 +63,7 @@ Repositories:
 
 <notice note>
 
-You can check accessibility of these links with browser by adding `/index.yaml` to the end of each link.
+You can check accessibility of these links via browser by adding `/index.yaml` to the end of each link.
 
 </notice>
 
@@ -77,7 +77,7 @@ Container registries:
 
 <notice note>
 
-Accessibility of container registries can be tested using `telnet` command in terminal to the `80` or `443` port. 
+To test the accessibility of container registries, the `telnet` command can be used in the terminal to connect to the `80` or `443` port.
 
 For example:
 
@@ -85,7 +85,7 @@ For example:
 telnet k8s.gcr.io 443
 ```
 
-Command will response with following output:
+The command will return the following output:
 
 ```shell
 Trying 142.251.9.82...
