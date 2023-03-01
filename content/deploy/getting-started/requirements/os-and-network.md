@@ -63,8 +63,7 @@ Repositories:
 
 <notice note>
 
-If you have an `error 404` message, it is OK. However, if your connection
-to a resource is broken, you'll see a `this site can’t be reached` error.
+You can check accessibility of these links via browser by adding `/index.yaml` to the end of each link.
 
 </notice>
 
@@ -78,6 +77,20 @@ Container registries:
 
 <notice note>
 
-Accessibility of container registries should be tested using Docker.
+To test the accessibility of container registries, the `telnet` command can be used in the terminal to connect to the `80` or `443` port.
+
+For example:
+
+```shell
+telnet k8s.gcr.io 443
+```
+
+The command will return the following output:
+
+```shell
+Trying 142.251.9.82...
+Connected to googlecode.l.googleusercontent.com.
+Escape character is '^]'.
+```
 
 </notice>
