@@ -9,7 +9,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import {fetchCRs, repoListBranches} from "./fetch-infra-schema";
-
 export default Vue.extend({
   name: 'InfraSchemaPicker',
   props: {
@@ -29,7 +28,6 @@ export default Vue.extend({
     }
   },
   computed: {
-
   },
   methods: {
     getRepo(){
@@ -75,6 +73,5 @@ export default Vue.extend({
 			this.$emit('loading', value)
 		}
   }
-
 })
 </script>
