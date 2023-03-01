@@ -12,7 +12,7 @@
       <v-card>
         <ais-instant-search
             :search-client="searchClient"
-            index-name="docs"
+            index-name="docs-module-design"
             show-loading-indicator
           >
           <ais-configure :hits-per-page.camel="10" />
@@ -44,7 +44,6 @@ import 'instantsearch.css/themes/algolia-min.css'
 import Vue from 'vue'
 import AlgoliaLogo from './AlgoliaLogo.vue'
 import algoliasearch from 'algoliasearch'
-
 export default Vue.extend({
     name: "SearchWindow",
     components: {
@@ -75,13 +74,13 @@ export default Vue.extend({
         }
     }
 })
+})
 </script>
 
 <style scoped lang="scss">
 @import '~/assets/layout.scss';
 .search-container{
-  max-width: ($max-width * 3 / 5) - 40px;
-  min-width: ($max-width * 3 / 5) - 80px;
+ 
 }
 .search-btn{
   width: 100%;
@@ -91,46 +90,18 @@ export default Vue.extend({
   border-radius: .2rem;
   padding: .3rem .5rem .3rem .2rem;
   transition: all 100ms ease-in-out;
-
   span{
     color: var(--search__text-color);
   }
 }
-
 .search-btn:hover{
   cursor: pointer;
   border-color: var(--search__btn-border-color);
-
   span{
     color: white;
   }
 }
-
-
-@media screen and (max-width: $window-width-md) {
-  .search-container{
-    max-width: ($max-width-md * 3 / 5) - 30px;
-    min-width: ($max-width-md * 3 / 5) - 60px;
-  }
-  .search-btn{
-
-  }
-}
-
-@media screen and (max-width: $window-width-sm) {
-  .search-container{
-    max-width: ($max-width-md / 4) - 20px;
-    min-width: ($max-width-md / 4) - 40px;
-  }
-
-}
 @media screen and (max-width: ($window-width-sm / 2)) {
-  .search-container{
-    max-width: unset;
-    min-width: unset;
-    margin: 0 2rem;
-  }
-
   .search-btn{
     padding: .3rem;
     span{
