@@ -22,12 +22,14 @@
     "echarts": "^5.3.3",
     "gridsome": "^0.7.0",
     "instantsearch.css": "^8.0.0",
+    "js-yaml": "^4.1.0",
     "marked": "^4.0.17",
     "vue-axios": "^3.4.1",
     "vue-echarts": "^6.1.0",
     "vue-instantsearch": "^3.8.1",
     "vuetify": "^2.6.3",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "yaml": "^2.2.1"
   },
   "devDependencies": {
     "@akebifiky/remark-simple-plantuml": "^1.0.2",
@@ -39,6 +41,7 @@
     "@types/cli-progress": "^3.11.0",
     "@types/extract-domain": "^2.3.1",
     "@types/js-levenshtein": "^1.1.1",
+    "@types/js-yaml": "^4.0.5",
     "badwords-list": "^1.0.0",
     "cli-progress": "^3.11.2",
     "cypress": "^10.11.0",
