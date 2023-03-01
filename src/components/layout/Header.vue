@@ -4,6 +4,7 @@
 		app
 		:color="$vuetify.theme.dark ? 'primary darken-4' : 'secondary'"
 		class="top-layout"
+		v-resize="onResize"
 	>
 		<div class="header-container">
 			<div class="meta-btns">
@@ -15,6 +16,7 @@
 			<v-spacer />
 			<slot name="sections-nav" />
 			<v-spacer />
+			<SearchWindow :window-size="windowSize" />
 			<div class="header-btns">
 				<v-btn dark :href="$static.metadata.githubRepoLink" target="_blank" icon>
 					<v-icon>mdi-github</v-icon>
@@ -39,8 +41,9 @@ query {
 
 <script>
 import logo from '../../assets/img/Th2Logo_full_white.png'
-import ThemeSwitcher from "~/components/layout/ThemeSwitcher";
+import ThemeSwitcher from "~/components/layout/ThemeSwitcher"
 import Footer from '~/components/layout/Footer'
+import SearchWindow from '~/components/layout/SearchWindow'
 
 export default {
 	props: {
@@ -49,12 +52,18 @@ export default {
 	},
 	name: "Header",
 	components: {
-		ThemeSwitcher, Footer
+		ThemeSwitcher, Footer, SearchWindow
 	},
 	data(){
 		return{
-			logo
+			logo,
+			windowSize: { x: 0, y: 0 }
 		}
+	},
+	methods:{
+		onResize () {
+			this.windowSize = { x: window.innerWidth, y: window.innerHeight }
+		},
 	}
 }
 </script>

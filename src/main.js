@@ -14,6 +14,8 @@ import {CanvasRenderer} from 'echarts/renderers'
 import {BarChart, LineChart} from 'echarts/charts'
 import {GridComponent, TooltipComponent} from 'echarts/components'
 
+import InstantSearch from 'vue-instantsearch'
+
 import 'prismjs/themes/prism-tomorrow.css'
 
 // Global components
@@ -42,7 +44,9 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   });
 
   Vue.use(Vuetify)
-  use([CanvasRenderer, BarChart, LineChart, GridComponent, TooltipComponent]);
+  use([CanvasRenderer, BarChart, LineChart, GridComponent, TooltipComponent])
+
+  Vue.use(InstantSearch)
 
   appOptions.vuetify = new Vuetify(vuetifyConfig);
   appOptions.store = store
