@@ -29,7 +29,7 @@
 				</template>
 			</ContentTree>
 		</v-navigation-drawer>
-		<v-main>
+		<v-main class="main-container">
 			<slot />
 		</v-main>
 		<Footer />
@@ -90,5 +90,8 @@ html {
 }
 .v-app-bar.v-app-bar--fixed.top-layout, .top-layout{
 	z-index: 100 ;
+}
+.main-container {
+	min-height: calc(100vh - 440px);
 }
 </style>
