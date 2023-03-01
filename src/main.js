@@ -20,15 +20,16 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 // Global components
 import Term from './components/global/Term'
-import VersionedBlock from "./components/global/VersionedBlock";
-import ModuleIndexActions from "./components/global/ModuleIndexActions.vue";
-import CopyCodeBtn from "./components/content/CopyCodeBtn";
-import CustomStepper from "./components/global/CustomStepper";
-import Notice from "./components/global/Notice";
-import PrevNext from "./components/global/PrevNext";
-import Recommendations from "./components/global/Recommendations";
-import Spoiler from "./components/global/Spoiler";
-import Youtube from "./components/global/Youtube";
+import VersionedBlock from "./components/global/VersionedBlock"
+import ModuleIndexActions from "./components/global/ModuleIndexActions.vue"
+import CopyCodeBtn from "./components/content/CopyCodeBtn"
+import CustomStepper from "./components/global/CustomStepper"
+import Notice from "./components/global/Notice"
+import PrevNext from "./components/global/PrevNext"
+import Recommendations from "./components/global/Recommendations"
+import Spoiler from "./components/global/Spoiler"
+import Youtube from "./components/global/Youtube"
+import WorkInProgress from './components/global/WorkInProgress'
 
 import ECharts from 'vue-echarts'
 
@@ -72,5 +73,6 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.component('spoiler', Spoiler)
   Vue.component('youtube', Youtube)
   Vue.component('copy-code-btn', CopyCodeBtn)
+  Vue.component('work-in-progress', WorkInProgress)
   Vue.component('v-chart', ECharts)
 }
