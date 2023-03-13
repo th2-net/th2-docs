@@ -50,7 +50,7 @@ export default function (Vue, { appOptions, router, head, isClient }) {
     GridComponent, TooltipComponent, TitleComponent, LegendComponent])
 
   Vue.use(VueGtag, {
-  config: { id: "G-GYRF9FLQ1G" }
+    config: { id: "G-JK85CSBCPV" }
   })
 
   Vue.use(InstantSearch)
