@@ -6,6 +6,7 @@ import 'vuetify/dist/vuetify.min.css'
 import vuetifyConfig from './plugins/vuetify'
 import store from './store'
 import DefaultLayout from '~/layouts/Default.vue'
+import VueGtag from "vue-gtag"
 
 import { use } from 'echarts/core'
 
@@ -49,6 +50,10 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.use(Vuetify)
   use([CanvasRenderer, BarChart, LineChart, GraphChart,
     GridComponent, TooltipComponent, TitleComponent, LegendComponent])
+
+  Vue.use(VueGtag, {
+    config: { id: "G-JK85CSBCPV" }
+  })
 
   Vue.use(InstantSearch)
 
