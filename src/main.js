@@ -34,8 +34,6 @@ import WorkInProgress from './components/global/WorkInProgress'
 
 import ECharts from 'vue-echarts'
 
-import InstantSearch from 'vue-instantsearch'
-
 export default function (Vue, { appOptions, router, head, isClient }) {
   head.link.push({
     rel: 'stylesheet',
