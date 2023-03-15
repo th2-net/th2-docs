@@ -1,5 +1,5 @@
 ---
-weight: 0
+weight: 5
 related:
   - name: "th2-net/th2-infra"
     icon: "mdi-github"
