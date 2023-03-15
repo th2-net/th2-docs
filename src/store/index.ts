@@ -1,6 +1,7 @@
 import Vuex from "vuex";
 import Vue from 'vue'
-import {TreeNode} from "../plugins/gridsome/plugin/content-tree/types";
+import {TreeNode} from "../plugins/gridsome/plugin/content-tree/types"
+import { isMainSectionPage } from "../utils/pathIdentification";
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -81,17 +82,23 @@ export default new Vuex.Store({
           return state.currentTree
         },
         currentPage(state, getters, rootState: any){
+          const path: string = rootState.router.path
           const searchNode = (tree: TreeNode[]): TreeNode | undefined => {
             let foundNode = undefined
             for (let node of tree) {
-              if (node.path.startsWith(rootState.router.path))
+              if (node.path.startsWith(path))
                 return foundNode = node
               else foundNode = searchNode(node.children)
               if (foundNode) break
             }
             return foundNode
           }
-          return searchNode(state.currentTree)
+          if (isMainSectionPage(path)) {
+            return { children: state.currentTree}
+          } else {
+            return searchNode(state.currentTree)
+          }
+          
         },
         subsections(state){
           return state.currentTree.map((node: TreeNode) => ({

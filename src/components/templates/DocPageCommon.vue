@@ -1,6 +1,6 @@
 <template>
 	<div class="d-flex flex-column doc-layout mx-auto">
-		<SubsectionsNav class="mx-auto my-5" v-if="subsectionsNavigation && !isLayoutSm" />
+		<SubsectionsNav class="mx-auto my-5" v-if="subsectionsNavigation && !isLayoutSm && !isMainSectionPage" />
 		<div class="doc-page">
 			<ContentTree v-if="!isLayoutSm && !isMainModulePage"
 									 class="doc-page__aside"/>
@@ -24,7 +24,7 @@ import PageContent from "../layout/PageContent.vue";
 import ContentTree from "../layout/ContentTree.vue";
 import SubsectionsNav from "../layout/SubsectionsNav.vue";
 import {mapGetters} from "vuex";
-import {isMainModulePage} from "../../utils/pathIdentification";
+import {isMainModulePage, isMainSectionPage} from "../../utils/pathIdentification";
 
 export default {
 	name: "DocPageCommon",
@@ -41,6 +41,9 @@ export default {
 		...mapGetters(['isLayoutSm', 'currentPage']),
 		doc() {
 			return this.$page.doc
+		},
+		isMainSectionPage(){
+			return isMainSectionPage(this.$route.path)
 		},
 		isMainModulePage(){
 			return isMainModulePage(this.$route.path)

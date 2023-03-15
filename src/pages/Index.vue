@@ -78,8 +78,8 @@ export default {
 						'components are integrated into solution, and how to create your own th2 module.' },
         { title: 'Test', href: `/test/`, icon: 'mdi-bug',
           text: 'Learn about main testing concepts of th2 and best practices of creating test scenarios.' },
-        { title: 'Explore', href: `/explore/modules`, icon: 'mdi-magnify',
-          text: 'th2 is the huge ecosystem. Explore existing modules for th2 and activity in th2-net organization.' },
+        { title: 'Explore', href: `/explore/`, icon: 'mdi-magnify',
+          text: 'Analyze events and messages produced in th2 with data services toolkit.' },
       ]
     }
   },
