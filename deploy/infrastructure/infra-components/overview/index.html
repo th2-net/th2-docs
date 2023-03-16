@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>th2-infra components | th2 docs</title><meta name="gridsome:hash" content="ed0a5a389d3618f0823526ee1d1166b55f4800f5"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2-infra components"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.1608e59d.css" as="style"><link rel="preload" href="/assets/js/app.de126758.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.794a6086.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.74aa3573.js"><link rel="prefetch" href="/assets/js/page--src--templates--explore-page-vue.d5cbd3ec.js"><link rel="prefetch" href="/assets/js/page--src--templates--module-page-vue.f289f57b.js"><link rel="prefetch" href="/assets/js/page--src--templates--testing-page-vue.df45be81.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--tem~bc21bc85.2007b9cd.js"><link rel="prefetch" href="/assets/js/vendors~vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.3cda9093.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--create-th-2-env-md.f20fe7b3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--index-md.63c19fd8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--1-base-system-md.ef88ea5f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--2-infra-schema-md.f6959c4e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--3-th-2-md.4b281688.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--index-md.52082700.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--hardware-md.1bee5833.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--index-md.2f10ec5d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--os-and-network-md.2b1dd007.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--overview-md.216bcb4a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--software-md.cdc7fd2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--index-md.2e96998e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--index-md.8d64f31a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--index-md.9536b2c8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-mgr-md.24c53826.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-operator-md.3ef42480.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--overview-md.f01449c3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-repository-md.16040949.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--index-md.f535a03d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--links-md.fb415f25.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.6cb550be.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--pins-md.6122a5e2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--data-services--index-md.57b87d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--index-md.e37a24d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--storage--index-md.195e7f0c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--checkpoints-md.8c82640b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--communication-md.cce16947.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--configuration-md.64f635ab.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--index-md.28295177.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--overview-md.a6f014f6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--rulerequests-md.d0cb8321.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--verification-rulerequests-md.13054aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--config-md.1f58165f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--index-md.9bcd96e6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--overview-md.749d6c94.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--repositories-md.be0e2216.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--config-md.86ef3153.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--index-md.a37dbea4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--repositories-md.69f59dc9.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--usage-md.3d219b1a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--config-md.b49b89d7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--index-md.1b4acd02.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--overview-md.7434b6a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--repositories-md.c64f260c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--config-md.415d8d63.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--index-md.96378d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--overview-md.6a08bb65.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--usage-md.59f0cadc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--config-md.d826a04f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--index-md.315f556e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--overview-md.7d31b043.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--repositories-md.1d3e91a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--usage-md.a0cfe3ea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--chain-verification--index-md.d714f97c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--index-md.db217fdb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--modules-md.6b3f6f31.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--quick-setup-md.50f19130.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--architecture-md.c2d4ed18.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--index-md.96505f72.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--key-concepts-md.f619799c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--th-2-net-on-github-md.e5380a3b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--index-md.63aafe2b.js"><link rel="stylesheet" href="/assets/css/0.styles.1608e59d.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-01e287c2><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-01e287c2><div class="meta-btns" data-v-01e287c2><a href="/" class="logo-container active" data-v-01e287c2><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-01e287c2></a></div><div class="spacer" data-v-01e287c2></div><div data-v-d1006bf6><a href="/deploy/getting-started/requirements/overview/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large v-btn--active mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Deploy
+	</span></a><a href="/test/fundamentals/architecture/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Test
+	</span></a><a href="/explore/data-services/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Explore
+	</span></a></div><div class="spacer" data-v-01e287c2></div><div class="search-container" data-v-2361f76d data-v-01e287c2><button class="search-btn" data-v-2361f76d><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-2361f76d></i><span data-v-2361f76d>
+    Search
+  </span></button><div class="v-dialog__container" data-v-2361f76d><!----></div></div><div class="header-btns" data-v-01e287c2><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-01e287c2></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><!----></div></div></div></header><!----><main class="v-main main-container" style="padding-top:560px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="d-flex flex-column doc-layout mx-auto" data-v-4ce9b4a1><div class="mx-auto my-5 v-item-group theme--light v-btn-toggle v-btn-toggle--dense" data-v-7ceca357 data-v-4ce9b4a1><a href="/deploy/getting-started/requirements/overview/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		Getting started
+	</span></a><a href="/deploy/infrastructure/overview/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default v-btn--active" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		Infrastructure
+	</span></a></div><div class="doc-page" data-v-4ce9b4a1><aside class="pt-5 content-tree-panel sticky-aside doc-page__aside" data-v-34f98add data-v-4ce9b4a1><div class="px-3 ml-n3 border-right" data-v-34f98add><!----><div data-v-34f98add><div data-v-34f98add></div><div data-v-34f98add></div></div><div class="v-treeview ml-n3 py-2 v-treeview--hoverable v-treeview--dense theme--light" data-v-34f98add><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/infrastructure/overview/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Overview
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/infrastructure/th2-infra-repository/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							th2-infra
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/infrastructure/infra-components/overview/" aria-current="page" class="active--exact active nuxt-link-exact-active" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							th2-infra components
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/infrastructure/th2-infra-schema/overview/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							th2-infra-schema
+						</div></a></div></div></div></div></div></div></aside><div class="container space-bottom px-md-12 px-4 doc-page__article" data-v-4ce9b4a1><article><!----><div class="vue-remark"><h1 id="th2-infra-components"><a href="#th2-infra-components" aria-hidden="true">#</a>th2-infra components</h1><p>The th2-infra components are an important part of the th2 infrastructure. 
+While the infra-schema describes a th2 environment configured for a particular testing use case, the other infra components provide control over such environments. </p><p>Infra components are an intermediate layer between the user and the Kubernetes cluster. 
+This layer changes the th2 environments in accordance with the state of the <strong>infra-schema</strong>.</p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 530 221' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-dfead03e26a1dd8993301b63e160ccf8'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-dfead03e26a1dd8993301b63e160ccf8)' width='530' height='221' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAbCAYAAADMIInqAAAACXBIWXMAAAsSAAALEgHS3X78AAAKkUlEQVRYw91YCVSTVxbO0mhbFQwFbFW0lUVKkUVBdNTR2mo9yqKIVTvj1Ham2mXac0at1bpR21OxrYUWUMbQKiCFgoYtCUsgQghriKxhD4HooB6k0opWK8md%2b17%2b0BDBgqfOOZ13znfu/7/3/3/u97377n0vLNYDtOc27ad2zsb9LBf/d7mO63ZwnlwYwiF9i17dx2E5Ps/%2b64dRnJlLNz9ieofv/iLr/6o5%2bO%2b6p4/r5s%2b17HNasY076dlVHL7XOhbfM5CLoELZePiz%2bN4hf1jybGJnBuxyslm8dfOs4F0vTF%2b6hbIJ2BXhznpm8eS/fBi1/Ollm48M976NZyC1U3xf/mMK8PKe43QWXz0Y675pT%2bQvrhs/AFu/oAivl7bP8gj8J4x3fiH%2bzdCYaKflW%2bGx2St32M5b7/WEd/BTSHynjddaL/LuincOcSJLKllfFZdTRMjLRnUdITddG%2b3baWLq02FpIevPxxMePvnnjwtYe8KTaAQcFaQ7vhYae3Hm8r/BZO9Vu6zcAr1tvIPhUeeVORve/TR82oKNYO3ub0DiDXzPte/zPQKv8OcEaCc%2buYnze/lTpOnkohDUn0x1C2uPJP/hCpBco6b27/sjKYnXP4qNdQ/YBnM3b59Nk51HADgs2fR20FuH907129DL9wrabTt37bUnF7y82t5nvXbaok3HyXO2/zowzm7/EZ596FGe/aGjPLtDYcbr0GGuD/16bYfXTxw88sisT8N5rKe9B4VMUNVSEWIrLjxcAXaLclg7w%2bLoj7208eDEgxFJOtfV/4A5G95pDj2TpnJ8fgtMX/KKLuC9Ty5O8QkeCHk/7JLdvHW3PIPeusGauhhmr9lWklKrVqbWqlVoVWirGIz2evD%2bbG2jMqm6PnK3WGpL/Pm2spr6tSVJ%2bHBFOC2roNn%2b22LloeSKBvj4u8y7e79JhcTyC3AiV244EJcGX4kL4aP4NBDIyiAU7RfCXNgZlWD4JFkCuRod5HXoBu2DIFfTRVF8tRe%2br2lQOB%2bN5BGfPsmXj%2bQ2%2b3chf1RWTD/0RnK6lbC%2bqVuqRYc0nXpZ50W9uKV9ILtVAwWdOn1Oe4de2tFlkLRq9FJtlyFXozXIui4a8rVdAxkNzb8bcN3fkXZ1w2llTRDxC8XgjrqaufiyxqzWiVIlHcOM7IQC9Ima2iCtrkmfVtdoQIcgvb6J3I9gG6klz6Hjg3asYN4zMNe/FFy8DJgD3iJ%2biRqauZPtphtJsDmPoXEk2xGEB2NZdtNcONOd5v4m8WFFiCqppP1fFJY4EgHEze3ECT1xypxYhroZshpbIEtthKixdQjp0ZIf8k0zMONE9LsFussYAdVvEr/aAMwrzASEG9m0IuYhXM25zBghAiYSkUaKgChFxYgCWBLDcIRkxPe1akiurh%2bW1FjIm/ebjd2VXSQC1NAI2P15FG%2bGy/wJDs4%2bE55xW/S47wuvjpu/4vVxSwLe4/m%2b%2bBoP%2bydi6Psh%2bUnDzfxTiI2ITQjv4SIheqQIsHCYkK%2b5fBWu3OiH7r4foeFqD%2b27H3nLKDK3WRhBpvEss2gaFKCymgqwLOAVaxRgIcIPiS5wcB7EQmpd5iN8Y1AAb3NeprB5A7GEiYC9PA5nPF33S5dyxP7%2bbILEsM9okgnPO%2b8srGvsE2MOyKhv0mcSZ3B9Z6Els6778SeAu3dBLi%2bFiooquN3fD1f6bw6KQHLBaGASJ0FeBielhRCTex7iCkshHfPJEAGYCPjP0CVw34Yi3dO3FkGygzXZ6SLGj/Tyge7eacLm9j4xlqKMlg59RosGsto7IaWpHYq1XUBaKRJPy5BQ5BYU0T4FjqUhoZx2LWS3dQwLSWsH5Gg66TMkySYUl0NsYQmcvlAHyUg6GoWIzsqFLCK%2bhQApZUou334Ge4KVHXvi5CnsSQgrm6nsybYObOsnprHHP2bFMiZCZ7Z5%2bBOi5Oj6LCKEWQI%2b51at4mX7%2b7uJ16zxxNmfg/AQBwV5Sv%2b00DVp777V6bn5N8QyOWRKZfrMQgWIT8VDSmIyNP3QB3W6SyCsqoFajRYqSULEHFB7qZtGRoysGE6I8uCEWHoPjmO/IO887PoiGsLOpIKouQ2%2bxedjylVwWJIPghwZxCtrIL6kkkYcRgcVIE5ZQ5MgjCECTG0pwpcBiYDNbGMueG4Sj%2bd%2be/t2WxRiJpJ3IBAFB88odHO1jw/7fHGavPQncbkSMhVl%2bswKFYi/PwspqUJQX/sBNNd6QdTQBFXqJqhuagVRfSN09GJ/73U4hc7HYxjHFZXScDbHaZzpRBw/dDIOvkzJwGjQwOmiMjhVVQuR2fnw2YlTEKuogG9kCroMTAKYcoD3suWPoyHbch/GzmYqwVRmgj2YqvCUSYA5jF3FWB/G%2bhERRlLto7YuB2FjW58Ywz6juV2PgEy8Pou2AEMX9HqQK8rhXJoI0jOzQYTOk1aAIZ6OSyAbw1yCy2Y44IaK7vKy27RAkqwA1314RjbEVVYj%2bXIQFMjhDIogMl8CjAAhq/0nzLOzc5xlZeXrxue7OVlbz33OxuZZL1tbF2dr6znz7e1nb3V1XbtgypRpJi7L2Gw2IRqC1h2xksfjWTHRQBRj4QuDSTAuRkBD7FiB3GkwCWIVsEyCtd1X4c7PP0MDzryyUgW3b96CRqwEZGy4um4JUxKkWR9/IxUjIA5zwZnSKnpNxDHuN0xLwCiAYsdOq%2bJ16xaoNmzwKVu/fn5lSIhvaXDwfOzzK1%2b/3lcRHOyXHxh4smit8VhO2kEkHYrYh/gY8QGHw9mC2IxjLpal0FQGjxWW3rsPMJUpJEjqfhFuk1t6eimKO3WQdKGejt2vDFqKQ8hHZ0kgKkOEEOOyOEfv/50tNZVGUxKkOeDcKHJA5JIl9NzQvXUrvX/UYpzDJMTHx40b98hoN0KWREgoC%2bvJfkANZ9WtmPlbIefXWfvNjZBpTNLSAfFYSmMkuYg8%2bDoti1pBXoGlADQC8lQ1XBKpkjVrRgR5Dp8xEqqurl5YU1OTUl9fH9/Y2JhQVlYWh31n%2b/r6tpNxgUDAHs1W2HzmxEg%2bMj0LwjEhCnLy4UtMjseSU6njw%2b3shiWP5IS4XI7EJ9LZ/1qYiRUiGyLOpRtxNh3CEr4DYa36ruzSlcGtcF6LhvtGauY9s46VbNASSEwC1NXVbe3s7ASVSgVtbW2gVCpBp9NBT09PKhkvKSnhaLXaMQlAktPp81i6xLmYrMppuJ5EIcisZZrt6H5r9snhibwTV6TACqHACqHAklhktAWF2F9iwErARICZACkZo6%2bBmJj5iLkIT4QXY8n9TGac4n6nQSYHGMwJEGHIhoaMEythsv5YD0H0G/gt8j1qSZUwWgO5J2WwQNcNcVXGJSBt1XC3DRMBD9TMiZtauLyMCvChJN9GWNfUYxEBhiGJjMnilqe40UbAfaqEwey37uQbBSBnGFZqrZr7DvNH6aja7du3WdevX%2bfcuHGDc%2bvWLU5/fz/FwMAAJXrz5s0hQqz%2bJpGFtZxm2sQLdccKL/cQJ4ZEwP8QAzI8CuP5ovkDkXSieZV6qC1MpmDqBZ%2bN2TcSl4KBOZsbHvRPjjH%2bIUJ%2bT0/ySVJ1fUWEvJz86cE6Wa6iEyNuaBk1l/8CC8eeosL0Y2EAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="530" data-src="/assets/static/infra-comp-1.b15dca4.0043b01f6a3bd8b79b5dc1778f459bc0.png" data-srcset="/assets/static/infra-comp-1.b15dca4.0043b01f6a3bd8b79b5dc1778f459bc0.png 530w" data-sizes="(max-width: 530px) 100vw, 530px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/infra-comp-1.b15dca4.0043b01f6a3bd8b79b5dc1778f459bc0.png" class="g-image g-image--loaded" width="530"></noscript></p><h2 id="components"><a href="#components" aria-hidden="true">#</a>Components</h2><p>There are 5 Infra components:</p><ol><li><strong><a href="https://github.com/th2-net/th2-infra-schema-demo" target="_blank" rel="nofollow noopener noreferrer">th2-infra-schema</a></strong> - a special repository that contains schema configurations, acting as a config files' storage that works via Git.</li><li><strong><a href="https://github.com/th2-net/th2-infra-mgr" target="_blank" rel="nofollow noopener noreferrer">th2-infra-mgr</a></strong> - component that watches for the changes in the repositories and deploys the changed components to Kubernetes. </li><li><strong><a href="https://github.com/th2-net/th2-infra-operator" target="_blank" rel="nofollow noopener noreferrer">th2-infra-operator</a></strong> - an implementation of Kubernetes custom resource controller.</li><li><strong><a href="https://github.com/th2-net/th2-infra-editor" target="_blank" rel="nofollow noopener noreferrer">th2-infra-editor</a></strong> - a web GUI for schema control.</li><li><strong>infra-repo</strong> - an abstract chart used by Helm operator (the element is not shown on the diagram below).</li></ol><h2 id="components-interactions"><a href="#components-interactions" aria-hidden="true">#</a>Components interactions</h2><p><img alt="img.png" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 790 434' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-b47ca124345265877eba8ad1c0bdbe49'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-b47ca124345265877eba8ad1c0bdbe49)' width='790' height='434' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAjCAYAAAAkCQwqAAAACXBIWXMAAAsSAAALEgHS3X78AAAMhklEQVRo3uVZCXBU5R1fgtdARKSKHOJR5fAoiqCoRbQeRSUqdKilSEWrndFpZ9o62kHUOh611aKCQaQEEiQQwpFjc4fd3Nlk7%2bvtvn175SZEOUWmHQzZf3//L/vCstlNRItTx8z85vve97739vv/vt//%2bF40mv/t3yxgPnCO5gf4Nx74OXArMDs6NuKHYvwoYCLwMHAfMOmHRMAE4GrgWuBu4Epg6vfK%2bBuWv6WZdPczmmse%2bbNmyr0rxNjtv1mFsSdEf%2bqSlxI9php4TVTyDwBzo64w73tj/E1Pvnkqgi1aJoyadPvjI9Wxsbf8ImXcTY%2bOuBjg63E3PqQZecGF8QQsAh4C0jD4U7TT%2bcbIEd8TEdy84q0Utf/w6iKx6jsyalNSFjx9WjQfNzMt2SuYkbEw%2bBK0F8ff3Gyyn1VsirYZRpvmnaoG8Zsb0X9wc/bwxt8%2b/y7RPvj7d9dek/Z83bT7lt899f6n37tr6QuvT/3Z8hzN5HkTL5uz5MofzVo0jYg0WxvNIwvc8sh8hzSyzOUdWUiUcsfVV08fP27czHNSU6%2bfd9VVNxeuW3%2bu9j8nUwowp8jr/85QDOxxyynpjSZhU5bZofndnqKhCUh7cbWQ%2b7KV67ZMf%2bi3hzWXzrn1ohvTuucu/sOGibcuOZZ6/cP6S2YtTocbGJK9w5k6arzaD46/ZML/g6phvFDyTqdH88yu/OEf%2bOM7m9%2bf%2behzXUv%2b%2bv7rV8z7tXfu43%2bqmHr/Ct%2bMB59xjv3JI96Jd/7KsMPpWYkXvrrDLr2a6/C8mot2h%2bRbtTuv8IPchuY3t3v8q/bszl%2bz02h9Pdclv5LriM47%2b3gl2q7aZnMP%2bOlWq0uQkG1zD208ZJOx3eikf%2bypoN1WidaU1tA/C/WUjja9rJbezimmv%2b8qo8rWLtK37yNd2z7R6ttw3bmfdBYH6YKtpN/3GenMNtKH2knf0d0/5zuCuqa9WNNul7d6ncE0lm3bZncPHYmxo3%2bpwsIbO7r6Dh071hcItZw8cPx4pLqto68sEI5UBMJ9unBb395Qa6TIo/QOghzoLa4znCxySL1FSri3uLbhZJHLK8bhl4nBz8WNaTH2baC%2bA%2b1X9T0HCXblsH22rv0j1JiQbPfbin1B6v7i2EmD2U7l%2btqI5AtQ6OBhyrFLVCAHKM/rFyiQg3EIUIESooLqOsq3uSifx/Q1lG93U75HoXzJlxAFeFe%2bpFAB%2boWYh0ULaGP6ZwJ%2bDohE%2b33FWFehpBz/2GCeIrKQ2Z5cBZDLiTIlSKEDhyJlLk/EGQiRzqtQx5EvyBBuI7NLIqPDRSaHezCcbjLaHGTGfXtXN9n29WC%2bh4xmKxntTnEvMZxkbesk7A7VhloFCarx35SE6LMRBrIBv/MrBMI5/bHAmZKUgDy3fKIAP9p66EjEhoWVlulI8Qep/cvjJKGV3RL5O7tIaW0npS0OYqyDAp8fpOCBQxTkFsoJ7P%2bMAt09g%2bDft1/M9bo9pIRbKXj4KIVw3dDSLtTwTQ2PJ0EoAO6QaXaIQ9kWizOlpaVFEwwGNT6fT%2bP1eoXt3BcEaPEgHor4ez6nYOc%2bsSj3ZwdIxiI9oRbyQw0KDPTDuHgo3GK%2bCh8/xy2gJID/0FHyQGUyiPPh2eChwySBsOF2XxvnKrGIGxtEwA6ba5ACuKZRY8CJEvZztxypx04EsCjP/s%2bp5dhxkl1ukiHv8Bdfip1TYFw82GgZxHlhhBetH60HLhXAPSbDHzsXCB49RhJcxG21w/gjgmQej3WDZMYLA6EUNrAEv8HgPo/FzBkgICtKwMs7tSktrW3nwuhRJ/v6Rh04dIQJGfHCyjf7FcAEIDhFTO1dFAYBLvinAWmttqpWoB5B0sRGxZHAC3dD1nbAAUi4ljqQkhqNpHTvP40AbiWe23OATHA1C%2bKHDLcor20kpSe5AuJjQ1mghXbb3LTDaBPYg4DLY4kVYFe/S2jC4fCLDof9hMViPmi3WWdGVTDiNAKaYXgLdqUOL9IjEObih0rxoxVOD%2bmsUAJUIWQMd%2bA2BNewwggL3MTd3kl2xAQXICF4%2bvEedS6rJAB/t4AAJ%2bZJUBgTJsPdJBCrQDnDKgBr5H66tpw%2byi%2blT4orBT7KL6GP0QpVYKMGCJCU3i1WV5SAC0aXV1bPajaalxmajI%2b/897ayRdNmHHjrDsWnJ%2bAgMPUgDSoA7NVbpnKwHIV7uuq68lV30AyDJBhsNwBQ4xmagJKTRaqbDaStqaWquAyZuyuA9cKG8m%2bDjV4kE0aeB7kr0db1mCgSrR2ZA52IW2CTBA7ViT7afXOQtpS3UA5Ti9twoZkWJy0zeGhjMpqWp2bLxSBc4ogAEG1N9vpuYXNv272vTM0mlROiZfycX3MZdOvunLGbQsnXzs7NSEB9fixGkmmvYDOIVEV1FDZ0Eyy1yd2S8Gus6xlJUAWWRGBrdpipcomI7XAx00emVwgQUE88IEwJsIdJcaO6wJ9tQArxo5UqMTEgNPAdQJQ5g/ThjI9bdxbQ7uwVqQ12sG1BjYow2ilLKzxlfQMeu2TLKoItXEqFC6w2WSbM%2bwZIJELNOK6Ei/faXYQKjyqdHmpFuAApgY%2bbjmN2UCGo7Ob3DCWawEJ11bsqh/3/DEuwNc2SN/L8aKljeyAjGeseJbfpUpYBRdn5cEWEeg4S63ZU0TbYfSaBiN9WN9Mf6tphBI8ogT/F3Y%2bG2rYabKLbMaKYRf4VHWB1DFjop/tLgDO4xHgfPFNI5YAIwjgfO6BATZkBAeu7QD7Led3vqfEBTYPEwBVWCBxM9zB0cPBrue06B8bMNlgBz/DRCEGuDCXg%2bVWGJVVY6AttQDa7EYTvZeTR5lVDSxrSi8sw867aC0IeG1vLb2UW0BvrM%2bkzahbcAiiLMSrLH095ZodkVKuTiXfyWy3j79SnzP/iivuuXPChHn3TJo094EpU2bfNn783c9ed90vV0yfPmaAAE6DZiyu2mqjimYTlRuaqQQ%2bX%2bd0Cd8urK6lGlR3TESsCvxRJcg%2bP3lwnwOjPyZFqlCv2VgfCGO/l9EPQ3GcPnNRhovIbuqP7jtxwNpYWUM5zVZBQDYI2orS/FPs9PomC72x8VNKZ2TmUAbI4nvrQNIuqytSAgLgOr2bbW4RA2xPPTXFsmTJ5PrFiy%2bvW7RoirR06cTqxx5bgP7oUwpwQwFIgz7sjKujiyTImVs3wApQx/wxqXCgzy0bxP6uqiQ%2bZapkREljIrhidHIMQb9okAsERHpTr7fWNdEmqGMDyOH1bq2qp3fXbaINBaW0HmPbIf%2b1ecVU6g/3u4CoA%2bxnFgPYBbgOYL8NJEHCncW4jyM%2bFzXROUoCF3BiDp8XuG5wwVVkELq3oUkES22CCk8EMw6CIOKNTdto5YcbhBtsgFqyseMZUAciPRWCoA92FdI2gxkxIxRLwOyYqo%2bLnzHROJCEgPbOAT9Phlg5xxIgUh6iOud/EfjiwHWACT5vCYZF9DfinMHBkEttX5I6IJaIPPj5Jl0drdmtpWy4QBZcBEGOsmH0B0iPfI%2bzRWwdkBkNgsrKl0ctmzZt3OWjR8%2bfMXbsDR1PPnl%2bycKFPy5NSztvkAJCCXZ5KAyQAtfxosb3wVU49akQdQCnQaTJhsYm0uE0qDOZqazRQBWoAziLsDtohyiE%2buuAAMtbxAQOiOkogD7KK0G/nHLgAlHjeW6UAF9vZjQGaJ9YPq520aILjz777Cj30qWpxQsXXliWlrYABKQmJeDrkhCrCh92WBAQD0jd4w%2bQFbteiUxRWF1DWgRVHYoiR1d/yZysEowvijgesEswGYxypEFRAUqJzgJnGgMQBIdzgUGIdYkE0h9wAbgGl80ukOSBIrzoc1q04Fr5OgqIksD1QTbixhacIbJQnW5vMvcfiIY4DW6v0KeULlyowY73A30oYAT3TyMA5/JI6OAZEnAG8EQLHxVsPPu/G2RohzkLqPd2oQr8pKSC1uQVIvDlwwVKkDatuBc49UHk1Gkw%2bkHENeQHkX8Xq9KB/yBSR8THjbOAUAIwMfpAGIWLMuSJUOw%2bDMvE6TSjskogs7qO1heXCyVwBagSUHTqi9DNwxKw2%2bU16Fo7%2bQe%2bUoNITaiV1UD1ONWdbZRD0oVf83OYGgO40BFAv7S/jcR8E%2bzlGAFFd7%2btrx/NNsIVkseAbJvrniK8qDLczj/Sx/mYP0%2bhMDr7OP1DxrDGFyWpFWLu9XFgrOrsoR0O6Xm2r1QOpHw81FfhKAkL9rhlJXrmjkRB3xW%2bzYdQNfKr6Q/E9myzuZ9TCyD1f4XJ/v4LgwSQkIPvHPgAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="790" data-src="/assets/static/infra-comp-2.178ff88.1abf0fc9f637edd0fa56cb55359c71c3.png" data-srcset="/assets/static/infra-comp-2.82a2fbd.1abf0fc9f637edd0fa56cb55359c71c3.png 480w, /assets/static/infra-comp-2.178ff88.1abf0fc9f637edd0fa56cb55359c71c3.png 790w" data-sizes="(max-width: 790px) 100vw, 790px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/infra-comp-2.178ff88.1abf0fc9f637edd0fa56cb55359c71c3.png" class="g-image g-image--loaded" width="790" alt="img.png"></noscript></p><h3 id="edit-infra-schema"><a href="#edit-infra-schema" aria-hidden="true">#</a>Edit infra-schema</h3><p>You have 2 ways to edit your <strong>infra-schema</strong>:</p><ol><li>Git-based - by committing the changes directly into your <strong>infra-schema</strong>.</li><li>GUI-based - by interacting with <strong>infra-editor</strong> (a special Graphical User Interface in th2).</li></ol><h3 id="infra-editor-and-infra-mgr-interaction"><a href="#infra-editor-and-infra-mgr-interaction" aria-hidden="true">#</a>infra-editor and infra-mgr interaction</h3><p><strong>infra-editor</strong> gets information on current state of <strong>infra-schema</strong> from <strong>infra-mgr</strong>, displays it for the user using web GUI, and allows them to configure environment via sending changes to <strong>infra-mgr</strong>.</p><h3 id="reading-editing-infra-schema-by-infra-mgr"><a href="#reading-editing-infra-schema-by-infra-mgr" aria-hidden="true">#</a>Reading-editing infra-schema by infra-mgr</h3><p>The <strong>infra-mgr</strong> monitors the state of the <strong>infra-schema</strong> repository and stores it in its cache.
+Users can deploy their customized <strong>infra-schemas</strong> easily by using <strong>infra-mgr</strong>.
+All a user has to do is pick one of four options provided in the infra-mgr config file. 
+This file is present with each <strong>infra-schema</strong>.</p><p>Also, <strong>infra-mgr</strong> can change the <strong>infra-schema</strong> repository.</p><h3 id="infra-mgr-and-infra-operator-interaction"><a href="#infra-mgr-and-infra-operator-interaction" aria-hidden="true">#</a>infra-mgr and infra-operator interaction</h3><p>Users can conveniently introduce changes to the cluster by editing <div class="v-menu"><span aria-haspopup="true" aria-expanded="false" class="term">Custom resources</span><div role="menu" class="v-menu__content theme--light " style="max-height:auto;min-width:0px;max-width:auto;top:12px;left:0px;transform-origin:top left;z-index:0;display:none;"><div class="v-card v-sheet theme--light" style="min-width:200px;max-width:400px;"><div class="v-card__title">Custom resource</div><div class="v-card__text"><div><p><em>Custom resources</em> are extensions of the Kubernetes API. It is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using CRs, making Kubernetes more modular.</p>
+<p>You can find more information about <em>Custom resources</em> <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/" target="_blank" rel="nofollow noopener noreferrer">here</a>.</p>
+</div></div></div></div></div> of the <strong>infra-schema</strong>.
+The <strong>infra-mgr</strong> monitors the infra-schema repository for the changes and rolls out updated schemas to Kubernetes. 
+The <strong>infra-operator</strong> which monitors the cluster for changes to custom resources  configures the message/event routing in RabbitMQ as required.
+It will also upload Helm releases for further configuration and deployment of th2 boxes in the cluster if requested.</p><h2 id="data-transformation"><a href="#data-transformation" aria-hidden="true">#</a>Data transformation</h2><p>The table below provides the mapping between the elements of a th2 <strong>infra-schema</strong>  and corresponding entities of a deployed Kubernetes cluster. </p><div class="v-data-table v-sheet v-sheet--outlined my-5"><div class="v-data-table__wrapper"><table><thead><tr><th><strong>th2-infra-schema</strong> repository</th><th>Kubernetes cluster</th></tr></thead><tbody><tr><td>Git branch</td><td>th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)</td></tr><tr><td><code>Th2Box</code>, <code>Th2CoreBox</code>, <code>Th2Estore</code>, <code>Th2Mstore</code></td><td>Kubernetes , Kubernetes </td></tr><tr><td><code>Th2Link</code></td><td>Bindings in RabbitMQ</td></tr><tr><td><code>Th2Dictionary</code></td><td>Kubernetes  (saved in encoded format)</td></tr></tbody></table></div></div><h2 id="scenarios"><a href="#scenarios" aria-hidden="true">#</a>Scenarios</h2><p>All the infra components are created to work together to transform the data representations provided by <strong>infra-schema</strong> into the actual implementation of the th2 environment.</p><p>The below scenarios outline typical ways to interact with infra components in th2.</p><ol><li>Create new schema using <strong>infra-editor</strong></li></ol><img src="https://www.plantuml.com/plantuml/png/RP0z2y8m48Rt_8gRt5AmRaLAqTt5iNG8wTK4yY6NA_txfgP54PSCRvwxv-Mwn8fuzawmPOTm9LIC4721f0rw1Ojb0sngQSD4Ik9eEP8G_My4vyCJWxQk7K0bsBWlp3yAGoc6mkH4JD6DIBki5n--H68GIg_hvuHPkxuWIRQRe85ZjPU-vTBtChHLafdBaWRgVz1QIBgC55C3f-hzVI4Lj869eWUl4cTlXs7CHte1"><ol start="2"><li>Create th2 environment from the <strong>infra-schema</strong> branch</li></ol><img src="https://www.plantuml.com/plantuml/png/TLDDJ-Cm4BtxLumumAcM-5W-AbG15T8Ye191m05nS9D9RCcne_6agzr3V_iwQVFH2cxEp7lptZp7Du4LSLrQOJ5dO0za2isG6SAKZNU23Lk4EQ5Y1DOdW6vboBiI7KDElcoA4-DoKfEGQYmLB4cvL0lnENJAWk3wi48Atis-G0M8bJ70nvvYJssl-n2V6csvszDzC_SsGuA3VVs31hOvYjGx9c_XiLuYEMGCVIbHowNXvnSX6dFhUZtRac0A7ufJ3Radc6lbYiZgL66THU0mBeAVJ61q6tG2TPMfHaOFZ7g7iIMKBU5tt2z1YofWpnHR6pAJioQcA74iOO5_uAuD5kvNCVlMzMIov-L4meCpR9Gr_n1UDuCMgiHGgHI_vvnAkAqg-xU3pvEZ84O8MKSVtJPJE9F3ce2jbNxLPdQNwnH-oUw_UTS-_0WxZp3lSbFKX71dN6PS4NR1u_Gk9Bnjn4VXxVYDTlNWzr9-a_BeUlRdN_MkHpCNYiqA8S7WQqhZ9TsWo-Ap-Gy0"><ol start="3"><li>Update th2 environment</li></ol><img src="https://www.plantuml.com/plantuml/png/RP9BQyCm48Jl-XLB3kt9XgOlC2M4XaAXRQ0kfOUGWsAlBO4b1McTtlBRAxzaE_HcxyvyEuozTiGjrQfY5HO4PC3AKX3aqc96qcX6aYg4xsFE2O744b2Vf3LQeIR6TduIILrO7gdImjFL4QqpUhK7xi1FfWBZTvoCRNV32zi9hDHy9yAoC5ME5XOZn6K25LyqikwHPKQJDHMyrGUq6WbT6ANyS93qySbO4-vSdrUz2HBuuPG9A8o5ZU2wzAvmjbEEl0JUfIDKhVhLnqsnGkuGwhOLnqPZFZD2xzJTdJGOM1yZpkDLKvCNtiImnL_O6AKamSkfgRVPHD45SHaFN-EhWspIQyScahZsq25I0hTng-Xl0xRaaBZ13pKbS1VOprBdKfTkhfnsSX-qaqfcENmCCUPuYF_fRbBw9Vyny2VCBITvGaZHcTfcliarwjp_ldy0"><ol start="4"><li>Delete th2 environment</li></ol><img src="https://www.plantuml.com/plantuml/png/TPFDQiCm48JlUegbX_PaGzD_Kq9eMYYq3TI5zX1wKEor9R2b8ArzpBDNYXtPJidDtfsP_HZGmX8trDGLgx0W80r6be8WbmOpabenabGXF6E5X41Y1gXQQRIgKH5ZQpU9f2eCZ-hImEFv5etLQluBt8ARZ0NQxJXfizyTVjXQO5LFTo8i2rtbQE1i2B6Pm9gVULdtoJAjoEWAtfeD6kKeRHYbVBEHzF79c8VRDRjvRu84VZXb0WfjO2cuAfqhdEsKGru2xz8IrdlrgyDDNHlS8ZJRdFjxWp6V6A5tgkvE6WoinuZpUEvhSiBB-53oa-7AeRsqlc6_ZAAZq5dGVdKvo_J2if4aRbpkWIg1gzWVxosupmt8FlpGKmBN0uLKkLIbFQMy2SfleUrHuBYxsnXIh7MBu-eci8vL3B1tyQJZtjjHYvDNxiELKVAAasnzXDMDoLpl_zjCuE6up1MlqMvvXco1AdTlumy0"><h2 id="installation"><a href="#installation" aria-hidden="true">#</a>Installation</h2><p><strong>th2 infra components</strong>  are deployed as a single Helm release:</p><div class="remark-highlight"><pre class="language-shell"><code class="language-shell">helm repo <span class="token function">add</span> th2 https://th2-net.github.io
+helm <span class="token function">install</span> -n <span class="token function">service</span> --version<span class="token operator">=</span><span class="token operator">&lt;</span>version<span class="token operator">&gt;</span> th2-infra th2/th2 -f configuration.yaml -f secrets.yaml
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><h2 id="configuration"><a href="#configuration" aria-hidden="true">#</a>Configuration</h2><p>Configure the infra-components at initialization using their corresponding config files.</p><p>A short configuration and a full configuration are provided below.</p><h3 id="th2-infra-configuration"><a href="#th2-infra-configuration" aria-hidden="true">#</a>th2-infra configuration</h3><p>Short configuration:</p><div class="remark-highlight"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">infraMgr</span><span class="token punctuation">:</span>
+  <span class="token key atrule">git</span><span class="token punctuation">:</span>
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>th2<span class="token punctuation">-</span>net/th2<span class="token punctuation">-</span>infra<span class="token punctuation">-</span>demo<span class="token punctuation">-</span>configuration.git
+
+<span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">operator</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">persistentVolume</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">storageClass</span><span class="token punctuation">:</span> local<span class="token punctuation">-</span>storage
+    <span class="token key atrule">size</span><span class="token punctuation">:</span> 10Gi
+
+<span class="token key atrule">cassandra</span><span class="token punctuation">:</span>
+  <span class="token key atrule">internal</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">host</span><span class="token punctuation">:</span> &lt;cassandra<span class="token punctuation">-</span>host<span class="token punctuation">&gt;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Full configuration
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>All the provided values are default. </p><div class="remark-highlight"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># Image repositories and credentials to create pull secrets</span>
+<span class="token key atrule">productRegistry</span><span class="token punctuation">:</span>
+  <span class="token key atrule">secret</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>core
+  <span class="token key atrule">name</span><span class="token punctuation">:</span>
+  <span class="token key atrule">username</span><span class="token punctuation">:</span>
+  <span class="token key atrule">password</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">solutionRegistry</span><span class="token punctuation">:</span>
+  <span class="token key atrule">secret</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>solution
+  <span class="token key atrule">registry</span><span class="token punctuation">:</span>
+  <span class="token key atrule">username</span><span class="token punctuation">:</span>
+  <span class="token key atrule">password</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+  <span class="token key atrule">host</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">externalRabbitMQHost</span><span class="token punctuation">:</span>
+  <span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+
+<span class="token key atrule">infraEditor</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span>
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> ghcr.io/th2<span class="token punctuation">-</span>net/th2<span class="token punctuation">-</span>infra<span class="token punctuation">-</span>editor
+    <span class="token key atrule">tag</span><span class="token punctuation">:</span> 1.0.65
+
+<span class="token key atrule">infraRepo</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span>
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> ghcr.io/th2<span class="token punctuation">-</span>net/infra<span class="token punctuation">-</span>repo
+    <span class="token key atrule">tag</span><span class="token punctuation">:</span> 0.6.0
+
+<span class="token key atrule">infraOperator</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheusConfiguration</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span>
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> ghcr.io/th2<span class="token punctuation">-</span>net/th2<span class="token punctuation">-</span>infra<span class="token punctuation">-</span>operator
+    <span class="token key atrule">tag</span><span class="token punctuation">:</span> 3.2.8 
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">chart</span><span class="token punctuation">:</span>
+      <span class="token comment"># external mirror</span>
+      <span class="token comment"># repository: https://th2-net.github.io</span>
+      <span class="token key atrule">repository</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//infra<span class="token punctuation">-</span>repo<span class="token punctuation">:</span><span class="token number">8080</span>
+      <span class="token key atrule">version</span><span class="token punctuation">:</span> 0.6.0
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> infra<span class="token punctuation">-</span>operator<span class="token punctuation">-</span>tpl
+    <span class="token key atrule">namespacePrefixes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;th2-&quot;</span>
+    <span class="token key atrule">k8sUrl</span><span class="token punctuation">:</span> <span class="token string">&quot;&lt;kubernetes-external-entrypoint&gt;&quot;</span>
+    <span class="token key atrule">rabbitMQManagement</span><span class="token punctuation">:</span>
+      <span class="token comment">#      host: &quot;rabbitmq-discovery.service.svc.cluster.local&quot; - deprecated. host is taken from rabbitmq config</span>
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token string">&quot;15672&quot;</span>
+      <span class="token key atrule">username</span><span class="token punctuation">:</span> <span class="token string">&quot;th2&quot;</span>
+      <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">&quot;${RABBITMQ_PASS}&quot;</span>
+      <span class="token key atrule">persistence</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">schemaPermissions</span><span class="token punctuation">:</span>
+        <span class="token key atrule">configure</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token key atrule">read</span><span class="token punctuation">:</span> <span class="token string">&quot;.*&quot;</span>
+        <span class="token key atrule">write</span><span class="token punctuation">:</span> <span class="token string">&quot;.*&quot;</span>
+
+<span class="token key atrule">infraMgr</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheusConfiguration</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">image</span><span class="token punctuation">:</span>
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> ghcr.io/th2<span class="token punctuation">-</span>net/th2<span class="token punctuation">-</span>infra<span class="token punctuation">-</span>mgr
+    <span class="token key atrule">tag</span><span class="token punctuation">:</span> 1.2.9
+  <span class="token key atrule">git</span><span class="token punctuation">:</span>
+    <span class="token key atrule">secretName</span><span class="token punctuation">:</span> infra<span class="token punctuation">-</span>mgr
+    <span class="token key atrule">privateKeyFileSecret</span><span class="token punctuation">:</span> infra<span class="token punctuation">-</span>mgr
+    <span class="token key atrule">secretMountPath</span><span class="token punctuation">:</span> /home/service/keys
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>th2<span class="token punctuation">-</span>net/th2<span class="token punctuation">-</span>demo<span class="token punctuation">-</span>configuration.git
+    <span class="token key atrule">repositoryLocalCache</span><span class="token punctuation">:</span> /home/service/repository
+    <span class="token key atrule">httpAuthUsername</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span> <span class="token comment">#should be stored in secret th2-git-access-schemas</span>
+    <span class="token key atrule">httpAuthPassword</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span> <span class="token comment">#should be stored in secret th2-git-access-schemas</span>
+  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+    <span class="token key atrule">vHostPrefix</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>
+    <span class="token key atrule">usernamePrefix</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>user<span class="token punctuation">-</span>
+    <span class="token key atrule">secret</span><span class="token punctuation">:</span> rabbitmq
+    <span class="token key atrule">passwordLength</span><span class="token punctuation">:</span> <span class="token number">24</span>
+  <span class="token key atrule">cassandra</span><span class="token punctuation">:</span>
+    <span class="token key atrule">keyspacePrefix</span><span class="token punctuation">:</span> schema_
+    <span class="token key atrule">secret</span><span class="token punctuation">:</span> cassandra
+  <span class="token key atrule">kubernetes</span><span class="token punctuation">:</span>
+    <span class="token key atrule">namespacePrefix</span><span class="token punctuation">:</span> <span class="token string">&quot;th2-&quot;</span> <span class="token comment"># must be not more than 5 symbols</span>
+    <span class="token key atrule">ingress</span><span class="token punctuation">:</span> ingress<span class="token punctuation">-</span>rules
+    <span class="token key atrule">configMaps</span><span class="token punctuation">:</span>
+      <span class="token key atrule">logging</span><span class="token punctuation">:</span> logging<span class="token punctuation">-</span>config<span class="token punctuation">-</span>template
+      <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span> rabbit<span class="token punctuation">-</span>mq<span class="token punctuation">-</span>app<span class="token punctuation">-</span>config
+      <span class="token key atrule">rabbitmq-ext</span><span class="token punctuation">:</span> rabbit<span class="token punctuation">-</span>mq<span class="token punctuation">-</span>external<span class="token punctuation">-</span>app<span class="token punctuation">-</span>config
+      <span class="token key atrule">cassandra</span><span class="token punctuation">:</span> cradle
+      <span class="token key atrule">cassandra-ext</span><span class="token punctuation">:</span> cradle<span class="token punctuation">-</span>external
+      <span class="token key atrule">prometheus</span><span class="token punctuation">:</span> prometheus<span class="token punctuation">-</span>app<span class="token punctuation">-</span>config
+    <span class="token key atrule">secrets</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> th2<span class="token punctuation">-</span>core
+      <span class="token punctuation">-</span> th2<span class="token punctuation">-</span>solution
+      <span class="token punctuation">-</span> th2<span class="token punctuation">-</span>proprietary
+
+<span class="token comment"># If service not internal - ExternalName service will be created, credentials will be mapped to secrets / config maps</span>
+<span class="token comment"># otherwise service will be deployed as a chart dependency</span>
+<span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+  <span class="token key atrule">internal</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">rabbitmqMemoryHighWatermark</span><span class="token punctuation">:</span> 1024MB
+  <span class="token comment">#it is not required if the service internal</span>
+  <span class="token comment">#  host: &quot;&quot;</span>
+  <span class="token key atrule">fullnameOverride</span><span class="token punctuation">:</span> rabbitmq
+  <span class="token key atrule">rabbitmqVhost</span><span class="token punctuation">:</span> th2
+  <span class="token key atrule">rabbitmqUsername</span><span class="token punctuation">:</span> th2
+  <span class="token comment"># will be generated if empty</span>
+  <span class="token key atrule">rabbitmqPassword</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">rabbitmqErlangCookie</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">rabbitmqExchange</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>exchange
+  <span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">podAntiAffinity</span><span class="token punctuation">:</span> hard
+  <span class="token key atrule">persistentVolume</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">storageClass</span><span class="token punctuation">:</span> local<span class="token punctuation">-</span>storage
+    <span class="token key atrule">size</span><span class="token punctuation">:</span> 10Gi
+  <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+    <span class="token key atrule">exec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">command</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /bin/bash
+        <span class="token punctuation">-</span> <span class="token punctuation">-</span>ec
+        <span class="token punctuation">-</span> rabbitmq<span class="token punctuation">-</span>diagnostics <span class="token punctuation">-</span>q check_running
+    <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">120</span>
+    <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+    <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+    <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">6</span>
+    <span class="token key atrule">successThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+    <span class="token key atrule">exec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">command</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /bin/bash
+        <span class="token punctuation">-</span> <span class="token punctuation">-</span>ec
+        <span class="token punctuation">-</span> rabbitmq<span class="token punctuation">-</span>diagnostics <span class="token punctuation">-</span>q check_running
+    <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">10</span>
+    <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+    <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+    <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">3</span>
+    <span class="token key atrule">successThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">&quot;NodePort&quot;</span>
+    <span class="token key atrule">amqpNodePort</span><span class="token punctuation">:</span> <span class="token number">32000</span>
+  <span class="token key atrule">rabbitmqPrometheusPlugin</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">exporter</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+    <span class="token key atrule">operator</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">alerts</span><span class="token punctuation">:</span>
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">serviceMonitor</span><span class="token punctuation">:</span>
+        <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+          <span class="token key atrule">release</span><span class="token punctuation">:</span> prometheus
+
+<span class="token comment"># If service not internal - ExternalName service will be created, credentials will be mapped to secrets / config maps</span>
+<span class="token comment"># otherwise service will be deployed as a chart dependency</span>
+<span class="token key atrule">cassandra</span><span class="token punctuation">:</span>
+  <span class="token key atrule">internal</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment">#it is not required if the service internal</span>
+  <span class="token comment">#  host: &quot;&quot;</span>
+  <span class="token key atrule">fullnameOverride</span><span class="token punctuation">:</span> cassandra
+  <span class="token key atrule">cluster</span><span class="token punctuation">:</span>
+    <span class="token key atrule">datacenter</span><span class="token punctuation">:</span> dc1
+  <span class="token key atrule">dbUser</span><span class="token punctuation">:</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> th2
+    <span class="token comment"># will be generated if empty</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">keyspace</span><span class="token punctuation">:</span> cradle
+  <span class="token key atrule">persistence</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+    <span class="token key atrule">storageClass</span><span class="token punctuation">:</span> local<span class="token punctuation">-</span>storage
+    <span class="token key atrule">size</span><span class="token punctuation">:</span> 50Gi
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><h3 id="credentials-for-service-integration"><a href="#credentials-for-service-integration" aria-hidden="true">#</a>Credentials for service integration</h3><div class="remark-highlight"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># reguired only for images from a private registry, will be attached as the first PullSecret to deployments</span>
+<span class="token comment">#productRegistry:</span>
+<span class="token comment">#  username: user</span>
+<span class="token comment">#  password: password</span>
+<span class="token comment">#  name: private-registry-1.example.com # core components registry</span>
+
+<span class="token comment"># reguired only for images from a private registry, will be attached as the second PullSecret to deployments</span>
+<span class="token comment">#solutionRegistry:</span>
+<span class="token comment">#  username: user</span>
+<span class="token comment">#  password: password</span>
+<span class="token comment">#  name: private-registry-2.example.com # components registry</span>
+
+<span class="token comment"># reguired only for images from a private registry, will be attached as the third PullSecret to deployments</span>
+<span class="token comment">#proprietaryRegistry:</span>
+<span class="token comment">#  username: user</span>
+<span class="token comment">#  password: password</span>
+<span class="token comment">#  name: private-registry-3.example.com # components registry</span>
+
+<span class="token key atrule">cassandra</span><span class="token punctuation">:</span>
+<span class="token comment"># set credentials for existing Cassandra cluster</span>
+  <span class="token key atrule">dbUser</span><span class="token punctuation">:</span>
+    <span class="token key atrule">user</span><span class="token punctuation">:</span> &lt;user<span class="token punctuation">-</span>name<span class="token punctuation">&gt;</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> &lt;password<span class="token punctuation">&gt;</span>
+
+<span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+<span class="token comment"># set admin user credentials, it will be created during deployment</span>
+  <span class="token key atrule">rabbitmqUsername</span><span class="token punctuation">:</span> th2
+  <span class="token key atrule">rabbitmqPassword</span><span class="token punctuation">:</span> rab<span class="token punctuation">-</span>pass
+  <span class="token comment"># must be random string</span>
+  <span class="token key atrule">rabbitmqErlangCookie</span><span class="token punctuation">:</span> cookie
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div><!----><!----></article><div class="mt-15 d-flex justify-end flex-wrap" data-v-298a815f><a href="https://github.com/th2-net/th2-docs/blob/master/content/deploy/infrastructure/infra-components/overview/_index.md" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light info--text" data-v-298a815f></i>
+		Edit this page
+	</span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;th2-infra components&quot; article&amp;body=I've read [&quot;th2-infra components&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/deploy/infrastructure/infra-components/overview/_index.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light error--text" data-v-298a815f></i>
+		Create an issue
+	</span></a></div></div><aside class="pl-5 pt-5 page-content-panel sticky-aside doc-page__aside" data-v-3eeb1e00 data-v-4ce9b4a1><div class="pr-2 border-left pl-4" data-v-3eeb1e00><nav class="mt-7 mb-5" data-v-f2b8a640 data-v-3eeb1e00><h3 class="mb-3" data-v-f2b8a640 data-v-3eeb1e00>On this page</h3><ul data-v-f2b8a640 data-v-3eeb1e00><li class="font-weight-bold" data-v-f2b8a640 data-v-3eeb1e00><a href="#th2-infra-components" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>th2-infra components</div></a></li><li class="py-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#components" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Components</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#components-interactions" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Components interactions</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#edit-infra-schema" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Edit infra-schema</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#infra-editor-and-infra-mgr-interaction" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>infra-editor and infra-mgr interaction</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#reading-editing-infra-schema-by-infra-mgr" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Reading-editing infra-schema by infra-mgr</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#infra-mgr-and-infra-operator-interaction" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>infra-mgr and infra-operator interaction</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#data-transformation" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Data transformation</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#scenarios" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Scenarios</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#installation" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Installation</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#configuration" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Configuration</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#th2-infra-configuration" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>th2-infra configuration</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#credentials-for-service-integration" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Credentials for service integration</div></a></li></ul></nav></div></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-28b3144a><div class="footer__content col" data-v-28b3144a><div class="d-flex justify-space-between footer__sections" data-v-28b3144a><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><a href="https://exactpro.com/" class="mb-4" data-v-28b3144a><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-28b3144a></a><div class="text-center" data-v-28b3144a>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Contact Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-28b3144a>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-28b3144a>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-28b3144a>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-28b3144a>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Follow Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex" data-v-28b3144a><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-28b3144a><div class="text-center text-caption" data-v-28b3144a>
+      Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-28b3144a><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-28b3144a>
+         Terms and Conditions
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Privacy policy
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Cookies policy
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"__typename":"GitOpsPage","title":"th2-infra components","inner_title":"","content":"\n\n# th2-infra components\n\nThe th2-infra components are an important part of the th2 infrastructure. \nWhile the infra-schema describes a th2 environment configured for a particular testing use case, the other infra components provide control over such environments. \n\n\u003C!--more--\u003E\n\nInfra components are an intermediate layer between the user and the Kubernetes cluster. \nThis layer changes the th2 environments in accordance with the state of the **infra-schema**.\n\n![](.\u002Finfra-comp-1.png)\n\n## Components\n\nThere are 5 Infra components:\n\n1. **[th2-infra-schema](https:\u002F\u002Fgithub.com\u002Fth2-net\u002Fth2-infra-schema-demo)** - a special repository that contains schema configurations, acting as a config files' storage that works via Git.\n2. **[th2-infra-mgr](https:\u002F\u002Fgithub.com\u002Fth2-net\u002Fth2-infra-mgr)** - component that watches for the changes in the repositories and deploys the changed components to Kubernetes. \n3. **[th2-infra-operator](https:\u002F\u002Fgithub.com\u002Fth2-net\u002Fth2-infra-operator)** - an implementation of Kubernetes custom resource controller.\n4. **[th2-infra-editor](https:\u002F\u002Fgithub.com\u002Fth2-net\u002Fth2-infra-editor)** - a web GUI for schema control.\n5. **infra-repo** - an abstract chart used by Helm operator (the element is not shown on the diagram below).\n\n## Components interactions\n\n![img.png](.\u002Finfra-comp-2.png)\n\n### Edit infra-schema\n\nYou have 2 ways to edit your **infra-schema**:\n\n1. Git-based - by committing the changes directly into your **infra-schema**.\n2. GUI-based - by interacting with **infra-editor** (a special Graphical User Interface in th2).\n\n### infra-editor and infra-mgr interaction\n\n\n**infra-editor** gets information on current state of **infra-schema** from **infra-mgr**, displays it for the user using web GUI, and allows them to configure environment via sending changes to **infra-mgr**.\n\n### Reading-editing infra-schema by infra-mgr\n\nThe **infra-mgr** monitors the state of the **infra-schema** repository and stores it in its cache.\nUsers can deploy their customized **infra-schemas** easily by using **infra-mgr**.\nAll a user has to do is pick one of four options provided in the infra-mgr config file. \nThis file is present with each **infra-schema**.\n\nAlso, **infra-mgr** can change the **infra-schema** repository.\n\n### infra-mgr and infra-operator interaction\n\nUsers can conveniently introduce changes to the cluster by editing \u003Cterm term=\"Custom resource\"\u003ECustom resources\u003C\u002Fterm\u003E of the **infra-schema**.\nThe **infra-mgr** monitors the infra-schema repository for the changes and rolls out updated schemas to Kubernetes. \nThe **infra-operator** which monitors the cluster for changes to custom resources  configures the message\u002Fevent routing in RabbitMQ as required.\nIt will also upload Helm releases for further configuration and deployment of th2 boxes in the cluster if requested.\n\n\n## Data transformation\n\nThe table below provides the mapping between the elements of a th2 **infra-schema**  and corresponding entities of a deployed Kubernetes cluster. \n\n| **th2-infra-schema** repository                                                       | Kubernetes cluster                                                             |\n|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|\n| Git branch                                                                            | th2 environment (Kubernetes namespace + Cassandra keyspace + RabbitMQ VHost)   |\n| `Th2Box`, `Th2CoreBox`, `Th2Estore`, `Th2Mstore` \u003Cterm term=\"Custom resource\"\u003E\u003C\u002Fterm\u003E | Kubernetes \u003Cterm term=\"ConfigMap\"\u003E\u003C\u002Fterm\u003E, Kubernetes \u003Cterm term=\"Pod\"\u003E\u003C\u002Fterm\u003E |\n| `Th2Link` \u003Cterm term=\"Custom resource\"\u003E\u003C\u002Fterm\u003E                                        | Bindings in RabbitMQ                                                           |\n| `Th2Dictionary` \u003Cterm term=\"Custom resource\"\u003E\u003C\u002Fterm\u003E                                  | Kubernetes \u003Cterm term=\"ConfigMap\"\u003E\u003C\u002Fterm\u003E (saved in encoded format)            |\n\n## Scenarios \n\nAll the infra components are created to work together to transform the data representations provided by **infra-schema** into the actual implementation of the th2 environment.\n\nThe below scenarios outline typical ways to interact with infra components in th2.\n\n\u003C!-- Plantuml code is ciphered inside link --\u003E\n\u003C!-- To see plantuml code, go to a link in browser and change '\u002Fpng\u002F' to '\u002Fuml\u002F' in the path --\u003E\n\n1. Create new schema using **infra-editor**  \n  \n\n```plantuml\n@startuml\ntitle Create new schema with th2-infra-editor\n\n[th2-infra-editor \u003C&pencil\u003E] as editor\n[th2-infra-mgr \u003C&person\u003E] as mgr\nfolder schema [\nth2-infra-schema\n]\nactor user\n\nuser -r-\u003E editor: 1. Create New Schema\neditor --\u003E mgr: 2. Create New Schema\nmgr -l-\u003E schema: 3. New Branch from master\n@enduml\n```\n\n2. Create th2 environment from the **infra-schema** branch\n\n```plantuml\n@startuml\nleft to right direction\ntitle Create th2 environment from th2-infra-schema branch\n\n[th2-infra-mgr \u003C&person\u003E] as mgr\n[th2-infra-operator] as operator\n[helm-operator] as hoperator\nfolder \"th2-infra-schema\" as schema\ncontrol Kubernetes\ncontrol RabbitMQ\n\nmgr ~u~\u003E schema : Watch for Changes\noperator ~d~\u003E Kubernetes : Listen for CR updates\nhoperator ~u~\u003E Kubernetes: Listem for HelmRelease updates\n\nschema .d.\u003E mgr : 1. New Branch Event\nmgr --\u003E Kubernetes : 2. Initialize Schema Namespace\nmgr --\u003E Kubernetes : 3. Apply Schema CR's\nKubernetes .u.\u003E operator: 4. CR update event\noperator --\u003E RabbitMQ: 5. Create Vhost\noperator --\u003E RabbitMQ: 6. Configure Bindings\noperator --\u003E Kubernetes: 7. Update HelmRelease\nKubernetes ..\u003E hoperator: 8. HelmRelease update\nhoperator --\u003E Kubernetes: 9. Create Kubernetes Native Resources\n@enduml\n```\n\n3. Update th2 environment\n\n```plantuml\n@startuml\nleft to right direction\ntitle Update th2 environment\n\n[th2-infra-mgr \u003C&person\u003E] as mgr\n[th2-infra-operator] as operator\n[helm-operator] as hoperator\nfolder \"th2-infra-schema\" as schema\ncontrol Kubernetes\ncontrol RabbitMQ\n\nmgr ~u~\u003E schema : Watch for Changes\nhoperator ~u~\u003E Kubernetes: Listem for HelmRelease updates\noperator ~d~\u003E Kubernetes : Listen for CR updates\n\nschema .d.\u003E mgr : 1. New Commit Event\nmgr --\u003E Kubernetes : 2. Update Schema CR's\nKubernetes .u.\u003E operator: 3. CR's update event\noperator --\u003E RabbitMQ: 4. Update Bindings\noperator --\u003E Kubernetes: 5. Update HelmRelease\nKubernetes ..\u003E hoperator: 6. HelmRelease update\nhoperator --\u003E Kubernetes: 7. Update Kubernetes Native Resources\n@enduml\n```\n\n4. Delete th2 environment\n\n```plantuml\n@startuml\nleft to right direction\ntitle Delete th2 environment\n\n[th2-infra-mgr \u003C&person\u003E] as mgr\n[th2-infra-operator] as operator\n[helm-operator] as hoperator\nfolder \"th2-infra-schema\" as schema\ncontrol Kubernetes\ncontrol RabbitMQ\n\nmgr ~u~\u003E schema : Watch for Changes\nhoperator ~u~\u003E Kubernetes: Listem for HelmRelease updates\noperator ~d~\u003E Kubernetes : Listen for CR updates\n\nschema .d.\u003E mgr : 1. Delete Branch Event\nmgr --\u003E Kubernetes : 2. Delete Schema CR's\nKubernetes .u.\u003E operator: 3. CR Delete event\noperator --\u003E RabbitMQ: 4. Delete Bindings\noperator --\u003E RabbitMQ: 5. Delete Vhost\noperator --\u003E Kubernetes: 6. Remove HelmRelease\nKubernetes ..\u003E hoperator: 7. HelmRelease Remove event\nhoperator --\u003E Kubernetes: 8. Remove Kubernetes Native Resources\nmgr --\u003E Kubernetes: 9. Delete Schema Namespace\n@enduml\n```\n\n## Installation\n\n**th2 infra components**  are deployed as a single Helm release:\n \n```shell\nhelm repo add th2 https:\u002F\u002Fth2-net.github.io\nhelm install -n service --version=\u003Cversion\u003E th2-infra th2\u002Fth2 -f configuration.yaml -f secrets.yaml\n```\n\n## Configuration\n\nConfigure the infra-components at initialization using their corresponding config files.\n\nA short configuration and a full configuration are provided below.\n\n### th2-infra configuration\n\nShort configuration:\n\n```yaml\ninfraMgr:\n  git:\n    repository: git@github.com:th2-net\u002Fth2-infra-demo-configuration.git\n\nrabbitmq:\n  prometheus:\n    operator:\n      enabled: false\n  persistentVolume:\n    enabled: true\n    storageClass: local-storage\n    size: 10Gi\n\ncassandra:\n  internal: false\n  host: \u003Ccassandra-host\u003E\n```\n\n\u003Cspoiler title=\"Full configuration\"\u003E\n\nAll the provided values are default. \n\n```yaml\n# Image repositories and credentials to create pull secrets\nproductRegistry:\n  secret: th2-core\n  name:\n  username:\n  password:\n\nsolutionRegistry:\n  secret: th2-solution\n  registry:\n  username:\n  password:\n\ningress:\n  host:\n\nexternalRabbitMQHost:\n  host: localhost\n\ninfraEditor:\n  image:\n    repository: ghcr.io\u002Fth2-net\u002Fth2-infra-editor\n    tag: 1.0.65\n\ninfraRepo:\n  image:\n    repository: ghcr.io\u002Fth2-net\u002Finfra-repo\n    tag: 0.6.0\n\ninfraOperator:\n  prometheusConfiguration:\n    enabled: true\n  image:\n    repository: ghcr.io\u002Fth2-net\u002Fth2-infra-operator\n    tag: 3.2.8 \n  config:\n    chart:\n      # external mirror\n      # repository: https:\u002F\u002Fth2-net.github.io\n      repository: http:\u002F\u002Finfra-repo:8080\n      version: 0.6.0\n      name: infra-operator-tpl\n    namespacePrefixes:\n      - \"th2-\"\n    k8sUrl: \"\u003Ckubernetes-external-entrypoint\u003E\"\n    rabbitMQManagement:\n      #      host: \"rabbitmq-discovery.service.svc.cluster.local\" - deprecated. host is taken from rabbitmq config\n      port: \"15672\"\n      username: \"th2\"\n      password: \"${RABBITMQ_PASS}\"\n      persistence: true\n      schemaPermissions:\n        configure: \"\"\n        read: \".*\"\n        write: \".*\"\n\ninfraMgr:\n  prometheusConfiguration:\n    enabled: true\n  image:\n    repository: ghcr.io\u002Fth2-net\u002Fth2-infra-mgr\n    tag: 1.2.9\n  git:\n    secretName: infra-mgr\n    privateKeyFileSecret: infra-mgr\n    secretMountPath: \u002Fhome\u002Fservice\u002Fkeys\n    repository: git@github.com:th2-net\u002Fth2-demo-configuration.git\n    repositoryLocalCache: \u002Fhome\u002Fservice\u002Frepository\n    httpAuthUsername: \"\" #should be stored in secret th2-git-access-schemas\n    httpAuthPassword: \"\" #should be stored in secret th2-git-access-schemas\n  rabbitmq:\n    vHostPrefix: th2-\n    usernamePrefix: th2-user-\n    secret: rabbitmq\n    passwordLength: 24\n  cassandra:\n    keyspacePrefix: schema_\n    secret: cassandra\n  kubernetes:\n    namespacePrefix: \"th2-\" # must be not more than 5 symbols\n    ingress: ingress-rules\n    configMaps:\n      logging: logging-config-template\n      rabbitmq: rabbit-mq-app-config\n      rabbitmq-ext: rabbit-mq-external-app-config\n      cassandra: cradle\n      cassandra-ext: cradle-external\n      prometheus: prometheus-app-config\n    secrets:\n      - th2-core\n      - th2-solution\n      - th2-proprietary\n\n# If service not internal - ExternalName service will be created, credentials will be mapped to secrets \u002F config maps\n# otherwise service will be deployed as a chart dependency\nrabbitmq:\n  internal: true\n  rabbitmqMemoryHighWatermark: 1024MB\n  #it is not required if the service internal\n  #  host: \"\"\n  fullnameOverride: rabbitmq\n  rabbitmqVhost: th2\n  rabbitmqUsername: th2\n  # will be generated if empty\n  rabbitmqPassword: \"\"\n  rabbitmqErlangCookie: \"\"\n  rabbitmqExchange: th2-exchange\n  replicaCount: 1\n  podAntiAffinity: hard\n  persistentVolume:\n    enabled: true\n    storageClass: local-storage\n    size: 10Gi\n  livenessProbe:\n    exec:\n      command:\n        - \u002Fbin\u002Fbash\n        - -ec\n        - rabbitmq-diagnostics -q check_running\n    initialDelaySeconds: 120\n    timeoutSeconds: 20\n    periodSeconds: 30\n    failureThreshold: 6\n    successThreshold: 1\n  readinessProbe:\n    exec:\n      command:\n        - \u002Fbin\u002Fbash\n        - -ec\n        - rabbitmq-diagnostics -q check_running\n    initialDelaySeconds: 10\n    timeoutSeconds: 20\n    periodSeconds: 30\n    failureThreshold: 3\n    successThreshold: 1\n  service:\n    type: \"NodePort\"\n    amqpNodePort: 32000\n  rabbitmqPrometheusPlugin:\n    enabled: true\n  prometheus:\n    exporter:\n      enabled: false\n    operator:\n      enabled: true\n      alerts:\n        enabled: true\n      serviceMonitor:\n        selector:\n          release: prometheus\n\n# If service not internal - ExternalName service will be created, credentials will be mapped to secrets \u002F config maps\n# otherwise service will be deployed as a chart dependency\ncassandra:\n  internal: true\n  #it is not required if the service internal\n  #  host: \"\"\n  fullnameOverride: cassandra\n  cluster:\n    datacenter: dc1\n  dbUser:\n    user: th2\n    # will be generated if empty\n    password: \"\"\n  keyspace: cradle\n  persistence:\n    enabled: false\n    storageClass: local-storage\n    size: 50Gi\n```\n\u003C\u002Fspoiler\u003E\n\n### Credentials for service integration\n\n```yaml\n# reguired only for images from a private registry, will be attached as the first PullSecret to deployments\n#productRegistry:\n#  username: user\n#  password: password\n#  name: private-registry-1.example.com # core components registry\n\n# reguired only for images from a private registry, will be attached as the second PullSecret to deployments\n#solutionRegistry:\n#  username: user\n#  password: password\n#  name: private-registry-2.example.com # components registry\n\n# reguired only for images from a private registry, will be attached as the third PullSecret to deployments\n#proprietaryRegistry:\n#  username: user\n#  password: password\n#  name: private-registry-3.example.com # components registry\n\ncassandra:\n# set credentials for existing Cassandra cluster\n  dbUser:\n    user: \u003Cuser-name\u003E\n    password: \u003Cpassword\u003E\n\nrabbitmq:\n# set admin user credentials, it will be created during deployment\n  rabbitmqUsername: th2\n  rabbitmqPassword: rab-pass\n  # must be random string\n  rabbitmqErlangCookie: cookie\n```\n","fileInfo":{"path":"infrastructure\u002Finfra-components\u002Foverview\u002F_index.md"},"headings":[{"anchor":"#th2-infra-components","value":"th2-infra components","depth":1},{"anchor":"#components","value":"Components","depth":2},{"anchor":"#components-interactions","value":"Components interactions","depth":2},{"anchor":"#edit-infra-schema","value":"Edit infra-schema","depth":3},{"anchor":"#infra-editor-and-infra-mgr-interaction","value":"infra-editor and infra-mgr interaction","depth":3},{"anchor":"#reading-editing-infra-schema-by-infra-mgr","value":"Reading-editing infra-schema by infra-mgr","depth":3},{"anchor":"#infra-mgr-and-infra-operator-interaction","value":"infra-mgr and infra-operator interaction","depth":3},{"anchor":"#data-transformation","value":"Data transformation","depth":2},{"anchor":"#scenarios","value":"Scenarios","depth":2},{"anchor":"#installation","value":"Installation","depth":2},{"anchor":"#configuration","value":"Configuration","depth":2},{"anchor":"#th2-infra-configuration","value":"th2-infra configuration","depth":3},{"anchor":"#credentials-for-service-integration","value":"Credentials for service integration","depth":3}],"read_before":[],"continue_learning":[],"terms":[{"id":"Custom resource","title":"Custom resource","content":"\u003Cp\u003E\u003Cem\u003ECustom resources\u003C\u002Fem\u003E are extensions of the Kubernetes API. It is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using CRs, making Kubernetes more modular.\u003C\u002Fp\u003E\n\u003Cp\u003EYou can find more information about \u003Cem\u003ECustom resources\u003C\u002Fem\u003E \u003Ca href=\"https:\u002F\u002Fkubernetes.io\u002Fdocs\u002Fconcepts\u002Fextend-kubernetes\u002Fapi-extension\u002Fcustom-resources\u002F\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Ehere\u003C\u002Fa\u003E.\u003C\u002Fp\u003E\n"},{"id":"ConfigMap","title":"ConfigMap","content":"\u003Cp\u003E\u003Cem\u003EConfigMap\u003C\u002Fem\u003E is an API object used to store non-confidential data in key-value pairs. Pods can consume \u003Cem\u003EConfigMaps\u003C\u002Fem\u003E as environment variables, command-line arguments, or as configuration files in a volume. \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fkubernetes.io\u002Fdocs\u002Fconcepts\u002Fconfiguration\u002Fconfigmap\u002F\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003EMore\u003C\u002Fa\u003E\u003C\u002Fp\u003E\n"},{"id":"Pod","title":"Pod","content":"\u003Cp\u003E\u003Cem\u003EPods\u003C\u002Fem\u003E are the smallest deployable units of computing that you can create and manage in Kubernetes.\u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fkubernetes.io\u002Fdocs\u002Fconcepts\u002Fworkloads\u002Fpods\u002F\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003EMore\u003C\u002Fa\u003E\u003C\u002Fp\u003E\n"}],"related":[]}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.de126758.js" defer></script><script src="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js" defer></script><script src="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" defer></script><script src="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js" defer></script>
+  </body>
+</html>

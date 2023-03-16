@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>Overview | th2 docs</title><meta name="gridsome:hash" content="ed0a5a389d3618f0823526ee1d1166b55f4800f5"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="Overview"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.1608e59d.css" as="style"><link rel="preload" href="/assets/js/app.de126758.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.794a6086.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.74aa3573.js"><link rel="prefetch" href="/assets/js/page--src--templates--explore-page-vue.d5cbd3ec.js"><link rel="prefetch" href="/assets/js/page--src--templates--module-page-vue.f289f57b.js"><link rel="prefetch" href="/assets/js/page--src--templates--testing-page-vue.df45be81.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--tem~bc21bc85.2007b9cd.js"><link rel="prefetch" href="/assets/js/vendors~vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.3cda9093.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--create-th-2-env-md.f20fe7b3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--index-md.63c19fd8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--1-base-system-md.ef88ea5f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--2-infra-schema-md.f6959c4e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--3-th-2-md.4b281688.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--index-md.52082700.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--hardware-md.1bee5833.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--index-md.2f10ec5d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--os-and-network-md.2b1dd007.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--overview-md.216bcb4a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--software-md.cdc7fd2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--index-md.2e96998e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--index-md.8d64f31a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--index-md.9536b2c8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-mgr-md.24c53826.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-operator-md.3ef42480.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--overview-md.f01449c3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-repository-md.16040949.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--index-md.f535a03d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--links-md.fb415f25.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.6cb550be.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--pins-md.6122a5e2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--data-services--index-md.57b87d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--index-md.e37a24d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--storage--index-md.195e7f0c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--checkpoints-md.8c82640b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--communication-md.cce16947.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--configuration-md.64f635ab.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--index-md.28295177.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--overview-md.a6f014f6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--rulerequests-md.d0cb8321.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--verification-rulerequests-md.13054aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--config-md.1f58165f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--index-md.9bcd96e6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--overview-md.749d6c94.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--repositories-md.be0e2216.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--config-md.86ef3153.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--index-md.a37dbea4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--repositories-md.69f59dc9.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--usage-md.3d219b1a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--config-md.b49b89d7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--index-md.1b4acd02.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--overview-md.7434b6a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--repositories-md.c64f260c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--config-md.415d8d63.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--index-md.96378d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--overview-md.6a08bb65.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--usage-md.59f0cadc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--config-md.d826a04f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--index-md.315f556e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--overview-md.7d31b043.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--repositories-md.1d3e91a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--usage-md.a0cfe3ea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--chain-verification--index-md.d714f97c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--index-md.db217fdb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--modules-md.6b3f6f31.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--quick-setup-md.50f19130.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--architecture-md.c2d4ed18.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--index-md.96505f72.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--key-concepts-md.f619799c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--th-2-net-on-github-md.e5380a3b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--index-md.63aafe2b.js"><link rel="stylesheet" href="/assets/css/0.styles.1608e59d.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-01e287c2><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-01e287c2><div class="meta-btns" data-v-01e287c2><a href="/" class="logo-container active" data-v-01e287c2><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-01e287c2></a></div><div class="spacer" data-v-01e287c2></div><div data-v-d1006bf6><a href="/deploy/getting-started/requirements/overview/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large v-btn--active mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Deploy
+	</span></a><a href="/test/fundamentals/architecture/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Test
+	</span></a><a href="/explore/data-services/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Explore
+	</span></a></div><div class="spacer" data-v-01e287c2></div><div class="search-container" data-v-2361f76d data-v-01e287c2><button class="search-btn" data-v-2361f76d><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-2361f76d></i><span data-v-2361f76d>
+    Search
+  </span></button><div class="v-dialog__container" data-v-2361f76d><!----></div></div><div class="header-btns" data-v-01e287c2><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-01e287c2></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><!----></div></div></div></header><!----><main class="v-main main-container" style="padding-top:616px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="d-flex flex-column doc-layout mx-auto" data-v-4ce9b4a1><div class="mx-auto my-5 v-item-group theme--light v-btn-toggle v-btn-toggle--dense" data-v-7ceca357 data-v-4ce9b4a1><a href="/deploy/getting-started/requirements/overview/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default v-btn--active" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		Getting started
+	</span></a><a href="/deploy/infrastructure/overview/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		Infrastructure
+	</span></a></div><div class="doc-page" data-v-4ce9b4a1><aside class="pt-5 content-tree-panel sticky-aside doc-page__aside" data-v-34f98add data-v-4ce9b4a1><div class="px-3 ml-n3 border-right" data-v-34f98add><!----><div data-v-34f98add><div data-v-34f98add></div><div data-v-34f98add></div></div><div class="v-treeview ml-n3 py-2 v-treeview--hoverable v-treeview--dense theme--light" data-v-34f98add><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/getting-started/requirements/overview/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							System requirements
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node"><div class="v-treeview-node__root"><button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/getting-started/install-th2/overview/" aria-current="page" class="active--exact active nuxt-link-exact-active" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Install th2
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/deploy/getting-started/create-th2-env/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Create th2 environment
+						</div></a></div></div></div></div></div></div></aside><div class="container space-bottom px-md-12 px-4 doc-page__article" data-v-4ce9b4a1><article><!----><div class="vue-remark"><h1 id="overview"><a href="#overview" aria-hidden="true">#</a>Overview</h1><p>This section provides detailed instructions on how to install and configure th2 as a full-capability Kubernetes cluster.</p><p>To get a flavor of how it works, check out our Cookbook for a <a href="/test/cookbook/quick-setup/">quick setup</a> guide.</p></div><!----><!----></article><div class="mt-15 d-flex justify-end flex-wrap" data-v-298a815f><a href="https://github.com/th2-net/th2-docs/blob/master/content/deploy/getting-started/install-th2/overview.md" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light info--text" data-v-298a815f></i>
+		Edit this page
+	</span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;Overview&quot; article&amp;body=I've read [&quot;Overview&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/deploy/getting-started/install-th2/overview.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light error--text" data-v-298a815f></i>
+		Create an issue
+	</span></a></div></div><aside class="pl-5 pt-5 page-content-panel sticky-aside doc-page__aside" data-v-3eeb1e00 data-v-4ce9b4a1><div class="pr-2 border-left pl-4" data-v-3eeb1e00><nav class="mt-7 mb-5" data-v-f2b8a640 data-v-3eeb1e00><h3 class="mb-3" data-v-f2b8a640 data-v-3eeb1e00>On this page</h3><ul data-v-f2b8a640 data-v-3eeb1e00><li class="font-weight-bold" data-v-f2b8a640 data-v-3eeb1e00><a href="#overview" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Overview</div></a></li></ul></nav></div></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-28b3144a><div class="footer__content col" data-v-28b3144a><div class="d-flex justify-space-between footer__sections" data-v-28b3144a><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><a href="https://exactpro.com/" class="mb-4" data-v-28b3144a><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-28b3144a></a><div class="text-center" data-v-28b3144a>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Contact Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-28b3144a>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-28b3144a>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-28b3144a>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-28b3144a>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Follow Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex" data-v-28b3144a><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-28b3144a><div class="text-center text-caption" data-v-28b3144a>
+      Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-28b3144a><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-28b3144a>
+         Terms and Conditions
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Privacy policy
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Cookies policy
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"__typename":"GitOpsPage","title":"Overview","inner_title":"","content":"\n# Overview\n\nThis section provides detailed instructions on how to install and configure th2 as a full-capability Kubernetes cluster.\n\n\u003C!--more--\u003E\n\nTo get a flavor of how it works, check out our Cookbook for a [quick setup](\u002Ftest\u002Fcookbook\u002Fquick-setup\u002F) guide.\n","fileInfo":{"path":"getting-started\u002Finstall-th2\u002Foverview.md"},"headings":[{"anchor":"#overview","value":"Overview","depth":1}],"read_before":[],"continue_learning":[],"terms":[],"related":[]}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.de126758.js" defer></script><script src="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js" defer></script><script src="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" defer></script><script src="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js" defer></script>
+  </body>
+</html>

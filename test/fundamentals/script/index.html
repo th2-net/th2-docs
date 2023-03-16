@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>Script | th2 docs</title><meta name="gridsome:hash" content="ed0a5a389d3618f0823526ee1d1166b55f4800f5"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="Script"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.1608e59d.css" as="style"><link rel="preload" href="/assets/js/app.de126758.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--testing-page-vue.df45be81.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.794a6086.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.74aa3573.js"><link rel="prefetch" href="/assets/js/page--src--templates--explore-page-vue.d5cbd3ec.js"><link rel="prefetch" href="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js"><link rel="prefetch" href="/assets/js/page--src--templates--module-page-vue.f289f57b.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--tem~bc21bc85.2007b9cd.js"><link rel="prefetch" href="/assets/js/vendors~vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.3cda9093.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--create-th-2-env-md.f20fe7b3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--index-md.63c19fd8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--1-base-system-md.ef88ea5f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--2-infra-schema-md.f6959c4e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--3-th-2-md.4b281688.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--index-md.52082700.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--hardware-md.1bee5833.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--index-md.2f10ec5d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--os-and-network-md.2b1dd007.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--overview-md.216bcb4a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--software-md.cdc7fd2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--index-md.2e96998e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--index-md.8d64f31a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--index-md.9536b2c8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-mgr-md.24c53826.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-operator-md.3ef42480.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--overview-md.f01449c3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-repository-md.16040949.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--index-md.f535a03d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--links-md.fb415f25.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.6cb550be.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--pins-md.6122a5e2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--data-services--index-md.57b87d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--index-md.e37a24d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--storage--index-md.195e7f0c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--checkpoints-md.8c82640b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--communication-md.cce16947.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--configuration-md.64f635ab.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--index-md.28295177.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--overview-md.a6f014f6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--rulerequests-md.d0cb8321.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--verification-rulerequests-md.13054aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--config-md.1f58165f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--index-md.9bcd96e6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--overview-md.749d6c94.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--repositories-md.be0e2216.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--config-md.86ef3153.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--index-md.a37dbea4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--repositories-md.69f59dc9.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--usage-md.3d219b1a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--config-md.b49b89d7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--index-md.1b4acd02.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--overview-md.7434b6a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--repositories-md.c64f260c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--config-md.415d8d63.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--index-md.96378d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--overview-md.6a08bb65.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--usage-md.59f0cadc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--config-md.d826a04f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--index-md.315f556e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--overview-md.7d31b043.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--repositories-md.1d3e91a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--usage-md.a0cfe3ea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--chain-verification--index-md.d714f97c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--index-md.db217fdb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--modules-md.6b3f6f31.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--quick-setup-md.50f19130.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--architecture-md.c2d4ed18.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--index-md.96505f72.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--key-concepts-md.f619799c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--th-2-net-on-github-md.e5380a3b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--index-md.63aafe2b.js"><link rel="stylesheet" href="/assets/css/0.styles.1608e59d.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-01e287c2><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-01e287c2><div class="meta-btns" data-v-01e287c2><a href="/" class="logo-container active" data-v-01e287c2><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-01e287c2></a></div><div class="spacer" data-v-01e287c2></div><div data-v-d1006bf6><a href="/deploy/getting-started/requirements/overview/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Deploy
+	</span></a><a href="/test/fundamentals/architecture/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large v-btn--active mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Test
+	</span></a><a href="/explore/data-services/" class="elevation-0 v-btn v-btn--router v-btn--text theme--dark v-size--large mx-3" style="text-transform:none;" data-v-d1006bf6><span class="v-btn__content">
+		Explore
+	</span></a></div><div class="spacer" data-v-01e287c2></div><div class="search-container" data-v-2361f76d data-v-01e287c2><button class="search-btn" data-v-2361f76d><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-2361f76d></i><span data-v-2361f76d>
+    Search
+  </span></button><div class="v-dialog__container" data-v-2361f76d><!----></div></div><div class="header-btns" data-v-01e287c2><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-01e287c2></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><!----></div></div></div></header><!----><main class="v-main main-container" style="padding-top:952px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="d-flex flex-column doc-layout mx-auto" data-v-4ce9b4a1><div class="mx-auto my-5 v-item-group theme--light v-btn-toggle v-btn-toggle--dense" data-v-7ceca357 data-v-4ce9b4a1><a href="/test/fundamentals/architecture/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default v-btn--active" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		Fundamentals
+	</span></a><a href="/test/cookbook/modules/" class="v-btn v-btn--outlined v-btn--router theme--light v-size--default" style="text-transform:none;" data-v-7ceca357><span class="v-btn__content">
+		📖 Cookbook
+	</span></a></div><div class="doc-page" data-v-4ce9b4a1><aside class="pt-5 content-tree-panel sticky-aside doc-page__aside" data-v-34f98add data-v-4ce9b4a1><div class="px-3 ml-n3 border-right" data-v-34f98add><!----><div data-v-34f98add><div data-v-34f98add></div><div data-v-34f98add></div></div><div class="v-treeview ml-n3 py-2 v-treeview--hoverable v-treeview--dense theme--light" data-v-34f98add><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/test/fundamentals/architecture/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Architecture
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/test/fundamentals/th2-net-on-github/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							th2-net on GitHub
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/test/fundamentals/key-concepts/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Key concepts
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/test/fundamentals/script/" aria-current="page" class="active--exact active nuxt-link-exact-active" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Script
+						</div></a></div></div></div></div></div></div></aside><div class="container space-bottom px-md-12 px-4 doc-page__article" data-v-4ce9b4a1><article><!----><div class="vue-remark"><h1 id="script"><a href="#script" aria-hidden="true">#</a>Script</h1><p>In computing, the term <em>script</em> generally refers to &quot;<a href="https://www.merriam-webster.com/dictionary/script" target="_blank" rel="nofollow noopener noreferrer">a sequence of instructions or commands for a computer to execute</a>&quot;. 
+In software testing, a script (or a test script) is generally understood as a short program used to test part of the functionality of a software system.
+Most often, test logic implemented in a script describes atomic actions triggering interaction with a system under test and/or performing rule-based checks of varying complexity.</p><p>In th2, the <em>script</em> is a piece of code that contains a sequence of instructions for the th2 components. </p><p>Logically, this sequence corresponds to a test scenario covering a particular business use case. 
+The script triggers test execution events involving th2 modules that are responsible for separate test actions needed for the test scenario. 
+One of the advantages of th2 is the ability of a test script to cover complex business scenarios and initiate sophisticated rule-based and model-based checks.</p><p>Technically, the script works in the th2 cluster as an external box that interacts with the th2 components. 
+It can be implemented in any programming language. 
+The current implementations in the th2 ecosystem contain libraries and programming modules supporting Python, Java, and Kotlin. 
+These libraries underpin th2's advanced testing capabilities, allowing for more effective implementation of complex testing logic.</p><p>To start using the script, you need to set up a th2 cluster with all the necessary components as well as a th2 script entry point within it. 
+Once the script entry point is configured, created connections can be used to interact with the th2 modules. 
+Each module is made to implement a certain piece of logic. 
+Execution of each and every action might be a complex and time consuming, however, using the methods inside the script makes the process easier. </p><div role="alert" class="v-alert my-3 v-sheet theme--light v-alert--border v-alert--text v-alert--border-left blue--text text--darken-4" data-v-e2b44c62><div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information-outline theme--light blue--text text--darken-4"></i><div class="v-alert__content"><p>Each programming module is made to implement a certain piece of logic. 
+These modules help improve the code quality and make its execution more efficient.
+This is achieved through a possibility to call the methods, corresponding to most common actions, within the script.</p><p>The user implements business logic (a particular test scenario) as a function being invoked during the script execution. 
+The th2 modules decrease complexity of the script as particular actions (behaviors) are encapsulated in those modules.</p></div><div class="v-alert__border v-alert__border--left"></div></div></div><h2 id="typical-use"><a href="#typical-use" aria-hidden="true">#</a>Typical use</h2><p>One of the most common use cases for th2 is active testing, when a test script triggers interaction with the system under test by sending messages and then checks the responses.</p><p>The th2 ecosystem provides ready-made components for sending messages (<strong>act</strong>) and performing rule-based checks of system responses (<strong>check1</strong>). 
+The <strong>script</strong> communicates with <strong>act</strong> and <strong>check1</strong> via gRPC, and sends events to <strong>estore</strong> via RabbitMQ. 
+This interaction is shown on the diagram below. </p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 796' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-833b7c657f8e00561d5e6df17ed22e09'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-833b7c657f8e00561d5e6df17ed22e09)' width='2560' height='796' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAUCAYAAAA9djs/AAAACXBIWXMAAAsSAAALEgHS3X78AAALr0lEQVRYw71Ye1RTZxK/CSIHBFqqqC0Fqe6WVqS1raK2Vq2nFVTKKlYUEIQAASzKQ6HFuq5t8VUfICBgUAhvEkJ4IyCiyCuQkBBCgICCW0897XZrtY9zetYm3858eYjUWrd/7D1nMvd%2b97v3zsw3v9/MFyY0IprBI5gbN0XimZCIeGbvoeOMhasPneO55/jsxf4fz1m9I2H2Wk6SHfN/PmrVGvZnl9ro%2bYUe%2bRM/55PeY9I%2baRJms0H7pOnHwdHYx76Ak8ybhvpNv6StDqv88x3ct%2bbaLtxQyTy/%2bpN3uQccJwixzLjabXOhV26dI%2bmzzumWWvO6pNbnu2XWPDg/39MHIrcGo/%2bUzutV2CTWNZujDYQQZk02n9p1qq3ryYOQ1v3oG9uShVTv/HA/239/Nss3uZwJ%2bCiNtSP%2bOIt%2b5GInG3Xdt9/M5LV0Nv2jQHz/AL/ip5gzfLIHpKi3/26VeuS7ioGhO%2bKB4Tti1fCdysGRO5UqFP05jonxvmr4z8h3IN/D%2byfKFINctEV1%2bxtWUKn4iZ3fktqu16daWZsyFWaeYh17U7bKHIJibpoUEh7jxAnhPs/hRM7ncKJcOCER80LDdrmEc3cvfHnOszMq1SPCzn9/T6pHxrR1Y%2bOkfmxc13B9XCdWa0jV0CipH7lO6jU3SN3wGKmBMZRaGEdtvEe1SaZe/57o39l4/SZpmrhFiuUD76G9IuUQ%2b3MDHP7o2Jwh1euzfVaQ%2bou3nL6yyOdM13qAwkrTzS0pbWb%2bSVnzYeWXBSSkLAqMP7YiaO%2bxt71is%2bYmibqdBYqhuwLFMBEoVNqawRFd9aBGhxpWWSdSDWsbNNe14LC2XNavzW9t1xa1dWlLu6Tako4erUim1EIgtHUYvJHr2hqYVz04oq2GMar/WOB7I79c/vI2EfarT6K9F9Uas31HUylfhUToRQ9nPX9NPoI%2bPEB1QOwR9s6oxKXBkQkrAncfdFzWSFiMd3obTfXN6b0LISLuIKgXQXq4%2bWQpFnqelrpEFcnezO5Q/ZTRpiaigSE0RifoVZBKpZpUDY6Qgi4pKWrvIbmXr5Hs%2bkskXVxPzjW0kJymKySnsZVk1TYR3sXLpLCjhxRc6yYVikECQSDwHpohqI0y9dog%2bM37Lf/8isDKn0Z7L42Ns9u0uodTfX8ys4qXzyzJzGW2pecwO3MKmTfOXmACj35B7x9NjGFiomOnH0vcwzY9RP5KDCTR6%2bZ3ZtT8USmk%2bn5wRo165B6sIClXqtEYUtotI5X9%2bgDkgVO5LddI3pUOwr/aSfhtXXDeSa%2bNY3mtHdT5NAhOSnkNaRybeMhpI1yM11NEB9%2bnARAqBlPRJvXETepE3hZfJiE4knV4B4dFFi984BchbCTMycfTDm74y2YsnmM7vLhsurPrW9OZdzKLLJdkH7Hyyrjs7nG22vHtLN6MDen1Zr6nJax9wl76kaxO%2bUwguB%2bqwUgMQB1oxCViFNKYAARIA%2bIfrvUyZjo3YrkWuQHm5LVLyOcFAoLcAcRGHRT09BGBRC/4HnwnQOshqVJr7rfc%2bpoIVcMpC15ZPSco9pNF26MSXLbuSnQC/Zd3Yw7aoK1eKVnmTF0Ty8T%2bwuppTu/70XNHF3ereS%2b5L37h5eUvO7m4ezi%2buHQlszorz37F%2bVzWulT%2b9HWneGarsvJmrM7MfQofONbaTl/E71XYAZvfQ4cEEACAASmRq0khGJzfLSXA0qQajUSNq6p6kL44BlxBBP2DpEI5pJ%2bDxAljQhgrgky60HyVnAPo8AA2CJMSmZKUwzfKIcMA8xh0IuhT3m%2bB71d09qRFuS11SgqLXrV/J3fJ/iDuko%2bCI5dnfODnnBEaPmcNv8w%2b6ORZhzq5KqVRPRrCcGNtNvFLZxgDsj0wyj4oLGa1jy8H%2bxgWAw4/PTlN1qblTIMx28kBKBoYshPKVT9UgVEV/YM6kXyAFMg0JEXcQDJqGknTjZvU2TKJjJR09lJBiFAN/IDpjQ5NTnfMIBEEIK2umfJGpkH//RyfFMBzDZg1hnmYPUKJ7Nfmzh5SWVGV3zDP6YVGn81ujRs3utZ7ebk1eHm5NK33fFsYsGMT2lsiqDrx9S%2b/kt6RGxJa6strrCdhg/FN%2bPQB1N0LhTbhwdEzgyP3vhYSHjvvrZzCaZABDwWgYmzCrkyquFcM6Zvf2qEDZif5PUOkTKokxV29RAwrJJKrgNxUpAQc5re201UtgvnG8VJY1UrMHHAO3kGgMmBak9rRcVriLgInIC/Uaq4TMWYOzMXncT5mlxBJ8Js7RKgZP/G4kpdW2/xql1TxrVIzTiobW%2b%2bmCKpeZ8JiaCN3MiSMJd7oZd7k6TGtxHuTZan3JgtmVTafpjsnPM4ydnOg%2bfK8ErMHAeigAciT9ttBmv8g6hvAFdVVwsoVSEeISAEwAGIrxioAhqKmAudFEKTJY3y4xtRHZ8TwPMICsX0OyLO8Twnv0geqDAIjgKAhz2CVQcEMKO/qvd8CGVbRLU1Dm%2bQ7A23aPD3sOte9%2b3S75zq7offW2qZu3eZwqq5pjubmrb2tXdLm%2btZ27xhBlfXK1GwKgRpvb6tLG9a7XfNYN791vccaOF/OgLP2ywrFbDtpI/tZSQcLrq0AAjQoRw0ZUCBTYgDuIUFB%2bdKJAeOnWwagJA1T4%2boeI8b7CAEgUor9SuQHJD9w%2bDAQYj5UCcQ%2bBo4PAUVuoUSImYDz1aNE2CG539IjI%2bUdkrPRzi4OyaG7Fh8OCHkBOMD5QBB3wad%2bwc8fi4m3tz54xApMttjCjXNF2515%2bZbvZZynBMmJiLcN48auDAuPdeWGxyyLCtvjxKzJLLB1zz5h5ZV%2b6RWPjMq5K7N4NmszS82JM2EO1kppFciRyJ/BKoC1G9pRHZJSoWyQEhSSmwiuH1G7H5JKcB7Jsxj6B8wGrBwVKJBVCC2sAIVXu0A6aXUQKvXkh4LfqQAIXL79LyIa1Jyc9dwiu%2bA9Sa/5RyUsCATogrj7R%2b6zpxyWU/jU9jPnZvscOu74Aa/gGeSzd9J4ZngvLCJuWgg3bgE0SotBLwsPj7F90ESkSd22nxmyeBSuWiZUNtgH1Bv6gHpaAkFAYxpjSbs4esNEcL8nSGxiaIKQIPFZHBP0ykk%2b9ArFEJQL0DihYMBqje20QWqQA25%2bhd%2bnjdDHB49ac7mxFqHc2BkcbpxdBDd22uO4ITOYQ/XK%2bM8sfHclPsWcKNbPfz/9ClvfCUpeB3nJmzc062/nBueCzNlyfnjuO1/I7OOFUtf8HvWPeT3DNADlUgUp65ETIRiPvUE2EF5O8xWsEEQo6wdRUkFsozy4HtDzAwhCo9pAdsgtAnhfubSfQCut54rf6QSNAZja5ODhm3iIWZFbzHicSGe8D30BFY2HHMcU%2bgfQ%2b1fWe8wYXfPWTO1SV0vgAbemDRuWwh5ZYtww2MAGYf62T0vf2Pa5cLFvsuhVv2TBGxs/q18QI5C/kidR/5hrCIBI1q/D8iaEdDYFoKmVlEBPQMkPazmsMjo7VcogaLQVntz1TcqSqS2yQZsCANBIQXurpP3s3Z8cfug/DOP/Gjuiox8KDHSKVCft5Fru4XzoEhW2e/YR/5CXsrb6OdIbH5y8ZJoc7rf9mXB//1lhAQH2EZxQBxyT/TxuVa0evls3rDFCQAfEpjNCoBLrNUghtMCIZ8RyAaR1AeAZA4VjxmsjTB7T95taYIPjOsP5f3AzBN%2bnZbBJc52d26t4ot0gcIRR2wVF7F2xMyL%2btYDIfWsBCvNNGeCT2oHbRdbUh42pVq4cEl29/S2S3n0h7dAekCCSlhgY3ZjGiPGiaxIiBKiIAAKI8zIgORynJXCS44/o%2b38juCOkW%2bLxL0lRn2E7PDDEPtDY%2bkQBCDFkB2hbkHkgzwJvOEJFsDGkTbxJmyQijhUUuofFu3yNBiWzSzoLot%2bIKQqlSWcQWqYm7/%2bpGEugIaX1Y/rxx2x4HuW4KQOgCv1cIlftQlu6bt5i%2bRWL/qe/04wQmXr8F3N5lnn0R8S5AAAAAElFTkSuQmCC' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/script_pic1.42db587.a68916ee253695c14428a07b99ef0f8c.png" data-srcset="/assets/static/script_pic1.82a2fbd.a68916ee253695c14428a07b99ef0f8c.png 480w, /assets/static/script_pic1.cbab2cf.a68916ee253695c14428a07b99ef0f8c.png 1024w, /assets/static/script_pic1.2665e34.a68916ee253695c14428a07b99ef0f8c.png 1920w, /assets/static/script_pic1.42db587.a68916ee253695c14428a07b99ef0f8c.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/script_pic1.42db587.a68916ee253695c14428a07b99ef0f8c.png" class="g-image g-image--loaded" width="2560"></noscript></p><center><figcaption class="mb-2">
+Figure 1. Communication between the script, the th2 test environment and the system under test (SUT) during testing.
+</figcaption></center><div role="alert" class="v-alert my-3 v-sheet theme--light v-alert--border v-alert--text v-alert--border-left blue--text text--darken-4" data-v-e2b44c62><div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information-outline theme--light blue--text text--darken-4"></i><div class="v-alert__content"><p>Prior to being sent to the system under test,  test messages are encoded in the <strong>codec</strong> component. After that, they are picked by the <strong>conn</strong> component to be sent to an external system. 
+Correspondingly, replies from the system go through the <strong>conn</strong> component, are decoded in <strong>codec</strong> and finally arrive back to the scope of this diagram, to <strong>check1</strong> to be verified.</p></div><div class="v-alert__border v-alert__border--left"></div></div></div><h2 id="configuration"><a href="#configuration" aria-hidden="true">#</a>Configuration</h2><p><strong>script</strong> runs as an <em>External Box</em>. 
+The external box is a box that interacts with the th2 cluster and, instead of Kubernetes, runs inside the user machine. 
+It uses <code>entry-point</code> in the th2 cluster to communicate with other modules. 
+<code>entry-point</code> has pins that allow user to create links (both MQ and gRPC) with other components.</p><h3 id="external-box-configuration-for-the-script"><a href="#external-box-configuration-for-the-script" aria-hidden="true">#</a>External box configuration for the script</h3><div role="alert" class="v-alert my-3 v-sheet theme--light v-alert--border v-alert--text v-alert--border-left blue--text text--darken-4" data-v-e2b44c62><div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information-outline theme--light blue--text text--darken-4"></i><div class="v-alert__content"><p>There is a custom resource (CR) called “script entry point” in the schema. 
+This CR should be configured to <code>externalBox: enabled: true</code> to run the script correctly.</p></div><div class="v-alert__border v-alert__border--left"></div></div></div><h4 id="the-entry-point-and-the-script"><a href="#the-entry-point-and-the-script" aria-hidden="true">#</a>The entry-point and the script</h4><p>Technically, an entry-point is inside the th2 cluster. 
+The <strong>script</strong> is a program that runs &quot;within&quot; the entry point. 
+In reality <strong>script</strong> just uses endpoints reserved for the entry point. 
+To create the endpoints for the script, it is required to create a special configuration for the external box in <strong>infra-schema</strong>. 
+An example for configuration of the external box is provided below:</p><div class="remark-highlight"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> th2.exactpro.com/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Th2Box
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> script<span class="token punctuation">-</span>entry<span class="token punctuation">-</span>point
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">image-name</span><span class="token punctuation">:</span> dev<span class="token punctuation">-</span>script
+  <span class="token key atrule">image-version</span><span class="token punctuation">:</span> dev<span class="token punctuation">-</span>script
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> th2<span class="token punctuation">-</span>script
+  <span class="token key atrule">pins</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> to_act
+      <span class="token key atrule">connection-type</span><span class="token punctuation">:</span> grpc
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> to_check1
+      <span class="token key atrule">connection-type</span><span class="token punctuation">:</span> grpc
+  <span class="token key atrule">extended-settings</span><span class="token punctuation">:</span>
+    <span class="token key atrule">externalBox</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">service</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Comments:</p><ul><li><p><code>image-name</code> and <code>image-version</code> are not important as there will be no runtime in a Pod;</p></li><li><p>script can not be a gRPC server;</p></li><li><p><code>extended-settings.externalBox.enabled</code> should be set to <code>true</code>.</p></li></ul><h3 id="connect-the-script-to-the-other-boxes"><a href="#connect-the-script-to-the-other-boxes" aria-hidden="true">#</a>Connect the script to the other boxes</h3><p>For interaction with other boxes a special <code>th2-common</code> library is used. 
+It contains all the required connectors. 
+But they should be configured before use. 
+There are 2 options to configure the connectors:</p><p>1) Specifying settings manually 
+In this case you should get settings from Kubernetes config maps, create configuration files in the project with the script and specify configs folder while creating <code>CommonFactory</code> instance.</p><p>2) Automatic settings
+In this case you should have <code>kubectl</code> configured to work with your th2 cluster. 
+You should specify Kubernetes namespace and external box name while calling <code>CommonFactory</code> constructor method. 
+In the case of previously provided config, the box name will be <code>script-entry-point</code>.</p><h4 id="common-factory-class-for-specifying-settings-manually"><a href="#common-factory-class-for-specifying-settings-manually" aria-hidden="true">#</a>Common factory class (for specifying settings manually)</h4><p>This class contains a set of tools for creating connections between the th2 boxes and the <strong>script</strong>. 
+Configuration of these files varies depending on the components that are to be used in the <strong>script</strong>.</p><p>Essentially it transfers .json configuration files shown below to the <code>CommonFactory</code> object.</p><ul><li><p>grpc.json</p></li><li><p>mq.json</p></li><li><p>rabbit.json</p></li></ul><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Passing .json files to CommonFactory
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>Python example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> th2_common<span class="token punctuation">.</span>schema<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>common_factory <span class="token keyword">import</span> CommonFactory
+
+factory <span class="token operator">=</span> CommonFactory<span class="token punctuation">(</span>
+    grpc_router_config_filepath<span class="token operator">=</span><span class="token string">&quot;./configs/grpc.json&quot;</span><span class="token punctuation">,</span>
+    rabbit_mq_config_filepath<span class="token operator">=</span><span class="token string">&quot;./configs/rabbitMQ.json&quot;</span><span class="token punctuation">,</span>
+    mq_router_config_filepath<span class="token operator">=</span><span class="token string">&quot;./configs/mq.json&quot;</span><span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Java example:</p><div class="remark-highlight"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>schema<span class="token punctuation">.</span>factory<span class="token punctuation">.</span></span><span class="token class-name">CommonFactory</span><span class="token punctuation">;</span>
+
+<span class="token class-name">CommonFactory</span> factory <span class="token operator">=</span> <span class="token class-name">CommonFactory</span><span class="token punctuation">.</span><span class="token function">createFromArguments</span><span class="token punctuation">(</span><span class="token string">&quot;--configs&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;./configs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      the .json files
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p><code>grpc.json</code> file</p><div class="remark-highlight"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;services&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;Act&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;service-class&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ActService&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;act&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;kubernetes cluster hostname&gt;&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> &lt;external port of act pod&gt;
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;strategy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;robin&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;act&quot;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Check1&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;service-class&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Check1Service&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;check1&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;kubernetes cluster hostname&gt;&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> &lt;external port of check1 pod&gt;
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;strategy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;robin&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;endpoints&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;check1&quot;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><ul><li><p>Contains the host and ports of <strong>act</strong> and <strong>check1</strong></p></li><li><p>Service-class: <code>ActService</code> or <code>Check1Service</code></p></li><li><p>Ports: external port of act pod and check1 pod</p></li><li><p>host: kubernetes cluster hostname (cluster IP)</p></li><li><p>Where do we find this information?</p><ul><li><p>Kubernetes dashboard -&gt; services</p></li><li><p>CLI -&gt; `kubectl get services`</p></li></ul></li></ul><p><code>mq.json</code> file</p><div class="remark-highlight"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;queues&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;event-store-pin&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;attributes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;event&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;publish&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;exchange&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;queue exchange. demo_exchange by default&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;filters&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;routing-key from script-entry-point to estore&gt;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;queue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;not_necessary&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><ul><li><p>Contains information about the <code>routing-key</code> from the <code>script-entry-point</code> to the <strong>estore</strong></p></li><li><p>Where do we find this information?</p><ul><li><p>Kubernetes dashboard -&gt; config maps -&gt; script-entry-point-app-config</p></li><li><p>RabbitMQ estore-pin queue</p></li></ul></li></ul><p><code>rabbit.json</code> file</p><div class="remark-highlight"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;kubernetes cluster hostname&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;vHost&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;vHost from RabbitMQ. Equal to namespace name by default.&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;external port of RabbitMQ&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;RabbitMQ username&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;password&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;RabbitMQ password&gt;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;exchangeName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;queue exchange. demo_exchange by default&gt;&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><ul><li><p>Contains RabbitMQ credentials</p></li><li><p>Data source:</p><ul><li><p>Kubernetes dashboard -&gt; config maps -&gt; rabbit-mq-app-config</p></li><li><p>RabbitMQ credentials configured in secrets</p></li></ul></li></ul><div class="remark-highlight"><pre class="language-shell"><code class="language-shell">rabbitmq:
+<span class="token comment"># set admin user credentials, it will be created during deployment</span>
+  rabbitmqUsername: th2
+  rabbitmqPassword: rab-pass
+  <span class="token comment"># must be random string</span>
+  rabbitmqErlangCookie: cookie
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><p>After transferring <code>.json</code> files, you need to create MQ routers and gRPC services. 
+They are the connectors to the required modules.</p><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Example of creating gRPC routers
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> th2_common<span class="token punctuation">.</span>schema<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>common_factory <span class="token keyword">import</span> CommonFactory
+<span class="token keyword">from</span> th2_grpc_act_template<span class="token punctuation">.</span>act_service <span class="token keyword">import</span> ActService
+<span class="token keyword">from</span> th2_grpc_check1<span class="token punctuation">.</span>check1_service <span class="token keyword">import</span> Check1Service
+
+<span class="token keyword">def</span> <span class="token function">connect</span><span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> tries<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'Trying to connect...'</span><span class="token punctuation">)</span>
+        factory <span class="token operator">=</span> CommonFactory<span class="token punctuation">(</span>config_path<span class="token operator">=</span>config_path<span class="token punctuation">)</span>
+        grpc_router <span class="token operator">=</span> factory<span class="token punctuation">.</span>grpc_router
+        act <span class="token operator">=</span> grpc_router<span class="token punctuation">.</span>get_service<span class="token punctuation">(</span>ActService<span class="token punctuation">)</span>
+        check <span class="token operator">=</span> grpc_router<span class="token punctuation">.</span>get_service<span class="token punctuation">(</span>Check1Service<span class="token punctuation">)</span>
+        estore <span class="token operator">=</span> factory<span class="token punctuation">.</span>event_batch_router
+        logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'Connection established.'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'act'</span><span class="token punctuation">:</span> act<span class="token punctuation">,</span>
+                <span class="token string">'check'</span><span class="token punctuation">:</span> check<span class="token punctuation">,</span>
+                <span class="token string">'estore'</span><span class="token punctuation">:</span> estore<span class="token punctuation">,</span>
+                <span class="token string">'factory'</span><span class="token punctuation">:</span> factory<span class="token punctuation">}</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> tries <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            logging<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">'Unable to connect.'</span><span class="token punctuation">)</span>
+            logging<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">'Retry in 3...'</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Unable to connect: \n </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+            connect<span class="token punctuation">(</span>config_path<span class="token punctuation">,</span> tries<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><div role="alert" class="v-alert my-3 v-sheet theme--light v-alert--border v-alert--text v-alert--border-left blue--text text--darken-4" data-v-e2b44c62><div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information-outline theme--light blue--text text--darken-4"></i><div class="v-alert__content"><p>Appropriate packages for ready-to-use th2 modules are available as public packages for Java and Python.</p></div><div class="v-alert__border v-alert__border--left"></div></div></div><div role="alert" class="v-alert my-3 v-sheet theme--light v-alert--border v-alert--text v-alert--border-left blue--text text--darken-4" data-v-e2b44c62><div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information-outline theme--light blue--text text--darken-4"></i><div class="v-alert__content"><p>If you are using certain configuration for the script frequently, it can be convenient to create a library with prepared configurations.</p></div><div class="v-alert__border v-alert__border--left"></div></div></div><h2 id="details-of-implementation"><a href="#details-of-implementation" aria-hidden="true">#</a>Details of implementation</h2><p>Here you will find an example of implementation steps of the <strong>script</strong>. 
+You can also use other classes with the similar functionality created by you or by the 3rd parties.</p><h3 id="create-an-event-object"><a href="#create-an-event-object" aria-hidden="true">#</a>Create an event object</h3><p>This action helps to recognize what will happen when the script runs. 
+For creating <code>event</code> object we import <code>Event</code>, <code>EventBatch</code>, <code>EventID</code> and <code>EventStatus</code> classes from <code>th2_grpc_common</code> and the <code>Timestamp</code> class from the <code>google.protobuf.timestamp_pb2</code> libraries.</p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1025' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-2ce80785e25f5ffa63c17b936d93fa3c'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-2ce80785e25f5ffa63c17b936d93fa3c)' width='2560' height='1025' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAaCAYAAAAHfFpPAAAACXBIWXMAAAsSAAALEgHS3X78AAAIpklEQVRYw9VZe2xT1xm/r9ixnRchJHES27Edx3FCQtLGSZpnHzAgSKxkrbRO2zQmpHVTmbtpGtIQU1UiUAYtIQl5kBBAWaUKQVu1a9WqRRPwxxKa8cpYNYF4JLySEF5CvMXd7zs%2b11xchzphK%2b2VfjrfPS/f73e%2b7zvfORaEb/mp7djKyrqOrZba9t44IBEw4X0GStRtTWAIts9AvQlyAh8jfK8fUh5KaQTk1rRutldv7HLWtGxOQZkLWGvaelDXaa9u7rBWt3R5K99qI2IqiCA2rj1qEsQwCBHev92nTkcAFPVOYRxZyazJrKChdSAkG%2bOTvx8WsPD9TzPisuwuiF7JYEwWFWU2YJNjTUmirOSKsuyRjcY8tNthKWl1ndsiEtDQ0i8sAeipWNYk8eo0YDaQAxQAHiCbfovLBOmJWICmwLx33rPP8BVkQnRIBoMDShcDICDWCiJcUowhCwQQQZl1XduTNReo1RGwpGVAWMJXHySEFIoxMzMg8mi8E7DRPPydYH9iBOhcwBm15bT3pgFZegsgxRv4yoMImbvC80ta/vGTx/1OhQcJYkjmpRShXgsmWr38TUFGbwEUBGvbegoQAB01bd3ZNa3dnoo1b1vL3mwqJmVR7yIgMGaibzHtBnoCNOVRBpVvGYiHFQyDhB9zd1AkxRD%2bLY8MgGRiZqCY%2b8ocoBTwcXOqIXMFnuLI5n7m5WNKoomumgJkCZDNtAVWvd1uXq6qhqS8fKvZmrmI2ktXraYt0ow%2bsUAcTF/Uxun8X3wgD3za0Nrfwi1BXrj6oymvPO21cUA%2bDxJzuO/kcD8q4ATkc7h5Py8nyMf9y8NlmkvYtWuXPDIyoly8eFG5du2acgbyV8eOKeq9u7KqqiIH80efy5VqNhieI/k/Wzdr7RIgjI%2bMyOMTE8r58%2beVYxj/yeAJA/X7adeXJVB4E1b/8we7Qsg1pkRAPLeATL66pGA6l61cuXRen8P72bmcx9/dOhLM03A/iVtX1M8zjft%2b9oudF1WQ8BqPDbLeRZ74MzAwsODMmTN/nJiY%2bO3169cDw8PDgRMnTgSuXLkSOHv2bODo0aOBS5cuvQ4LWY76P/X19bXdvHnzN6Ojo787efJk4PTp0wGsOhtz%2bfLlwLlz5wKwgMDo2Njrt69fee2LI2cbf9Q68KsXN/bn6IOjPjeYzhOePQkRsqlIQYW9%2b/1%2bsb6%2bnpn1vn373gcB6v79%2b1UopEIBFUqrhw4dUo8cOaLu3btXBUnq4cOHVZCkHj9%2bnLXT%2b%2bDgIHsHGayO%2bh88eJCVmFcdGvqXevjgP7/Ufnz7Z4PfjVW/f/%2b%2bAGWYfPfuXRdWvuLWrVulKP03btzwU3n79m3/nTt3/FevXvWjrx9%2bXrJ79%2b55K1eufBVyIfqVUz9qpzGIH/579%2b6xcVQPi/HDcspHxycK5jV%2bprzU8xXFi4e2xyf%2bYOWnOoTixjPT%2ba2Y71LKi1UX9uzZw%2bSxsTERkGDGElZagh8zmerGx8clxAQJfZm72B2OmSaTqZbkFStWKNSHgHghXbhwQcKqs3eSaRwIprlEPeF2r5/JNpQEu7dMsOUG6%2by8jJicRI/eSdumemTV9nRLlk1Tgrbdl9mW5HCKqf5yIXzvn%2byx5ZaFSij%2bUD6iJ8EWiYT/WaobxYeG3wvUdvSGAiySoFrZZOqORNKj5iYFNeU1C0BpBhFmrU2zCj1ZfMVYtmWkrIzSTQ4LYKAMTFcXysom6c/M%2bJc7PhAoGEUCBUf9gzRXsxoDDjw5SIddJStWeZ7f9q6vurkz4bkt7zywrG8gN8vztLbCMhT1AE7ADgLyYfpJzB244g%2b5Ahieix%2bbhR/PYZcTrd0OwIu6NBxDfaizIyd3ank52grQRhcXbsjO6o2dDsyRDzmF5lvbvUUaGhoi/1Xgqwr2eibD35V169axlbZYLEJyQSGTMReR58R8SSFl5i6QqE47AJX%2bufGRKXZcYmpwXM5TtOJOkDAjlN%2bn2kW8O2zeMgcnSAyPAWmPa/pz%2b3YaX%2bjb6Z3O2PoPP08GsekRXapzW84r/x6OjXYu79PzE2AJmZFjhN8FchK/bgGbthAzqYrZ4sA53I2zuVUyGjNFWXbiTO4Ons1jHAS6sEC7k9oUkzkZZ3f6cE/h8t/Hz1n26yIivLun5wdIWtZj1dcgQq%2bFFazB6q9F9F/T1NREdppmiYvLoBQbc/68KPAHtu1hbsrtM4L3A0a2pJXr26yO%2bsWUXhvQN5Gn6wSyFhM/wFl4uXim1V3H1TLxgOoSRSmNx4kUkDDrawRUrm8lxgrxA3MESaoQJSkPH5ML2QdFC0VJptIN%2bFCXj7JIDJZeUVboUOQrXdUY72t4eQEdkv728cfrkb6y7I4yuf7%2bfvXAgQMsE1y6dOmrdGqMjY0lpZ8F3rDNX1Si%2b2g6U9DNEJ09BP8ba5Mdi364kBTGYtCZJEt3sZGiO6/Q%2bzJL4qwqPlciP5AV8rOMYM8rN4OAfB4MH7gBzuSux3WBF7bvUBZ/8nfmrwh2RiAbsBOQ17MSe7k90tj5Oz7ylr3ZZIroAl3bbef5STGax11Yl2vNLjRP4gI2WIFJvxtoMcALH0ypbu7IRJlRvaEjtbqlywnLSK7a0GGr2tBuZTe0zR02qkPQcla9tSkV4ygQZlSua0mhIFjV3OmI5iMzMjJIITEmLp6dG7DCFPCKylf/RQqLTXQb7DGlpbPViomPDz9zhEoZ3gNTF7mpF2W4imPClE/E1perBcDwXYCumxLoDp6DbmBT2SVEe%2b9M7NNJDCQH7/FT%2bS1tMr%2b3Z/21%2bWi7Q8YnUoaGHUA8deqUiDgg4iAk4hAT6pNeWSO4X3pFmPvXXQL/PyAHcGA%2bF5CFugLdxckjSbUkpAjwf22vt0BZF5TNhpyNfCAL8mwdGf/P%2b75gpjidP0ow1sj/IEkAFN4mavNFM68u5TVAeRPeE7D3xwTrysRIKfF/Ab/6Ckwl3n1jAAAAAElFTkSuQmCC' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/script_pic2.42db587.7e03130937045930292bd1f1cbb13b74.png" data-srcset="/assets/static/script_pic2.82a2fbd.7e03130937045930292bd1f1cbb13b74.png 480w, /assets/static/script_pic2.cbab2cf.7e03130937045930292bd1f1cbb13b74.png 1024w, /assets/static/script_pic2.2665e34.7e03130937045930292bd1f1cbb13b74.png 1920w, /assets/static/script_pic2.42db587.7e03130937045930292bd1f1cbb13b74.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/script_pic2.42db587.7e03130937045930292bd1f1cbb13b74.png" class="g-image g-image--loaded" width="2560"></noscript></p><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Code examples
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>Python example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> uuid
+<span class="token keyword">from</span> google<span class="token punctuation">.</span>protobuf<span class="token punctuation">.</span>timestamp_pb2 <span class="token keyword">import</span> Timestamp
+<span class="token keyword">from</span> th2_grpc_common<span class="token punctuation">.</span>common_pb2 <span class="token keyword">import</span> Event<span class="token punctuation">,</span> EventBatch<span class="token punctuation">,</span> EventID
+
+<span class="token comment"># Create EventID for future use in requests.</span>
+event_id <span class="token operator">=</span> EventID<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Create root Event for report.</span>
+current_timestamp <span class="token operator">=</span> Timestamp<span class="token punctuation">(</span><span class="token punctuation">)</span>
+current_timestamp<span class="token punctuation">.</span>GetCurrentTime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+event <span class="token operator">=</span> Event<span class="token punctuation">(</span>
+    <span class="token builtin">id</span><span class="token operator">=</span>event_id<span class="token punctuation">,</span>
+    name<span class="token operator">=</span><span class="token string">&quot;Raw send example&quot;</span><span class="token punctuation">,</span>
+    status<span class="token operator">=</span><span class="token string">'SUCCESS'</span><span class="token punctuation">,</span>
+    start_timestamp<span class="token operator">=</span>current_timestamp<span class="token punctuation">)</span>
+
+<span class="token comment"># Add this Event to EventBatch.</span>
+event_batch <span class="token operator">=</span> EventBatch<span class="token punctuation">(</span><span class="token punctuation">)</span>
+event_batch<span class="token punctuation">.</span>events<span class="token punctuation">.</span>append<span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+
+<span class="token comment"># Send EventBatch to estore.</span>
+estore<span class="token punctuation">.</span>send<span class="token punctuation">(</span>event_batch<span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Java example:</p><div class="remark-highlight"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>UUID<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>protobuf<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Timestamps</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">Event</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">EventBatch</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">EventID</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">EventStatus</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Create EventID for future use in requests.</span>
+<span class="token class-name">EventID</span> eventId <span class="token operator">=</span> <span class="token class-name">EventID</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Create root Event for report.</span>
+<span class="token class-name">Event</span> event <span class="token operator">=</span> <span class="token class-name">Event</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>eventId<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Raw send example&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span><span class="token class-name">EventStatus</span><span class="token punctuation">.</span>SUCCESS<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">setStartTimestamp</span><span class="token punctuation">(</span><span class="token class-name">Timestamps</span><span class="token punctuation">.</span><span class="token function">fromMillis</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Add this Event to EventBatch.</span>
+<span class="token class-name">EventBatch</span> eventBatch <span class="token operator">=</span> <span class="token class-name">EventBatch</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addEvents</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Send EventBatch to estore.</span>
+estore<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>eventBatch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><h3 id="a-message-request-to-act"><a href="#a-message-request-to-act" aria-hidden="true">#</a>A message request to <strong>act</strong></h3><p>This action leads to sending message to the system by <strong>act</strong> component. 
+To make it happen you need to create a message using <code>Message</code>, <code>Value</code>, <code>MessageID</code>, <code>MessageMetadata</code>, <code>ConnectionID</code> and <code>ListValue</code> classes from <code>the th2_grpc_common</code> library and <code>datetime</code> class from the <code>datetime</code> library. 
+Then, you need to place the message to <strong>act</strong> using <code>PlaceMessageRequest</code> class from the <code>th2_grpc_act_template</code> library and <code>ConnectionID</code> from the <code>th2_grpc_common</code> library.</p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1429' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-b9203009ae1c56e06a19dd6683fda24b'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-b9203009ae1c56e06a19dd6683fda24b)' width='2560' height='1429' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAkCAYAAAA5DDySAAAACXBIWXMAAAsSAAALEgHS3X78AAAJ70lEQVRo3uVZCVBUVxbt/3/D7xZobHoBe2FRREUho4ABkYYGBwKDKIxLk4qOscbJOBXHTDYdK5qaiSYZNai0NKgsipJRYuI%2bCVoKLgjuQCugKIpriZZGZ7Gsqame817/D0iIASVJFf6qy33/vvfuv/e%2b%2b%2b7SSCQ9eGJtRRSbbIVcbG6Rf8zqfE2Mda1PTPZabXRWjk%2bMdZ127Mpcn%2bgsm3f0Cht9xzpvrHel%2b3OLuuRryikQ%2bRrBawD4eoOf99hVawB5FEevyKU8oz/L0YKvMTZv/VN5/iiP%2bLHY3PU8hDbO/p%2bD/aPDIc12OFiHwyGZ63BwDxwOhowBzFYAlFFhn9q5r7BLvuM2bqU4bm2xH%2bE3s/WRlPDYAb57AaVO/oQvQ9al7NznFbN6nZdgtJ/SAM6P4XT4xC07lRjKAYEAb8BwQH9AACBIAPcJ5cdk8BKnsN9jAGNSCsUvL16mBxoMUAv7dQBCMwAGAYYBgjVhowNgBI%2bfzQPggrw5f5NKICsAREGtYBAimLtAl/yy5CsZvEX1NAOEzHnHadgVuQM67NUIBnUXeBIaMbrCP3WiJmFDqafzWhb%2bHFegyBWuZzAXfK5J3vaNmrjk5FONyuBZfwhI2LBFm/qPci/Q1Birobwe6xVPO62E4i%2bcfPPW65K%2b2K1N3lamGl92SPXrqlpl2Ad/NYyav0ifUXnG61e796vS9h3xwnq9KSdf2TEuPddD7tu9e/fo%2bP79%2b5JHjx5JhHssefz4seThw4d0/OBf/6b4y7pzzPTN26TphSV8as46Pv7DxbIK3H%2b5ShU5NC1d8fvqWpfxoGcUlrhOKi7l3yjdwZF9tx7%2bk/Ij/G/fvt3G%2bz7oZD4%2bt4hLsq7l03Ly%2bbhFH8kJzdPoN1ih0w8hY/OixTIyl5JXxMdgba/HAPKR53xCAVwvOx6JA8auJtze%2bnPvKS4qL0RbtodAlQ4JCQlrvnxZ/ow8WEGOJ3jGmc3%2biYmJAwXZSHYg3sSKcptye%2bkK7Nq1i37wwIED71dXV1%2brra09A2y/du2a/ejRo/azZ8/a4bb2qqoq%2b5kzZ%2bwnTpyg9ObmZvvx48ftNTU1dQcPHmzC/FnQ6wjtyJEj9oaGBvuVK1fsp06dovsIEB7nz5%2b337hxw45v1GJtI6B89%2b7dSswVnjx5shm4FrgO0Ai%2bjZWVlXWnT5%2buwftl4HwiK2Rke80DIADNsXa7fSSE/A0UnFpWVmaBkBYoR%2bHu3buWuro6C%2bYte/futUAYy9WrVy2NjY2Z9fX1k5cvXz4f9GlQeiqZg9AWGM5y/fp1igmQ/RDcAqNYYATx/VUYaGJFRQXf0tISDwWnQQ7LxYsXJ23ZsuVNq9U6BzwmwSgWGGwaZDETWSEH06uXrby8/HkZDvoRko%2bY/p54oHzvBj%2bcIB3DpRmcDIfT4g4fPsy1trZy5J0AMgSHU%2bFw4hzcm67ByXClpaVSstfd3T3cbDb3IzEAJ8rhpOj6mzdvcpcuXaLQ1NREgewT3y9cuMDBa1isl2AtizFXXFxMeWo0mgClUkkNa7PZpPAYsp66PuTondwugqkT7pD3u8zhYgqSyvs5PYdlh7v2V7o8sSa3Z2mqLa2xLOXJcFIfhuN8hWnGKUvhD9Yqpk56kHqhs549Kn5MnQoOUYjAqa91JE8UK0DPwUMkz1Kpid9z9/MXA1w0STD0LgQMYruS5btGLOr%2bt/CHh9V5dFo8ujgZgEftzqMqI5i64ayFHzLnGxvJ1WAQ9JgFCxZQBp6%2bfu2aV5xw8xoeMnno628EijS5t0/P3JF16uwRMIiefh1SnvblqHhjYkqE2AihD6DYw4O2ApL9%2b/cTmegVIlfDXt/APbh4gU3NWs1FCbqgQ5WR8n1s9hoZym2858kAUtHlfKCsGs2N1ytb96gAyvj1m9Xo4tSkO%2buO3GDuk1BcSju%2b08jRYG7cLgj8rE/G0RqP8IUf%2bfUPGqYYmDFFjtJXl1nfwnd3/y%2b27e2X9PlXuriCEiX6EbU5v0RFSnOiZ%2bLmHUpzQYkBxnGRoJ4X7yxhLhOA1gRRS5brGL1RPXvmTNW169cDELgCkAoD5syZoxZcvb8yeIQ/an%2bVsI90cD6ZDVflw347mxjPneN50tB4dgtYlmCFm8HoGzr3vYFCMzSadIAyjdYtdO67pFOEWzEKPGTODYE64tatW68imE5Gap1yqbl56sXGhvQZnywLliW8IjZsrgLmBD3ZkfMWamEEd2JpsXR9SShlhwvtqCTyT/OIEEGffvzxdOT0b5GD7yAKf5uVlfU6aVF5jo3ilV4zRs3/kHSCQayLSzhwmDExWQO3JbyGMSwbTBToFjAMwUNdPDxmqV4aNZbylLoEIwgSI%2bi9I6OTsSaTtMzIOCOA/VHAfYIM1oLa4RwyTz3gfNXRypoZb7%2bTJmGlI1hnag5zGo6OiREH62IThmZU1sjIFVDGrdvoEl/4d1navkrX1K8P8nARxIMcl/j8Tb5CmmSvtLQYUBXqkaYMpCQVXe0Q5tCtDRTaYQJG//HpAa81t7o9zxVAx6db5Sx5/QGqScfOyeHCqu7uT9pe5kU605A333Yds8wqj/rbSjmJBSk79vHJ28u4uDUbdNDdnQRBHwzIrzYatK6kfaWYvMdgHDF9Zpfl5sjQUEYTN47e83GbvlTgGmh/9x8Hn3nuiiJp6x6NkAkYTi7vUSzQRkTS9WNX5MlNtgJj9JLV6riV69Wm3AL9mKVW6q39BuhEnt/LO2r5asSNAh8crhrKqmLXbNAg1qmIftBNBZ21gO7Jdq6pSXKntZW5c%2bcOg7aZRN32Dy3Ndhrk/Q%2bkyCCqyE9XeIhz4YuW9OjUZSq18MvQ0jZaSt43xmTbHv%2b2dnPuexTr9XqKUXJLcP8lKKokyASS/966IVn69b6e5V1aNNicBYZYaMR2UQx1zrVi0dJVT95ekDxbIZSUs5OezpRVdW4A8quQJM1a0VbkdONHm/ZCyNauD%2bHfseB7slrqBKanGKDtI7aiDgZ5cv2z/Fgh8szIPk7f061VnoD%2bznH1DxZWbfJ00MEkGECUUZTTZPsJf0/s6ZOeXS1iRYb1GDVAhrVa8sI8UFrEnu0GOPbiGCBdNED2MQVc37OjV7zQHvBCeIFxyOg2RSd8dkg%2bIeswTa1T1p2VGIMi%2brjyQaMpNr%2b1xpkG8%2bv9Mjdcom1lwrtFlOYrrOlzj69wuh1POfkv21PHzdsYKf5y5TtkdF/3ANEI4W6%2bQyN17lJeofX2V2KsNwSGcR29pO95wJAIETM4aYOX2tA2Zwgc5QLagBflCrgZB4fT/ygzDBvIslK9QDf06SAonixREqAXyLT19h82hgfNp09fgY4xAO7uSYwQGGqWBQyPdiOnD5qsTxuA5H8SB0QFoTBRXE0AYxfnmt69Av8HcMtQ4sEjK68AAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/script_pic3.42db587.179c5bfe25b9e2a1fd72111d0054d028.png" data-srcset="/assets/static/script_pic3.82a2fbd.179c5bfe25b9e2a1fd72111d0054d028.png 480w, /assets/static/script_pic3.cbab2cf.179c5bfe25b9e2a1fd72111d0054d028.png 1024w, /assets/static/script_pic3.2665e34.179c5bfe25b9e2a1fd72111d0054d028.png 1920w, /assets/static/script_pic3.42db587.179c5bfe25b9e2a1fd72111d0054d028.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/script_pic3.42db587.179c5bfe25b9e2a1fd72111d0054d028.png" class="g-image g-image--loaded" width="2560"></noscript></p><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Code examples
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>Python example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> random
+<span class="token keyword">import</span> string
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+<span class="token keyword">from</span> th2_grpc_common<span class="token punctuation">.</span>common_pb2 <span class="token keyword">import</span> Message<span class="token punctuation">,</span> Value<span class="token punctuation">,</span> MessageID<span class="token punctuation">,</span> MessageMetadata<span class="token punctuation">,</span> ConnectionID<span class="token punctuation">,</span> ListValue
+
+clordid <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+message <span class="token operator">=</span> Message<span class="token punctuation">(</span>
+    metadata<span class="token operator">=</span>MessageMetadata<span class="token punctuation">(</span>
+        message_type<span class="token operator">=</span><span class="token string">&quot;NewOrderSingle&quot;</span><span class="token punctuation">,</span>
+        <span class="token builtin">id</span><span class="token operator">=</span>MessageID<span class="token punctuation">(</span>connection_id<span class="token operator">=</span>ConnectionID<span class="token punctuation">(</span>session_alias<span class="token operator">=</span><span class="token string">&quot;demo-conn1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fields<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">&quot;Side&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;SecurityID&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;INSTR1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;SecurityIDSource&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;OrdType&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;AccountType&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;OrderCapacity&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;OrderQty&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;Price&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;ClOrdID&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span>clordid<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;SecondaryClOrdID&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;TransactTime&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;TradingParty&quot;</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>message_value<span class="token operator">=</span>Message<span class="token punctuation">(</span>
+            fields<span class="token operator">=</span><span class="token punctuation">{</span>
+                <span class="token string">'NoPartyIDs'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>list_value<span class="token operator">=</span>ListValue<span class="token punctuation">(</span>
+                    values<span class="token operator">=</span><span class="token punctuation">[</span>
+                        Value<span class="token punctuation">(</span>message_value<span class="token operator">=</span>Message<span class="token punctuation">(</span>
+                            metadata<span class="token operator">=</span>MessageMetadata<span class="token punctuation">(</span>message_type<span class="token operator">=</span><span class="token string">'TradingParty_NoPartyIDs'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                            fields<span class="token operator">=</span><span class="token punctuation">{</span>
+                                <span class="token string">'PartyID'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">'Trader1'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token string">'PartyIDSource'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;D&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token string">'PartyRole'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;76&quot;</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        Value<span class="token punctuation">(</span>message_value<span class="token operator">=</span>Message<span class="token punctuation">(</span>
+                            metadata<span class="token operator">=</span>MessageMetadata<span class="token punctuation">(</span>message_type<span class="token operator">=</span><span class="token string">'TradingParty_NoPartyIDs'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                            fields<span class="token operator">=</span><span class="token punctuation">{</span>
+                                <span class="token string">'PartyID'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token string">'PartyIDSource'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;P&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                <span class="token string">'PartyRole'</span><span class="token punctuation">:</span> Value<span class="token punctuation">(</span>simple_value<span class="token operator">=</span><span class="token string">&quot;3&quot;</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Java example:</p><div class="remark-highlight"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">LocalDateTime</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">ConnectionID</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">ListValue</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">Message</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">MessageID</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">MessageMetadata</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">Value</span><span class="token punctuation">;</span>
+
+
+<span class="token class-name">String</span> clordid <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token class-name">StrictMath</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token class-name">StrictMath</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">Message</span> message <span class="token operator">=</span> <span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMetadata</span><span class="token punctuation">(</span><span class="token class-name">MessageMetadata</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageType</span><span class="token punctuation">(</span><span class="token string">&quot;NewOrderSingle&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token class-name">MessageID</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setConnectionId</span><span class="token punctuation">(</span><span class="token class-name">ConnectionID</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setSessionAlias</span><span class="token punctuation">(</span><span class="token string">&quot;demo-conn1&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;Side&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;SecurityID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;INSTR1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;SecurityIDSource&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;OrdType&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;AccountType&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;OrderCapacity&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;OrderQty&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;Price&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;ClOrdID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span>clordid<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;SecondaryClOrdID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;your random string method&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;TransactTime&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;TradingParty&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageValue</span><span class="token punctuation">(</span><span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;NoPartyIDs&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setListValue</span><span class="token punctuation">(</span><span class="token class-name">ListValue</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addValues</span><span class="token punctuation">(</span><span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageValue</span><span class="token punctuation">(</span><span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMetadata</span><span class="token punctuation">(</span><span class="token class-name">MessageMetadata</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageType</span><span class="token punctuation">(</span><span class="token string">&quot;TradingParty_NoPartyIDs&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;Trader1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyIDSource&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;D&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyRole&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;76&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">addValues</span><span class="token punctuation">(</span><span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageValue</span><span class="token punctuation">(</span><span class="token class-name">Message</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMetadata</span><span class="token punctuation">(</span><span class="token class-name">MessageMetadata</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageType</span><span class="token punctuation">(</span><span class="token string">&quot;TradingParty_NoPartyIDs&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyIDSource&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;P&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;PartyRole&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Value</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleValue</span><span class="token punctuation">(</span><span class="token string">&quot;3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><h3 id="a-verification-request-to-check1"><a href="#a-verification-request-to-check1" aria-hidden="true">#</a>A verification request to <strong>check1</strong></h3><p>This action helps to verify whether the response from the actual system equals to the expected response. 
+For this we need to filter the messages and then apply verification rule. 
+For filtering we use <code>MessageFilter</code>, <code>FilterOperation</code> and <code>ValueFilter</code> classes from the <code>th2_grpc_common</code> library, for sending <code>check rule request</code> we use the <code>th2_grpc_check1</code> library.</p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1327' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-bf7266f0533d92992a58e273d0bd1a1f'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-bf7266f0533d92992a58e273d0bd1a1f)' width='2560' height='1327' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAhCAYAAABpwa0hAAAACXBIWXMAAAsSAAALEgHS3X78AAAJ60lEQVRo3u1ZeWyUxxXf79j1Hl6fu/Gu1168u/basQ3YGB947fUZA0E4mAY1QeqRsKGNhBQ1bdMrkCqFtAbM4dvgAzARhNKINkEotaBVK4RBXOIoiPu%2b7zMgYPt7s99nb4u9rEls8Uc%2b6WnezLz3Zt4xb2a%2bUSj6%2bNxN7awsaupQuZs6QlHXuRvb1aiHAUJQ16OuRR%2b169CmQanv4W/s6EssyZNLnmSBR4NSCwhlMpo69AA1yYIMkhnKxm/sEPz5B/3DwPJErYV1S5ILalvshbVLzIV1S9MKFrfEuOtbkwtrW6zAbWh3FCxqjnU3tGWB3ubP/7RhewwQAfoM18ImC2QlQG4SZFgKIdfd0GqGzJSCxc0WjOtAmxP0GbLcITGCPAgmmRYsj9frpQnGM/7mZX3LbezgmNz6VseE9f8IC9ohDa3DSlpX8r65tQ9dBIz985dGTYwpHWgyrwox8SqVnRPFeFGri%2bZFZQJwpxASYke/LSbPZS9e0plAfPBeQLkTv/p3uMlV5AA6QqkPixBC1CZOEBMFtSZGGarXQnYaZNsVPJ%2bsjjbEli1f48j4xe/4QMtrUAyAgW36YTZmAExoJCbk4ng%2bDYaIVXBcOicI6WQE9I%2bMSEl1FLcsNxNf/vz6gJFVsWqdOWFiFfGlw4CJkDUGcvMgLwUQB0jDWKPQPhzGtpd2rLKM%2bu3veSmKhnQJ2ILl%2bZnXK8JwjkBLQM4BWAJxlV2bNQNYAkklS1cK/gl6qJKgDQnKjgQVDmOYgBtcCxqjc2fPs%2bbPrwtDqMdR3bWw0YC%2bOPDFBUqCfruAkfJL/rw6yv5xwCOQbGNyPq62FCxsikQStLgWNERCvhnGigKNU%2bYfkiToZwCeEhsgGpO0lC37zJj5q1mxxqycN3Ln1EQWt6ywot2A/hhALOjDAxnAv0%2bSGwEYBqWjJny5yWjIzJpkq5piG7vmi1gYIRp9FjZ2Y7v5WXIHbRn08VEmd/erYBAeCkDjAoQFjp72IcwBvpDjqD561hy2hYVERoUgYZXrE%2bz8PGx9GT//DUeZGRPj/EK8H%2b/39pNcWX5sURmTDblFvFIVRbht0hTqZzKpHDLlg/hUtEEA%2bMGwPSBqSLU5duyY4tKlS/zt27cFf7h%2b/bpw9epV4caNG8KDBw%2bEkydPCjjscJWVlRqtVvvK3LlzlajzJ06cYLTE8/DhQ4bfvHlTuHPnjnDt2jUmQ6qz8W7dusVKyOWIFu38%2bvXrWYbX6XQlDofDQPiWLVuEu3fvsnlBDosA0CtelG/M8zBBIVbCIFw/JNkAZT%2b83KBosn//fhFWLoE3XwGUywBvlsNbPXV4itrK4I1xNTU1vwRegfayJ0%2belD969KicSqK7f/9%2bDw8mzYBko4yg8cDHSWUiaMeTjHv37tHYxS0tLe8fOHCgCniJJKMMMP7rr79O8ef9Vr%2b1a9dGbtiwwbtv3z7v3r17vdu3b/du27aNlTt27PBu3rzZi8l7jx49ynBqJ1oqd%2b/ezfDu7m7v4cOHvVgq3l27drG%2bnTt3Mpz6qDx%2b/HgxjQfZIVRC1uJTp04xGVDae/nyZUYLOi%2bWGxub4MyZM96NGzeuIJ5NmzYpv3UDPH78WHXx4sUfnz59evrZs2c9mIwHA3ouXLjggbc9WOMerGMPosSDXDHtyJEjP129enUNJs7oZTh//rwHoe25cuWKB4p5kFsYH3g8kP0TGCeGxkM/S55ozwY%2bA7RvQ/l34OW3Ojs75%2b3Zs%2bc9RNvbMOw7iM5p586dmwHZtD0qgHMvSg7IeR4mOYnBw/0pkimdM576Dh48ODjKw8tkWQFeFOF1AR4WEJ4C4fCMAA%2bxzI5QFCnrT506VavX6yuqq6tVqAuHDh0SwcvokTMEeJZoBXid4dROvFjnbDzIZCWijke/SGMj4kRqg9zS1NRUI12tu7q6RCwr4icaXoqA784B3xngBTFA%2bSAZoPiFM0Bhc8f/X15ovbp5URnMxSnYS5Gc4PIB4QO5WPX3xSf78nScM5vh8cnZDKxSu9UPD%2bpqrDa%2bJDfRbW0qQCNdjnpuaQP5XSVdoBS%2bX2gtsgFeBwyT5HLPI5cp78xmCvoMkc3FS7j8BaX4/9wKYQSTy80mJOp00bi1dQpqTVQvXfuAIoHo8/600Hf2/eiTnu2NE8QmjhdccrVk6coBRwJ52%2br0KYyS623PFn3GkCLAmROc8oV1S3u9Vt/qKGpeZscVeFRRy/JEd0NbrETr8xYMVdjUFnwU1LfKBk4oW/YZ/fcbkz%2b/3lq8pNMptXPy77Vnya2q26qYDPDzMicpbgbEATIAJrSPIAMhSriARvD/B%2b9a2CiWtq%2bKq1jzRYw/TWnHqmjQjCA868OPg06KxqwchSoiUvrN3WEuWNxsrfrX9p6kgqigR5ieuJ1Q9xUU7GYKTq4lkPAe6Pa1oc%2bakqsomlHvU9452gBFh1kSR7FHG12YQWrPzoIh1EGv//JP/xI6etacVKCCxviSUm0wKrEMmAIFi5qjyzvXWp43WaW8Nd0tnQCLOEEglxQA0rQmc%2ba4dRus3ySBW1Pyku3phWI/ecIJI/ABlS%2bUQnTc5xsSoXQy0EoFx5FnclHSVljhbmzTZ34wk25rOlGrpRvfsyBSqQ/TosyLrxg/Pv3d9%2bh/XyInimRgGoN%2brCbyKmV82dI1qa/P36maVLtZgwhQwttagLKqtlsDj6uBh0i4CktAQ/VxH30uvrniWELp%2b21Vhigzi1ieF%2bnBxggwcRxvlJZIIowgBjSA389RI5KWWjoDpDGPcRy9F2g34jicMLHqNTKGZJRnAdFRoputiTFPT/7hNKMkk5bSSIAZW2wSzXFCR1dp5aJ/OifXbkuCAUxQcgSUNAGSAfaq2q1WhD3hFvS9DNxStXiL7XuNO8ZOrO6aE4r5YSw9IEv6h5EDfKTPALlOGEAfMAm65aeshrYUhDnL%2boJaPZwigFeqWKIqrF0S9cbe46HPE6KfeL1aGIBC3iFoNDTBEYgEWg4Z4Q5neubMmaZvsgTik0Zn9NVuThguIAIsyBHB5YAfnLwqG0HVh6GGj6leFCqdFXjphBgQKH%2bEJzrZ%2bkv%2bkScrJjc/WwpRuwyOKVOL8ubUsBxQ%2bsdPeUpw8DLHkiCVPlD0lLVbOWkn4AxRsdJOkBsDLz%2bVR6C8Ce1JQSnv96JL/%2bfpkcSeO3temKumgd4DRtHbgf%2bTVbB7duYHH/pOPtv2aV/btNU0ft3fbX/wepXvPvZqX/1bl/PN/5zSUX/u7LlcMHKZ8tgJ2C7y/V/LiS4EEAd4GRAGiCTFZaPE%2b50TAv7GdvceiES0hUmPGib5UCMrXxTkw4Ust2L1X3sfBBY0RLoWNBpxKmTPa%2bpoA22HrA/LZAAHoeye06Df4SgC9XBf5s8W/A9C/wXk8uh5SaQQaQAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/script_pic4.42db587.088ccbebe6f38f54ff12c577efc26e95.png" data-srcset="/assets/static/script_pic4.82a2fbd.088ccbebe6f38f54ff12c577efc26e95.png 480w, /assets/static/script_pic4.cbab2cf.088ccbebe6f38f54ff12c577efc26e95.png 1024w, /assets/static/script_pic4.2665e34.088ccbebe6f38f54ff12c577efc26e95.png 1920w, /assets/static/script_pic4.42db587.088ccbebe6f38f54ff12c577efc26e95.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/script_pic4.42db587.088ccbebe6f38f54ff12c577efc26e95.png" class="g-image g-image--loaded" width="2560"></noscript></p><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Message filter code examples
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>Python example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> th2_grpc_common<span class="token punctuation">.</span>common_pb2 <span class="token keyword">import</span> MessageFilter<span class="token punctuation">,</span> FilterOperation<span class="token punctuation">,</span> ValueFilter
+
+message_filter <span class="token operator">=</span> MessageFilter<span class="token punctuation">(</span>
+    messageType<span class="token operator">=</span><span class="token string">&quot;ExecutionReport&quot;</span><span class="token punctuation">,</span>
+    fields<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'ClOrdID'</span><span class="token punctuation">:</span> ValueFilter<span class="token punctuation">(</span>simple_filter<span class="token operator">=</span>clordid<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">'Side'</span><span class="token punctuation">:</span> ValueFilter<span class="token punctuation">(</span>simple_filter<span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">'Price'</span><span class="token punctuation">:</span> ValueFilter<span class="token punctuation">(</span>operation<span class="token operator">=</span>FilterOperation<span class="token punctuation">.</span>NOT_EMPTY<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">'LeavesQty'</span><span class="token punctuation">:</span> ValueFilter<span class="token punctuation">(</span>simple_filter<span class="token operator">=</span><span class="token string">'0'</span><span class="token punctuation">,</span> operation<span class="token operator">=</span>FilterOperation<span class="token punctuation">.</span>NOT_EQUAL<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">'OrderID'</span><span class="token punctuation">:</span> ValueFilter<span class="token punctuation">(</span>simple_filter<span class="token operator">=</span>response<span class="token punctuation">.</span>response_message<span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'OrderID'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>simple_value<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Java example:</p><div class="remark-highlight"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">FilterOperation</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">MessageFilter</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">ValueFilter</span><span class="token punctuation">;</span>
+
+<span class="token class-name">MessageFilter</span> messageFilter <span class="token operator">=</span> <span class="token class-name">MessageFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setMessageType</span><span class="token punctuation">(</span><span class="token string">&quot;ExecutionReport&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;ClOrdID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">ValueFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleFilter</span><span class="token punctuation">(</span>clordid<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setKey</span><span class="token punctuation">(</span><span class="token class-name">Boolean</span><span class="token punctuation">.</span>TRUE<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;Side&quot;</span><span class="token punctuation">,</span> <span class="token class-name">ValueFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleFilter</span><span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;Price&quot;</span><span class="token punctuation">,</span> <span class="token class-name">ValueFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setOperation</span><span class="token punctuation">(</span><span class="token class-name">FilterOperation</span><span class="token punctuation">.</span>NOT_EMPTY<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;LeavesQty&quot;</span><span class="token punctuation">,</span> <span class="token class-name">ValueFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleFilter</span><span class="token punctuation">(</span><span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setOperation</span><span class="token punctuation">(</span><span class="token class-name">FilterOperation</span><span class="token punctuation">.</span>NOT_EQUAL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">putFields</span><span class="token punctuation">(</span><span class="token string">&quot;OrderID&quot;</span><span class="token punctuation">,</span> <span class="token class-name">ValueFilter</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSimpleFilter</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getResponseMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldsMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;OrderID&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSimpleValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div><div class="my-4 v-item-group theme--light v-expansion-panels"><div aria-expanded="false" class="v-expansion-panel"><button type="button" class="v-expansion-panel-header">
+      Check rule request code examples
+    <div class="v-expansion-panel-header__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div></button><div class="v-expansion-panel-content" style="display:none;"><div class="v-expansion-panel-content__wrap"><p>Python example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> th2_grpc_check1<span class="token punctuation">.</span>check1_pb2 <span class="token keyword">import</span> CheckRuleRequest
+
+check1_request <span class="token operator">=</span> CheckRuleRequest<span class="token punctuation">(</span>
+    connectivity_id<span class="token operator">=</span>ConnectionID<span class="token punctuation">(</span>session_alias<span class="token operator">=</span><span class="token string">&quot;demo-conn1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token builtin">filter</span><span class="token operator">=</span>message_filter<span class="token punctuation">,</span>
+    checkpoint<span class="token operator">=</span>response<span class="token punctuation">.</span>checkpoint_id<span class="token punctuation">,</span>
+    timeout<span class="token operator">=</span><span class="token number">3000</span><span class="token punctuation">,</span>
+    parent_event_id<span class="token operator">=</span>event_id<span class="token punctuation">,</span>
+    description<span class="token operator">=</span><span class="token string">&quot;User receives the ExecutionReport message.&quot;</span>
+<span class="token punctuation">)</span>
+check1_response <span class="token operator">=</span> check<span class="token punctuation">.</span>submitCheckRule<span class="token punctuation">(</span>check1_request<span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Java example:</p><div class="remark-highlight"><pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>check1<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">CheckRuleRequest</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>check1<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">CheckRuleResponse</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>exactpro<span class="token punctuation">.</span>th2<span class="token punctuation">.</span>common<span class="token punctuation">.</span>grpc<span class="token punctuation">.</span></span><span class="token class-name">ConnectionID</span><span class="token punctuation">;</span>
+
+<span class="token class-name">CheckRuleRequest</span> check1Request <span class="token operator">=</span> <span class="token class-name">CheckRuleRequest</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setConnectivityId</span><span class="token punctuation">(</span><span class="token class-name">ConnectionID</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setSessionAlias</span><span class="token punctuation">(</span><span class="token string">&quot;demo-conn1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setFilter</span><span class="token punctuation">(</span>messageFilter<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setCheckpoint</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getCheckpointId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setParentEventId</span><span class="token punctuation">(</span>eventId<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">setDescription</span><span class="token punctuation">(</span><span class="token string">&quot;User receives the ExecutionReport message.&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token class-name">CheckRuleResponse</span> check1Response <span class="token operator">=</span> check1<span class="token punctuation">.</span><span class="token function">submitCheckRule</span><span class="token punctuation">(</span>check1Request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div></div></div></div></div><!----><!----></article><div class="mt-15 d-flex justify-end flex-wrap" data-v-298a815f><a href="https://github.com/th2-net/th2-docs/blob/master/content/test/fundamentals/script/_index.md" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light info--text" data-v-298a815f></i>
+		Edit this page
+	</span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;Script&quot; article&amp;body=I've read [&quot;Script&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/test/fundamentals/script/_index.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light error--text" data-v-298a815f></i>
+		Create an issue
+	</span></a></div></div><aside class="pl-5 pt-5 page-content-panel sticky-aside doc-page__aside" data-v-3eeb1e00 data-v-4ce9b4a1><div class="pr-2 border-left pl-4" data-v-3eeb1e00><nav class="mt-7 mb-5" data-v-f2b8a640 data-v-3eeb1e00><h3 class="mb-3" data-v-f2b8a640 data-v-3eeb1e00>On this page</h3><ul data-v-f2b8a640 data-v-3eeb1e00><li class="font-weight-bold" data-v-f2b8a640 data-v-3eeb1e00><a href="#script" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Script</div></a></li><li class="py-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#typical-use" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Typical use</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#configuration" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Configuration</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#external-box-configuration-for-the-script" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>External box configuration for the script</div></a></li><li class="ml-3 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#the-entry-point-and-the-script" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>The entry-point and the script</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#connect-the-script-to-the-other-boxes" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Connect the script to the other boxes</div></a></li><li class="ml-3 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#common-factory-class-for-specifying-settings-manually" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Common factory class (for specifying settings manually)</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#details-of-implementation" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Details of implementation</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#create-an-event-object" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Create an event object</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#a-message-request-to-act" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>A message request to </div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#a-verification-request-to-check1" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>A verification request to </div></a></li></ul></nav></div></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-28b3144a><div class="footer__content col" data-v-28b3144a><div class="d-flex justify-space-between footer__sections" data-v-28b3144a><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><a href="https://exactpro.com/" class="mb-4" data-v-28b3144a><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-28b3144a></a><div class="text-center" data-v-28b3144a>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Contact Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-28b3144a>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-28b3144a>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-28b3144a>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-28b3144a>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Follow Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex" data-v-28b3144a><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-28b3144a><div class="text-center text-caption" data-v-28b3144a>
+      Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-28b3144a><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-28b3144a>
+         Terms and Conditions
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Privacy policy
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Cookies policy
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"__typename":"TestingPage","title":"Script","content":"\n# Script\n\nIn computing, the term *script* generally refers to \"[a sequence of instructions or commands for a computer to execute](https:\u002F\u002Fwww.merriam-webster.com\u002Fdictionary\u002Fscript)\". \nIn software testing, a script (or a test script) is generally understood as a short program used to test part of the functionality of a software system.\nMost often, test logic implemented in a script describes atomic actions triggering interaction with a system under test and\u002For performing rule-based checks of varying complexity.\n\nIn th2, the *script* is a piece of code that contains a sequence of instructions for the th2 components. \n\nLogically, this sequence corresponds to a test scenario covering a particular business use case. \nThe script triggers test execution events involving th2 modules that are responsible for separate test actions needed for the test scenario. \nOne of the advantages of th2 is the ability of a test script to cover complex business scenarios and initiate sophisticated rule-based and model-based checks.\n\nTechnically, the script works in the th2 cluster as an external box that interacts with the th2 components. \nIt can be implemented in any programming language. \nThe current implementations in the th2 ecosystem contain libraries and programming modules supporting Python, Java, and Kotlin. \nThese libraries underpin th2's advanced testing capabilities, allowing for more effective implementation of complex testing logic.\n\n\nTo start using the script, you need to set up a th2 cluster with all the necessary components as well as a th2 script entry point within it. \nOnce the script entry point is configured, created connections can be used to interact with the th2 modules. \nEach module is made to implement a certain piece of logic. \nExecution of each and every action might be a complex and time consuming, however, using the methods inside the script makes the process easier. \n\n\u003Cnotice info\u003E\n\nEach programming module is made to implement a certain piece of logic. \nThese modules help improve the code quality and make its execution more efficient.\nThis is achieved through a possibility to call the methods, corresponding to most common actions, within the script.\n\nThe user implements business logic (a particular test scenario) as a function being invoked during the script execution. \nThe th2 modules decrease complexity of the script as particular actions (behaviors) are encapsulated in those modules.\n\n\u003C\u002Fnotice\u003E\n\n## Typical use\n\nOne of the most common use cases for th2 is active testing, when a test script triggers interaction with the system under test by sending messages and then checks the responses.\n\n\nThe th2 ecosystem provides ready-made components for sending messages (**act**) and performing rule-based checks of system responses (**check1**). \nThe **script** communicates with **act** and **check1** via gRPC, and sends events to **estore** via RabbitMQ. \nThis interaction is shown on the diagram below. \n\n![](.\u002Fscript_pic1.png) \n\n\u003Ccenter\u003E \n\u003Cfigcaption class=\"mb-2\"\u003E\nFigure 1. Communication between the script, the th2 test environment and the system under test (SUT) during testing.\n\u003C\u002Ffigcaption\u003E\n\u003C\u002Fcenter\u003E\n\n\u003Cnotice info\u003E\n\nPrior to being sent to the system under test,  test messages are encoded in the **codec** component. After that, they are picked by the **conn** component to be sent to an external system. \nCorrespondingly, replies from the system go through the **conn** component, are decoded in **codec** and finally arrive back to the scope of this diagram, to **check1** to be verified.\n\n\u003C\u002Fnotice\u003E\n\n## Configuration\n\n**script** runs as an *External Box*. \nThe external box is a box that interacts with the th2 cluster and, instead of Kubernetes, runs inside the user machine. \nIt uses `entry-point` in the th2 cluster to communicate with other modules. \n`entry-point` has pins that allow user to create links (both MQ and gRPC) with other components.\n\n### External box configuration for the script\n\n\u003Cnotice info\u003E\n\nThere is a custom resource (CR) called “script entry point” in the schema. \nThis CR should be configured to `externalBox: enabled: true` to run the script correctly.\n\n\u003C\u002Fnotice\u003E\n\n#### The entry-point and the script\n\nTechnically, an entry-point is inside the th2 cluster. \nThe **script** is a program that runs \"within\" the entry point. \nIn reality **script** just uses endpoints reserved for the entry point. \nTo create the endpoints for the script, it is required to create a special configuration for the external box in **infra-schema**. \nAn example for configuration of the external box is provided below:\n\n```yaml\napiVersion: th2.exactpro.com\u002Fv1\nkind: Th2Box\nmetadata:\n  name: script-entry-point\nspec:\n  image-name: dev-script\n  image-version: dev-script\n  type: th2-script\n  pins:\n    - name: to_act\n      connection-type: grpc\n    - name: to_check1\n      connection-type: grpc\n  extended-settings:\n    externalBox:\n      enabled: true\n    service:\n      enabled: false\n```\n\nComments:\n\n- `image-name` and `image-version` are not important as there will be no runtime in a Pod;\n\n- script can not be a gRPC server;\n\n- `extended-settings.externalBox.enabled` should be set to `true`.\n\n### Connect the script to the other boxes\n\nFor interaction with other boxes a special `th2-common` library is used. \nIt contains all the required connectors. \nBut they should be configured before use. \nThere are 2 options to configure the connectors:\n\n1) Specifying settings manually \nIn this case you should get settings from Kubernetes config maps, create configuration files in the project with the script and specify configs folder while creating `CommonFactory` instance.\n\n2) Automatic settings\nIn this case you should have `kubectl` configured to work with your th2 cluster. \nYou should specify Kubernetes namespace and external box name while calling `CommonFactory` constructor method. \nIn the case of previously provided config, the box name will be `script-entry-point`.\n\n#### Common factory class (for specifying settings manually)\n\nThis class contains a set of tools for creating connections between the th2 boxes and the **script**. \nConfiguration of these files varies depending on the components that are to be used in the **script**.\n\nEssentially it transfers .json configuration files shown below to the `CommonFactory` object.\n\n - grpc.json\n\n- mq.json\n\n- rabbit.json\n\n\u003C!--TODO: create a link to the page about API’s: th2 components API --\u003E\n\n\u003Cspoiler title=\"Passing .json files to CommonFactory\"\u003E\n\nPython example:\n\n```python\n\nfrom th2_common.schema.factory.common_factory import CommonFactory\n\nfactory = CommonFactory(\n    grpc_router_config_filepath=\".\u002Fconfigs\u002Fgrpc.json\",\n    rabbit_mq_config_filepath=\".\u002Fconfigs\u002FrabbitMQ.json\",\n    mq_router_config_filepath=\".\u002Fconfigs\u002Fmq.json\")\n```\n\nJava example:\n\n```java\nimport com.exactpro.th2.common.schema.factory.CommonFactory;\n\nCommonFactory factory = CommonFactory.createFromArguments(\"--configs\", \".\u002Fconfigs\");\n```\n\n\u003C\u002Fspoiler\u003E\n\n\u003Cspoiler title=\"the .json files\"\u003E\n\n`grpc.json` file\n\n```json\n{\n  \"services\": {\n    \"Act\": {\n      \"service-class\": \"ActService\",\n      \"endpoints\": {\n        \"act\": {\n          \"host\": \"\u003Ckubernetes cluster hostname\u003E\",\n          \"port\": \u003Cexternal port of act pod\u003E\n        }\n      },\n      \"strategy\": {\n        \"name\": \"robin\",\n        \"endpoints\": [\"act\"]\n      }\n    },\n    \"Check1\": {\n      \"service-class\": \"Check1Service\",\n      \"endpoints\": {\n        \"check1\": {\n          \"host\": \"\u003Ckubernetes cluster hostname\u003E\",\n          \"port\": \u003Cexternal port of check1 pod\u003E\n        }\n      },\n      \"strategy\": {\n        \"name\": \"robin\",\n        \"endpoints\": [\"check1\"]\n      }\n    }\n  }\n}\n```\n\n- Contains the host and ports of **act** and **check1**\n\n- Service-class: `ActService` or `Check1Service`\n\n- Ports: external port of act pod and check1 pod\n\n- host: kubernetes cluster hostname (cluster IP)\n\n- Where do we find this information?\n\n  - Kubernetes dashboard -\u003E services\n\n  - CLI -\u003E \\`kubectl get services\\`\n\n`mq.json` file\n\n```json\n{\n  \"queues\": {\n    \"event-store-pin\": {\n      \"attributes\": [\n        \"event\",\n        \"publish\"\n      ],\n      \"exchange\": \"\u003Cqueue exchange. demo_exchange by default\u003E\",\n      \"filters\": [],\n      \"name\": \"\u003Crouting-key from script-entry-point to estore\u003E\",\n      \"queue\": \"not_necessary\"\n    }\n  }\n}\n```\n\n- Contains information about the `routing-key` from the `script-entry-point` to the **estore**\n\n- Where do we find this information?\n\n  - Kubernetes dashboard -\u003E config maps -\u003E script-entry-point-app-config\n\n  - RabbitMQ estore-pin queue\n\n`rabbit.json` file\n\n```json\n{\n  \"host\": \"\u003Ckubernetes cluster hostname\u003E\",\n  \"vHost\": \"\u003CvHost from RabbitMQ. Equal to namespace name by default.\u003E\",\n  \"port\": \"\u003Cexternal port of RabbitMQ\u003E\",\n  \"username\": \"\u003CRabbitMQ username\u003E\",\n  \"password\": \"\u003CRabbitMQ password\u003E\",\n  \"exchangeName\": \"\u003Cqueue exchange. demo_exchange by default\u003E\"\n}\n```\n\n- Contains RabbitMQ credentials\n\n- Data source:\n\n  - Kubernetes dashboard -\u003E config maps -\u003E rabbit-mq-app-config\n\n  - RabbitMQ credentials configured in secrets\n\n```\nrabbitmq:\n# set admin user credentials, it will be created during deployment\n  rabbitmqUsername: th2\n  rabbitmqPassword: rab-pass\n  # must be random string\n  rabbitmqErlangCookie: cookie\n```\n\n\u003C\u002Fspoiler\u003E\n\nAfter transferring `.json` files, you need to create MQ routers and gRPC services. \nThey are the connectors to the required modules.\n\n\u003Cspoiler title=\"Example of creating gRPC routers\"\u003E\n\n```python\nfrom th2_common.schema.factory.common_factory import CommonFactory\nfrom th2_grpc_act_template.act_service import ActService\nfrom th2_grpc_check1.check1_service import Check1Service\n\ndef connect(config_path, tries=3):\n    try:\n        logging.info('Trying to connect...')\n        factory = CommonFactory(config_path=config_path)\n        grpc_router = factory.grpc_router\n        act = grpc_router.get_service(ActService)\n        check = grpc_router.get_service(Check1Service)\n        estore = factory.event_batch_router\n        logging.info('Connection established.')\n        return {'act': act,\n                'check': check,\n                'estore': estore,\n                'factory': factory}\n    except Exception as e:\n        if tries \u003E 0:\n            logging.error('Unable to connect.')\n            logging.error(str(e))\n            logging.info('Retry in 3...')\n            print(f'Unable to connect: \\n {str(e)}')\n            time.sleep(3)\n            connect(config_path, tries-1)\n        else:\n            raise\n```\n\n\u003C\u002Fspoiler\u003E\n\n\u003Cnotice info\u003E\n\nAppropriate packages for ready-to-use th2 modules are available as public packages for Java and Python.\n\n\u003C\u002Fnotice\u003E\n\n\u003Cnotice info\u003E\n\nIf you are using certain configuration for the script frequently, it can be convenient to create a library with prepared configurations.\n\n\u003C\u002Fnotice\u003E\n\n## Details of implementation\n\nHere you will find an example of implementation steps of the **script**. \nYou can also use other classes with the similar functionality created by you or by the 3rd parties.\n\n### Create an event object\n\nThis action helps to recognize what will happen when the script runs. \nFor creating `event` object we import `Event`, `EventBatch`, `EventID` and `EventStatus` classes from `th2_grpc_common` and the `Timestamp` class from the `google.protobuf.timestamp_pb2` libraries.\n\n![](.\u002Fscript_pic2.png) \n\n\u003Cspoiler title=\"Code examples\"\u003E\n\nPython example:\n\n```python\nimport uuid\nfrom google.protobuf.timestamp_pb2 import Timestamp\nfrom th2_grpc_common.common_pb2 import Event, EventBatch, EventID\n\n# Create EventID for future use in requests.\nevent_id = EventID(id=str(uuid.uuid1()))\n\n# Create root Event for report.\ncurrent_timestamp = Timestamp()\ncurrent_timestamp.GetCurrentTime()\nevent = Event(\n    id=event_id,\n    name=\"Raw send example\",\n    status='SUCCESS',\n    start_timestamp=current_timestamp)\n\n# Add this Event to EventBatch.\nevent_batch = EventBatch()\nevent_batch.events.append(event)\n\n# Send EventBatch to estore.\nestore.send(event_batch)\n```\n\nJava example:\n\n```java\nimport java.util.UUID;\nimport com.google.protobuf.util.Timestamps;\nimport com.exactpro.th2.common.grpc.Event;\nimport com.exactpro.th2.common.grpc.EventBatch;\nimport com.exactpro.th2.common.grpc.EventID;\nimport com.exactpro.th2.common.grpc.EventStatus;\n\n\u002F\u002F Create EventID for future use in requests.\nEventID eventId = EventID.newBuilder().setId(UUID.randomUUID().toString()).build();\n\u002F\u002F Create root Event for report.\nEvent event = Event.newBuilder()\n    .setId(eventId)\n    .setName(\"Raw send example\")\n    .setStatus(EventStatus.SUCCESS)\n    .setStartTimestamp(Timestamps.fromMillis(System.currentTimeMillis()))\n    .build()\n\u002F\u002F Add this Event to EventBatch.\nEventBatch eventBatch = EventBatch.newBuilder()\n  .addEvents(event)\n  .build();\n\u002F\u002F Send EventBatch to estore.\nestore.send(eventBatch);\n```\n\n\u003C\u002Fspoiler\u003E\n\n### A message request to **act**\n\nThis action leads to sending message to the system by **act** component. \nTo make it happen you need to create a message using `Message`, `Value`, `MessageID`, `MessageMetadata`, `ConnectionID` and `ListValue` classes from `the th2_grpc_common` library and `datetime` class from the `datetime` library. \nThen, you need to place the message to **act** using `PlaceMessageRequest` class from the `th2_grpc_act_template` library and `ConnectionID` from the `th2_grpc_common` library.\n\n![](.\u002Fscript_pic3.png) \n\n\u003Cspoiler title=\"Code examples\"\u003E\n\nPython example:\n\n```python\nimport random\nimport string\nfrom datetime import datetime\nfrom th2_grpc_common.common_pb2 import Message, Value, MessageID, MessageMetadata, ConnectionID, ListValue\n\nclordid = \"\".join(random.choice(string.digits) for _ in range(7))\nmessage = Message(\n    metadata=MessageMetadata(\n        message_type=\"NewOrderSingle\",\n        id=MessageID(connection_id=ConnectionID(session_alias=\"demo-conn1\"))),\n    fields={\n        \"Side\": Value(simple_value=\"1\"),\n        \"SecurityID\": Value(simple_value=\"INSTR1\"),\n        \"SecurityIDSource\": Value(simple_value=\"8\"),\n        \"OrdType\": Value(simple_value=\"2\"),\n        \"AccountType\": Value(simple_value=\"1\"),\n        \"OrderCapacity\": Value(simple_value=\"A\"),\n        \"OrderQty\": Value(simple_value=\"100\"),\n        \"Price\": Value(simple_value=\"10\"),\n        \"ClOrdID\": Value(simple_value=clordid),\n        \"SecondaryClOrdID\": Value(simple_value=\"\".join(random.choice(string.ascii_letters) for _ in range(7))),\n        \"TransactTime\": Value(simple_value=datetime.now().isoformat()),\n        \"TradingParty\": Value(message_value=Message(\n            fields={\n                'NoPartyIDs': Value(list_value=ListValue(\n                    values=[\n                        Value(message_value=Message(\n                            metadata=MessageMetadata(message_type='TradingParty_NoPartyIDs'),\n                            fields={\n                                'PartyID': Value(simple_value='Trader1'),\n                                'PartyIDSource': Value(simple_value=\"D\"),\n                                'PartyRole': Value(simple_value=\"76\")\n                            })),\n                        Value(message_value=Message(\n                            metadata=MessageMetadata(message_type='TradingParty_NoPartyIDs'),\n                            fields={\n                                'PartyID': Value(simple_value='0'),\n                                'PartyIDSource': Value(simple_value=\"P\"),\n                                'PartyRole': Value(simple_value=\"3\")\n                            }))\n                    ]))}))\n    }\n)\n```\n\nJava example:\n\n```java\nimport java.time.LocalDateTime;\nimport com.exactpro.th2.common.grpc.ConnectionID;\nimport com.exactpro.th2.common.grpc.ListValue;\nimport com.exactpro.th2.common.grpc.Message;\nimport com.exactpro.th2.common.grpc.MessageID;\nimport com.exactpro.th2.common.grpc.MessageMetadata;\nimport com.exactpro.th2.common.grpc.Value;\n\n\nString clordid = String.valueOf((int)(Math.random() * (int)StrictMath.pow(10, 7)) + (int)StrictMath.pow(10, 7));\n  Message message = Message.newBuilder()\n  .setMetadata(MessageMetadata.newBuilder()\n  .setMessageType(\"NewOrderSingle\")\n  .setId(MessageID.newBuilder()\n  .setConnectionId(ConnectionID.newBuilder()\n  .setSessionAlias(\"demo-conn1\")\n  .build()).build())\n  .build())\n  .putFields(\"Side\", Value.newBuilder().setSimpleValue(\"1\").build())\n  .putFields(\"SecurityID\", Value.newBuilder().setSimpleValue(\"INSTR1\").build())\n  .putFields(\"SecurityIDSource\", Value.newBuilder().setSimpleValue(\"8\").build())\n  .putFields(\"OrdType\", Value.newBuilder().setSimpleValue(\"2\").build())\n  .putFields(\"AccountType\", Value.newBuilder().setSimpleValue(\"1\").build())\n  .putFields(\"OrderCapacity\", Value.newBuilder().setSimpleValue(\"A\").build())\n  .putFields(\"OrderQty\", Value.newBuilder().setSimpleValue(\"100\").build())\n  .putFields(\"Price\", Value.newBuilder().setSimpleValue(\"10\").build())\n  .putFields(\"ClOrdID\", Value.newBuilder().setSimpleValue(clordid).build())\n  .putFields(\"SecondaryClOrdID\", Value.newBuilder().setSimpleValue(\"your random string method\").build())\n  .putFields(\"TransactTime\", Value.newBuilder().setSimpleValue(LocalDateTime.now().toString()).build())\n  .putFields(\"TradingParty\", Value.newBuilder()\n  .setMessageValue(Message.newBuilder()\n  .putFields(\"NoPartyIDs\", Value.newBuilder()\n  .setListValue(ListValue.newBuilder()\n  .addValues(Value.newBuilder()\n  .setMessageValue(Message.newBuilder()\n  .setMetadata(MessageMetadata.newBuilder()\n  .setMessageType(\"TradingParty_NoPartyIDs\")\n  .build())\n  .putFields(\"PartyID\", Value.newBuilder().setSimpleValue(\"Trader1\").build())\n  .putFields(\"PartyIDSource\", Value.newBuilder().setSimpleValue(\"D\").build())\n  .putFields(\"PartyRole\", Value.newBuilder().setSimpleValue(\"76\").build())\n  .build())\n  .build())\n  .addValues(Value.newBuilder()\n  .setMessageValue(Message.newBuilder()\n  .setMetadata(MessageMetadata.newBuilder()\n  .setMessageType(\"TradingParty_NoPartyIDs\")\n  .build())\n  .putFields(\"PartyID\", Value.newBuilder().setSimpleValue(\"0\").build())\n  .putFields(\"PartyIDSource\", Value.newBuilder().setSimpleValue(\"P\").build())\n  .putFields(\"PartyRole\", Value.newBuilder().setSimpleValue(\"3\").build())\n  .build())\n  .build())\n  .build())\n  .build())\n  .build())\n  .build())\n  .build();\n```\n\n\u003C\u002Fspoiler\u003E\n\n### A verification request to **check1**\n\nThis action helps to verify whether the response from the actual system equals to the expected response. \nFor this we need to filter the messages and then apply verification rule. \nFor filtering we use `MessageFilter`, `FilterOperation` and `ValueFilter` classes from the `th2_grpc_common` library, for sending `check rule request` we use the `th2_grpc_check1` library.\n\n![](.\u002Fscript_pic4.png) \n\n\u003Cspoiler title=\"Message filter code examples\"\u003E\n\nPython example:\n\n```python\nfrom th2_grpc_common.common_pb2 import MessageFilter, FilterOperation, ValueFilter\n\nmessage_filter = MessageFilter(\n    messageType=\"ExecutionReport\",\n    fields={'ClOrdID': ValueFilter(simple_filter=clordid, key=True),\n            'Side': ValueFilter(simple_filter='1'),\n            'Price': ValueFilter(operation=FilterOperation.NOT_EMPTY),\n            'LeavesQty': ValueFilter(simple_filter='0', operation=FilterOperation.NOT_EQUAL),\n            'OrderID': ValueFilter(simple_filter=response.response_message.fields['OrderID'].simple_value)})\n```\n\nJava example:\n\n```java\nimport com.exactpro.th2.common.grpc.FilterOperation;\nimport com.exactpro.th2.common.grpc.MessageFilter;\nimport com.exactpro.th2.common.grpc.ValueFilter;\n\nMessageFilter messageFilter = MessageFilter.newBuilder()\n  .setMessageType(\"ExecutionReport\")\n  .putFields(\"ClOrdID\", ValueFilter.newBuilder().setSimpleFilter(clordid).setKey(Boolean.TRUE).build())\n  .putFields(\"Side\", ValueFilter.newBuilder().setSimpleFilter(\"1\").build())\n  .putFields(\"Price\", ValueFilter.newBuilder().setOperation(FilterOperation.NOT_EMPTY).build())\n  .putFields(\"LeavesQty\", ValueFilter.newBuilder().setSimpleFilter(\"0\").setOperation(FilterOperation.NOT_EQUAL).build())\n  .putFields(\"OrderID\", ValueFilter.newBuilder().setSimpleFilter(response.getResponseMessage().getFieldsMap().get(\"OrderID\").getSimpleValue()).build())\n  .build();\n```\n\n\u003C\u002Fspoiler\u003E\n\n\u003Cspoiler title=\"Check rule request code examples\"\u003E\n\nPython example:\n\n```python\nfrom th2_grpc_check1.check1_pb2 import CheckRuleRequest\n\ncheck1_request = CheckRuleRequest(\n    connectivity_id=ConnectionID(session_alias=\"demo-conn1\"),\n    filter=message_filter,\n    checkpoint=response.checkpoint_id,\n    timeout=3000,\n    parent_event_id=event_id,\n    description=\"User receives the ExecutionReport message.\"\n)\ncheck1_response = check.submitCheckRule(check1_request)\n```\n\nJava example:\n\n```java\nimport com.exactpro.th2.check1.grpc.CheckRuleRequest;\nimport com.exactpro.th2.check1.grpc.CheckRuleResponse;\nimport com.exactpro.th2.common.grpc.ConnectionID;\n\nCheckRuleRequest check1Request = CheckRuleRequest.newBuilder()\n  .setConnectivityId(ConnectionID.newBuilder()\n  .setSessionAlias(\"demo-conn1\").build())\n  .setFilter(messageFilter)\n  .setCheckpoint(response.getCheckpointId())\n  .setTimeout(3000)\n  .setParentEventId(eventId)\n  .setDescription(\"User receives the ExecutionReport message.\")\n  .build();\n\n  CheckRuleResponse check1Response = check1.submitCheckRule(check1Request);\n```\n\n\u003C\u002Fspoiler\u003E\n\n\u003C!--TODO: create a link to \"Writing your own script\" --\u003E\n","fileInfo":{"path":"fundamentals\u002Fscript\u002F_index.md"},"headings":[{"anchor":"#script","value":"Script","depth":1},{"anchor":"#typical-use","value":"Typical use","depth":2},{"anchor":"#configuration","value":"Configuration","depth":2},{"anchor":"#external-box-configuration-for-the-script","value":"External box configuration for the script","depth":3},{"anchor":"#the-entry-point-and-the-script","value":"The entry-point and the script","depth":4},{"anchor":"#connect-the-script-to-the-other-boxes","value":"Connect the script to the other boxes","depth":3},{"anchor":"#common-factory-class-for-specifying-settings-manually","value":"Common factory class (for specifying settings manually)","depth":4},{"anchor":"#details-of-implementation","value":"Details of implementation","depth":2},{"anchor":"#create-an-event-object","value":"Create an event object","depth":3},{"anchor":"#a-message-request-to-act","value":"A message request to ","depth":3},{"anchor":"#a-verification-request-to-check1","value":"A verification request to ","depth":3}],"read_before":[],"terms":[]}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.de126758.js" defer></script><script src="/assets/js/page--src--templates--testing-page-vue.df45be81.js" defer></script><script src="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" defer></script><script src="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js" defer></script>
+  </body>
+</html>

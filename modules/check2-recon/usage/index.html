@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>Usage | check2-recon</title><meta name="gridsome:hash" content="ed0a5a389d3618f0823526ee1d1166b55f4800f5"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="Usage"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.1608e59d.css" as="style"><link rel="preload" href="/assets/js/app.de126758.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--module-page-vue.f289f57b.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.794a6086.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.74aa3573.js"><link rel="prefetch" href="/assets/js/page--src--templates--explore-page-vue.d5cbd3ec.js"><link rel="prefetch" href="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js"><link rel="prefetch" href="/assets/js/page--src--templates--testing-page-vue.df45be81.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--tem~bc21bc85.2007b9cd.js"><link rel="prefetch" href="/assets/js/vendors~vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.3cda9093.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--create-th-2-env-md.f20fe7b3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--index-md.63c19fd8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--1-base-system-md.ef88ea5f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--2-infra-schema-md.f6959c4e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--3-th-2-md.4b281688.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--index-md.52082700.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--hardware-md.1bee5833.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--index-md.2f10ec5d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--os-and-network-md.2b1dd007.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--overview-md.216bcb4a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--software-md.cdc7fd2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--index-md.2e96998e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--index-md.8d64f31a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--index-md.9536b2c8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-mgr-md.24c53826.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-operator-md.3ef42480.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--overview-md.f01449c3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-repository-md.16040949.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--index-md.f535a03d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--links-md.fb415f25.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.6cb550be.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--pins-md.6122a5e2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--data-services--index-md.57b87d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--index-md.e37a24d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--storage--index-md.195e7f0c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--checkpoints-md.8c82640b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--communication-md.cce16947.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--configuration-md.64f635ab.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--index-md.28295177.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--overview-md.a6f014f6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--rulerequests-md.d0cb8321.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--verification-rulerequests-md.13054aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--config-md.1f58165f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--index-md.9bcd96e6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--overview-md.749d6c94.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--repositories-md.be0e2216.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--config-md.86ef3153.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--index-md.a37dbea4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--repositories-md.69f59dc9.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--usage-md.3d219b1a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--config-md.b49b89d7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--index-md.1b4acd02.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--overview-md.7434b6a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--repositories-md.c64f260c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--config-md.415d8d63.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--index-md.96378d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--overview-md.6a08bb65.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--usage-md.59f0cadc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--config-md.d826a04f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--index-md.315f556e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--overview-md.7d31b043.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--repositories-md.1d3e91a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--usage-md.a0cfe3ea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--chain-verification--index-md.d714f97c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--index-md.db217fdb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--modules-md.6b3f6f31.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--quick-setup-md.50f19130.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--architecture-md.c2d4ed18.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--index-md.96505f72.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--key-concepts-md.f619799c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--th-2-net-on-github-md.e5380a3b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--index-md.63aafe2b.js"><link rel="stylesheet" href="/assets/css/0.styles.1608e59d.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-01e287c2><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-01e287c2><div class="meta-btns" data-v-01e287c2><a href="/" class="logo-container active" data-v-01e287c2><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-01e287c2></a><a href="/modules/check2-recon/" class="text-lowercase font-weight-bold v-btn v-btn--router v-btn--text theme--dark v-size--large"><span class="v-btn__content">
+				check2-recon
+			</span></a></div><div class="spacer" data-v-01e287c2></div><div class="spacer" data-v-01e287c2></div><div class="search-container" data-v-2361f76d data-v-01e287c2><button class="search-btn" data-v-2361f76d><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-2361f76d></i><span data-v-2361f76d>
+    Search
+  </span></button><div class="v-dialog__container" data-v-2361f76d><!----></div></div><div class="header-btns" data-v-01e287c2><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-01e287c2></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><!----></div></div></div></header><!----><main class="v-main main-container" style="padding-top:1288px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="d-flex flex-column doc-layout mx-auto" data-v-4ce9b4a1 data-v-c0d6731e><!----><div class="doc-page" data-v-4ce9b4a1><aside class="pt-5 content-tree-panel sticky-aside doc-page__aside" data-v-34f98add data-v-4ce9b4a1><div class="px-3 ml-n3 border-right" data-v-34f98add><!----><div data-v-34f98add><div data-v-34f98add></div><div data-v-34f98add></div></div><div class="v-treeview ml-n3 py-2 v-treeview--hoverable v-treeview--dense theme--light" data-v-34f98add><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/check2-recon/overview/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Overview 
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/check2-recon/repositories/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Repositories
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/check2-recon/config/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Configuration
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/check2-recon/usage/" aria-current="page" class="active--exact active nuxt-link-exact-active" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Usage
+						</div></a></div></div></div></div></div></div></aside><div class="container space-bottom px-md-12 px-4 doc-page__article" data-v-4ce9b4a1><article><!----><div class="vue-remark"><h1 id="usage"><a href="#usage" aria-hidden="true">#</a>Usage</h1><p>In files containing the rule class Rule should be defined. Structure of class Rule is as follows.</p><p><img alt="Rule class" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 1404 960' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-14926f5194ad207fd698bbe18ff45631'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-14926f5194ad207fd698bbe18ff45631)' width='1404' height='960' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAsCAYAAADVX77/AAAACXBIWXMAAAsSAAALEgHS3X78AAAG90lEQVRo3u2Z20/TSRTH%2b2tLKQi1xUIp4IVLRaAtuKty0V1BEdRVEa8L6HKR%2b%2brGVzcxJj7vruHBv8HEJ33zwScfVATiyz5gjEYTTUx8UB80KIXuDPv5kclvW1oXi3TZSb7pzJy5/ObMnO85MzX5/X7TSk1Xrlz5O1NeXp7S1tbmGx4e9g0MDCQUg4ODvr6%2bPl9HR4evp6fH193d7evs7PT19vbOyRI9v0DJ0NBQaVNTk3teE3Lxd%2b7cCb948SL85MmT8NOnTxMGOf6zZ8/Cr169Cj9//nwOcl5Zl8h5dTx%2b/HjmzZs34atXr/4xrwC58/IjRJpdCnz48GH21q1bs%2b/fv599%2b/bt7MuXL2dnZmZml2j%2babnQGzdu/D6vgP7%2bft%2bjR4%2bkMPTp06dQopIcW84xOTkZam9vD42MjIQuX74cOn/%2bfOj27dtzso8fP4YSmaanp6ekAq5fv/7bvALOnj3re/36dXip07t378LyOE5NTS353Ddv3hyZV0Bzc3PRtWvX/pyYmBi7e/fuuMCEjvv378%2bV7927N6HWy7LAuA69TrZfCLLt6Ojo%2bNjY2PjDhw/nIOYdf/DgwZwsVv/FQswxKuaevHjx4q%2bqR8gWKFxhXjAgvJ91LqdpWrbD4Sj2eDzexsZGe05OTl5ubq5H1G2Scln2er0et9u91uVyFYqyNzs7O9/pdJbU1NSkl5WVOTIyMiplH9lenLBlDZmsVmtA/syfAKEEn0C52WyWp2FAoFeg1W6328TvdwIdki8Fdgt0C5wQqKd9rcA50T8oB6usrNQuXLhgunTp0rJDaWmpxpqDqgJyBIrIy0oZHtqBrLeBVNpYBFZhOjb6pCabCURTgBajo/Zf4YBoCljsgs3JqAB5lEtAhsA3AnUCu5BvFtgrsF2gCvlm5JIfdgp8K1CNba0RWCc9rMCWZaqUiApYLyAvCUMCLQINnI6dlA%2bw6EZ44ozAVoFDAt%2bjjB30KRX4QXJiMnLAaqVh1gKDWCLUpSeJGcQkQXMMHlDbJYvdfzYJWpXFWUGKsvNWpW2KoSwV5MCknMnAAT5ITBJYE/beglzWt8unA8jwKPbeKnAETqiDGF0C%2bwSOMc4JhUy15ayAYnYxg4Vuh%2bjcLG4LhFaEF6imXEdZyssIkHRvsAUirE02DrArDd1xDhhpd9MEMlGKsY223EnQtIiFJz0JuontLZjFKlyj3FEPdWkKGcpdziOfygnS7wZ2JkqHX0yYmYc2ruVEgjXkuwRO8yuJcA/lI9wIpV0fF9gAw/fCA2kQZIcSSHXRtgXizCJC7Efe8JVO0j8UoN4G1wrkExnms0s%2biDKHOie7XkjZDQnWs7u51G9V2hVze5TzFTCWc7mYwEbFn8ebrMogVhYXiy8sEepSlLESjRTmrFQVIHdrv8AmBPEiiCbVfHCBtsEIcrWfng8Y2hsRiPIbjDFOQMFO1eyyOe4rKfmNJlD8BV1eZhTbtuABbHGOY6ePPcp7g2YwWXOEEF0N1TVlDcFooXAW4W49IewOmHoP5UPID1HfBKvvp85FFPkL9c2Um/AGZwirDyLbxXhNeJkqvuko5cN4kOPIOmnfjNfZy3c3EMEepl0aY9cRsrfEGwpLn3%2bK%2b3wFrrEZNpdEWU6Iu43feu4CbYoCM%2blfw8fodr9Rsf1q%2btdij0dxr%2bX0b8Sr%2bJWxgkq/GmKLYt4iGhi3ln42fit4rKkynOK4Q%2bF4k22RNmlbYg6I%2b01wqZP2tRRQrBCPG0KxYh6ruNunK%2bGx%2bjZgU8jITVSo%2b91UZA6CIU8U32wzkJgbPslRXqWcyvxm5DoRZjFGJjKLcrtdo5wwLVYoLGOCkxDHsMCPvA3sw0674IhjhMdtEFsPp0ja%2bc8Q3XGlnyS9QcLmfsjqNON3MsZBvqeLug6IdRBCG2DuDha1WyE42b4PPrFDjvsYv40NWFABxYr2swiHfeTzCGsziRfWEcpuoN8B8qsN/Qvo5%2bUD9PC3UAmP8/joauTpzOFVdl%2bfM1/J61dtPXjzICvkG1xsZh7jWuIlwZWSkkIBWhz1mgGmKLK4nsScEEcB/jOfo1XEES/gmBVwxPVj6lWOtp02u2nnZfxc5tiGPy9E5mUOD3n9ip1FAOXkOwqIB7ISdR0u4VEzB5veC%2bm0QESnlaBnCIJro14S3jnar2ehnchPKkTYAAGegmAPQFytjDlAPogiWlHCT0SFJ1DEYtxlRA7wGO4CdsUN6i4vE5eiPoHbISMHEVuK4bqrt0tTYvFUxU3ZkNmYP4/2DuVZPUVpbzFF/jPm36QqVQEumNgPo/oNV8cAJuE3XCv9oAI2DkS52vqVeuPY%2bhhlhMEBZZ6KCN8R66ocD6pMUf6y06IQSzwwxyCnz4Vpgfr/05dKfwFAPwMDluoJQQAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="1404" data-src="/assets/static/rule-class-uml.8df89b3.e6b4299dcc3048e023ad228f90a96b56.png" data-srcset="/assets/static/rule-class-uml.82a2fbd.e6b4299dcc3048e023ad228f90a96b56.png 480w, /assets/static/rule-class-uml.cbab2cf.e6b4299dcc3048e023ad228f90a96b56.png 1024w, /assets/static/rule-class-uml.8df89b3.e6b4299dcc3048e023ad228f90a96b56.png 1404w" data-sizes="(max-width: 1404px) 100vw, 1404px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/rule-class-uml.8df89b3.e6b4299dcc3048e023ad228f90a96b56.png" class="g-image g-image--loaded" width="1404" alt="Rule class"></noscript></p><p>Getters:</p><ul><li><code>get_name()</code> - name of the rule;</li><li><code>get_description()</code> - description of the rule;</li><li><code>get_attributes()</code> - required message stream attributes;</li><li><code>desciption_of_groups()</code> - dictionary containing names of the groups and its type.</li></ul><p>Group types are available in a <strong>check2-recon</strong> package. At the moment there are 2 group types:</p><ul><li>Type <code>single</code> means that all messages in the group have unique hashes (key of the message) - a new message replaces old.</li><li>Type <code>multiple</code> means that several messages with the same hash can be stored in one message group.</li></ul><p>Examples of getters:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token comment">##### rule_demo.py #####</span>
+<span class="token keyword">def</span> <span class="token function">get_name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+       <span class="token keyword">return</span> <span class="token string">&quot;Rule_demo&quot;</span>
+       
+<span class="token keyword">def</span> <span class="token function">get_description</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+       <span class="token keyword">return</span> <span class="token string">&quot;Rule_demo is used for demo&quot;</span>
+       
+<span class="token keyword">def</span> <span class="token function">get_attributes</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+       <span class="token keyword">return</span> <span class="token punctuation">[</span>
+           <span class="token punctuation">[</span><span class="token string">'parsed'</span><span class="token punctuation">,</span> <span class="token string">'subscribe'</span><span class="token punctuation">]</span>
+       <span class="token punctuation">]</span>
+       
+ <span class="token keyword">def</span> <span class="token function">description_of_groups</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">dict</span><span class="token punctuation">:</span>
+       <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'ExecutionReport'</span><span class="token punctuation">:</span> MessageGroupType<span class="token punctuation">.</span>multi<span class="token punctuation">,</span>
+               <span class="token string">'NewOrderSingle'</span><span class="token punctuation">:</span> MessageGroupType<span class="token punctuation">.</span>single<span class="token punctuation">}</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Methods <code>group()</code>, <code>hash()</code>, <code>check()</code>  in class Rule are responsible for messages processing.
+Every incoming single message comes to the <code>group</code> method, then <code>hash</code> method, then <code>check</code> method.</p><p>The lifecycle of an incoming message is:</p><ol><li>Comes in rule from some kind of pin. A record about this is written to log.</li><li>The <code>group(message, attributes)</code> method is called for this message. It is calculated in which message group the message should be placed.</li><li>The hash of the message is calculated using the <code>hash(message, attributes)</code>.</li><li>Searches for messages with the same hash in other message groups.</li><li>If a message with the same hash is found in each group, <code>check(messages)</code> is called for all these messages. Depending on the types of message groups and their number, it will be determined which messages to delete and which to keep.</li><li>If no similar messages are found, then just add the message to the group.</li></ol><p><img alt="Rule flow" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 967' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-b5cbf2484048a74af5082bc344c735fd'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-b5cbf2484048a74af5082bc344c735fd)' width='2560' height='967' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAYCAYAAABKtPtEAAAACXBIWXMAAAsSAAALEgHS3X78AAAJLElEQVRYw82YeVBV1x3H7333AVIqDCgGiWhGDDiEJBLSAGm1WtfUmWSqsWprrdU/qhOnOu4O4zKu1RpxUHHf92V0FPd9xx33BUVU3DcWF%2bTB4/bzu7nnzROxtU2ccGbOnN879yy/3/e3nqdp/2Pbu3evNRYXF2uNGjXSKlMT3vbt22fRMir6J2%2bRkZG6TYbpup5A/0B%2bNGzYUFuxYoXn8jd1xejbzHvPvWlfeWHfmeDeFpCRkRG6YcOGuLFjx9ZLS0uLPHjwYK09e/bU4vv7MBDB6KHpteieeaEZhY7woj1r7P5G2t4ne7zpmvR60GGKz127dmnwaPG7YMEC7fDhw8bly5edp06dMtatW/eDEgcOHKht2bLFsXPnTseOHTte6TK3efNmx%2bjRo621EydO9KCLsMFHjhwJFdo0TVnnW1BQ4Pfo0SO/bdu2%2bcCAwVqD0Wl3%2be2Uua1bt/rcvXu3SmFhYRXu8N29e7exf/9%2b54EDBwy60%2b4WLXvUXjlH9qszbt686ffy5csq7PcVXpn3F1AUAP369bN47d%2b/f4XKvHPnjv7Wmk9NTRVBtStXrli/YTgYEEKEBqzXDrp%2b/bpmg2N11bKzs187W33Pz893rF692oF1OXAlx4sXLxwV8cL3CnlEkQJOhNBXr17Vb926pU%2baNEnx5gtoX589e7Y31tp5yJAh71mzPXr0CJg7d27iokWLEhcuXGj1xYsXW79lnDdvXmKfPn0CZW10dLTepUsX3b6sGqiHqstnz54di3mlXLx48V9Tp06tVxGDU6ZMMWQcP3587QsXLozNyspKXbZsWdx/Ax/%2bPACPGjXKAqV3797Vz5w5MxxB09asWdNQ5rBIP3iKqOgMFLfK9GpYYM7gwYPDtPnz58e7XC63PV8m3e12l0mTCUzMRNjfVKA1v/Pnz1cTetWqVVFoL18djhvcRtgIyCqXLl2q9vjx4%2bBDhw4FyVriRdD9%2b/dz1Fq2uRCwPmTkw4cP5yPUNKxkmox5eXlzmK9f/u4OHTo40e5xdYbwiHZ/J99QQNjz588Dzp07FwXAH/LZybQOUFlkLvPJkycvcb3S27dvm8uXL/9Cmz59ejyXlbLYZJEbhsvwjTJM2M0lZSBnEui%2biomJqYF5bSGAbKPvgU7r2bNnJIeHbN%2b%2bfVFRUZHsL7p27VpRSUmJiTbGY26H5Ewsw835YreBWMr3gi3zxVjBCxHg6NGj38P4t0Kz3%2bRuE3At4XJzczuyz4fME0YXwKuNGTOmn9zBucXsK8JVhE7nW1D79u2jCH7f2WeUYWHNmP8YWbJRtCin9OnTp2UAYeLGn4l5fc4lJloxCSpmTk6OSTATEzHRnDUuWbKkMYc4jh071hfh%2b7JxAJd0xffFj3QCTqpoAVSLbty48RILMlmXDLCZAGoChPzOtKPxYBGMtS7utQBg3TAEbyWC2IqQORNNmljF17KvFq1z586%2bkAbBuEtpaamJokrguUjuY89SWYfP14CHv8k53OtGniSm3%2becLLp5/PjxUkArw7rK4NsCIA7t5aGVQg7KZywA3QIusGiYKExPT/%2byvBkyr2PW1YVOSUkJA9nLyiTv3bt3nOxSnTEOABpjDb8FsM9kbUJCgg/ayFBrYerWhAkTap4%2bfbo%2baWoRQMwC6NlocBbnLwDkj2RfSEhIaJs2bTyxgHXpXm6Ujxt%2bKvNYU01MPQjhP8aVYsVVRUloPBsezczMTBeWVyZgk2V%2bpTVo0MCnefPm4S1atAhv1qxZeNOmTcNbtWoVLnMtW7a0xvj4eF87%2bjrRjORRHReoBoIhiqGuXbuGnjx58juY/3vr1q2DKgpEw4YN0%2b1gGgCj3WDmH0Tjmm%2bZiARsnSCtQNCxzN4E6imYeW2ZAERfMlOFQRChJ4tFPXv2zBRXAOCMQYMGBb91GmzXrt0rhRBjdVV0kFaM8uvRuAPzMzBNA9CMEydOGHbF9lpqw0ockq4wbWPlypXGuHHjjKVLlxqTJ082Zs6caQns7%2b8f2rZtW4d3ShUQ6FXVj40bN/pwvgUG7uXAuvQ5c%2bZ4FgPYJwD/DRYtQd3HmsSsLM2MHDlSHzFixCtd5uRbp06dlJY9AHCRFDvRjDWl0gP5OpiU9A%2bEtis2qQZrK1qYE1q0RBypK2u9K0K7YqxtjxYt1SUuFD506NBPiPQRWGEtXCUG64kB%2bHh6AnEqRlyI86JFMUpRvXr1snhNTEzUygFnNaxV/7/KYVUNcolUX1ZXdPlR0d6/y38vv867r1271oB5vW7duuIqOnQQJnwYq8qj38OyHuCS94ljuXyLVZWp4nXGjBnWOHz4cG39%2bvUSyA0qVQfZT/tRwr/TB4dXa9KkiaU90rBVdJG7A3GrXHK5lTEky8go2Yus8Kkyf293fSePIfU6Uy%2b08iP1uQQlLTk5Wdu0aZMObcCkkxTlhGEn6ciRlJSk16lTR4uKirJKbSK1TgbS0bBOFpLKzttEayjtUuQ0RsjfU/X9AX/%2bVlIoAfgrzq9ql8HvRvi3bd27d/f4HKnI8WPO4kETyPugE6lyGkGuudQB5Za84seA%2b/P/MaGEF9%2bVkSAagO%2b1R1P/pE%2biQhuI9uQN8EsJ8HQ/ihx/1gfYvaqUsFR8wRQ6Wd41PAKuUpZACg/EeoLlPvzaIOpb91J//PwgkHctzaO9LxA6R%2bpw7yal6KxZs6Q8lrTlS4rqRhS/gWucZ7xJtF89YMCAL6VCpWgppZdI/uasmyqF6br%2bCymvtcrW5F8huxn4/Ekpp8m/xfhuCX7qokorIXqXCiho9C%2b2Rv0pj%2bMePHgQS4r8nDGaVBeNNqV%2bdxPgrPXMi40HUmw5AUAKsaBKBwBFjMc/Ydwqe4nWLtzAhWZd5G4XgliWgMbbECR/TX3eC7D%2bxKPmrzzA/iibeYonAZyscfO9lEBnXvnhD4n3AgICgmwAnFplbGjYYYPxEZo9JY8l1USTlO/FVItpLKlChsiQOd4IomErrVF0xXbs2PHP8jAjZrgBwSUvPPblVhAIK1dTQZBUpSK0/L3VEsH6osBkrKEbz%2bIotZ7glULMuEhBk0GVl0ka2y6BkCDoi9An5OUnjxep5bGQuSrAYgWVEwD5L06BgNk7/gNQbyxF8XH1Tf7za0bcaEcaTPB6fP0kvP4bKUwwccEenKEAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/rule-flow-dfd.42db587.21f190ad5411d538a6189d989a5cd665.png" data-srcset="/assets/static/rule-flow-dfd.82a2fbd.21f190ad5411d538a6189d989a5cd665.png 480w, /assets/static/rule-flow-dfd.cbab2cf.21f190ad5411d538a6189d989a5cd665.png 1024w, /assets/static/rule-flow-dfd.2665e34.21f190ad5411d538a6189d989a5cd665.png 1920w, /assets/static/rule-flow-dfd.42db587.21f190ad5411d538a6189d989a5cd665.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/rule-flow-dfd.42db587.21f190ad5411d538a6189d989a5cd665.png" class="g-image g-image--loaded" width="2560" alt="Rule flow"></noscript></p><h2 id="group"><a href="#group" aria-hidden="true">#</a>group()</h2><p>Method <code>group()</code> analyses message with an algorithm written by a user and
+sets the message's group id. Further, it will help to reveal the group the
+message belongs to. Let us say, it means that we put a message to the group
+with <code>group</code> method.</p><p><img alt="Group method" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 797' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-0438bf8794cf32380924586de53145e7'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-0438bf8794cf32380924586de53145e7)' width='2560' height='797' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAUCAYAAAA9djs/AAAACXBIWXMAAAsSAAALEgHS3X78AAAIAElEQVRYw81XeVCTSRb/coeEcAkKLmCCiyDXSBRcxMXBgll1WHbHXZnayy2rxAtqx6qtsspy9Z8dKQx4jq5HrcfoIqszOnKIOGOtMyGQyBGuJFwSELnPCCQESOh9/aVDwSzgMmOVdtWv3vu6%2b32v%2b73X/V5T1A9siYmJFEKI5jMzMyU3btyIuHbtmvT69esL4urVq9Jbt25JS0tLpXK5XJqVlUX3vU4O/xt0rDt79mxIUFAQA%2bs9duwY9dba0aNHsQHohej1%2bizg0fj4uGViYgItBIvFgoxGI1Iqlai2thaNjo7Sfa%2bTA1ixjo6ODn1cXBwP61WpVG/PAEeOHJk2QHNz8%2bd4cVNTUwbYjAnoKIbVajUCRqHPCBswY0xOTprHxsbMZWVlZtiAeXh42AzjZvv4fADjmuBfU%2b3t7fWbN2%2bmDQBGfHsGEAqFdpYVHh6%2bKikpKXDTpk3S7du3B8ACw2NjY8O3bt0aGh8fH5aQkBCUmprqm5ycLMZISUkRZ2dni2/fvi0%2bePCgePfu3eK9e/eK9%2bzZMy/wHJjru2HDhhA2m83Fiv38/Ki33gQCAQeIC8AdEEz4nxIsI3B8gypFAA71DjUOl8t1LygoYERERLBjYmJY69evZ1%2b4cIHh4%2bPDDwsL46xZs4YtFot53t7e/NOnTzOuXLnCwOMXL178vwFRw8TKHBwc3O0GYLFY74YBiPd9AesBPoAIQChASmgAQIyj9g3oc3vnIoAsinYKgEEom/DUjD7WO2eA8%2bfPMy5dujRv6F2%2bfJkhk8kYq1evpucfPnx4LgN4EM/jCPAGRAHeI4gEeJJIiCVzqRnG%2bdEG%2bOy%2bhjKRmiSnpIPxjbqX%2bXUFQD03Cst7mF/K2xaveePGjXNGAIPJpCNA4OjE9vL2Yy5bvoI5BAtycVvK4jkIuJe%2bqqT%2bca%2bcEgid2Nt2JM8S/mjnJ9Rf//5PKvVvny2I0HUxtMGYTNaSaQMwZtuwexQtaj/3il5S1L59%2b%2bi0hCnG/v37ZwHSl2TXrl3eXl5etDaJREJ0TyvnODs7L122bKknZIS1jkJhiKOjYxDw6zw8PDxdXV19YXwl9K2G1PmeSCQKdHV18YFxKVyMOGPQ9QSuKl8DWqGnp%2bcSBoNJG4DNttkhICyKuv9IQfP/ftoiyVV2Rj4obpd%2bVfxyLVAbSmwUIkQKNDLrid4WiSMjI/YixQQYswMKDwwjFC5WKD7qIL9z57LiSokvi6Q%2bOgjwRU3Am0FxhPBJOhQQD/J%2b4BFwJvfLrGYvyyuaTTdfDiNU3zU53tBttTR0WWjAtw2dk%2bMtEJ4KnSGFFsBlJm72MnVmg8qLpj09PS/gDsD5lwUewIbgcDg87rqISMyzrt9XHH2sfP5NofL5/ccqfU5BcWMO8DmPVc0YuV8/0z/Ik%2bsw/wCP5X2nyy1UNuc8KmnKA%2bRj5H6rzc/9Tpf/sKg%2b/6ECoyE/n/AFwOfJ6/IeFTcW3ilU35L%2b/JfYkCwnFzesn8uHY5aUtAPzzBJd/xe94whp2oyWav0rpH1polHXMY77UEPXhKXTiJCy/lUqbQCz2TyJq1i1Wm2BB4q1srLSWlRUZIX63trf3z9J6u8Wd3f35djTfD4fn0E3JovlHhCwCnsjuLCksWoAZqob%2b1Hl80FUrTeg2tYRpG4aQIqqNtTYNYG0oBx/47HSuh6aL9V1ozLg28AjKm0nyAyj8oZeem7LAEIlNe1I125CHSOIlgHHIl2nZTwwPMa2FgcBXos73Avu/v7%2beC2hOU9rn3SPwQY1XRN38hWW3P%2boLXcfKiw5TyosKm23pa7dPN4GPyqpIxFg9/JCDQzx4sCBA/Omnhx5U7Kq3nChpG4ovUjTlwE0s7Rp5ERJ3aBMXtObrtD0nyx7PnpS1WCQQd/JZ43DGcp6w4li7cAJeU2PTFk/lFmsGzwJMhlYBsvjOQptvwzmgKwxA2hGadPwuQJV63HZHR17vrVUvTBnD00hpO9HqM2AUCsYFxsTf7cOAg%2b0D5ylbHj1CS0A3h2CDQ739vYa%2bvr6XgFPA/PQNzQwMDCm0%2blqoqOj8RmmoJafdfVKxCu45Gzj8%2b6PuwA/IbyYUHzhrAR4ke9gMobLZexN7MlAMsePnHNcWK0id4Y9zeLGJZhuYZHvU5VVNXSlqNANnal%2bMdZX1WJqqmo16TGqW8f00Ed4U5Nab%2bx7Wj2wkxY%2bc%2baMCGoBEbyzRZiHUlV06tQp%2bvvcuXMiKFmd0tLShIGBgfT8Q4cO0ZTNmQ4IjqfXco%2bWtm52/AdbhL/5bZLDL7ZsE27dliD8MCFRGBQUvCQtPZOb%2bKuPBEkf/87hD3/6s0NC4q8FO4APl6512RC9UbQ/5S/82M1xjr//404HTLds%2b1C4JlzqGhwS6hYX/4HjpvdjRT%2bLinbCmUDit9IDjh%2bt3MnZdvfuPHSZqhyyXYLHb5ZzZNlV/PQsNS/tZhmNTz9/xjsOSP9XBU92u5J3IquS/%2bnN8sUXZfDCm68S9IDUhL22wuZBxnLiYbGtj%2bFFPArRwcDREUTm%2bdCUwfAgMhLgXRdchG18zuOY/6xrUfs5e09DUXDpUVqtltJoNP%2bD2tpaCsKfksvlVFRUFC109%2b7d7/%2bHRULeh2wslIRzMOEjSD8%2bGmHkXRBCeHul6E8QQua5kWPxfbgSI88ywMWcuuk0%2bLiiF46BgSrSDuHjMAu2PgMl1wwu2liva6wZ7wB7mTvzrsA8c4ESmDljnEU2uBDeWPsvykZNxRYUBcQAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/group-method.42db587.c729ac4a5df82d4aa8d56c0c1e3f3038.png" data-srcset="/assets/static/group-method.82a2fbd.c729ac4a5df82d4aa8d56c0c1e3f3038.png 480w, /assets/static/group-method.cbab2cf.c729ac4a5df82d4aa8d56c0c1e3f3038.png 1024w, /assets/static/group-method.2665e34.c729ac4a5df82d4aa8d56c0c1e3f3038.png 1920w, /assets/static/group-method.42db587.c729ac4a5df82d4aa8d56c0c1e3f3038.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/group-method.42db587.c729ac4a5df82d4aa8d56c0c1e3f3038.png" class="g-image g-image--loaded" width="2560" alt="Group method"></noscript></p><p>Implementation example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token comment">##### rule_demo.py #####</span>
+<span class="token keyword">def</span> <span class="token function">group</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> message<span class="token punctuation">:</span> ReconMessage<span class="token punctuation">,</span> attributes<span class="token punctuation">:</span> <span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+       message_type<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> message<span class="token punctuation">.</span>proto_message<span class="token punctuation">.</span>metadata<span class="token punctuation">.</span>message_type
+       <span class="token keyword">if</span> message_type <span class="token keyword">not</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'ExecutionReport'</span><span class="token punctuation">,</span> <span class="token string">'NewOrderSingle'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+           <span class="token keyword">return</span>
+       message<span class="token punctuation">.</span>group_id <span class="token operator">=</span> message_type
+       message<span class="token punctuation">.</span>group_info<span class="token punctuation">[</span><span class="token string">'message_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> message_type
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><h2 id="hash"><a href="#hash" aria-hidden="true">#</a>hash()</h2><p>Method <code>hash()</code> generates the hash key for the message to join it in the future.
+Hash key depends on one or several fields of the message.
+The fields are defined by a user in <code>method</code> implementation.
+If all these fields are the same in 2 messages, final hash keys also will be equal.</p><p><img alt="Hash method" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 886' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-932d4a869371560246c080bf3b60d0d0'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-932d4a869371560246c080bf3b60d0d0)' width='2560' height='886' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAWCAYAAABwvpo0AAAACXBIWXMAAAsSAAALEgHS3X78AAAHfklEQVRYw91Xe2yT1xX/vtgNDcEOOH58fsSJQyiU8GhJR1tVkSBCdNsf7dQyRlGZ1D/7F5MoUdZtAm3ZJk2kqqYB2lIhHqKPdCwshMSGUELefjRxEsd52Hm/Yyd27CSOH8ndOZ/vF2WFAi2VoFzpp3Puuefe%2b/ne3znnmmEesRUUFDAmk4nXT506Zbhw4cJuwC5Azv1w7ty5nNLS0hyLxZJTXV2dc/HixZwHzaHYdf78%2bd2FhYUc7llcXMw81nbr1i2GEJKAusvlugw6iUQiy0tLS%2bTbEIvF0I14PB4CB0C6u7t52/3mCIhGo8s4t6WlpQD3DAQCosd6AEajceUAurq6PoEfEoMP9cCH%2bpeXl6dBnwGTDyXaFhcXAwjQA16vN2C1WgPwYwKhUCgQDocfBj4AgXnHcE%2bfz/d4D0AqleIt8DrHcVk7d%2b7cmJmZuR0ayh1ZWVnbNm/evAVkNowZ9u/fr9y7dy%2bXm5vLHT58mDtz5gwHocPt27ePQ3teXt6DoNqzZ49aLpfrcU9Yk3kiGvx4FkQqQAHIAsgA6QA9tSkBiT/glrIn4oezLLuii8ViFdz6MwqFYo1KpVojk8mSoC%2bWSCTrUlJS1mIfJbAmGcKGOXr0KHvixAn25MmTD42ioiIWmMOKRCI8VAbWY56kpgKkAV6gt/8iYCPtbwdk0nHND7CXnHnCGkupjglRTOUaCqEvomGQRP0f/wF8WTPE2HrnRC39C6Lmvvl7AsdqO3x8ph/2EeZm89S3pgIa87sABip3AH4C2EbHsgH7AM/86BjQ7yUPYoCcygSK1W11uRLGWWpnvyfbHr1dvNEr%2b6rVe6i6ffqdr%2byeQzxa4/J2mxcw/avq9pl3KywTe9H/w8KP2aTkdfdjAMb3S4AtVL5Ic4OB2rbTnLAZoKUs%2bT5sSF3duVI7zMALiddvNE%2bxdU5/ArL2XsCxO%2b0zCV9UDzBMWePY7v4ZQkaChIzNEzK%2bEJcItA36CZlZIgRCoeYhPgp//FpAMoWE9jFVSylDkqkuoblgLZUCMGc8SyHYvqnjDajv9QF9nuXvdoxljaMvdY5Fo93j0aW61uFYo2M8ZumcAkzG7L3%2bWFt/MIIHYenxVyFtDZlZEih9yfTD/4%2b6EmmKIS09k1Nr0rRqbZoGJafR6bRpGWqtLl2j0xtUcoUqQwO6Sq3VpsqVmWqtHnz1GvTR6TM4sBmUKnW6MA/XUHGaNJjLoa%2bK0%2bq2ZO%2bUJa%2bTIHsYbVo6v/efTpfii5TX/9swqq%2bye7bd%2bHryeaNtYivIrSaUzZO8XtXi2WoCeelmbxIeQE7nWCTSMxGNmeqd0et3WgFt0SvGpmh920i0fWAuPDxLiLnbhwcg1ur0KfQAlPQ2%2bUY3X0dvSUPpLYSEjlJeSm06SuEs6reRSiktkzqaMIV9MuiBy1bFvlT4wcL%2bk54Z/kLMPcEyt4eQjpFI2DkajYGMdYxGYo7hMOpRlPaBhUi5efwVpqxp7OWh2Tj1p8JxTC7GgTa8fRiGEFio%2bwZ5BIrj5vzGZbXuk1ZXoNrc7S9v6vJVgF4BFUaQlY2d05VgL4dwqmjo8F5HPzpeieMwVtngnC63uoPXLT2zFRaYhxL8KmzuYKU13r8GvjVXa9zv4p51HV4%2b2f7yyPsrDAAf0wR8u2Nofsne5ycdQ/PEMThHusbCoC8Q99QS6NFlYMGrzBfVg5kWV/BTWPRz2PAzK49gHG4el2GsFJLG73DxPxedFbJ7Ik1uCn26YQPI50qMtvaJECE1zQOkyTFOIJSI2TlB7kD/trWXQJgRYBWxdk0RCDcejY4xAswjzpFFYuv2kpqWQRj3kDr7EO/f0D7K%2b/V5Cb8W%2bmEzmgc%2bwuSZbtiEjJKzbIISXqDrMcFeu9NhG50jODdScr0%2bdrXKFrt89TYyPAZrR3smYjHnSDhSaZt85Tvli8n5u8tguWWKcXvjDLhcaT9o7pn7vdk1/0FjdyC/sSuQb3EvHG/qCR6vdUwfs/WFUH5occ8fR72ha7bACuM1Du8H4HMM%2bw2d/t%2biDdbJB1t%2bvdMH68zm13f689EGOA4%2bf/hnSW0ef9vuECuEgMDEloHQTR%2bUhCFI4HgQw8BiZDkme94WjOvAgNewCjDO0YgITvu%2b%2bLp3jr/5W3X2ex7OX4rOCu%2bAZ2lMZ9DncAZFNo1fPS2JWvpIMtBc8DzNIYK/%2bAH3sX51DvjXl7UrIQAHdrp9aNHVNhhqbu2fc9i7Z3rb%2buecbW6/q2043Nw%2bFGqDx539WtPYjkd%2bR6xNljDFl/4T/6INqWpI9VoFZHEBSpUmXaHkMmDsOczuUB202EddyWn04JMhS1Vs3JAq38SpdTrBjpUBKooKKgGH1SEOA0IFUEuk65X8nw81XwyY7HeKoTD%2bhtcz3vyHmHv9o8S0nxYlMnkl4s/eOpj777fe/vUf33hPzrxaJdr0s7%2bt4X7%2bceILR86xzNPW2JcL77KZD7wuuXngjVw%2bVA4xT2c7XdqB1Of1Typ6GKjxzKclDfwNVxw5klR58AD/YLjy17PsJZOLuWByM3%2b/4mCe%2bmY88Iu7dOPbb67Y/ge1QyER/I5WtgAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/hash-method.42db587.97fbc7b63f40555b4c1e1235bb5ce1a7.png" data-srcset="/assets/static/hash-method.82a2fbd.97fbc7b63f40555b4c1e1235bb5ce1a7.png 480w, /assets/static/hash-method.cbab2cf.97fbc7b63f40555b4c1e1235bb5ce1a7.png 1024w, /assets/static/hash-method.2665e34.97fbc7b63f40555b4c1e1235bb5ce1a7.png 1920w, /assets/static/hash-method.42db587.97fbc7b63f40555b4c1e1235bb5ce1a7.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/hash-method.42db587.97fbc7b63f40555b4c1e1235bb5ce1a7.png" class="g-image g-image--loaded" width="2560" alt="Hash method"></noscript></p><p>Implementation example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token comment">##### rule_demo.py #####</span>
+<span class="token keyword">def</span> <span class="token function">hash</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> message<span class="token punctuation">:</span> ReconMessage<span class="token punctuation">,</span> attributes<span class="token punctuation">:</span> <span class="token builtin">tuple</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+       cl_ord_id <span class="token operator">=</span> message<span class="token punctuation">.</span>proto_message<span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'ClOrdID'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>simple_value
+       message<span class="token punctuation">.</span><span class="token builtin">hash</span> <span class="token operator">=</span> <span class="token builtin">hash</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span>proto_message<span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'ClOrdID'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>simple_value<span class="token punctuation">)</span>
+       message<span class="token punctuation">.</span>hash_info<span class="token punctuation">[</span><span class="token string">'ClOrdID'</span><span class="token punctuation">]</span> <span class="token operator">=</span> cl_ord_id
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><h2 id="check"><a href="#check" aria-hidden="true">#</a>check()</h2><p>Method <code>check()</code> compares the message with all messages from different groups and equal hash key.
+After the comparison <code>check</code> method generates an event with its result.
+Filling of the final event is defined by the algorithm written by a user.
+After that original message is available for comparison with future messages until timeout (message's Time To Live).</p><p><img alt="Check method" src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1230' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-e5ff43fac4e2fcf9f52088bc95e9848c'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-e5ff43fac4e2fcf9f52088bc95e9848c)' width='2560' height='1230' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAfCAYAAABXscv8AAAACXBIWXMAAAsSAAALEgHS3X78AAAONUlEQVRYw9VYCXRT15l%2bT7LB2HjB4C0E7ISwJaQZp3gSaGBy2iTTYgIpDbQNydAy0xKahBAGeooZOmcO4XTSsGMCAbMZaoNZvGDL1m7Jkp92S9Yuy7JkWZYsr7JleQFz53/PT45NcUx7Eqa553zn3vfe1X3vfv//f/9/hWHfcispKaH6tWvXYnq9nuF0OpkOh%2bOv0NTUxFSr1cz6%2bnpqPNkcm83G2L59O7XmsWPHJn2vRCKheqFQiPH5fAwhhEVDmz59elxiYuI08lleXh72WNrmzZu/8TU///zzKeeESRjXYgFpgCjscbWbN2%2bGPYABFv6h1WrdYDab1wPeImGxWNbDPQrwfD14wNj1gwDrv2U0Gtds27aNsuDhw4en3Dz0MwFpNTU1s9xudwJ4Qhy8d5ZIJEqUSqWp3zoB8GKc7Dds2DCjvb3dCB%2bABgcH7w8PD6PxGBkZQbA5BIRQ4wefDw0NkT9Fvb29fbt3704m17x48SL%2bCATMAiTI5XIcwjESfhNZUVERqVKpcLg/57G5f1paWuShQ4dWnTt37ifnz59/7fjx49nwMa%2bVlZWtAuu%2bqNFossAiWWCZLHIM3jAB8MFZOp0ui8fjZWVkZJCujK1YseJRPCAWMGMS4yRgj7FFAGJoRAPi6TH%2bd6wV/ajxD30cIDp8DzY9wTu%2b9V2D6lI9juMRoL5JycnJKUlJSSmzZ8%2beC9dPpqSkJKempiYdOHCAef36dQabzWaYTCYGaMEEEATBgAjA33jjjWmwFkkcxmQyJ31vWOGrq6snEPBgeDxuD5hDg4zhJ2lFJj8iAzDtb/SkR2oQXmQIUPMhfHAgGIe0iNMhkIgp7UHc7BlmWrx3mZbWUVhhbGwZYooN3dQiteaeb4qAREAqvfEU%2bjqRJiOeBnOKdRiTEBBJkzmTTHdRUVGkTsSsXr36e7DRh2oAaEr8lF8tNnR9Ux4QSVue3PgTNBHk5ufS4/D96TQJYUTQfSTdx0xCwPRx2oBv2rSJsnJxcXHCwYMHZy9ZsiQqNzc3Jj8/P2bXrl0x6enpURAmaRhf27GAsATeUTkG3lY2hjYq7f0bFQ3BjVJzz8/KiBZKJY0d6O83e0QkrQGMyBnRMakz4%2bKTo2NinyAxY0ZMevTM2LTR65lz4fm8KPIeXEfNiM6gx3PJeTGj8%2bYmzJqTAGtRBDAYzAcJGLO0TCaj%2bvXr18f4fL66YDDY19jY6Lfb7R1QD/gHoLlcrhJM3dj/Udd9hBraRpCjAyFHJ0LuAEL2doRkDaEXyUWuVaoY31AIxNGYRbv77HH3Eun7ibQbk%2bME2toJdPUWtvBkHjBGwNWrV6n%2bk08%2bmQkbze/u7uYCARWgCazW1tbynp4eARRWhzCNI7TdG0JIom2%2bL1A0IKGqEVm9wwi0YOTIuVuvky9Lf2phPF1GjkfC35LCFmW%2bytjywf4F772/N/MXW3d9/%2be/3rl805YdL2353b4X3vmP3Zkbt%2bxYvulXH2f9Yusn//zvO/77%2bY1bPsqCey/%2bfOuuZdlvb13%2by9/see697TnPnr5BpKalL46eJMTG7hcUFFD9/v37Z4LVj3q93iuQXS4YDIaLUGxd8Pv9BVB47cfktt53De6hThBCp6l5wAtoNXmGm%2btdA43XOfWZJPNKxzBjklycSLP%2bMJAkRc9KTCLnRS79p5VPi7UevVjrvstXNPYJVU39PHlDv0jjCsKYAoewBbkyuFfXHKzWOIO1Bm%2b/pfVeP3xPkAR846AevvF3%2b3LTyTWTUufGQEqMpr0jlslgUDn3nR//K3a74C%2bUcd7dvDkWNq%2bBEOgBInxgdb/H4/GGQqEgHMyKsSKhM6qkpnlOkQ3FV%2bzck12%2b/%2bDymz0orkzsmk3mXdId0%2bY9/TBL43RKm0GnsOnjEEm7d8zMuATqetnyf0ngq1ve56ucf6wi7Hs5ssacOyJjDlfRRIEjd%2bSwpNacsmpjDk/ppK5F2tYcrXMgR%2bPoz6lrCsE4tB9Cdvdvf3%2bIDI/IZxYtjZoRFRV%2b5zTyxBfGcF8v9c0qpTL6ypUrGWfOnJkHVec8Fos1D84n806dOjWvsLAwY8KO5KtemIVG08xXu2QwxlLFmjVrJjIA7CckPLyaJJ/Fx8dj//Dt%2b6cQ1gKW3vbxp8zoBd%2bb9to7O5jPLM2Mik2YnYThzFhaoMYa%2bDwTfC5yHhAFqhabEiYMZ2BpqclfJetIPAaPxKIiYvAIRjQWsegnC3CuoYFRRdiYFSIDk1VjYt7iqJhVUguFSomZWSbUMW%2bylUx2rZVZKTUzxfU%2bKoVITD2vgicYzK33NBbf/Tqzd0Sldw8qtE0hfY2lb2X4nV2cqh1BaY1lSCGTDyvlKuiV/YRUG6gW8JuvF1AHHyOXw4DzBi4Wi6miCGPfvhB27wgYZOCjRUoyrcRUCz0Xi0Ub7KMX06bPhPyTAfltDozjsMyVOOlyG%2bJGefrgP98P/wxCA08arfLwMWYUl/hU3yLswqrefutrjaOyB6k8J7f1rfMEEVJZ2xGh9yC5yQciPYTcfSDeheX/VRmHJectXviU7/aNYmS3IReXg5r5XNQq5KMRgw6FFETAc/M6dfTt4rEnhjNfVJtawlM9WyLQPcMhGhawa20LDhw%2bl/mn45czJXXWJ/%2bcmUL9gCgvn6%2b4mr%2b4/kbRM5bi2wtkVy4vrDh54lki//ISOZ83tkFJlZwpVHAW5d3Ofa5CdmthtZ719B1p0cJy4sbCSlnJkmqpkIqLanUtVvLTNzH%2bpg2TEqCkCZDZeteTBFg8Q8jg6kf1ziCy%2b%2b8jTz8QUC754A545IdgsPaykquo0Y56iVoKgVopQkYDChG1fa1F10jDYt3sqokE8BSOFVD2tlu899qsvpE2W9t9P/QtgJBM7/1DeF4rj7MzpJSHBlUK77Ba6R/WqNqG1Epvv5zosZaWrCbnDLY7I6gPbyJOGXz6kMFX32ryG/zGNoMPxh1at9pRLr9FKjjGqS6cMoXy6jqoORxN%2b7JaS%2bC0qjF0Egq2k6rGgZPyhuAJqTlwhutEC8Pz3cLytd4a9vkOQnACkNtO8E/6pNwvWoQV/2stukC5aFN50cSXcOX2Va4ehNS2TiTWNJH1AKqzd6H2ewjVsomrxYvnLiPn%2baoFf0AuB3KwK5G9igVuxkYBOYGQ2Yi4uTd%2bv/eXl%2bY7VQbqQKNxKf/SOuxBPDUPCesEqFonRCa/CelbtAMVez98j/fSyjQhhM2dDeu%2b1gMUDX2UvsisvT8kUzOcURpsvhG7rW3EDnVKAxiuRab3/2is%2bnNJ92nb6tt0fr1N32G013cYGnR%2bg1Pt0yg5DhalARK3%2bK884BXIr3eN7oFhnaN3SOsIDJtaBkIuqAYJwvL5H%2blTmlfA24MM9ShASAc6JeLhLmnNUFAhGxxQKZD88q23MexVhltnpERL1SS/0BiwI7VTFVI6FMOqJuWg3qu/p2tWd1V88WkWHEaZXFMVXrZhPcbb9LOpNaChb10LxLsCYr9G60ISXTMyuUOUBtTkFx%2b48%2bT0J4oXLF2skJbecYZcqJokHSAC4q1%2bM9K3agMCczmlAfKmmokEVEpMz0pNXScU9tARcK8jcB44Cu51GM4HZwQGf3Z4XmNpydqOKtbpXj7ncB%2bfezTA4xzt5lQdaa%2bqOGnjlC8m53S6R0tmkZm7lXCKv1C2SA8Djirc0iMyp/iYxC78jNMuJYsnrKrm1pQhABunCCCsvW82dYGzeYaRoXmAgtV3Dzm7EZIKdP9G/fMEpCqMvLOuARfSujWAOqq3dVmR1qPu4ltHCSCaRA%2bIoMKxEhbuAw8IGJtDAbNnKGBqGewCV0Myhf1geB54wK4BtRIFZLVdfXIi0K%2bUB0IqRQ/owqDh0sV1FAEWfQTtAV8afQZU51J36Vq0AUCPwVsf1DbXeW/cvPYCOYetvIOf%2bvg8dmFPweQaoG3HaA1IBg14EzQgW9M0mK1xDmVDeGTDMX0dz4MSw/NF7upFRJP4LVULsUbtkWWrPES23CVZK2kUvM4yFFFVIhDxoAY0rmoGDdA0hDXAhZQWP/KDBhBs4lrx0vnP0xqQg9wu1MzjoCZOFXJDmgkq5QjZLEj5p0/3FS5bPN8rFX2lAXdbKQ0Q1PEpDTCDK9Z7dEOXjhb%2b%2bui7BWn9SIkd33kZ%2b3JP0dd6AZxWp6xlOPlCTHT1syk9qtJ44yEsKxw/MLYM9lq8d3tMnqEeo3uwBzyiE7ICIjSu/xnLAnzuR2DtboAzKCeaScDYBVmgzVhY8DqVYhyW0SzgIM6C6iO9V9ep89T1ALrhuq%2buWd1azL6xhPoYaRn%2b2Ud52JEPz0/6wQJdJ%2b0JHeSZham09zHB8hTIMaRH5niCxHYuLndKmHKnlIaEqXBJmbUOEYNFb15oYz1AgFiZypfbVvOVjpfgQLKiWu1cIVA6XoYDyyt8hWlxeJ6jrGRdJ7syr0/AOxEU8nJ7%2bdzcbi77ZAeb9aWdXUZtyiurpKwgVHEyhfXsHwBeFhm4K0iQ42ot5xWxmkf9owu1AvadaL1yBSVEPgFvL1lltdeIUKe0htQCRGoCmRmkF2796vlZh6I0hSzmo6xZyh%2b1xrGdl7Azu6///26wXKTHeDaECxrHwT7aVyjasJBKHiZgH6kBLQIe6AAXeaDMHKpTgwaYEf/0zT071uWl1BdVUnNZymJc1FWOV7eHcQev7ijHBd5SnCUppt5bJSv9x7CwVCql/iYOI/y/OQnyWVBWS6U2D5ezLSQnHHfVSi1UgvpBpbx%2bQCnTwXOrvaL0ZUoDpDz89K5C6jj64Frj1wy/9zvRqq6PuqiAxZpbfunSU7fPnp1/%2b9zZ9NLzeell5/Pms67kPy3i8WdTelI6KjCnd1/Dvivt/wCUFjqi9OhoQQAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/check-method.42db587.ce02355a4bdbafa46ac59f2d29f0c692.png" data-srcset="/assets/static/check-method.82a2fbd.ce02355a4bdbafa46ac59f2d29f0c692.png 480w, /assets/static/check-method.cbab2cf.ce02355a4bdbafa46ac59f2d29f0c692.png 1024w, /assets/static/check-method.2665e34.ce02355a4bdbafa46ac59f2d29f0c692.png 1920w, /assets/static/check-method.42db587.ce02355a4bdbafa46ac59f2d29f0c692.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/check-method.42db587.ce02355a4bdbafa46ac59f2d29f0c692.png" class="g-image g-image--loaded" width="2560" alt="Check method"></noscript></p><p>Implementation example:</p><div class="remark-highlight"><pre class="language-python"><code class="language-python"><span class="token comment">##### rule_demo.py #####</span>
+<span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> messages<span class="token punctuation">:</span> <span class="token punctuation">[</span>ReconMessage<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Event<span class="token punctuation">:</span>
+       settings <span class="token operator">=</span> ComparisonSettings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+       compare_result <span class="token operator">=</span> self<span class="token punctuation">.</span>message_comparator<span class="token punctuation">.</span>compare<span class="token punctuation">(</span>messages<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>proto_message<span class="token punctuation">,</span> messages<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>proto_message<span class="token punctuation">,</span> settings<span class="token punctuation">)</span>
+       verification_component <span class="token operator">=</span> VerificationComponent<span class="token punctuation">(</span>compare_result<span class="token punctuation">.</span>comparison_result<span class="token punctuation">)</span>
+
+       info_for_name <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token keyword">for</span> message <span class="token keyword">in</span> messages<span class="token punctuation">:</span>
+           info_for_name<span class="token punctuation">.</span>update<span class="token punctuation">(</span>message<span class="token punctuation">.</span>hash_info<span class="token punctuation">)</span>
+
+       body <span class="token operator">=</span> EventUtils<span class="token punctuation">.</span>create_event_body<span class="token punctuation">(</span>verification_component<span class="token punctuation">)</span>
+       attach_ids <span class="token operator">=</span> <span class="token punctuation">[</span>msg<span class="token punctuation">.</span>proto_message<span class="token punctuation">.</span>metadata<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token keyword">for</span> msg <span class="token keyword">in</span> messages<span class="token punctuation">]</span>
+       <span class="token keyword">return</span> EventUtils<span class="token punctuation">.</span>create_event<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f&quot;Match by '</span><span class="token interpolation"><span class="token punctuation">{</span>ReconMessage<span class="token punctuation">.</span>get_info<span class="token punctuation">(</span>info_for_name<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">'&quot;</span></span><span class="token punctuation">,</span>
+                                      attached_message_ids<span class="token operator">=</span>attach_ids<span class="token punctuation">,</span>
+                                      attached_message_ids<span class="token operator">=</span>attach_ids<span class="token punctuation">,</span>
+                                      body<span class="token operator">=</span>body<span class="token punctuation">)</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div></div><!----><!----></article><div class="mt-15 d-flex justify-end flex-wrap" data-v-298a815f><a href="https://github.com/th2-net/th2-docs/blob/master/content/modules/check2-recon/usage.md" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light info--text" data-v-298a815f></i>
+		Edit this page
+	</span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;Usage&quot; article&amp;body=I've read [&quot;Usage&quot; article](https://github.com/th2-net/th2-docs/blob/master/content/modules/check2-recon/usage.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light error--text" data-v-298a815f></i>
+		Create an issue
+	</span></a></div></div><aside class="pl-5 pt-5 page-content-panel sticky-aside doc-page__aside" data-v-3eeb1e00 data-v-4ce9b4a1><div class="pr-2 border-left pl-4" data-v-3eeb1e00><nav class="mt-7 mb-5" data-v-f2b8a640 data-v-3eeb1e00><h3 class="mb-3" data-v-f2b8a640 data-v-3eeb1e00>On this page</h3><ul data-v-f2b8a640 data-v-3eeb1e00><li class="font-weight-bold" data-v-f2b8a640 data-v-3eeb1e00><a href="#usage" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Usage</div></a></li><li class="py-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#group" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>group()</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#hash" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>hash()</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#check" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>check()</div></a></li></ul></nav></div></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-28b3144a><div class="footer__content col" data-v-28b3144a><div class="d-flex justify-space-between footer__sections" data-v-28b3144a><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><a href="https://exactpro.com/" class="mb-4" data-v-28b3144a><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-28b3144a></a><div class="text-center" data-v-28b3144a>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Contact Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-28b3144a>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-28b3144a>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-28b3144a>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-28b3144a>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Follow Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex" data-v-28b3144a><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-28b3144a><div class="text-center text-caption" data-v-28b3144a>
+      Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-28b3144a><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-28b3144a>
+         Terms and Conditions
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Privacy policy
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Cookies policy
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"__typename":"ModulePage","title":"Usage","description":"","content":"\n# Usage\n\nIn files containing the rule class Rule should be defined. Structure of class Rule is as follows.\n\n![Rule class](.\u002Fimg\u002Frule-class-uml.png)\n\nGetters:\n\n- `get_name()` - name of the rule;\n- `get_description()` - description of the rule;\n- `get_attributes()` - required message stream attributes;\n- `desciption_of_groups()` - dictionary containing names of the groups and its type.\n\nGroup types are available in a **check2-recon** package. At the moment there are 2 group types:\n\n- Type `single` means that all messages in the group have unique hashes (key of the message) - a new message replaces old.\n- Type `multiple` means that several messages with the same hash can be stored in one message group.\n\nExamples of getters:\n\n```python\n##### rule_demo.py #####\ndef get_name(self) -\u003E str:\n       return \"Rule_demo\"\n       \ndef get_description(self) -\u003E str:\n       return \"Rule_demo is used for demo\"\n       \ndef get_attributes(self) -\u003E [list]:\n       return [\n           ['parsed', 'subscribe']\n       ]\n       \n def description_of_groups(self) -\u003E dict:\n       return {'ExecutionReport': MessageGroupType.multi,\n               'NewOrderSingle': MessageGroupType.single}\n```\n\nMethods `group()`, `hash()`, `check()`  in class Rule are responsible for messages processing.\nEvery incoming single message comes to the `group` method, then `hash` method, then `check` method.\n\nThe lifecycle of an incoming message is:\n\n1. Comes in rule from some kind of pin. A record about this is written to log.\n2. The `group(message, attributes)` method is called for this message. It is calculated in which message group the message should be placed.\n3. The hash of the message is calculated using the `hash(message, attributes)`.\n4. Searches for messages with the same hash in other message groups.\n5. If a message with the same hash is found in each group, `check(messages)` is called for all these messages. Depending on the types of message groups and their number, it will be determined which messages to delete and which to keep.\n6. If no similar messages are found, then just add the message to the group.\n\n![Rule flow](.\u002Fimg\u002Frule-flow-dfd.png)\n\n## group()\n\nMethod `group()` analyses message with an algorithm written by a user and\nsets the message's group id. Further, it will help to reveal the group the\nmessage belongs to. Let us say, it means that we put a message to the group\nwith `group` method.\n\n![Group method](.\u002Fimg\u002Fgroup-method.png)\n\nImplementation example:\n\n```python\n##### rule_demo.py #####\ndef group(self, message: ReconMessage, attributes: tuple):\n       message_type: str = message.proto_message.metadata.message_type\n       if message_type not in ['ExecutionReport', 'NewOrderSingle']:\n           return\n       message.group_id = message_type\n       message.group_info['message_type'] = message_type\n```\n\n## hash()\n\nMethod `hash()` generates the hash key for the message to join it in the future.\nHash key depends on one or several fields of the message.\nThe fields are defined by a user in `method` implementation.\nIf all these fields are the same in 2 messages, final hash keys also will be equal.\n\n![Hash method](.\u002Fimg\u002Fhash-method.png)\n\nImplementation example:\n\n```python\n##### rule_demo.py #####\ndef hash(self, message: ReconMessage, attributes: tuple):\n       cl_ord_id = message.proto_message.fields['ClOrdID'].simple_value\n       message.hash = hash(message.proto_message.fields['ClOrdID'].simple_value)\n       message.hash_info['ClOrdID'] = cl_ord_id\n```\n\n## check()\n\nMethod `check()` compares the message with all messages from different groups and equal hash key.\nAfter the comparison `check` method generates an event with its result.\nFilling of the final event is defined by the algorithm written by a user.\nAfter that original message is available for comparison with future messages until timeout (message's Time To Live).\n\n![Check method](.\u002Fimg\u002Fcheck-method.png)\n\nImplementation example:\n\n```python\n##### rule_demo.py #####\ndef check(self, messages: [ReconMessage]) -\u003E Event:\n       settings = ComparisonSettings()\n       compare_result = self.message_comparator.compare(messages[0].proto_message, messages[1].proto_message, settings)\n       verification_component = VerificationComponent(compare_result.comparison_result)\n\n       info_for_name = dict()\n       for message in messages:\n           info_for_name.update(message.hash_info)\n\n       body = EventUtils.create_event_body(verification_component)\n       attach_ids = [msg.proto_message.metadata.id for msg in messages]\n       return EventUtils.create_event(name=f\"Match by '{ReconMessage.get_info(info_for_name)}'\",\n                                      attached_message_ids=attach_ids,\n                                      attached_message_ids=attach_ids,\n                                      body=body)\n```\n","fileInfo":{"path":"check2-recon\u002Fusage.md"},"headings":[{"anchor":"#usage","value":"Usage","depth":1},{"anchor":"#group","value":"group()","depth":2},{"anchor":"#hash","value":"hash()","depth":2},{"anchor":"#check","value":"check()","depth":2}],"terms":[],"meta":{"contentTreeJSON":"[{\"title\":\"check2-recon\",\"path\":\"\u002Fmodules\u002Fcheck2-recon\u002F\",\"weight\":-100,\"followPath\":\"\u002Fmodules\u002Fcheck2-recon\u002Foverview\u002F\",\"children\":[{\"title\":\"Overview \",\"path\":\"\u002Fmodules\u002Fcheck2-recon\u002Foverview\u002F\",\"weight\":0,\"followPath\":\"\u002Fmodules\u002Fcheck2-recon\u002Foverview\u002F\",\"children\":[]},{\"title\":\"Repositories\",\"path\":\"\u002Fmodules\u002Fcheck2-recon\u002Frepositories\u002F\",\"weight\":5,\"followPath\":\"\u002Fmodules\u002Fcheck2-recon\u002Frepositories\u002F\",\"children\":[]},{\"title\":\"Configuration\",\"path\":\"\u002Fmodules\u002Fcheck2-recon\u002Fconfig\u002F\",\"weight\":10,\"followPath\":\"\u002Fmodules\u002Fcheck2-recon\u002Fconfig\u002F\",\"children\":[]},{\"title\":\"Usage\",\"path\":\"\u002Fmodules\u002Fcheck2-recon\u002Fusage\u002F\",\"weight\":15,\"followPath\":\"\u002Fmodules\u002Fcheck2-recon\u002Fusage\u002F\",\"children\":[]}]}]","module_name":"check2-recon","main_path":"\u002Fmodules\u002Fcheck2-recon\u002F"}}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.de126758.js" defer></script><script src="/assets/js/page--src--templates--module-page-vue.f289f57b.js" defer></script><script src="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" defer></script><script src="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js" defer></script>
+  </body>
+</html>

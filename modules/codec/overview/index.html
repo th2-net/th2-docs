@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>Overview  | codec</title><meta name="gridsome:hash" content="ed0a5a389d3618f0823526ee1d1166b55f4800f5"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-vue-tag="ssr" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" hid="description" name="description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="keywords" name="keywords" content="Exactpro, th2, test automation, financial technologies, microservices, kubernetes, k8s"><meta data-vue-tag="ssr" hid="og:site_name" name="og:site_name" content="th2 documentation"><meta data-vue-tag="ssr" hid="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="th2 docs"><meta data-vue-tag="ssr" hid="og:description" name="og:description" content="Documentation for th2 - the next-generation test automation framework for financial markets"><meta data-vue-tag="ssr" hid="og:image" name="og:image" content="https://th2.dev/og-image.png"><meta data-vue-tag="ssr" hid="robot" name="robot" content="none"><meta data-vue-tag="ssr" hid="og:title" name="og:title" content="Overview "><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.e540bc2f3d52bc007f88118187e3f363.png"><link data-vue-tag="ssr" rel="stylesheet" href="/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="/css/roboto.css"><link data-vue-tag="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-vue-tag="ssr" rel="stylesheet" href="/css/lightTheme.css"><link rel="preload" href="/assets/css/0.styles.1608e59d.css" as="style"><link rel="preload" href="/assets/js/app.de126758.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--module-page-vue.f289f57b.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" as="script"><link rel="preload" href="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.794a6086.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.74aa3573.js"><link rel="prefetch" href="/assets/js/page--src--templates--explore-page-vue.d5cbd3ec.js"><link rel="prefetch" href="/assets/js/page--src--templates--git-ops-page-vue.42f8f78f.js"><link rel="prefetch" href="/assets/js/page--src--templates--testing-page-vue.df45be81.js"><link rel="prefetch" href="/assets/js/vendors~page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--tem~bc21bc85.2007b9cd.js"><link rel="prefetch" href="/assets/js/vendors~vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.3cda9093.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--create-th-2-env-md.f20fe7b3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--index-md.63c19fd8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--1-base-system-md.ef88ea5f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--2-infra-schema-md.f6959c4e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--3-th-2-md.4b281688.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--index-md.52082700.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--install-th-2--overview-md.06d75aea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--hardware-md.1bee5833.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--index-md.2f10ec5d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--os-and-network-md.2b1dd007.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--overview-md.216bcb4a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--getting-started--requirements--software-md.cdc7fd2f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--index-md.2e96998e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--index-md.8d64f31a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--index-md.9536b2c8.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--overview--index-md.cbe54aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-mgr-md.24c53826.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--infra-components--th-2-infra-operator-md.3ef42480.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--overview-md.f01449c3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-repository-md.16040949.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--index-md.f535a03d.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--links-md.fb415f25.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--overview-md.6cb550be.js"><link rel="prefetch" href="/assets/js/vue-remark--content--deploy--infrastructure--th-2-infra-schema--pins-md.6122a5e2.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--data-services--index-md.57b87d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--index-md.e37a24d5.js"><link rel="prefetch" href="/assets/js/vue-remark--content--explore--storage--index-md.195e7f0c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--checkpoints-md.8c82640b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--communication-md.cce16947.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--configuration-md.64f635ab.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--index-md.28295177.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--overview-md.a6f014f6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--rulerequests-md.d0cb8321.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-1--verification-rulerequests-md.13054aa3.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--config-md.1f58165f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--index-md.9bcd96e6.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--overview-md.749d6c94.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--repositories-md.be0e2216.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--check-2-recon--usage-md.51faa110.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--config-md.86ef3153.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--index-md.a37dbea4.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--repositories-md.69f59dc9.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--codec--usage-md.3d219b1a.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--config-md.b49b89d7.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--index-md.1b4acd02.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--overview-md.7434b6a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--conn--repositories-md.c64f260c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--config-md.415d8d63.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--index-md.96378d70.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--overview-md.6a08bb65.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--estore--usage-md.59f0cadc.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--config-md.d826a04f.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--index-md.315f556e.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--overview-md.7d31b043.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--repositories-md.1d3e91a1.js"><link rel="prefetch" href="/assets/js/vue-remark--content--modules--mstore--usage-md.a0cfe3ea.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--chain-verification--index-md.d714f97c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--index-md.db217fdb.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--modules-md.6b3f6f31.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--cookbook--quick-setup-md.50f19130.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--architecture-md.c2d4ed18.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--index-md.96505f72.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--key-concepts-md.f619799c.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--script--index-md.985a2e92.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--fundamentals--th-2-net-on-github-md.e5380a3b.js"><link rel="prefetch" href="/assets/js/vue-remark--content--test--index-md.63aafe2b.js"><link rel="stylesheet" href="/assets/css/0.styles.1608e59d.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #3f979f; }
+.v-application .primary {
+  background-color: #3f979f !important;
+  border-color: #3f979f !important;
+}
+.v-application .primary--text {
+  color: #3f979f !important;
+  caret-color: #3f979f !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #cfffff !important;
+  border-color: #cfffff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #cfffff !important;
+  caret-color: #cfffff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #b2ffff !important;
+  border-color: #b2ffff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #b2ffff !important;
+  caret-color: #b2ffff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #95eaf2 !important;
+  border-color: #95eaf2 !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #95eaf2 !important;
+  caret-color: #95eaf2 !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #79ced6 !important;
+  border-color: #79ced6 !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #79ced6 !important;
+  caret-color: #79ced6 !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #5cb2ba !important;
+  border-color: #5cb2ba !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #5cb2ba !important;
+  caret-color: #5cb2ba !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #1d7d85 !important;
+  border-color: #1d7d85 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #1d7d85 !important;
+  caret-color: #1d7d85 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00646c !important;
+  border-color: #00646c !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00646c !important;
+  caret-color: #00646c !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #004c53 !important;
+  border-color: #004c53 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #004c53 !important;
+  caret-color: #004c53 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #00343c !important;
+  border-color: #00343c !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #00343c !important;
+  caret-color: #00343c !important;
+}
+.v-application .secondary {
+  background-color: #1e2736 !important;
+  border-color: #1e2736 !important;
+}
+.v-application .secondary--text {
+  color: #1e2736 !important;
+  caret-color: #1e2736 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #969fb2 !important;
+  border-color: #969fb2 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #969fb2 !important;
+  caret-color: #969fb2 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #7c8598 !important;
+  border-color: #7c8598 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #7c8598 !important;
+  caret-color: #7c8598 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #636c7e !important;
+  border-color: #636c7e !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #636c7e !important;
+  caret-color: #636c7e !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #4b5465 !important;
+  border-color: #4b5465 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #4b5465 !important;
+  caret-color: #4b5465 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #343d4d !important;
+  border-color: #343d4d !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #343d4d !important;
+  caret-color: #343d4d !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #081221 !important;
+  border-color: #081221 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #081221 !important;
+  caret-color: #081221 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00000a !important;
+  border-color: #00000a !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00000a !important;
+  caret-color: #00000a !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #616161 !important;
+  border-color: #616161 !important;
+}
+.v-application .accent--text {
+  color: #616161 !important;
+  caret-color: #616161 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #e6e6e6 !important;
+  caret-color: #e6e6e6 !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #c9c9c9 !important;
+  border-color: #c9c9c9 !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #c9c9c9 !important;
+  caret-color: #c9c9c9 !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #aeaeae !important;
+  border-color: #aeaeae !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #aeaeae !important;
+  caret-color: #aeaeae !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #949494 !important;
+  border-color: #949494 !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #949494 !important;
+  caret-color: #949494 !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #7a7a7a !important;
+  border-color: #7a7a7a !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #7a7a7a !important;
+  caret-color: #7a7a7a !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #494949 !important;
+  border-color: #494949 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #494949 !important;
+  caret-color: #494949 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #333333 !important;
+  caret-color: #333333 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #1e1e1e !important;
+  border-color: #1e1e1e !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #1e1e1e !important;
+  caret-color: #1e1e1e !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #040404 !important;
+  border-color: #040404 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #040404 !important;
+  caret-color: #040404 !important;
+}
+.v-application .error {
+  background-color: #b64c4c !important;
+  border-color: #b64c4c !important;
+}
+.v-application .error--text {
+  color: #b64c4c !important;
+  caret-color: #b64c4c !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffd4cd !important;
+  border-color: #ffd4cd !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffd4cd !important;
+  caret-color: #ffd4cd !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffb7b1 !important;
+  border-color: #ffb7b1 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffb7b1 !important;
+  caret-color: #ffb7b1 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ff9c97 !important;
+  border-color: #ff9c97 !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ff9c97 !important;
+  caret-color: #ff9c97 !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #f2817d !important;
+  border-color: #f2817d !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #f2817d !important;
+  caret-color: #f2817d !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #d46664 !important;
+  border-color: #d46664 !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #d46664 !important;
+  caret-color: #d46664 !important;
+}
+.v-application .error.darken-1 {
+  background-color: #993235 !important;
+  border-color: #993235 !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #993235 !important;
+  caret-color: #993235 !important;
+}
+.v-application .error.darken-2 {
+  background-color: #7c1520 !important;
+  border-color: #7c1520 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #7c1520 !important;
+  caret-color: #7c1520 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #5f000a !important;
+  border-color: #5f000a !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #5f000a !important;
+  caret-color: #5f000a !important;
+}
+.v-application .error.darken-4 {
+  background-color: #450000 !important;
+  border-color: #450000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #450000 !important;
+  caret-color: #450000 !important;
+}
+.v-application .info {
+  background-color: #5293c9 !important;
+  border-color: #5293c9 !important;
+}
+.v-application .info--text {
+  color: #5293c9 !important;
+  caret-color: #5293c9 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #e4ffff !important;
+  border-color: #e4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #e4ffff !important;
+  caret-color: #e4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #c6ffff !important;
+  border-color: #c6ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #c6ffff !important;
+  caret-color: #c6ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #a9e5ff !important;
+  border-color: #a9e5ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #a9e5ff !important;
+  caret-color: #a9e5ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #8cc9ff !important;
+  border-color: #8cc9ff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #8cc9ff !important;
+  caret-color: #8cc9ff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #6faee5 !important;
+  border-color: #6faee5 !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #6faee5 !important;
+  caret-color: #6faee5 !important;
+}
+.v-application .info.darken-1 {
+  background-color: #3279ad !important;
+  border-color: #3279ad !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #3279ad !important;
+  caret-color: #3279ad !important;
+}
+.v-application .info.darken-2 {
+  background-color: #006193 !important;
+  border-color: #006193 !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #006193 !important;
+  caret-color: #006193 !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004979 !important;
+  border-color: #004979 !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004979 !important;
+  caret-color: #004979 !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003360 !important;
+  border-color: #003360 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003360 !important;
+  caret-color: #003360 !important;
+}
+.v-application .success {
+  background-color: #00e676 !important;
+  border-color: #00e676 !important;
+}
+.v-application .success--text {
+  color: #00e676 !important;
+  caret-color: #00e676 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #ceffff !important;
+  border-color: #ceffff !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #ceffff !important;
+  caret-color: #ceffff !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #afffe4 !important;
+  border-color: #afffe4 !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #afffe4 !important;
+  caret-color: #afffe4 !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #8fffc8 !important;
+  border-color: #8fffc8 !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #8fffc8 !important;
+  caret-color: #8fffc8 !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #6dffac !important;
+  border-color: #6dffac !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #6dffac !important;
+  caret-color: #6dffac !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #47ff91 !important;
+  border-color: #47ff91 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #47ff91 !important;
+  caret-color: #47ff91 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #00c95c !important;
+  border-color: #00c95c !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #00c95c !important;
+  caret-color: #00c95c !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00ad43 !important;
+  border-color: #00ad43 !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00ad43 !important;
+  caret-color: #00ad43 !important;
+}
+.v-application .success.darken-3 {
+  background-color: #009129 !important;
+  border-color: #009129 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #009129 !important;
+  caret-color: #009129 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #00760d !important;
+  border-color: #00760d !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #00760d !important;
+  caret-color: #00760d !important;
+}
+.v-application .warning {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+}
+.v-application .warning--text {
+  color: #ffc107 !important;
+  caret-color: #ffc107 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffffae !important;
+  border-color: #ffffae !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffffae !important;
+  caret-color: #ffffae !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #ffff91 !important;
+  border-color: #ffff91 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #ffff91 !important;
+  caret-color: #ffff91 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffff74 !important;
+  border-color: #ffff74 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffff74 !important;
+  caret-color: #ffff74 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #fff956 !important;
+  border-color: #fff956 !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #fff956 !important;
+  caret-color: #fff956 !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffdd37 !important;
+  border-color: #ffdd37 !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffdd37 !important;
+  caret-color: #ffdd37 !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #e0a600 !important;
+  border-color: #e0a600 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #e0a600 !important;
+  caret-color: #e0a600 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #c18c00 !important;
+  border-color: #c18c00 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #c18c00 !important;
+  caret-color: #c18c00 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #a27300 !important;
+  border-color: #a27300 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #a27300 !important;
+  caret-color: #a27300 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #855a00 !important;
+  border-color: #855a00 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #855a00 !important;
+  caret-color: #855a00 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light"><div class="v-application--wrap"><div><header class="top-layout v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed secondary" style="height:56px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-01e287c2><div class="v-toolbar__content" style="height:56px;"><div class="header-container" data-v-01e287c2><div class="meta-btns" data-v-01e287c2><a href="/" class="logo-container active" data-v-01e287c2><img src="/assets/img/Th2Logo_full_white.37da6040.png" data-v-01e287c2></a><a href="/modules/codec/" class="text-lowercase font-weight-bold v-btn v-btn--router v-btn--text theme--dark v-size--large"><span class="v-btn__content">
+				codec
+			</span></a></div><div class="spacer" data-v-01e287c2></div><div class="spacer" data-v-01e287c2></div><div class="search-container" data-v-2361f76d data-v-01e287c2><button class="search-btn" data-v-2361f76d><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark" data-v-2361f76d></i><span data-v-2361f76d>
+    Search
+  </span></button><div class="v-dialog__container" data-v-2361f76d><!----></div></div><div class="header-btns" data-v-01e287c2><a href="https://github.com/th2-net/th2-docs" target="_blank" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-01e287c2></i></span></a><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-a8cf542a data-v-01e287c2><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-brightness-5 theme--dark" data-v-a8cf542a></i></span></button><!----></div></div></div></header><!----><main class="v-main main-container" style="padding-top:2016px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="d-flex flex-column doc-layout mx-auto" data-v-4ce9b4a1 data-v-c0d6731e><!----><div class="doc-page" data-v-4ce9b4a1><aside class="pt-5 content-tree-panel sticky-aside doc-page__aside" data-v-34f98add data-v-4ce9b4a1><div class="px-3 ml-n3 border-right" data-v-34f98add><!----><div data-v-34f98add><div data-v-34f98add></div><div data-v-34f98add></div></div><div class="v-treeview ml-n3 py-2 v-treeview--hoverable v-treeview--dense theme--light" data-v-34f98add><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/codec/overview/" aria-current="page" class="active--exact active nuxt-link-exact-active" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Overview 
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/codec/repositories/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Repositories
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/codec/config/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Configuration
+						</div></a></div></div></div></div><div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf"><div class="v-treeview-node__root"><div class="v-treeview-node__level"></div><div class="v-treeview-node__content"><div class="v-treeview-node__label"><a href="/modules/codec/usage/" data-v-34f98add><div class="tree__path-name" data-v-34f98add>
+							Usage
+						</div></a></div></div></div></div></div></div></aside><div class="container space-bottom px-md-12 px-4 doc-page__article" data-v-4ce9b4a1><article><!----><div class="vue-remark"><h1 id="overview"><a href="#overview" aria-hidden="true">#</a>Overview</h1><p>The <strong>codec</strong> is a component responsible for transforming <div class="v-menu"><span aria-haspopup="true" aria-expanded="false" class="term">messages</span><div role="menu" class="v-menu__content theme--light " style="max-height:auto;min-width:0px;max-width:auto;top:12px;left:0px;transform-origin:top left;z-index:0;display:none;"><div class="v-card v-sheet theme--light" style="min-width:200px;max-width:400px;"><div class="v-card__title">message</div><div class="v-card__text"><div><p>is the unit of transferring data that goes in or out of th2, and circulates inside th2.</p>
+</div></div></div></div></div> from human-readable format into a format of a corresponding protocol and vice versa. 
+It contains the main logic for encoding and decoding messages. 
+The <strong>codec</strong> usually uses <div class="v-menu"><span aria-haspopup="true" aria-expanded="false" class="term">dictionary</span><div role="menu" class="v-menu__content theme--light " style="max-height:auto;min-width:0px;max-width:auto;top:12px;left:0px;transform-origin:top left;z-index:0;display:none;"><div class="v-card v-sheet theme--light" style="min-width:200px;max-width:400px;"><div class="v-card__title">dictionary</div><div class="v-card__text"><div><p>is an entity which contains descriptions of application level protocol messages used in System Under Test (SUT). Dictionaries have a unified form and provide human-readable format for th2 users. </p>
+</div></div></div></div></div> to decode and encode messages. 
+Dictionaries contain message structures, fields and values that <strong>codec</strong> can decode. </p><h2 id="encoding"><a href="#encoding" aria-hidden="true">#</a>Encoding</h2><p>During encoding, <strong>codec</strong> replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.</p><p>NOTE: <strong>codec</strong> can merge content of subsequent raw messages into a resulting raw message (e.g. when a <strong>codec</strong> encodes only a transport layer and its payload is already encoded).</p><h2 id="decoding"><a href="#decoding" aria-hidden="true">#</a>Decoding</h2><p>During decoding <strong>codec</strong> must replace each raw message in a message group with a parsed one by decoding raw message content. 
+If an exception was thrown, all raw messages will be replaced with <code>th2-codec-error</code> parsed messages.</p><p>NOTE: <strong>codec</strong> can replace a raw message with a parsed message followed by several raw messages (e.g. when a <strong>codec</strong> decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).</p><p>The schema below describes encoding/decoding processes. </p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 812 415' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-fbca73f72ff513e14ee36c8681eeab63'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-fbca73f72ff513e14ee36c8681eeab63)' width='812' height='415' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAhCAYAAABpwa0hAAAACXBIWXMAAAsSAAALEgHS3X78AAAI2ElEQVRo3t1ZWUxUWRq%2btwrtiN0Ptg/OkoFGjaMoTkxmkjH6MKZjNE7TbeLIi01HO7xg3HAboxlfFGlthHbfdwFFBXewgqIiuMQVFVco3FldUKSgqHvm%2b4/nVN%2b6XbfuLbpNmDnJn3OXs/3r%2bc93lHPnzqmKKEOHDv20X79%2b3WJjYyP1NGDAgMioqCgntYmJiVE6a4mIiOD1oEGD/N969%2b4diXfOg5GvPn36dOGNhgwZ0uPWrVuu58%2bfP3v69GklyC0J36rcbvfTzZs3f0lt9%2b3b5zBbQF5eHq%2bzs7PVmzdvOk%2bfPu1A7bhz546joqLCNlF7rMdRXFxM785Dhw5xJWE9lkKAEhXGGH8uKyvLePbsWY2RJ9AD0KuioqJ/84bEPLMoBw8e/JranjlzxhlqAWj3UbT75MkTWxaApfL1lZSU/MeKJ/CdrgwbNuxT0jx98Pl87Zqm%2bfSEz%2b0o7MCBA1/RwCdPnjS1gPT0dK6p1NTU3rm5uf/auHHjN3v37h2LvmP3799vm6g9%2bo/dsGHD13hPyMjIiKNxCwoKVBsC4OurqqrKEzy1GnkCtdK/Gzdu/KD079%2b/G5kIfRA/qTBBGo1B/2DeUgCmFnD16lXuhGfPnk2hPjU1NezXFJgvEwtdQ%2bPiMSKUAJxOp18ADx48yBIC8Bp5QmnzC4ACBPmFFIBhDX4B5OfncwHU19ebWkB1dTUXzoULFyYLBlq9Xm%2b7GCMsgtX5YPYeGgdxJEMIwGnlBlIAlZWV2YIHr%2bBDz5O5AF6/fs3evHnDmpqayPa5AEhyMEkeA6ZOnUqR0xGMEPx4VHW5XLNoPIzrbWtr08Sk2qtXrzQEVA1zaJhDwxza48ePNVgK/%2bfxePxtITj6Jxf6kwiyXc3mliSt5O7du7nUF/N4aa7GxkaGOdjLly%2b12tpaPm55eXmgADCpr7S0lG3fvp0h2pMQtA9y0djSpUsnYdweKF%2bg/lMQioqOjv4D6r8sXrx4B40HDfpIAB88iTGYJdu5cye5E0MEZkeOHGFbtmyhAMt2795NmmZCEUwIgLTH4FKbMe5n2ILN5vavIS4u7veoR2AHKaW%2bR48ebYfyNFgwQzyh%2bTXsTsEtwEcRo7WVkRW8f/8%2bwAKwFf1TmJhqZX7nz5%2bfLCygTW8BGFt79%2b6d1tLSwrUvidrAfbglCIFLC2gV0TpDP76FC6jCHbkLQNtemrO5uZmhJtLAW/gxAJE5ngbOyckx9UOYPjc/WNFU6oPdxSe135GCdbULAXAXgIuEDIKqqvrjBKwtp0MxQBctg%2b4Cp06dMhXApUuXnKLNZNo6EYhaoOE2aLyNpB6KoCH/M7V/%2b/ZtG5hoprkvX7683E4Q1G%2bDDx8%2bzAlnF6gUjclh23Xk/RAavHoBmJrhhAkTeJ2QkPD5tGnT4pKSkgagjp0xY0bYNH369Fjqj%2be4xMTE39G48%2bbNU%2bwKQG6D4MFj4InIIwSQxgUAU62zMkcEkbE0MAJISC2kpKR8lExw9erVYWWCsL58K54QdDMVHH4%2bwYFoFzKn4vv3758AufQEU3Ldvn27eM2aNX%2bngXft2mVqAVJDM2fOVFasWOHAbqCiVrF4ddWqVbaJ2q9cuVJdtGgRvTvmz5/PA9vWrVsVu4kQErb5WHsZeCg08gTrKEB9ATtEUlhakIeMzl7CWufIkSP51mGDOr0QunbtqujXaYun0aNHK%2bvWrePmhWREycrK8hO9I7tTduzY4fftBQsWdFoBOBwOvwDgsgqO8OSyATzpeUtLS/vQEZGW%2b87/ugVQmT17tv8ZiZc1T1OmTPm/iQEUBI0Zoe2CnSANkfE4DhEH7t27ly8J3/KwXRxFZP4btUMubboLLFu2jNeI/sqePXtUnOdVZI4qzhUq8nHbRO2p//r16/n78uU8D1KOHz9uV1GceUT578BDISiAJ9B%2b8Fl0%2bPDh73iHixcvrrWBCNnKA6ySlY6WTZs22bIAZJBcQceOHUukbNQCEcpU%2bvbt251wM0Mm6JVEeTNlghIRCpUJTpw4UWaEn8EXY5KTk6NmzZoVPXfu3Og5c%2bbYJmqP/tHUH%2b8xkyZN6kHjLly40HYihBwgX/DUYuQJ1OLPBAcPHqxPhS0RoVBngZKSEv7vxIkTydAEq6ioaK6vr/fgdOnBWZwTzuP%2b52DvRNS%2boaHBgwTsHU6KrKysLL0DZwGZCsuzgKbj6eezwMCBA39xGJJncnkapGcIIF6AEs4QcSRCoLH8NPjixQvfr4TEuA1DECvsQGLBToPCijUDT8FPg1LbMAQpBDrDB0BiFniAhMSSg%2bEBEgcQWuBEKJBs41fTz4hQqwESs4MHSEgsSy8APU8BAujVq1dkbW2tG4tjSBB8IFZQUMDRE5AGbXKxpaamEiL0uQUi9EdChNB2ezBEqLy8nG3bto3BVRiCFIOrMCQrHCEiRAhma4UIxVggQtFQKCFC/3C5XKVCqe2YV5NzQDCBAoiKioqsqalxU6DDB191dTWrq6ujxROgQfgdFx22o3gBeZMZqsEI7Z0Cvp4dDBMkNIbGbGxs5Fgg/nMkCP6uwWq0R48eGREhid39JFDnLmZzSxIWoCL%2b7JOACOGNmJdhSyekK1AAIggGuIARESKNSBeAP5qa4ZUrVyLEtppsQIXDJioSFdZBYmGjwvoYIHkyhcUJiiZfIYappk0hnHuBa9euRYjboxQRBH%2bTe4Hr16935F4gR78LCH5%2bGQOEAKpC3QxRR10eYCqAtWvX8gCZmZn5Z2Rt3%2bMg9S0lJPD1xMLCQttE7dE/ET47Ae9JyCj/KrBG2zdDEEC2LrcxvxkiAUBTT36ru0EEzo%2bSCbrd7rAQIbTPtXE3%2bCO/GoPvXkMgbIIl1MHsGnRUj%2bBRj8GaEK1HWd0O458iUCMVZuskd4FbOOmmOFyi/kVFRU4EQCfcT0LdthEh7F4bsXYvZbkGnhrEjbEP4y9UevbsqcTHx3dLSEjoPn78%2bEgj4XvkuHHjug8fPpxLdsSIEZ32NEiJ0JIlS/jzmDFjPjHjSVD3UaNGdfkvOybSuKCSzOwAAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="812" data-src="/assets/static/codec_inside_processes.d0485bb.8b261e73dc1e786d25e4fd6bd741cf72.png" data-srcset="/assets/static/codec_inside_processes.82a2fbd.8b261e73dc1e786d25e4fd6bd741cf72.png 480w, /assets/static/codec_inside_processes.d0485bb.8b261e73dc1e786d25e4fd6bd741cf72.png 812w" data-sizes="(max-width: 812px) 100vw, 812px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/codec_inside_processes.d0485bb.8b261e73dc1e786d25e4fd6bd741cf72.png" class="g-image g-image--loaded" width="812"></noscript></p><ul><li><p><code>raw</code> - <div class="v-menu"><span aria-haspopup="true" aria-expanded="false" class="term">pin</span><div role="menu" class="v-menu__content theme--light " style="max-height:auto;min-width:0px;max-width:auto;top:12px;left:0px;transform-origin:top left;z-index:0;display:none;"><div class="v-card v-sheet theme--light" style="min-width:200px;max-width:400px;"><div class="v-card__title">pin</div><div class="v-card__text"><div><p>used by a box to connect th2 microservices between each other to send/receive messages, or to execute gRPC commands.</p>
+<p><a href="/deploy/infrastructure/th2-infra-schema/pins">More</a></p>
+<!--TODO: make more flexible link (avoid mentioning version straight)-->
+</div></div></div></div></div> configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.</p></li><li><p><code>parsed</code> - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.</p></li><li><p><code>encode</code> - pin configuration item, message passing through this pin will be translated from parsed to raw.</p></li><li><p><code>decode</code> - pin configuration item, message passing through this pin will be translated from raw to parsed.</p></li></ul><p>Example of a raw message (FIX protocol):</p><div class="remark-highlight"><pre class="language-shell"><code class="language-shell"><span class="token assign-left variable">8</span><span class="token operator">=</span>FIXT.1.19<span class="token operator">=</span><span class="token number">6835</span><span class="token operator">=</span>034<span class="token operator">=</span><span class="token number">159049</span><span class="token operator">=</span>fix-client156<span class="token operator">=</span>fix-server152<span class="token operator">=</span><span class="token number">20220608</span>-13:14:37.58110<span class="token operator">=</span>043
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><p>Example of a parsed message (FIX protocol):</p><div class="remark-highlight"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;metadata&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;connectionId&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;sessionAlias&quot;</span><span class="token operator">:</span> <span class="token string">&quot;fix-server1&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;sequence&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1653493560372614018&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;subsequence&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token number">1</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;timestamp&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-06-08T13:14:37.582Z&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;messageType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Heartbeat&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;protocol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;FIX&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;trailer&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;messageValue&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;CheckSum&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;043&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;header&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;messageValue&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;BeginString&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;FIXT.1.1&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;SenderCompID&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;fix-client1&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;SendingTime&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2022-06-08T13:14:37.581&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;TargetCompID&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;fix-server1&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;MsgType&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;0&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;MsgSeqNum&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1590&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;BodyLength&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;simpleValue&quot;</span><span class="token operator">:</span> <span class="token string">&quot;68&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><button class="copy" data-v-fbb0a762><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" data-v-fbb0a762><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" data-v-fbb0a762></path></svg></button></div><h2 id="functions"><a href="#functions" aria-hidden="true">#</a>Functions</h2><p>The <strong>codec</strong> component handles message flows between components such as <strong>conn</strong>, <strong>act</strong>, <strong>check1</strong>, <strong>read</strong> and other. 
+On the scheme below you can see an example of interaction with other th2 components.</p><p><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 1545' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-14d101529d38260416f156b5d2002dbf'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-14d101529d38260416f156b5d2002dbf)' width='2560' height='1545' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAnCAYAAAC/mE48AAAACXBIWXMAAAsSAAALEgHS3X78AAAOaElEQVRo3t1aeXCTxxX/JPmSbUm%2bwfdtyzYYDOYMLTSEkKQFwoQwaRrI0QxHyQElVxPSCZ0OTF2CSZsMV6e4JZMJCbcN5jbGtyVb1i0fsuUTfIAPhC3JtrbvrT4pwvhM/mnYmTf7%2bTveb/ft2/feb2VGKpX%2b0mAwbG9oaPgDyDZngfvb6uvr3zqbkxPLjNMaCWGmRSQzkUmLmIjE%2bVRWrX%2bDPpNWafjYX71%2bPRV0vjMSw1n0ev3bZ89nJ%2bD7FVVqD%2bxf27KT6otNXcb4BkUwk2kSqXTZeHMCnG25ublR9GWTyUQmagPG%2b%2bojS9K94fUgdzfXEOjDQTxBQkGmjzcYnb5t1oC%2bLt3U399LJtEGTaaGVqksrUKpn4Xfw62RKt1BwlhcxEcDh/j7%2b8XQ9zvuLCBW64Q49%2b7dU27evNmLsc8RsUeK1WrF3lxsaCbzPvpsH%2biPFQYEz3H3FM71FPglQp/u4SmaHRqbJowULxCEJ8wTwGpRiUxeKJyzeKWAcZs%2b/fnMgzmtfUZChodNAyYTzPEHGRgYsF2bzYNWi8VcVqsnqw4cysKJpixYIYxMWihEfeHx6cLY1KVeIv/QEA9PYRrfy2cm4sM4Ejy8RHO9vUWLGMYtaePR48W9Fhw2MbHjHykWkGHANRUUFCTbDYAPrCNleHgY%2b%2bFKMMDKfV%2b%2b6bwM81a8yrFfR6cs4YbFp/NgoFy7RKYu4WV%2beZQHj93eOJx16O4A9bQhVucjMjSE961D6uYW8urhrL%2bi3jf/uMslImWxTa94ATckZhbv81zrQ%2b6Q/tQP44Dmsv34iZMDFGL0OUEbxof9/f33wQBihwFwYE1NTaSzs5O0t7cTs9lM2I/IkNlkJu2tdM9cPX2Cy0yywaf0XfPt1udZnCGLxUJxEKOjo4PAniT3798nToMk5pamZc7fT6ZduXbVlX5zv/dNFst89%2b5da0tLC7o7uXPnDjEajY45gQGMDgOgq8DErQqFguh0OiKRSAh8TM2Fz%2b8bjYOFZWUzEECuUnHD4uYwftOjmeDomQxeY5AC93cEQJQFT69jAJBOoEqp3OBkAAKBlTQ2NhK1Wk0QEw3htEKkQi5fhd9ptFresy%2b%2b8ZBeOxZsOcBPpeOInrOMaW1pccFv9AbDDhbLghgymYzU1dWR8vJy0tzcPLoB4I9BeNGKH1RXV1Opra1Fy9GXHzx4MFhWVpaMAAcPHkS3trsdx%2bn6kdbT04vvMjDR37KGHhocHHQEItbL7I1uN7wAozxLA6iuhjfOoj%2bEnZ2dTT2gqbn5XbsBcOXRyK2traSiooKgNzgb4NatW2IGVxzSAjUATJKuPr6M90tLS62QJkm5RDJ4NudC8ngu6C0KYmYsWmNbocR5zDsf7Ga6Om5zQmav54IHvI6gYNQhuVxOampqCICTqqoqioOrU1RUZAVPoIOTyRXrduy7yT3zzVfM3s8PUX0oCXOeZoR%2bweNuhQu5udtxAcHLLJWVlQTnhHPAHnGhtyIezNMIqdDmAeCWGImtuEcwLdploL8fgtMQMfb1mi4d/y9ugShvL09MN4kgApA49jpwrAEVSTRig1a3hQYaiHTgAVZcedRv73FbID5gWdFN4P3XSmR1MePMEwsCrE2wZsC0HBQUFDgTHxjb2zexc7LY5wQR34EHKw/hbhi92/hQEBw1Ytr6oau6OpL63qf/RlBBYHCcO1%2bAqSfCne%2bd4ObhleIp8A8Wpz/jBvGAD/uTD17Aj0hexF/85BrM0a5Pf/7VpVJdDcUxQxBEI4wUvI/PJY3NZOmezFNo4CfXbvQIQ12shMXP5cenLXcH7EjEhnHgWGI9vH2ivTwFKZAEpq89eKy8w/iAxhvrKHOybzMwyn3wOocBhscrGhq67pHn92a%2bhBb%2b5Nhllw0ff8tNWbjabfOey9xPsuq5c5e/4oqTh0F6OCRpocfKNb/DYonZmfXN7v4hCoGpFRf5EYH8SLF6zBay6aujOzGlLX1uPR/S30N60QhPrv%2bQt21fPnfL3mvcJavfcklf%2bZprew%2bh8WLv6ewj9oA73pww7l25ciWBgWivgiA3BK4yAGJ2EhPeg2eku7PzOPMTGjHIPfp6evLR/UAf6jSBmJ3ERO/D8%2b67Xed%2bDEbv3VqODas2rKe7u3qCOVnb2tqy6If79%2b8XQAAUg8SDJNgFAkgCBKkECBjx8Bq17qF9BzgYeDH1hSekM1D8gMxloEqzCd6jz%2bYxiWlLqf5rNwpoKgyOiXWTSiSJqBeC7COC98vLyhLsWN99d5Z%2bN2P%2bUzad8ekOXNSPuGF2XAi8tBbIK6BG2JeZKYKxi0HnqHOCQBg/XvYatRXLFTggDo/H44yRBjkjU1O1vuWnOA4j19QzY%2bgemX7p3xwud0qTgp3AYSAFfghV2RmQEyDfjZATUEGdUqlUa6aiOG3pS8wHu/bSwcjVdWEff7jbFdLd66Dv9Bg4DiylUvnCmTNX3Crk1RjdmdKq%2bikZLcjDhQcp8OMJ5nQScH5jt8KEDfZN73s7d6J7xri5uYrRM0ECQLA2iGFZGURhBp8lOQ%2boUqmPKykpX00m2SAjDF67fnPl9UI5peDXLnzPYfUi/mzcTSwbTQOJZJnhDF9fH8QPBDffMBkcKL/vHTlyZJrdAJQ5jRSIzBhJTbnaWpL6p7/8CwB8/cJiYj2F/tFQ%2bEQAE4vzEgZEATMT26%2b9RIGRsFcF4UkLvRcuXeWFg1q6N7O4uqOL4qBOyARUP/YOgSoRn1%2buUpIn9mSexcnPX75WGBybJvAWBUagbki3Magfhe/tk4j3sYfxJPiKAsJ5PqFznss8qG/toczbbMcZKZj1ICA/KC4u/oENWm3todRkZ26G9g7yzuGsFTioi7X9POToa7d%2bQV38bCtxcHbsL3UTrNNdgMa6bnr7Aze8f%2bBM9kcDWALbJjkWWbcCURhuAayMk%2bc24XfrNm5xj055wuVMyw8Ym/dc4fwte4Biv39YyXHCpkEz69rNv4%2bobUY2ex2ApXAiM8HL9B6Ub5a%2bJkOcI3BMkQ12NTe9SJffZKK5WavVUq6BTBDLbmRqiIWVG160N9SvmCpWR0cbJUN3W1u3sjzDApO0slUmMdEqcAB7LLxIb2%2bvsbCwUMwgEwMmOAiEwYpsCfIjJQ84KBggpZP1DQ2DuVeupNBUc/U6NyhcDKu8kAmJmc2ExqbR3sEIgaUFhScxScDQOju7aEpTqFQb2PKUGqCrq4t0d3dTcoKYdjpssVWDwAXkNEDJ5QrekhXrKOubHpnCgFdR3RQXUmJoXBoVvH/xYi41wLnsnO0arY5oddWWoqJiogIyJAPOIVcoST7wjzp9vVWl1pBKWZURSJeYYSc8CCti1Wg0jtVBzg5/W5FKAqMaPHv%2bPDXA7t27eWMwskfSoJ0NKlUq6gFQdA3hxJFf9PX1UZ6OlSHW68g8wRDUPavk8mfwO5lc5TIKAxz1Oicnh7LBttu337XACpdLpJbS0jJSUlpKysolBMZASoEQFZeUWNFAsAhGCJjiSW2BQSBLHU2NCVNJRy%2bsf4VDBvvpIKt11X9mXX8IjYwGLikpoVQVmRtydii40AMpnk6teTnr5HV//PYfh45PKbd3d3a8xZ75WSDlWdHb0NDdPT2kE67xkASND8Y2lpQUP3wihKthF6cgSO719Vl27T/wKyRDfD5/JpuOgkBSQeaw7CyF/Xsmm54cLV8q%2b8LY30/PA8YLgkiK%2boDIXCgo2fr199enOakQ4ukXyzwRD5/NZ1Mwyhw/X19Mi8E3yqWf2s8DxguCjvMA%2b9kEDm6ksGnQnKPWkRk7d51wB%2bDAaHGY0C8kQuQfCn1whLdPULTQPyQM0lS8KCA0FK/9pkVNi0x5Qpg6bzkM3FUAae1GoVpLcVDneFjFegNZtDvjMkzGb%2b6yVQIgVcJpEcl%2bAt/pkTbMkHBRQFiowHdaFGJBKowV%2bgdHBQWFBzPCaVHPfXFY29LdQw0wGhamRjQMngk6p8FxWzu40I5/Hkob45h61AY1O/fLo/%2bhe/jouZyXJ10IwZplfP0tPRH6LOMALyJxHnfxr7dMOuOcyS98f5LF3cCpU6ciGIjExyAlaEBkIPIRUgVBS9PYUL/Dnpb%2bsnr2VGptx7WhoSGjp6cHcapGwXHCavjkx/CGS7nnaaxounTes6219esJ5qSGOPT2FDktYTaGBtmOY0YcUo4mkcmL6Ls5p0//KCJ0LCOD9pEpiybEipr1C4b99WnqQJDvubiydhltFfPy8niRkba45urqOmndEonEtjqXLlEXRV0TCAdSJPfo0aO24JmfP2WsgoKCyWBxoDjiBgaOcpLn5x/o5e7hEeLm7h7F5XIj2J%2biHuuGgYrLHkRg780yOkxpicD//VkjeLK/w6F4TflA4f%2b1NTQ2X9PVNJyTKXTZeQWSbIW69rxcVft9eaXmYl6hdB6%2bI06e4ckaAX%2bxRYLjx/Y//9bR1d1YZ2jTaGoM1RKZTitT1lardPXasgpNa2mFOmOM1Md/bAzQdqdTr60xyMEAqnKZVimV65RgBEWpVF1fUCo/5PxuyoyZ9kuvx8kAjXpDm1pd3aArLFNoYfV1EplWXSJVtdwskq21/d7Wyq%2btb3H%2bofLxMcCdjrs1huY7lTBxeVG5sgp6Bbh%2bFXiCXFvbWKjU1ueBQSrg2Van7fBYeUBNtb5ZBh6ggInKpVU6RYWiWlFWqUFjqGTKGhUExNqickX2reIK%2bkOHSOTj/dgYoL3zngEMoNLVNWnBABq5uk5bqajRQTzAwKhRaPRqiAl1sD3O1Td30v/b8fHxRQ9wfSwM0NDYUl5T15hXIdfdulEgvVkJPaS//FKp8qZMWZ0PK59XWFoluXS9mG6B32/ahnWDz2PjAbFxcb4JiWKRlyhAFBAULAJaK3L38hGFhkXC3yEi34DptHf34AtokcThoPuL7L/g/Nzb/wBrawjB%2b53a7gAAAABJRU5ErkJggg==' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/codec_interaction_with_other_components.42db587.73ba0aa318c4009dab5c4140c6b66103.png" data-srcset="/assets/static/codec_interaction_with_other_components.82a2fbd.73ba0aa318c4009dab5c4140c6b66103.png 480w, /assets/static/codec_interaction_with_other_components.cbab2cf.73ba0aa318c4009dab5c4140c6b66103.png 1024w, /assets/static/codec_interaction_with_other_components.2665e34.73ba0aa318c4009dab5c4140c6b66103.png 1920w, /assets/static/codec_interaction_with_other_components.42db587.73ba0aa318c4009dab5c4140c6b66103.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading"><noscript><img src="/assets/static/codec_interaction_with_other_components.42db587.73ba0aa318c4009dab5c4140c6b66103.png" class="g-image g-image--loaded" width="2560"></noscript></p><p>The <strong>codec</strong> component has eight pins - four for the stream, and four general ones. 
+Functionality of the stream and the general pins is the same. 
+A common system setup uses two data flows: 1) to and from the system, and 2) to and from data provider. 
+Messages from these flows cannot be mixed. 
+One way to avoid this intersection is to use two instances of a component with four pins. 
+Another option is to configure eight pins – this allows the user to decrease the amount of required settings in <strong>infra-schema</strong> as well as resource utilization of the resulting system. 
+General pins are used by the data-provider component, other components are usually connected to the stream pins.</p><h3 id="why-do-we-need-a-chain-of-codecs"><a href="#why-do-we-need-a-chain-of-codecs" aria-hidden="true">#</a>Why do we need a chain of codecs?</h3><p>It is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. 
+The payload can be any other protocol (even another transport protocol and a different payload wrapped into it). 
+Also, sometimes different systems use the same transport protocol but with the different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).</p><p>In case you need to encode/decode a message but do not have a single <strong>codec</strong> for such case, you can reuse already implemented <strong>codecs</strong> by joining them into a chain of <strong>codecs</strong>. It is also recommended for the <strong>codec</strong> to work only with a single protocol.<br>
+For example, you have HTTP, JSON and XML <strong>codec</strong>. 
+You can join them together for decoding XML over HTTP or JSON over HTTP.</p><p>If the <strong>codec</strong> component gets a message that does not match an expected format (a raw message of corresponding protocol to <code>in_codec_decode</code> pin and a parsed message to <code>in_codec_encode</code> pin) it will be sent through the corresponding out pins without changes.</p></div><!----><!----></article><div class="mt-15 d-flex justify-end flex-wrap" data-v-298a815f><a href="https://github.com/th2-net/th2-docs/blob/master/content/modules/codec/overview.md" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil-outline theme--light info--text" data-v-298a815f></i>
+		Edit this page
+	</span></a><a href="https://github.com/th2-net/th2-docs/issues/new?title=One thing is unclear after reading &quot;Overview &quot; article&amp;body=I've read [&quot;Overview &quot; article](https://github.com/th2-net/th2-docs/blob/master/content/modules/codec/overview.md) and there is one problem.&amp;assignees=d0rich&amp;labels=by-reader" target="_blank" class="ma-1 justify-start v-btn v-btn--text theme--light v-size--default" style="text-transform:none;" data-v-298a815f><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert-circle-outline theme--light error--text" data-v-298a815f></i>
+		Create an issue
+	</span></a></div></div><aside class="pl-5 pt-5 page-content-panel sticky-aside doc-page__aside" data-v-3eeb1e00 data-v-4ce9b4a1><div class="pr-2 border-left pl-4" data-v-3eeb1e00><nav class="mt-7 mb-5" data-v-f2b8a640 data-v-3eeb1e00><h3 class="mb-3" data-v-f2b8a640 data-v-3eeb1e00>On this page</h3><ul data-v-f2b8a640 data-v-3eeb1e00><li class="font-weight-bold" data-v-f2b8a640 data-v-3eeb1e00><a href="#overview" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Overview</div></a></li><li class="py-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#encoding" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Encoding</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#decoding" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Decoding</div></a></li><li class="py-2 h2-border" data-v-f2b8a640 data-v-3eeb1e00><a href="#functions" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Functions</div></a></li><li class="ml-2 pb-2" data-v-f2b8a640 data-v-3eeb1e00><a href="#why-do-we-need-a-chain-of-codecs" data-v-f2b8a640 data-v-3eeb1e00><div data-v-f2b8a640 data-v-3eeb1e00>Why do we need a chain of codecs?</div></a></li></ul></nav></div></aside></div></div></div></main><footer class="v-footer flex justify-center py-6 v-sheet theme--dark secondary" data-v-28b3144a><div class="footer__content col" data-v-28b3144a><div class="d-flex justify-space-between footer__sections" data-v-28b3144a><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><a href="https://exactpro.com/" class="mb-4" data-v-28b3144a><img src="/assets/img/logo_white.118f94fb.svg" style="width:max(200px, 100%);" data-v-28b3144a></a><div class="text-center" data-v-28b3144a>
+          Build Software to Test Software
+        </div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Contact Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:docops@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:docops@exactpro.com" class="contact__text" data-v-28b3144a>
+            docops@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="mailto:info@exactpro.com" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-28b3144a></i></span></a><a href="mailto:info@exactpro.com" class="contact__text" data-v-28b3144a>
+            info@exactpro.com
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+4402033191644" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+4402033191644" class="contact__text" data-v-28b3144a>
+            +44 (0) 20 3319 1644
+          </a></div><div class="d-flex align-center contact" data-v-28b3144a><a href="tel:+16463403000" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" data-v-28b3144a><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-phone theme--dark" data-v-28b3144a></i></span></a><a href="tel:+16463403000" class="contact__text" data-v-28b3144a>
+            +1 (646) 340 3000
+          </a></div></div><div class="d-flex flex-column px-8 py-4 pa-sm-0 pa-xs-0" data-v-28b3144a><h2 data-v-28b3144a>Follow Us</h2><div class="highliter my-3" data-v-28b3144a></div><div class="d-flex" data-v-28b3144a><a href="https://github.com/th2-net" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.facebook.com/exactpro/" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://twitter.com/exactpro" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a><a href="https://www.youtube.com/c/exactprosystems" target="_blank" class="mr-2 v-btn v-btn--icon v-btn--round v-btn--tile theme--dark v-size--large" data-v-28b3144a><span class="v-btn__content"><div class="v-image v-responsive theme--dark" data-v-28b3144a><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-responsive__content"></div></div></span></a></div></div></div><hr role="separator" aria-orientation="horizontal" class="my-12 v-divider theme--dark" data-v-28b3144a><div class="text-center text-caption" data-v-28b3144a>
+      Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers to Exactpro Systems Limited, registered in England and Wales, and/or one of its subsidiaries, each of which is a separate legal entity, registered in the relevant jurisdictions.
+    </div><div class="text-center text-caption policies" data-v-28b3144a><a href="https://exactpro.com/terms-and-conditions" target="blank" class="mx-1" data-v-28b3144a>
+         Terms and Conditions
+      </a><a href="https://exactpro.com/privacy-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Privacy policy
+      </a><a href="https://exactpro.com/cookies-policy" target="blank" class="mx-1" data-v-28b3144a>
+         Cookies policy
+      </a></div></div></footer></div></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"doc":{"__typename":"ModulePage","title":"Overview ","description":"","content":"\n# Overview \n\nThe **codec** is a component responsible for transforming \u003Cterm term='message'\u003Emessages\u003C\u002Fterm\u003E from human-readable format into a format of a corresponding protocol and vice versa. \nIt contains the main logic for encoding and decoding messages. \nThe **codec** usually uses \u003Cterm term='dictionary'\u003Edictionary\u003C\u002Fterm\u003E to decode and encode messages. \nDictionaries contain message structures, fields and values that **codec** can decode. \n\n## Encoding\nDuring encoding, **codec** replaces each parsed message of the supported protocols in a message group with a raw one, by encoding parsed message content.\n\nNOTE: **codec** can merge content of subsequent raw messages into a resulting raw message (e.g. when a **codec** encodes only a transport layer and its payload is already encoded).\n\n\n## Decoding\nDuring decoding **codec** must replace each raw message in a message group with a parsed one by decoding raw message content. \nIf an exception was thrown, all raw messages will be replaced with `th2-codec-error` parsed messages.\n\nNOTE: **codec** can replace a raw message with a parsed message followed by several raw messages (e.g. when a **codec** decodes only a transport layer it can produce a parsed message for the transport layer and several raw messages for its payload).\n\nThe schema below describes encoding\u002Fdecoding processes. \n\n![](.\u002Fimg\u002Fcodec_inside_processes.png)\n\n- `raw` - \u003Cterm term='pin'\u003Epin\u003C\u002Fterm\u003E configuration item, message passing through this pin for processing is in a machine-readable format, ready to be sent or received via according protocol or being decoded.\n\n- `parsed` - pin configuration item, message passing through this pin for processing is in a human-readable format, used in th2.\n\n- `encode` - pin configuration item, message passing through this pin will be translated from parsed to raw.\n\n- `decode` - pin configuration item, message passing through this pin will be translated from raw to parsed.\n\n\nExample of a raw message (FIX protocol):\n```\n8=FIXT.1.19=6835=034=159049=fix-client156=fix-server152=20220608-13:14:37.58110=043\n```\n\nExample of a parsed message (FIX protocol):\n\n```json\n{\n  \"metadata\": {\n    \"id\": {\n      \"connectionId\": {\n        \"sessionAlias\": \"fix-server1\"\n      },\n      \"sequence\": \"1653493560372614018\",\n      \"subsequence\": [\n        1\n      ]\n    },\n    \"timestamp\": \"2022-06-08T13:14:37.582Z\",\n    \"messageType\": \"Heartbeat\",\n    \"protocol\": \"FIX\"\n  },\n  \"fields\": {\n    \"trailer\": {\n      \"messageValue\": {\n        \"fields\": {\n          \"CheckSum\": {\n            \"simpleValue\": \"043\"\n          }\n        }\n      }\n    },\n    \"header\": {\n      \"messageValue\": {\n        \"fields\": {\n          \"BeginString\": {\n            \"simpleValue\": \"FIXT.1.1\"\n          },\n          \"SenderCompID\": {\n            \"simpleValue\": \"fix-client1\"\n          },\n          \"SendingTime\": {\n            \"simpleValue\": \"2022-06-08T13:14:37.581\"\n          },\n          \"TargetCompID\": {\n            \"simpleValue\": \"fix-server1\"\n          },\n          \"MsgType\": {\n            \"simpleValue\": \"0\"\n          },\n          \"MsgSeqNum\": {\n            \"simpleValue\": \"1590\"\n          },\n          \"BodyLength\": {\n            \"simpleValue\": \"68\"\n          }\n        }\n      }\n    }\n  }\n}\n```\n\n## Functions\n\nThe **codec** component handles message flows between components such as **conn**, **act**, **check1**, **read** and other. \nOn the scheme below you can see an example of interaction with other th2 components.\n\n![](.\u002Fimg\u002Fcodec_interaction_with_other_components.png)\n\nThe **codec** component has eight pins - four for the stream, and four general ones. \nFunctionality of the stream and the general pins is the same. \nA common system setup uses two data flows: 1) to and from the system, and 2) to and from data provider. \nMessages from these flows cannot be mixed. \nOne way to avoid this intersection is to use two instances of a component with four pins. \nAnother option is to configure eight pins – this allows the user to decrease the amount of required settings in **infra-schema** as well as resource utilization of the resulting system. \nGeneral pins are used by the data-provider component, other components are usually connected to the stream pins.\n\n### Why do we need a chain of codecs?\n\nIt is a very common case when the messages you send or receive from the system have the following structure: a transport layer protocol and a payload wrapped into the transport layer. \nThe payload can be any other protocol (even another transport protocol and a different payload wrapped into it). \nAlso, sometimes different systems use the same transport protocol but with the different payload wrapped into it (e.g. HTTP + JSON, HTTP + FIX).\n\nIn case you need to encode\u002Fdecode a message but do not have a single **codec** for such case, you can reuse already implemented **codecs** by joining them into a chain of **codecs**. It is also recommended for the **codec** to work only with a single protocol.  \nFor example, you have HTTP, JSON and XML **codec**. \nYou can join them together for decoding XML over HTTP or JSON over HTTP.\n\nIf the **codec** component gets a message that does not match an expected format (a raw message of corresponding protocol to `in_codec_decode` pin and a parsed message to `in_codec_encode` pin) it will be sent through the corresponding out pins without changes.\n","fileInfo":{"path":"codec\u002Foverview.md"},"headings":[{"anchor":"#overview","value":"Overview","depth":1},{"anchor":"#encoding","value":"Encoding","depth":2},{"anchor":"#decoding","value":"Decoding","depth":2},{"anchor":"#functions","value":"Functions","depth":2},{"anchor":"#why-do-we-need-a-chain-of-codecs","value":"Why do we need a chain of codecs?","depth":3}],"terms":[{"id":"message","title":"message","content":"\u003Cp\u003Eis the unit of transferring data that goes in or out of th2, and circulates inside th2.\u003C\u002Fp\u003E\n"},{"id":"dictionary","title":"dictionary","content":"\u003Cp\u003Eis an entity which contains descriptions of application level protocol messages used in System Under Test (SUT). Dictionaries have a unified form and provide human-readable format for th2 users. \u003C\u002Fp\u003E\n"},{"id":"pin","title":"pin","content":"\u003Cp\u003Eused by a box to connect th2 microservices between each other to send\u002Freceive messages, or to execute gRPC commands.\u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"\u002Fdeploy\u002Finfrastructure\u002Fth2-infra-schema\u002Fpins\"\u003EMore\u003C\u002Fa\u003E\u003C\u002Fp\u003E\n\u003C!--TODO: make more flexible link (avoid mentioning version straight)--\u003E\n"}],"meta":{"contentTreeJSON":"[{\"title\":\"codec\",\"path\":\"\u002Fmodules\u002Fcodec\u002F\",\"weight\":-100,\"followPath\":\"\u002Fmodules\u002Fcodec\u002Foverview\u002F\",\"children\":[{\"title\":\"Overview \",\"path\":\"\u002Fmodules\u002Fcodec\u002Foverview\u002F\",\"weight\":0,\"followPath\":\"\u002Fmodules\u002Fcodec\u002Foverview\u002F\",\"children\":[]},{\"title\":\"Repositories\",\"path\":\"\u002Fmodules\u002Fcodec\u002Frepositories\u002F\",\"weight\":5,\"followPath\":\"\u002Fmodules\u002Fcodec\u002Frepositories\u002F\",\"children\":[]},{\"title\":\"Configuration\",\"path\":\"\u002Fmodules\u002Fcodec\u002Fconfig\u002F\",\"weight\":10,\"followPath\":\"\u002Fmodules\u002Fcodec\u002Fconfig\u002F\",\"children\":[]},{\"title\":\"Usage\",\"path\":\"\u002Fmodules\u002Fcodec\u002Fusage\u002F\",\"weight\":20,\"followPath\":\"\u002Fmodules\u002Fcodec\u002Fusage\u002F\",\"children\":[]}]}]","module_name":"codec","main_path":"\u002Fmodules\u002Fcodec\u002F"}}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.de126758.js" defer></script><script src="/assets/js/page--src--templates--module-page-vue.f289f57b.js" defer></script><script src="/assets/js/page--src--templates--explore-page-vue~page--src--templates--git-ops-page-vue~page--src--templates--~5efe478e.b20be838.js" defer></script><script src="/assets/js/vue-remark--content--modules--codec--overview-md.1f487f2f.js" defer></script>
+  </body>
+</html>
