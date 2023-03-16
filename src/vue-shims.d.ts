@@ -1,4 +1,6 @@
-import Vue, {ComponentOptions} from "vue";
+import Vue, {ComponentOptions} from "vue"
+import { Route } from 'vue-router'
+import { Framework } from 'vuetify'
 
 declare module "*.vue" {
     export default Vue;
@@ -9,10 +11,8 @@ declare module 'vue/types/vue' {
     interface Vue {
         $static: any
         $page: any
-        $route: {
-            path: string
-            fullPath: string
-        }
+        $route: Route,
+        $vuetify: Framework
     }
 }
 
