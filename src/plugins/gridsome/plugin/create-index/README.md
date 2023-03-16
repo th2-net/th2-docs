@@ -1,6 +1,6 @@
 # Create index plugin
 
-This plugin saves text from markdown to JSON files in order to save this content in ElasticSearch further.
+This plugin converts the text from Markdown to JSON to subsequently use this content in ElasticSearch.
 
 All files are stored in folder by link `<host>/__es-index`.
 
@@ -28,7 +28,7 @@ Folder includes `meta.json` file with following stricture:
 }
 ```
 
-Every index file stores up to 5 pages with following structure:
+Every index file stores up to 5 pages with the following structure:
 
 ```json
 [

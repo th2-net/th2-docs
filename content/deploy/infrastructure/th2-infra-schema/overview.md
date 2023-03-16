@@ -55,7 +55,7 @@ The real differences from usual manifests are in the `spec` field.
 `image-version` specifies the version of the image.
 
 `type` and `custom-config` fields are specific to each box. 
-You can find more information in the GitHub repository of the needed box.
+To get more information on different th2 modules, check out our [Modules](/test/cookbook/modules/) page or access the ReadMe files in their [GitHub](https://github.com/th2-net/) repositories.
 
 `pins` are some kind of ports, that used for interaction with other components. 
 More details on [pins](../pins/) and [links](../links/) can be found in corresponding documentation sections.
@@ -191,7 +191,7 @@ Higher values increase the throughput, but set higher memory requirements.
 
 ## Example
 
-You can check modules graphs created automatically from branch of [infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo).
+Here's a graph representation of the modules as per [infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo). The diagram is created automatically from a branch of your choice (see the dropdown menu in the upper part; also, feel free to customize the graph using toggle switches and selecting/deselecting specific component groups).
 
 import InfraViewer from "~/components/apps/infra-viewer/InfraViewer.vue"
 <InfraViewer style="height: 80vh" />

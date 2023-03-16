@@ -74,7 +74,7 @@ export default {
 	}
 }
 .content-tree-panel{
-  // Базовые стили ссылок
+  // Basic styles for links
   a {
     text-decoration: none;
     font-size: .85rem;
@@ -92,7 +92,7 @@ export default {
       white-space: normal;
       text-overflow: unset;
     }
-    // Текст текущей ссылки
+    // Text of the current link
     &.nuxt-link-exact-active .tree__path-name {
       color: var(--content-tree__link--active);
       //background-color: var(--content-tree__link-bg--active);
