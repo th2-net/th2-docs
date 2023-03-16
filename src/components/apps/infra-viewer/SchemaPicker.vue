@@ -2,6 +2,7 @@
   <div>
 		<v-select v-model="selectedBranch" :items="branches"
 							outlined dense
+              placeholder="Select schema branch"
 							@change="getCRs" :loading="loading.branches" />
   </div>
 </template>

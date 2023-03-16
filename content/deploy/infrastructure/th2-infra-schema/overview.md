@@ -194,5 +194,5 @@ Higher values increase the throughput, but set higher memory requirements.
 
 Here's a graph representation of the modules as per [infra-schema-demo](https://github.com/th2-net/th2-infra-schema-demo). The diagram is created automatically from a branch of your choice (see the dropdown menu in the upper part; also, feel free to customize the graph using toggle switches and selecting/deselecting specific component groups).
 
-import InfraViewer from "~/components/apps/infra-viewer/InfraViewer.vue"
+import InfraViewer from "~/components/apps/infra-viewer"
 <InfraViewer style="height: 80vh" />
