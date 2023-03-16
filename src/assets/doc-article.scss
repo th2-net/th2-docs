@@ -1,4 +1,8 @@
-.v-application .doc-article {
+.v-application .vue-remark {
+
+  & > * {
+    max-width: 100%;
+  }
 
   img{
     max-width: 100%;
@@ -81,7 +85,11 @@
 
   & .remark-highlight{
     position: relative;
-    border-radius: 5px;
+
+    pre {
+      border-radius: 5px;
+      width: 100%;
+    }
     code {
       padding: 0;
     }
@@ -115,7 +123,7 @@
 
 }
 
-.v-application .doc-article{
+.v-application .vue-remark{
 
   table, td{
     border-color: var(--table__border-color);
@@ -140,3 +148,14 @@
   }
 }
 
+.theme--dark .vue-remark {
+  .v-sheet--outlined {
+    border: thin solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.theme--light .vue-remark {
+  .v-sheet--outlined {
+    border: thin solid rgba(0, 0, 0, 0.12);
+  }
+}

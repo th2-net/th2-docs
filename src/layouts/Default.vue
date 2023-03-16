@@ -1,85 +1,78 @@
 <template>
 	<div v-resize="onResize">
+		<Header v-model="navPanel" :dense="isLayoutSm">
+			<template v-if="isModulePage" v-slot:module-nav>
+				<v-btn :to="moduleMetaInfo.mainPath"
+							 exact large
+							 dark text class="text-lowercase font-weight-bold">
+					{{moduleMetaInfo.name}}
+				</v-btn>
+			</template>
+			<template v-else-if="!isLayoutSm" v-slot:sections-nav>
+				<SectionsNav dark />
+			</template>
 
-		<v-app-bar
-			fixed
-			app
-			:color="$vuetify.theme.dark ? 'primary darken-4' : 'secondary'"
-			class="top-layout"
-		>
-			<div class="header-container">
-				<g-link to="/" class="logo-container">
-					<img :src="logo" />
-				</g-link>
-				<search-window :window-size="windowSize" />
-				<div class="header-btns">
-          <v-btn dark :href="$static.metadata.githubRepoLink" target="_blank" icon>
-            <v-icon>mdi-github</v-icon>
-          </v-btn>
-					<theme-switcher />
-					<v-btn dark icon v-if="windowSize.x < 1024" @click="navPanel = !navPanel">
-						<v-icon v-if="!navPanel">mdi-menu</v-icon>
-						<v-icon v-else>mdi-close</v-icon>
-					</v-btn>
-				</div>
-			</div>
-		</v-app-bar>
+		</Header>
 		<v-navigation-drawer
 			v-model="navPanel"
-			v-if="windowSize.x < 1024"
+			v-if="isLayoutSm"
 			fixed
 			width="90vw"
 			style="min-width: 300px"
-			class="layout__aside--left--sm pt-16 px-5">
-			<ContentTree class="pl-3"/>
+			class="pt-16 px-5">
+			<ContentTree class="pl-3" ignore-hidden>
+				<template v-if="isLayoutSm && !isModulePage" v-slot:sections-nav>
+					<SectionsNav class="mx-3 my-2" group />
+				</template>
+				<template v-if="isLayoutSm && !isModulePage" v-slot:subsections-nav>
+					<SubsectionsNav class="mx-3 my-2" />
+				</template>
+			</ContentTree>
 		</v-navigation-drawer>
-		<v-main>
-			<div class="layout--full">
-				<ContentTree class="layout__aside--left--lg" />
-
-				<slot></slot>
-
-			</div>
+		<v-main class="main-container">
+			<slot />
 		</v-main>
 		<Footer />
 	</div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    githubRepoLink
-  }
-}
-</static-query>
-
 <script>
-import '~/assets/layout.scss'
 import '~/assets/scrollbar.scss'
-import logo from '../assets/img/Th2Logo_full_white.png'
-import ContentTree from "~/components/layout/ContentTree";
-import ThemeSwitcher from "~/components/layout/ThemeSwitcher";
-import SearchWindow from "~/components/layout/SearchWindow";
-import Footer from '~/components/layout/Footer'
+import Header from "../components/layout/Header.vue";
+import Footer from "../components/layout/Footer.vue";
+import ContentTree from "../components/layout/ContentTree";
+import SectionsNav from "../components/layout/SectionsNav.vue";
+import {mapGetters, mapMutations} from "vuex";
+import {isModulePage} from "../utils/pathIdentification";
+import SubsectionsNav from "../components/layout/SubsectionsNav.vue";
 export default {
 	name: "DefaultLayout",
 	components: {
-			SearchWindow,
-			ThemeSwitcher,
-			ContentTree,
-			Footer
+			SubsectionsNav,
+			ContentTree, Header, Footer, SectionsNav
 		},
 	data () {
 		return {
-			windowSize: { x: 0, y: 0 },
 			navPanel: false,
-			title: 'th2 docs',
-			logo
+			title: 'th2 docs'
+		}
+	},
+	computed: {
+		...mapGetters(["isLayoutSm"]),
+		isModulePage(){
+			return isModulePage(this.$route.path)
+		},
+		moduleMetaInfo(){
+			return {
+				name: this.$page?.doc?.meta?.module_name,
+				mainPath: this.$page?.doc?.meta?.main_path
+			}
 		}
 	},
 	methods:{
+		...mapMutations(['updateWindowWidth']),
 		onResize () {
-			this.windowSize = { x: window.innerWidth, y: window.innerHeight }
+			this.updateWindowWidth()
 		},
 	},
 }
@@ -92,59 +85,13 @@ html {
 #app{
 	font-family: "Open Sans", sans-serif;
 }
+.theme--dark.v-application{
+	background: #1d1d1d !important;
+}
 .v-app-bar.v-app-bar--fixed.top-layout, .top-layout{
 	z-index: 100 ;
 }
-</style>
-
-<style scoped lang="scss">
-@import '~/assets/layout.scss';
-.header-btns{
-	max-width: ($max-width / 5);
-	min-width: ($max-width / 5) - 50px;
-	display: flex;
-	justify-content: flex-end;
-}
-.header-container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-}
-.logo-container{
-	max-width: ($max-width / 5);
-	min-width: ($max-width / 5) - 50px;
-	height: 80%;
-	display: flex;
-	justify-content: flex-start;
-
-	svg{
-		height: 100%;
-	}
-}
-@media screen and (max-width: $window-width-md) {
-	.header-btns{
-		max-width: ($max-width-md / 5);
-		min-width: ($max-width-md / 5) - 30px;
-	}
-	.logo-container{
-		max-width: ($max-width-md / 5);
-		min-width: ($max-width-md / 5) - 30px;
-	}
-}
-
-@media screen and (max-width: $window-width-sm) {
-	.header-btns{
-		max-width: unset;
-		min-width: unset;
-	}
-	.header-container {
-		justify-content: space-between;
-	}
-	.logo-container{
-		max-width: unset;
-		min-width: unset;
-	}
+.main-container {
+	min-height: calc(100vh - 440px);
 }
 </style>

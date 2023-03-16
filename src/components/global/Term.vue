@@ -1,5 +1,5 @@
 <template>
-  <v-menu offset-y eager >
+  <v-menu offset-y open-on-hover eager >
     <template v-slot:activator="{ on, attrs }">
       <span class="term" v-bind="attrs" v-on="on">
         <slot>{{term}}</slot>
@@ -14,6 +14,7 @@
       </v-card-text>
     </v-card>
   </v-menu>
+
 
 </template>
 

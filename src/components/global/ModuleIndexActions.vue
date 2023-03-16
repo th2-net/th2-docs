@@ -1,0 +1,39 @@
+<template>
+	<div>
+		<div class="d-flex no-gutters">
+			<v-btn style="text-transform: none" class="mr-2" :to="getStartedLink" outlined>
+				Get started
+			</v-btn>
+			<v-btn v-if="githubLink" style="text-transform: none" :to="getStartedLink" outlined>
+				<v-icon>mdi-github</v-icon>
+				GitHub
+			</v-btn>
+		</div>
+		<v-btn class="my-2" style="text-transform: none;" to="/test/cookbook/modules/" exact outlined>
+			<v-icon>mdi-backburger</v-icon>
+			Back to modules
+		</v-btn>
+	</div>
+</template>
+
+<script>
+import Vue from "vue";
+import {mapGetters} from "vuex";
+export default Vue.extend({
+	name: "ModuleIndexActions",
+	computed: {
+		...mapGetters(['currentTree']),
+		getStartedLink(){
+			return this.currentTree[0].followPath
+		},
+		githubLink(){
+			const doc = this.$page.doc
+			return null
+		}
+	}
+})
+</script>
+
+<style scoped>
+
+</style>

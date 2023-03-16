@@ -59,7 +59,7 @@ export type CRs = {
 }
 
 export function getCategories(crs: CRs): GraphCategories {
-  console.log(crs)
+  // console.log(crs)
   const categories: GraphCategories = []
   if (crs.boxes) {
     crs.boxes.forEach((box) => {
@@ -163,12 +163,12 @@ export function getLinks(crs: CRs, options: {
 
 export function createFormatter(crs: CRs): TooltipComponentFormatterCallback<any>{
   return function (params) {
-    console.log(params)
+    // console.log(params)
     const dataType: string = params.dataType
     if (dataType === 'node') {
       const box = crs.boxes?.find(b => b.metadata?.name === params.data.id) ??
         crs.core?.find(b => b.metadata?.name === params.data.id)
-      console.log(box)
+      // console.log(box)
       if (box){
         const mqPins = box.spec.pins
           ?.filter(p => p["connection-type"].startsWith('mq'))

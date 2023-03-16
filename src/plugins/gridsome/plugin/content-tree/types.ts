@@ -14,5 +14,6 @@ export interface PageRaw extends PageReduced{
 }
 
 export interface TreeNode extends PageReduced{
+    followPath: string
     children: TreeNode[]
 }

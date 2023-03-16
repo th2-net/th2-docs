@@ -11,25 +11,27 @@ type DocPage = {
 type DocPageCollection = GridsomeCollection<DocPage>
 
 module.exports = (api: any) => {
+  // Construct content trees
   api.loadSource(({ getCollection, addCollection }: any) => {
-    // Get collections
-    const readmePages: DocPageCollection = getCollection('ReadmePage')
-    const docPages: DocPageCollection = getCollection('DocPage')
+    const gitOpsPages: DocPageCollection = getCollection('GitOpsPage')
+    const testingPages: DocPageCollection = getCollection('TestingPage')
+    const explorePages: DocPageCollection = getCollection('ExplorePage')
+    const modulePages: DocPageCollection = getCollection('ModulePage')
 
     const allPages = [
-      ...docPages._collection.data
-        .filter(page => !readmePages._collection.data.some(readme => readme.path === page.path)), 
-      ...readmePages._collection.data
+      ...gitOpsPages._collection.data, 
+      ...testingPages._collection.data, 
+      ...explorePages._collection.data, 
+      ...modulePages._collection.data
     ]
 
-    //Save information
     if (process.env.NODE_ENV === 'production')
       try {
         const algolia = algoliasearch(
           process.env.ALGOLIA_APP_ID ?? '',
           process.env.ALGOLIA_WRITE_API_KEY ?? ''
         )
-        const index = algolia.initIndex('docs')
+        const index = algolia.initIndex('docs-module-design')
         index
           .saveObjects(allPages.map(page => ({
             objectID: page.path,

@@ -2,7 +2,7 @@
 // Learn more: https://gridsome.org/docs/config
 
 // Changes here require a server restart.
-// To restart, press CTRL + C in terminal and run `gridsome develop`.
+// To restart press CTRL + C in terminal and run `gridsome develop`
 
 const remarkPlugins = [
   require("@akebifiky/remark-simple-plantuml"),
@@ -14,7 +14,6 @@ const remarkPlugins = [
   require('./src/plugins/remark/versioned-block')
 ]
 const vueRemarkCommonOptions = {
-  template: './src/templates/Documentation.vue', // Optional
   refs: {
     terms: {
       typeName: 'Term'
@@ -69,28 +68,60 @@ module.exports = {
     {
       use: '@gridsome/vue-remark',
       options: {
-        typeName: 'DocPage', // Required
-        baseDir: './content/docs', // Where .md files are located
-        template: './src/templates/Documentation.vue', // Optional
+        typeName: 'GitOpsPage', // Required
+        pathPrefix: '/deploy',
+        baseDir: './content/deploy', // Where .md files are located
+        template: './src/templates/GitOpsPage.vue', // Optional
         ...vueRemarkCommonOptions
       }
     },
-    require('./src/plugins/gridsome/plugin/th2-readme-pages'),
     {
       use: '@gridsome/vue-remark',
       options: {
-        typeName: 'ReadmePage',
-        baseDir: './content/.cache/readmes',
-        template: './src/templates/Documentation.vue',
+        typeName: 'TestingPage', // Required
+        pathPrefix: '/test',
+        baseDir: './content/test', // Where .md files are located
+        template: './src/templates/TestingPage.vue', // Optional
         ...vueRemarkCommonOptions
       }
     },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'ExplorePage', // Required
+        pathPrefix: '/explore',
+        baseDir: './content/explore', // Where .md files are located
+        template: './src/templates/ExplorePage.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'ModulePage', // Required
+        pathPrefix: '/modules',
+        baseDir: './content/modules', // Where .md files are located
+        template: './src/templates/ModulePage.vue', // Optional
+        ...vueRemarkCommonOptions
+      }
+    },
+      // Readme pages plugin should be changed if it will be used with new documents
+    // require('./src/plugins/gridsome/plugin/th2-readme-pages'),
+    // {
+    //   use: '@gridsome/vue-remark',
+    //   options: {
+    //     typeName: 'ReadmePage',
+    //     pathPrefix: '/docs',
+    //     baseDir: './content/.cache/readmes',
+    //     template: './src/templates/Documentation.vue',
+    //     ...vueRemarkCommonOptions
+    //   }
+    // },
+    require('./src/plugins/gridsome/plugin/th2-modules-index'),
     require('./src/plugins/gridsome/plugin/th2-terms'),
     require('./src/plugins/gridsome/source/th2-github'),
-    require('./src/plugins/gridsome/plugin/th2-check-content'),
-    require('./src/plugins/gridsome/plugin/th2-dashboard'),
+    // require('./src/plugins/gridsome/plugin/th2-check-content'),
     require('./src/plugins/gridsome/plugin/content-tree'),
-    require('./src/plugins/gridsome/plugin/dev-sitemap'),
-    require('./src/plugins/gridsome/plugin/create-index'),
+    require('./src/plugins/gridsome/plugin/create-index')
   ]
 }

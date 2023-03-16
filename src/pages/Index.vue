@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-3 pb-16">
+  <div class="mx-auto px-7 my-16 pb-16" style="max-width: 1280px">
     <h1>th2: Next-generation test automation framework</h1>
     <h2 class="mt-16">What is th2?</h2>
     <p>
@@ -13,7 +13,8 @@
     <v-divider class="my-16" />
     <v-row no-gutters>
       <v-card
-          class="mx-auto my-2"
+          class="mx-auto my-2 d-flex flex-column"
+					outlined
           max-width="344"
           v-for="link in links" :key="link.href"
       >
@@ -25,6 +26,7 @@
             {{link.text}}
           </div>
         </v-card-text>
+				<v-spacer />
         <v-card-actions>
           <v-btn
               text
@@ -56,8 +58,8 @@
 </template>
 <script>
 import Recommendations from "../components/global/Recommendations";
-import {seoMixin} from "../utils/seoMixin";
-import {mapState} from "vuex";
+import {seoMixin} from "../utils/seo";
+import {mapMutations, mapState} from "vuex";
 export default {
   metaInfo(){
     return this.getMetaInfo({
@@ -71,19 +73,21 @@ export default {
     ...mapState(['currentTh2Version']),
     links(){
       return  [
-        { title: 'Getting started', href: `/getting-started/`, icon: 'mdi-school-outline',
-          text: 'Learn about th2, Exactpro\'s next-generation test automation toolkit,\n' +
-              'see how th2 can be used to test complex distributed systems, prepare a\n' +
-              'basic configuration and run a demo script.' },
-        { title: 'Fundamentals', href: `/fundamentals/`, icon: 'mdi-atom',
-          text: 'Learn the key concepts of th2 and configure your own cluster from scratch.' },
-        { title: 'Modules', href: `/modules/`, icon: 'mdi-package-variant-closed',
-          text: 'Read the description of th2 components prepared by the Exactpro team as well as those built by the community.' },
-        { title: 'Cookbook', href: `/cookbook/`, icon: 'mdi-book-open-blank-variant',
-          text: 'Try out the prepared th2 configurations or components combinations,\n' +
-              'create your own, and share your experience with the community.' },
+        { title: 'Deploy', href: `/deploy/`, icon: 'mdi-kubernetes',
+          text: 'th2 has its own GitOps system under the hood. Learn how th2 deployment work, how th2 ' +
+						'components are integrated into solution, and how to create your own th2 module.' },
+        { title: 'Test', href: `/test/`, icon: 'mdi-bug',
+          text: 'Learn about main testing concepts of th2 and best practices of creating test scenarios.' },
+        { title: 'Explore', href: `/explore/`, icon: 'mdi-magnify',
+          text: 'Analyze events and messages produced in th2 with data services toolkit.' },
       ]
     }
-  }
+  },
+	methods: {
+		...mapMutations(['resetContentTree'])
+	},
+	created() {
+		this.resetContentTree()
+	}
 }
 </script>
