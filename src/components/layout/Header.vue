@@ -92,7 +92,7 @@ export default {
 	display: flex;
 	justify-content: flex-start;
 	margin-right: .5rem;
-	svg{
+	img{
 		height: 100%;
 	}
 }
